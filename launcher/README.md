@@ -6,16 +6,13 @@ separate from PS1 game-content patches in the repository root's `latest.json`.
 Manifest:
 `https://raw.githubusercontent.com/Nevmerlyk/ISS26-Updates/main/launcher/latest.json`
 
-The launcher checks for newer versions on startup and when the user clicks
-**Обновить ISS26**. A valid update requires user confirmation. It downloads
+Starting with **ISS26 Windows v0.3.0**, the headless launcher checks this feed automatically on every double-click and installs a newer verified release without displaying dialogs or waiting for user confirmation. The previous v0.2.0 frontend had an interactive confirmation UI. It downloads
 `ISS26-LauncherUpdate.zip` from GitHub Releases, verifies SHA-256 of the ZIP
 and both EXE files, and launches a staging helper to replace them **after
 the old ISS26.exe exits**. The helper makes rollback backups and then starts
 the new ISS26.exe.
 
-**No update is yet available:** `latest` is `null`. First install the
-bootstrap Windows launcher 0.2.0 from the private source repository's GitHub
-Actions artifact; earlier launchers do not contain self-update support.
+**No update is yet available:** `latest` is `null`. Install the v0.3.0 headless bootstrap once from the private source repository's GitHub Actions artifact. Older v0.2.0 installs cannot switch to headless behavior until they are replaced.
 
 ## Publishing a new launcher version
 
@@ -63,5 +60,4 @@ Hashes protect integrity relative to this GitHub-published manifest; no
 code-signing certificate is presently configured. Only release download URLs
 under `github.com/Nevmerlyk/ISS26-Updates/releases/download/` are accepted.
 Keep write access to this repository restricted and use signed releases if
-shipping broadly. The current mechanism is user-approved, not a silent
-background installer. No update is announced until a real verified release exists.
+shipping broadly. The v0.3.0 mechanism installs a verified, published launcher update without interaction when the user starts ISS26.exe. It does not run while the app is closed; there is no resident background service. No update is announced until a real verified release exists.
