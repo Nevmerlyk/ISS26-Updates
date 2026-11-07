@@ -1,4 +1,11 @@
 {
   "schemaVersion": 1,
-  "latest": null
+  "latest": {
+    "version": "0.4.0",
+    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.4.0/ISS26-LauncherUpdate.zip",
+    "zipSha256": "465BADFDCF1FCBA29B24C5F5A26F4A1F6E33E48E449FAF4B6B9ED616D206ED90",
+    "launcherSha256": "D13822BFB3A695BB0CBEB47B55D1AA8CEEBF3DC968A80DCF24AC1616E92C39BC",
+    "updaterSha256": "3FD85175046656C4E29D9C10A3F9625F00C2A854FD71CF8241B1E0C7C57178F9",
+    "notes": "ISS26 Windows 0.4.0; обновление лаунчера без изменения игры и эмулятора."
+  }
 }
