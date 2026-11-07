@@ -1,0 +1,87 @@
+name: Publish validated v0.9 independent PS1 game update
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-v09-game-preview
+  cancel-in-progress: false
+
+jobs:
+  validate-and-activate:
+    if: github.event_name == 'workflow_dispatch' || github.event.release.tag_name == 'v0.9.0-preview'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: true
+      - name: Download binary from release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/iss26-v09
+          gh release download v0.9.0-preview --repo Nevmerlyk/ISS26-Updates \
+            --pattern ISS26_0.9.0_preview.iss26p --dir /tmp/iss26-v09
+          test -s /tmp/iss26-v09/ISS26_0.9.0_preview.iss26p
+
+      - name: Validate full hash, raw sector format and public download
+        shell: python
+        run: |
+          import hashlib, json, pathlib, re, struct, urllib.request
+          candidate=json.loads(pathlib.Path('releases/v0.9.0-preview-candidate.json').read_text(encoding='utf-8'))
+          assert candidate['schemaVersion']==1
+          release=candidate['latest']
+          assert release['version']=='0.9.0-preview'
+          assert release['patchUrl']==(
+            'https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.0-preview/ISS26_0.9.0_preview.iss26p'
+          )
+          assert release['baseSha256']=='D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44'
+          assert release['resultSha256']=='D15CCB064E7CDBFB6013F5B760D4220A99110A1E406735C2B60264A51498435F'
+          for key in ('patchSha256','baseSha256','resultSha256'):
+            assert re.fullmatch(r'[A-F0-9]{64}',release[key])
+          p=pathlib.Path('/tmp/iss26-v09/ISS26_0.9.0_preview.iss26p')
+          data=p.read_bytes()
+          assert len(data)==2937252, f'Unexpected patch bytes: {len(data)}'
+          assert hashlib.sha256(data).hexdigest().upper()==release['patchSha256']
+          assert data[:8]==b'ISS26X01'
+          count=struct.unpack_from('<I',data,8)[0]
+          assert count==1230 and len(data)==12+count*(4+32+2352)
+          last=-1
+          for i in range(count):
+            pos=12+i*2388
+            sector=struct.unpack_from('<I',data,pos)[0]
+            old_hash=data[pos+4:pos+36]
+            xor=data[pos+36:pos+2388]
+            assert last<sector<210951,(i,sector,last)
+            assert len(old_hash)==32 and len(xor)==2352 and any(xor)
+            last=sector
+          assert hashlib.sha256(data).hexdigest().upper()=='180AB03780D9B1879DFFA211FAA82618760F006C738CFAFF3040DB9B0F574712'
+          print('PASS: standalone v0.9 preview, 1230 unique ordered records, exact binary SHA256')
+          req=urllib.request.Request(release['patchUrl'],headers={'User-Agent':'ISS26-Patch-Validator'})
+          with urllib.request.urlopen(req,timeout=120) as response:
+            anonymous=response.read(32*1024*1024+1)
+          assert anonymous==data,'Public anonymous release asset differs!'
+          print('PASS: verified anonymous public patch download')
+
+      - name: Activate verified v0.9 game update
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp releases/v0.9.0-preview-candidate.json latest.json
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add latest.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Activate independently verified ISS26 v0.9.0-preview game update"
+            git push origin HEAD:main
+          fi
+          echo "Verified v0.9 patch feed enabled"
