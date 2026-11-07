@@ -1,0 +1,58 @@
+name: Validate launcher self-update feed
+
+on:
+  push:
+    paths:
+      - 'launcher/latest.json'
+      - '.github/workflows/validate-launcher-feed.yml'
+  pull_request:
+    paths:
+      - 'launcher/latest.json'
+      - '.github/workflows/validate-launcher-feed.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate schema and remote package hashes
+        shell: python
+        run: |
+          import hashlib, io, json, re, urllib.request, zipfile
+          from urllib.parse import urlsplit
+          with open("launcher/latest.json", encoding="utf-8") as handle:
+              data = json.load(handle)
+          assert data.get("schemaVersion") == 1
+          release = data.get("latest")
+          if release is None:
+              print("No self-update published yet; manifest valid.")
+              raise SystemExit(0)
+          fields = ("version", "zipUrl", "zipSha256", "launcherSha256", "updaterSha256")
+          assert all(isinstance(release.get(key), str) for key in fields)
+          assert re.fullmatch(r"[0-9]+(?:\.[0-9]+){1,3}", release["version"])
+          for key in fields[2:]:
+              assert re.fullmatch(r"[0-9a-fA-F]{64}", release[key])
+          url = urlsplit(release["zipUrl"])
+          assert url.scheme == "https" and url.hostname == "github.com"
+          assert url.path.startswith("/Nevmerlyk/ISS26-Updates/releases/download/")
+          assert url.username is None and url.password is None and not url.query
+          request = urllib.request.Request(release["zipUrl"], headers={"User-Agent":"ISS26-Feed-Validator"})
+          with urllib.request.urlopen(request, timeout=120) as response:
+              payload = response.read(160 * 1024 * 1024 + 1)
+          assert len(payload) <= 160 * 1024 * 1024
+          assert hashlib.sha256(payload).hexdigest().upper() == release["zipSha256"].upper()
+          with zipfile.ZipFile(io.BytesIO(payload)) as archive:
+              names = archive.namelist()
+              assert sorted(names) == ["ISS26.Updater.exe", "ISS26.exe"], names
+              for name, key in (("ISS26.exe","launcherSha256"), ("ISS26.Updater.exe","updaterSha256")):
+                  assert archive.getinfo(name).file_size <= 160 * 1024 * 1024
+                  with archive.open(name) as f:
+                      h = hashlib.sha256()
+                      for chunk in iter(lambda: f.read(1024*1024), b""):
+                          h.update(chunk)
+                  assert h.hexdigest().upper() == release[key].upper(), key
+          print("PASS: downloaded launcher ZIP and both EXEs match feed SHA-256 hashes.")
