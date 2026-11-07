@@ -1,0 +1,44 @@
+name: Validate ISS26 update feed
+
+on:
+  push:
+    paths:
+      - 'latest.json'
+      - '.github/workflows/validate-feed.yml'
+  pull_request:
+    paths:
+      - 'latest.json'
+      - '.github/workflows/validate-feed.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate manifest schema and update URL
+        shell: python
+        run: |
+          import json, re
+          from urllib.parse import urlsplit
+          with open("latest.json", encoding="utf-8") as f:
+              feed = json.load(f)
+          assert isinstance(feed, dict) and feed.get("schemaVersion") == 1
+          assert set(feed).issubset({"schemaVersion", "latest"})
+          release = feed.get("latest")
+          if release is not None:
+              assert isinstance(release, dict)
+              required = {"version", "patchUrl", "patchSha256", "baseSha256", "resultSha256"}
+              assert required.issubset(release)
+              assert re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_.-]{0,63}", release["version"])
+              for key in ("patchSha256", "baseSha256", "resultSha256"):
+                  assert re.fullmatch(r"[0-9a-fA-F]{64}", release[key]), key
+              url = urlsplit(release["patchUrl"])
+              assert url.scheme == "https" and url.hostname
+              assert url.username is None and url.password is None
+              print("Release manifest schema valid. Verify artifact availability and hashes before publishing.")
+          else:
+              print("Feed valid: no verified game patch currently published.")
