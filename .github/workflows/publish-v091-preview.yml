@@ -1,0 +1,120 @@
+name: Publish independently verified ISS26 v0.9.1 graphics patch
+
+on:
+  push:
+    paths:
+      - '.github/workflows/publish-v091-preview.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-verified-iss26-v091
+  cancel-in-progress: false
+
+jobs:
+  release-and-activate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: true
+
+      - name: Assemble transport blocks, validate compressed and raw patch SHA-256
+        shell: python
+        run: |
+          import base64, hashlib, json, lzma, pathlib, re, struct
+          root=pathlib.Path('releases/v0.9.1-preview')
+          blocks=sorted((root/'transport').glob('part_*.b64'))
+          assert len(blocks)==20, ('Missing transfer chunks',len(blocks))
+          encoded=''.join(''.join(p.read_text(encoding='ascii').split()) for p in blocks)
+          assert len(encoded)==2358412, ('Transport size',len(encoded))
+          transport=base64.b64decode(encoded,validate=True)
+          assert len(transport)==1768808
+          assert hashlib.sha256(transport).hexdigest().upper()==(
+              'A1A4687AE87DECF818D34C93CD2EE3E84A80007D66DEA010B2B442F4A9B80249'
+          )
+          patch=lzma.decompress(transport)
+          candidate=json.loads((root/'candidate.json').read_text(encoding='utf-8'))
+          assert candidate['schemaVersion']==1
+          v=candidate['latest']
+          assert v['version']=='0.9.1-preview'
+          assert v['patchUrl']==(
+              'https://github.com/Nevmerlyk/ISS26-Updates/releases/download/'
+              'v0.9.1-preview/ISS26_0.9.1_preview.iss26p'
+          )
+          assert v['baseSha256']=='D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44'
+          assert v['resultSha256']=='CF177040CFB2C5DE4E2E0CB011F85EB4718D8010205621E5360E9B58824FA3D4'
+          assert v['patchSha256']=='9E1C88A6FCDC01C170A8203A4897A96EE32021445704F7C0BE008ACE0FE917E6'
+          assert hashlib.sha256(patch).hexdigest().upper()==v['patchSha256']
+          assert 0<len(patch)<32*1024*1024 and patch[:8]==b'ISS26X01'
+          count=struct.unpack_from('<I',patch,8)[0]
+          assert count==1337
+          assert len(patch)==12+count*(4+32+2352)
+          original_size=496156752
+          last=-1
+          for i in range(count):
+              at=12+2388*i
+              sector=struct.unpack_from('<I',patch,at)[0]
+              digest=patch[at+4:at+36]
+              delta=patch[at+36:at+2388]
+              assert last<sector<original_size//2352,(i,sector,last)
+              assert len(digest)==32 and len(delta)==2352 and any(delta)
+              last=sector
+          output=pathlib.Path('/tmp/ISS26_0.9.1_preview.iss26p')
+          output.write_bytes(patch)
+          print('PASS: full independent 1337-sector ISS26X01 patch; all hashes and transport validated')
+
+      - name: Publish 0.9.1 preview release asset
+        shell: bash
+        run: |
+          set -euo pipefail
+          if gh release view v0.9.1-preview --repo Nevmerlyk/ISS26-Updates >/dev/null 2>&1; then
+            gh release upload v0.9.1-preview /tmp/ISS26_0.9.1_preview.iss26p \
+              --repo Nevmerlyk/ISS26-Updates --clobber
+          else
+            gh release create v0.9.1-preview /tmp/ISS26_0.9.1_preview.iss26p \
+              --repo Nevmerlyk/ISS26-Updates --target main --prerelease \
+              --title 'ISS26 v0.9.1 Preview — 17 flags and 24 club graphics' \
+              --notes-file releases/v0.9.1-preview/notes.md
+          fi
+
+      - name: Verify unauthenticated release download before activation
+        shell: python
+        run: |
+          import hashlib, json, pathlib, time, urllib.request
+          manifest=json.loads(pathlib.Path('releases/v0.9.1-preview/candidate.json').read_text())
+          v=manifest['latest']
+          for attempt in range(12):
+              try:
+                  req=urllib.request.Request(v['patchUrl'],headers={'User-Agent':'ISS26-Integrity-Validator'})
+                  with urllib.request.urlopen(req,timeout=80) as resp:
+                      data=resp.read(32*1024*1024+1)
+                  assert hashlib.sha256(data).hexdigest().upper()==v['patchSha256']
+                  assert data==pathlib.Path('/tmp/ISS26_0.9.1_preview.iss26p').read_bytes()
+                  print('PASS: release asset downloads anonymously and matches SHA-256')
+                  break
+              except Exception as exc:
+                  if attempt==11:raise
+                  print('CDN pending:',str(exc))
+                  time.sleep(8)
+
+      - name: Activate the v0.9.1 feed only after all prior checks pass
+        shell: bash
+        run: |
+          set -euo pipefail
+          git pull --rebase origin main
+          cp releases/v0.9.1-preview/candidate.json latest.json
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add latest.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Publish verified standalone ISS26 v0.9.1 game graphics patch'
+            git push origin HEAD:main
+          fi
+          echo 'PASS: Windows ISS26 launcher clients will automatically install 0.9.1-preview'
