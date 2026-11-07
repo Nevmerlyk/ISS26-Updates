@@ -1,0 +1,33 @@
+name: Prepare v0.9 Preview release draft
+
+on:
+  push:
+    paths:
+      - '.github/workflows/prepare-v09-release.yml'
+      - 'releases/v0.9.0-preview-notes.md'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  draft:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Prepare asset upload target only
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          if gh release view v0.9.0-preview --repo Nevmerlyk/ISS26-Updates >/dev/null 2>&1; then
+            echo "Existing v0.9 release retained"
+          else
+            gh release create v0.9.0-preview \
+              --repo Nevmerlyk/ISS26-Updates \
+              --target main --draft --prerelease \
+              --title "ISS26 v0.9.0 Preview — real flag and crest textures" \
+              --notes-file releases/v0.9.0-preview-notes.md
+            echo "Created draft; do not enable feed until validated binary asset is attached and published"
+          fi
