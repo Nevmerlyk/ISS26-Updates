@@ -1,0 +1,50 @@
+name: Publish ISS26 v0.5 Preview patch
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'releases/ISS26_0.5.0_preview.iss26p.zlib.b64'
+      - '.github/workflows/publish-preview.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Decode and verify independent XOR-sector patch
+        shell: bash
+        run: |
+          python - <<'PY'
+          import base64,hashlib,pathlib,struct,zlib
+          path=pathlib.Path('releases/ISS26_0.5.0_preview.iss26p.zlib.b64')
+          content=''.join(path.read_text().split())
+          raw=zlib.decompress(base64.b64decode(content,validate=True))
+          expected='9A724E7B71E73489C05E9F6D0D4708D59236F06697284126AFC623487FE6FD49'
+          got=hashlib.sha256(raw).hexdigest().upper()
+          assert got==expected,(got,expected)
+          assert raw[:8]==b'ISS26X01'
+          count=struct.unpack_from('<I',raw,8)[0]
+          assert count==8
+          assert len(raw)==12+count*(4+32+2352)
+          assert [struct.unpack_from('<I',raw,12+i*2388)[0] for i in range(count)]==[430,800,851,869,1254,1255,2050,2408]
+          target=pathlib.Path('ISS26_0.5.0_preview.iss26p')
+          target.write_bytes(raw)
+          print(f'PASS: {count} independent XOR-sector records, sha256={got}, bytes={len(raw)}')
+          PY
+      - name: Publish prerelease asset
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          if gh release view v0.5.0-preview >/dev/null 2>&1; then
+            gh release upload v0.5.0-preview ISS26_0.5.0_preview.iss26p --clobber
+          else
+            gh release create v0.5.0-preview ISS26_0.5.0_preview.iss26p \
+              --prerelease --title "ISS26 v0.5.0 Preview — team names" \
+              --notes-file releases/v0.5.0-preview-notes.md
+          fi
