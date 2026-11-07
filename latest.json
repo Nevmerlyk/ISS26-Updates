@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "latest": {
-    "version": "0.9.0-preview",
-    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.0-preview/ISS26_0.9.0_preview.iss26p",
-    "patchSha256": "180AB03780D9B1879DFFA211FAA82618760F006C738CFAFF3040DB9B0F574712",
+    "version": "0.9.1-preview",
+    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.1-preview/ISS26_0.9.1_preview.iss26p",
+    "patchSha256": "9E1C88A6FCDC01C170A8203A4897A96EE32021445704F7C0BE008ACE0FE917E6",
     "baseSha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
-    "resultSha256": "D15CCB064E7CDBFB6013F5B760D4220A99110A1E406735C2B60264A51498435F"
+    "resultSha256": "CF177040CFB2C5DE4E2E0CB011F85EB4718D8010205621E5360E9B58824FA3D4"
   }
 }
