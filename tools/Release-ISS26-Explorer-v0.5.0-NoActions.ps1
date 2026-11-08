@@ -148,8 +148,10 @@ if (-not $SkipManualConfirmation) {
 }
 
 # Abort if the tag is in use: never overwrite an existing published binary.
-& gh release view $tag -R $releaseRepo --json url 2>$null | Out-Null
-if ($LASTEXITCODE -eq 0) {
+# release list exits successfully even when no such release is present.
+$existingTags = @(& gh release list -R $releaseRepo -L 100 --json tagName --jq '.[].tagName')
+Assert ($LASTEXITCODE -eq 0) "Cannot inspect existing releases"
+if ($existingTags -contains $tag) {
   throw "Release $tag already exists; refusing to overwrite user-visible update."
 }
 
