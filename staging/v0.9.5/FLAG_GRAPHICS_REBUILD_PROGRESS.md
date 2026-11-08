@@ -43,3 +43,17 @@ Local proof package: `ISS26_v095_Flag_Graphics_Rebuild_WORK_IN_PROGRESS.zip` (so
 6. Publish a replacement verified full release **only after** these gates. Do not activate or re-label a partial proof as final.
 
 World map highlighting intentionally unchanged.
+
+## Pixel-accurate CLUT diagnosis of the old 17-slot candidate
+
+A 17-nation preview was made by decoding the **actually patched** DATSEL primary 4bpp pixels and applying the **actual patched country-specific CLUTs**, not a grayscale palette.
+
+- Senegal's existing style 0 displays an appropriate green/yellow/red tricolor with central star.
+- Algeria style 3 shows a recognizable green/white crescent design.
+- Cabo Verde style 1 shows the navy field, horizontal bands and star arc.
+- DR Congo style 24 is grossly wrong: only a blue emblem/silhouette is visible instead of the country's diagonal flag.
+- Ghana style 20 shows a diagonal flag, not Ghana's horizontal red/yellow/green with black star. **Simply swapping 20/24 is not sufficient:** testing style20 with DR Congo's palette produces a yellow background and black diagonal, demonstrating different palette indices. Regenerate both pixel art and appropriate style assignments.
+- Other new style IDs >27 have not been safely mapped to large 64×28 texture UVs, even when their blobs decompress.
+
+Do not mark any of the three plausible flags as verified until they appear on the actual emulator display, including both smaller sizes.
+
