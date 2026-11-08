@@ -1,11 +1,11 @@
 {
-  "schemaVersion": 1,
-  "latest": {
-    "version": "0.4.1",
-    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.4.1/ISS26-Windows-v0.4.1-LauncherOnly.zip",
-    "zipSha256": "F8DAFF6FC420EC51C91FD135EF8966EC686995E25251167E058DF8EE93F6696E",
-    "launcherSha256": "D5E59E52EF200CC7759BB74D35B92FD7D07B7E9B3EFFD748CDC66DD6E3A33C48",
-    "updaterSha256": "2506E7959CB8461AB9C2F10517149CDB9507382B0B433E078938108800315AFA",
-    "notes": "Automatic ISS26 Windows launcher upgrade v0.4.0 to v0.4.1; game patch feed unchanged."
-  }
+    "schemaVersion":  1,
+    "latest":  {
+                   "version":  "0.5.0",
+                   "zipUrl":  "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.5.0/ISS26-LauncherUpdate.zip",
+                   "zipSha256":  "781FBBFA73421C27E1E353D08BD4D4DD943792629DA618A1C0B85839614A3A98",
+                   "launcherSha256":  "5A1172AE00DC7A20538A268A80A1AF1FA3ED31A6361EF099AF5B081237A0AB8E",
+                   "updaterSha256":  "ABD5B4E4C6A1986C60669644A61F967506C3C25D0658A4741F94E7C5A20D78A8",
+                   "notes":  "ISS26 Explorer Tool 0.5.0: Play Game / Test Game, isolated diagnostics (experimental); no changes to source game images"
+               }
 }
