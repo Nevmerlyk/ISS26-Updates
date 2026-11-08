@@ -111,6 +111,13 @@ def report(records: dict[int, tuple[bytes, bytes]]) -> dict:
             sum(1 for byte in records[sector][1][24:2348] if byte)
             for sector in edited
         )
+        edc_changed = [sector for sector in edited
+                       if any(records[sector][1][2348:2352])]
+        edc_unchanged_with_modified_payload = [
+            sector for sector in edited
+            if any(records[sector][1][24:2348])
+            and not any(records[sector][1][2348:2352])
+        ]
         expanded_file_audit.append({
             "file": name,
             "newly_included_form2_sector_count": len(new_lbas),
@@ -118,6 +125,9 @@ def report(records: dict[int, tuple[bytes, bytes]]) -> dict:
             "patch_modified_included_sectors": len(edited),
             "patch_unmodified_included_sectors": untouched,
             "xor_payload_changed_bytes_in_new_sectors": payload_changed_bytes,
+            "form2_edc_bytes_updated_sector_count": len(edc_changed),
+            "form2_edc_unmodified_with_changed_payload_lbas":
+                edc_unchanged_with_modified_payload,
             "caution": "A modified data length includes pre-existing Form2 sectors. "
                        "Whether the PS1 loader reads those as valid data is not verified."
         })
@@ -168,10 +178,17 @@ def main() -> None:
     print(f"Expanded graphic files: {len(expanded)}; newly included Form2 sectors: "
           f"{sum(e['newly_included_form2_sector_count'] for e in expanded)}; "
           f"not modified by patch: {sum(len(e['patch_unmodified_included_sectors']) for e in expanded)}")
+    form2_edc_changed = sum(e["form2_edc_bytes_updated_sector_count"] for e in expanded)
+    edc_not_changed = [lba for e in expanded
+                       for lba in e["form2_edc_unmodified_with_changed_payload_lbas"]]
+    print(f"Appended Form2 sectors with modified EDC field: {form2_edc_changed}; "
+          f"modified payload with unchanged EDC field: {len(edc_not_changed)}")
     for e in expanded:
         if e["patch_unmodified_included_sectors"]:
             print(f"  WARNING: {e['file']} includes unchanged raw sector LBAs "
                   f"{e['patch_unmodified_included_sectors']}")
+        if e["form2_edc_unmodified_with_changed_payload_lbas"]:
+            print(f"  EDC WARNING: {e['file']}: {e['form2_edc_unmodified_with_changed_payload_lbas']}")
     print(f"Saved report to {args.out}")
 
 
