@@ -1,0 +1,113 @@
+name: Publish ISS26 v0.9.4 Preview — graphics upload pointer repair
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publish-v094-preview.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: iss26-game-patch-v094-release
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Retrieve published v0.9.3 XOR-only base patch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          mkdir -p dist
+          for n in 1 2 3; do
+            if gh release download v0.9.3-preview --repo Nevmerlyk/ISS26-Updates \
+              --pattern 'ISS26_0.9.3_preview.iss26p' --dir dist --clobber; then break; fi
+            if [ "$n" -eq 3 ]; then exit 1; fi
+            sleep $((n*4))
+          done
+      - name: Build independent v0.9.4 patch using linear Form1 EDC/ECC corrections
+        run: |
+          python tools/build_v094_pointer_repair.py \
+            --base dist/ISS26_0.9.3_preview.iss26p \
+            --fixes staging/v0.9.4/pointer_fixes.csv \
+            --output dist/ISS26_0.9.4_preview.iss26p
+      - name: Verify patch signature, sector structure and exact SHA-256
+        shell: python
+        run: |
+          import hashlib, pathlib, struct
+          p=pathlib.Path('dist/ISS26_0.9.4_preview.iss26p')
+          data=p.read_bytes()
+          assert data[:8]==b'ISS26X01'
+          count=struct.unpack_from('<I',data,8)[0]
+          assert count==1412
+          assert len(data)==12+1412*(4+32+2352)
+          assert hashlib.sha256(data).hexdigest().upper()=='70E46566A7F2C3A7E5F1E930210A132D452EF0B752D18E92F4B5475DE2CB45FE'
+          indices=[struct.unpack_from('<I',data,12+i*(4+32+2352))[0] for i in range(count)]
+          assert len(indices)==len(set(indices)) and indices==sorted(indices)
+          print(f"PASS: SHA-256 verified, {count} unique clean-original sector records")
+      - name: Publish public experimental v0.9.4 game patch
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view v0.9.4-preview --repo Nevmerlyk/ISS26-Updates >/dev/null 2>&1; then
+            gh release upload v0.9.4-preview dist/ISS26_0.9.4_preview.iss26p \
+              --repo Nevmerlyk/ISS26-Updates --clobber
+          else
+            gh release create v0.9.4-preview dist/ISS26_0.9.4_preview.iss26p \
+              --repo Nevmerlyk/ISS26-Updates --target main --prerelease \
+              --title 'ISS26 v0.9.4-preview — PS1 graphics upload-pointer repair' \
+              --notes-file releases/v0.9.4-preview-notes.md
+          fi
+      - name: Verify published asset metadata and update feed LAST
+        shell: python
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          import base64, json, subprocess
+          repo='Nevmerlyk/ISS26-Updates'
+          tag='v0.9.4-preview'
+          name='ISS26_0.9.4_preview.iss26p'
+          sha='70E46566A7F2C3A7E5F1E930210A132D452EF0B752D18E92F4B5475DE2CB45FE'
+          release=json.loads(subprocess.check_output(
+              ['gh','api',f'repos/{repo}/releases/tags/{tag}'],text=True))
+          assets=[a for a in release['assets'] if a['name']==name and
+                  a['size']==3371868]
+          assert len(assets)==1,'GitHub release asset missing or wrong size'
+          url=assets[0]['browser_download_url']
+          assert url==f'https://github.com/{repo}/releases/download/{tag}/{name}'
+          manifest={
+            'schemaVersion':1,
+            'latest':{
+              'version':'0.9.4-preview',
+              'patchUrl':url,
+              'patchSha256':sha,
+              'baseSha256':'D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44',
+              'resultSha256':'DF547EACFC8B65EF9409C3220E546968BF842C8F412D2685F8EA5F78C99422BB'
+            }
+          }
+          file='latest.json'
+          current=json.loads(subprocess.check_output(
+              ['gh','api',f'repos/{repo}/contents/{file}'],text=True))
+          old=json.loads(base64.b64decode(current['content']))
+          version=old.get('latest',{}).get('version')
+          if version not in ('0.9.3-preview','0.9.4-preview'):
+              raise RuntimeError('Unexpected current game patch version: '+str(version))
+          payload={
+            'message':'release: activate independently applicable ISS26 v0.9.4-preview graphics repair',
+            'content':base64.b64encode((json.dumps(manifest,indent=2)+'\n').encode()).decode(),
+            'sha':current['sha']
+          }
+          subprocess.run(['gh','api','-X','PUT',f'repos/{repo}/contents/{file}',
+                          '--input','-'],input=json.dumps(payload),text=True,check=True)
+          print('Published v0.9.4-preview game update feed after release asset checks')
