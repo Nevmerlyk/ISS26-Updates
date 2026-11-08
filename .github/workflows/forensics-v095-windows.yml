@@ -1,0 +1,41 @@
+name: Read-only ISS26 v0.9.4 national name and palette XOR forensic windows
+
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/forensics-v095-windows.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  forensic_windows:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download official v0.9.4 clean-original XOR patch and auditor
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p work
+          gh release download v0.9.4-preview --repo Nevmerlyk/ISS26-Updates --pattern 'ISS26_0.9.4_preview.iss26p' --dir work
+          gh api 'repos/Nevmerlyk/ISS26-Updates/contents/staging/v0.9.5/analyze_v094_windows.py?ref=release/v095-flags-rebuild' --jq .content | base64 -d > work/analyze.py
+      - name: Generate bounded XOR window report
+        run: python work/analyze.py work/ISS26_0.9.4_preview.iss26p work/windows.json
+      - name: Store non-game reconstruction metadata in v0.9.5 branch
+        shell: python
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          import base64,json,pathlib,subprocess
+          endpoint='repos/Nevmerlyk/ISS26-Updates/contents/staging/v0.9.5/v094_windows.json'
+          payload={'message':'research(v095): record official v0.9.4 XOR windows for local matching',
+                   'branch':'release/v095-flags-rebuild',
+                   'content':base64.b64encode(pathlib.Path('work/windows.json').read_bytes()).decode()}
+          try:
+              current=json.loads(subprocess.check_output(['gh','api',endpoint+'?ref=release/v095-flags-rebuild'],text=True))
+              payload['sha']=current['sha']
+          except subprocess.CalledProcessError:pass
+          subprocess.run(['gh','api','-X','PUT',endpoint,'--input','-'],input=json.dumps(payload),text=True,check=True)
