@@ -82,10 +82,13 @@ def main() -> None:
     p.add_argument("--manifest", type=Path,
                    default=Path("staging/v0.9.3/candidate.json"))
     p.add_argument("--out", type=Path, default=Path("dist/v093_sector_headers.json"))
+    p.add_argument("--patch-file", type=Path, default=None,
+                   help="Offline release asset path, avoids GitHub CDN downloads")
     args = p.parse_args()
     manifest = json.loads(args.manifest.read_text(encoding="utf-8"))
     latest = manifest["latest"]
-    records = parse_patch(download(latest["patchUrl"]), latest["patchSha256"])
+    patch_bytes = args.patch_file.read_bytes() if args.patch_file else download(latest["patchUrl"])
+    records = parse_patch(patch_bytes, latest["patchSha256"])
     result = report(records)
     result["version"] = latest["version"]
     args.out.parent.mkdir(parents=True, exist_ok=True)
