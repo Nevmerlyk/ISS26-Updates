@@ -1,0 +1,42 @@
+name: Prepare verified v0.9.3 XOR-only forensic transport
+
+on:
+  push:
+    paths:
+      - '.github/workflows/transport-v093-forensics.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download exact public patch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p dist
+          gh release download v0.9.3-preview --repo Nevmerlyk/ISS26-Updates --pattern ISS26_0.9.3_preview.iss26p --dir dist
+      - name: Verify patch and compress XOR data (no game ISO)
+        run: |
+          python - <<'PY'
+          import hashlib,lzma,struct,pathlib,json
+          p=pathlib.Path('dist/ISS26_0.9.3_preview.iss26p')
+          raw=p.read_bytes()
+          assert hashlib.sha256(raw).hexdigest().upper()=='76BF3C02881FAE1B0C1874A9856E1B556E2760857F64609AF5B489EBBFD1167E'
+          assert raw[:8]==b'ISS26X01' and struct.unpack_from('<I',raw,8)[0]==1412
+          out=pathlib.Path('dist/v093-xor-only.iss26p.xz')
+          out.write_bytes(lzma.compress(raw,preset=9))
+          print('Validated bytes:',len(raw),'Compressed bytes:',out.stat().st_size)
+          PY
+      - name: Upload temporary transport
+        uses: actions/upload-artifact@v4
+        with:
+          name: ISS26-v093-XOR-Diff-Transport
+          path: dist/v093-xor-only.iss26p.xz
+          retention-days: 1
+          compression-level: 0
