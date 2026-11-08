@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "latest": {
-    "version": "0.4.0",
-    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.4.0/ISS26-LauncherUpdate.zip",
-    "zipSha256": "465BADFDCF1FCBA29B24C5F5A26F4A1F6E33E48E449FAF4B6B9ED616D206ED90",
-    "launcherSha256": "D13822BFB3A695BB0CBEB47B55D1AA8CEEBF3DC968A80DCF24AC1616E92C39BC",
-    "updaterSha256": "3FD85175046656C4E29D9C10A3F9625F00C2A854FD71CF8241B1E0C7C57178F9",
-    "notes": "ISS26 Windows 0.4.0; обновление лаунчера без изменения игры и эмулятора."
+    "version": "0.4.1",
+    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.4.1/ISS26-Windows-v0.4.1-LauncherOnly.zip",
+    "zipSha256": "F8DAFF6FC420EC51C91FD135EF8966EC686995E25251167E058DF8EE93F6696E",
+    "launcherSha256": "D5E59E52EF200CC7759BB74D35B92FD7D07B7E9B3EFFD748CDC66DD6E3A33C48",
+    "updaterSha256": "2506E7959CB8461AB9C2F10517149CDB9507382B0B433E078938108800315AFA",
+    "notes": "Automatic ISS26 Windows launcher upgrade v0.4.0 to v0.4.1; game patch feed unchanged."
   }
 }
