@@ -27,9 +27,15 @@ jobs:
           python-version: '3.12'
       - name: Run all patch-only forensic unit tests
         run: python -m unittest discover -s tools/tests -p 'test_*.py' -v
-      - name: Analyze signed-by-SHA256 published v0.9.3 XOR patch
+      - name: Download verified release asset through GitHub API
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
-          python tools/audit_patch_sector_headers.py --out dist/v093_sector_headers.json
+          mkdir -p dist
+          gh release download v0.9.3-preview --repo Nevmerlyk/ISS26-Updates --pattern ISS26_0.9.3_preview.iss26p --dir dist
+      - name: Analyze SHA-256 verified published v0.9.3 XOR patch
+        run: |
+          python tools/audit_patch_sector_headers.py --patch-file dist/ISS26_0.9.3_preview.iss26p --out dist/v093_sector_headers.json
           python - <<'PY'
           import json, pathlib, os
           x=json.loads(pathlib.Path("dist/v093_sector_headers.json").read_text())
