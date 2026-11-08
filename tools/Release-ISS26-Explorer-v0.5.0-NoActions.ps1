@@ -112,7 +112,7 @@ Add-Type -AssemblyName System.IO.Compression
 $zip = [System.IO.Compression.ZipFile]::OpenRead($bundle)
 try {
   $names = @($zip.Entries | ForEach-Object { $_.FullName } | Sort-Object)
-  Assert ($names.Count -eq 2 -and $names[0] -eq "ISS26.Updater.exe" -and $names[1] -eq "ISS26.exe") "Updater ZIP contents must be exactly two EXEs."
+  Assert ($names.Count -eq 2 -and $names -contains "ISS26.Updater.exe" -and $names -contains "ISS26.exe") "Updater ZIP contents must be exactly two EXEs."
 } finally { $zip.Dispose() }
 
 $manifest = [ordered]@{
