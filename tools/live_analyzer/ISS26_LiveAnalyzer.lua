@@ -55,7 +55,7 @@ local ram = PCSX.getMemPtr()
 assert(ram ~= nil, "PCSX.getMemPtr() returned nil")
 
 local home = os.getenv("USERPROFILE") or "."
-local prefix = home .. "\\Downloads\\ISS26_" .. os.date("%Y%m%d_%H%M%S")
+local prefix = home .. "\\ISS26\\ISS26_" .. os.date("%Y%m%d_%H%M%S")
 local function openOrError(path)
   local file, err = io.open(path, "wb")
   assert(file, "Cannot create " .. path .. ": " .. tostring(err))
@@ -214,7 +214,7 @@ ISS26.listener = PCSX.Events.createEventListener("GPU::Vsync", function()
 end)
 
 print("ISS26 Live Analyzer STARTED (read-only).")
-print("Folder: " .. home .. "\\Downloads\\")
+print("Folder: " .. home .. "\\ISS26\\")
 print("Memory comparison every " .. SAMPLE_EVERY .. " vsyncs.")
 print("IMPORTANT: This cannot capture multiple writes to a byte between samples.")
 print("Lua console: ISS26.status() | ISS26.capture() | ISS26.stop()")
