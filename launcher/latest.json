@@ -1,11 +1,11 @@
 {
-    "schemaVersion":  1,
-    "latest":  {
-                   "version":  "0.5.0",
-                   "zipUrl":  "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.5.0/ISS26-LauncherUpdate.zip",
-                   "zipSha256":  "781FBBFA73421C27E1E353D08BD4D4DD943792629DA618A1C0B85839614A3A98",
-                   "launcherSha256":  "5A1172AE00DC7A20538A268A80A1AF1FA3ED31A6361EF099AF5B081237A0AB8E",
-                   "updaterSha256":  "ABD5B4E4C6A1986C60669644A61F967506C3C25D0658A4741F94E7C5A20D78A8",
-                   "notes":  "ISS26 Explorer Tool 0.5.0: Play Game / Test Game, isolated diagnostics (experimental); no changes to source game images"
-               }
+  "schemaVersion": 1,
+  "latest": {
+    "version": "0.5.1",
+    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.5.1/ISS26-LauncherUpdate.zip",
+    "zipSha256": "81E5F78270A7CF86194E8237C8844AF0562E33D9EA156183BAD6CEB779D935F6",
+    "launcherSha256": "D071BB5234ABBD96F1D7B730A494DD03BAEFCB123E95293F5203284804AB09F7",
+    "updaterSha256": "B976C62584BD6E2941811AF845A23E4DF8D857BB61BE553F648C18936A0F438F",
+    "notes": "Play Game installs verified stable game updates before launch, supports owner rollback 0.9.5A to 0.9.4; Test Game remains isolated."
+  }
 }
