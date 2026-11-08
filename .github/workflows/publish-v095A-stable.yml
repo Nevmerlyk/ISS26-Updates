@@ -1,0 +1,139 @@
+name: Publish user-designated ISS26 v0.9.5A stable (Bosnia large flag prototype)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publish-v095A-stable.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: iss26-v095A-stable
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ github.token }}
+      REPO: Nevmerlyk/ISS26-Updates
+    steps:
+      - uses: actions/checkout@v4
+      - name: Obtain verified base version 0.9.5 (not a prerequisite for installing 0.9.5A)
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          gh release download v0.9.5 --repo "$REPO" --pattern ISS26_0.9.5.iss26p --dir dist
+          echo 'CA1910F84EDADB1DCCA3177CEA70F550A6DBDD17173ACBFDB9644F9141ED7404  dist/ISS26_0.9.5.iss26p' | sha256sum -c -
+      - name: Rebuild independent v0.9.5A using verified source-sector XOR deltas
+        shell: python
+        run: |
+          import base64,hashlib,pathlib,struct,zlib
+          root=pathlib.Path('dist')
+          old=(root/'ISS26_0.9.5.iss26p').read_bytes()
+          assert old[:8]==b'ISS26X01'
+          count=struct.unpack_from('<I',old,8)[0]
+          assert count==1412 and len(old)==12+count*2388
+          payload=zlib.decompress(base64.b64decode(pathlib.Path('staging/v0.9.5A/bosnia_sector_xor_delta.zlib.b64').read_text().strip()))
+          assert len(payload)==9*(4+2352),len(payload)
+          patch=bytearray(old)
+          indexes={}
+          for i in range(count):
+              start=12+i*2388
+              lba=struct.unpack_from('<I',old,start)[0]
+              assert lba not in indexes
+              indexes[lba]=start+36
+          expected_lbas=[820,852,955,2085,2433,6089,6090,6256,6257]
+          found=[]
+          for start in range(0,len(payload),2356):
+              lba=struct.unpack_from('<I',payload,start)[0]
+              found.append(lba)
+              offset=indexes[lba]
+              correction=payload[start+4:start+2356]
+              for j,value in enumerate(correction):
+                  patch[offset+j]^=value
+          assert found==expected_lbas,found
+          output=bytes(patch)
+          sha=hashlib.sha256(output).hexdigest().upper()
+          assert sha=='3B667CF6031BC2BFAA143D0D21ACF6D623447C222096805D529739235E2216A4',sha
+          assert len(output)==3371868
+          (root/'ISS26_0.9.5A.iss26p').write_bytes(output)
+          print(f'PASS: clean-original independently applicable .iss26p, SHA-256={sha}')
+      - name: Publish v0.9.5A release with explicit known limitations
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat > dist/RELEASE_NOTES.md <<'NOTES'
+          # ISS26 v0.9.5A — user-designated stable (partial Bosnia flag graphics)
+          
+          The project owner explicitly designated this **stable**, despite known incomplete graphics.
+          
+          This standalone `ISS26X01` patch applies to the **clean, unmodified** original European ISS Pro Evolution 2 Track 01, SHA-256 `D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44`. Previous patches are not required.
+          
+          Contains the verified content of v0.9.4 and transparent-CLUT corrections from v0.9.5, plus:
+          - Bosnia national flag index 30 remapped from unsupported style 55 to existing style 10 across five mapping tables;
+          - newly packed **large 64x28 Bosnia flag** in `DATSEL.BIN` and `DATSEL3.BIN`;
+          - corresponding CD Mode2 Form1 EDC/ECC updates verified offline.
+          
+          **Known limitations: flag graphics are NOT fully fixed.** The other 16 replaced flags are not rebuilt. Bosnia's 24x16 and 24x8 flags are not replaced. Edit Mode, in-match HUD and stadium-specific variants have not been repaired or visually tested in the emulator. Existing national name tables are inherited unchanged. The historic country-map highlighting remains incorrect. This version is called stable **by owner designation**, not because full graphical or gameplay QA has passed.
+          
+          Patch SHA-256: `3B667CF6031BC2BFAA143D0D21ACF6D623447C222096805D529739235E2216A4`.
+          Expected rebuilt Track 01 SHA-256: `5181FC06960A89359EAE62462DB97F1E2FFF709A622BAF85E9D4FE6E97038A7A`.
+          
+          Original game BIN/CUE, BIOS, audio and save data are never distributed in this release.
+          NOTES
+          if gh release view v0.9.5A -R "$REPO" >/dev/null 2>&1; then
+            current=$(gh api "repos/$REPO/releases/tags/v0.9.5A" --jq '[.assets[] | select(.name=="ISS26_0.9.5A.iss26p")][0].digest // ""')
+            if [ -n "$current" ] && [ "$current" != 'sha256:3b667cf6031bc2bfaa143d0d21acf6d623447c222096805d529739235e2216a4' ]; then
+              echo 'Conflicting existing release digest; refusing overwrite' >&2; exit 1
+            fi
+            if [ -z "$current" ]; then
+              gh release upload v0.9.5A dist/ISS26_0.9.5A.iss26p -R "$REPO"
+            fi
+            gh release edit v0.9.5A -R "$REPO" --title 'ISS26 v0.9.5A — Stable (partial flag graphics)' --notes-file dist/RELEASE_NOTES.md
+          else
+            gh release create v0.9.5A dist/ISS26_0.9.5A.iss26p -R "$REPO" --target main --title 'ISS26 v0.9.5A — Stable (partial flag graphics)' --notes-file dist/RELEASE_NOTES.md --latest
+          fi
+      - name: Check published release SHA-256 and activate Stable Play Game feed last
+        shell: python
+        run: |
+          import base64,hashlib,json,pathlib,subprocess
+          repo='Nevmerlyk/ISS26-Updates'
+          target=pathlib.Path('dist/ISS26_0.9.5A.iss26p')
+          digest='3B667CF6031BC2BFAA143D0D21ACF6D623447C222096805D529739235E2216A4'
+          assert hashlib.sha256(target.read_bytes()).hexdigest().upper()==digest
+          published=json.loads(subprocess.check_output(['gh','api',f'repos/{repo}/releases/tags/v0.9.5A'],text=True))
+          assets=[a for a in published['assets'] if a['name']=='ISS26_0.9.5A.iss26p']
+          assert len(assets)==1 and assets[0]['size']==target.stat().st_size
+          assert assets[0]['digest'].upper()=='SHA256:'+digest
+          remote=subprocess.check_output(['gh','api',f'repos/{repo}/releases/assets/{assets[0]["id"]}','-H','Accept: application/octet-stream'])
+          assert hashlib.sha256(remote).hexdigest().upper()==digest
+          endpoint=f'repos/{repo}/contents/stable/latest.json'
+          old_file=json.loads(subprocess.check_output(['gh','api',endpoint],text=True))
+          old=json.loads(base64.b64decode(old_file['content']))
+          assert old.get('channel')=='stable'
+          assert old.get('latest',{}).get('version') in ('0.9.4','0.9.5A'), old
+          manifest={
+            'schemaVersion':1,'channel':'stable',
+            'latest':{
+              'version':'0.9.5A',
+              'patchUrl':f'https://github.com/{repo}/releases/download/v0.9.5A/ISS26_0.9.5A.iss26p',
+              'patchSha256':digest,
+              'baseSha256':'D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44',
+              'resultSha256':'5181FC06960A89359EAE62462DB97F1E2FFF709A622BAF85E9D4FE6E97038A7A'
+            },
+            'notes':'Owner-designated stable, not full QA: Bosnia large flag in DATSEL/DATSEL3 only. Other flags and small/medium/in-match views still incomplete.'
+          }
+          payload={'message':'release(stable): activate owner-designated ISS26 v0.9.5A with documented partial graphics',
+                   'sha':old_file['sha'],
+                   'content':base64.b64encode((json.dumps(manifest,indent=2)+'\n').encode()).decode()}
+          subprocess.run(['gh','api','-X','PUT',endpoint,'--input','-'],input=json.dumps(payload),text=True,check=True)
+          reread=json.loads(subprocess.check_output(['gh','api',endpoint],text=True))
+          final=json.loads(base64.b64decode(reread['content']))
+          assert final['latest']['version']=='0.9.5A'
+          print('PASS: stable Play Game feed now points to SHA-256-verified v0.9.5A')
