@@ -1,6 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "latest": null,
-  "notes": "No fully validated stable game patch published yet; Play Game must fall back to original verified image."
+  "latest": {
+    "version": "0.9.4",
+    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.4-preview/ISS26_0.9.4_preview.iss26p",
+    "patchSha256": "70E46566A7F2C3A7E5F1E930210A132D452EF0B752D18E92F4B5475DE2CB45FE",
+    "baseSha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
+    "resultSha256": "DF547EACFC8B65EF9409C3220E546968BF842C8F412D2685F8EA5F78C99422BB"
+  },
+  "notes": "Project-owner-designated stable baseline v0.9.4. Existing v0.9.4-preview release asset reused with SHA-256 verification. Known graphic defects (Bosnia black flag; other incorrect national flags) remain; map highlighting unchanged."
 }
