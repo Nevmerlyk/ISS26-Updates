@@ -17,6 +17,50 @@ from pathlib import Path
 from compare_preview_patches import download, parse_patch
 
 
+# Original file extents and modified sector-form counts are from the
+# read-only FlagAudit supplied by the game's tester (v0.9.3-preview).
+# We inspect only metadata and XOR sector deltas: no copyrighted bytes.
+EXPANDED_FILES = (
+    ("BIN/DATSEL2.BIN", 6150, 64, 5),
+    ("BIN/DATSEL3.BIN", 6250, 27, 2),
+    ("BIN/EDT_2D.BIN", 3900, 21, 4),
+    ("BIN/EDTR_2D.BIN", 4000, 51, 2),
+    ("BIN/GDC_AD.BIN", 12560, 69, 2),
+    ("BIN/GDC_AN.BIN", 12730, 69, 3),
+    ("BIN/GDC_BD.BIN", 16300, 67, 4),
+    ("BIN/GDC_BN.BIN", 16470, 96, 2),
+    ("BIN/GDC_CD.BIN", 13240, 67, 2),
+    ("BIN/GDC_CN.BIN", 13410, 72, 3),
+    ("BIN/GDC_DD.BIN", 10860, 65, 2),
+    ("BIN/GDC_DN.BIN", 11030, 65, 2),
+    ("BIN/GDC_FD.BIN", 11200, 75, 1),
+    ("BIN/GDC_FN.BIN", 11370, 76, 2),
+    ("BIN/GDC_GDJ.BIN", 14260, 59, 3),
+    ("BIN/GDC_GNJ.BIN", 14430, 59, 3),
+    ("BIN/GDC_HD.BIN", 13580, 76, 2),
+    ("BIN/GDC_HN.BIN", 13750, 70, 2),
+    ("BIN/GDC_ID.BIN", 15280, 79, 2),
+    ("BIN/GDC_IN.BIN", 15450, 82, 2),
+    ("BIN/GDC_JD.BIN", 11540, 71, 2),
+    ("BIN/GDC_JN.BIN", 11710, 67, 2),
+    ("BIN/GDC_MD.BIN", 12220, 79, 2),
+    ("BIN/GDC_MDJ.BIN", 14600, 79, 3),
+    ("BIN/GDC_MN.BIN", 12390, 83, 2),
+    ("BIN/GDC_MNJ.BIN", 14770, 80, 3),
+    ("BIN/GDC_OD.BIN", 15620, 68, 2),
+    ("BIN/GDC_ON.BIN", 15790, 68, 2),
+    ("BIN/GDC_PD.BIN", 12900, 60, 3),
+    ("BIN/GDC_PN.BIN", 13070, 61, 2),
+    ("BIN/GDC_RDJ.BIN", 14940, 73, 2),
+    ("BIN/GDC_RNJ.BIN", 15110, 71, 3),
+    ("BIN/GDC_SD.BIN", 11880, 67, 3),
+    ("BIN/GDC_SN.BIN", 12050, 69, 3),
+    ("BIN/GDC_TD.BIN", 13920, 64, 2),
+    ("BIN/GDC_TN.BIN", 14090, 66, 3),
+    ("BIN/GDC_VD.BIN", 15960, 70, 2),
+    ("BIN/GDC_VN.BIN", 16130, 73, 2),
+)
+
 RESOURCE_WINDOWS = (
     ("team_selection_DATSEL", 6000, 6110),
     ("team_selection_DATSEL2", 6150, 6250),
@@ -57,7 +101,28 @@ def report(records: dict[int, tuple[bytes, bytes]]) -> dict:
             mode_byte_changes.append(lba)
         if any(delta[:12]):
             sync_changes.append(lba)
+    expanded_file_audit = []
+    for name, lba, original_form1_sectors, added_form2_sectors in EXPANDED_FILES:
+        new_lbas = list(range(lba + original_form1_sectors,
+                              lba + original_form1_sectors + added_form2_sectors))
+        edited = [sector for sector in new_lbas if sector in records]
+        untouched = [sector for sector in new_lbas if sector not in records]
+        payload_changed_bytes = sum(
+            sum(1 for byte in records[sector][1][24:2348] if byte)
+            for sector in edited
+        )
+        expanded_file_audit.append({
+            "file": name,
+            "newly_included_form2_sector_count": len(new_lbas),
+            "newly_included_lbas": new_lbas,
+            "patch_modified_included_sectors": len(edited),
+            "patch_unmodified_included_sectors": untouched,
+            "xor_payload_changed_bytes_in_new_sectors": payload_changed_bytes,
+            "caution": "A modified data length includes pre-existing Form2 sectors. "
+                       "Whether the PS1 loader reads those as valid data is not verified."
+        })
     return {
+        "expanded_file_sector_audit": expanded_file_audit,
         "modified_sectors": len(records),
         "changed_header_sector_count": len(altered_header),
         "subheader_delta_mismatch_count": len(subheader_delta_mismatch),
@@ -99,6 +164,14 @@ def main() -> None:
           "mismatches")
     for name, stats in result["by_resource_window"].items():
         print(f"  {name}: {stats}")
+    expanded = result["expanded_file_sector_audit"]
+    print(f"Expanded graphic files: {len(expanded)}; newly included Form2 sectors: "
+          f"{sum(e['newly_included_form2_sector_count'] for e in expanded)}; "
+          f"not modified by patch: {sum(len(e['patch_unmodified_included_sectors']) for e in expanded)}")
+    for e in expanded:
+        if e["patch_unmodified_included_sectors"]:
+            print(f"  WARNING: {e['file']} includes unchanged raw sector LBAs "
+                  f"{e['patch_unmodified_included_sectors']}")
     print(f"Saved report to {args.out}")
 
 
