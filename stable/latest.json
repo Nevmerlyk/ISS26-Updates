@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "channel": "stable",
   "latest": {
-    "version": "0.9.4",
-    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.4-preview/ISS26_0.9.4_preview.iss26p",
-    "patchSha256": "70E46566A7F2C3A7E5F1E930210A132D452EF0B752D18E92F4B5475DE2CB45FE",
+    "version": "0.9.5A",
+    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.5A/ISS26_0.9.5A.iss26p",
+    "patchSha256": "3B667CF6031BC2BFAA143D0D21ACF6D623447C222096805D529739235E2216A4",
     "baseSha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
-    "resultSha256": "DF547EACFC8B65EF9409C3220E546968BF842C8F412D2685F8EA5F78C99422BB"
+    "resultSha256": "5181FC06960A89359EAE62462DB97F1E2FFF709A622BAF85E9D4FE6E97038A7A"
   },
-  "notes": "Owner-requested rollback of stable channel from 0.9.5 to 0.9.4. Existing installed 0.9.5 clients may not automatically downgrade because the launcher avoids rolling back newer local versions; reinstall or updater change may be needed. Known 0.9.4 flag-artwork defects remain."
+  "notes": "Owner-designated stable, not full QA: Bosnia large flag in DATSEL/DATSEL3 only. Other flags and small/medium/in-match views still incomplete."
 }
