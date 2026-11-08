@@ -1,0 +1,6 @@
+{
+  "schemaVersion": 1,
+  "channel": "stable",
+  "latest": null,
+  "notes": "No fully validated stable game patch published yet; Play Game must fall back to original verified image."
+}
