@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "channel": "stable",
   "latest": {
-    "version": "0.9.4",
-    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.4-preview/ISS26_0.9.4_preview.iss26p",
-    "patchSha256": "70E46566A7F2C3A7E5F1E930210A132D452EF0B752D18E92F4B5475DE2CB45FE",
+    "version": "0.9.5",
+    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.5/ISS26_0.9.5.iss26p",
+    "patchSha256": "CA1910F84EDADB1DCCA3177CEA70F550A6DBDD17173ACBFDB9644F9141ED7404",
     "baseSha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
-    "resultSha256": "DF547EACFC8B65EF9409C3220E546968BF842C8F412D2685F8EA5F78C99422BB"
+    "resultSha256": "26EC92C768CA0C41795E0B91F7554ADD1E6D2258E03216FCEF23CD2B8F93BA5A"
   },
-  "notes": "Project-owner-designated stable baseline v0.9.4. Existing v0.9.4-preview release asset reused with SHA-256 verification. Known graphic defects (Bosnia black flag; other incorrect national flags) remain; map highlighting unchanged."
+  "notes": "Owner-designated stable v0.9.5. Known flag artwork defects remain; palette transparency repaired. Map unchanged."
 }
