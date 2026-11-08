@@ -1,6 +1,6 @@
 #requires -Version 5.1
 <#
-ISS26 Explorer v0.5.0 – no GitHub Actions release helper for Windows.
+ISS26 Explorer v0.5.0 - no GitHub Actions release helper for Windows.
 The old ISS26.exe will AUTO-UPDATE after this script successfully publishes:
   * a GitHub Release ZIP containing exactly ISS26.exe, ISS26.Updater.exe
   * a SHA-256 pinned launcher/latest.json pointing to that ZIP
@@ -61,7 +61,7 @@ function Smoke([string]$exe, [string]$dir) {
   }
 }
 
-Write-Host "=== ISS26 Explorer $version: build and publish without GitHub Actions ==="
+Write-Host "=== ISS26 Explorer ${version}: build and publish without GitHub Actions ==="
 Require "dotnet" "Install .NET 8 SDK: winget install --id Microsoft.DotNet.SDK.8 -e"
 Require "git" "Install Git: winget install --id Git.Git -e"
 Require "gh" "Install GitHub CLI: winget install --id GitHub.cli -e"
@@ -127,7 +127,7 @@ $manifest = [ordered]@{
   }
 }
 $json = ($manifest | ConvertTo-Json -Depth 6)
-[IO.File]::WriteAllText($manifestPath, $json + [Environment]::NewLine, (New-Object Text.UTF8Encoding($false)))
+[IO.File]::WriteAllText($manifestPath, $json + [Environment]::NewLine, ([System.Text.UTF8Encoding]::new($false)))
 Write-Host "Build and smoke checks PASS. Release candidate: $bundle"
 Write-Host "Launcher SHA256: " $manifest.latest.launcherSha256
 Write-Host "Updater SHA256:  " $manifest.latest.updaterSha256
@@ -158,7 +158,7 @@ if ($existingTags -contains $tag) {
 Write-Host "Publishing release ZIP (no GitHub Actions)..."
 Github @("release", "create", $tag, $bundle,
     "-R", $releaseRepo, "--target", "main", "--title",
-    "ISS26 Explorer Tool v$version — user test", "--notes",
+    "ISS26 Explorer Tool v$version - user test", "--notes",
     "Launcher-only preview. Build source: $sourceRepo commit $pinnedCommit. Play/Test chooser; debug runtime auto-provisioned on first Test Game. No game, CD audio or BIOS included.",
     "--prerelease", "--latest=false")
 
@@ -195,7 +195,7 @@ $payload = @{
   branch = "main"
 } | ConvertTo-Json -Compress
 $payloadFile = Join-Path $work "feed-put.json"
-[IO.File]::WriteAllText($payloadFile, $payload, (New-Object Text.UTF8Encoding($false)))
+[IO.File]::WriteAllText($payloadFile, $payload, ([System.Text.UTF8Encoding]::new($false)))
 Github @("api", "-X", "PUT", $feedEndpoint, "--input", $payloadFile)
 
 # Read back the updated API content; don't report success just from PUT status.
