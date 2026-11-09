@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "latest": {
-    "version": "0.6.6",
-    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.6.6/ISS26-LauncherUpdate.zip",
-    "zipSha256": "3A32D6C8D427C81238DFE55703AF68C9182640030D100238140BC1E33B3C0D9D",
-    "launcherSha256": "B8DA0FB0E8801B50CAB9D7DD6804625A1FDEF7B6436B1117C6DAC629AD20C116",
-    "updaterSha256": "1F6D6BB1A17082DCF75C61E27D1D8F38267C03BE23569B1660ABC1D5F689FC55",
-    "notes": "Test Game auto-installs SHA256-pinned experimental .iss26p and provides optional Bosnia/Cabo Verde VRAM testing in Explorer. Play Game stays on stable v0.9.4."
+    "version": "0.6.7",
+    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.6.7/ISS26-LauncherUpdate.zip",
+    "zipSha256": "0334D110869373F7227DDE698F9608F337DA1FB13527FB02B4CE32AB80084305",
+    "launcherSha256": "3834277B6E693440E3D70A83E7F7E7AF52525AC711CF92CFA37EB424D019F3D0",
+    "updaterSha256": "518F0AF4D947802B7A490EF7362A2E34639B4559643C3211DE8AABEDE369D14B",
+    "notes": "Fix Test Game Access Denied for read-only original BIN. Independent .iss26p Test Game plus Bosnia/Cabo Verde VRAM probe. Stable Play Game remains v0.9.4."
   }
 }
