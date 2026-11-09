@@ -1,0 +1,90 @@
+name: Publish Bosnia + Cabo Verde TEST2 to GitHub Releases
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publish-twoflags-test2.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: iss26-twoflags-test2-publish
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ github.token }}
+      REPO: Nevmerlyk/ISS26-Updates
+      TAG: v0.9.5-bosnia-cabo-atlas-test2
+      PATCH: test/patches/ISS26_0.9.5_Bosnia_CaboVerde_Atlas_TEST2.iss26p
+      EXPECTED_SHA: 4C3B27A7EFA46F97401138C7B2490CC08CC693613CDFB82A9BA12150BA7CD330
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate independently applicable experimental patch before upload
+        shell: python
+        run: |
+          import hashlib, os, pathlib, struct
+          p=pathlib.Path(os.environ['PATCH']); data=p.read_bytes()
+          assert hashlib.sha256(data).hexdigest().upper()==os.environ['EXPECTED_SHA']
+          assert data[:8]==b'ISS26X01'
+          count=struct.unpack_from('<I',data,8)[0]
+          assert count==106 and len(data)==12+count*(4+32+2352)
+          n=[struct.unpack_from('<I',data,12+i*2388)[0] for i in range(count)]
+          assert n==sorted(set(n))
+          assert all(any(data[12+i*2388+36:12+(i+1)*2388]) for i in range(count))
+          print(f'PASS: {count} unique clean-original SHA256-guarded sectors, digest verified')
+      - name: Publish GitHub prerelease (never alter stable game)
+        shell: bash
+        run: |
+          set -euo pipefail
+          name="$(basename "$PATCH")"
+          if gh release view "$TAG" -R "$REPO" >/dev/null 2>&1; then
+            echo 'Existing tag: verifying existing release asset without clobbering it'
+            mkdir -p /tmp/iss26-verify
+            gh release download "$TAG" -R "$REPO" -p "$name" -D /tmp/iss26-verify
+            echo "$EXPECTED_SHA  /tmp/iss26-verify/$name" | sha256sum -c -
+          else
+            gh release create "$TAG" "$PATCH" -R "$REPO" \
+              --target main --prerelease --latest=false \
+              --title 'ISS26 v0.9.5 — Bosnia and Cabo Verde Flag Atlas TEST2' \
+              --notes-file test/patches/README-0.9.5-Bosnia-Cabo-TEST2.md
+          fi
+      - name: Verify published release asset and change ONLY test feed
+        shell: python
+        run: |
+          import base64, hashlib, json, os, pathlib, subprocess
+          repo=os.environ['REPO']; tag=os.environ['TAG']
+          patch=pathlib.Path(os.environ['PATCH']); sha=os.environ['EXPECTED_SHA']
+          name=patch.name
+          r=json.loads(subprocess.check_output(['gh','api',f'repos/{repo}/releases/tags/{tag}'],text=True))
+          assets=[a for a in r['assets'] if a['name']==name]
+          assert len(assets)==1 and assets[0]['size']==patch.stat().st_size, assets
+          assert assets[0].get('digest','').lower()=='sha256:'+sha.lower(), assets[0]
+          url=f'https://github.com/{repo}/releases/download/{tag}/{name}'
+          assert assets[0]['browser_download_url']==url
+          temp=pathlib.Path('/tmp/iss26-release-verify');temp.mkdir(exist_ok=True)
+          subprocess.run(['gh','release','download',tag,'-R',repo,'-p',name,'-D',str(temp),'--clobber'],check=True)
+          assert hashlib.sha256((temp/name).read_bytes()).hexdigest().upper()==sha
+          endpoint=f'repos/{repo}/contents/test/latest.json'
+          current=json.loads(subprocess.check_output(['gh','api',endpoint],text=True))
+          feed=json.loads(base64.b64decode(current['content']))
+          assert feed['schemaVersion']==1 and feed['channel']=='test'
+          assert feed['latest']['version']=='0.9.5-bosnia-cabo-atlas-test2'
+          assert feed['latest']['patchSha256'].upper()==sha
+          assert feed['latest']['baseSha256'].upper()=='D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44'
+          assert feed['latest']['resultSha256'].upper()=='F620ACE593D4CB32BA9BF001BFA028CA6A5ECE7E907A4F83EAA856C9E6168246'
+          feed['latest']['patchUrl']=url
+          payload={'message':'fix(test): point TEST2 game patch to verified GitHub Releases asset',
+                   'content':base64.b64encode((json.dumps(feed,ensure_ascii=False,indent=2)+'\n').encode()).decode(),
+                   'sha':current['sha']}
+          subprocess.run(['gh','api','-X','PUT',endpoint,'--input','-'],input=json.dumps(payload),text=True,check=True)
+          reread=json.loads(subprocess.check_output(['gh','api',endpoint],text=True))
+          final=json.loads(base64.b64decode(reread['content']))
+          assert final['latest']['patchUrl']==url
+          print('PASS: Github release asset verified, TEST channel URL fixed; stable feeds untouched')
