@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "latest": {
-    "version": "0.6.7",
-    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.6.7/ISS26-LauncherUpdate.zip",
-    "zipSha256": "0334D110869373F7227DDE698F9608F337DA1FB13527FB02B4CE32AB80084305",
-    "launcherSha256": "3834277B6E693440E3D70A83E7F7E7AF52525AC711CF92CFA37EB424D019F3D0",
-    "updaterSha256": "518F0AF4D947802B7A490EF7362A2E34639B4559643C3211DE8AABEDE369D14B",
-    "notes": "Fix Test Game Access Denied for read-only original BIN. Independent .iss26p Test Game plus Bosnia/Cabo Verde VRAM probe. Stable Play Game remains v0.9.4."
+    "version": "0.6.8",
+    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.6.8/ISS26-LauncherUpdate.zip",
+    "zipSha256": "DFCDAAC7A7D89985A14D734AB9AB53BC53569F21ECEFAC30283914DC14EF03AF",
+    "launcherSha256": "42FA45A6719FA1B50CF4AA57DBBD15272AD91E5D7BEC30386010A4D4F65A28B0",
+    "updaterSha256": "88A8F39471ECFC26C915EF9476D3F1A4974B0E723B7BFC62ED1A55934E6F5886",
+    "notes": "Stable Explorer Flag Calibrator: GPU VRAM/CLUT and 4bpp previews, on-frame RAM/screen capture, coordinate mapping, histogram and ZIP report export. Test Game stays separate; game stable remains v0.9.4."
   }
 }
