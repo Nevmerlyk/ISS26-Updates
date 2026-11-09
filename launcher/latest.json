@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "latest": {
-    "version": "0.6.5",
-    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.6.5/ISS26-LauncherUpdate.zip",
-    "zipSha256": "8FB3627C0AB0EECAB7A88D83175594E2D33EE0537D3A7695E823E52B19096384",
-    "launcherSha256": "F3319AA428DBEE5D5A98DC6917E685721C6916A9CF360EAB191835D626B808C1",
-    "updaterSha256": "D0E8A3378DDA8CC241415305DDE771DDB389A42D779D5CC68C2E95106E201EE3",
-    "notes": "ISS26 Launcher 0.6.5 stable. Play Game automatically checks, downloads, repairs and updates official RetroArch 1.22.2 and PCSX ReARMed via independent pinned runtime channel, with SHA256, rollback and progress UI. The first recovery requires a ~202 MB download and free disk space. Stable game is still 0.9.4."
+    "version": "0.6.6",
+    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.6.6/ISS26-LauncherUpdate.zip",
+    "zipSha256": "3A32D6C8D427C81238DFE55703AF68C9182640030D100238140BC1E33B3C0D9D",
+    "launcherSha256": "B8DA0FB0E8801B50CAB9D7DD6804625A1FDEF7B6436B1117C6DAC629AD20C116",
+    "updaterSha256": "1F6D6BB1A17082DCF75C61E27D1D8F38267C03BE23569B1660ABC1D5F689FC55",
+    "notes": "Test Game auto-installs SHA256-pinned experimental .iss26p and provides optional Bosnia/Cabo Verde VRAM testing in Explorer. Play Game stays on stable v0.9.4."
   }
-}
+}\n
