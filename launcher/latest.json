@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "latest": {
-    "version": "0.5.1",
-    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.5.1/ISS26-LauncherUpdate.zip",
-    "zipSha256": "81E5F78270A7CF86194E8237C8844AF0562E33D9EA156183BAD6CEB779D935F6",
-    "launcherSha256": "D071BB5234ABBD96F1D7B730A494DD03BAEFCB123E95293F5203284804AB09F7",
-    "updaterSha256": "B976C62584BD6E2941811AF845A23E4DF8D857BB61BE553F648C18936A0F438F",
-    "notes": "Play Game installs verified stable game updates before launch, supports owner rollback 0.9.5A to 0.9.4; Test Game remains isolated."
+    "version": "0.6.0",
+    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.6.0/ISS26-LauncherUpdate.zip",
+    "zipSha256": "75C2773847C66A2323392B14408B06E237035D9B8F6CBD545E55717221FFF308",
+    "launcherSha256": "E83286A560700368B91505580CF8ECB3740B9497C8D7E604D356BB1F7F1D6E3A",
+    "updaterSha256": "77ADE0DC5182D08A24ADE408C5924173264E4449733C8F4EC714ADB622D7F433",
+    "notes": "ISS26 0.6.0 unified root: versioned stable/test CUE/BIN beside original, read-only game files, native Explorer Flag AutoTest RAM+VRAM, verified legacy migration, Universal Tool retired."
   }
 }
