@@ -1,0 +1,6 @@
+{
+  "schemaVersion": 1,
+  "channel": "test",
+  "latest": null,
+  "notes": "Independent Test Game patch channel. A test patch is not published until a valid .iss26p release and SHA256 checks are available. Selecting a local arbitrary CUE remains supported."
+}
