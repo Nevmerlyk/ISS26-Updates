@@ -3,8 +3,8 @@
   "channel": "autotest",
   "latest": {
     "id": "iss26-flags-names-keeper-ai",
-    "revision": 1,
-    "url": "https://raw.githubusercontent.com/Nevmerlyk/ISS26-Updates/main/autotest/tasks/iss26-flags-names-keeper-ai-r1.json",
-    "sha256": "E488A553A4A30D1A46AA375C3867016C7D56F42C7C4CF50FD4B2C52B1715A1DA"
+    "revision": 2,
+    "url": "https://raw.githubusercontent.com/Nevmerlyk/ISS26-Updates/main/autotest/tasks/iss26-flags-names-keeper-ai-r2.json",
+    "sha256": "F6907173FE0B0EEC6F54A02DFC33C6B049081115F19660DF5A065BA4449E2A67"
   }
 }
