@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "latest": {
-    "version": "0.6.2",
-    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.6.2/ISS26-LauncherUpdate.zip",
-    "zipSha256": "1C315A70BD07F101E0E92B59839F1477DBAF953BE5B6757B1B7B444AF7ADBE83",
-    "launcherSha256": "E94B21524B371D99903AB45E33C237E26F323F8C684751F47E68F065DC4C8983",
-    "updaterSha256": "6ED6A36F76852C10486EF2B890AB750654B29BB04925D9D14E4BAD58B1F027B7",
-    "notes": "ISS26 Launcher & Explorer 0.6.2 stable release. AutoTest startup recovery, bounded calibration guard, lighter diagnostics and improved report handling. Task navigation to Exhibition and CPU/GK AI remains experimental; game stable remains v0.9.4."
+    "version": "0.6.5",
+    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.6.5/ISS26-LauncherUpdate.zip",
+    "zipSha256": "8FB3627C0AB0EECAB7A88D83175594E2D33EE0537D3A7695E823E52B19096384",
+    "launcherSha256": "F3319AA428DBEE5D5A98DC6917E685721C6916A9CF360EAB191835D626B808C1",
+    "updaterSha256": "D0E8A3378DDA8CC241415305DDE771DDB389A42D779D5CC68C2E95106E201EE3",
+    "notes": "ISS26 Launcher 0.6.5 stable. Play Game automatically checks, downloads, repairs and updates official RetroArch 1.22.2 and PCSX ReARMed via independent pinned runtime channel, with SHA256, rollback and progress UI. The first recovery requires a ~202 MB download and free disk space. Stable game is still 0.9.4."
   }
 }
