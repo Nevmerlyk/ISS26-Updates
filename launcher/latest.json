@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "latest": {
-    "version": "0.6.8",
-    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.6.8/ISS26-LauncherUpdate.zip",
-    "zipSha256": "DFCDAAC7A7D89985A14D734AB9AB53BC53569F21ECEFAC30283914DC14EF03AF",
-    "launcherSha256": "42FA45A6719FA1B50CF4AA57DBBD15272AD91E5D7BEC30386010A4D4F65A28B0",
-    "updaterSha256": "88A8F39471ECFC26C915EF9476D3F1A4974B0E723B7BFC62ED1A55934E6F5886",
-    "notes": "Stable Explorer Flag Calibrator: GPU VRAM/CLUT and 4bpp previews, on-frame RAM/screen capture, coordinate mapping, histogram and ZIP report export. Test Game stays separate; game stable remains v0.9.4."
+    "version": "0.6.9",
+    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.6.9/ISS26-LauncherUpdate.zip",
+    "zipSha256": "56ECFA9DC754F92A52127A9975D37076253D93E47570B780C9D5498ADD2806E8",
+    "launcherSha256": "B054F10853867FFFBA73E1F34EC34FD07E327C62DDF32EACF46786F8AF2EC8FE",
+    "updaterSha256": "07010BB32AE15B73312EFD7C5ACBE5D1831E9931DA603F50251DAAA63525B426",
+    "notes": "Stable Explorer Learning Calibrator: always-on manual input and screen transition recording; two independent manual confirmations; persisted knowledge; bounded adaptive AutoTest and two-failure lockout. VRAM Graphics Inspector separate. Game stable remains v0.9.4."
   }
 }
