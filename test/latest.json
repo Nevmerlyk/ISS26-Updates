@@ -3,7 +3,7 @@
   "channel": "test",
   "latest": {
     "version": "0.9.5-bosnia-cabo-atlas-test2",
-    "patchUrl": "https://raw.githubusercontent.com/Nevmerlyk/ISS26-Updates/main/test/patches/ISS26_0.9.5_Bosnia_CaboVerde_Atlas_TEST2.iss26p",
+    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.5-bosnia-cabo-atlas-test2/ISS26_0.9.5_Bosnia_CaboVerde_Atlas_TEST2.iss26p",
     "patchSha256": "4C3B27A7EFA46F97401138C7B2490CC08CC693613CDFB82A9BA12150BA7CD330",
     "baseSha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
     "resultSha256": "F620ACE593D4CB32BA9BF001BFA028CA6A5ECE7E907A4F83EAA856C9E6168246"
