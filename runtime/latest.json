@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "latest": {
+    "version": "1.22.2-pcsx-20261109",
+    "platform": "win-x64",
+    "frontendUrl": "https://buildbot.libretro.com/stable/1.22.2/windows/x86_64/RetroArch.7z",
+    "frontendArchiveSha256": "B2139B1D0F9D4526DC6B5CE23CBB3EFDC766096FA6F2C3DF016818B486AC6372",
+    "frontendSha256": "81C11B6F24932BF7918F05EEE8928035BFF3887335FD2A081507C75E9D94D06A",
+    "coreUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/iss26-runtime-core-20261109/pcsx_rearmed_libretro.dll.zip",
+    "coreArchiveSha256": "D34A272F74938819E0FCF71006FB08768EF6170677780A29BF9527C545BF3FA7",
+    "coreSha256": "91FE6BBF3BDB8AF41338511E56E645559F8A21AF96B478A89F7A1EC89E6BF9D9",
+    "notes": "Official RetroArch 1.22.2 portable x64 and reproducible pinned official PCSX ReARMed x64 core. Downloaded on demand only for Play Game; no commercial game or BIOS files."
+  }
+}
