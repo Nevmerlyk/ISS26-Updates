@@ -41,8 +41,10 @@ function RunSmoke([string]$exe, [string]$dir) {
     $quotedCue = '"' + $cue + '"'
     $proc = Start-Process -FilePath $exe -WorkingDirectory $dir -ArgumentList @('--mode','test','--cue',$quotedCue) -PassThru -Wait
     Check ($proc.ExitCode -eq 5) "Test invalid CUE: expected 5, got $($proc.ExitCode)"
+    $proc = Start-Process -FilePath $exe -WorkingDirectory $dir -ArgumentList @('--mode','auto','--cue',$quotedCue) -PassThru -Wait
+    Check ($proc.ExitCode -eq 5) "Auto Test invalid CUE: expected 5, got $($proc.ExitCode)"
     $reports = @(Get-ChildItem -Path (Join-Path $dir 'ISS26_Data\explorer\reports') -Filter 'ISS26_Session_*.zip' -File -ErrorAction Stop)
-    Check ($reports.Count -ge 1) 'Test preflight must produce a diagnostic ZIP.'
+    Check ($reports.Count -ge 2) 'Test and Auto Test preflight must each produce a diagnostic ZIP.'
     Write-Host ('PASS: Test preflight report ' + $reports[0].FullName)
   }
   finally {Remove-Item -LiteralPath $cue -Force -ErrorAction SilentlyContinue}
