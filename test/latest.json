@@ -1,6 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "latest": null,
-  "notes": "Independent Test Game patch channel. A test patch is not published until a valid .iss26p release and SHA256 checks are available. Selecting a local arbitrary CUE remains supported."
+  "latest": {
+    "version": "0.9.5-bosnia-cabo-vram-probe1",
+    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.5/ISS26_0.9.5.iss26p",
+    "patchSha256": "CA1910F84EDADB1DCCA3177CEA70F550A6DBDD17173ACBFDB9644F9141ED7404",
+    "baseSha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
+    "resultSha256": "26EC92C768CA0C41795E0B91F7554ADD1E6D2258E03216FCEF23CD2B8F93BA5A"
+  },
+  "notes": "EXPERIMENTAL: independent disc baseline v0.9.5 is CLUT-only, DOES NOT fix visible flags. In Launcher/Explorer v0.6.6 select Test Game; it installs this patch from clean original and opens Flag AutoTest, where an opt-in live VRAM Bosnia/Cabo Verde graphics experiment is available. No original BIN/CUE or stable game changed. Old pre-match Russia/Ireland names remain unresolved."
 }
