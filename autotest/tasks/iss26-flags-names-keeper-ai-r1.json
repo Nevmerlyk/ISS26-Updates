@@ -1,0 +1,178 @@
+{
+  "schemaVersion": 1,
+  "id": "iss26-flags-names-keeper-ai",
+  "revision": 1,
+  "title": "National flags, team names and CPU/goalkeeper AI reconnaissance",
+  "status": "calibration",
+  "targetDisc": "latest-test",
+  "maxFrames": 18000,
+  "objectives": [
+    "Navigate title > Match Mode > Exhibition > controller assignment > national teams > match options > match",
+    "Compare national-team text across selection, pre-match, HUD and match screens (Bosnia/Russia, Cabo Verde/Ireland)",
+    "Compare large, small and on-field flags via paired RAM and GPU VRAM save states",
+    "Collect gamepad overrides and gameplay telemetry for CPU-controlled team and keeper research",
+    "Locate MIPS input/AI/controller routines in a later memory-watch revision after addresses have been validated"
+  ],
+  "limitations": "First revision uses tentative Vsync-relative menu inputs, not verified UI recognition. Each checkpoint captures evidence; it does NOT certify that a screen was reached. No MIPS write, controller remapping, game-file modification or automatic tactical inference.",
+  "steps": [
+    {
+      "atFrame": 120,
+      "kind": "capture",
+      "label": "boot_state"
+    },
+    {
+      "atFrame": 2550,
+      "kind": "tap",
+      "port": 1,
+      "button": "START",
+      "frames": 7,
+      "label": "open_game_menu"
+    },
+    {
+      "atFrame": 2790,
+      "kind": "capture",
+      "label": "title_or_main_menu"
+    },
+    {
+      "atFrame": 2910,
+      "kind": "tap",
+      "port": 1,
+      "button": "CROSS",
+      "frames": 7,
+      "label": "enter_match_mode_attempt"
+    },
+    {
+      "atFrame": 3090,
+      "kind": "capture",
+      "label": "match_mode_attempt"
+    },
+    {
+      "atFrame": 3220,
+      "kind": "tap",
+      "port": 1,
+      "button": "CROSS",
+      "frames": 7,
+      "label": "enter_exhibition_attempt"
+    },
+    {
+      "atFrame": 3400,
+      "kind": "capture",
+      "label": "exhibition_attempt"
+    },
+    {
+      "atFrame": 3540,
+      "kind": "tap",
+      "port": 1,
+      "button": "CROSS",
+      "frames": 7,
+      "label": "controller_setup_attempt"
+    },
+    {
+      "atFrame": 3730,
+      "kind": "capture",
+      "label": "controller_assignment_attempt"
+    },
+    {
+      "atFrame": 3840,
+      "kind": "tap",
+      "port": 1,
+      "button": "CROSS",
+      "frames": 7,
+      "label": "continue_controller_setup"
+    },
+    {
+      "atFrame": 4030,
+      "kind": "capture",
+      "label": "national_team_selection_attempt"
+    },
+    {
+      "atFrame": 4210,
+      "kind": "tap",
+      "port": 1,
+      "button": "CROSS",
+      "frames": 7,
+      "label": "confirm_home_team"
+    },
+    {
+      "atFrame": 4360,
+      "kind": "tap",
+      "port": 1,
+      "button": "CROSS",
+      "frames": 7,
+      "label": "confirm_away_team"
+    },
+    {
+      "atFrame": 4570,
+      "kind": "capture",
+      "label": "match_options_attempt"
+    },
+    {
+      "atFrame": 4750,
+      "kind": "tap",
+      "port": 1,
+      "button": "START",
+      "frames": 7,
+      "label": "attempt_begin_exhibition"
+    },
+    {
+      "atFrame": 5100,
+      "kind": "capture",
+      "label": "match_transition"
+    },
+    {
+      "atFrame": 6150,
+      "kind": "capture",
+      "label": "prematch_title_flags"
+    },
+    {
+      "atFrame": 6160,
+      "kind": "gpu",
+      "frames": 4,
+      "label": "prematch_gpu_upload"
+    },
+    {
+      "atFrame": 7200,
+      "kind": "capture",
+      "label": "onfield_flag_entry"
+    },
+    {
+      "atFrame": 7210,
+      "kind": "gpu",
+      "frames": 4,
+      "label": "onfield_gpu_upload"
+    },
+    {
+      "atFrame": 8400,
+      "kind": "capture",
+      "label": "gameplay_cpu_control_baseline"
+    },
+    {
+      "atFrame": 9500,
+      "kind": "tap",
+      "port": 1,
+      "button": "TRIANGLE",
+      "frames": 7,
+      "label": "input_response_probe_pass"
+    },
+    {
+      "atFrame": 9520,
+      "kind": "capture",
+      "label": "post_input_response"
+    },
+    {
+      "atFrame": 11300,
+      "kind": "capture",
+      "label": "gameplay_ai_formation_movement"
+    },
+    {
+      "atFrame": 14500,
+      "kind": "capture",
+      "label": "keeper_positioning_observation"
+    },
+    {
+      "atFrame": 17500,
+      "kind": "capture",
+      "label": "gameplay_final_state"
+    }
+  ]
+}
