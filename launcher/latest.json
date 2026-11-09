@@ -8,4 +8,4 @@
     "updaterSha256": "1F6D6BB1A17082DCF75C61E27D1D8F38267C03BE23569B1660ABC1D5F689FC55",
     "notes": "Test Game auto-installs SHA256-pinned experimental .iss26p and provides optional Bosnia/Cabo Verde VRAM testing in Explorer. Play Game stays on stable v0.9.4."
   }
-}\n
+}
