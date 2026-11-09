@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "latest": {
-    "version": "0.6.1",
-    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.6.1-AUTOTEST-PREVIEW/ISS26-LauncherUpdate.zip",
-    "zipSha256": "25FB3A4380646B002F987372E5B906EF666BBC90E2027A33550BDFBA5778F1D0",
-    "launcherSha256": "2343BF73C4B47FDB894D6EAFB4EDD8D6E49A87F8103606E6C96328C008B74C3C",
-    "updaterSha256": "4A61E03032D509A978E70413A87611D6EC685D3038F7C1E058C69107D73491DF",
-    "notes": "Owner-approved AutoTest v0.6.1 preview: automatically loads SHA256-pinned task, scripted virtual pad/diagnostic captures. Menu-navigation calibration is not yet gameplay-verified. Stable game remains v0.9.4."
+    "version": "0.6.2",
+    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.6.2/ISS26-LauncherUpdate.zip",
+    "zipSha256": "1C315A70BD07F101E0E92B59839F1477DBAF953BE5B6757B1B7B444AF7ADBE83",
+    "launcherSha256": "E94B21524B371D99903AB45E33C237E26F323F8C684751F47E68F065DC4C8983",
+    "updaterSha256": "6ED6A36F76852C10486EF2B890AB750654B29BB04925D9D14E4BAD58B1F027B7",
+    "notes": "ISS26 Launcher & Explorer 0.6.2 stable release. AutoTest startup recovery, bounded calibration guard, lighter diagnostics and improved report handling. Task navigation to Exhibition and CPU/GK AI remains experimental; game stable remains v0.9.4."
   }
 }
