@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "channel": "test",
   "latest": {
-    "version": "0.9.5-bosnia-cabo-vram-probe1",
-    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.5/ISS26_0.9.5.iss26p",
-    "patchSha256": "CA1910F84EDADB1DCCA3177CEA70F550A6DBDD17173ACBFDB9644F9141ED7404",
+    "version": "0.9.5-bosnia-cabo-atlas-test2",
+    "patchUrl": "https://raw.githubusercontent.com/Nevmerlyk/ISS26-Updates/main/test/patches/ISS26_0.9.5_Bosnia_CaboVerde_Atlas_TEST2.iss26p",
+    "patchSha256": "4C3B27A7EFA46F97401138C7B2490CC08CC693613CDFB82A9BA12150BA7CD330",
     "baseSha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
-    "resultSha256": "26EC92C768CA0C41795E0B91F7554ADD1E6D2258E03216FCEF23CD2B8F93BA5A"
+    "resultSha256": "F620ACE593D4CB32BA9BF001BFA028CA6A5ECE7E907A4F83EAA856C9E6168246"
   },
-  "notes": "EXPERIMENTAL: independent disc baseline v0.9.5 is CLUT-only, DOES NOT fix visible flags. In Launcher/Explorer v0.6.6 select Test Game; it installs this patch from clean original and opens Flag AutoTest, where an opt-in live VRAM Bosnia/Cabo Verde graphics experiment is available. No original BIN/CUE or stable game changed. Old pre-match Russia/Ireland names remain unresolved."
+  "notes": "EXPERIMENTAL two-flag atlas test on CLEAN EU Track01, NOT a full v0.9.5 update. Patches 64x28 Bosnia/Cabo Verde tiles in DATSEL/DATSEL3 and 34 GDC stadium resources; updates two country CLUTs, style pointers and known text banks. 106 independent raw sectors verified. Does NOT carry all previous v0.9.4 roster/club changes; 24x16/24x8 flags and pre-match glyph-bank handling are unverified. Legacy Slovakia/N.Ireland flag art can change due shared styles. Use Test Game only; Play Game stays stable."
 }
