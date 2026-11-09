@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "latest": {
-    "version": "0.6.0",
-    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.6.0/ISS26-LauncherUpdate.zip",
-    "zipSha256": "75C2773847C66A2323392B14408B06E237035D9B8F6CBD545E55717221FFF308",
-    "launcherSha256": "E83286A560700368B91505580CF8ECB3740B9497C8D7E604D356BB1F7F1D6E3A",
-    "updaterSha256": "77ADE0DC5182D08A24ADE408C5924173264E4449733C8F4EC714ADB622D7F433",
-    "notes": "ISS26 0.6.0 unified root: versioned stable/test CUE/BIN beside original, read-only game files, native Explorer Flag AutoTest RAM+VRAM, verified legacy migration, Universal Tool retired."
+    "version": "0.6.1",
+    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.6.1-AUTOTEST-PREVIEW/ISS26-LauncherUpdate.zip",
+    "zipSha256": "25FB3A4380646B002F987372E5B906EF666BBC90E2027A33550BDFBA5778F1D0",
+    "launcherSha256": "2343BF73C4B47FDB894D6EAFB4EDD8D6E49A87F8103606E6C96328C008B74C3C",
+    "updaterSha256": "4A61E03032D509A978E70413A87611D6EC685D3038F7C1E058C69107D73491DF",
+    "notes": "Owner-approved AutoTest v0.6.1 preview: automatically loads SHA256-pinned task, scripted virtual pad/diagnostic captures. Menu-navigation calibration is not yet gameplay-verified. Stable game remains v0.9.4."
   }
 }
