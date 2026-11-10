@@ -322,6 +322,8 @@ class Disc:
         destination=Path(output)
         if destination.resolve() == self.original.resolve():
             raise ValueError("Cannot overwrite original game")
+        if destination.exists():
+            raise FileExistsError("Output patch already exists: refuse overwrite")
         destination.parent.mkdir(parents=True,exist_ok=True)
         temporary=destination.with_name(destination.name+".partial")
         if temporary.exists():raise FileExistsError("Stale partial patch exists")
