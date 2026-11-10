@@ -3,7 +3,7 @@
   "channel": "test",
   "latest": {
     "version": "0.9.6-flag-palette-test01",
-    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/raw/cc3ccb6dbd8b8082d16328b38af778d2eed6c720/ISS26_0.9.5_FlagPalette_Test01.iss26p",
+    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.6-flag-palette-test01/ISS26_0.9.5_FlagPalette_Test01.iss26p",
     "patchSha256": "3BB97C81E3825371BBB0FE1C7E3CAA71038EA7098B4F6C68C382257819E01981",
     "baseSha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
     "resultSha256": "56FCDEEF68296ABC570B091EB7636200B492152BE31F52611C5DC0097623657F"
