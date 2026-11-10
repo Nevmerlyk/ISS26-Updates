@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "channel": "test",
   "latest": {
-    "version": "0.9.6-teamidentity-test06",
-    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.6-teamidentity-test06/ISS26_0.9.5_TeamIdentity_Stage5_TEST06.iss26p",
-    "patchSha256": "3A2B98ECFDAA693F8C652543F9A7122D6095EC488C757268D67970688714A636",
+    "version": "0.9.6-teamidentity-test07",
+    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.6-teamidentity-test07/ISS26_0.9.5_TeamIdentity_Stage7_TEST07.iss26p",
+    "patchSha256": "DA022A8CAFCFFC30C3FDF430A4BE80263A17FD3214028E5D939E39AF711D82C9",
     "baseSha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
-    "resultSha256": "A3B94E6837D9E4FFC75B8F0440E39BF26CE806B57668ACB49839488E5928FAB2"
+    "resultSha256": "76B5BC5154958425469D7C472B02AED7541C9C6227924427C6C7710B4F6568AE"
   },
-  "notes": "EXPERIMENTAL ISS26 Team Identity Stage5 Test06. Standalone full patch for CLEAN original EU Track01. Includes Test05 16 small flags and Canada, Stage2 44 player name case fixes and Qatar SELECT3, Stage3 330 real FIFA 2026 source-backed player names across 15 teams. Bosnia was remapped from shared original large flag graphic style 7 to unused native style 10; 64x28 Bosnia flag graphic injected into DATSEL/DATSEL3 using fully verified WE compression, pointers unchanged. STADIUM GDC AND SEPARATE SCOREBOARD 24x8 TEXTURES NOT YET PATCHED; pre-match and match flag may remain wrong. Player roles and stats unchanged. Test Game only; stable Play Game v0.9.4 must remain unchanged. Needs emulator screenshots before further promotion."
+  "notes": "ISS26 Team Identity experimental Test07. Fully standalone on clean EU Track01. Adds Bosnia style10 large 64x28 graphic to all 34 stadium GDC GPU streams; real compressed offsets resolved with load base 0x800C8000, in-place with original pointers, other 7296 decoded bytes per stream preserved. Retains Test06: all 16 revised little flags including Canada, 15 national 2026 name rosters (330 entries), Ukrainian/Cabo Verde 44 proper-case names, Qatar SELECT3 and Bosnia DATSEL/DATSEL3 art. 63 actual CD sectors changed vs Test06, original SHA guards/EDC/ECC/complete disc SHA verified. EMULATOR TEST REQUIRED: 24x8 HUD flags, big-flag CLUT and old prematch Russia text may still be wrong. No player attribute or positioning updates. Stable Play Game remains 0.9.4."
 }
