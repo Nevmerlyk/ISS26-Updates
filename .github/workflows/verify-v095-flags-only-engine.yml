@@ -1,0 +1,33 @@
+name: Check v0.9.5 flags-only 4bpp palette compiler (NOT RELEASED)
+on:
+  push:
+    branches: [feature/v095-national-flags-only]
+    paths:
+      - 'staging/v0.9.5/flags_source/**'
+      - '.github/workflows/verify-v095-flags-only-engine.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate codec, 4bpp packing, flag rendering and unchanged sprite guards
+        run: python -m unittest discover -s staging/v0.9.5/flags_source -p 'test_*.py' -v
+      - name: Verify the 0.9.4 Play Game channel has NOT changed
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json,urllib.request
+          with urllib.request.urlopen(
+            'https://raw.githubusercontent.com/Nevmerlyk/ISS26-Updates/main/stable/latest.json',
+            timeout=20) as f:
+            stable=json.load(f)
+          assert stable['latest']['version']=='0.9.4',stable
+          print('PASS: 0.9.5 development isolated; stable game remains v0.9.4')
+          PY
