@@ -1,0 +1,72 @@
+name: Publish ISS26 Bosnia and Canada Master League small-flag Test Game patch 08
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publish-v095-teamidentity-test08.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  release_test_patch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download verified Test06 independent patch baseline
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p work
+          gh release download v0.9.6-teamidentity-test06 --repo Nevmerlyk/ISS26-Updates --pattern 'ISS26_0.9.5_TeamIdentity_Stage5_TEST06.iss26p' --dir work
+          echo '3a2b98ecfdaa693f8c652543f9a7122d6095ec488c757268d67970688714a636  work/ISS26_0.9.5_TeamIdentity_Stage5_TEST06.iss26p' | sha256sum -c -
+      - name: Apply guarded 13-sector Bosnia and Canada small-flag XOR delta and verify exact result
+        shell: python
+        run: |
+          from pathlib import Path
+          import hashlib, base64, struct, zlib
+          base = bytearray(Path('work/ISS26_0.9.5_TeamIdentity_Stage5_TEST06.iss26p').read_bytes())
+          assert base[:8] == b'ISS26X01' and len(base) == 3371868
+          count, = struct.unpack_from('<I', base, 8)
+          assert count == 1412
+          records = {}
+          for i in range(count):
+              at = 12 + i * 2388
+              lba, = struct.unpack_from('<I', base, at)
+              assert lba not in records
+              records[lba] = (at + 4, at + 36)
+          b64 = Path('staging/v0.9.5/test08_test06_to_stage10_delta.zlib.b64').read_text()
+          delta = zlib.decompress(base64.b64decode(b64))
+          assert hashlib.sha256(delta).hexdigest().upper() == 'EA9177E990B1C2A3B2E739DAB260325AA439B15B4A70DC75CD6D201D9A33AAFD'
+          assert delta[:8] == b'ISS26D01'
+          n, = struct.unpack_from('<I', delta, 8)
+          assert n == 13 and len(delta) == 12 + n * 2356
+          expected_sectors = [6084,6085,6086,6087,6088,6103,6251,6252,6253,6254,6255,6277,6279]
+          observed = []
+          for i in range(n):
+              at = 12 + i * 2356
+              lba, = struct.unpack_from('<I', delta, at)
+              assert lba in records and lba not in observed
+              observed.append(lba)
+              _, ptr = records[lba]
+              for j in range(2352):
+                  base[ptr + j] ^= delta[at + 4 + j]
+          assert observed == expected_sectors
+          digest = hashlib.sha256(base).hexdigest().upper()
+          expected = 'E65E5623756643E2DAE7069A66FE888E14439A5A534DBF171BB03630605648B1'
+          assert digest == expected, (digest, expected)
+          target = Path('work/ISS26_0.9.5_TeamIdentity_BosniaCanada_TEST08.iss26p')
+          target.write_bytes(base)
+          print('Verified standalone patch:', target, 'bytes:', len(base), 'SHA256:', digest)
+      - name: Publish experimental Test08 game patch release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tag='v0.9.6-teamidentity-test08'
+          file='work/ISS26_0.9.5_TeamIdentity_BosniaCanada_TEST08.iss26p'
+          if gh release view "$tag" --repo Nevmerlyk/ISS26-Updates >/dev/null 2>&1; then
+            gh release upload "$tag" "$file" --repo Nevmerlyk/ISS26-Updates --clobber
+          else
+            gh release create "$tag" "$file" --repo Nevmerlyk/ISS26-Updates --title 'ISS26 v0.9.5 Bosnia and Canada Master League small flags Test08' --notes 'EXPERIMENTAL Test Game ONLY. Complete standalone clean-original EU PS1 Track01 patch. Reconstructed Bosnia and Canada 24x16 tiny menu flag art from user Master League Salamic and Forest screenshots, preserving game native 20x16 visible area, the other 52 original little flags, all palette rows and all 330 updated 2026 player names from Test06. Four DATSEL/DATSEL3 streams repacked inside original 11791-byte budget; both duplicate pointer tables repaired and Mode2 EDC/ECC verified; exactly 13 CD-sector changes relative to Test06; NO GDC STADIUM GRAPHIC CHANGES (Test07 regression is quarantined). Not yet gameplay verified; do not promote stable Play Game. Old Russia/Greece prematch names, unrelated large flags and HUD are not fixed by this patch.' --prerelease
+          fi
+          gh release view "$tag" --repo Nevmerlyk/ISS26-Updates --json assets --jq '.assets[] | [.name, .size] | @tsv'
