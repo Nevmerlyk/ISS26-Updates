@@ -1,0 +1,72 @@
+name: Publish ISS26 v0.9.5 selection flags narrower Test Game patch 02
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publish-v095-smallflags-test02.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  release_test_patch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch verified standalone v0.9.4 baseline
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p work
+          gh release download v0.9.4-preview --repo Nevmerlyk/ISS26-Updates --pattern 'ISS26_0.9.4_preview.iss26p' --dir work
+          echo '70e46566a7f2c3a7e5f1e930210a132d452ef0b752d18e92f4b5475de2cb45fe  work/ISS26_0.9.4_preview.iss26p' | sha256sum -c -
+      - name: Merge verified 18-sector graphic delta and assert exact SHA-256
+        shell: python
+        run: |
+          from pathlib import Path
+          import base64, zlib, struct, hashlib
+          src = Path('work/ISS26_0.9.4_preview.iss26p').read_bytes()
+          base = bytearray(src)
+          assert base[:8] == b'ISS26X01' and len(base) == 3371868
+          n, = struct.unpack_from('<I', base, 8)
+          assert n == 1412
+          records = {}
+          for i in range(n):
+              at = 12 + i * 2388
+              lba, = struct.unpack_from('<I', base, at)
+              assert lba not in records
+              records[lba] = at + 36
+          encoded = Path('staging/v0.9.5/test02_small_flags_delta.zlib.b64').read_text()
+          delta = zlib.decompress(base64.b64decode(encoded))
+          assert hashlib.sha256(delta).hexdigest().upper() == 'C5BE5FFD1258C38E9ABE9D8F58B18DACA229C013057B652A644842A5CF991A2C'
+          assert delta[:8] == b'ISS26D01'
+          count, = struct.unpack_from('<I', delta, 8)
+          assert count == 18 and len(delta) == 12 + count * 2356
+          changed = []
+          for i in range(count):
+              at = 12 + i * 2356
+              lba, = struct.unpack_from('<I', delta, at)
+              assert lba in records and lba not in changed
+              changed.append(lba)
+              ptr = records[lba]
+              for j in range(2352):
+                  base[ptr + j] ^= delta[at + 4 + j]
+          assert changed == [5328,5329,6082,6083,6084,6085,6086,6087,6088,6103,6250,6251,6252,6253,6254,6255,6277,6279]
+          digest = hashlib.sha256(base).hexdigest().upper()
+          expected = '0FFE0A69F62954A85B87044A3FC5561127FA27271F13E6AEC226C2B5A4B0C003'
+          assert digest == expected, (digest, expected)
+          dest = Path('work/ISS26_0.9.5_SmallFlags_TEST02.iss26p')
+          dest.write_bytes(base)
+          print('Verified patch', dest, len(base), digest)
+      - name: Publish pre-release asset for launcher Test Game
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tag='v0.9.6-selectflags-test02'
+          file='work/ISS26_0.9.5_SmallFlags_TEST02.iss26p'
+          if gh release view "$tag" --repo Nevmerlyk/ISS26-Updates >/dev/null 2>&1; then
+            gh release upload "$tag" "$file" --repo Nevmerlyk/ISS26-Updates --clobber
+          else
+            gh release create "$tag" "$file" --repo Nevmerlyk/ISS26-Updates --title 'ISS26 v0.9.5 selection flag artwork test 02' --notes 'Based on the full independent v0.9.4 patch. 16 revised small national flags with narrower active content area (20x14 within the original 24x16 texture slot), rebuilt New Zealand artwork from the Australian-style layout with four white-bordered red stars, preserved 38 other flag pixel maps, CLUT corrections for 54 slots, and corrected DATSEL/DATSEL3 compressed streams. Local SHA and decode checks passed. EMULATOR VISUAL VALIDATION REQUIRED. Never use as Play Game stable.' --prerelease
+          fi
+          gh release view "$tag" --repo Nevmerlyk/ISS26-Updates --json assets --jq '.assets[] | [.name, .size] | @tsv'
