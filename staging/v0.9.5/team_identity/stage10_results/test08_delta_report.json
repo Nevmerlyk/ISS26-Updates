@@ -1,0 +1,25 @@
+{
+  "baseline_patch_sha256": "3A2B98ECFDAA693F8C652543F9A7122D6095EC488C757268D67970688714A636",
+  "full_patch_sha256": "E65E5623756643E2DAE7069A66FE888E14439A5A534DBF171BB03630605648B1",
+  "delta_sha256": "EA9177E990B1C2A3B2E739DAB260325AA439B15B4A70DC75CD6D201D9A33AAFD",
+  "sector_count": 13,
+  "sector_ids": [
+    6084,
+    6085,
+    6086,
+    6087,
+    6088,
+    6103,
+    6251,
+    6252,
+    6253,
+    6254,
+    6255,
+    6277,
+    6279
+  ],
+  "delta_bytes": 30640,
+  "zlib_base64_chars": 13956,
+  "reconstructed_full_patch_matches_byte_for_byte": true,
+  "standalone_clean_original_patch": true
+}
