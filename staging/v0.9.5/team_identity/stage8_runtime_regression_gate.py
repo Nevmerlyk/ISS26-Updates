@@ -59,7 +59,7 @@ def check(baseline:Path,candidate:Path,inventory:Path):
       'gdc_affected_count':len(affected),
       'gdc_affected_sector_count':len(set(x for ls in affected.values() for x in ls)),
       'gdc_affected':affected,
-      'safety_rationale':'User PCSX-Redux screenshots of Test07 show stadium/pitch texture corruption; identical VRAM atlas coordinates are not proof of identical runtime texture identity.',
+      'safety_rationale':'2026-11-11 correction: large flags on the pitch are normal ceremonial objects, not unexpected pitch corruption. Some replacement-team ceremonial flags have garbled contents; GDC edits remain gated until the actual flag texture UV/CLUT/source is identified.',
     }
 
 if __name__=='__main__':
