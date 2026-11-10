@@ -1,0 +1,43 @@
+{
+  "files_scanned": 238,
+  "terms_searched": [
+    "CHINA",
+    "JAMAICA",
+    "RUSSIA",
+    "GREECE",
+    "YUGOSLAVIA",
+    "SLOVENIA"
+  ],
+  "literal_ASCII_original_hits": 45,
+  "literal_ASCII_stage3_hits": 3,
+  "stage3_hits": [
+    {
+      "team_slot": 4,
+      "legacy_term": "CHINA",
+      "phase": "stage3",
+      "file": "/REPLAYS.BIN;1",
+      "logical_offset": 17080,
+      "observed": "China",
+      "context_ascii": "U-23Thailand. . . . U-23China. . . U-23Korea. . . U-23J"
+    },
+    {
+      "team_slot": 4,
+      "legacy_term": "CHINA",
+      "phase": "stage3",
+      "file": "/SELECT2.BIN;1",
+      "logical_offset": 281964,
+      "observed": "CHINA",
+      "context_ascii": "SUGI. KENGO FUJITANI. CHINA. KATSUHIKO KUMAGAI. K"
+    },
+    {
+      "team_slot": 4,
+      "legacy_term": "CHINA",
+      "phase": "stage3",
+      "file": "/SELECTC.BIN;1",
+      "logical_offset": 23805,
+      "observed": "China",
+      "context_ascii": "-23 Thailand. . . U-23 China. . U-23 South Korea. ."
+    }
+  ],
+  "warning": "Compressed graphics/name banks, non-ASCII name encoding and runtime memory not covered. Missing ASCII hits DO NOT prove no legacy names appear on screen."
+}
