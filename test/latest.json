@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "channel": "test",
   "latest": {
-    "version": "0.9.6-teamidentity-test06",
-    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.6-teamidentity-test06/ISS26_0.9.5_TeamIdentity_Stage5_TEST06.iss26p",
-    "patchSha256": "3A2B98ECFDAA693F8C652543F9A7122D6095EC488C757268D67970688714A636",
+    "version": "0.9.6-teamidentity-test08",
+    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.6-teamidentity-test08/ISS26_0.9.5_TeamIdentity_BosniaCanada_TEST08.iss26p",
+    "patchSha256": "E65E5623756643E2DAE7069A66FE888E14439A5A534DBF171BB03630605648B1",
     "baseSha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
-    "resultSha256": "A3B94E6837D9E4FFC75B8F0440E39BF26CE806B57668ACB49839488E5928FAB2"
+    "resultSha256": "DB1D4E84E0DEFD0A2AB2BDEC860A28A3245C658738371902ED53B234A994F685"
   },
-  "notes": "SAFETY ROLLBACK after PCSX-Redux screenshots of experimental Test07 showed prematch Russia/Greece old names, corrupted flag tiles and severe stadium-field/ground flag texture artefacts. Test07 GDC edits are quarantined pending diagnosis. Test06 preserves 330 players in 15 national rosters, 44 mixed-case Ukraine/Cabo Verde names, Qatar additional name, Canada and other small selection flags, Bosnia custom style10 DATSEL/DATSEL3 art. TEST06 IS NOT YET VERIFIED SAFE IN MATCH; stage Test06 vs Test07 comparison to isolate GDC corruption. Stable Play Game remains v0.9.4, unchanged."
+  "notes": "Experimental ISS26 v0.9.5 Team Identity Test08: selection-context 24x16 Bosnia and Canada tiny flags hand-redrawn from user Master League Salamic/Forest screenshots, active 20x16 drawing with unchanged position. Full standalone patch on clean original European Track01, includes working Test06 330 updated FIFA 2026 player-name entries, proper-case Ukraine/Cabo Verde (44 names), Qatar additional table and previous selection art for 52 other team sprites. Exactly 13 CD sectors differ vs Test06 and NONE belong to stadium GDC resource sectors; Test07 GDC corruption remains quarantined. Original and final SHA256, CD Mode2 EDC/ECC, stream roundtrip, two duplicate pointer tables and all 54 selection images statically verified. Requires in-emulator visual validation; pre-match Russia/Greece names, big flag corruption, HUD icon and positional attributes remain unresolved. Stable Play Game v0.9.4 unchanged."
 }
