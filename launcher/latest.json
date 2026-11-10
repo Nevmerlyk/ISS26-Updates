@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "latest": {
-    "version": "0.7.2",
-    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.7.2/ISS26-LauncherUpdate.zip",
-    "zipSha256": "B84FA85D1B5130105530EC54A08D8CD39C37810374312E42CC6D5388E771FFBB",
-    "launcherSha256": "FEC2F0C2A908589D22AA30FBDBC536D5C72844A7400B633C8573E4046CA08D99",
-    "updaterSha256": "2440BB3B14A1102E1D33521AAD496EC2F293F7BF99753282A14C02E589D94B8A",
-    "notes": "ISS26 Explorer v0.7.2 stable: AutoTest automatically recovers missing experimental CUE/BIN and cleared metadata through existing official SHA256-verified Test Game updater; no manual picker. No downgrade of Calibrator v0.7.1. Detailed WinForms errors, cancellable recovery progress. Stable game remains v0.9.4."
+    "version": "0.8.1",
+    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.8.1/ISS26-LauncherUpdate.zip",
+    "zipSha256": "8CCA2A56F29247C5AFD1E1E574FA563C7029993E14B0B7F9FE1B6F08E3C5C617",
+    "launcherSha256": "D21495339E6D7159A7B9688968E9792979925A4EB146F94C6623DAEF1C9BEE20",
+    "updaterSha256": "0245FAA7FED315621D2236F6C0A995E3546CB33CD8596CA3341E6C3BFA000C68",
+    "notes": "ISS26 Academy v0.8.1 stable: Explorer renamed Academy with Practice, Calibrator and Progress tabs. Goals track planned, assigned, active, finished-schedule and failed runs with short descriptions. Previous session/report archives retained. Includes validated v0.7.2 recovery of missing test BIN/CUE. Completing a scripted run does not certify football competence. Game stable patch v0.9.4 unchanged."
   }
 }
