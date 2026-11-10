@@ -1,0 +1,85 @@
+name: Publish ISS26 17 National Prematch Name Atlases Test Game patch 10
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publish-v095-teamidentity-test10.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  release_test_patch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download verified Test09 full clean-original patch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p work
+          gh release download v0.9.6-teamidentity-test09 --repo Nevmerlyk/ISS26-Updates --pattern 'ISS26_0.9.5_TeamIdentity_BigGPU_AB_TEST09.iss26p' --dir work
+          echo 'fa5e3dc3702808e8abc197c9bb27b0707a4d44575d765918911ad846738d71b2  work/ISS26_0.9.5_TeamIdentity_BigGPU_AB_TEST09.iss26p' | sha256sum -c -
+      - name: Merge guarded 84-sector graphical-name LZMA delta and independently verify target full patch
+        shell: python
+        run: |
+          from pathlib import Path
+          import hashlib, base64, lzma, struct
+          root=Path('staging/v0.9.5')
+          chunks=[(root/f'test10_prematch_names_delta.part{i:02d}.b64').read_text().strip() for i in range(1,6)]
+          transfer=base64.b64decode(''.join(chunks),validate=True)
+          assert hashlib.sha256(transfer).hexdigest().upper() == 'C425FEE3E5B561A507E864DA22E08EDD3C5F0A3D43FCE42371A7DB8BD65317AC'
+          delta=lzma.decompress(transfer)
+          assert hashlib.sha256(delta).hexdigest().upper() == '3006D0D0111670B611CBCC87FAE80E3F94CBCD7DE8DB6F340407996C7FD6BE14'
+          assert delta[:8] == b'ISS26M01'
+          changes,=struct.unpack_from('<I',delta,8)
+          assert changes == 84 and len(delta) == 12+changes*2388
+          source=Path('work/ISS26_0.9.5_TeamIdentity_BigGPU_AB_TEST09.iss26p').read_bytes()
+          assert source[:8] == b'ISS26X01' and len(source)==3371868
+          n,=struct.unpack_from('<I',source,8)
+          assert n==1412
+          rec={}
+          for i in range(n):
+              off=12+i*2388
+              lba,=struct.unpack_from('<I',source,off)
+              assert lba not in rec
+              rec[lba]=(source[off+4:off+36],source[off+36:off+2388])
+          assert len(rec)==n
+          null=bytes(2352)
+          seen=set()
+          for i in range(changes):
+              off=12+i*2388
+              lba,=struct.unpack_from('<I',delta,off)
+              guard=delta[off+4:off+36]
+              difference=delta[off+36:off+2388]
+              assert lba not in seen and 8200<=lba<=8287 and lba not in rec
+              seen.add(lba)
+              assert any(difference)
+              assert len(guard)==32
+              rec[lba]=(guard,difference)
+          assert len(rec)==1496
+          assert sorted(seen)==list(range(8200,8228))+list(range(8230,8258))+list(range(8260,8288))
+          result=bytearray(b'ISS26X01'+struct.pack('<I',len(rec)))
+          for lba in sorted(rec):
+              guard,mask=rec[lba]
+              assert len(guard)==32 and len(mask)==2352
+              result+=struct.pack('<I',lba)+guard+mask
+          assert len(result)==3572460
+          expected='9832FA77F1DF60A56683F9BEA2AB631580056039A864A7E830EF8BE61138926B'
+          digest=hashlib.sha256(result).hexdigest().upper()
+          assert digest==expected,(digest,expected)
+          dest=Path('work/ISS26_0.9.5_TeamIdentity_PrematchNames_TEST10.iss26p')
+          dest.write_bytes(result)
+          print('Test10 verified:',dest, 'sha256:',digest, 'records:',len(rec))
+      - name: Publish experimental Test10 patch release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tag='v0.9.6-teamidentity-test10'
+          file='work/ISS26_0.9.5_TeamIdentity_PrematchNames_TEST10.iss26p'
+          if gh release view "$tag" --repo Nevmerlyk/ISS26-Updates >/dev/null 2>&1; then
+            gh release upload "$tag" "$file" --repo Nevmerlyk/ISS26-Updates --clobber
+          else
+            gh release create "$tag" "$file" --repo Nevmerlyk/ISS26-Updates --title 'ISS26 v0.9.5 Test10 complete national prematch team names' --notes 'EXPERIMENTAL. Full standalone EU PS1 Track01 patch with exact original-sector SHA guards. Discovered real rasterized names in T_NAME_E/F/G.BIN: 26 compressed 4bpp GPU upload blocks containing 54 national labels, 2 bonus names, club and stadium labels. Replaced only 17 renamed nations, including Bosnia Russia, New Zealand Greece, Canada Jamaica, Qatar UAE. Rebuilt WE streams and pointer tables within exact original files with 1176 bytes headroom; 37 other national labels, 2 bonuses, 24 club and stadium labels remain pixel-identical. New pixel text visually approximates original italic font, requires PCSX-Redux verification. Original Test09 small flags, player names and ALL stadium GDC assets remain untouched. Does not yet correct big flag artwork: separate investigation needed. Stable Play Game remains v0.9.4.' --prerelease
+          fi
+          gh release view "$tag" --repo Nevmerlyk/ISS26-Updates --json assets --jq '.assets[] | [.name, .size] | @tsv'
