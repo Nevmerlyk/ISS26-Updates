@@ -1,0 +1,67 @@
+{
+  "stage": "4 – Bosnian flag style ownership and national player-role integration gate",
+  "status": "READ ONLY STAGE4 AUDIT — safe release of flag/position writes not yet proven",
+  "baseline_stage3_patch_sha256": "E8EE2D51CA513C7A61EB8A8D8C30565CA8E9007D4B7337B57C550EA3D4C4B03D",
+  "national_team_styles_checked": 54,
+  "bosnia": {
+    "team_slot": 23,
+    "style_now": 7,
+    "shared_with_slot_ids": [
+      13,
+      20,
+      32,
+      33,
+      40,
+      44
+    ],
+    "shared_with_team_names": [
+      "COLOMBIA",
+      "EGYPT",
+      "HUNGARY",
+      "AUSTRIA",
+      "GERMANY",
+      "NETHERLANDS"
+    ],
+    "proven_free_original_style": 10,
+    "original_owner_of_style10": "SLOVAKIA (now DR CONGO)",
+    "suggested_strategy": "Generate unique Bosnian flag artwork for free native style 10, update both style tables from 7 to 10, and synchronize every menu, prematch and GDC texture source; do not edit style 7 bitmap",
+    "ready_to_apply": false
+  },
+  "other_currently_unused_native_styles": [
+    10
+  ],
+  "active_extra_style_ids": [
+    35,
+    37,
+    43,
+    52,
+    53,
+    54,
+    56,
+    57,
+    58,
+    59,
+    60
+  ],
+  "source_backed_2026_15team_roster_slots": 15,
+  "source_backed_player_names_checked": 330,
+  "position_template_disagreements": 9,
+  "position_disagreements_team_count": 6,
+  "disagreement_by_team": {
+    "QATAR": 2,
+    "UZBEK": 2,
+    "PANAMA": 1,
+    "HAITI": 2,
+    "GHANA": 1,
+    "I.COAST": 1
+  },
+  "native_ps1_position_attribute_offsets_confirmed": false,
+  "must_preserve": "Stage3 330 player names, Stage2 44 mixed-case labels, Test05 Canada flag, all original 39 other rosters and stable v0.9.4 data",
+  "test_game_feed_updated": false,
+  "warnings": [
+    "Do not alter shared style #7: it is used by six other national teams",
+    "A free style ID alone is NOT an actual texture replacement: style 10 still requires correct Bosnia artwork in all active VRAM upload sources.",
+    "The nine mismatches compare FIFA source positions to an INTENDED Stage3 ordering template; actual PS1 role flags have not been extracted. Do not blindly write role values.",
+    "Old names on prematch screen may originate from non-ASCII encodings or secondary assets; not resolved by this style ownership audit."
+  ]
+}
