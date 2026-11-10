@@ -1,0 +1,64 @@
+name: Inspect v0.9.4 XOR masks at known original national flag graphics
+on:
+  push:
+    branches: [feature/v095-national-flags-only]
+    paths: ['.github/workflows/inspect-v094-national-atlas-masks.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Read original-based stable v0.9.4 patch, never a game BIN
+        run: |
+          python - <<'PY'
+          import urllib.request, hashlib, struct, collections
+          url='https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.4-preview/ISS26_0.9.4_preview.iss26p'
+          with urllib.request.urlopen(urllib.request.Request(url,headers={'User-Agent':'ISS26-Flag-Forensics'}), timeout=90) as r:
+            b=r.read()
+          sha=hashlib.sha256(b).hexdigest().upper()
+          assert sha=='70E46566A7F2C3A7E5F1E930210A132D452EF0B752D18E92F4B5475DE2CB45FE'
+          assert b[:8]==b'ISS26X01'
+          count=struct.unpack_from('<I',b,8)[0]
+          records={}
+          for i in range(count):
+            pos=12+i*(36+2352)
+            lba=struct.unpack_from('<I',b,pos)[0]
+            records[lba]=b[pos+36:pos+36+2352]
+          print('PATCH SHA',sha,'record_count',count)
+          def section(label, lba, raw_lo, length):
+            area=records.get(lba)
+            if area is None:
+              print(label,'LBA',lba,'UNMODIFIED SECTOR');return
+            raw=area[raw_lo:raw_lo+length]
+            changed=[(i+raw_lo,v) for i,v in enumerate(raw) if v]
+            print(label,'LBA',lba,'raw',raw_lo,'len',length,'changed',len(changed),
+                  'first16',[(hex(pos),hex(val)) for pos,val in changed[:16]])
+          def cooked(n):
+            return (6000+n//2048,24+(n%2048))
+          for label,offset,n in [
+            ('DATSEL first header and uploaded-table pointer',0,16),
+            ('DATSEL old flags stream43 start',0x2c9a8,64),
+            ('DATSEL old flags stream44',0x2cf08,64),
+            ('DATSEL old flags stream45',0x2d71c,64),
+            ('DATSEL upload table #43',0x33dac+43*16,16),
+            ('DATSEL upload table #44',0x33dac+44*16,16),
+            ('DATSEL upload table #45',0x33dac+45*16,16)
+          ]:
+            lba,off=cooked(offset);section(label,lba,off,n)
+          for label,position,n in [
+            ('national style table',0x1D6F48,54),
+            ('flag CLUT first slot',0xBF3B38,32),
+            ('flag CLUT last slot',0xBF3B38+53*32,32)
+          ]:
+            lba,off=divmod(position,2352);section(label,lba,off,n)
+          for start,end in [(0x2c9a8,0x2ddfc),(0x33dac+43*16,0x33dac+46*16)]:
+            dirty=collections.Counter()
+            for pos in range(start,end):
+              lba,off=cooked(pos)
+              d=records.get(lba)
+              if d and d[off]:dirty[lba]+=1
+            print('DATSEL RANGE',hex(start),hex(end),'nonzero v094 XOR bytes',sum(dirty.values()),'sectors',dict(dirty))
+          PY
