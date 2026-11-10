@@ -17,6 +17,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Install pixel-art build dependency
+        run: python -m pip install 'Pillow==11.3.0'
       - name: Validate codec, 4bpp packing, flag rendering and unchanged sprite guards
         run: python -m unittest discover -s staging/v0.9.5/flags_source -p 'test_*.py' -v
       - name: Verify the 0.9.4 Play Game channel has NOT changed
