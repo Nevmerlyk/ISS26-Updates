@@ -1,0 +1,10 @@
+[
+  {
+    "file": "SELECT3.BIN",
+    "offset": 10168,
+    "expected_hex": "552e412e452e0000",
+    "replacement_hex": "5161746172000000",
+    "purpose": "Correct stale QATAR label, candidate for static text replacement",
+    "publish": false
+  }
+]
