@@ -1,0 +1,51 @@
+name: Publish Flag Palette Test 01
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publish-flag-palette-test01.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Obtain pinned independent test delta
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch --no-tags --depth=1 origin cc3ccb6dbd8b8082d16328b38af778d2eed6c720
+          git show FETCH_HEAD:ISS26_0.9.5_FlagPalette_Test01.iss26p > ISS26_0.9.5_FlagPalette_Test01.iss26p
+          python - <<'PY'
+          import hashlib, struct
+          from pathlib import Path
+          p=Path('ISS26_0.9.5_FlagPalette_Test01.iss26p')
+          raw=p.read_bytes()
+          expected='3BB97C81E3825371BBB0FE1C7E3CAA71038EA7098B4F6C68C382257819E01981'
+          assert hashlib.sha256(raw).hexdigest().upper()==expected
+          assert len(raw)==2400 and raw[:8]==b'ISS26X01'
+          assert struct.unpack_from('<I',raw,8)[0]==1
+          assert struct.unpack_from('<I',raw,12)[0]==5329
+          print('Verified clean-original standalone test delta, sector 5329')
+          PY
+      - name: Publish GitHub prerelease
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          tag=v0.9.6-flag-palette-test01
+          file=ISS26_0.9.5_FlagPalette_Test01.iss26p
+          if gh release view "$tag" >/dev/null 2>&1; then
+            gh release upload "$tag" "$file" --clobber
+          else
+            gh release create "$tag" "$file" --prerelease \
+              --title 'ISS26 Flag Palette Test 01 (experimental)' \
+              --notes 'Standalone test-only CLUT color probe for 3 small flags (slots 5, 8, 10); not a Bosnia fix. Stable channel unchanged.'
+          fi
