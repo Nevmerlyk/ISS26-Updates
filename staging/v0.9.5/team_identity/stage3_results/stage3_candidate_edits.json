@@ -1,0 +1,2000 @@
+[
+  {
+    "raw_offset": 405888,
+    "expected_hex": "4a2e5261636869640000",
+    "replacement_hex": "4261727368616d000000",
+    "purpose": "2026 verified-roster name slot 2 #1: J.Rachid -> Barsham"
+  },
+  {
+    "raw_offset": 405898,
+    "expected_hex": "492e5261736869640000",
+    "replacement_hex": "4b686f756b6869000000",
+    "purpose": "2026 verified-roster name slot 2 #2: I.Rashid -> Khoukhi"
+  },
+  {
+    "raw_offset": 405908,
+    "expected_hex": "53756b6861696c000000",
+    "replacement_hex": "4d696775656c00000000",
+    "purpose": "2026 verified-roster name slot 2 #3: Sukhail -> Miguel"
+  },
+  {
+    "raw_offset": 405918,
+    "expected_hex": "416c20486f6464616400",
+    "replacement_hex": "41686d65640000000000",
+    "purpose": "2026 verified-roster name slot 2 #4: Al Hoddad -> Ahmed"
+  },
+  {
+    "raw_offset": 405928,
+    "expected_hex": "4d6f6e74686572000000",
+    "replacement_hex": "47616265720000000000",
+    "purpose": "2026 verified-roster name slot 2 #5: Monther -> Gaber"
+  },
+  {
+    "raw_offset": 405938,
+    "expected_hex": "4768616c776173000000",
+    "replacement_hex": "486174656d0000000000",
+    "purpose": "2026 verified-roster name slot 2 #6: Ghalwas -> Hatem"
+  },
+  {
+    "raw_offset": 405948,
+    "expected_hex": "412e4962726568696d00",
+    "replacement_hex": "426f7564696166000000",
+    "purpose": "2026 verified-roster name slot 2 #7: A.Ibrehim -> Boudiaf"
+  },
+  {
+    "raw_offset": 405958,
+    "expected_hex": "53616964000000000000",
+    "replacement_hex": "4d616469626f00000000",
+    "purpose": "2026 verified-roster name slot 2 #8: Said -> Madibo"
+  },
+  {
+    "raw_offset": 405968,
+    "expected_hex": "4d7568616d6564000000",
+    "replacement_hex": "46617468790000000000",
+    "purpose": "2026 verified-roster name slot 2 #9: Muhamed -> Fathy"
+  },
+  {
+    "raw_offset": 405978,
+    "expected_hex": "4b2e53616c6164000000",
+    "replacement_hex": "416c686179646f730000",
+    "purpose": "2026 verified-roster name slot 2 #10: K.Salad -> Alhaydos"
+  },
+  {
+    "raw_offset": 405988,
+    "expected_hex": "4261726b686974000000",
+    "replacement_hex": "41666966000000000000",
+    "purpose": "2026 verified-roster name slot 2 #11: Barkhit -> Afif"
+  },
+  {
+    "raw_offset": 405998,
+    "expected_hex": "522e4962726568696d00",
+    "replacement_hex": "4d656e64657300000000",
+    "purpose": "2026 verified-roster name slot 2 #12: R.Ibrehim -> Mendes"
+  },
+  {
+    "raw_offset": 406008,
+    "expected_hex": "592e48757373616e0000",
+    "replacement_hex": "416c6272616b65000000",
+    "purpose": "2026 verified-roster name slot 2 #13: Y.Hussan -> Albrake"
+  },
+  {
+    "raw_offset": 406018,
+    "expected_hex": "46616e68656400000000",
+    "replacement_hex": "416c2d4875737361696e",
+    "purpose": "2026 verified-roster name slot 2 #14: Fanhed -> Al-Hussain"
+  },
+  {
+    "raw_offset": 406028,
+    "expected_hex": "416264656c204f7a697a",
+    "replacement_hex": "416c67616e6568690000",
+    "purpose": "2026 verified-roster name slot 2 #15: Abdel Oziz -> Alganehi"
+  },
+  {
+    "raw_offset": 406038,
+    "expected_hex": "412e41626475686c6100",
+    "replacement_hex": "416c6900000000000000",
+    "purpose": "2026 verified-roster name slot 2 #16: A.Abduhla -> Ali"
+  },
+  {
+    "raw_offset": 406048,
+    "expected_hex": "4d6174616c7900000000",
+    "replacement_hex": "416c6161656c64696e00",
+    "purpose": "2026 verified-roster name slot 2 #17: Mataly -> Alaaeldin"
+  },
+  {
+    "raw_offset": 406058,
+    "expected_hex": "4164656c2053616c616e",
+    "replacement_hex": "4d756e74617269000000",
+    "purpose": "2026 verified-roster name slot 2 #18: Adel Salan -> Muntari"
+  },
+  {
+    "raw_offset": 406068,
+    "expected_hex": "416c204a756e65646900",
+    "replacement_hex": "41626475726973616700",
+    "purpose": "2026 verified-roster name slot 2 #19: Al Junedi -> Abdurisag"
+  },
+  {
+    "raw_offset": 406078,
+    "expected_hex": "416c2054616c79756e69",
+    "replacement_hex": "45646d696c736f6e0000",
+    "purpose": "2026 verified-roster name slot 2 #20: Al Talyuni -> Edmilson"
+  },
+  {
+    "raw_offset": 406088,
+    "expected_hex": "422e53616c6164000000",
+    "replacement_hex": "5a616b61726961000000",
+    "purpose": "2026 verified-roster name slot 2 #21: B.Salad -> Zakaria"
+  },
+  {
+    "raw_offset": 406098,
+    "expected_hex": "4d6f7361626568000000",
+    "replacement_hex": "4162756e616461000000",
+    "purpose": "2026 verified-roster name slot 2 #22: Mosabeh -> Abunada"
+  },
+  {
+    "raw_offset": 405448,
+    "expected_hex": "4a756e204a6565000000",
+    "replacement_hex": "59757375706f76000000",
+    "purpose": "2026 verified-roster name slot 4 #1: Jun Jee -> Yusupov"
+  },
+  {
+    "raw_offset": 405458,
+    "expected_hex": "48616e204a6565000000",
+    "replacement_hex": "41736875726d61746f76",
+    "purpose": "2026 verified-roster name slot 4 #2: Han Jee -> Ashurmatov"
+  },
+  {
+    "raw_offset": 405468,
+    "expected_hex": "4368617520456e686100",
+    "replacement_hex": "53617966696576000000",
+    "purpose": "2026 verified-roster name slot 4 #3: Chau Enha -> Sayfiev"
+  },
+  {
+    "raw_offset": 405478,
+    "expected_hex": "4f6f204368616e686900",
+    "replacement_hex": "416c696a6f6e6f760000",
+    "purpose": "2026 verified-roster name slot 4 #4: Oo Chanhi -> Alijonov"
+  },
+  {
+    "raw_offset": 405488,
+    "expected_hex": "5869652046696e670000",
+    "replacement_hex": "4e617372756c6c616576",
+    "purpose": "2026 verified-roster name slot 4 #5: Xie Fing -> Nasrullaev"
+  },
+  {
+    "raw_offset": 405498,
+    "expected_hex": "4c65652054656f000000",
+    "replacement_hex": "5368756b75726f760000",
+    "purpose": "2026 verified-roster name slot 4 #6: Lee Teo -> Shukurov"
+  },
+  {
+    "raw_offset": 405508,
+    "expected_hex": "4d61204d696e67796100",
+    "replacement_hex": "48616d726f62656b6f76",
+    "purpose": "2026 verified-roster name slot 4 #7: Ma Mingya -> Hamrobekov"
+  },
+  {
+    "raw_offset": 405518,
+    "expected_hex": "5961692053686f000000",
+    "replacement_hex": "5572756e6f7600000000",
+    "purpose": "2026 verified-roster name slot 4 #8: Yai Sho -> Urunov"
+  },
+  {
+    "raw_offset": 405528,
+    "expected_hex": "536f6e204a756e6a616e",
+    "replacement_hex": "49736b616e6465726f76",
+    "purpose": "2026 verified-roster name slot 4 #9: Son Junjan -> Iskanderov"
+  },
+  {
+    "raw_offset": 405538,
+    "expected_hex": "4c656520426f6f6e0000",
+    "replacement_hex": "53686f6d75726f646f76",
+    "purpose": "2026 verified-roster name slot 4 #10: Lee Boon -> Shomurodov"
+  },
+  {
+    "raw_offset": 405548,
+    "expected_hex": "48692048616f64656e00",
+    "replacement_hex": "53657267656576000000",
+    "purpose": "2026 verified-roster name slot 4 #11: Hi Haoden -> Sergeev"
+  },
+  {
+    "raw_offset": 405558,
+    "expected_hex": "4d6f7520497a6d000000",
+    "replacement_hex": "4573686d75726f646f76",
+    "purpose": "2026 verified-roster name slot 4 #12: Mou Izm -> Eshmurodov"
+  },
+  {
+    "raw_offset": 405568,
+    "expected_hex": "536f6f204a6973616900",
+    "replacement_hex": "4b687573616e6f760000",
+    "purpose": "2026 verified-roster name slot 4 #13: Soo Jisai -> Khusanov"
+  },
+  {
+    "raw_offset": 405578,
+    "expected_hex": "5761792054696e000000",
+    "replacement_hex": "416264756c6c61657600",
+    "purpose": "2026 verified-roster name slot 4 #14: Way Tin -> Abdullaev"
+  },
+  {
+    "raw_offset": 405588,
+    "expected_hex": "4c6565204d6f6e670000",
+    "replacement_hex": "4b68616d64616d6f7600",
+    "purpose": "2026 verified-roster name slot 4 #15: Lee Mong -> Khamdamov"
+  },
+  {
+    "raw_offset": 405598,
+    "expected_hex": "4c6565204a6f6f000000",
+    "replacement_hex": "4661797a756c6c616576",
+    "purpose": "2026 verified-roster name slot 4 #16: Lee Joo -> Fayzullaev"
+  },
+  {
+    "raw_offset": 405608,
+    "expected_hex": "50657520576179676f00",
+    "replacement_hex": "4d6f7a676f766f790000",
+    "purpose": "2026 verified-roster name slot 4 #17: Peu Waygo -> Mozgovoy"
+  },
+  {
+    "raw_offset": 405618,
+    "expected_hex": "536f6f204d6f205a656e",
+    "replacement_hex": "416d6f6e6f7600000000",
+    "purpose": "2026 verified-roster name slot 4 #18: Soo Mo Zen -> Amonov"
+  },
+  {
+    "raw_offset": 405628,
+    "expected_hex": "5368616e205375000000",
+    "replacement_hex": "47616e69657600000000",
+    "purpose": "2026 verified-roster name slot 4 #19: Shan Su -> Ganiev"
+  },
+  {
+    "raw_offset": 405638,
+    "expected_hex": "59616e672054696e0000",
+    "replacement_hex": "4a6979616e6f76000000",
+    "purpose": "2026 verified-roster name slot 4 #20: Yang Tin -> Jiyanov"
+  },
+  {
+    "raw_offset": 405648,
+    "expected_hex": "47616c6120466f6e0000",
+    "replacement_hex": "4e656d61746f76000000",
+    "purpose": "2026 verified-roster name slot 4 #21: Gala Fon -> Nematov"
+  },
+  {
+    "raw_offset": 405658,
+    "expected_hex": "4f682054687572616d00",
+    "replacement_hex": "45726761736865760000",
+    "purpose": "2026 verified-roster name slot 4 #22: Oh Thuram -> Ergashev"
+  },
+  {
+    "raw_offset": 403824,
+    "expected_hex": "4d612e52616d72617a00",
+    "replacement_hex": "4d656a69610000000000",
+    "purpose": "2026 verified-roster name slot 10 #1: Ma.Ramraz -> Mejia"
+  },
+  {
+    "raw_offset": 403834,
+    "expected_hex": "52656965730000000000",
+    "replacement_hex": "44617669730000000000",
+    "purpose": "2026 verified-roster name slot 10 #2: Reies -> Davis"
+  },
+  {
+    "raw_offset": 403844,
+    "expected_hex": "4d617267686173000000",
+    "replacement_hex": "4573636f626172000000",
+    "purpose": "2026 verified-roster name slot 10 #3: Marghas -> Escobar"
+  },
+  {
+    "raw_offset": 403854,
+    "expected_hex": "436f6e74726173000000",
+    "replacement_hex": "4d7572696c6c6f000000",
+    "purpose": "2026 verified-roster name slot 10 #4: Contras -> Murillo"
+  },
+  {
+    "raw_offset": 403864,
+    "expected_hex": "4d616c646f6e646f0000",
+    "replacement_hex": "416e6472616465000000",
+    "purpose": "2026 verified-roster name slot 10 #5: Maldondo -> Andrade"
+  },
+  {
+    "raw_offset": 403874,
+    "expected_hex": "4163756e686100000000",
+    "replacement_hex": "476f646f790000000000",
+    "purpose": "2026 verified-roster name slot 10 #6: Acunha -> Godoy"
+  },
+  {
+    "raw_offset": 403884,
+    "expected_hex": "54696c6f000000000000",
+    "replacement_hex": "5175696e7465726f0000",
+    "purpose": "2026 verified-roster name slot 10 #7: Tilo -> Quintero"
+  },
+  {
+    "raw_offset": 403894,
+    "expected_hex": "4f726d697a62696c0000",
+    "replacement_hex": "42617263656e61730000",
+    "purpose": "2026 verified-roster name slot 10 #8: Ormizbil -> Barcenas"
+  },
+  {
+    "raw_offset": 403904,
+    "expected_hex": "50617a6972726f000000",
+    "replacement_hex": "4361727261737175692e",
+    "purpose": "2026 verified-roster name slot 10 #9: Pazirro -> Carrasqui."
+  },
+  {
+    "raw_offset": 403914,
+    "expected_hex": "53616c6c617300000000",
+    "replacement_hex": "46616a6172646f000000",
+    "purpose": "2026 verified-roster name slot 10 #10: Sallas -> Fajardo"
+  },
+  {
+    "raw_offset": 403924,
+    "expected_hex": "5a616d61726f6e6f0000",
+    "replacement_hex": "57617465726d616e0000",
+    "purpose": "2026 verified-roster name slot 10 #11: Zamarono -> Waterman"
+  },
+  {
+    "raw_offset": 403934,
+    "expected_hex": "4675616e746573000000",
+    "replacement_hex": "4d696c6c657200000000",
+    "purpose": "2026 verified-roster name slot 10 #12: Fuantes -> Miller"
+  },
+  {
+    "raw_offset": 403944,
+    "expected_hex": "4d692e52616d72617a00",
+    "replacement_hex": "426c61636b6d616e0000",
+    "purpose": "2026 verified-roster name slot 10 #13: Mi.Ramraz -> Blackman"
+  },
+  {
+    "raw_offset": 403954,
+    "expected_hex": "566f7267617300000000",
+    "replacement_hex": "436f72646f6261000000",
+    "purpose": "2026 verified-roster name slot 10 #14: Vorgas -> Cordoba"
+  },
+  {
+    "raw_offset": 403964,
+    "expected_hex": "56696c6c61726f656c00",
+    "replacement_hex": "526f6472696775657a00",
+    "purpose": "2026 verified-roster name slot 10 #15: Villaroel -> Rodriguez"
+  },
+  {
+    "raw_offset": 403974,
+    "expected_hex": "526f7261730000000000",
+    "replacement_hex": "4d617274696e657a0000",
+    "purpose": "2026 verified-roster name slot 10 #16: Roras -> Martinez"
+  },
+  {
+    "raw_offset": 403984,
+    "expected_hex": "4172726f730000000000",
+    "replacement_hex": "4469617a000000000000",
+    "purpose": "2026 verified-roster name slot 10 #17: Arros -> Diaz"
+  },
+  {
+    "raw_offset": 403994,
+    "expected_hex": "45737465790000000000",
+    "replacement_hex": "542e526f64726967752e",
+    "purpose": "2026 verified-roster name slot 10 #18: Estey -> T.Rodrigu."
+  },
+  {
+    "raw_offset": 404004,
+    "expected_hex": "53696572610000000000",
+    "replacement_hex": "4c6f6e646f6e6f000000",
+    "purpose": "2026 verified-roster name slot 10 #19: Siera -> Londono"
+  },
+  {
+    "raw_offset": 404014,
+    "expected_hex": "506172616775657a0000",
+    "replacement_hex": "59616e69730000000000",
+    "purpose": "2026 verified-roster name slot 10 #20: Paraguez -> Yanis"
+  },
+  {
+    "raw_offset": 404024,
+    "expected_hex": "4e657972610000000000",
+    "replacement_hex": "4d6f7371756572610000",
+    "purpose": "2026 verified-roster name slot 10 #21: Neyra -> Mosquera"
+  },
+  {
+    "raw_offset": 404034,
+    "expected_hex": "54617070696100000000",
+    "replacement_hex": "53616d7564696f000000",
+    "purpose": "2026 verified-roster name slot 10 #22: Tappia -> Samudio"
+  },
+  {
+    "raw_offset": 403604,
+    "expected_hex": "4962616e6e6573000000",
+    "replacement_hex": "47616c696e64657a0000",
+    "purpose": "2026 verified-roster name slot 11 #1: Ibannes -> Galindez"
+  },
+  {
+    "raw_offset": 403614,
+    "expected_hex": "5265626f7a696f000000",
+    "replacement_hex": "507265636961646f0000",
+    "purpose": "2026 verified-roster name slot 11 #2: Rebozio -> Preciado"
+  },
+  {
+    "raw_offset": 403624,
+    "expected_hex": "50616c7565726f000000",
+    "replacement_hex": "4573747570696e616e00",
+    "purpose": "2026 verified-roster name slot 11 #3: Paluero -> Estupinan"
+  },
+  {
+    "raw_offset": 403634,
+    "expected_hex": "4f6c69766972657a0000",
+    "replacement_hex": "48696e63617069650000",
+    "purpose": "2026 verified-roster name slot 11 #4: Olivirez -> Hincapie"
+  },
+  {
+    "raw_offset": 403644,
+    "expected_hex": "536f74746f0000000000",
+    "replacement_hex": "546f7272657300000000",
+    "purpose": "2026 verified-roster name slot 11 #5: Sotto -> Torres"
+  },
+  {
+    "raw_offset": 403654,
+    "expected_hex": "536f7265610000000000",
+    "replacement_hex": "4361696365646f000000",
+    "purpose": "2026 verified-roster name slot 11 #6: Sorea -> Caicedo"
+  },
+  {
+    "raw_offset": 403664,
+    "expected_hex": "4a61696f000000000000",
+    "replacement_hex": "4672616e636f00000000",
+    "purpose": "2026 verified-roster name slot 11 #7: Jaio -> Franco"
+  },
+  {
+    "raw_offset": 403674,
+    "expected_hex": "536f6c616e6e6f000000",
+    "replacement_hex": "5061657a000000000000",
+    "purpose": "2026 verified-roster name slot 11 #8: Solanno -> Paez"
+  },
+  {
+    "raw_offset": 403684,
+    "expected_hex": "50616c6c6163696f7300",
+    "replacement_hex": "4d696e64610000000000",
+    "purpose": "2026 verified-roster name slot 11 #9: Pallacios -> Minda"
+  },
+  {
+    "raw_offset": 403694,
+    "expected_hex": "5a756e79636100000000",
+    "replacement_hex": "56616c656e6369610000",
+    "purpose": "2026 verified-roster name slot 11 #10: Zunyca -> Valencia"
+  },
+  {
+    "raw_offset": 403704,
+    "expected_hex": "50697a61726f00000000",
+    "replacement_hex": "506c6174610000000000",
+    "purpose": "2026 verified-roster name slot 11 #11: Pizaro -> Plata"
+  },
+  {
+    "raw_offset": 403714,
+    "expected_hex": "536f7469000000000000",
+    "replacement_hex": "506163686f0000000000",
+    "purpose": "2026 verified-roster name slot 11 #12: Soti -> Pacho"
+  },
+  {
+    "raw_offset": 403724,
+    "expected_hex": "4875616d616e6e000000",
+    "replacement_hex": "4f72646f6e657a000000",
+    "purpose": "2026 verified-roster name slot 11 #13: Huamann -> Ordonez"
+  },
+  {
+    "raw_offset": 403734,
+    "expected_hex": "50657272656461000000",
+    "replacement_hex": "506f726f7a6f00000000",
+    "purpose": "2026 verified-roster name slot 11 #14: Perreda -> Porozo"
+  },
+  {
+    "raw_offset": 403744,
+    "expected_hex": "546f7265730000000000",
+    "replacement_hex": "56697465000000000000",
+    "purpose": "2026 verified-roster name slot 11 #15: Tores -> Vite"
+  },
+  {
+    "raw_offset": 403754,
+    "expected_hex": "536975726c697a610000",
+    "replacement_hex": "416c6369766172000000",
+    "purpose": "2026 verified-roster name slot 11 #16: Siurliza -> Alcivar"
+  },
+  {
+    "raw_offset": 403764,
+    "expected_hex": "536f7272696100000000",
+    "replacement_hex": "43617374696c6c6f0000",
+    "purpose": "2026 verified-roster name slot 11 #17: Sorria -> Castillo"
+  },
+  {
+    "raw_offset": 403774,
+    "expected_hex": "4d656e646f7361000000",
+    "replacement_hex": "526f6472696775657a00",
+    "purpose": "2026 verified-roster name slot 11 #18: Mendosa -> Rodriguez"
+  },
+  {
+    "raw_offset": 403784,
+    "expected_hex": "4d6f6573747269000000",
+    "replacement_hex": "5965626f616800000000",
+    "purpose": "2026 verified-roster name slot 11 #19: Moestri -> Yeboah"
+  },
+  {
+    "raw_offset": 403794,
+    "expected_hex": "4c696261746f6e000000",
+    "replacement_hex": "4a2e4361696365646f00",
+    "purpose": "2026 verified-roster name slot 11 #20: Libaton -> J.Caicedo"
+  },
+  {
+    "raw_offset": 403804,
+    "expected_hex": "48616c736f6e00000000",
+    "replacement_hex": "52616d6972657a000000",
+    "purpose": "2026 verified-roster name slot 11 #21: Halson -> Ramirez"
+  },
+  {
+    "raw_offset": 403814,
+    "expected_hex": "426f74726f6e00000000",
+    "replacement_hex": "56616c6c650000000000",
+    "purpose": "2026 verified-roster name slot 11 #22: Botron -> Valle"
+  },
+  {
+    "raw_offset": 401760,
+    "expected_hex": "4275636b617200000000",
+    "replacement_hex": "4d656e64790000000000",
+    "purpose": "2026 verified-roster name slot 18 #1: Buckar -> Mendy"
+  },
+  {
+    "raw_offset": 401770,
+    "expected_hex": "4e6a656e6b6100000000",
+    "replacement_hex": "4b6f756c6962616c7900",
+    "purpose": "2026 verified-roster name slot 18 #2: Njenka -> Koulibaly"
+  },
+  {
+    "raw_offset": 401780,
+    "expected_hex": "4b616c6c617200000000",
+    "replacement_hex": "44696174746100000000",
+    "purpose": "2026 verified-roster name slot 18 #3: Kallar -> Diatta"
+  },
+  {
+    "raw_offset": 401790,
+    "expected_hex": "536c6f6e670000000000",
+    "replacement_hex": "4e69616b686174650000",
+    "purpose": "2026 verified-roster name slot 18 #4: Slong -> Niakhate"
+  },
+  {
+    "raw_offset": 401800,
+    "expected_hex": "466f7565000000000000",
+    "replacement_hex": "4a616b6f627300000000",
+    "purpose": "2026 verified-roster name slot 18 #5: Foue -> Jakobs"
+  },
+  {
+    "raw_offset": 401810,
+    "expected_hex": "576f6d65790000000000",
+    "replacement_hex": "47756579650000000000",
+    "purpose": "2026 verified-roster name slot 18 #6: Womey -> Gueye"
+  },
+  {
+    "raw_offset": 401820,
+    "expected_hex": "47656c656d6900000000",
+    "replacement_hex": "502e4775657965000000",
+    "purpose": "2026 verified-roster name slot 18 #7: Gelemi -> P.Gueye"
+  },
+  {
+    "raw_offset": 401830,
+    "expected_hex": "4f6c616d626500000000",
+    "replacement_hex": "53617272000000000000",
+    "purpose": "2026 verified-roster name slot 18 #8: Olambe -> Sarr"
+  },
+  {
+    "raw_offset": 401840,
+    "expected_hex": "4c6f72656e0000000000",
+    "replacement_hex": "43616d61726100000000",
+    "purpose": "2026 verified-roster name slot 18 #9: Loren -> Camara"
+  },
+  {
+    "raw_offset": 401850,
+    "expected_hex": "45746f686f0000000000",
+    "replacement_hex": "4d616e65000000000000",
+    "purpose": "2026 verified-roster name slot 18 #10: Etoho -> Mane"
+  },
+  {
+    "raw_offset": 401860,
+    "expected_hex": "4d62616d610000000000",
+    "replacement_hex": "492e5361727200000000",
+    "purpose": "2026 verified-roster name slot 18 #11: Mbama -> I.Sarr"
+  },
+  {
+    "raw_offset": 401870,
+    "expected_hex": "42696c6f6e6775650000",
+    "replacement_hex": "5365636b000000000000",
+    "purpose": "2026 verified-roster name slot 18 #12: Bilongue -> Seck"
+  },
+  {
+    "raw_offset": 401880,
+    "expected_hex": "456c616d676100000000",
+    "replacement_hex": "44696f75660000000000",
+    "purpose": "2026 verified-roster name slot 18 #13: Elamga -> Diouf"
+  },
+  {
+    "raw_offset": 401890,
+    "expected_hex": "4579746f6d6500000000",
+    "replacement_hex": "4d2e5361727200000000",
+    "purpose": "2026 verified-roster name slot 18 #14: Eytome -> M.Sarr"
+  },
+  {
+    "raw_offset": 401900,
+    "expected_hex": "4d656c746f6d6f000000",
+    "replacement_hex": "43697373000000000000",
+    "purpose": "2026 verified-roster name slot 18 #15: Meltomo -> Ciss"
+  },
+  {
+    "raw_offset": 401910,
+    "expected_hex": "5463",
+    "replacement_hex": "4469",
+    "purpose": "2026 verified-roster name slot 18 #16: Tchuting -> Diarra"
+  },
+  {
+    "raw_offset": 402216,
+    "expected_hex": "687574696e670000",
+    "replacement_hex": "6172726100000000",
+    "purpose": "2026 verified-roster name slot 18 #16: Tchuting -> Diarra"
+  },
+  {
+    "raw_offset": 402224,
+    "expected_hex": "4e646f77000000000000",
+    "replacement_hex": "4e646961796500000000",
+    "purpose": "2026 verified-roster name slot 18 #17: Ndow -> Ndiaye"
+  },
+  {
+    "raw_offset": 402234,
+    "expected_hex": "416e6769626f00000000",
+    "replacement_hex": "492e4e64696179650000",
+    "purpose": "2026 verified-roster name slot 18 #18: Angibo -> I.Ndiaye"
+  },
+  {
+    "raw_offset": 402244,
+    "expected_hex": "4e646566790000000000",
+    "replacement_hex": "4a61636b736f6e000000",
+    "purpose": "2026 verified-roster name slot 18 #19: Ndefy -> Jackson"
+  },
+  {
+    "raw_offset": 402254,
+    "expected_hex": "53656d61750000000000",
+    "replacement_hex": "4469656e670000000000",
+    "purpose": "2026 verified-roster name slot 18 #20: Semau -> Dieng"
+  },
+  {
+    "raw_offset": 402264,
+    "expected_hex": "4a616265000000000000",
+    "replacement_hex": "44696177000000000000",
+    "purpose": "2026 verified-roster name slot 18 #21: Jabe -> Diaw"
+  },
+  {
+    "raw_offset": 402274,
+    "expected_hex": "53616e676f274f000000",
+    "replacement_hex": "592e44696f7566000000",
+    "purpose": "2026 verified-roster name slot 18 #22: Sango'O -> Y.Diouf"
+  },
+  {
+    "raw_offset": 400660,
+    "expected_hex": "43686572636865736f76",
+    "replacement_hex": "566173696c6a00000000",
+    "purpose": "2026 verified-roster name slot 23 #1: Cherchesov -> Vasilj"
+  },
+  {
+    "raw_offset": 400670,
+    "expected_hex": "4368756761696e6f7600",
+    "replacement_hex": "4b6f6c6173696e616300",
+    "purpose": "2026 verified-roster name slot 23 #2: Chugainov -> Kolasinac"
+  },
+  {
+    "raw_offset": 400680,
+    "expected_hex": "4f6e6f706b6f00000000",
+    "replacement_hex": "4861647a696b6164752e",
+    "purpose": "2026 verified-roster name slot 23 #3: Onopko -> Hadzikadu."
+  },
+  {
+    "raw_offset": 400690,
+    "expected_hex": "59616e6f76736b790000",
+    "replacement_hex": "44656469630000000000",
+    "purpose": "2026 verified-roster name slot 23 #4: Yanovsky -> Dedic"
+  },
+  {
+    "raw_offset": 400700,
+    "expected_hex": "536d657274696e000000",
+    "replacement_hex": "4b617469630000000000",
+    "purpose": "2026 verified-roster name slot 23 #5: Smertin -> Katic"
+  },
+  {
+    "raw_offset": 400710,
+    "expected_hex": "4b686f6b686c6f760000",
+    "replacement_hex": "4861647a6961686d652e",
+    "purpose": "2026 verified-roster name slot 23 #6: Khokhlov -> Hadziahme."
+  },
+  {
+    "raw_offset": 400720,
+    "expected_hex": "4b617270696e00000000",
+    "replacement_hex": "54616869726f76696300",
+    "purpose": "2026 verified-roster name slot 23 #7: Karpin -> Tahirovic"
+  },
+  {
+    "raw_offset": 400730,
+    "expected_hex": "416c656e696368657600",
+    "replacement_hex": "4769676f766963000000",
+    "purpose": "2026 verified-roster name slot 23 #8: Alenichev -> Gigovic"
+  },
+  {
+    "raw_offset": 400740,
+    "expected_hex": "42657363686173742e00",
+    "replacement_hex": "4275726e696300000000",
+    "purpose": "2026 verified-roster name slot 23 #9: Beschast. -> Burnic"
+  },
+  {
+    "raw_offset": 400750,
+    "expected_hex": "5469746f760000000000",
+    "replacement_hex": "447a656b6f0000000000",
+    "purpose": "2026 verified-roster name slot 23 #10: Titov -> Dzeko"
+  },
+  {
+    "raw_offset": 400760,
+    "expected_hex": "53656d616b0000000000",
+    "replacement_hex": "44656d69726f76696300",
+    "purpose": "2026 verified-roster name slot 23 #11: Semak -> Demirovic"
+  },
+  {
+    "raw_offset": 400770,
+    "expected_hex": "536f6c6f6d6174696e00",
+    "replacement_hex": "4d75686172656d6f762e",
+    "purpose": "2026 verified-roster name slot 23 #12: Solomatin -> Muharemov."
+  },
+  {
+    "raw_offset": 400780,
+    "expected_hex": "4b686c6573746f760000",
+    "replacement_hex": "4d756a616b6963000000",
+    "purpose": "2026 verified-roster name slot 23 #13: Khlestov -> Mujakic"
+  },
+  {
+    "raw_offset": 400790,
+    "expected_hex": "5465747261647a650000",
+    "replacement_hex": "4d616c69630000000000",
+    "purpose": "2026 verified-roster name slot 23 #14: Tetradze -> Malic"
+  },
+  {
+    "raw_offset": 400800,
+    "expected_hex": "44726f7a646f76000000",
+    "replacement_hex": "42617369630000000000",
+    "purpose": "2026 verified-roster name slot 23 #15: Drozdov -> Basic"
+  },
+  {
+    "raw_offset": 400810,
+    "expected_hex": "54696b686f6e6f760000",
+    "replacement_hex": "4d656d69630000000000",
+    "purpose": "2026 verified-roster name slot 23 #16: Tikhonov -> Memic"
+  },
+  {
+    "raw_offset": 400820,
+    "expected_hex": "42757400000000000000",
+    "replacement_hex": "53756e6a696300000000",
+    "purpose": "2026 verified-roster name slot 23 #17: But -> Sunjic"
+  },
+  {
+    "raw_offset": 400830,
+    "expected_hex": "42756c61746f76000000",
+    "replacement_hex": "42616a72616b7461722e",
+    "purpose": "2026 verified-roster name slot 23 #18: Bulatov -> Bajraktar."
+  },
+  {
+    "raw_offset": 400840,
+    "expected_hex": "4d6f73746f766f690000",
+    "replacement_hex": "42617a64617200000000",
+    "purpose": "2026 verified-roster name slot 23 #19: Mostovoi -> Bazdar"
+  },
+  {
+    "raw_offset": 400850,
+    "expected_hex": "50616e6f760000000000",
+    "replacement_hex": "416c616a6265676f762e",
+    "purpose": "2026 verified-roster name slot 23 #20: Panov -> Alajbegov."
+  },
+  {
+    "raw_offset": 400860,
+    "expected_hex": "536869726b6f00000000",
+    "replacement_hex": "5a6c6f6d69736c696300",
+    "purpose": "2026 verified-roster name slot 23 #21: Shirko -> Zlomislic"
+  },
+  {
+    "raw_offset": 400870,
+    "expected_hex": "46696c696d6f6e6f7600",
+    "replacement_hex": "4a75726b617300000000",
+    "purpose": "2026 verified-roster name slot 23 #22: Filimonov -> Jurkas"
+  },
+  {
+    "raw_offset": 400000,
+    "expected_hex": "4e696b6f706f6c69642e",
+    "replacement_hex": "43726f636f6d62650000",
+    "purpose": "2026 verified-roster name slot 26 #1: Nikopolid. -> Crocombe"
+  },
+  {
+    "raw_offset": 400010,
+    "expected_hex": "446162697a6173000000",
+    "replacement_hex": "426f78616c6c00000000",
+    "purpose": "2026 verified-roster name slot 26 #2: Dabizas -> Boxall"
+  },
+  {
+    "raw_offset": 400020,
+    "expected_hex": "4f757a6f756e69646973",
+    "replacement_hex": "536d6974680000000000",
+    "purpose": "2026 verified-roster name slot 26 #3: Ouzounidis -> Smith"
+  },
+  {
+    "raw_offset": 400030,
+    "expected_hex": "416d616e617469646973",
+    "replacement_hex": "5061796e650000000000",
+    "purpose": "2026 verified-roster name slot 26 #4: Amanatidis -> Payne"
+  },
+  {
+    "raw_offset": 400040,
+    "expected_hex": "426173696e6173000000",
+    "replacement_hex": "43616361636500000000",
+    "purpose": "2026 verified-roster name slot 26 #5: Basinas -> Cacace"
+  },
+  {
+    "raw_offset": 400050,
+    "expected_hex": "47656f726761746f7300",
+    "replacement_hex": "4a757374000000000000",
+    "purpose": "2026 verified-roster name slot 26 #6: Georgatos -> Just"
+  },
+  {
+    "raw_offset": 400060,
+    "expected_hex": "47656f72676961646973",
+    "replacement_hex": "5374616d656e69630000",
+    "purpose": "2026 verified-roster name slot 26 #7: Georgiadis -> Stamenic"
+  },
+  {
+    "raw_offset": 400070,
+    "expected_hex": "506f757273616e69642e",
+    "replacement_hex": "42656c6c000000000000",
+    "purpose": "2026 verified-roster name slot 26 #8: Poursanid. -> Bell"
+  },
+  {
+    "raw_offset": 400080,
+    "expected_hex": "4e696e69616469730000",
+    "replacement_hex": "4d63436f776174740000",
+    "purpose": "2026 verified-roster name slot 26 #9: Niniadis -> McCowatt"
+  },
+  {
+    "raw_offset": 400090,
+    "expected_hex": "4b697061726973736973",
+    "replacement_hex": "576f6f64000000000000",
+    "purpose": "2026 verified-roster name slot 26 #10: Kiparissis -> Wood"
+  },
+  {
+    "raw_offset": 400100,
+    "expected_hex": "54736172746173000000",
+    "replacement_hex": "4261726261726f75732e",
+    "purpose": "2026 verified-roster name slot 26 #11: Tsartas -> Barbarous."
+  },
+  {
+    "raw_offset": 400110,
+    "expected_hex": "4b617361706973000000",
+    "replacement_hex": "42696e646f6e00000000",
+    "purpose": "2026 verified-roster name slot 26 #12: Kasapis -> Bindon"
+  },
+  {
+    "raw_offset": 400120,
+    "expected_hex": "4b6f6e7374616e74692e",
+    "replacement_hex": "50696a6e616b65720000",
+    "purpose": "2026 verified-roster name slot 26 #13: Konstanti. -> Pijnaker"
+  },
+  {
+    "raw_offset": 400130,
+    "expected_hex": "4c616b69730000000000",
+    "replacement_hex": "56726965730000000000",
+    "purpose": "2026 verified-roster name slot 26 #14: Lakis -> Vries"
+  },
+  {
+    "raw_offset": 400140,
+    "expected_hex": "5a61676f72616b697300",
+    "replacement_hex": "53696e67680000000000",
+    "purpose": "2026 verified-roster name slot 26 #15: Zagorakis -> Singh"
+  },
+  {
+    "raw_offset": 400150,
+    "expected_hex": "476f756d617300000000",
+    "replacement_hex": "52756665720000000000",
+    "purpose": "2026 verified-roster name slot 26 #16: Goumas -> Rufer"
+  },
+  {
+    "raw_offset": 400160,
+    "expected_hex": "5a696b6f730000000000",
+    "replacement_hex": "54686f6d617300000000",
+    "purpose": "2026 verified-roster name slot 26 #17: Zikos -> Thomas"
+  },
+  {
+    "raw_offset": 400170,
+    "expected_hex": "4d6176726f67656e692e",
+    "replacement_hex": "5761696e650000000000",
+    "purpose": "2026 verified-roster name slot 26 #18: Mavrogeni. -> Waine"
+  },
+  {
+    "raw_offset": 400180,
+    "expected_hex": "467261747a65736b6f73",
+    "replacement_hex": "526f676572736f6e0000",
+    "purpose": "2026 verified-roster name slot 26 #19: Fratzeskos -> Rogerson"
+  },
+  {
+    "raw_offset": 400190,
+    "expected_hex": "4c696265726f706f752e",
+    "replacement_hex": "52616e64616c6c000000",
+    "purpose": "2026 verified-roster name slot 26 #20: Liberopou. -> Randall"
+  },
+  {
+    "raw_offset": 400200,
+    "expected_hex": "4d6163686c6173000000",
+    "replacement_hex": "5061756c73656e000000",
+    "purpose": "2026 verified-roster name slot 26 #21: Machlas -> Paulsen"
+  },
+  {
+    "raw_offset": 400210,
+    "expected_hex": "456c6566746865726f2e",
+    "replacement_hex": "576f7564000000000000",
+    "purpose": "2026 verified-roster name slot 26 #22: Elefthero. -> Woud"
+  },
+  {
+    "raw_offset": 399476,
+    "expected_hex": "5a647261666b6f660000",
+    "replacement_hex": "48617373616e00000000",
+    "purpose": "2026 verified-roster name slot 27 #1: Zdrafkof -> Hassan"
+  },
+  {
+    "raw_offset": 399486,
+    "expected_hex": "4b6572696c6f66000000",
+    "replacement_hex": "53756c616b6100000000",
+    "purpose": "2026 verified-roster name slot 27 #2: Kerilof -> Sulaka"
+  },
+  {
+    "raw_offset": 399496,
+    "expected_hex": "4d616c636f7600000000",
+    "replacement_hex": "596f756e697300000000",
+    "purpose": "2026 verified-roster name slot 27 #3: Malcov -> Younis"
+  },
+  {
+    "raw_offset": 399506,
+    "expected_hex": "492e5061746b6f660000",
+    "replacement_hex": "446f736b690000000000",
+    "purpose": "2026 verified-roster name slot 27 #4: I.Patkof -> Doski"
+  },
+  {
+    "raw_offset": 399516,
+    "expected_hex": "546f6c73616b6f760000",
+    "replacement_hex": "5461687365656e000000",
+    "purpose": "2026 verified-roster name slot 27 #5: Tolsakov -> Tahseen"
+  },
+  {
+    "raw_offset": 399526,
+    "expected_hex": "496f7264756e6f660000",
+    "replacement_hex": "42617965736800000000",
+    "purpose": "2026 verified-roster name slot 27 #6: Iordunof -> Bayesh"
+  },
+  {
+    "raw_offset": 399536,
+    "expected_hex": "426f72696e69726f6600",
+    "replacement_hex": "416c616d6d6172690000",
+    "purpose": "2026 verified-roster name slot 27 #7: Borinirof -> Alammari"
+  },
+  {
+    "raw_offset": 399546,
+    "expected_hex": "4d2e5061746b6f660000",
+    "replacement_hex": "416d796e000000000000",
+    "purpose": "2026 verified-roster name slot 27 #8: M.Patkof -> Amyn"
+  },
+  {
+    "raw_offset": 399556,
+    "expected_hex": "42617269",
+    "replacement_hex": "49716261",
+    "purpose": "2026 verified-roster name slot 27 #9: Barikov -> Iqbal"
+  },
+  {
+    "raw_offset": 399864,
+    "expected_hex": "6b6f76000000",
+    "replacement_hex": "6c0000000000",
+    "purpose": "2026 verified-roster name slot 27 #9: Barikov -> Iqbal"
+  },
+  {
+    "raw_offset": 399870,
+    "expected_hex": "446f6e6b6f6600000000",
+    "replacement_hex": "4875737365696e000000",
+    "purpose": "2026 verified-roster name slot 27 #10: Donkof -> Hussein"
+  },
+  {
+    "raw_offset": 399880,
+    "expected_hex": "5475646f6c6f76000000",
+    "replacement_hex": "416c6900000000000000",
+    "purpose": "2026 verified-roster name slot 27 #11: Tudolov -> Ali"
+  },
+  {
+    "raw_offset": 399890,
+    "expected_hex": "4272616e696d6f760000",
+    "replacement_hex": "507574726f7300000000",
+    "purpose": "2026 verified-roster name slot 27 #12: Branimov -> Putros"
+  },
+  {
+    "raw_offset": 399900,
+    "expected_hex": "5a616761726369636800",
+    "replacement_hex": "482e416c690000000000",
+    "purpose": "2026 verified-roster name slot 27 #13: Zagarcich -> H.Ali"
+  },
+  {
+    "raw_offset": 399910,
+    "expected_hex": "4b696368696368656600",
+    "replacement_hex": "536161646f6f6e000000",
+    "purpose": "2026 verified-roster name slot 27 #14: Kichichef -> Saadoon"
+  },
+  {
+    "raw_offset": 399920,
+    "expected_hex": "47726f75616600000000",
+    "replacement_hex": "59616b6f620000000000",
+    "purpose": "2026 verified-roster name slot 27 #15: Grouaf -> Yakob"
+  },
+  {
+    "raw_offset": 399930,
+    "expected_hex": "532e506974696c6f7600",
+    "replacement_hex": "53686572000000000000",
+    "purpose": "2026 verified-roster name slot 27 #16: S.Pitilov -> Sher"
+  },
+  {
+    "raw_offset": 399940,
+    "expected_hex": "416c65786f6c6f760000",
+    "replacement_hex": "49736d61696c00000000",
+    "purpose": "2026 verified-roster name slot 27 #17: Alexolov -> Ismail"
+  },
+  {
+    "raw_offset": 399950,
+    "expected_hex": "496c6961660000000000",
+    "replacement_hex": "4a6173696d0000000000",
+    "purpose": "2026 verified-roster name slot 27 #18: Iliaf -> Jasim"
+  },
+  {
+    "raw_offset": 399960,
+    "expected_hex": "48726573746f66000000",
+    "replacement_hex": "416c68616d6164690000",
+    "purpose": "2026 verified-roster name slot 27 #19: Hrestof -> Alhamadi"
+  },
+  {
+    "raw_offset": 399970,
+    "expected_hex": "472e4966616e6f660000",
+    "replacement_hex": "4661726a690000000000",
+    "purpose": "2026 verified-roster name slot 27 #20: G.Ifanof -> Farji"
+  },
+  {
+    "raw_offset": 399980,
+    "expected_hex": "4d2e506574726f760000",
+    "replacement_hex": "54616c69620000000000",
+    "purpose": "2026 verified-roster name slot 27 #21: M.Petrov -> Talib"
+  },
+  {
+    "raw_offset": 399990,
+    "expected_hex": "476f73706f64696e6f66",
+    "replacement_hex": "426173696c0000000000",
+    "purpose": "2026 verified-roster name slot 27 #22: Gospodinof -> Basil"
+  },
+  {
+    "raw_offset": 399256,
+    "expected_hex": "5374656c656100000000",
+    "replacement_hex": "4162756c61696c610000",
+    "purpose": "2026 verified-roster name slot 28 #1: Stelea -> Abulaila"
+  },
+  {
+    "raw_offset": 399266,
+    "expected_hex": "472e506f706573637500",
+    "replacement_hex": "48616464616400000000",
+    "purpose": "2026 verified-roster name slot 28 #2: G.Popescu -> Haddad"
+  },
+  {
+    "raw_offset": 399276,
+    "expected_hex": "43696f626f7461726975",
+    "replacement_hex": "416c6172616200000000",
+    "purpose": "2026 verified-roster name slot 28 #3: Ciobotariu -> Alarab"
+  },
+  {
+    "raw_offset": 399286,
+    "expected_hex": "46696c69706573637500",
+    "replacement_hex": "4e617369620000000000",
+    "purpose": "2026 verified-roster name slot 28 #4: Filipescu -> Nasib"
+  },
+  {
+    "raw_offset": 399296,
+    "expected_hex": "47616c63610000000000",
+    "replacement_hex": "48617368697368000000",
+    "purpose": "2026 verified-roster name slot 28 #5: Galca -> Hashish"
+  },
+  {
+    "raw_offset": 399306,
+    "expected_hex": "442e4d756e7465616e75",
+    "replacement_hex": "41796564000000000000",
+    "purpose": "2026 verified-roster name slot 28 #6: D.Munteanu -> Ayed"
+  },
+  {
+    "raw_offset": 399316,
+    "expected_hex": "43686976750000000000",
+    "replacement_hex": "416c7261776162646568",
+    "purpose": "2026 verified-roster name slot 28 #7: Chivu -> Alrawabdeh"
+  },
+  {
+    "raw_offset": 399326,
+    "expected_hex": "50657472657363750000",
+    "replacement_hex": "53616465680000000000",
+    "purpose": "2026 verified-roster name slot 28 #8: Petrescu -> Sadeh"
+  },
+  {
+    "raw_offset": 399336,
+    "expected_hex": "48616769000000000000",
+    "replacement_hex": "416c7261736864616e00",
+    "purpose": "2026 verified-roster name slot 28 #9: Hagi -> Alrashdan"
+  },
+  {
+    "raw_offset": 399346,
+    "expected_hex": "496c6965000000000000",
+    "replacement_hex": "416c2d5461616d617269",
+    "purpose": "2026 verified-roster name slot 28 #10: Ilie -> Al-Taamari"
+  },
+  {
+    "raw_offset": 399356,
+    "expected_hex": "4d6f6c6476616e000000",
+    "replacement_hex": "416c6d61726469000000",
+    "purpose": "2026 verified-roster name slot 28 #11: Moldvan -> Almardi"
+  },
+  {
+    "raw_offset": 399366,
+    "expected_hex": "42656c6f646564696369",
+    "replacement_hex": "416c726f73616e000000",
+    "purpose": "2026 verified-roster name slot 28 #12: Belodedici -> Alrosan"
+  },
+  {
+    "raw_offset": 399376,
+    "expected_hex": "436f6e74726100000000",
+    "replacement_hex": "41627564616861620000",
+    "purpose": "2026 verified-roster name slot 28 #13: Contra -> Abudahab"
+  },
+  {
+    "raw_offset": 399386,
+    "expected_hex": "4c696e63617200000000",
+    "replacement_hex": "416275616c6e61646900",
+    "purpose": "2026 verified-roster name slot 28 #14: Lincar -> Abualnadi"
+  },
+  {
+    "raw_offset": 399396,
+    "expected_hex": "48616c64616e00000000",
+    "replacement_hex": "41627574616861000000",
+    "purpose": "2026 verified-roster name slot 28 #15: Haldan -> Abutaha"
+  },
+  {
+    "raw_offset": 399406,
+    "expected_hex": "50657472650000000000",
+    "replacement_hex": "4a616d6f757300000000",
+    "purpose": "2026 verified-roster name slot 28 #16: Petre -> Jamous"
+  },
+  {
+    "raw_offset": 399416,
+    "expected_hex": "526f7375000000000000",
+    "replacement_hex": "416c2d4461776f756400",
+    "purpose": "2026 verified-roster name slot 28 #17: Rosu -> Al-Dawoud"
+  },
+  {
+    "raw_offset": 399426,
+    "expected_hex": "4c757065736375000000",
+    "replacement_hex": "4f6c77616e0000000000",
+    "purpose": "2026 verified-roster name slot 28 #18: Lupescu -> Olwan"
+  },
+  {
+    "raw_offset": 399436,
+    "expected_hex": "4d757475000000000000",
+    "replacement_hex": "5a726179710000000000",
+    "purpose": "2026 verified-roster name slot 28 #19: Mutu -> Zrayq"
+  },
+  {
+    "raw_offset": 399446,
+    "expected_hex": "47616e65610000000000",
+    "replacement_hex": "416c2d46616b686f752e",
+    "purpose": "2026 verified-roster name slot 28 #20: Ganea -> Al-Fakhou."
+  },
+  {
+    "raw_offset": 399456,
+    "expected_hex": "5072756e656100000000",
+    "replacement_hex": "412e416c2d46616b682e",
+    "purpose": "2026 verified-roster name slot 28 #21: Prunea -> A.Al-Fakh."
+  },
+  {
+    "raw_offset": 399466,
+    "expected_hex": "4c6f626f6e7400000000",
+    "replacement_hex": "41747469616800000000",
+    "purpose": "2026 verified-roster name slot 28 #22: Lobont -> Attiah"
+  },
+  {
+    "raw_offset": 399036,
+    "expected_hex": "4b726f6c6a0000000000",
+    "replacement_hex": "526f6f6d000000000000",
+    "purpose": "2026 verified-roster name slot 29 #1: Krolj -> Room"
+  },
+  {
+    "raw_offset": 399046,
+    "expected_hex": "4d6972616c6f76696368",
+    "replacement_hex": "47616172690000000000",
+    "purpose": "2026 verified-roster name slot 29 #2: Miralovich -> Gaari"
+  },
+  {
+    "raw_offset": 399056,
+    "expected_hex": "4469756b696368000000",
+    "replacement_hex": "45696a6d610000000000",
+    "purpose": "2026 verified-roster name slot 29 #3: Diukich -> Eijma"
+  },
+  {
+    "raw_offset": 399066,
+    "expected_hex": "446a6f726f7669636800",
+    "replacement_hex": "466c6f72616e75730000",
+    "purpose": "2026 verified-roster name slot 29 #4: Djorovich -> Floranus"
+  },
+  {
+    "raw_offset": 399076,
+    "expected_hex": "4b6f6a656e6f76696300",
+    "replacement_hex": "4272656e657400000000",
+    "purpose": "2026 verified-roster name slot 29 #5: Kojenovic -> Brenet"
+  },
+  {
+    "raw_offset": 399086,
+    "expected_hex": "4a756761766963680000",
+    "replacement_hex": "426163756e6100000000",
+    "purpose": "2026 verified-roster name slot 29 #6: Jugavich -> Bacuna"
+  },
+  {
+    "raw_offset": 399096,
+    "expected_hex": "4a6f63616e6f76696300",
+    "replacement_hex": "4a2e426163756e610000",
+    "purpose": "2026 verified-roster name slot 29 #7: Jocanovic -> J.Bacuna"
+  },
+  {
+    "raw_offset": 399106,
+    "expected_hex": "44726f6c617669630000",
+    "replacement_hex": "526f656d657261746f65",
+    "purpose": "2026 verified-roster name slot 29 #8: Drolavic -> Roemeratoe"
+  },
+  {
+    "raw_offset": 399116,
+    "expected_hex": "53746f696b6176696368",
+    "replacement_hex": "436f6d656e656e636961",
+    "purpose": "2026 verified-roster name slot 29 #9: Stoikavich -> Comenencia"
+  },
+  {
+    "raw_offset": 399126,
+    "expected_hex": "4d696c617a6576696368",
+    "replacement_hex": "476f7272650000000000",
+    "purpose": "2026 verified-roster name slot 29 #10: Milazevich -> Gorre"
+  },
+  {
+    "raw_offset": 399136,
+    "expected_hex": "4d6961746f7669636800",
+    "replacement_hex": "4b757761730000000000",
+    "purpose": "2026 verified-roster name slot 29 #11: Miatovich -> Kuwas"
+  },
+  {
+    "raw_offset": 399146,
+    "expected_hex": "536176656c7a69636800",
+    "replacement_hex": "53616d626f0000000000",
+    "purpose": "2026 verified-roster name slot 29 #12: Savelzich -> Sambo"
+  },
+  {
+    "raw_offset": 399156,
+    "expected_hex": "42756a63657669630000",
+    "replacement_hex": "4f626973706f00000000",
+    "purpose": "2026 verified-roster name slot 29 #13: Bujcevic -> Obispo"
+  },
+  {
+    "raw_offset": 399166,
+    "expected_hex": "446f6465630000000000",
+    "replacement_hex": "42617a6f657200000000",
+    "purpose": "2026 verified-roster name slot 29 #14: Dodec -> Bazoer"
+  },
+  {
+    "raw_offset": 399176,
+    "expected_hex": "4e6164656a0000000000",
+    "replacement_hex": "46656c69646100000000",
+    "purpose": "2026 verified-roster name slot 29 #15: Nadej -> Felida"
+  },
+  {
+    "raw_offset": 399186,
+    "expected_hex": "4a2e5374616b6f766963",
+    "replacement_hex": "4d617274686100000000",
+    "purpose": "2026 verified-roster name slot 29 #16: J.Stakovic -> Martha"
+  },
+  {
+    "raw_offset": 399196,
+    "expected_hex": "476176646f7269636100",
+    "replacement_hex": "43686f6e670000000000",
+    "purpose": "2026 verified-roster name slot 29 #17: Gavdorica -> Chong"
+  },
+  {
+    "raw_offset": 399206,
+    "expected_hex": "442e5374616b6f766963",
+    "replacement_hex": "4b617374616e65657200",
+    "purpose": "2026 verified-roster name slot 29 #18: D.Stakovic -> Kastaneer"
+  },
+  {
+    "raw_offset": 399216,
+    "expected_hex": "442e4b76617376696368",
+    "replacement_hex": "416e746f6e6973736500",
+    "purpose": "2026 verified-roster name slot 29 #19: D.Kvasvich -> Antonisse"
+  },
+  {
+    "raw_offset": 399226,
+    "expected_hex": "4b697a6e616e00000000",
+    "replacement_hex": "4d617267617269746861",
+    "purpose": "2026 verified-roster name slot 29 #20: Kiznan -> Margaritha"
+  },
+  {
+    "raw_offset": 399236,
+    "expected_hex": "4b6f7269630000000000",
+    "replacement_hex": "446f6f726e6275736368",
+    "purpose": "2026 verified-roster name slot 29 #21: Koric -> Doornbusch"
+  },
+  {
+    "raw_offset": 399246,
+    "expected_hex": "43696c6f766963000000",
+    "replacement_hex": "426f64616b0000000000",
+    "purpose": "2026 verified-roster name slot 29 #22: Cilovic -> Bodak"
+  },
+  {
+    "raw_offset": 398596,
+    "expected_hex": "446162616e6f76696300",
+    "replacement_hex": "506c6163696465000000",
+    "purpose": "2026 verified-roster name slot 31 #1: Dabanovic -> Placide"
+  },
+  {
+    "raw_offset": 398606,
+    "expected_hex": "47616c69630000000000",
+    "replacement_hex": "41646500000000000000",
+    "purpose": "2026 verified-roster name slot 31 #2: Galic -> Ade"
+  },
+  {
+    "raw_offset": 398616,
+    "expected_hex": "4d696c696e6f76696300",
+    "replacement_hex": "41726375730000000000",
+    "purpose": "2026 verified-roster name slot 31 #3: Milinovic -> Arcus"
+  },
+  {
+    "raw_offset": 398626,
+    "expected_hex": "4d696c616e6963000000",
+    "replacement_hex": "457870657269656e6365",
+    "purpose": "2026 verified-roster name slot 31 #4: Milanic -> Experience"
+  },
+  {
+    "raw_offset": 398636,
+    "expected_hex": "4b617269630000000000",
+    "replacement_hex": "44757665726e65000000",
+    "purpose": "2026 verified-roster name slot 31 #5: Karic -> Duverne"
+  },
+  {
+    "raw_offset": 398646,
+    "expected_hex": "5275646f6e6a61000000",
+    "replacement_hex": "4a616371756573000000",
+    "purpose": "2026 verified-roster name slot 31 #6: Rudonja -> Jacques"
+  },
+  {
+    "raw_offset": 398656,
+    "expected_hex": "4e6f76616b0000000000",
+    "replacement_hex": "5361696e746500000000",
+    "purpose": "2026 verified-roster name slot 31 #7: Novak -> Sainte"
+  },
+  {
+    "raw_offset": 398666,
+    "expected_hex": "5061766c696e00000000",
+    "replacement_hex": "42656c6c656761726465",
+    "purpose": "2026 verified-roster name slot 31 #8: Pavlin -> Bellegarde"
+  },
+  {
+    "raw_offset": 398676,
+    "expected_hex": "43686568000000000000",
+    "replacement_hex": "53696d6f6e0000000000",
+    "purpose": "2026 verified-roster name slot 31 #9: Cheh -> Simon"
+  },
+  {
+    "raw_offset": 398686,
+    "expected_hex": "5a61686f766963000000",
+    "replacement_hex": "4e617a6f6e0000000000",
+    "purpose": "2026 verified-roster name slot 31 #10: Zahovic -> Nazon"
+  },
+  {
+    "raw_offset": 398696,
+    "expected_hex": "55646f76696300000000",
+    "replacement_hex": "457469656e6e65000000",
+    "purpose": "2026 verified-roster name slot 31 #11: Udovic -> Etienne"
+  },
+  {
+    "raw_offset": 398706,
+    "expected_hex": "4b6e6176730000000000",
+    "replacement_hex": "4c6163726f6978000000",
+    "purpose": "2026 verified-roster name slot 31 #12: Knavs -> Lacroix"
+  },
+  {
+    "raw_offset": 398716,
+    "expected_hex": "42756c616a6963000000",
+    "replacement_hex": "4d65747573616c610000",
+    "purpose": "2026 verified-roster name slot 31 #13: Bulajic -> Metusala"
+  },
+  {
+    "raw_offset": 398726,
+    "expected_hex": "5061766c696e00000000",
+    "replacement_hex": "5061756761696e000000",
+    "purpose": "2026 verified-roster name slot 31 #14: Pavlin -> Paugain"
+  },
+  {
+    "raw_offset": 398736,
+    "expected_hex": "497374656e6963000000",
+    "replacement_hex": "50696572726500000000",
+    "purpose": "2026 verified-roster name slot 31 #15: Istenic -> Pierre"
+  },
+  {
+    "raw_offset": 398746,
+    "expected_hex": "5a6c6f67617200000000",
+    "replacement_hex": "50696572726f74000000",
+    "purpose": "2026 verified-roster name slot 31 #16: Zlogar -> Pierrot"
+  },
+  {
+    "raw_offset": 398756,
+    "expected_hex": "47616a73657200000000",
+    "replacement_hex": "44656564736f6e000000",
+    "purpose": "2026 verified-roster name slot 31 #17: Gajser -> Deedson"
+  },
+  {
+    "raw_offset": 398766,
+    "expected_hex": "416368696d6f76696300",
+    "replacement_hex": "50726f766964656e6365",
+    "purpose": "2026 verified-roster name slot 31 #18: Achimovic -> Providence"
+  },
+  {
+    "raw_offset": 398776,
+    "expected_hex": "4f737465726300000000",
+    "replacement_hex": "436173696d6972000000",
+    "purpose": "2026 verified-roster name slot 31 #19: Osterc -> Casimir"
+  },
+  {
+    "raw_offset": 398786,
+    "expected_hex": "53696c6a616b00000000",
+    "replacement_hex": "497369646f7200000000",
+    "purpose": "2026 verified-roster name slot 31 #20: Siljak -> Isidor"
+  },
+  {
+    "raw_offset": 398796,
+    "expected_hex": "4e656d65630000000000",
+    "replacement_hex": "412e5069657272650000",
+    "purpose": "2026 verified-roster name slot 31 #21: Nemec -> A.Pierre"
+  },
+  {
+    "raw_offset": 398806,
+    "expected_hex": "53696d65756e6f766963",
+    "replacement_hex": "44757665726765720000",
+    "purpose": "2026 verified-roster name slot 31 #22: Simeunovic -> Duverger"
+  },
+  {
+    "raw_offset": 397936,
+    "expected_hex": "5375736b6f0000000000",
+    "replacement_hex": "4d706173690000000000",
+    "purpose": "2026 verified-roster name slot 34 #1: Susko -> Mpasi"
+  },
+  {
+    "raw_offset": 397946,
+    "expected_hex": "4b617268616e00000000",
+    "replacement_hex": "4d62656d626100000000",
+    "purpose": "2026 verified-roster name slot 34 #2: Karhan -> Mbemba"
+  },
+  {
+    "raw_offset": 397956,
+    "expected_hex": "56617267610000000000",
+    "replacement_hex": "4d617375616b75000000",
+    "purpose": "2026 verified-roster name slot 34 #3: Varga -> Masuaku"
+  },
+  {
+    "raw_offset": 397966,
+    "expected_hex": "54696d6b6f0000000000",
+    "replacement_hex": "4b616c756c7500000000",
+    "purpose": "2026 verified-roster name slot 34 #4: Timko -> Kalulu"
+  },
+  {
+    "raw_offset": 397976,
+    "expected_hex": "48726162616c00000000",
+    "replacement_hex": "4b6179656d6265000000",
+    "purpose": "2026 verified-roster name slot 34 #5: Hrabal -> Kayembe"
+  },
+  {
+    "raw_offset": 397986,
+    "expected_hex": "4d6f72617663696b0000",
+    "replacement_hex": "4d6f75746f757373612e",
+    "purpose": "2026 verified-roster name slot 34 #6: Moravcik -> Moutoussa."
+  },
+  {
+    "raw_offset": 397996,
+    "expected_hex": "546f6d61736368656b00",
+    "replacement_hex": "452e4b6179656d626500",
+    "purpose": "2026 verified-roster name slot 34 #7: Tomaschek -> E.Kayembe"
+  },
+  {
+    "raw_offset": 398006,
+    "expected_hex": "42616c69730000000000",
+    "replacement_hex": "426f6e676f6e64610000",
+    "purpose": "2026 verified-roster name slot 34 #8: Balis -> Bongonda"
+  },
+  {
+    "raw_offset": 398016,
+    "expected_hex": "4475626f76736b790000",
+    "replacement_hex": "5069636b656c00000000",
+    "purpose": "2026 verified-roster name slot 34 #9: Dubovsky -> Pickel"
+  },
+  {
+    "raw_offset": 398026,
+    "expected_hex": "50696e74650000000000",
+    "replacement_hex": "42616b616d6275000000",
+    "purpose": "2026 verified-roster name slot 34 #10: Pinte -> Bakambu"
+  },
+  {
+    "raw_offset": 398036,
+    "expected_hex": "4a616e636c6100000000",
+    "replacement_hex": "456c6961000000000000",
+    "purpose": "2026 verified-roster name slot 34 #11: Jancla -> Elia"
+  },
+  {
+    "raw_offset": 398046,
+    "expected_hex": "54697474656c00000000",
+    "replacement_hex": "5475616e7a6562650000",
+    "purpose": "2026 verified-roster name slot 34 #12: Tittel -> Tuanzebe"
+  },
+  {
+    "raw_offset": 398056,
+    "expected_hex": "4b6f7a616b0000000000",
+    "replacement_hex": "4261747562696e73692e",
+    "purpose": "2026 verified-roster name slot 34 #13: Kozak -> Batubinsi."
+  },
+  {
+    "raw_offset": 398066,
+    "expected_hex": "5370696c617200000000",
+    "replacement_hex": "57616e2d42697373612e",
+    "purpose": "2026 verified-roster name slot 34 #14: Spilar -> Wan-Bissa."
+  },
+  {
+    "raw_offset": 398076,
+    "expected_hex": "536c6f76616b00000000",
+    "replacement_hex": "536164696b6900000000",
+    "purpose": "2026 verified-roster name slot 34 #15: Slovak -> Sadiki"
+  },
+  {
+    "raw_offset": 398086,
+    "expected_hex": "4a616e63756c61000000",
+    "replacement_hex": "4d62756b750000000000",
+    "purpose": "2026 verified-roster name slot 34 #16: Jancula -> Mbuku"
+  },
+  {
+    "raw_offset": 398096,
+    "expected_hex": "4e656d65746800000000",
+    "replacement_hex": "54736869626f6c610000",
+    "purpose": "2026 verified-roster name slot 34 #17: Nemeth -> Tshibola"
+  },
+  {
+    "raw_offset": 398106,
+    "expected_hex": "56616c6163686f766963",
+    "replacement_hex": "57697373610000000000",
+    "purpose": "2026 verified-roster name slot 34 #18: Valachovic -> Wissa"
+  },
+  {
+    "raw_offset": 398116,
+    "expected_hex": "556a6c616b7900000000",
+    "replacement_hex": "4d6179656c6500000000",
+    "purpose": "2026 verified-roster name slot 34 #19: Ujlaky -> Mayele"
+  },
+  {
+    "raw_offset": 398126,
+    "expected_hex": "46616275730000000000",
+    "replacement_hex": "4b616b75746100000000",
+    "purpose": "2026 verified-roster name slot 34 #20: Fabus -> Kakuta"
+  },
+  {
+    "raw_offset": 398136,
+    "expected_hex": "4d616a6f726f73000000",
+    "replacement_hex": "466179756c7500000000",
+    "purpose": "2026 verified-roster name slot 34 #21: Majoros -> Fayulu"
+  },
+  {
+    "raw_offset": 398146,
+    "expected_hex": "48796c6c000000000000",
+    "replacement_hex": "45706f6c6f0000000000",
+    "purpose": "2026 verified-roster name slot 34 #22: Hyll -> Epolo"
+  },
+  {
+    "raw_offset": 397192,
+    "expected_hex": "4e69656d690000000000",
+    "replacement_hex": "5a696769000000000000",
+    "purpose": "2026 verified-roster name slot 36 #1: Niemi -> Zigi"
+  },
+  {
+    "raw_offset": 397202,
+    "expected_hex": "546968696e65",
+    "replacement_hex": "426162610000",
+    "purpose": "2026 verified-roster name slot 36 #2: Tihinen -> Baba"
+  },
+  {
+    "raw_offset": 397512,
+    "expected_hex": "6e000000",
+    "replacement_hex": "00000000",
+    "purpose": "2026 verified-roster name slot 36 #2: Tihinen -> Baba"
+  },
+  {
+    "raw_offset": 397516,
+    "expected_hex": "48797970696100000000",
+    "replacement_hex": "4d656e73616800000000",
+    "purpose": "2026 verified-roster name slot 36 #3: Hyypia -> Mensah"
+  },
+  {
+    "raw_offset": 397526,
+    "expected_hex": "5265696e690000000000",
+    "replacement_hex": "53656964750000000000",
+    "purpose": "2026 verified-roster name slot 36 #4: Reini -> Seidu"
+  },
+  {
+    "raw_offset": 397536,
+    "expected_hex": "5361617374616d6f692e",
+    "replacement_hex": "4f706f6b750000000000",
+    "purpose": "2026 verified-roster name slot 36 #5: Saastamoi. -> Opoku"
+  },
+  {
+    "raw_offset": 397546,
+    "expected_hex": "52696968696c61687469",
+    "replacement_hex": "50617274657900000000",
+    "purpose": "2026 verified-roster name slot 36 #6: Riihilahti -> Partey"
+  },
+  {
+    "raw_offset": 397556,
+    "expected_hex": "4e75726d656c61000000",
+    "replacement_hex": "53656d656e796f000000",
+    "purpose": "2026 verified-roster name slot 36 #7: Nurmela -> Semenyo"
+  },
+  {
+    "raw_offset": 397566,
+    "expected_hex": "57697373000000000000",
+    "replacement_hex": "4f777573750000000000",
+    "purpose": "2026 verified-roster name slot 36 #8: Wiss -> Owusu"
+  },
+  {
+    "raw_offset": 397576,
+    "expected_hex": "4c69746d616e656e0000",
+    "replacement_hex": "596972656e6b79690000",
+    "purpose": "2026 verified-roster name slot 36 #9: Litmanen -> Yirenkyi"
+  },
+  {
+    "raw_offset": 397586,
+    "expected_hex": "4b6f6c6b6b6100000000",
+    "replacement_hex": "41796577000000000000",
+    "purpose": "2026 verified-roster name slot 36 #10: Kolkka -> Ayew"
+  },
+  {
+    "raw_offset": 397596,
+    "expected_hex": "466f727373656c6c0000",
+    "replacement_hex": "46617461777500000000",
+    "purpose": "2026 verified-roster name slot 36 #11: Forssell -> Fatawu"
+  },
+  {
+    "raw_offset": 397606,
+    "expected_hex": "54756f6d656c61000000",
+    "replacement_hex": "41646a65746579000000",
+    "purpose": "2026 verified-roster name slot 36 #12: Tuomela -> Adjetey"
+  },
+  {
+    "raw_offset": 397616,
+    "expected_hex": "596c6f6e656e00000000",
+    "replacement_hex": "4d756d696e0000000000",
+    "purpose": "2026 verified-roster name slot 36 #13: Ylonen -> Mumin"
+  },
+  {
+    "raw_offset": 397626,
+    "expected_hex": "4e796c756e6400000000",
+    "replacement_hex": "4f70706f6e6700000000",
+    "purpose": "2026 verified-roster name slot 36 #14: Nylund -> Oppong"
+  },
+  {
+    "raw_offset": 397636,
+    "expected_hex": "4b6175746f6e656e0000",
+    "replacement_hex": "5369626f000000000000",
+    "purpose": "2026 verified-roster name slot 36 #15: Kautonen -> Sibo"
+  },
+  {
+    "raw_offset": 397646,
+    "expected_hex": "47726f6e6c756e640000",
+    "replacement_hex": "426f616b796500000000",
+    "purpose": "2026 verified-roster name slot 36 #16: Gronlund -> Boakye"
+  },
+  {
+    "raw_offset": 397656,
+    "expected_hex": "56616c616b6172690000",
+    "replacement_hex": "53756c656d616e610000",
+    "purpose": "2026 verified-roster name slot 36 #17: Valakari -> Sulemana"
+  },
+  {
+    "raw_offset": 397666,
+    "expected_hex": "4c65686b6f73756f0000",
+    "replacement_hex": "57696c6c69616d730000",
+    "purpose": "2026 verified-roster name slot 36 #18: Lehkosuo -> Williams"
+  },
+  {
+    "raw_offset": 397676,
+    "expected_hex": "4a6f68616e73736f6e00",
+    "replacement_hex": "4e75616d616800000000",
+    "purpose": "2026 verified-roster name slot 36 #19: Johansson -> Nuamah"
+  },
+  {
+    "raw_offset": 397686,
+    "expected_hex": "50616174656c61696e2e",
+    "replacement_hex": "42616168000000000000",
+    "purpose": "2026 verified-roster name slot 36 #20: Paatelain. -> Baah"
+  },
+  {
+    "raw_offset": 397696,
+    "expected_hex": "4b6f7474696c61000000",
+    "replacement_hex": "41736172650000000000",
+    "purpose": "2026 verified-roster name slot 36 #21: Kottila -> Asare"
+  },
+  {
+    "raw_offset": 397706,
+    "expected_hex": "4a6161736b656c61692e",
+    "replacement_hex": "416e616e670000000000",
+    "purpose": "2026 verified-roster name slot 36 #22: Jaaskelai. -> Anang"
+  },
+  {
+    "raw_offset": 393808,
+    "expected_hex": "43726f73736c65650000",
+    "replacement_hex": "466f66616e6100000000",
+    "purpose": "2026 verified-roster name slot 50 #1: Crosslee -> Fofana"
+  },
+  {
+    "raw_offset": 393818,
+    "expected_hex": "436f616c6d616e000000",
+    "replacement_hex": "4b6f6e616e0000000000",
+    "purpose": "2026 verified-roster name slot 50 #2: Coalman -> Konan"
+  },
+  {
+    "raw_offset": 393828,
+    "expected_hex": "4d656c6c76696c650000",
+    "replacement_hex": "4b6f73736f756e6f7500",
+    "purpose": "2026 verified-roster name slot 50 #3: Mellvile -> Kossounou"
+  },
+  {
+    "raw_offset": 393838,
+    "expected_hex": "50616967650000000000",
+    "replacement_hex": "53696e676f0000000000",
+    "purpose": "2026 verified-roster name slot 50 #4: Paige -> Singo"
+  },
+  {
+    "raw_offset": 393848,
+    "expected_hex": "4265726e617264000000",
+    "replacement_hex": "4e6469636b6100000000",
+    "purpose": "2026 verified-roster name slot 50 #5: Bernard -> Ndicka"
+  },
+  {
+    "raw_offset": 393858,
+    "expected_hex": "526f62656e736f6e0000",
+    "replacement_hex": "4b657373696500000000",
+    "purpose": "2026 verified-roster name slot 50 #6: Robenson -> Kessie"
+  },
+  {
+    "raw_offset": 393868,
+    "expected_hex": "4a6f6e736f6e00000000",
+    "replacement_hex": "53657269000000000000",
+    "purpose": "2026 verified-roster name slot 50 #7: Jonson -> Seri"
+  },
+  {
+    "raw_offset": 393878,
+    "expected_hex": "53617665676765000000",
+    "replacement_hex": "53616e67617265000000",
+    "purpose": "2026 verified-roster name slot 50 #8: Savegge -> Sangare"
+  },
+  {
+    "raw_offset": 393888,
+    "expected_hex": "53706561640000000000",
+    "replacement_hex": "532e466f66616e610000",
+    "purpose": "2026 verified-roster name slot 50 #9: Spead -> S.Fofana"
+  },
+  {
+    "raw_offset": 393898,
+    "expected_hex": "426c61796b6500000000",
+    "replacement_hex": "50657065000000000000",
+    "purpose": "2026 verified-roster name slot 50 #10: Blayke -> Pepe"
+  },
+  {
+    "raw_offset": 393908,
+    "expected_hex": "47656167730000000000",
+    "replacement_hex": "4469616b697465000000",
+    "purpose": "2026 verified-roster name slot 50 #11: Geags -> Diakite"
+  },
+  {
+    "raw_offset": 393918,
+    "expected_hex": "53696d6d6f6e73000000",
+    "replacement_hex": "446f7565000000000000",
+    "purpose": "2026 verified-roster name slot 50 #12: Simmons -> Doue"
+  },
+  {
+    "raw_offset": 393928,
+    "expected_hex": "57696c6c696f6d730000",
+    "replacement_hex": "41676261646f75000000",
+    "purpose": "2026 verified-roster name slot 50 #13: Willioms -> Agbadou"
+  },
+  {
+    "raw_offset": 393938,
+    "expected_hex": "44656c616e7900000000",
+    "replacement_hex": "44696f6d616e64650000",
+    "purpose": "2026 verified-roster name slot 50 #14: Delany -> Diomande"
+  },
+  {
+    "raw_offset": 393948,
+    "expected_hex": "50616d62726964676500",
+    "replacement_hex": "4f756c61690000000000",
+    "purpose": "2026 verified-roster name slot 50 #15: Pambridge -> Oulai"
+  },
+  {
+    "raw_offset": 393958,
+    "expected_hex": "4a616e636b696e730000",
+    "replacement_hex": "47756961676f6e000000",
+    "purpose": "2026 verified-roster name slot 50 #16: Janckins -> Guiagon"
+  },
+  {
+    "raw_offset": 393968,
+    "expected_hex": "4a6f686e730000000000",
+    "replacement_hex": "4164696e677261000000",
+    "purpose": "2026 verified-roster name slot 50 #17: Johns -> Adingra"
+  },
+  {
+    "raw_offset": 393978,
+    "expected_hex": "42656c616d6900000000",
+    "replacement_hex": "4775657373616e640000",
+    "purpose": "2026 verified-roster name slot 50 #18: Belami -> Guessand"
+  },
+  {
+    "raw_offset": 393988,
+    "expected_hex": "492e526f626172747300",
+    "replacement_hex": "4469616c6c6f00000000",
+    "purpose": "2026 verified-roster name slot 50 #19: I.Robarts -> Diallo"
+  },
+  {
+    "raw_offset": 393998,
+    "expected_hex": "4865617274736f6e0000",
+    "replacement_hex": "592e44696f6d616e6465",
+    "purpose": "2026 verified-roster name slot 50 #20: Heartson -> Y.Diomande"
+  },
+  {
+    "raw_offset": 394008,
+    "expected_hex": "536f756e646572730000",
+    "replacement_hex": "4c61666f6e7400000000",
+    "purpose": "2026 verified-roster name slot 50 #21: Sounders -> Lafont"
+  },
+  {
+    "raw_offset": 394018,
+    "expected_hex": "57617264650000000000",
+    "replacement_hex": "4b6f6e65000000000000",
+    "purpose": "2026 verified-roster name slot 50 #22: Warde -> Kone"
+  },
+  {
+    "raw_offset": 393368,
+    "expected_hex": "5465796c6f7200000000",
+    "replacement_hex": "5a6964616e6500000000",
+    "purpose": "2026 verified-roster name slot 52 #1: Teylor -> Zidane"
+  },
+  {
+    "raw_offset": 393378,
+    "expected_hex": "412e48757a6500000000",
+    "replacement_hex": "4d616e64690000000000",
+    "purpose": "2026 verified-roster name slot 52 #2: A.Huze -> Mandi"
+  },
+  {
+    "raw_offset": 393388,
+    "expected_hex": "57696c6c616d73000000",
+    "replacement_hex": "42656e73656261696e69",
+    "purpose": "2026 verified-roster name slot 52 #3: Willams -> Bensebaini"
+  },
+  {
+    "raw_offset": 393398,
+    "expected_hex": "54616768617274000000",
+    "replacement_hex": "546f7567616900000000",
+    "purpose": "2026 verified-roster name slot 52 #4: Taghart -> Tougai"
+  },
+  {
+    "raw_offset": 393408,
+    "expected_hex": "4e6f6c68616e00000000",
+    "replacement_hex": "4169742d4e6f75726900",
+    "purpose": "2026 verified-roster name slot 52 #5: Nolhan -> Ait-Nouri"
+  },
+  {
+    "raw_offset": 393418,
+    "expected_hex": "4c656d6d6f6e00000000",
+    "replacement_hex": "42656e74616c65620000",
+    "purpose": "2026 verified-roster name slot 52 #6: Lemmon -> Bentaleb"
+  },
+  {
+    "raw_offset": 393428,
+    "expected_hex": "4c6f6d65737300000000",
+    "replacement_hex": "5a6572726f756b690000",
+    "purpose": "2026 verified-roster name slot 52 #7: Lomess -> Zerrouki"
+  },
+  {
+    "raw_offset": 393438,
+    "expected_hex": "486f72656c6f6b000000",
+    "replacement_hex": "426f7564616f75690000",
+    "purpose": "2026 verified-roster name slot 52 #8: Horelok -> Boudaoui"
+  },
+  {
+    "raw_offset": 393448,
+    "expected_hex": "47696c6c617370790000",
+    "replacement_hex": "43686169626900000000",
+    "purpose": "2026 verified-roster name slot 52 #9: Gillaspy -> Chaibi"
+  },
+  {
+    "raw_offset": 393458,
+    "expected_hex": "4d2e48757a6500000000",
+    "replacement_hex": "4d616872657a00000000",
+    "purpose": "2026 verified-roster name slot 52 #10: M.Huze -> Mahrez"
+  },
+  {
+    "raw_offset": 393468,
+    "expected_hex": "517565656e0000000000",
+    "replacement_hex": "416d6f75726100000000",
+    "purpose": "2026 verified-roster name slot 52 #11: Queen -> Amoura"
+  },
+  {
+    "raw_offset": 393478,
+    "expected_hex": "47726966696e6e000000",
+    "replacement_hex": "42656c61696400000000",
+    "purpose": "2026 verified-roster name slot 52 #12: Grifinn -> Belaid"
+  },
+  {
+    "raw_offset": 393488,
+    "expected_hex": "4d6172646f6300000000",
+    "replacement_hex": "4861646a616d00000000",
+    "purpose": "2026 verified-roster name slot 52 #13: Mardoc -> Hadjam"
+  },
+  {
+    "raw_offset": 393498,
+    "expected_hex": "4d616a696c746f6e0000",
+    "replacement_hex": "42656c6768616c690000",
+    "purpose": "2026 verified-roster name slot 52 #14: Majilton -> Belghali"
+  },
+  {
+    "raw_offset": 393508,
+    "expected_hex": "48616e74657200000000",
+    "replacement_hex": "416f7561720000000000",
+    "purpose": "2026 verified-roster name slot 52 #15: Hanter -> Aouar"
+  },
+  {
+    "raw_offset": 393518,
+    "expected_hex": "536f6e6e6f7200000000",
+    "replacement_hex": "4d617a61000000000000",
+    "purpose": "2026 verified-roster name slot 52 #16: Sonnor -> Maza"
+  },
+  {
+    "raw_offset": 393528,
+    "expected_hex": "4a6f686e736c6f6e6500",
+    "replacement_hex": "54697472616f75690000",
+    "purpose": "2026 verified-roster name slot 52 #17: Johnslone -> Titraoui"
+  },
+  {
+    "raw_offset": 393538,
+    "expected_hex": "4869656c790000000000",
+    "replacement_hex": "476f7569726900000000",
+    "purpose": "2026 verified-roster name slot 52 #18: Hiely -> Gouiri"
+  },
+  {
+    "raw_offset": 393548,
+    "expected_hex": "436f7574650000000000",
+    "replacement_hex": "4d6f7573736100000000",
+    "purpose": "2026 verified-roster name slot 52 #19: Coute -> Moussa"
+  },
+  {
+    "raw_offset": 393558,
+    "expected_hex": "44617779000000000000",
+    "replacement_hex": "426f756c62696e610000",
+    "purpose": "2026 verified-roster name slot 52 #20: Dawy -> Boulbina"
+  },
+  {
+    "raw_offset": 393568,
+    "expected_hex": "526f62656e736f6e0000",
+    "replacement_hex": "42656e626f7400000000",
+    "purpose": "2026 verified-roster name slot 52 #21: Robenson -> Benbot"
+  },
+  {
+    "raw_offset": 393578,
+    "expected_hex": "4361726f6c6500000000",
+    "replacement_hex": "4d617374696c00000000",
+    "purpose": "2026 verified-roster name slot 52 #22: Carole -> Mastil"
+  }
+]
