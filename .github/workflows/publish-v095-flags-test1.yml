@@ -1,0 +1,219 @@
+name: Publish ISS26 v0.9.5 Flags TEST1 (Bosnia menu probe, never Stable)
+
+on:
+  push:
+    branches: [feature/v095-national-flags-only]
+    paths: ['.github/workflows/publish-v095-flags-test1.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: iss26-v095-flags-test1
+  cancel-in-progress: false
+
+jobs:
+  verify-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      GH_TOKEN: ${{ github.token }}
+      REPO: Nevmerlyk/ISS26-Updates
+      TAG: v0.9.5-flags-test1
+      ASSET: ISS26_0.9.5_FLAGS_TEST1.iss26p
+      TEST_SHA: 3B667CF6031BC2BFAA143D0D21ACF6D623447C222096805D529739235E2216A4
+      BASE_SHA: 70E46566A7F2C3A7E5F1E930210A132D452EF0B752D18E92F4B5475DE2CB45FE
+      RESULT_SHA: 5181FC06960A89359EAE62462DB97F1E2FFF709A622BAF85E9D4FE6E97038A7A
+      CLEAN_SHA: D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44
+    steps:
+      - uses: actions/checkout@v4
+      - name: Confirm old stable and test channels without changing them
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json,urllib.request
+          for channel in ('stable','test'):
+              with urllib.request.urlopen(
+                  'https://raw.githubusercontent.com/Nevmerlyk/ISS26-Updates/main/'+channel+'/latest.json',
+                  timeout=25
+              ) as response: feed=json.load(response)
+              assert feed['schemaVersion']==1 and feed['channel']==channel
+              print(channel,'currently:',feed['latest']['version'])
+              if channel=='stable':
+                  assert feed['latest']['version']=='0.9.4'
+              else:
+                  assert feed['latest']['version'] in (
+                      '0.9.5-bosnia-cabo-vram-probe1','0.9.5-flags-test1'
+                  ),'Unrecognized test feed; refuse overwrite'
+          PY
+      - name: Fetch only independent XOR patches, no commercial BIN or BIOS
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          gh release download v0.9.4-preview -R "$REPO" --pattern 'ISS26_0.9.4_preview.iss26p' --dir dist
+          gh release download v0.9.5A -R "$REPO" --pattern 'ISS26_0.9.5A.iss26p' --dir dist
+          echo "$BASE_SHA  dist/ISS26_0.9.4_preview.iss26p" | sha256sum --check
+          echo "$TEST_SHA  dist/ISS26_0.9.5A.iss26p" | sha256sum --check
+          cp dist/ISS26_0.9.5A.iss26p "dist/$ASSET"
+      - name: Verify independent target clean-disc hashes and exact graphics-only delta
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib,json,os,pathlib,struct
+          root=pathlib.Path('dist')
+          def parse(path):
+              data=path.read_bytes()
+              assert data[:8]==b'ISS26X01'
+              count=struct.unpack_from('<I',data,8)[0]
+              assert count==1412 and len(data)==12+count*2388
+              records={}
+              prev=-1
+              for i in range(count):
+                  start=12+i*2388
+                  lba=struct.unpack_from('<I',data,start)[0]
+                  assert prev<lba<496156752//2352
+                  prev=lba
+                  clean_sector_sha=data[start+4:start+36]
+                  mask=data[start+36:start+2388]
+                  assert any(mask)
+                  records[lba]=(clean_sector_sha,mask)
+              return records
+          old=parse(root/'ISS26_0.9.4_preview.iss26p')
+          test=parse(root/'ISS26_0.9.5A.iss26p')
+          assert len(old)==len(test)==1412 and old.keys()==test.keys()
+          different={}
+          for lba in old:
+              a,mask_a=old[lba]
+              b,mask_b=test[lba]
+              assert a==b,'Clean-original sector digest changed'
+              if mask_a!=mask_b:
+                  positions=[i for i in range(2352) if mask_a[i]!=mask_b[i]]
+                  different[lba]=positions
+          assert different,'New test patch is identical to 0.9.4'
+          # Allow EDC/ECC changes only in known graphic/CLUT/style sectors,
+          # never player DB, names, CD audio, or unrelated gameplay sectors.
+          ranges=[(5328,5330),(6000,6110),(6250,6325)]
+          style_positions=[0x1D6F48+23,0x1E94CC+23,
+                           0x224C50+23,0x4AD4B8+23,0x575864+23]
+          style_lbas={p//2352 for p in style_positions}
+          allowed=lambda s: any(lo<=s<hi for lo,hi in ranges) or s in style_lbas
+          forbidden=[s for s in different if not allowed(s)]
+          assert not forbidden,'Unexpected nonflag edits: '+repr(forbidden)
+          assert any(6000<=s<6110 for s in different),'DATSEL graphics were not changed'
+          assert any(6250<=s<6325 for s in different),'DATSEL3 graphics were not changed'
+          assert any(5328<=s<5330 for s in different),'CLUT transparency not changed'
+          assert set(different)&style_lbas,'National style map not changed'
+          assert not any(s>16750 for s in different),'Unexpected CD audio sectors modified'
+          manifest={
+              'schemaVersion':1,
+              'type':'game-test-patch',
+              'version':'0.9.5-flags-test1',
+              'baseVersion':'0.9.4',
+              'source':'Audited v0.9.5A partial Bosnia graphics test, reissued as nonstable TEST1',
+              'cleanTrack01Sha256':os.environ['CLEAN_SHA'],
+              'basePatchSha256':os.environ['BASE_SHA'],
+              'testPatchSha256':os.environ['TEST_SHA'],
+              'expectedRebuiltTrack01Sha256':os.environ['RESULT_SHA'],
+              'recordCount':len(test),
+              'changedSectorCountFrom094':len(different),
+              'changedLBAsFrom094':list(different),
+              'notFixed':['16 remaining replacement flags','24x16 and 24x8 flags',
+                          'all stadium-specific GDC atlas overrides',
+                          'match HUD small flags','Master League to HUD provenance'],
+              'stableVersionUnchanged':'0.9.4'
+          }
+          (root/'ISS26_0.9.5_FLAGS_TEST1_report.json').write_text(
+              json.dumps(manifest,indent=2)+'\n',encoding='utf-8')
+          print('PASS: '+str(len(different))+' changed sectors, all scoped to flags.')
+          print('LBA:',sorted(different))
+          PY
+      - name: Run existing independent patch regressions
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s tools/tests -p 'test_*.py' -v
+      - name: Publish separate TEST-only GitHub prerelease, refuse to rewrite existing asset
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat > dist/RELEASE_NOTES.md <<'EOF'
+          # ISS26 v0.9.5 Flags TEST1 — NOT STABLE
+          
+          An independent clean-original test image, reproduced from the SHA-pinned
+          v0.9.5A Bosnia-graphics probe. This is NOT the completed 17-flag repair:
+          
+          - Inherits v0.9.4 and 16 transparency-index (CLUT #0) repairs.
+          - Remaps Bosnia's unsupported large-flag style 55 to style 10 in 5 known tables.
+          - Replaces Bosnia's 64×28 graphic in DATSEL.BIN / DATSEL3.BIN.
+          - Does NOT repair stadium GDC reuploads, all small flags, the in-match HUD,
+            or the other 16 replacement national flags.
+          - Earlier v0.9.5A tests showed the stadium can overwrite the flag with a
+            blue oval: that is a KNOWN defect and a targeted diagnostic.
+          
+          Intended only for ISS26 Launcher **Test Game** and graphics diagnostic capture.
+          Stable **Play Game remains v0.9.4**.
+          Original PS1 game BIN/CUE, BIOS, CD audio and saves are not distributed.
+          EOF
+          if gh release view "$TAG" -R "$REPO" >/dev/null 2>&1; then
+              digest=$(gh api "repos/$REPO/releases/tags/$TAG" --jq '[.assets[] | select(.name=="ISS26_0.9.5_FLAGS_TEST1.iss26p")][0].digest // ""')
+              [[ "$digest" == "sha256:${TEST_SHA,,}" ]] || { echo 'Conflicting existing test asset' >&2; exit 1; }
+          else
+              gh release create "$TAG" "dist/$ASSET" dist/ISS26_0.9.5_FLAGS_TEST1_report.json -R "$REPO" \
+                  --target feature/v095-national-flags-only --prerelease --latest=false \
+                  --title "ISS26 v0.9.5 Flags TEST1 — Bosnia 64x28 and CLUT probe (nonstable)" \
+                  --notes-file dist/RELEASE_NOTES.md
+          fi
+          digest=$(gh api "repos/$REPO/releases/tags/$TAG" --jq '[.assets[] | select(.name=="ISS26_0.9.5_FLAGS_TEST1.iss26p")][0].digest // ""')
+          [[ "$digest" == "sha256:${TEST_SHA,,}" ]] || { echo 'Published test SHA mismatch' >&2; exit 1; }
+      - name: Activate TEST GAME channel only and verify stable channel never changes
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import base64,json,subprocess,os
+          repo=os.environ['REPO']
+          endpoint=f'repos/{repo}/contents/test/latest.json'
+          def get(path):
+              rec=json.loads(subprocess.check_output(['gh','api',path],text=True))
+              obj=json.loads(base64.b64decode(rec['content']))
+              return rec,obj
+          rec,old=get(endpoint)
+          assert old['channel']=='test'
+          assert old['latest']['version'] in (
+              '0.9.5-bosnia-cabo-vram-probe1','0.9.5-flags-test1'
+          )
+          new={
+              'schemaVersion':1,'channel':'test',
+              'latest':{
+                  'version':'0.9.5-flags-test1',
+                  'patchUrl':f'https://github.com/{repo}/releases/download/'
+                             f'{os.environ["TAG"]}/{os.environ["ASSET"]}',
+                  'patchSha256':os.environ['TEST_SHA'],
+                  'baseSha256':os.environ['CLEAN_SHA'],
+                  'resultSha256':os.environ['RESULT_SHA']
+              },
+              'notes':(
+                  'Experimental v0.9.5 FLAGS TEST1. Bosnia large flag replaced only in DATSEL/DATSEL3; '
+                  'CLUT transparency repaired. Other 16 replacements, stadium GDC reuploads and '
+                  'match scoreboard small flags are NOT fixed. Use Launcher Test Game; '
+                  'Play Game remains v0.9.4. Do not promote test to stable.'
+              )
+          }
+          if old['latest']['version']!='0.9.5-flags-test1':
+              payload={
+                  'branch':'main','sha':rec['sha'],
+                  'message':'test: activate v0.9.5 flags-only diagnostic without touching stable game',
+                  'content':base64.b64encode((json.dumps(new,indent=2)+'\n').encode()).decode()
+              }
+              subprocess.run(['gh','api','-X','PUT',endpoint,'--input','-'],
+                  input=json.dumps(payload),text=True,check=True,stdout=subprocess.DEVNULL)
+          _,live=get(endpoint)
+          assert live['latest']==new['latest'],'Test Game feed activation failed'
+          _,stable=get(f'repos/{repo}/contents/stable/latest.json')
+          assert stable['latest']['version']=='0.9.4','Stable changed unexpectedly'
+          print('PASS: Test Game = v0.9.5-flags-test1; Play Game = v0.9.4')
+          PY
