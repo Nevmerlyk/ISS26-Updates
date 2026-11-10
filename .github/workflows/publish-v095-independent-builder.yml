@@ -1,0 +1,98 @@
+name: Publish ISS26 v0.9.5 Independent Builder (tool only, NOT game patch)
+on:
+  push:
+    branches: [feature/v095-national-flags-only]
+    paths: ['.github/workflows/publish-v095-independent-builder.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: iss26-v095-independent-builder-v1
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: windows-latest
+    timeout-minutes: 25
+    env:
+      GH_TOKEN: ${{ secrets.ISS26_PUBLIC_RELEASE_TOKEN }}
+      REPO: Nevmerlyk/ISS26-Updates
+      TAG: tools-v095-independent-builder-v1
+      ARCHIVE: ISS26_v095_Independent_Builder.zip
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run independent CD-patch assembler tests
+        shell: pwsh
+        run: |
+          python -m unittest discover -s staging/v0.9.5/builder -p 'test_*.py' -v
+          if ($LASTEXITCODE -ne 0) { throw 'CD sector patch builder did not pass synthetic tests' }
+          python -m pip install 'Pillow==11.3.0'
+          if ($LASTEXITCODE -ne 0) { throw 'Pillow install failed' }
+          python -m unittest discover -s staging/v0.9.5/flags_source -p 'test_*.py' -v
+          if ($LASTEXITCODE -ne 0) { throw 'Graphic codec/art regression failed' }
+      - name: Package independent builder source code ONLY
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force dist/pkg/builder,dist/pkg/flags_source | Out-Null
+          Copy-Item staging/v0.9.5/builder/*.py dist/pkg/builder/
+          Copy-Item staging/v0.9.5/builder/README.md dist/pkg/builder/README.md
+          Copy-Item staging/v0.9.5/builder/RUN_BUILDER.cmd dist/pkg/builder/RUN_BUILDER.cmd
+          Copy-Item staging/v0.9.5/flags_source/*.py dist/pkg/flags_source/
+          Copy-Item staging/v0.9.5/flags_source/README.md dist/pkg/flags_source/README.md
+          @'
+          ISS26 v0.9.5 INDEPENDENT BUILDER — SOURCE TOOL, NOT A GAME PATCH
+
+          1. Unpack the archive into your ISS26 project folder.
+          2. Read builder/README.md before running.
+          3. Supply clean European Track01 and verified-flag-plan.json.
+          4. The builder refuses incomplete/unaudited graphics, and does not
+             overwrite the original game, audio, stable patch or user's saves.
+          5. This tool release does NOT mark game v0.9.5 stable.
+          '@ | Set-Content dist/pkg/README_FIRST.txt -Encoding utf8NoBOM
+          Compress-Archive -LiteralPath dist/pkg/builder,dist/pkg/flags_source,dist/pkg/README_FIRST.txt -DestinationPath "dist/$env:ARCHIVE" -CompressionLevel Optimal
+          Add-Type -AssemblyName System.IO.Compression
+          $z=[IO.Compression.ZipFile]::OpenRead((Resolve-Path "dist/$env:ARCHIVE").Path)
+          try {
+            $names=@($z.Entries | ForEach-Object { $_.FullName })
+            foreach ($needed in @('builder/build_v095.py','builder/independent_xor.py',
+                'builder/RUN_BUILDER.cmd','builder/README.md','flags_source/wecodec.py',
+                'flags_source/modern_flag_art.py','flags_source/palette_multiplex.py',
+                'README_FIRST.txt')) {
+              if ($names -notcontains $needed) { throw "Missing builder component: $needed" }
+            }
+            if (@($names | Where-Object { $_ -match '\.(bin|cue|iso|iss26p|dll|exe)$' }).Count -ne 0) {
+              throw 'Unexpected copyrighted game or executable binary in tooling ZIP'
+            }
+          } finally { $z.Dispose() }
+          Write-Host "SOURCE PACKAGE SHA256 = $((Get-FileHash "dist/$env:ARCHIVE" -Algorithm SHA256).Hash)"
+      - name: Verify active stable GAME is still 0.9.4
+        shell: pwsh
+        run: |
+          $feed=Invoke-RestMethod 'https://raw.githubusercontent.com/Nevmerlyk/ISS26-Updates/main/stable/latest.json' -TimeoutSec 30
+          if ($feed.latest.version -ne '0.9.4') { throw 'Unexpected game Stable channel' }
+      - name: Publish TOOL release only, never alter stable/latest.json
+        shell: pwsh
+        run: |
+          if ([string]::IsNullOrWhiteSpace($env:GH_TOKEN)) {
+            throw 'No authorized public release token: tool package available through Actions only'
+          }
+          $sha=(Get-FileHash "dist/$env:ARCHIVE" -Algorithm SHA256).Hash.ToLowerInvariant()
+          gh release view $env:TAG -R $env:REPO 2>$null | Out-Null
+          if ($LASTEXITCODE -eq 0) {
+            $release=(gh api "repos/$env:REPO/releases/tags/$env:TAG" | ConvertFrom-Json)
+            $assets=@($release.assets | Where-Object { $_.name -eq $env:ARCHIVE })
+            if ($assets.Count -ne 1 -or $assets[0].digest -ne ('sha256:'+$sha)) {
+              throw 'Existing builder release assets conflict: refusing overwrite'
+            }
+          } else {
+            gh release create $env:TAG "dist/$env:ARCHIVE" -R $env:REPO --target feature/v095-national-flags-only --prerelease --latest=false --title 'ISS26 v0.9.5 Independent Flags-Only Builder v1 (tool)' --notes 'Developer tool, NOT a playable game patch. Pure-Python source assembler: clean EU Track01+v0.9.4 XOR baseline+verified 17-flag VRAM/CLUT plan -> independent clean-original 0.9.5 .iss26p candidate. Includes exact SHA guards, WE compression validation, Mode2 Form1/Form2 EDC-ECC, unaffected nation render checks and regression tests. Requires missing, verified graphics plan and actual PCSX-Redux gameplay tests; game Stable stays v0.9.4. No original game or BIOS distributed.'
+            if ($LASTEXITCODE -ne 0) { throw 'Could not create independent builder tool release' }
+          }
+          $r=(gh api "repos/$env:REPO/releases/tags/$env:TAG" | ConvertFrom-Json)
+          $a=@($r.assets | Where-Object { $_.name -eq $env:ARCHIVE })
+          if ($a.Count -ne 1 -or $a[0].digest -ne ('sha256:'+$sha)) {
+            throw 'Public builder ZIP SHA256 failed release verification'
+          }
+          Write-Host "PASS: TOOLS ONLY $env:TAG; stable game channel unchanged."
