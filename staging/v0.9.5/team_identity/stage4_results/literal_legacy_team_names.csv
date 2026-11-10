@@ -1,0 +1,49 @@
+team_slot,legacy_term,phase,file,logical_offset,observed,context_ascii
+4,CHINA,original,/ENDING.BIN;1,1672,CHINA,ABIA. . . . UAE. IRAN. . . . CHINA. . . KOREA. . . JAPAN. . . A
+14,JAMAICA,original,/ENDING.BIN;1,1764,JAMAICA,BRAZIL. . COLOMBIA. . . . JAMAICA. MEXICO. . USA. SOUTH A
+23,RUSSIA,original,/ENDING.BIN;1,1844,RUSSIA,T. . . TUNISIA. MOROCCO. RUSSIA. . UKRAINE. TURKEY. . GR
+26,GREECE,original,/ENDING.BIN;1,1868,GREECE,IA. . UKRAINE. TURKEY. . GREECE. . BULGARIA. . . . ROMANI
+29,YUGOSLAVIA,original,/ENDING.BIN;1,1896,YUGOSLAVIA,BULGARIA. . . . ROMANIA. YUGOSLAVIA. . CROATIA. SLOVENIA. .
+31,SLOVENIA,original,/ENDING.BIN;1,1916,SLOVENIA,YUGOSLAVIA. . CROATIA. SLOVENIA. . . . HUNGARY. AUSTRIA.
+4,CHINA,original,/REPLAYS.BIN;1,17080,China,U-23Thailand. . . . U-23China. . . U-23Korea. . . U-23J
+4,CHINA,original,/REPLAYS.BIN;1,17396,China,United Arab. Iran. . . . China. . . Korea. . . Japan. . . A
+14,JAMAICA,original,/REPLAYS.BIN;1,17488,Jamaica,Brazil. . Colombia. . . . Jamaica. Mexico. . United Stat
+23,RUSSIA,original,/REPLAYS.BIN;1,17580,Russia,t. . . Tunisia. Morocco. Russia. . Ukraine. Turkey. . Gr
+26,GREECE,original,/REPLAYS.BIN;1,17604,Greece,ia. . Ukraine. Turkey. . Greece. . Bulgaria. . . . Romani
+29,YUGOSLAVIA,original,/REPLAYS.BIN;1,17632,Yugoslavia,Bulgaria. . . . Romania. Yugoslavia. . Croatia. Slovenia. .
+31,SLOVENIA,original,/REPLAYS.BIN;1,17652,Slovenia,Yugoslavia. . Croatia. Slovenia. . . . Hungary. Austria.
+4,CHINA,original,/RESULT.BIN;1,1004,China,. . . . UAE. . . . . Iran. . . . China. . . Korea. . . Japan. . . A
+14,JAMAICA,original,/RESULT.BIN;1,1100,Jamaica,Brazil. . Colombia. . . . Jamaica. . . . . Mexico. . United
+23,RUSSIA,original,/RESULT.BIN;1,1208,Russia,sia. . . . . Morocco. . . . . Russia. . Ukraine. . . . . Turkey
+26,GREECE,original,/RESULT.BIN;1,1236,Greece,Ukraine. . . . . Turkey. . Greece. . Bulgaria. . . . Rumani
+29,YUGOSLAVIA,original,/RESULT.BIN;1,1268,Yugoslavia,aria. . . . Rumania. . . . . Yugoslavia. . Croatia. . . . . Sloven
+31,SLOVENIA,original,/RESULT.BIN;1,1292,Slovenia,slavia. . Croatia. . . . . Slovenia. . . . Hungary. . . . . Aust
+4,CHINA,original,/SELECT.BIN;1,3492,CHINA,UNITED ARAB. IRAN. . . . CHINA. . . KOREA. . . JAPAN. . . A
+14,JAMAICA,original,/SELECT.BIN;1,3584,JAMAICA,BRAZIL. . COLOMBIA. . . . JAMAICA. MEXICO. . UNITED STAT
+23,RUSSIA,original,/SELECT.BIN;1,3676,RUSSIA,T. . . TUNISIA. MOROCCO. RUSSIA. . UKRAINE. TURKEY. . GR
+26,GREECE,original,/SELECT.BIN;1,3700,GREECE,IA. . UKRAINE. TURKEY. . GREECE. . BULGARIA. . . . ROMANI
+29,YUGOSLAVIA,original,/SELECT.BIN;1,3728,YUGOSLAVIA,BULGARIA. . . . ROMANIA. YUGOSLAVIA. . CROATIA. SLOVENIA. .
+31,SLOVENIA,original,/SELECT.BIN;1,3748,SLOVENIA,YUGOSLAVIA. . CROATIA. SLOVENIA. . . . HUNGARY. AUSTRIA.
+4,CHINA,original,/SELECT2.BIN;1,281964,CHINA,SUGI. KENGO FUJITANI. CHINA. KATSUHIKO KUMAGAI. K
+4,CHINA,original,/SELECT3.BIN;1,10184,China,. . . . U.A.E.. . Iran. . . . China. . . Korea. . . Japan. . . A
+14,JAMAICA,original,/SELECT3.BIN;1,10276,Jamaica,Brazil. . Colombia. . . . Jamaica. Mexico. . United Stat
+23,RUSSIA,original,/SELECT3.BIN;1,10364,Russia,t. . . Tunisia. Morocco. Russia. . Ukraine. Turkey. . Gr
+26,GREECE,original,/SELECT3.BIN;1,10388,Greece,ia. . Ukraine. Turkey. . Greece. . Bulgaria. . . . Romani
+29,YUGOSLAVIA,original,/SELECT3.BIN;1,10416,Yugoslavia,Bulgaria. . . . Romania. Yugoslavia. . Croatia. Slovenia. .
+31,SLOVENIA,original,/SELECT3.BIN;1,10436,Slovenia,Yugoslavia. . Croatia. Slovenia. . . . Hungary. Austria.
+4,CHINA,original,/SELECTC.BIN;1,23805,China,-23 Thailand. . . U-23 China. . U-23 South Korea. .
+4,CHINA,original,/SELECTC.BIN;1,24388,China,United Arab. Iran. . . . China. . . Korea. . . Japan. . . A
+14,JAMAICA,original,/SELECTC.BIN;1,24480,Jamaica,Brazil. . Colombia. . . . Jamaica. Mexico. . United Stat
+23,RUSSIA,original,/SELECTC.BIN;1,24572,Russia,t. . . Tunisia. Morocco. Russia. . Ukraine. Turkey. . Gr
+26,GREECE,original,/SELECTC.BIN;1,24596,Greece,ia. . Ukraine. Turkey. . Greece. . Bulgaria. . . . Romani
+29,YUGOSLAVIA,original,/SELECTC.BIN;1,24624,Yugoslavia,Bulgaria. . . . Romania. Yugoslavia. . Croatia. Slovenia. .
+31,SLOVENIA,original,/SELECTC.BIN;1,24644,Slovenia,Yugoslavia. . Croatia. Slovenia. . . . Hungary. Austria.
+4,CHINA,original,/SELFORM.BIN;1,532,China,abia. . . . UAE. Iran. . . . China. . . Korea. . . Japan. . . A
+14,JAMAICA,original,/SELFORM.BIN;1,624,Jamaica,Brazil. . Colombia. . . . Jamaica. Mexico. . United Stat
+23,RUSSIA,original,/SELFORM.BIN;1,716,Russia,t. . . Tunisia. Morocco. Russia. . Ukraine. Turkey. . Gr
+26,GREECE,original,/SELFORM.BIN;1,740,Greece,ia. . Ukraine. Turkey. . Greece. . Bulgaria. . . . Rumani
+29,YUGOSLAVIA,original,/SELFORM.BIN;1,768,Yugoslavia,Bulgaria. . . . Rumania. Yugoslavia. . Croatia. Slovenia. .
+31,SLOVENIA,original,/SELFORM.BIN;1,788,Slovenia,Yugoslavia. . Croatia. Slovenia. . . . Hungary. Austria.
+4,CHINA,stage3,/REPLAYS.BIN;1,17080,China,U-23Thailand. . . . U-23China. . . U-23Korea. . . U-23J
+4,CHINA,stage3,/SELECT2.BIN;1,281964,CHINA,SUGI. KENGO FUJITANI. CHINA. KATSUHIKO KUMAGAI. K
+4,CHINA,stage3,/SELECTC.BIN;1,23805,China,-23 Thailand. . . U-23 China. . U-23 South Korea. .
