@@ -1,0 +1,42 @@
+{
+  "status": "READ-ONLY FORENSICS; NO TEXT PATCH APPLIED",
+  "test_version": "0.9.6-teamidentity-test08",
+  "original_disc_ascii_hits": {
+    "RUSSIA": 6,
+    "GREECE": 7,
+    "JAMAICA": 7
+  },
+  "test08_disc_ascii_hits": {
+    "RUSSIA": 0,
+    "GREECE": 0,
+    "JAMAICA": 0
+  },
+  "national_teams_renamed_with_unchanged_abbreviation": 17,
+  "legacy_code_examples": {
+    "14": "JAM",
+    "23": "RUS",
+    "26": "GRC"
+  },
+  "select_text_bank_status": [
+    {
+      "resource": "SELECT",
+      "bosnia_present": true,
+      "new_zealand_present": true,
+      "canada_present": true
+    },
+    {
+      "resource": "SELECT3",
+      "bosnia_present": true,
+      "new_zealand_present": true,
+      "canada_present": true
+    },
+    {
+      "resource": "SELECTC",
+      "bosnia_present": true,
+      "new_zealand_present": true,
+      "canada_present": true
+    }
+  ],
+  "interpretation": "Visible prematch Russia/Greece cannot be fixed by another literal ASCII rename in the modified disc; 3-letter codes remain but their runtime semantic role is unverified. The root may be a packed table, GPU-assembled glyph indices, lookup by slot, or another non-ASCII resource.",
+  "safe_next_step": "Trace the prematch label origin using PCSX-Redux RAM/GPU or inspect packed team ID name mapping; DO NOT rewrite RUS/GRC/JAM codes until game ID usages are excluded."
+}
