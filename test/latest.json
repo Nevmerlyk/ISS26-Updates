@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "channel": "test",
   "latest": {
-    "version": "0.9.6-teamidentity-test08",
-    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.6-teamidentity-test08/ISS26_0.9.5_TeamIdentity_BosniaCanada_TEST08.iss26p",
-    "patchSha256": "E65E5623756643E2DAE7069A66FE888E14439A5A534DBF171BB03630605648B1",
+    "version": "0.9.6-teamidentity-test09",
+    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.6-teamidentity-test09/ISS26_0.9.5_TeamIdentity_BigGPU_AB_TEST09.iss26p",
+    "patchSha256": "FA5E3DC3702808E8ABC197C9BB27B0707A4D44575D765918911AD846738D71B2",
     "baseSha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
-    "resultSha256": "DB1D4E84E0DEFD0A2AB2BDEC860A28A3245C658738371902ED53B234A994F685"
+    "resultSha256": "6F81648EDCF02D5115FFD313DDE4DA3F5768EA4FBEAD4C1831D91EC813B70647"
   },
-  "notes": "Experimental ISS26 v0.9.5 Team Identity Test08: selection-context 24x16 Bosnia and Canada tiny flags hand-redrawn from user Master League Salamic/Forest screenshots, active 20x16 drawing with unchanged position. Full standalone patch on clean original European Track01, includes working Test06 330 updated FIFA 2026 player-name entries, proper-case Ukraine/Cabo Verde (44 names), Qatar additional table and previous selection art for 52 other team sprites. Exactly 13 CD sectors differ vs Test06 and NONE belong to stadium GDC resource sectors; Test07 GDC corruption remains quarantined. Original and final SHA256, CD Mode2 EDC/ECC, stream roundtrip, two duplicate pointer tables and all 54 selection images statically verified. Requires in-emulator visual validation; pre-match Russia/Greece names, big flag corruption, HUD icon and positional attributes remain unresolved. Stable Play Game v0.9.4 unchanged."
+  "notes": "Controlled experimental Test09 A/B safety diagnostic. Full independent patch for CLEAN European Track01 PS1 game. Keeps Test08 Master League-inspired 24x16 Bosnia and Canada tiny flags, all other 52 tiny flags, 330 updated players in 15 teams, 44 corrected Ukraine/Cabo Verde name cases and Qatar additional text. Restores ONLY two compressed big GPU texture source streams in DATSEL/DATSEL3 to pre-Stage5 content. Exactly 4 CD sectors differ vs Test08; NO GDC stadium resources edited. This is NOT a confirmed large-flag fix; Bosnia big flag may revert to old artwork. Needed to compare stadium/field giant-graphic artifacts Test08 vs Test09. Old Russia/Greece prematch names and 24x8 scoreboard icons are not fixed. Emulator comparison requires FULL RESTART without older save state. Stable Play Game remains 0.9.4."
 }
