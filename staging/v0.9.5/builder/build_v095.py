@@ -247,6 +247,92 @@ def patch_flag_stream(data: bytes, edit: dict) -> tuple[bytes,int]:
     # If this upload has a shorter new stream, unused bytes are preserved.
     return bytes(output),changed
 
+def _tile_from_uploads(resource: bytes, edits: list[dict],
+                       style: int) -> bytes:
+    """Reconstruct the actual 64x28 pixels touched by audited GPU uploads.
+
+    This operates on VERIFIED compressed LoadImage commands and their VRAM
+    locations, not on a user-supplied screenshot checksum. Require every
+    visible pixel to be covered by those commands.
+    """
+    rx,ry,rw,rh=_rect(style)
+    indices=bytearray(rw*rh)
+    covered=bytearray(rw*rh)
+    for edit in sorted(edits,key=lambda e:e["record_offset"]):
+        off,base,end=edit["record_offset"],edit["load_base"],edit["allocated_end"]
+        op,x,y,w,h,flags,ptr=struct.unpack_from("<6HI",resource,off)
+        if op!=10:raise ValueError("Protected team upload command changed")
+        decoded,_,_=decode(resource[ptr-base:end],w*2*h)
+        sx,sy=x*4,y
+        ex,ey=sx+w*4,sy+h
+        ix0,ix1=max(rx,sx),min(rx+rw,ex)
+        iy0,iy1=max(ry,sy),min(ry+rh,ey)
+        if ix0>=ix1 or iy0>=iy1:continue
+        for vy in range(iy0,iy1):
+            for vx in range(ix0,ix1):
+                pixel=(vy-sy)*(w*4)+vx-sx
+                byte=decoded[pixel//2]
+                idx=(byte>>4) if pixel%2 else (byte&15)
+                dest=(vy-ry)*rw+vx-rx
+                indices[dest]=idx
+                covered[dest]=1
+    if not all(covered):
+        raise ValueError(f"Cannot prove full preserved legacy style {style} atlas tile")
+    return bytes(indices)
+
+def _render_flag_pixels(indices: bytes, palette: list[int] | tuple[int,...]) -> bytes:
+    if len(palette)!=16:raise ValueError("Invalid preserved palette length")
+    # CLUT index 0 is transparency; transparent parts are normalized to 0
+    # even if v0.9.4 incorrectly gave them an opaque color.
+    return b"".join(struct.pack("<H",0 if i==0 else palette[i])
+                    for i in indices)
+
+def prove_unchanged_national_styles(disc: Disc, plan: dict,
+                                    old_dat: bytes, new_dat: bytes,
+                                    dat_edits: list[dict]) -> list[int]:
+    """Check all 37 unaffected team styles and protected rendered pixels."""
+    target_slots={slot for slot,_ in TARGET_COUNTRIES.values()}
+    affected_styles={style for edit in plan["streams"] for style in edit["styles"]}
+    changes={entry["index"]:entry["palette"]
+             for entry in plan.get("preserved_palettes",[])}
+    preserved=[]
+    for text_slot in range(54):
+        if text_slot in target_slots:continue
+        nation_index=53-text_slot
+        # All five tables must identify the same unaffected style as the
+        # selection table; do not break a different pre-match lookup.
+        current={key:disc.read_physical(address+text_slot,1)[0]
+                 for key,address in STYLE_TABLES.items()}
+        if len(set(current.values()))!=1:
+            raise ValueError("Unchanged nation's five style tables disagree")
+        style=next(iter(current.values()))
+        if style not in affected_styles:
+            if nation_index in changes:
+                raise ValueError("Unrelated CLUT modified without a shared template")
+            continue
+        if nation_index not in PROTECTED_PALETTE_INDEX or nation_index not in changes:
+            raise ValueError(
+                f"Edited style {style} also used by unchanged nation {nation_index} "
+                "without proved exact preservation")
+        old_clut=list(struct.unpack("<16H",
+            disc.read_form1_sequence(national_clut_offset(nation_index),32)))
+        new_clut=changes[nation_index]
+        old_pix=_tile_from_uploads(old_dat,dat_edits,style)
+        new_pix=_tile_from_uploads(new_dat,dat_edits,style)
+        previous=_render_flag_pixels(old_pix,old_clut)
+        current_pix=_render_flag_pixels(new_pix,new_clut)
+        if previous!=current_pix:
+            raise ValueError(
+                f"Master flag resource changes old country {nation_index}'s pixels")
+        matching=next(i for i in plan["preserved_palettes"]
+                      if i["index"]==nation_index)
+        if sha(previous)!=matching["render_before_sha256"].upper() or (
+            sha(current_pix)!=matching["render_after_sha256"].upper()
+        ):
+            raise ValueError("Protected existing nation's render hash is unverified")
+        preserved.append(nation_index)
+    return preserved
+
 def apply_plan(disc: Disc, plan: dict) -> dict:
     validate_plan(plan)
     before_baseline=disc.expected_result_hash()
@@ -266,6 +352,8 @@ def apply_plan(disc: Disc, plan: dict) -> dict:
         groups.setdefault(path,[]).append(edit)
     upload_count=0
     pixel_changes=0
+    dat_before=None
+    dat_after=None
     for path,edits in sorted(groups.items()):
         lba,size=lookup[path]
         original=disc.read_file(lba,size)
@@ -277,9 +365,18 @@ def apply_plan(disc: Disc, plan: dict) -> dict:
             pixel_changes+=changed
             upload_count+=1
             for country in edit.get("countries",[]):
-                if country not in TARGET_COUNTRIES:raise ValueError("Unknown national country attribution")
+                if country not in TARGET_COUNTRIES:
+                    raise ValueError("Unknown national country attribution")
+                if plan["styles"][country] not in edit["styles"]:
+                    raise ValueError("Country attribution has no matching flag tile")
                 contexts[country].add(edit["context"])
+        if path=="BIN/DATSEL3.BIN":
+            dat_before,dat_after=original,data
         disc.write_file(lba,original,data,"national graphics: "+path)
+    if dat_before is None or dat_after is None:
+        raise ValueError("Cannot verify unchanged nations: missing DATSEL3 atlas")
+    preserved_nations=prove_unchanged_national_styles(
+        disc,plan,dat_before,dat_after,groups["BIN/DATSEL3.BIN"])
     for country,(name_slot,rev_index) in TARGET_COUNTRIES.items():
         for label,physical in STYLE_TABLES.items():
             disc.write_raw(physical+name_slot,
@@ -314,6 +411,7 @@ def apply_plan(disc: Disc, plan: dict) -> dict:
     return {"uploads":upload_count,"changed_pixels":pixel_changes,
             "graphic_resources":sorted(resource_names),
             "replaced_countries":sorted(TARGET_COUNTRIES),
+            "unchanged_nations_render_proven":preserved_nations,
             "proven_contexts":{c:sorted(v) for c,v in contexts.items()}}
 
 def main(argv: list[str] | None = None) -> int:
