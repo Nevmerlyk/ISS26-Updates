@@ -1,0 +1,20 @@
+{
+  "scope": "first 48 MiB of ORIGINAL Track01; original encoding alternatives only",
+  "method": "read-only C++ scan; byte stride 1/2/4; plain/XOR/add with one constant per word",
+  "literal_lookups": [
+    "Russia",
+    "Greece",
+    "Jamaica",
+    "Ukraine",
+    "Turkey",
+    "Brazil",
+    "RUSSIA",
+    "GREECE",
+    "JAMAICA",
+    "UKRAINE"
+  ],
+  "hits_total_across_redundant_encodings": 117,
+  "nonzero_transform_hits": 0,
+  "distinct_literal_raw_positions": 39,
+  "interpretation": "No extra matches found beyond untransformed ASCII; does not rule out nonconstant/substitution/binary font encodings or data outside first 48MiB."
+}
