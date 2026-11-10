@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "latest": {
-    "version": "0.6.9",
-    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.6.9/ISS26-LauncherUpdate.zip",
-    "zipSha256": "56ECFA9DC754F92A52127A9975D37076253D93E47570B780C9D5498ADD2806E8",
-    "launcherSha256": "B054F10853867FFFBA73E1F34EC34FD07E327C62DDF32EACF46786F8AF2EC8FE",
-    "updaterSha256": "07010BB32AE15B73312EFD7C5ACBE5D1831E9931DA603F50251DAAA63525B426",
-    "notes": "Stable Explorer Learning Calibrator: always-on manual input and screen transition recording; two independent manual confirmations; persisted knowledge; bounded adaptive AutoTest and two-failure lockout. VRAM Graphics Inspector separate. Game stable remains v0.9.4."
+    "version": "0.7.1",
+    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.7.1/ISS26-LauncherUpdate.zip",
+    "zipSha256": "A21F03B55603BC28222C6EA420F295220ADD276CEE4A437EA44C61D798983BEC",
+    "launcherSha256": "BA08FE529CCCDC168890099DDBC107C109A230096A76A711320DF6403C07E70C",
+    "updaterSha256": "E030BFA21CFD5557AACD854563C5DAF576E3C724FDFAB07FAB4C6575217DB757",
+    "notes": "ISS26 Explorer 0.7.1 stable launcher. Calibrator football basics: 15 knowledge domains, 64 contextual controls, 33 concepts, 26 drills; black/loading screen handling and evidence-only skill assessment. Actual autonomous gameplay remains unverified. Game patch stable remains v0.9.4."
   }
 }
