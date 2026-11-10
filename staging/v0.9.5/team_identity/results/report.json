@@ -1,0 +1,18 @@
+{
+  "scope": "READ ONLY AUDIT, no patched game files created or published",
+  "baseline_patch_sha256": "70E46566A7F2C3A7E5F1E930210A132D452EF0B752D18E92F4B5475DE2CB45FE",
+  "national_teams": 54,
+  "changed_teams_from_v094": 17,
+  "team_name_disagreements": 1,
+  "stale_3letter_codes": 17,
+  "uppercase_candidates_in_select_fixed_name_table": 30,
+  "fixed_name_slots_scanned": 341,
+  "all_upper_candidates_existing_in_unmodified_original": 30,
+  "candidate_text_edits": 1,
+  "warnings": [
+    "SELECTC 3-letter codes may be referenced by internal lookup mechanisms: do not blindly replace them.",
+    "The 10-byte name bank in SELECT.BIN cannot yet be assigned to a particular national roster. All-uppercase detection is NOT proof of the reported national team issue.",
+    "Do not title-case all text: country names, acronyms and personal compound names have different rules.",
+    "The runtime test feed remains on Test05; no stability promotion and no new game patch were performed."
+  ]
+}
