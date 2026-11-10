@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "latest": {
-    "version": "0.7.1",
-    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.7.1/ISS26-LauncherUpdate.zip",
-    "zipSha256": "A21F03B55603BC28222C6EA420F295220ADD276CEE4A437EA44C61D798983BEC",
-    "launcherSha256": "BA08FE529CCCDC168890099DDBC107C109A230096A76A711320DF6403C07E70C",
-    "updaterSha256": "E030BFA21CFD5557AACD854563C5DAF576E3C724FDFAB07FAB4C6575217DB757",
-    "notes": "ISS26 Explorer 0.7.1 stable launcher. Calibrator football basics: 15 knowledge domains, 64 contextual controls, 33 concepts, 26 drills; black/loading screen handling and evidence-only skill assessment. Actual autonomous gameplay remains unverified. Game patch stable remains v0.9.4."
+    "version": "0.7.2",
+    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.7.2/ISS26-LauncherUpdate.zip",
+    "zipSha256": "B84FA85D1B5130105530EC54A08D8CD39C37810374312E42CC6D5388E771FFBB",
+    "launcherSha256": "FEC2F0C2A908589D22AA30FBDBC536D5C72844A7400B633C8573E4046CA08D99",
+    "updaterSha256": "2440BB3B14A1102E1D33521AAD496EC2F293F7BF99753282A14C02E589D94B8A",
+    "notes": "ISS26 Explorer v0.7.2 stable: AutoTest automatically recovers missing experimental CUE/BIN and cleared metadata through existing official SHA256-verified Test Game updater; no manual picker. No downgrade of Calibrator v0.7.1. Detailed WinForms errors, cancellable recovery progress. Stable game remains v0.9.4."
   }
 }
