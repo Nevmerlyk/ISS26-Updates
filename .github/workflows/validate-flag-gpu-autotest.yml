@@ -1,0 +1,63 @@
+name: Validate ISS26 flag GPU AutoTest task and offline analyzer
+on:
+  push:
+    paths:
+      - 'autotest/latest.json'
+      - 'autotest/tasks/iss26-flags-gpu-provenance-r1.json'
+      - 'tools/analyze_flag_autotest_zip.py'
+      - 'tools/tests/test_analyze_flag_autotest_zip.py'
+      - '.github/workflows/validate-flag-gpu-autotest.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify active task SHA256 and safe no-blind-navigation schema
+        run: |
+          python - <<'PY'
+          import json,hashlib,pathlib,re
+          latest=json.loads(pathlib.Path('autotest/latest.json').read_bytes())
+          p=pathlib.Path('autotest/tasks/iss26-flags-gpu-provenance-r1.json')
+          data=p.read_bytes()
+          job=json.loads(data)
+          assert hashlib.sha256(data).hexdigest().upper()==latest['latest']['sha256']
+          assert job['id']==latest['latest']['id']=='iss26-flags-gpu-provenance'
+          assert job['revision']==latest['latest']['revision']==1
+          assert job['schemaVersion']==1 and job['targetDisc']=='latest-test'
+          assert job['status']=='calibration' and 600<=job['maxFrames']<=72000
+          assert len(job['steps'])<=300 and len(job['steps'])>=8
+          last=0
+          gpu=0
+          captures=0
+          for step in job['steps']:
+            assert step['atFrame']>=last and step['atFrame']<=job['maxFrames']
+            assert re.fullmatch('[a-zA-Z0-9][a-zA-Z0-9_-]{0,79}',step['label'])
+            assert step['port']==1
+            assert step['kind'] in ('capture','gpu')
+            if step['kind']=='gpu':
+              gpu+=1
+              assert 1<=step['frames']<=8
+            else:
+              captures+=1
+            last=step['atFrame']
+          assert gpu>=8 and captures>=10
+          print('PASS: r1 AutoTest pinned SHA256; captures=',captures,'gpu_traces=',gpu,
+                '(no blind pad taps)')
+          PY
+      - name: Exercise raw VRAM/CLUT analyzer on synthetic ZIP reports
+        run: python -m unittest discover -s tools/tests -p test_analyze_flag_autotest_zip.py -v
+      - name: Keep stable game v0.9.4
+        run: |
+          python - <<'PY'
+          import json
+          data=json.load(open('stable/latest.json'))
+          assert data['latest']['version']=='0.9.4'
+          print('PASS: stable game unchanged')
+          PY
