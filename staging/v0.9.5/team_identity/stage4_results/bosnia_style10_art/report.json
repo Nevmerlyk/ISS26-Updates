@@ -1,0 +1,57 @@
+{
+  "purpose": "Candidate original free PS1 style 10 Bosnia graphic assets, NON-RELEASED",
+  "style": 10,
+  "original_style_owner": "SLOVAKIA, now replaced by DR CONGO",
+  "original_64x28_tile_coordinate": {
+    "vram_word_x": 864,
+    "vram_line_y": 320
+  },
+  "source_art": "Prepared Bosnia drawing from Test05 pixel data; NOT bit-exact Master League extraction",
+  "requires_ui_style_mapping_23": "7 -> 10 in both select tables after graphic upload integration",
+  "requires_other_sources": [
+    "DATSEL",
+    "DATSEL3",
+    "EDT_2D",
+    "EDTR_2D",
+    "all GDC stadium uploads that render large flag"
+  ],
+  "status": "ARTWORK READY FOR INTEGRATION, NOT ENOUGH TO FIX BOSNIA ALONE",
+  "assets": {
+    "selection_24x16": {
+      "width": 24,
+      "height": 16,
+      "4bpp_bytes": 192,
+      "sha256": "9B378606A60EB48D9A845ABFBAF072A654F43631BE9283EB15BD99CB589DB751",
+      "semantic_color_indexes": {
+        "blue": 10,
+        "yellow": 6,
+        "white": 1
+      },
+      "nonzero_pixels": 320
+    },
+    "scoreboard_24x8": {
+      "width": 24,
+      "height": 8,
+      "4bpp_bytes": 96,
+      "sha256": "F9F40A3B6C4F44962825D4E5876D01FBE69F3778F585B3106E9281B19A09C169",
+      "semantic_color_indexes": {
+        "blue": 10,
+        "yellow": 6,
+        "white": 1
+      },
+      "nonzero_pixels": 160
+    },
+    "large_64x28": {
+      "width": 64,
+      "height": 28,
+      "4bpp_bytes": 896,
+      "sha256": "C5808CEE6C44D2F799654FEB6EA1F4E04CB47F8628E090B4613D1D047EC75556",
+      "semantic_color_indexes": {
+        "blue": 1,
+        "yellow": 2,
+        "white": 3
+      },
+      "nonzero_pixels": 1792
+    }
+  }
+}
