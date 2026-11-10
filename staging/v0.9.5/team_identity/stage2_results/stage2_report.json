@@ -1,0 +1,42 @@
+{
+  "status": "STAGE2 CANDIDATE, STATIC VERIFIED ONLY; NOT PUBLISHED",
+  "team_roster_count": 54,
+  "players_per_team": 22,
+  "players_total": 1188,
+  "exe_roster_bank_start": 293204,
+  "exe_roster_bank_length": 11880,
+  "uppercase_team_slots": [
+    24,
+    53
+  ],
+  "case_fixes": 44,
+  "replaced_national_teams_total": 17,
+  "replaced_teams_still_using_2001_player_names": 15,
+  "replaced_teams_with_new_names": [
+    "CANADA",
+    "C.VERDE"
+  ],
+  "known_team_name_candidate": "QATAR from U.A.E. in SELECT3 secondary text bank",
+  "suspicious_3_letter_team_codes_changed": 0,
+  "full_original_track_sha_guarded": true,
+  "patch": {
+    "baseline_patch": "/mnt/data/iss26_small_fix_work/ISS26_0.9.5_SmallFlags_RealFix_candidate.iss26p",
+    "baseline_records": 1412,
+    "merged_records": 1412,
+    "edited_sectors": [
+      167,
+      170,
+      1254
+    ],
+    "edits": 45,
+    "original_sha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
+    "result_sha256": "2B8DE88829D4F735438A781AC212519A0AB759BED58A1A4783D6104E49462626",
+    "patch_sha256": "861E4E0636918AE801E5EC1EE33D31B106079CA2E1DBDC7546A0997C1412D3AC",
+    "status": "verified format, full original sector preconditions and CD EDC/ECC; gameplay not tested"
+  },
+  "warnings": [
+    "The other 15 new national squads need authentic name data; do not autogenerate players.",
+    "Only case was changed for Ukraine/Cabo Verde: no spelling corrections and no new players.",
+    "The candidate is not an approved release. Test Game currently still uses Test 05."
+  ]
+}
