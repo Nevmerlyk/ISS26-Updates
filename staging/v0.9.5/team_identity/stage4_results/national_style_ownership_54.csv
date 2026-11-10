@@ -1,0 +1,55 @@
+team_slot,team,was_style,stage3_style,style_is_shared,other_sharers,style_is_over_legacy_atlas_range,replacement,bosnia_style7_collision
+0,AUSTRALIA,27,27,False,,False,False,False
+1,SAUDI ARABIA,26,26,False,,False,False,False
+2,QATAR,22,60,False,,True,True,False
+3,IRAN,25,25,False,,False,False,False
+4,UZBEK,24,59,False,,True,True,False
+5,KOREA,23,23,True,JAPAN,False,False,False
+6,JAPAN,23,23,True,KOREA,False,False,False
+7,ARGENTINA,22,22,False,,False,False,False
+8,URUGUAY,12,12,False,,False,False,False
+9,PARAGUAY,21,21,False,,False,False,False
+10,PANAMA,8,58,False,,True,True,False
+11,ECUADOR,20,57,False,,True,True,False
+12,BRAZIL,19,19,False,,False,False,False
+13,COLOMBIA,7,7,True,"EGYPT,BOSNIA,HUNGARY,AUSTRIA,GERMANY,NETHERLANDS",False,False,True
+14,CANADA,2,56,False,,True,True,False
+15,MEXICO,18,18,False,,False,False,False
+16,UNITED STATES,17,17,False,,False,False,False
+17,SOUTH AFRICA,16,16,False,,False,False,False
+18,SENEGAL,0,0,True,"NIGERIA,ITALY,BELGIUM,FRANCE",False,True,False
+19,NIGERIA,0,0,True,"SENEGAL,ITALY,BELGIUM,FRANCE",False,False,False
+20,EGYPT,7,7,True,"COLOMBIA,BOSNIA,HUNGARY,AUSTRIA,GERMANY,NETHERLANDS",False,False,True
+21,TUNISIA,15,15,False,,False,False,False
+22,MOROCCO,14,14,False,,False,False,False
+23,BOSNIA,7,7,True,"COLOMBIA,EGYPT,HUNGARY,AUSTRIA,GERMANY,NETHERLANDS",False,True,True
+24,UKRAINE,8,8,True,"POLAND,CZECH",False,False,False
+25,TURKEY,13,13,False,,False,False,False
+26,N.ZEAL,12,54,False,,True,True,False
+27,IRAQ,7,53,False,,True,True,False
+28,JORDAN,0,52,False,,True,True,False
+29,CURACAO,7,37,False,,True,True,False
+30,CROATIA,11,11,False,,False,False,False
+31,HAITI,11,35,False,,True,True,False
+32,HUNGARY,7,7,True,"COLOMBIA,EGYPT,BOSNIA,AUSTRIA,GERMANY,NETHERLANDS",False,False,True
+33,AUSTRIA,7,7,True,"COLOMBIA,EGYPT,BOSNIA,HUNGARY,GERMANY,NETHERLANDS",False,False,True
+34,DR CONGO,10,24,False,,False,True,False
+35,POLAND,8,8,True,"UKRAINE,CZECH",False,False,False
+36,GHANA,9,20,False,,False,True,False
+37,SWEDEN,9,9,True,"NORWAY,DENMARK",False,False,False
+38,NORWAY,9,9,True,"SWEDEN,DENMARK",False,False,False
+39,DENMARK,9,9,True,"SWEDEN,NORWAY",False,False,False
+40,GERMANY,7,7,True,"COLOMBIA,EGYPT,BOSNIA,HUNGARY,AUSTRIA,NETHERLANDS",False,False,True
+41,CZECH,8,8,True,"UKRAINE,POLAND",False,False,False
+42,ITALY,0,0,True,"SENEGAL,NIGERIA,BELGIUM,FRANCE",False,False,False
+43,SWITZERLAND,4,4,True,ENGLAND,False,False,False
+44,NETHERLANDS,7,7,True,"COLOMBIA,EGYPT,BOSNIA,HUNGARY,AUSTRIA,GERMANY",False,False,True
+45,BELGIUM,0,0,True,"SENEGAL,NIGERIA,ITALY,FRANCE",False,False,False
+46,FRANCE,0,0,True,"SENEGAL,NIGERIA,ITALY,BELGIUM",False,False,False
+47,SPAIN,6,6,False,,False,False,False
+48,PORTUGAL,5,5,False,,False,False,False
+49,ENGLAND,4,4,True,SWITZERLAND,False,False,False
+50,I.COAST,3,43,False,,True,True,False
+51,SCOTLAND,2,2,False,,False,False,False
+52,ALGERIA,1,3,False,,False,True,False
+53,C.VERDE,0,1,False,,False,True,False
