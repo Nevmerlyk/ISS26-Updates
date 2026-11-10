@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "channel": "test",
   "latest": {
-    "version": "0.9.6-selectflags-test03",
-    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.6-selectflags-test03/ISS26_0.9.5_SmallFlags_TEST03.iss26p",
-    "patchSha256": "91FDEAF8633115B5942231726E8A7A567D2213DAAEC75999EAF5B66ACC16552B",
+    "version": "0.9.6-selectflags-test04",
+    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.6-selectflags-test04/ISS26_0.9.5_SmallFlags_TEST04.iss26p",
+    "patchSha256": "7C4A1FFD10BF46C32043695EE9B1C43DC979ADAA11864E0D1E2887A4F4B2BB8F",
     "baseSha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
-    "resultSha256": "2D623DFDEFEEA2B45D65640E898D9DD8EB6DC460ECBF98534600423BBBF0E052"
+    "resultSha256": "8E73B0065ABFFEAF93AF5C25923363FB80819CC54F279C8FC892C3E5793C4706"
   },
-  "notes": "Selection Small Flags Test 03: based on original v0.9.4 independent patch. 16 small 24x16 selection sprites changed: artwork moved 2 source pixels LEFT within the same UV rectangles to match existing flag alignment; 20x14 visible artwork retained. New Zealand (former Greece slot) reconstructed from the REAL untouched Australian original in-game small flag, with Australian stars replaced by FOUR WHITE-OUTLINED RED stars. 38 other small sprite pixel maps preserved. DATSEL + DATSEL3 rewritten safely, valid EDC/ECC, full original-guarded standalone disc SHA verified. Large pre-match and in-match flags intentionally NOT fixed. Test Game only; stable Play Game v0.9.4 unchanged."
+  "notes": "Small selection flags Test 04: 16 revised flags extended exactly +1 opaque scanline UP and +1 opaque scanline DOWN (20x14 -> 20x16 active content inside unchanged 24x16 tile); no horizontal change, unchanged 14 interior rows, other 38 untouched. New Zealand retains the actual Australian-sprite-derived artwork from Test 03. Bosnia's invisible/black slot is NOT resolved in this test; Master League flag source remains to be integrated separately. Large pre-match/in-match flags intentionally untouched. Independent v0.9.4-preserving clean-original base patch, EDC/ECC and full ISO SHA verified. Test Game only; Play Game remains stable v0.9.4."
 }
