@@ -1,0 +1,72 @@
+name: Publish ISS26 Test09 A-B isolate Bosnia large GPU source graphics
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publish-v095-teamidentity-test09.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  release_test_patch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download verified Test08 independent patch baseline
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p work
+          gh release download v0.9.6-teamidentity-test08 --repo Nevmerlyk/ISS26-Updates --pattern 'ISS26_0.9.5_TeamIdentity_BosniaCanada_TEST08.iss26p' --dir work
+          echo 'e65e5623756643e2dae7069a66fe888e14439a5a534dbf171bb03630605648b1  work/ISS26_0.9.5_TeamIdentity_BosniaCanada_TEST08.iss26p' | sha256sum -c -
+      - name: Apply 4-sector controlled A/B delta to big GPU source uploads and verify exact result
+        shell: python
+        run: |
+          from pathlib import Path
+          import hashlib, base64, struct, zlib
+          base = bytearray(Path('work/ISS26_0.9.5_TeamIdentity_BosniaCanada_TEST08.iss26p').read_bytes())
+          assert base[:8] == b'ISS26X01' and len(base) == 3371868
+          count, = struct.unpack_from('<I', base, 8)
+          assert count == 1412
+          records = {}
+          for i in range(count):
+              at = 12 + i * 2388
+              lba, = struct.unpack_from('<I', base, at)
+              assert lba not in records
+              records[lba] = (at + 4, at + 36)
+          b64 = Path('staging/v0.9.5/test09_test08_to_stage12_delta.zlib.b64').read_text()
+          delta = zlib.decompress(base64.b64decode(b64))
+          assert hashlib.sha256(delta).hexdigest().upper() == 'E6AA15A90FA6A68D4B924A05E13EF1EC37333455BAC5D18246938BD5031F63CE'
+          assert delta[:8] == b'ISS26D01'
+          n, = struct.unpack_from('<I', delta, 8)
+          assert n == 4 and len(delta) == 12 + n * 2356
+          expected_sectors = [6089,6090,6256,6257]
+          observed = []
+          for i in range(n):
+              at = 12 + i * 2356
+              lba, = struct.unpack_from('<I', delta, at)
+              assert lba in records and lba not in observed
+              observed.append(lba)
+              _, ptr = records[lba]
+              for j in range(2352):
+                  base[ptr + j] ^= delta[at + 4 + j]
+          assert observed == expected_sectors
+          digest = hashlib.sha256(base).hexdigest().upper()
+          expected = 'FA5E3DC3702808E8ABC197C9BB27B0707A4D44575D765918911AD846738D71B2'
+          assert digest == expected, (digest, expected)
+          target = Path('work/ISS26_0.9.5_TeamIdentity_BigGPU_AB_TEST09.iss26p')
+          target.write_bytes(base)
+          print('Verified standalone patch:', target, 'bytes:', len(base), 'SHA256:', digest)
+      - name: Publish controlled experimental Test09 game patch release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tag='v0.9.6-teamidentity-test09'
+          file='work/ISS26_0.9.5_TeamIdentity_BigGPU_AB_TEST09.iss26p'
+          if gh release view "$tag" --repo Nevmerlyk/ISS26-Updates >/dev/null 2>&1; then
+            gh release upload "$tag" "$file" --repo Nevmerlyk/ISS26-Updates --clobber
+          else
+            gh release create "$tag" "$file" --repo Nevmerlyk/ISS26-Updates --title 'ISS26 v0.9.5 Test09 isolated big GPU streams A-B diagnostic' --notes 'EXPERIMENTAL Test Game ONLY. Complete INDEPENDENT guarded ISS26X01 patch applicable to clean EU PS1 Track01. Relative to Test08, exactly 4 Mode2 sectors revert 2 Bosnia style10 LARGE source graphics compressed streams in DATSEL and DATSEL3 to their pre-Stage5 source state. NO changes to GDC stadium files, 54 small selection flag images (including screenshot-based Bosnia and Canada), 330 names from 15 2026 squads, Ukraine/Cabo Verde title case, Qatar SELECT3 text, CD audio or controls. The Botswana [sic] Bosnia large flag artwork may regress intentionally. Purpose: diagnose whether giant on-field graphics artifacts originate in prior DATSEL/DATSEL3 big texture edit, compared with Test08. Does NOT fix Russia/Greece prematch names or HUD, and has NOT been tested in PCSX-Redux yet. Preserve stable Play Game 0.9.4. Verify in a fresh emulator boot, not a saved state.' --prerelease
+          fi
+          gh release view "$tag" --repo Nevmerlyk/ISS26-Updates --json assets --jq '.assets[] | [.name, .size] | @tsv'
