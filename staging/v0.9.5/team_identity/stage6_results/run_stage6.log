@@ -1,0 +1,28 @@
+{
+  "stage": 6,
+  "status": "READ ONLY: GDC dynamic upload origin not yet proved",
+  "track_sha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
+  "test06_patch_sha256": "3A2B98ECFDAA693F8C652543F9A7122D6095EC488C757268D67970688714A636",
+  "stadium_GDC_files": 34,
+  "bosnia_gpu_uploads_found": 34,
+  "GPU_upload_destination": {
+    "x_words": 864,
+    "y": 256,
+    "width_words": 32,
+    "height_rows": 128
+  },
+  "large_bosnia_style10_region": {
+    "x_words": 864,
+    "y": 320,
+    "width_words": 16,
+    "height_rows": 28
+  },
+  "verified_WE_source_lookups": 0,
+  "GDC_resources_different_from_clean_original": 34,
+  "sum_changed_GDC_bytes_from_original": 2063297,
+  "GDC_resources_different_from_v094": 0,
+  "pointers_outside_file_if_base_800C": 33,
+  "unique_GDC_binary_contents": 34,
+  "identical_GDC_resource_groups": [],
+  "warning": "GDC command pointer may refer to runtime-expanded RAM source; no verified compressed offset in current scan. Do not overwrite source based on pointer subtraction alone. Runtime capture/disassembly of GPU load required."
+}
