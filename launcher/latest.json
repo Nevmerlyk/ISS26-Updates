@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "latest": {
-    "version": "0.8.3",
-    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.8.3/ISS26-LauncherUpdate.zip",
-    "zipSha256": "55A8570217328AC0D61C93A4756CAC229BA8AD8B2C068A370705F393495ACE65",
-    "launcherSha256": "1038475AA777110D47DF8494E523B7AF57399FEC52FD9A73FAF7E230F00D9143",
-    "updaterSha256": "32DB7D01113B7EC0344107DBEE10DA551E31B6C9D529BEE5310D1D4247334779",
-    "notes": "ISS26 Academy Rookie v0.8.3 stable: passive Test Game observation without manual scene-marking controls. Rookie stores natural controller input patterns and technical diagnostics. Portable knowledge within ISS26_Data/rookie; checksum-verified import of previous Calibrator memory, and ZIP archival of finished sessions with SHA256 verification of each file. Progress links to session archives, reports, and the Rookie database. Existing Goals, game-image recovery fixes, and game patch v0.9.4 remain unchanged. No verified autonomous gameplay, semantic scene recognition or decompilation yet."
+    "version": "0.8.4",
+    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.8.4/ISS26-LauncherUpdate.zip",
+    "zipSha256": "092AA863C282399007F4E82D9D54AA9690DF4375224D1B884AEFF766DA9E763B",
+    "launcherSha256": "0C7CE3B9BCE7C1ABA09A019DBB7BF2E4A851A3DE06C5FD8784B4945C7F78EE1F",
+    "updaterSha256": "9543BFF39B3ECF86F24FB936831B2536F6B1C9F0642C1EB7BB72542C753D1E97",
+    "notes": "ISS26 Academy Rookie v0.8.4 stable: passive Test Game monitoring, secure opt-in private GitHub Issues reports with aggregate allowlisted diagnostics, local retry queue, encrypted Windows DPAPI GitHub token and private-repository check before upload. Report connection is in Academy Progress, not interactive Rookie. Existing portable Rookie memory, verified session archiving, Goals, fixes for test BIN/CUE recovery and stable game patch v0.9.4 remain unchanged. No automatic source changes, self-reprogramming or unverified game-playing abilities."
   }
 }
