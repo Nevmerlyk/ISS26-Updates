@@ -1,0 +1,6 @@
+{
+  "schemaVersion": 1,
+  "channel": "stable",
+  "latest": null,
+  "notes": "Stable APK feed. The first APK is published only after a permanent signing key and trusted release are configured. Preview APK builds are not promoted automatically."
+}
