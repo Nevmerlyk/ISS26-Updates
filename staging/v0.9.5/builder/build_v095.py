@@ -225,6 +225,8 @@ def patch_flag_stream(data: bytes, edit: dict) -> tuple[bytes,int]:
     require_sha(edit.get("decoded_before_sha256"),"decoded upload input")
     require_sha(edit.get("decoded_after_sha256"),"decoded upload output")
     decoded,used,_=decode(data[start:allocated_end],w*2*h)
+    if used>allocated_end-start:
+        raise ValueError("Compressed stream decoder escaped its source span")
     if sha(decoded)!=edit["decoded_before_sha256"].upper():
         raise ValueError("Decoded graphics do not match audited preimage")
     after=_data_field(edit,"decoded_after_b64")
@@ -235,6 +237,24 @@ def patch_flag_stream(data: bytes, edit: dict) -> tuple[bytes,int]:
         raise ValueError("Missing verified flag tile identities")
     changed=_pixel_delta_stays_within_flags(decoded,after,x,y,w,h,styles)
     encoded=encode(after)
+    # Do not use a padding window if another validated GPU LoadImage command
+    # points into it. A too-small allocation must block the build rather
+    # than silently corrupt another screen or team.
+    for other in range(0,len(data)-16,4):
+        if other==record:continue
+        op2,x2,y2,w2,h2,flags2,ptr2=struct.unpack_from("<6HI",data,other)
+        if op2!=10 or not(0<w2<=256 and 0<h2<=512):
+            continue
+        other_src=ptr2-table_base
+        if not start<other_src<start+len(encoded):
+            continue
+        if other_src>=other or other_src<16:
+            continue
+        try:
+            decode(data[other_src:other],w2*2*h2)
+        except (DecodeError,ValueError):
+            continue
+        raise ValueError("New graphic stream would overwrite another valid GPU stream")
     if len(encoded)>allocated_end-start:
         raise ValueError("Recompressed flags exceed pinned source allocation")
     if decode(encoded,len(after))[0]!=after:
