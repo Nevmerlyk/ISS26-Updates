@@ -1,0 +1,10 @@
+team_slot,team,player_slot,player,source_2026_position,intended_game_role_template,position_disagreement,needs_binary_position_mapping_before_patch
+2,QATAR,16,Ali,FW,MF,True,True
+2,QATAR,17,Alaaeldin,FW,MF,True,True
+4,UZBEK,19,Ganiev,MF,FW,True,True
+4,UZBEK,20,Jiyanov,MF,FW,True,True
+10,PANAMA,20,Yanis,MF,FW,True,True
+31,HAITI,16,Pierrot,FW,MF,True,True
+31,HAITI,17,Deedson,FW,MF,True,True
+36,GHANA,17,Sulemana,FW,MF,True,True
+50,I.COAST,17,Adingra,FW,MF,True,True
