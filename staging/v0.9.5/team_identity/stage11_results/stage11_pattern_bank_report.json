@@ -1,0 +1,12 @@
+{
+  "stage": 11,
+  "scope": "raw original European Track01, first 48 MiB",
+  "method": "search for a fixed-width 4-country contiguous name bank RUSSIA,UKRAINE,TURKEY,GREECE using a single unknown bijective 1-byte glyph code; record strides 8,10,12,16,20,24,32",
+  "matches_total": 2,
+  "matches": [
+    "candidate fixed stride=8 raw_offset=1013228 first=82,85,83,83,73,65,",
+    "candidate fixed stride=8 raw_offset=2003204 first=82,85,83,83,73,65,"
+  ],
+  "non_ascii_substitution_banks_found": 0,
+  "limitation": "Does not exclude variable-length records, compressed strings, non-bijective codes, rendering from edit data or other sources."
+}
