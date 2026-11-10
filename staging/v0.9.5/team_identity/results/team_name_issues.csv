@@ -1,0 +1,19 @@
+slot,source,offset,expected,observed,category,confidence
+2,SELECT3,10168,QATAR,U.A.E.,team_name_mismatch,confirmed table divergence
+2,SELECTC_CODE,25076,QAT,UAE,stale_3letter_code,confirmed stale text; usage not verified
+4,SELECTC_CODE,25084,UZB,CHN,stale_3letter_code,confirmed stale text; usage not verified
+10,SELECTC_CODE,25108,PAN,CHL,stale_3letter_code,confirmed stale text; usage not verified
+11,SELECTC_CODE,25112,ECU,PER,stale_3letter_code,confirmed stale text; usage not verified
+14,SELECTC_CODE,25124,CAN,JAM,stale_3letter_code,confirmed stale text; usage not verified
+18,SELECTC_CODE,25140,SEN,CAM,stale_3letter_code,confirmed stale text; usage not verified
+23,SELECTC_CODE,25160,BIH,RUS,stale_3letter_code,confirmed stale text; usage not verified
+26,SELECTC_CODE,25172,NZL,GRC,stale_3letter_code,confirmed stale text; usage not verified
+27,SELECTC_CODE,25176,IRQ,BLG,stale_3letter_code,confirmed stale text; usage not verified
+28,SELECTC_CODE,25180,JOR,ROM,stale_3letter_code,confirmed stale text; usage not verified
+29,SELECTC_CODE,25184,CUW,YUG,stale_3letter_code,confirmed stale text; usage not verified
+31,SELECTC_CODE,25192,HAI,SLO,stale_3letter_code,confirmed stale text; usage not verified
+34,SELECTC_CODE,25204,COD,SVK,stale_3letter_code,confirmed stale text; usage not verified
+36,SELECTC_CODE,25212,GHA,FIN,stale_3letter_code,confirmed stale text; usage not verified
+50,SELECTC_CODE,25268,CIV,WAL,stale_3letter_code,confirmed stale text; usage not verified
+52,SELECTC_CODE,25276,ALG,NIL,stale_3letter_code,confirmed stale text; usage not verified
+53,SELECTC_CODE,25280,CPV,IRL,stale_3letter_code,confirmed stale text; usage not verified
