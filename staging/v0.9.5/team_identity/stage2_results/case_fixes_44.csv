@@ -1,0 +1,45 @@
+team_slot,team,team_is_replacement,player_index,exe_resource_offset,current_name,original_2001_name,changed_since_original,entire_name_uppercase,proposed_case,replacement_name
+24,UKRAINE,False,0,299584,TRUBIN,Shovkovsk.,True,True,Trubin,Trubin
+24,UKRAINE,False,1,299594,ZABARNYI,Vashchyuk,True,True,Zabarnyi,Zabarnyi
+24,UKRAINE,False,2,299604,MATVIIENKO,Golovko,True,True,Matviienko,Matviienko
+24,UKRAINE,False,3,299614,MYKOLENKO,Mykitin,True,True,Mykolenko,Mykolenko
+24,UKRAINE,False,4,299624,BONDAR,Luzhny,True,True,Bondar,Bondar
+24,UKRAINE,False,5,299634,SUDAKOV,Popov,True,True,Sudakov,Sudakov
+24,UKRAINE,False,6,299644,ZUBKOV,Kovalev,True,True,Zubkov,Zubkov
+24,UKRAINE,False,7,299654,YAREMCHUK,Rebrov,True,True,Yaremchuk,Yaremchuk
+24,UKRAINE,False,8,299664,PONOMARENK,Shevchenko,True,True,Ponomarenk,Ponomarenk
+24,UKRAINE,False,9,299674,YARMOLIUK,Gusin,True,True,Yarmoliuk,Yarmoliuk
+24,UKRAINE,False,10,299684,SYKAN,Skachenko,True,True,Sykan,Sykan
+24,UKRAINE,False,11,299694,RIZNYK,Koval,True,True,Riznyk,Riznyk
+24,UKRAINE,False,12,299704,YERMAKOV,Dmitrulin,True,True,Yermakov,Yermakov
+24,UKRAINE,False,13,299714,SARAPIY,Myzin,True,True,Sarapiy,Sarapiy
+24,UKRAINE,False,14,299724,KRUSHYNSKY,Kiryukhin,True,True,Krushynsky,Krushynsky
+24,UKRAINE,False,15,299734,MYKHALKO,Moroz,True,True,Mykhalko,Mykhalko
+24,UKRAINE,False,16,299744,OCHERETNYK,Maximov,True,True,Ocheretnyk,Ocheretnyk
+24,UKRAINE,False,17,299754,NAZARINA,Mikhailen.,True,True,Nazarina,Nazarina
+24,UKRAINE,False,18,299764,ANDRIEVSKY,Kosovsky,True,True,Andrievsky,Andrievsky
+24,UKRAINE,False,19,299774,VARFOLOMEY,Serebrenn.,True,True,Varfolomey,Varfolomey
+24,UKRAINE,False,20,299784,SYNCHUK,Konovalov,True,True,Synchuk,Synchuk
+24,UKRAINE,False,21,299794,KASHCHUK,Kernozenko,True,True,Kashchuk,Kashchuk
+53,C.VERDE,True,0,293204,VOZINHA,Alan Kelly,True,True,Vozinha,Vozinha
+53,C.VERDE,True,1,293214,MOREIRA,Breen,True,True,Moreira,Moreira
+53,C.VERDE,True,2,293224,COSTA,Cunningham,True,True,Costa,Costa
+53,C.VERDE,True,3,293234,LOPES,Carr,True,True,Lopes,Lopes
+53,C.VERDE,True,4,293244,PINA,Irwin,True,True,Pina,Pina
+53,C.VERDE,True,5,293254,MONTEIRO,Roy Keane,True,True,Monteiro,Monteiro
+53,C.VERDE,True,6,293264,DUARTE,Kilbane,True,True,Duarte,Duarte
+53,C.VERDE,True,7,293274,K.PINA,Delap,True,True,K.Pina,K.Pina
+53,C.VERDE,True,8,293284,ARCANJO,Kinsella,True,True,Arcanjo,Arcanjo
+53,C.VERDE,True,9,293294,MENDES,Rb.Keane,True,True,Mendes,Mendes
+53,C.VERDE,True,10,293304,LIVRAMENTO,Quinn,True,True,Livramento,Livramento
+53,C.VERDE,True,11,293314,DA ROSA,Babb,True,True,Da Rosa,Da Rosa
+53,C.VERDE,True,12,293324,SANTOS,Butler,True,True,Santos,Santos
+53,C.VERDE,True,13,293334,FERNANDES,Staunton,True,True,Fernandes,Fernandes
+53,C.VERDE,True,14,293344,CABRAL,Gary Kelly,True,True,Cabral,Cabral
+53,C.VERDE,True,15,293354,PIRES,Harte,True,True,Pires,Pires
+53,C.VERDE,True,16,293364,SEMEDO,Kennedy,True,True,Semedo,Semedo
+53,C.VERDE,True,17,293374,D.DUARTE,Duff,True,True,D.Duarte,D.Duarte
+53,C.VERDE,True,18,293384,W.SEMEDO,McAteer,True,True,W.Semedo,W.Semedo
+53,C.VERDE,True,19,293394,RODRIGUES,Cascarino,True,True,Rodrigues,Rodrigues
+53,C.VERDE,True,20,293404,J.CABRAL,Connolly,True,True,J.Cabral,J.Cabral
+53,C.VERDE,True,21,293414,DA COSTA,Kiely,True,True,Da Costa,Da Costa
