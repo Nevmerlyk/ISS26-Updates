@@ -1,0 +1,88 @@
+{
+  "stage": 11,
+  "source_archive": "ISS26_Explorer_20261110_125505_manual.zip",
+  "purpose": "Locate prematch national name provenance; read-only; no game patches",
+  "capture_game_version": "EARLIER EXPERIMENTAL SESSION (not authenticated as Test08)",
+  "pcsx_redux_state_format": "SaveState v5",
+  "selection_ram_sha256": "2BF5270D9BC4A5A70FC284DEDC9748627DF82B65A7F4B0674B44445CDE68B870",
+  "prematch_ram_sha256": "B452FA3A6C1570A5D7CA945FC151054F48ED62C8FA1ECAF8881C8D78F67C7753",
+  "selection_name_bank_start": "0x080200",
+  "selection_name_bank_end": "0x080480",
+  "selection_name_bytes_sample": [
+    "BOSNIA",
+    "N.ZEAL",
+    "C.VERDE"
+  ],
+  "prematch_name_bank_overwritten": true,
+  "prematch_mips_instruction_like_words": 72,
+  "word_occurrences_in_ram": {
+    "BOSNIA": {
+      "selection": 1,
+      "prematch": 0
+    },
+    "N.ZEAL": {
+      "selection": 1,
+      "prematch": 0
+    },
+    "C.VERDE": {
+      "selection": 1,
+      "prematch": 0
+    },
+    "RUSSIA": {
+      "selection": 0,
+      "prematch": 0
+    },
+    "GREECE": {
+      "selection": 0,
+      "prematch": 0
+    },
+    "JAMAICA": {
+      "selection": 0,
+      "prematch": 0
+    },
+    "UKRAINE": {
+      "selection": 1,
+      "prematch": 0
+    },
+    "RUS": {
+      "selection": 6,
+      "prematch": 10
+    },
+    "GRC": {
+      "selection": 1,
+      "prematch": 0
+    }
+  },
+  "save_state_ram_offset": 39,
+  "save_state_vram_offset": 19473941,
+  "save_state_vram_source_consistency": [
+    {
+      "offset": 50000,
+      "matched": false
+    },
+    {
+      "offset": 200000,
+      "matched": true
+    },
+    {
+      "offset": 800000,
+      "matched": true
+    },
+    {
+      "offset": 1100000,
+      "matched": true
+    },
+    {
+      "offset": 1600000,
+      "matched": true
+    }
+  ],
+  "supporting_on_screen_observation": "Recovered prematch 16bpp framebuffer clearly shows Ireland vs Russia; modified selection RAM had BOSNIA and C.VERDE text. The runtime origin of prematch text is NOT proven by this comparison.",
+  "conclusions": [
+    "Confirmed: selection names occupy an overlay region that is replaced with executable bytes by the prematch scene, so patching only SELECT/SELECT3 cannot guarantee replacement of prematch names.",
+    "Observed: ordinary ASCII text Russia/Greece is absent in this captured prematch RAM, yet Russia is visibly rendered in its saved framebuffer.",
+    "The pre-match label could come from packed character IDs, pre-rendered imagery, save/Edit Data or another loader; none is conclusively established.",
+    "Do not patch SELECTC 3-letter IDs or GDC graphics based on speculation; preserve Test08 and stable v0.9.4."
+  ],
+  "recommended_next_capture": "During a CURRENT Test08 prematch scene record GPU GP0 trace and RAM+VRAM at the same VSync, plus no-memory-card control if possible."
+}
