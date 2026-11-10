@@ -1,0 +1,6573 @@
+{
+  "schema_version": 1,
+  "scope": "15 originally renamed national teams missing updated player rosters",
+  "source_description": "Secondary transcription of FIFA World Cup 2026 squads with ESPN caps, captured in feuyeux/fifa-world-cup-2026 (as documented June 29 2026), derived for ISS26; verify against FIFA official for release.",
+  "official_confirmation": "https://www.fifa.com/en/articles/fifa-world-cup-2026-squads-confirmed",
+  "source_notes": "26 to 22 chosen deterministically, higher national caps within game-role template; shirt number is tie-breaker; mismatched role positions flagged. Fictional names not allowed; ASCII and 10-byte game labels are non-official technical adaptations.",
+  "target_game_positions": [
+    "GK",
+    "DF",
+    "DF",
+    "DF",
+    "DF",
+    "MF",
+    "MF",
+    "MF",
+    "MF",
+    "FW",
+    "FW",
+    "DF",
+    "DF",
+    "DF",
+    "MF",
+    "MF",
+    "MF",
+    "FW",
+    "FW",
+    "FW",
+    "GK",
+    "GK"
+  ],
+  "team_rosters": [
+    {
+      "slot": 2,
+      "team": "QATAR",
+      "source_repo": "feuyeux/fifa-world-cup-2026",
+      "source_path": "squads/B_Qatar.md",
+      "source_sha": "685449fb301f0020ddd201a951557cdbf3dfc4c1",
+      "source_original_26": [
+        {
+          "jersey": 1,
+          "position": "GK",
+          "full_name": "Mahmud Abunada",
+          "caps": 6
+        },
+        {
+          "jersey": 21,
+          "position": "GK",
+          "full_name": "SALAH ZAKARIA",
+          "caps": 8
+        },
+        {
+          "jersey": 22,
+          "position": "GK",
+          "full_name": "MESHAAL BARSHAM",
+          "caps": 52
+        },
+        {
+          "jersey": 2,
+          "position": "DF",
+          "full_name": "PEDRO MIGUEL",
+          "caps": 105
+        },
+        {
+          "jersey": 3,
+          "position": "DF",
+          "full_name": "LUCAS MENDES",
+          "caps": 25
+        },
+        {
+          "jersey": 4,
+          "position": "DF",
+          "full_name": "ISSA LAYE",
+          "caps": 4
+        },
+        {
+          "jersey": 5,
+          "position": "DF",
+          "full_name": "JASSEM GABER",
+          "caps": 32
+        },
+        {
+          "jersey": 13,
+          "position": "DF",
+          "full_name": "AYOUB ALOUI",
+          "caps": 6
+        },
+        {
+          "jersey": 14,
+          "position": "DF",
+          "full_name": "HOMAM AHMED",
+          "caps": 68
+        },
+        {
+          "jersey": 16,
+          "position": "DF",
+          "full_name": "BOUALEM KHOUKHI",
+          "caps": 116
+        },
+        {
+          "jersey": 18,
+          "position": "DF",
+          "full_name": "SULTAN ALBRAKE",
+          "caps": 17
+        },
+        {
+          "jersey": 25,
+          "position": "DF",
+          "full_name": "Al-Hashmi Al-Hussain",
+          "caps": 8
+        },
+        {
+          "jersey": 6,
+          "position": "MF",
+          "full_name": "ABDULAZIZ HATEM",
+          "caps": 119
+        },
+        {
+          "jersey": 12,
+          "position": "MF",
+          "full_name": "KARIM BOUDIAF",
+          "caps": 118
+        },
+        {
+          "jersey": 17,
+          "position": "MF",
+          "full_name": "AHMED ALGANEHI",
+          "caps": 13
+        },
+        {
+          "jersey": 20,
+          "position": "MF",
+          "full_name": "AHMED FATHY",
+          "caps": 48
+        },
+        {
+          "jersey": 23,
+          "position": "MF",
+          "full_name": "ASSIM MADIBO",
+          "caps": 51
+        },
+        {
+          "jersey": 7,
+          "position": "FW",
+          "full_name": "AHMED ALAAELDIN",
+          "caps": 68
+        },
+        {
+          "jersey": 8,
+          "position": "FW",
+          "full_name": "EDMILSON JUNIOR",
+          "caps": 16
+        },
+        {
+          "jersey": 9,
+          "position": "FW",
+          "full_name": "MOHAMMED MUNTARI",
+          "caps": 67
+        },
+        {
+          "jersey": 10,
+          "position": "FW",
+          "full_name": "HASSAN ALHAYDOS",
+          "caps": 186
+        },
+        {
+          "jersey": 11,
+          "position": "FW",
+          "full_name": "AKRAM AFIF",
+          "caps": 125
+        },
+        {
+          "jersey": 15,
+          "position": "FW",
+          "full_name": "YUSUF ABDURISAG",
+          "caps": 39
+        },
+        {
+          "jersey": 19,
+          "position": "FW",
+          "full_name": "ALMOEZ ALI",
+          "caps": 115
+        },
+        {
+          "jersey": 24,
+          "position": "FW",
+          "full_name": "Tahsin Jamshid",
+          "caps": 3
+        },
+        {
+          "jersey": 26,
+          "position": "FW",
+          "full_name": "MOHAMED MANAI",
+          "caps": 10
+        }
+      ],
+      "selected_22": [
+        {
+          "jersey": 22,
+          "position": "GK",
+          "full_name": "MESHAAL BARSHAM",
+          "caps": 52,
+          "game_index": 0,
+          "game_role": "GK",
+          "role_mismatch": false,
+          "game_name": "Barsham",
+          "truncated": false
+        },
+        {
+          "jersey": 16,
+          "position": "DF",
+          "full_name": "BOUALEM KHOUKHI",
+          "caps": 116,
+          "game_index": 1,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Khoukhi",
+          "truncated": false
+        },
+        {
+          "jersey": 2,
+          "position": "DF",
+          "full_name": "PEDRO MIGUEL",
+          "caps": 105,
+          "game_index": 2,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Miguel",
+          "truncated": false
+        },
+        {
+          "jersey": 14,
+          "position": "DF",
+          "full_name": "HOMAM AHMED",
+          "caps": 68,
+          "game_index": 3,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Ahmed",
+          "truncated": false
+        },
+        {
+          "jersey": 5,
+          "position": "DF",
+          "full_name": "JASSEM GABER",
+          "caps": 32,
+          "game_index": 4,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Gaber",
+          "truncated": false
+        },
+        {
+          "jersey": 6,
+          "position": "MF",
+          "full_name": "ABDULAZIZ HATEM",
+          "caps": 119,
+          "game_index": 5,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Hatem",
+          "truncated": false
+        },
+        {
+          "jersey": 12,
+          "position": "MF",
+          "full_name": "KARIM BOUDIAF",
+          "caps": 118,
+          "game_index": 6,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Boudiaf",
+          "truncated": false
+        },
+        {
+          "jersey": 23,
+          "position": "MF",
+          "full_name": "ASSIM MADIBO",
+          "caps": 51,
+          "game_index": 7,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Madibo",
+          "truncated": false
+        },
+        {
+          "jersey": 20,
+          "position": "MF",
+          "full_name": "AHMED FATHY",
+          "caps": 48,
+          "game_index": 8,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Fathy",
+          "truncated": false
+        },
+        {
+          "jersey": 10,
+          "position": "FW",
+          "full_name": "HASSAN ALHAYDOS",
+          "caps": 186,
+          "game_index": 9,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Alhaydos",
+          "truncated": false
+        },
+        {
+          "jersey": 11,
+          "position": "FW",
+          "full_name": "AKRAM AFIF",
+          "caps": 125,
+          "game_index": 10,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Afif",
+          "truncated": false
+        },
+        {
+          "jersey": 3,
+          "position": "DF",
+          "full_name": "LUCAS MENDES",
+          "caps": 25,
+          "game_index": 11,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Mendes",
+          "truncated": false
+        },
+        {
+          "jersey": 18,
+          "position": "DF",
+          "full_name": "SULTAN ALBRAKE",
+          "caps": 17,
+          "game_index": 12,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Albrake",
+          "truncated": false
+        },
+        {
+          "jersey": 25,
+          "position": "DF",
+          "full_name": "Al-Hashmi Al-Hussain",
+          "caps": 8,
+          "game_index": 13,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Al-Hussain",
+          "truncated": false
+        },
+        {
+          "jersey": 17,
+          "position": "MF",
+          "full_name": "AHMED ALGANEHI",
+          "caps": 13,
+          "game_index": 14,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Alganehi",
+          "truncated": false
+        },
+        {
+          "jersey": 19,
+          "position": "FW",
+          "full_name": "ALMOEZ ALI",
+          "caps": 115,
+          "game_index": 15,
+          "game_role": "MF",
+          "role_mismatch": true,
+          "game_name": "Ali",
+          "truncated": false
+        },
+        {
+          "jersey": 7,
+          "position": "FW",
+          "full_name": "AHMED ALAAELDIN",
+          "caps": 68,
+          "game_index": 16,
+          "game_role": "MF",
+          "role_mismatch": true,
+          "game_name": "Alaaeldin",
+          "truncated": false
+        },
+        {
+          "jersey": 9,
+          "position": "FW",
+          "full_name": "MOHAMMED MUNTARI",
+          "caps": 67,
+          "game_index": 17,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Muntari",
+          "truncated": false
+        },
+        {
+          "jersey": 15,
+          "position": "FW",
+          "full_name": "YUSUF ABDURISAG",
+          "caps": 39,
+          "game_index": 18,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Abdurisag",
+          "truncated": false
+        },
+        {
+          "jersey": 8,
+          "position": "FW",
+          "full_name": "EDMILSON JUNIOR",
+          "caps": 16,
+          "game_index": 19,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Edmilson",
+          "truncated": false
+        },
+        {
+          "jersey": 21,
+          "position": "GK",
+          "full_name": "SALAH ZAKARIA",
+          "caps": 8,
+          "game_index": 20,
+          "game_role": "GK",
+          "role_mismatch": false,
+          "game_name": "Zakaria",
+          "truncated": false
+        },
+        {
+          "jersey": 1,
+          "position": "GK",
+          "full_name": "Mahmud Abunada",
+          "caps": 6,
+          "game_index": 21,
+          "game_role": "GK",
+          "role_mismatch": false,
+          "game_name": "Abunada",
+          "truncated": false
+        }
+      ],
+      "excluded_4": [
+        {
+          "jersey": 4,
+          "position": "DF",
+          "full_name": "ISSA LAYE",
+          "caps": 4
+        },
+        {
+          "jersey": 13,
+          "position": "DF",
+          "full_name": "AYOUB ALOUI",
+          "caps": 6
+        },
+        {
+          "jersey": 24,
+          "position": "FW",
+          "full_name": "Tahsin Jamshid",
+          "caps": 3
+        },
+        {
+          "jersey": 26,
+          "position": "FW",
+          "full_name": "MOHAMED MANAI",
+          "caps": 10
+        }
+      ],
+      "role_mismatches": 2
+    },
+    {
+      "slot": 4,
+      "team": "UZBEK",
+      "source_repo": "feuyeux/fifa-world-cup-2026",
+      "source_path": "squads/K_Uzbekistan.md",
+      "source_sha": "45db0e6aeda3de2c8080f06b32744b7f98f74148",
+      "source_original_26": [
+        {
+          "jersey": 1,
+          "position": "GK",
+          "full_name": "Utkir YUSUPOV",
+          "caps": 40
+        },
+        {
+          "jersey": 12,
+          "position": "GK",
+          "full_name": "Abduvohid NEMATOV",
+          "caps": 8
+        },
+        {
+          "jersey": 16,
+          "position": "GK",
+          "full_name": "Botirali ERGASHEV",
+          "caps": 2
+        },
+        {
+          "jersey": 2,
+          "position": "DF",
+          "full_name": "Abdukodir KHUSANOV",
+          "caps": 27
+        },
+        {
+          "jersey": 3,
+          "position": "DF",
+          "full_name": "Khojiakbar ALIJONOV",
+          "caps": 40
+        },
+        {
+          "jersey": 4,
+          "position": "DF",
+          "full_name": "Farrukh SAYFIEV",
+          "caps": 46
+        },
+        {
+          "jersey": 5,
+          "position": "DF",
+          "full_name": "Rustam ASHURMATOV",
+          "caps": 49
+        },
+        {
+          "jersey": 13,
+          "position": "DF",
+          "full_name": "Sherzod NASRULLAEV",
+          "caps": 31
+        },
+        {
+          "jersey": 15,
+          "position": "DF",
+          "full_name": "Umar ESHMURODOV",
+          "caps": 29
+        },
+        {
+          "jersey": 18,
+          "position": "DF",
+          "full_name": "Abdulla ABDULLAEV",
+          "caps": 17
+        },
+        {
+          "jersey": 24,
+          "position": "DF",
+          "full_name": "Bekhruz Karimov",
+          "caps": 2
+        },
+        {
+          "jersey": 25,
+          "position": "DF",
+          "full_name": "Avazbek Ulmasaliev",
+          "caps": 0
+        },
+        {
+          "jersey": 26,
+          "position": "DF",
+          "full_name": "Jakhongir UROZOV",
+          "caps": 4
+        },
+        {
+          "jersey": 6,
+          "position": "MF",
+          "full_name": "Akmal MOZGOVOY",
+          "caps": 25
+        },
+        {
+          "jersey": 7,
+          "position": "MF",
+          "full_name": "Otabek Shukurov",
+          "caps": 84
+        },
+        {
+          "jersey": 8,
+          "position": "MF",
+          "full_name": "Jamshid ISKANDEROV",
+          "caps": 38
+        },
+        {
+          "jersey": 9,
+          "position": "MF",
+          "full_name": "Odiljon Hamrobekov",
+          "caps": 72
+        },
+        {
+          "jersey": 10,
+          "position": "MF",
+          "full_name": "Ruslanbek JIYANOV",
+          "caps": 5
+        },
+        {
+          "jersey": 11,
+          "position": "MF",
+          "full_name": "Oston URUNOV",
+          "caps": 42
+        },
+        {
+          "jersey": 17,
+          "position": "MF",
+          "full_name": "Dostonbek Khamdamov",
+          "caps": 34
+        },
+        {
+          "jersey": 19,
+          "position": "MF",
+          "full_name": "Azizjon GANIEV",
+          "caps": 19
+        },
+        {
+          "jersey": 22,
+          "position": "MF",
+          "full_name": "Abbosbek FAYZULLAEV",
+          "caps": 32
+        },
+        {
+          "jersey": 23,
+          "position": "MF",
+          "full_name": "Sherzod ESANOV",
+          "caps": 1
+        },
+        {
+          "jersey": 14,
+          "position": "FW",
+          "full_name": "Eldor SHOMURODOV",
+          "caps": 92
+        },
+        {
+          "jersey": 20,
+          "position": "FW",
+          "full_name": "Azizbek AMONOV",
+          "caps": 12
+        },
+        {
+          "jersey": 21,
+          "position": "FW",
+          "full_name": "Igor Sergeev",
+          "caps": 83
+        }
+      ],
+      "selected_22": [
+        {
+          "jersey": 1,
+          "position": "GK",
+          "full_name": "Utkir YUSUPOV",
+          "caps": 40,
+          "game_index": 0,
+          "game_role": "GK",
+          "role_mismatch": false,
+          "game_name": "Yusupov",
+          "truncated": false
+        },
+        {
+          "jersey": 5,
+          "position": "DF",
+          "full_name": "Rustam ASHURMATOV",
+          "caps": 49,
+          "game_index": 1,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Ashurmatov",
+          "truncated": false
+        },
+        {
+          "jersey": 4,
+          "position": "DF",
+          "full_name": "Farrukh SAYFIEV",
+          "caps": 46,
+          "game_index": 2,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Sayfiev",
+          "truncated": false
+        },
+        {
+          "jersey": 3,
+          "position": "DF",
+          "full_name": "Khojiakbar ALIJONOV",
+          "caps": 40,
+          "game_index": 3,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Alijonov",
+          "truncated": false
+        },
+        {
+          "jersey": 13,
+          "position": "DF",
+          "full_name": "Sherzod NASRULLAEV",
+          "caps": 31,
+          "game_index": 4,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Nasrullaev",
+          "truncated": false
+        },
+        {
+          "jersey": 7,
+          "position": "MF",
+          "full_name": "Otabek Shukurov",
+          "caps": 84,
+          "game_index": 5,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Shukurov",
+          "truncated": false
+        },
+        {
+          "jersey": 9,
+          "position": "MF",
+          "full_name": "Odiljon Hamrobekov",
+          "caps": 72,
+          "game_index": 6,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Hamrobekov",
+          "truncated": false
+        },
+        {
+          "jersey": 11,
+          "position": "MF",
+          "full_name": "Oston URUNOV",
+          "caps": 42,
+          "game_index": 7,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Urunov",
+          "truncated": false
+        },
+        {
+          "jersey": 8,
+          "position": "MF",
+          "full_name": "Jamshid ISKANDEROV",
+          "caps": 38,
+          "game_index": 8,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Iskanderov",
+          "truncated": false
+        },
+        {
+          "jersey": 14,
+          "position": "FW",
+          "full_name": "Eldor SHOMURODOV",
+          "caps": 92,
+          "game_index": 9,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Shomurodov",
+          "truncated": false
+        },
+        {
+          "jersey": 21,
+          "position": "FW",
+          "full_name": "Igor Sergeev",
+          "caps": 83,
+          "game_index": 10,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Sergeev",
+          "truncated": false
+        },
+        {
+          "jersey": 15,
+          "position": "DF",
+          "full_name": "Umar ESHMURODOV",
+          "caps": 29,
+          "game_index": 11,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Eshmurodov",
+          "truncated": false
+        },
+        {
+          "jersey": 2,
+          "position": "DF",
+          "full_name": "Abdukodir KHUSANOV",
+          "caps": 27,
+          "game_index": 12,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Khusanov",
+          "truncated": false
+        },
+        {
+          "jersey": 18,
+          "position": "DF",
+          "full_name": "Abdulla ABDULLAEV",
+          "caps": 17,
+          "game_index": 13,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Abdullaev",
+          "truncated": false
+        },
+        {
+          "jersey": 17,
+          "position": "MF",
+          "full_name": "Dostonbek Khamdamov",
+          "caps": 34,
+          "game_index": 14,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Khamdamov",
+          "truncated": false
+        },
+        {
+          "jersey": 22,
+          "position": "MF",
+          "full_name": "Abbosbek FAYZULLAEV",
+          "caps": 32,
+          "game_index": 15,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Fayzullaev",
+          "truncated": false
+        },
+        {
+          "jersey": 6,
+          "position": "MF",
+          "full_name": "Akmal MOZGOVOY",
+          "caps": 25,
+          "game_index": 16,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Mozgovoy",
+          "truncated": false
+        },
+        {
+          "jersey": 20,
+          "position": "FW",
+          "full_name": "Azizbek AMONOV",
+          "caps": 12,
+          "game_index": 17,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Amonov",
+          "truncated": false
+        },
+        {
+          "jersey": 19,
+          "position": "MF",
+          "full_name": "Azizjon GANIEV",
+          "caps": 19,
+          "game_index": 18,
+          "game_role": "FW",
+          "role_mismatch": true,
+          "game_name": "Ganiev",
+          "truncated": false
+        },
+        {
+          "jersey": 10,
+          "position": "MF",
+          "full_name": "Ruslanbek JIYANOV",
+          "caps": 5,
+          "game_index": 19,
+          "game_role": "FW",
+          "role_mismatch": true,
+          "game_name": "Jiyanov",
+          "truncated": false
+        },
+        {
+          "jersey": 12,
+          "position": "GK",
+          "full_name": "Abduvohid NEMATOV",
+          "caps": 8,
+          "game_index": 20,
+          "game_role": "GK",
+          "role_mismatch": false,
+          "game_name": "Nematov",
+          "truncated": false
+        },
+        {
+          "jersey": 16,
+          "position": "GK",
+          "full_name": "Botirali ERGASHEV",
+          "caps": 2,
+          "game_index": 21,
+          "game_role": "GK",
+          "role_mismatch": false,
+          "game_name": "Ergashev",
+          "truncated": false
+        }
+      ],
+      "excluded_4": [
+        {
+          "jersey": 24,
+          "position": "DF",
+          "full_name": "Bekhruz Karimov",
+          "caps": 2
+        },
+        {
+          "jersey": 25,
+          "position": "DF",
+          "full_name": "Avazbek Ulmasaliev",
+          "caps": 0
+        },
+        {
+          "jersey": 26,
+          "position": "DF",
+          "full_name": "Jakhongir UROZOV",
+          "caps": 4
+        },
+        {
+          "jersey": 23,
+          "position": "MF",
+          "full_name": "Sherzod ESANOV",
+          "caps": 1
+        }
+      ],
+      "role_mismatches": 2
+    },
+    {
+      "slot": 10,
+      "team": "PANAMA",
+      "source_repo": "feuyeux/fifa-world-cup-2026",
+      "source_path": "squads/L_Panama.md",
+      "source_sha": "d8d741ad7d34f31f6b2c3ec9e32e6d7a6bf803cf",
+      "source_original_26": [
+        {
+          "jersey": 1,
+          "position": "GK",
+          "full_name": "Luis MEJIA",
+          "caps": 56
+        },
+        {
+          "jersey": 12,
+          "position": "GK",
+          "full_name": "Cesar SAMUDIO",
+          "caps": 5
+        },
+        {
+          "jersey": 22,
+          "position": "GK",
+          "full_name": "Orlando MOSQUERA",
+          "caps": 48
+        },
+        {
+          "jersey": 2,
+          "position": "DF",
+          "full_name": "Cesar BLACKMAN",
+          "caps": 40
+        },
+        {
+          "jersey": 3,
+          "position": "DF",
+          "full_name": "Jose CORDOBA",
+          "caps": 32
+        },
+        {
+          "jersey": 4,
+          "position": "DF",
+          "full_name": "Fidel ESCOBAR",
+          "caps": 99
+        },
+        {
+          "jersey": 5,
+          "position": "DF",
+          "full_name": "Edgardo FARINA",
+          "caps": 18
+        },
+        {
+          "jersey": 13,
+          "position": "DF",
+          "full_name": "Jiovany RAMOS",
+          "caps": 23
+        },
+        {
+          "jersey": 14,
+          "position": "DF",
+          "full_name": "Carlos HARVEY",
+          "caps": 28
+        },
+        {
+          "jersey": 15,
+          "position": "DF",
+          "full_name": "Eric DAVIS",
+          "caps": 107
+        },
+        {
+          "jersey": 16,
+          "position": "DF",
+          "full_name": "Andres ANDRADE",
+          "caps": 50
+        },
+        {
+          "jersey": 23,
+          "position": "DF",
+          "full_name": "Michael Amir Murillo",
+          "caps": 94
+        },
+        {
+          "jersey": 25,
+          "position": "DF",
+          "full_name": "Roderick MILLER",
+          "caps": 50
+        },
+        {
+          "jersey": 26,
+          "position": "DF",
+          "full_name": "Jorge GUTIERREZ",
+          "caps": 18
+        },
+        {
+          "jersey": 6,
+          "position": "MF",
+          "full_name": "Cristian MARTINEZ",
+          "caps": 66
+        },
+        {
+          "jersey": 7,
+          "position": "MF",
+          "full_name": "Jose Luis RODRIGUEZ",
+          "caps": 70
+        },
+        {
+          "jersey": 8,
+          "position": "MF",
+          "full_name": "Adalberto CARRASQUILLA",
+          "caps": 73
+        },
+        {
+          "jersey": 10,
+          "position": "MF",
+          "full_name": "Ismael DIAZ",
+          "caps": 57
+        },
+        {
+          "jersey": 11,
+          "position": "MF",
+          "full_name": "Yoel Bárcenas",
+          "caps": 104
+        },
+        {
+          "jersey": 19,
+          "position": "MF",
+          "full_name": "Alberto QUINTERO",
+          "caps": 141
+        },
+        {
+          "jersey": 20,
+          "position": "MF",
+          "full_name": "Anibal GODOY",
+          "caps": 159
+        },
+        {
+          "jersey": 21,
+          "position": "MF",
+          "full_name": "Cesar YANIS",
+          "caps": 56
+        },
+        {
+          "jersey": 9,
+          "position": "FW",
+          "full_name": "Tomas RODRIGUEZ",
+          "caps": 13
+        },
+        {
+          "jersey": 17,
+          "position": "FW",
+          "full_name": "Jose FAJARDO",
+          "caps": 68
+        },
+        {
+          "jersey": 18,
+          "position": "FW",
+          "full_name": "Cecilio Waterman",
+          "caps": 55
+        },
+        {
+          "jersey": 24,
+          "position": "FW",
+          "full_name": "Azarias LONDONO",
+          "caps": 11
+        }
+      ],
+      "selected_22": [
+        {
+          "jersey": 1,
+          "position": "GK",
+          "full_name": "Luis MEJIA",
+          "caps": 56,
+          "game_index": 0,
+          "game_role": "GK",
+          "role_mismatch": false,
+          "game_name": "Mejia",
+          "truncated": false
+        },
+        {
+          "jersey": 15,
+          "position": "DF",
+          "full_name": "Eric DAVIS",
+          "caps": 107,
+          "game_index": 1,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Davis",
+          "truncated": false
+        },
+        {
+          "jersey": 4,
+          "position": "DF",
+          "full_name": "Fidel ESCOBAR",
+          "caps": 99,
+          "game_index": 2,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Escobar",
+          "truncated": false
+        },
+        {
+          "jersey": 23,
+          "position": "DF",
+          "full_name": "Michael Amir Murillo",
+          "caps": 94,
+          "game_index": 3,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Murillo",
+          "truncated": false
+        },
+        {
+          "jersey": 16,
+          "position": "DF",
+          "full_name": "Andres ANDRADE",
+          "caps": 50,
+          "game_index": 4,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Andrade",
+          "truncated": false
+        },
+        {
+          "jersey": 20,
+          "position": "MF",
+          "full_name": "Anibal GODOY",
+          "caps": 159,
+          "game_index": 5,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Godoy",
+          "truncated": false
+        },
+        {
+          "jersey": 19,
+          "position": "MF",
+          "full_name": "Alberto QUINTERO",
+          "caps": 141,
+          "game_index": 6,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Quintero",
+          "truncated": false
+        },
+        {
+          "jersey": 11,
+          "position": "MF",
+          "full_name": "Yoel Bárcenas",
+          "caps": 104,
+          "game_index": 7,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Barcenas",
+          "truncated": false
+        },
+        {
+          "jersey": 8,
+          "position": "MF",
+          "full_name": "Adalberto CARRASQUILLA",
+          "caps": 73,
+          "game_index": 8,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Carrasqui.",
+          "truncated": true
+        },
+        {
+          "jersey": 17,
+          "position": "FW",
+          "full_name": "Jose FAJARDO",
+          "caps": 68,
+          "game_index": 9,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Fajardo",
+          "truncated": false
+        },
+        {
+          "jersey": 18,
+          "position": "FW",
+          "full_name": "Cecilio Waterman",
+          "caps": 55,
+          "game_index": 10,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Waterman",
+          "truncated": false
+        },
+        {
+          "jersey": 25,
+          "position": "DF",
+          "full_name": "Roderick MILLER",
+          "caps": 50,
+          "game_index": 11,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Miller",
+          "truncated": false
+        },
+        {
+          "jersey": 2,
+          "position": "DF",
+          "full_name": "Cesar BLACKMAN",
+          "caps": 40,
+          "game_index": 12,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Blackman",
+          "truncated": false
+        },
+        {
+          "jersey": 3,
+          "position": "DF",
+          "full_name": "Jose CORDOBA",
+          "caps": 32,
+          "game_index": 13,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Cordoba",
+          "truncated": false
+        },
+        {
+          "jersey": 7,
+          "position": "MF",
+          "full_name": "Jose Luis RODRIGUEZ",
+          "caps": 70,
+          "game_index": 14,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Rodriguez",
+          "truncated": false
+        },
+        {
+          "jersey": 6,
+          "position": "MF",
+          "full_name": "Cristian MARTINEZ",
+          "caps": 66,
+          "game_index": 15,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Martinez",
+          "truncated": false
+        },
+        {
+          "jersey": 10,
+          "position": "MF",
+          "full_name": "Ismael DIAZ",
+          "caps": 57,
+          "game_index": 16,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Diaz",
+          "truncated": false
+        },
+        {
+          "jersey": 9,
+          "position": "FW",
+          "full_name": "Tomas RODRIGUEZ",
+          "caps": 13,
+          "game_index": 17,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "T.Rodrigu.",
+          "truncated": false
+        },
+        {
+          "jersey": 24,
+          "position": "FW",
+          "full_name": "Azarias LONDONO",
+          "caps": 11,
+          "game_index": 18,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Londono",
+          "truncated": false
+        },
+        {
+          "jersey": 21,
+          "position": "MF",
+          "full_name": "Cesar YANIS",
+          "caps": 56,
+          "game_index": 19,
+          "game_role": "FW",
+          "role_mismatch": true,
+          "game_name": "Yanis",
+          "truncated": false
+        },
+        {
+          "jersey": 22,
+          "position": "GK",
+          "full_name": "Orlando MOSQUERA",
+          "caps": 48,
+          "game_index": 20,
+          "game_role": "GK",
+          "role_mismatch": false,
+          "game_name": "Mosquera",
+          "truncated": false
+        },
+        {
+          "jersey": 12,
+          "position": "GK",
+          "full_name": "Cesar SAMUDIO",
+          "caps": 5,
+          "game_index": 21,
+          "game_role": "GK",
+          "role_mismatch": false,
+          "game_name": "Samudio",
+          "truncated": false
+        }
+      ],
+      "excluded_4": [
+        {
+          "jersey": 5,
+          "position": "DF",
+          "full_name": "Edgardo FARINA",
+          "caps": 18
+        },
+        {
+          "jersey": 13,
+          "position": "DF",
+          "full_name": "Jiovany RAMOS",
+          "caps": 23
+        },
+        {
+          "jersey": 14,
+          "position": "DF",
+          "full_name": "Carlos HARVEY",
+          "caps": 28
+        },
+        {
+          "jersey": 26,
+          "position": "DF",
+          "full_name": "Jorge GUTIERREZ",
+          "caps": 18
+        }
+      ],
+      "role_mismatches": 1
+    },
+    {
+      "slot": 11,
+      "team": "ECUADOR",
+      "source_repo": "feuyeux/fifa-world-cup-2026",
+      "source_path": "squads/E_Ecuador.md",
+      "source_sha": "c2eb9cec077943e729bec278190344793f65b7d2",
+      "source_original_26": [
+        {
+          "jersey": 1,
+          "position": "GK",
+          "full_name": "Hernan GALINDEZ",
+          "caps": 35
+        },
+        {
+          "jersey": 12,
+          "position": "GK",
+          "full_name": "Moises RAMIREZ",
+          "caps": 7
+        },
+        {
+          "jersey": 22,
+          "position": "GK",
+          "full_name": "Gonzalo VALLE",
+          "caps": 4
+        },
+        {
+          "jersey": 2,
+          "position": "DF",
+          "full_name": "Felix TORRES",
+          "caps": 49
+        },
+        {
+          "jersey": 3,
+          "position": "DF",
+          "full_name": "Piero HINCAPIE",
+          "caps": 52
+        },
+        {
+          "jersey": 4,
+          "position": "DF",
+          "full_name": "Joel ORDONEZ",
+          "caps": 17
+        },
+        {
+          "jersey": 6,
+          "position": "DF",
+          "full_name": "Willian PACHO",
+          "caps": 34
+        },
+        {
+          "jersey": 7,
+          "position": "DF",
+          "full_name": "Pervis ESTUPINAN",
+          "caps": 54
+        },
+        {
+          "jersey": 17,
+          "position": "DF",
+          "full_name": "Angelo PRECIADO",
+          "caps": 55
+        },
+        {
+          "jersey": 25,
+          "position": "DF",
+          "full_name": "Jackson POROZO",
+          "caps": 10
+        },
+        {
+          "jersey": 26,
+          "position": "DF",
+          "full_name": "Yaimar MEDINA",
+          "caps": 6
+        },
+        {
+          "jersey": 5,
+          "position": "MF",
+          "full_name": "Jordy ALCIVAR",
+          "caps": 11
+        },
+        {
+          "jersey": 8,
+          "position": "MF",
+          "full_name": "Anthony VALENCIA",
+          "caps": 3
+        },
+        {
+          "jersey": 10,
+          "position": "MF",
+          "full_name": "Kendry PAEZ",
+          "caps": 26
+        },
+        {
+          "jersey": 14,
+          "position": "MF",
+          "full_name": "Alan MINDA",
+          "caps": 20
+        },
+        {
+          "jersey": 15,
+          "position": "MF",
+          "full_name": "Pedro VITE",
+          "caps": 17
+        },
+        {
+          "jersey": 18,
+          "position": "MF",
+          "full_name": "Denil CASTILLO",
+          "caps": 5
+        },
+        {
+          "jersey": 21,
+          "position": "MF",
+          "full_name": "Alan FRANCO",
+          "caps": 58
+        },
+        {
+          "jersey": 23,
+          "position": "MF",
+          "full_name": "Moises CAICEDO",
+          "caps": 61
+        },
+        {
+          "jersey": 9,
+          "position": "FW",
+          "full_name": "John YEBOAH",
+          "caps": 23
+        },
+        {
+          "jersey": 11,
+          "position": "FW",
+          "full_name": "Kevin RODRIGUEZ",
+          "caps": 31
+        },
+        {
+          "jersey": 13,
+          "position": "FW",
+          "full_name": "Enner VALENCIA",
+          "caps": 105
+        },
+        {
+          "jersey": 16,
+          "position": "FW",
+          "full_name": "Jordy CAICEDO",
+          "caps": 20
+        },
+        {
+          "jersey": 19,
+          "position": "FW",
+          "full_name": "Gonzalo PLATA",
+          "caps": 50
+        },
+        {
+          "jersey": 20,
+          "position": "FW",
+          "full_name": "Nilson ANGULO",
+          "caps": 14
+        },
+        {
+          "jersey": 24,
+          "position": "FW",
+          "full_name": "Jeremy AREVALO",
+          "caps": 4
+        }
+      ],
+      "selected_22": [
+        {
+          "jersey": 1,
+          "position": "GK",
+          "full_name": "Hernan GALINDEZ",
+          "caps": 35,
+          "game_index": 0,
+          "game_role": "GK",
+          "role_mismatch": false,
+          "game_name": "Galindez",
+          "truncated": false
+        },
+        {
+          "jersey": 17,
+          "position": "DF",
+          "full_name": "Angelo PRECIADO",
+          "caps": 55,
+          "game_index": 1,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Preciado",
+          "truncated": false
+        },
+        {
+          "jersey": 7,
+          "position": "DF",
+          "full_name": "Pervis ESTUPINAN",
+          "caps": 54,
+          "game_index": 2,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Estupinan",
+          "truncated": false
+        },
+        {
+          "jersey": 3,
+          "position": "DF",
+          "full_name": "Piero HINCAPIE",
+          "caps": 52,
+          "game_index": 3,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Hincapie",
+          "truncated": false
+        },
+        {
+          "jersey": 2,
+          "position": "DF",
+          "full_name": "Felix TORRES",
+          "caps": 49,
+          "game_index": 4,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Torres",
+          "truncated": false
+        },
+        {
+          "jersey": 23,
+          "position": "MF",
+          "full_name": "Moises CAICEDO",
+          "caps": 61,
+          "game_index": 5,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Caicedo",
+          "truncated": false
+        },
+        {
+          "jersey": 21,
+          "position": "MF",
+          "full_name": "Alan FRANCO",
+          "caps": 58,
+          "game_index": 6,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Franco",
+          "truncated": false
+        },
+        {
+          "jersey": 10,
+          "position": "MF",
+          "full_name": "Kendry PAEZ",
+          "caps": 26,
+          "game_index": 7,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Paez",
+          "truncated": false
+        },
+        {
+          "jersey": 14,
+          "position": "MF",
+          "full_name": "Alan MINDA",
+          "caps": 20,
+          "game_index": 8,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Minda",
+          "truncated": false
+        },
+        {
+          "jersey": 13,
+          "position": "FW",
+          "full_name": "Enner VALENCIA",
+          "caps": 105,
+          "game_index": 9,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Valencia",
+          "truncated": false
+        },
+        {
+          "jersey": 19,
+          "position": "FW",
+          "full_name": "Gonzalo PLATA",
+          "caps": 50,
+          "game_index": 10,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Plata",
+          "truncated": false
+        },
+        {
+          "jersey": 6,
+          "position": "DF",
+          "full_name": "Willian PACHO",
+          "caps": 34,
+          "game_index": 11,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Pacho",
+          "truncated": false
+        },
+        {
+          "jersey": 4,
+          "position": "DF",
+          "full_name": "Joel ORDONEZ",
+          "caps": 17,
+          "game_index": 12,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Ordonez",
+          "truncated": false
+        },
+        {
+          "jersey": 25,
+          "position": "DF",
+          "full_name": "Jackson POROZO",
+          "caps": 10,
+          "game_index": 13,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Porozo",
+          "truncated": false
+        },
+        {
+          "jersey": 15,
+          "position": "MF",
+          "full_name": "Pedro VITE",
+          "caps": 17,
+          "game_index": 14,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Vite",
+          "truncated": false
+        },
+        {
+          "jersey": 5,
+          "position": "MF",
+          "full_name": "Jordy ALCIVAR",
+          "caps": 11,
+          "game_index": 15,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Alcivar",
+          "truncated": false
+        },
+        {
+          "jersey": 18,
+          "position": "MF",
+          "full_name": "Denil CASTILLO",
+          "caps": 5,
+          "game_index": 16,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Castillo",
+          "truncated": false
+        },
+        {
+          "jersey": 11,
+          "position": "FW",
+          "full_name": "Kevin RODRIGUEZ",
+          "caps": 31,
+          "game_index": 17,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Rodriguez",
+          "truncated": false
+        },
+        {
+          "jersey": 9,
+          "position": "FW",
+          "full_name": "John YEBOAH",
+          "caps": 23,
+          "game_index": 18,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Yeboah",
+          "truncated": false
+        },
+        {
+          "jersey": 16,
+          "position": "FW",
+          "full_name": "Jordy CAICEDO",
+          "caps": 20,
+          "game_index": 19,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "J.Caicedo",
+          "truncated": false
+        },
+        {
+          "jersey": 12,
+          "position": "GK",
+          "full_name": "Moises RAMIREZ",
+          "caps": 7,
+          "game_index": 20,
+          "game_role": "GK",
+          "role_mismatch": false,
+          "game_name": "Ramirez",
+          "truncated": false
+        },
+        {
+          "jersey": 22,
+          "position": "GK",
+          "full_name": "Gonzalo VALLE",
+          "caps": 4,
+          "game_index": 21,
+          "game_role": "GK",
+          "role_mismatch": false,
+          "game_name": "Valle",
+          "truncated": false
+        }
+      ],
+      "excluded_4": [
+        {
+          "jersey": 26,
+          "position": "DF",
+          "full_name": "Yaimar MEDINA",
+          "caps": 6
+        },
+        {
+          "jersey": 8,
+          "position": "MF",
+          "full_name": "Anthony VALENCIA",
+          "caps": 3
+        },
+        {
+          "jersey": 20,
+          "position": "FW",
+          "full_name": "Nilson ANGULO",
+          "caps": 14
+        },
+        {
+          "jersey": 24,
+          "position": "FW",
+          "full_name": "Jeremy AREVALO",
+          "caps": 4
+        }
+      ],
+      "role_mismatches": 0
+    },
+    {
+      "slot": 18,
+      "team": "SENEGAL",
+      "source_repo": "feuyeux/fifa-world-cup-2026",
+      "source_path": "squads/I_Senegal.md",
+      "source_sha": "1cbc97402765c2f5e88cd765e2860f293996f0f1",
+      "source_original_26": [
+        {
+          "jersey": 1,
+          "position": "GK",
+          "full_name": "Yehvann DIOUF",
+          "caps": 2
+        },
+        {
+          "jersey": 16,
+          "position": "GK",
+          "full_name": "Edouard MENDY",
+          "caps": 57
+        },
+        {
+          "jersey": 23,
+          "position": "GK",
+          "full_name": "Mory DIAW",
+          "caps": 5
+        },
+        {
+          "jersey": 2,
+          "position": "DF",
+          "full_name": "Mamadou SARR",
+          "caps": 8
+        },
+        {
+          "jersey": 3,
+          "position": "DF",
+          "full_name": "Kalidou KOULIBALY",
+          "caps": 103
+        },
+        {
+          "jersey": 4,
+          "position": "DF",
+          "full_name": "Abdoulaye Seck",
+          "caps": 22
+        },
+        {
+          "jersey": 14,
+          "position": "DF",
+          "full_name": "Ismail JAKOBS",
+          "caps": 30
+        },
+        {
+          "jersey": 15,
+          "position": "DF",
+          "full_name": "Krepin DIATTA",
+          "caps": 61
+        },
+        {
+          "jersey": 19,
+          "position": "DF",
+          "full_name": "Moussa Niakhate",
+          "caps": 31
+        },
+        {
+          "jersey": 24,
+          "position": "DF",
+          "full_name": "Antoine MENDY",
+          "caps": 7
+        },
+        {
+          "jersey": 25,
+          "position": "DF",
+          "full_name": "El Hadji Malick DIOUF",
+          "caps": 20
+        },
+        {
+          "jersey": 5,
+          "position": "MF",
+          "full_name": "Idrissa Gueye",
+          "caps": 131
+        },
+        {
+          "jersey": 6,
+          "position": "MF",
+          "full_name": "Pathe CISS",
+          "caps": 30
+        },
+        {
+          "jersey": 8,
+          "position": "MF",
+          "full_name": "Lamine CAMARA",
+          "caps": 33
+        },
+        {
+          "jersey": 17,
+          "position": "MF",
+          "full_name": "Pape Matar SARR",
+          "caps": 40
+        },
+        {
+          "jersey": 21,
+          "position": "MF",
+          "full_name": "Habib DIARRA",
+          "caps": 21
+        },
+        {
+          "jersey": 22,
+          "position": "MF",
+          "full_name": "Bara Sapoko NDIAYE",
+          "caps": 1
+        },
+        {
+          "jersey": 26,
+          "position": "MF",
+          "full_name": "Pape GUEYE",
+          "caps": 41
+        },
+        {
+          "jersey": 7,
+          "position": "FW",
+          "full_name": "Assane DIAO",
+          "caps": 5
+        },
+        {
+          "jersey": 9,
+          "position": "FW",
+          "full_name": "Bamba DIENG",
+          "caps": 23
+        },
+        {
+          "jersey": 10,
+          "position": "FW",
+          "full_name": "Sadio MANE",
+          "caps": 128
+        },
+        {
+          "jersey": 11,
+          "position": "FW",
+          "full_name": "Nicolas JACKSON",
+          "caps": 33
+        },
+        {
+          "jersey": 12,
+          "position": "FW",
+          "full_name": "Cherif NDIAYE",
+          "caps": 19
+        },
+        {
+          "jersey": 13,
+          "position": "FW",
+          "full_name": "Iliman NDIAYE",
+          "caps": 40
+        },
+        {
+          "jersey": 18,
+          "position": "FW",
+          "full_name": "Ismaila SARR",
+          "caps": 83
+        },
+        {
+          "jersey": 20,
+          "position": "FW",
+          "full_name": "Ibrahim MBAYE",
+          "caps": 11
+        }
+      ],
+      "selected_22": [
+        {
+          "jersey": 16,
+          "position": "GK",
+          "full_name": "Edouard MENDY",
+          "caps": 57,
+          "game_index": 0,
+          "game_role": "GK",
+          "role_mismatch": false,
+          "game_name": "Mendy",
+          "truncated": false
+        },
+        {
+          "jersey": 3,
+          "position": "DF",
+          "full_name": "Kalidou KOULIBALY",
+          "caps": 103,
+          "game_index": 1,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Koulibaly",
+          "truncated": false
+        },
+        {
+          "jersey": 15,
+          "position": "DF",
+          "full_name": "Krepin DIATTA",
+          "caps": 61,
+          "game_index": 2,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Diatta",
+          "truncated": false
+        },
+        {
+          "jersey": 19,
+          "position": "DF",
+          "full_name": "Moussa Niakhate",
+          "caps": 31,
+          "game_index": 3,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Niakhate",
+          "truncated": false
+        },
+        {
+          "jersey": 14,
+          "position": "DF",
+          "full_name": "Ismail JAKOBS",
+          "caps": 30,
+          "game_index": 4,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Jakobs",
+          "truncated": false
+        },
+        {
+          "jersey": 5,
+          "position": "MF",
+          "full_name": "Idrissa Gueye",
+          "caps": 131,
+          "game_index": 5,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Gueye",
+          "truncated": false
+        },
+        {
+          "jersey": 26,
+          "position": "MF",
+          "full_name": "Pape GUEYE",
+          "caps": 41,
+          "game_index": 6,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "P.Gueye",
+          "truncated": false
+        },
+        {
+          "jersey": 17,
+          "position": "MF",
+          "full_name": "Pape Matar SARR",
+          "caps": 40,
+          "game_index": 7,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Sarr",
+          "truncated": false
+        },
+        {
+          "jersey": 8,
+          "position": "MF",
+          "full_name": "Lamine CAMARA",
+          "caps": 33,
+          "game_index": 8,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Camara",
+          "truncated": false
+        },
+        {
+          "jersey": 10,
+          "position": "FW",
+          "full_name": "Sadio MANE",
+          "caps": 128,
+          "game_index": 9,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Mane",
+          "truncated": false
+        },
+        {
+          "jersey": 18,
+          "position": "FW",
+          "full_name": "Ismaila SARR",
+          "caps": 83,
+          "game_index": 10,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "I.Sarr",
+          "truncated": false
+        },
+        {
+          "jersey": 4,
+          "position": "DF",
+          "full_name": "Abdoulaye Seck",
+          "caps": 22,
+          "game_index": 11,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Seck",
+          "truncated": false
+        },
+        {
+          "jersey": 25,
+          "position": "DF",
+          "full_name": "El Hadji Malick DIOUF",
+          "caps": 20,
+          "game_index": 12,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Diouf",
+          "truncated": false
+        },
+        {
+          "jersey": 2,
+          "position": "DF",
+          "full_name": "Mamadou SARR",
+          "caps": 8,
+          "game_index": 13,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "M.Sarr",
+          "truncated": false
+        },
+        {
+          "jersey": 6,
+          "position": "MF",
+          "full_name": "Pathe CISS",
+          "caps": 30,
+          "game_index": 14,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Ciss",
+          "truncated": false
+        },
+        {
+          "jersey": 21,
+          "position": "MF",
+          "full_name": "Habib DIARRA",
+          "caps": 21,
+          "game_index": 15,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Diarra",
+          "truncated": false
+        },
+        {
+          "jersey": 22,
+          "position": "MF",
+          "full_name": "Bara Sapoko NDIAYE",
+          "caps": 1,
+          "game_index": 16,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Ndiaye",
+          "truncated": false
+        },
+        {
+          "jersey": 13,
+          "position": "FW",
+          "full_name": "Iliman NDIAYE",
+          "caps": 40,
+          "game_index": 17,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "I.Ndiaye",
+          "truncated": false
+        },
+        {
+          "jersey": 11,
+          "position": "FW",
+          "full_name": "Nicolas JACKSON",
+          "caps": 33,
+          "game_index": 18,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Jackson",
+          "truncated": false
+        },
+        {
+          "jersey": 9,
+          "position": "FW",
+          "full_name": "Bamba DIENG",
+          "caps": 23,
+          "game_index": 19,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Dieng",
+          "truncated": false
+        },
+        {
+          "jersey": 23,
+          "position": "GK",
+          "full_name": "Mory DIAW",
+          "caps": 5,
+          "game_index": 20,
+          "game_role": "GK",
+          "role_mismatch": false,
+          "game_name": "Diaw",
+          "truncated": false
+        },
+        {
+          "jersey": 1,
+          "position": "GK",
+          "full_name": "Yehvann DIOUF",
+          "caps": 2,
+          "game_index": 21,
+          "game_role": "GK",
+          "role_mismatch": false,
+          "game_name": "Y.Diouf",
+          "truncated": false
+        }
+      ],
+      "excluded_4": [
+        {
+          "jersey": 24,
+          "position": "DF",
+          "full_name": "Antoine MENDY",
+          "caps": 7
+        },
+        {
+          "jersey": 7,
+          "position": "FW",
+          "full_name": "Assane DIAO",
+          "caps": 5
+        },
+        {
+          "jersey": 12,
+          "position": "FW",
+          "full_name": "Cherif NDIAYE",
+          "caps": 19
+        },
+        {
+          "jersey": 20,
+          "position": "FW",
+          "full_name": "Ibrahim MBAYE",
+          "caps": 11
+        }
+      ],
+      "role_mismatches": 0
+    },
+    {
+      "slot": 23,
+      "team": "BOSNIA",
+      "source_repo": "feuyeux/fifa-world-cup-2026",
+      "source_path": "squads/B_Bosnia-Herzegovina.md",
+      "source_sha": "f2daf2161e83a8d8860db302b444f2920e264d57",
+      "source_original_26": [
+        {
+          "jersey": 1,
+          "position": "GK",
+          "full_name": "Nikola VASILJ",
+          "caps": 26
+        },
+        {
+          "jersey": 12,
+          "position": "GK",
+          "full_name": "Mladen JURKAS",
+          "caps": 0
+        },
+        {
+          "jersey": 22,
+          "position": "GK",
+          "full_name": "Martin ZLOMISLIC",
+          "caps": 3
+        },
+        {
+          "jersey": 2,
+          "position": "DF",
+          "full_name": "Nihad MUJAKIC",
+          "caps": 12
+        },
+        {
+          "jersey": 3,
+          "position": "DF",
+          "full_name": "Dennis HADZIKADUNIC",
+          "caps": 32
+        },
+        {
+          "jersey": 4,
+          "position": "DF",
+          "full_name": "Tarik MUHAREMOVIC",
+          "caps": 14
+        },
+        {
+          "jersey": 5,
+          "position": "DF",
+          "full_name": "Sead KOLASINAC",
+          "caps": 65
+        },
+        {
+          "jersey": 7,
+          "position": "DF",
+          "full_name": "Amar DEDIC",
+          "caps": 28
+        },
+        {
+          "jersey": 18,
+          "position": "DF",
+          "full_name": "Nikola KATIC",
+          "caps": 17
+        },
+        {
+          "jersey": 21,
+          "position": "DF",
+          "full_name": "Stjepan RADELJIC",
+          "caps": 5
+        },
+        {
+          "jersey": 24,
+          "position": "DF",
+          "full_name": "Arjan MALIC",
+          "caps": 8
+        },
+        {
+          "jersey": 6,
+          "position": "MF",
+          "full_name": "Benjamin TAHIROVIC",
+          "caps": 28
+        },
+        {
+          "jersey": 8,
+          "position": "MF",
+          "full_name": "Armin GIGOVIC",
+          "caps": 20
+        },
+        {
+          "jersey": 13,
+          "position": "MF",
+          "full_name": "Ivan BASIC",
+          "caps": 17
+        },
+        {
+          "jersey": 14,
+          "position": "MF",
+          "full_name": "Ivan SUNJIC",
+          "caps": 11
+        },
+        {
+          "jersey": 15,
+          "position": "MF",
+          "full_name": "Amar MEMIC",
+          "caps": 13
+        },
+        {
+          "jersey": 16,
+          "position": "MF",
+          "full_name": "Amir HADZIAHMETOVIC",
+          "caps": 36
+        },
+        {
+          "jersey": 17,
+          "position": "MF",
+          "full_name": "Dzenis BURNIC",
+          "caps": 20
+        },
+        {
+          "jersey": 26,
+          "position": "MF",
+          "full_name": "Ermin MAHMIC",
+          "caps": 2
+        },
+        {
+          "jersey": 9,
+          "position": "FW",
+          "full_name": "Samed BAZDAR",
+          "caps": 13
+        },
+        {
+          "jersey": 10,
+          "position": "FW",
+          "full_name": "Ermedin DEMIROVIC",
+          "caps": 40
+        },
+        {
+          "jersey": 11,
+          "position": "FW",
+          "full_name": "Edin DZEKO",
+          "caps": 148
+        },
+        {
+          "jersey": 19,
+          "position": "FW",
+          "full_name": "Kerim ALAJBEGOVIC",
+          "caps": 10
+        },
+        {
+          "jersey": 20,
+          "position": "FW",
+          "full_name": "Esmir BAJRAKTAREVIC",
+          "caps": 16
+        },
+        {
+          "jersey": 23,
+          "position": "FW",
+          "full_name": "Haris TABAKOVIC",
+          "caps": 10
+        },
+        {
+          "jersey": 25,
+          "position": "FW",
+          "full_name": "Jovo LUKIC",
+          "caps": 3
+        }
+      ],
+      "selected_22": [
+        {
+          "jersey": 1,
+          "position": "GK",
+          "full_name": "Nikola VASILJ",
+          "caps": 26,
+          "game_index": 0,
+          "game_role": "GK",
+          "role_mismatch": false,
+          "game_name": "Vasilj",
+          "truncated": false
+        },
+        {
+          "jersey": 5,
+          "position": "DF",
+          "full_name": "Sead KOLASINAC",
+          "caps": 65,
+          "game_index": 1,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Kolasinac",
+          "truncated": false
+        },
+        {
+          "jersey": 3,
+          "position": "DF",
+          "full_name": "Dennis HADZIKADUNIC",
+          "caps": 32,
+          "game_index": 2,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Hadzikadu.",
+          "truncated": true
+        },
+        {
+          "jersey": 7,
+          "position": "DF",
+          "full_name": "Amar DEDIC",
+          "caps": 28,
+          "game_index": 3,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Dedic",
+          "truncated": false
+        },
+        {
+          "jersey": 18,
+          "position": "DF",
+          "full_name": "Nikola KATIC",
+          "caps": 17,
+          "game_index": 4,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Katic",
+          "truncated": false
+        },
+        {
+          "jersey": 16,
+          "position": "MF",
+          "full_name": "Amir HADZIAHMETOVIC",
+          "caps": 36,
+          "game_index": 5,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Hadziahme.",
+          "truncated": true
+        },
+        {
+          "jersey": 6,
+          "position": "MF",
+          "full_name": "Benjamin TAHIROVIC",
+          "caps": 28,
+          "game_index": 6,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Tahirovic",
+          "truncated": false
+        },
+        {
+          "jersey": 8,
+          "position": "MF",
+          "full_name": "Armin GIGOVIC",
+          "caps": 20,
+          "game_index": 7,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Gigovic",
+          "truncated": false
+        },
+        {
+          "jersey": 17,
+          "position": "MF",
+          "full_name": "Dzenis BURNIC",
+          "caps": 20,
+          "game_index": 8,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Burnic",
+          "truncated": false
+        },
+        {
+          "jersey": 11,
+          "position": "FW",
+          "full_name": "Edin DZEKO",
+          "caps": 148,
+          "game_index": 9,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Dzeko",
+          "truncated": false
+        },
+        {
+          "jersey": 10,
+          "position": "FW",
+          "full_name": "Ermedin DEMIROVIC",
+          "caps": 40,
+          "game_index": 10,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Demirovic",
+          "truncated": false
+        },
+        {
+          "jersey": 4,
+          "position": "DF",
+          "full_name": "Tarik MUHAREMOVIC",
+          "caps": 14,
+          "game_index": 11,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Muharemov.",
+          "truncated": true
+        },
+        {
+          "jersey": 2,
+          "position": "DF",
+          "full_name": "Nihad MUJAKIC",
+          "caps": 12,
+          "game_index": 12,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Mujakic",
+          "truncated": false
+        },
+        {
+          "jersey": 24,
+          "position": "DF",
+          "full_name": "Arjan MALIC",
+          "caps": 8,
+          "game_index": 13,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Malic",
+          "truncated": false
+        },
+        {
+          "jersey": 13,
+          "position": "MF",
+          "full_name": "Ivan BASIC",
+          "caps": 17,
+          "game_index": 14,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Basic",
+          "truncated": false
+        },
+        {
+          "jersey": 15,
+          "position": "MF",
+          "full_name": "Amar MEMIC",
+          "caps": 13,
+          "game_index": 15,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Memic",
+          "truncated": false
+        },
+        {
+          "jersey": 14,
+          "position": "MF",
+          "full_name": "Ivan SUNJIC",
+          "caps": 11,
+          "game_index": 16,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Sunjic",
+          "truncated": false
+        },
+        {
+          "jersey": 20,
+          "position": "FW",
+          "full_name": "Esmir BAJRAKTAREVIC",
+          "caps": 16,
+          "game_index": 17,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Bajraktar.",
+          "truncated": true
+        },
+        {
+          "jersey": 9,
+          "position": "FW",
+          "full_name": "Samed BAZDAR",
+          "caps": 13,
+          "game_index": 18,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Bazdar",
+          "truncated": false
+        },
+        {
+          "jersey": 19,
+          "position": "FW",
+          "full_name": "Kerim ALAJBEGOVIC",
+          "caps": 10,
+          "game_index": 19,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Alajbegov.",
+          "truncated": true
+        },
+        {
+          "jersey": 22,
+          "position": "GK",
+          "full_name": "Martin ZLOMISLIC",
+          "caps": 3,
+          "game_index": 20,
+          "game_role": "GK",
+          "role_mismatch": false,
+          "game_name": "Zlomislic",
+          "truncated": false
+        },
+        {
+          "jersey": 12,
+          "position": "GK",
+          "full_name": "Mladen JURKAS",
+          "caps": 0,
+          "game_index": 21,
+          "game_role": "GK",
+          "role_mismatch": false,
+          "game_name": "Jurkas",
+          "truncated": false
+        }
+      ],
+      "excluded_4": [
+        {
+          "jersey": 21,
+          "position": "DF",
+          "full_name": "Stjepan RADELJIC",
+          "caps": 5
+        },
+        {
+          "jersey": 26,
+          "position": "MF",
+          "full_name": "Ermin MAHMIC",
+          "caps": 2
+        },
+        {
+          "jersey": 23,
+          "position": "FW",
+          "full_name": "Haris TABAKOVIC",
+          "caps": 10
+        },
+        {
+          "jersey": 25,
+          "position": "FW",
+          "full_name": "Jovo LUKIC",
+          "caps": 3
+        }
+      ],
+      "role_mismatches": 0
+    },
+    {
+      "slot": 26,
+      "team": "N.ZEAL",
+      "source_repo": "feuyeux/fifa-world-cup-2026",
+      "source_path": "squads/G_New Zealand.md",
+      "source_sha": "f18c4fbb207a65687b97a5d21af831fa7ec71ace",
+      "source_original_26": [
+        {
+          "jersey": 1,
+          "position": "GK",
+          "full_name": "Max CROCOMBE",
+          "caps": 24
+        },
+        {
+          "jersey": 12,
+          "position": "GK",
+          "full_name": "Alex PAULSEN",
+          "caps": 8
+        },
+        {
+          "jersey": 22,
+          "position": "GK",
+          "full_name": "Michael WOUD",
+          "caps": 6
+        },
+        {
+          "jersey": 2,
+          "position": "DF",
+          "full_name": "Tim PAYNE",
+          "caps": 51
+        },
+        {
+          "jersey": 3,
+          "position": "DF",
+          "full_name": "Francis DE VRIES",
+          "caps": 20
+        },
+        {
+          "jersey": 4,
+          "position": "DF",
+          "full_name": "Tyler BINDON",
+          "caps": 25
+        },
+        {
+          "jersey": 5,
+          "position": "DF",
+          "full_name": "Michael BOXALL",
+          "caps": 63
+        },
+        {
+          "jersey": 13,
+          "position": "DF",
+          "full_name": "Liberato CACACE",
+          "caps": 37
+        },
+        {
+          "jersey": 15,
+          "position": "DF",
+          "full_name": "Nando PIJNAKER",
+          "caps": 25
+        },
+        {
+          "jersey": 16,
+          "position": "DF",
+          "full_name": "Finn SURMAN",
+          "caps": 19
+        },
+        {
+          "jersey": 24,
+          "position": "DF",
+          "full_name": "Callan ELLIOT",
+          "caps": 11
+        },
+        {
+          "jersey": 26,
+          "position": "DF",
+          "full_name": "Tommy SMITH",
+          "caps": 56
+        },
+        {
+          "jersey": 6,
+          "position": "MF",
+          "full_name": "Joe BELL",
+          "caps": 32
+        },
+        {
+          "jersey": 8,
+          "position": "MF",
+          "full_name": "Marko STAMENIC",
+          "caps": 39
+        },
+        {
+          "jersey": 10,
+          "position": "MF",
+          "full_name": "Sarpreet SINGH",
+          "caps": 28
+        },
+        {
+          "jersey": 11,
+          "position": "MF",
+          "full_name": "Elijah JUST",
+          "caps": 44
+        },
+        {
+          "jersey": 14,
+          "position": "MF",
+          "full_name": "Alex RUFER",
+          "caps": 26
+        },
+        {
+          "jersey": 19,
+          "position": "MF",
+          "full_name": "Ben OLD",
+          "caps": 24
+        },
+        {
+          "jersey": 20,
+          "position": "MF",
+          "full_name": "Callum McCOWATT",
+          "caps": 32
+        },
+        {
+          "jersey": 23,
+          "position": "MF",
+          "full_name": "Ryan THOMAS",
+          "caps": 25
+        },
+        {
+          "jersey": 25,
+          "position": "MF",
+          "full_name": "Lachlan BAYLISS",
+          "caps": 4
+        },
+        {
+          "jersey": 7,
+          "position": "FW",
+          "full_name": "Logan ROGERSON",
+          "caps": 18
+        },
+        {
+          "jersey": 9,
+          "position": "FW",
+          "full_name": "Chris WOOD",
+          "caps": 90
+        },
+        {
+          "jersey": 17,
+          "position": "FW",
+          "full_name": "Kosta BARBAROUSES",
+          "caps": 76
+        },
+        {
+          "jersey": 18,
+          "position": "FW",
+          "full_name": "Ben WAINE",
+          "caps": 31
+        },
+        {
+          "jersey": 21,
+          "position": "FW",
+          "full_name": "Jesse RANDALL",
+          "caps": 11
+        }
+      ],
+      "selected_22": [
+        {
+          "jersey": 1,
+          "position": "GK",
+          "full_name": "Max CROCOMBE",
+          "caps": 24,
+          "game_index": 0,
+          "game_role": "GK",
+          "role_mismatch": false,
+          "game_name": "Crocombe",
+          "truncated": false
+        },
+        {
+          "jersey": 5,
+          "position": "DF",
+          "full_name": "Michael BOXALL",
+          "caps": 63,
+          "game_index": 1,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Boxall",
+          "truncated": false
+        },
+        {
+          "jersey": 26,
+          "position": "DF",
+          "full_name": "Tommy SMITH",
+          "caps": 56,
+          "game_index": 2,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Smith",
+          "truncated": false
+        },
+        {
+          "jersey": 2,
+          "position": "DF",
+          "full_name": "Tim PAYNE",
+          "caps": 51,
+          "game_index": 3,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Payne",
+          "truncated": false
+        },
+        {
+          "jersey": 13,
+          "position": "DF",
+          "full_name": "Liberato CACACE",
+          "caps": 37,
+          "game_index": 4,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Cacace",
+          "truncated": false
+        },
+        {
+          "jersey": 11,
+          "position": "MF",
+          "full_name": "Elijah JUST",
+          "caps": 44,
+          "game_index": 5,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Just",
+          "truncated": false
+        },
+        {
+          "jersey": 8,
+          "position": "MF",
+          "full_name": "Marko STAMENIC",
+          "caps": 39,
+          "game_index": 6,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Stamenic",
+          "truncated": false
+        },
+        {
+          "jersey": 6,
+          "position": "MF",
+          "full_name": "Joe BELL",
+          "caps": 32,
+          "game_index": 7,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Bell",
+          "truncated": false
+        },
+        {
+          "jersey": 20,
+          "position": "MF",
+          "full_name": "Callum McCOWATT",
+          "caps": 32,
+          "game_index": 8,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "McCowatt",
+          "truncated": false
+        },
+        {
+          "jersey": 9,
+          "position": "FW",
+          "full_name": "Chris WOOD",
+          "caps": 90,
+          "game_index": 9,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Wood",
+          "truncated": false
+        },
+        {
+          "jersey": 17,
+          "position": "FW",
+          "full_name": "Kosta BARBAROUSES",
+          "caps": 76,
+          "game_index": 10,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Barbarous.",
+          "truncated": true
+        },
+        {
+          "jersey": 4,
+          "position": "DF",
+          "full_name": "Tyler BINDON",
+          "caps": 25,
+          "game_index": 11,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Bindon",
+          "truncated": false
+        },
+        {
+          "jersey": 15,
+          "position": "DF",
+          "full_name": "Nando PIJNAKER",
+          "caps": 25,
+          "game_index": 12,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Pijnaker",
+          "truncated": false
+        },
+        {
+          "jersey": 3,
+          "position": "DF",
+          "full_name": "Francis DE VRIES",
+          "caps": 20,
+          "game_index": 13,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Vries",
+          "truncated": false
+        },
+        {
+          "jersey": 10,
+          "position": "MF",
+          "full_name": "Sarpreet SINGH",
+          "caps": 28,
+          "game_index": 14,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Singh",
+          "truncated": false
+        },
+        {
+          "jersey": 14,
+          "position": "MF",
+          "full_name": "Alex RUFER",
+          "caps": 26,
+          "game_index": 15,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Rufer",
+          "truncated": false
+        },
+        {
+          "jersey": 23,
+          "position": "MF",
+          "full_name": "Ryan THOMAS",
+          "caps": 25,
+          "game_index": 16,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Thomas",
+          "truncated": false
+        },
+        {
+          "jersey": 18,
+          "position": "FW",
+          "full_name": "Ben WAINE",
+          "caps": 31,
+          "game_index": 17,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Waine",
+          "truncated": false
+        },
+        {
+          "jersey": 7,
+          "position": "FW",
+          "full_name": "Logan ROGERSON",
+          "caps": 18,
+          "game_index": 18,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Rogerson",
+          "truncated": false
+        },
+        {
+          "jersey": 21,
+          "position": "FW",
+          "full_name": "Jesse RANDALL",
+          "caps": 11,
+          "game_index": 19,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Randall",
+          "truncated": false
+        },
+        {
+          "jersey": 12,
+          "position": "GK",
+          "full_name": "Alex PAULSEN",
+          "caps": 8,
+          "game_index": 20,
+          "game_role": "GK",
+          "role_mismatch": false,
+          "game_name": "Paulsen",
+          "truncated": false
+        },
+        {
+          "jersey": 22,
+          "position": "GK",
+          "full_name": "Michael WOUD",
+          "caps": 6,
+          "game_index": 21,
+          "game_role": "GK",
+          "role_mismatch": false,
+          "game_name": "Woud",
+          "truncated": false
+        }
+      ],
+      "excluded_4": [
+        {
+          "jersey": 16,
+          "position": "DF",
+          "full_name": "Finn SURMAN",
+          "caps": 19
+        },
+        {
+          "jersey": 24,
+          "position": "DF",
+          "full_name": "Callan ELLIOT",
+          "caps": 11
+        },
+        {
+          "jersey": 19,
+          "position": "MF",
+          "full_name": "Ben OLD",
+          "caps": 24
+        },
+        {
+          "jersey": 25,
+          "position": "MF",
+          "full_name": "Lachlan BAYLISS",
+          "caps": 4
+        }
+      ],
+      "role_mismatches": 0
+    },
+    {
+      "slot": 27,
+      "team": "IRAQ",
+      "source_repo": "feuyeux/fifa-world-cup-2026",
+      "source_path": "squads/I_Iraq.md",
+      "source_sha": "2e6e3f64eaa2cd65eb82d6493dd432ae7f07608b",
+      "source_original_26": [
+        {
+          "jersey": 1,
+          "position": "GK",
+          "full_name": "FAHAD TALIB",
+          "caps": 21
+        },
+        {
+          "jersey": 12,
+          "position": "GK",
+          "full_name": "JALAL HASSAN",
+          "caps": 102
+        },
+        {
+          "jersey": 22,
+          "position": "GK",
+          "full_name": "AHMED BASIL",
+          "caps": 16
+        },
+        {
+          "jersey": 2,
+          "position": "DF",
+          "full_name": "REBIN SULAKA",
+          "caps": 56
+        },
+        {
+          "jersey": 3,
+          "position": "DF",
+          "full_name": "Hussein Ali",
+          "caps": 27
+        },
+        {
+          "jersey": 4,
+          "position": "DF",
+          "full_name": "ZAID TAHSEEN",
+          "caps": 28
+        },
+        {
+          "jersey": 5,
+          "position": "DF",
+          "full_name": "AKAM HASHIM",
+          "caps": 14
+        },
+        {
+          "jersey": 6,
+          "position": "DF",
+          "full_name": "Manaf Younis",
+          "caps": 34
+        },
+        {
+          "jersey": 15,
+          "position": "DF",
+          "full_name": "Ahmed Maknzi",
+          "caps": 7
+        },
+        {
+          "jersey": 23,
+          "position": "DF",
+          "full_name": "MERCHAS DOSKI",
+          "caps": 31
+        },
+        {
+          "jersey": 25,
+          "position": "DF",
+          "full_name": "MUSTAFA SAADOON",
+          "caps": 17
+        },
+        {
+          "jersey": 26,
+          "position": "DF",
+          "full_name": "FRANS PUTROS",
+          "caps": 28
+        },
+        {
+          "jersey": 7,
+          "position": "MF",
+          "full_name": "YOUSSEF AMYN",
+          "caps": 27
+        },
+        {
+          "jersey": 8,
+          "position": "MF",
+          "full_name": "IBRAHIM BAYESH",
+          "caps": 76
+        },
+        {
+          "jersey": 14,
+          "position": "MF",
+          "full_name": "ZIDANE IQBAL",
+          "caps": 25
+        },
+        {
+          "jersey": 16,
+          "position": "MF",
+          "full_name": "AMIR ALAMMARI",
+          "caps": 51
+        },
+        {
+          "jersey": 19,
+          "position": "MF",
+          "full_name": "KEVIN YAKOB",
+          "caps": 9
+        },
+        {
+          "jersey": 20,
+          "position": "MF",
+          "full_name": "AIMAR SHER",
+          "caps": 7
+        },
+        {
+          "jersey": 24,
+          "position": "MF",
+          "full_name": "Zaid Ismail",
+          "caps": 6
+        },
+        {
+          "jersey": 9,
+          "position": "FW",
+          "full_name": "ALI ALHAMADI",
+          "caps": 20
+        },
+        {
+          "jersey": 10,
+          "position": "FW",
+          "full_name": "MOHANAD ALI",
+          "caps": 72
+        },
+        {
+          "jersey": 11,
+          "position": "FW",
+          "full_name": "AHMED QASEM",
+          "caps": 3
+        },
+        {
+          "jersey": 13,
+          "position": "FW",
+          "full_name": "ALI YOUSIF",
+          "caps": 7
+        },
+        {
+          "jersey": 17,
+          "position": "FW",
+          "full_name": "ALI JASIM",
+          "caps": 36
+        },
+        {
+          "jersey": 18,
+          "position": "FW",
+          "full_name": "AYMEN HUSSEIN",
+          "caps": 95
+        },
+        {
+          "jersey": 21,
+          "position": "FW",
+          "full_name": "MARKO FARJI",
+          "caps": 12
+        }
+      ],
+      "selected_22": [
+        {
+          "jersey": 12,
+          "position": "GK",
+          "full_name": "JALAL HASSAN",
+          "caps": 102,
+          "game_index": 0,
+          "game_role": "GK",
+          "role_mismatch": false,
+          "game_name": "Hassan",
+          "truncated": false
+        },
+        {
+          "jersey": 2,
+          "position": "DF",
+          "full_name": "REBIN SULAKA",
+          "caps": 56,
+          "game_index": 1,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Sulaka",
+          "truncated": false
+        },
+        {
+          "jersey": 6,
+          "position": "DF",
+          "full_name": "Manaf Younis",
+          "caps": 34,
+          "game_index": 2,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Younis",
+          "truncated": false
+        },
+        {
+          "jersey": 23,
+          "position": "DF",
+          "full_name": "MERCHAS DOSKI",
+          "caps": 31,
+          "game_index": 3,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Doski",
+          "truncated": false
+        },
+        {
+          "jersey": 4,
+          "position": "DF",
+          "full_name": "ZAID TAHSEEN",
+          "caps": 28,
+          "game_index": 4,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Tahseen",
+          "truncated": false
+        },
+        {
+          "jersey": 8,
+          "position": "MF",
+          "full_name": "IBRAHIM BAYESH",
+          "caps": 76,
+          "game_index": 5,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Bayesh",
+          "truncated": false
+        },
+        {
+          "jersey": 16,
+          "position": "MF",
+          "full_name": "AMIR ALAMMARI",
+          "caps": 51,
+          "game_index": 6,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Alammari",
+          "truncated": false
+        },
+        {
+          "jersey": 7,
+          "position": "MF",
+          "full_name": "YOUSSEF AMYN",
+          "caps": 27,
+          "game_index": 7,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Amyn",
+          "truncated": false
+        },
+        {
+          "jersey": 14,
+          "position": "MF",
+          "full_name": "ZIDANE IQBAL",
+          "caps": 25,
+          "game_index": 8,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Iqbal",
+          "truncated": false
+        },
+        {
+          "jersey": 18,
+          "position": "FW",
+          "full_name": "AYMEN HUSSEIN",
+          "caps": 95,
+          "game_index": 9,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Hussein",
+          "truncated": false
+        },
+        {
+          "jersey": 10,
+          "position": "FW",
+          "full_name": "MOHANAD ALI",
+          "caps": 72,
+          "game_index": 10,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Ali",
+          "truncated": false
+        },
+        {
+          "jersey": 26,
+          "position": "DF",
+          "full_name": "FRANS PUTROS",
+          "caps": 28,
+          "game_index": 11,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Putros",
+          "truncated": false
+        },
+        {
+          "jersey": 3,
+          "position": "DF",
+          "full_name": "Hussein Ali",
+          "caps": 27,
+          "game_index": 12,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "H.Ali",
+          "truncated": false
+        },
+        {
+          "jersey": 25,
+          "position": "DF",
+          "full_name": "MUSTAFA SAADOON",
+          "caps": 17,
+          "game_index": 13,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Saadoon",
+          "truncated": false
+        },
+        {
+          "jersey": 19,
+          "position": "MF",
+          "full_name": "KEVIN YAKOB",
+          "caps": 9,
+          "game_index": 14,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Yakob",
+          "truncated": false
+        },
+        {
+          "jersey": 20,
+          "position": "MF",
+          "full_name": "AIMAR SHER",
+          "caps": 7,
+          "game_index": 15,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Sher",
+          "truncated": false
+        },
+        {
+          "jersey": 24,
+          "position": "MF",
+          "full_name": "Zaid Ismail",
+          "caps": 6,
+          "game_index": 16,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Ismail",
+          "truncated": false
+        },
+        {
+          "jersey": 17,
+          "position": "FW",
+          "full_name": "ALI JASIM",
+          "caps": 36,
+          "game_index": 17,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Jasim",
+          "truncated": false
+        },
+        {
+          "jersey": 9,
+          "position": "FW",
+          "full_name": "ALI ALHAMADI",
+          "caps": 20,
+          "game_index": 18,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Alhamadi",
+          "truncated": false
+        },
+        {
+          "jersey": 21,
+          "position": "FW",
+          "full_name": "MARKO FARJI",
+          "caps": 12,
+          "game_index": 19,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Farji",
+          "truncated": false
+        },
+        {
+          "jersey": 1,
+          "position": "GK",
+          "full_name": "FAHAD TALIB",
+          "caps": 21,
+          "game_index": 20,
+          "game_role": "GK",
+          "role_mismatch": false,
+          "game_name": "Talib",
+          "truncated": false
+        },
+        {
+          "jersey": 22,
+          "position": "GK",
+          "full_name": "AHMED BASIL",
+          "caps": 16,
+          "game_index": 21,
+          "game_role": "GK",
+          "role_mismatch": false,
+          "game_name": "Basil",
+          "truncated": false
+        }
+      ],
+      "excluded_4": [
+        {
+          "jersey": 5,
+          "position": "DF",
+          "full_name": "AKAM HASHIM",
+          "caps": 14
+        },
+        {
+          "jersey": 15,
+          "position": "DF",
+          "full_name": "Ahmed Maknzi",
+          "caps": 7
+        },
+        {
+          "jersey": 11,
+          "position": "FW",
+          "full_name": "AHMED QASEM",
+          "caps": 3
+        },
+        {
+          "jersey": 13,
+          "position": "FW",
+          "full_name": "ALI YOUSIF",
+          "caps": 7
+        }
+      ],
+      "role_mismatches": 0
+    },
+    {
+      "slot": 28,
+      "team": "JORDAN",
+      "source_repo": "feuyeux/fifa-world-cup-2026",
+      "source_path": "squads/J_Jordan.md",
+      "source_sha": "65eccc33debee9699d49ba986e99a43be342af78",
+      "source_original_26": [
+        {
+          "jersey": 1,
+          "position": "GK",
+          "full_name": "YAZEED ABULAILA",
+          "caps": 76
+        },
+        {
+          "jersey": 12,
+          "position": "GK",
+          "full_name": "Nour Bani Attiah",
+          "caps": 5
+        },
+        {
+          "jersey": 22,
+          "position": "GK",
+          "full_name": "Abdallah Al-Fakhouri",
+          "caps": 11
+        },
+        {
+          "jersey": 2,
+          "position": "DF",
+          "full_name": "Mohammad Abu Hashish",
+          "caps": 56
+        },
+        {
+          "jersey": 3,
+          "position": "DF",
+          "full_name": "ABDALLAH NASIB",
+          "caps": 65
+        },
+        {
+          "jersey": 4,
+          "position": "DF",
+          "full_name": "HUSAM ABUDAHAB",
+          "caps": 18
+        },
+        {
+          "jersey": 5,
+          "position": "DF",
+          "full_name": "YAZAN ALARAB",
+          "caps": 80
+        },
+        {
+          "jersey": 16,
+          "position": "DF",
+          "full_name": "Mo Abualnadi",
+          "caps": 18
+        },
+        {
+          "jersey": 17,
+          "position": "DF",
+          "full_name": "Salim Obaid",
+          "caps": 11
+        },
+        {
+          "jersey": 19,
+          "position": "DF",
+          "full_name": "SAED ALROSAN",
+          "caps": 21
+        },
+        {
+          "jersey": 23,
+          "position": "DF",
+          "full_name": "Ihsan Haddad",
+          "caps": 92
+        },
+        {
+          "jersey": 26,
+          "position": "DF",
+          "full_name": "ANAS BADAWI",
+          "caps": 1
+        },
+        {
+          "jersey": 6,
+          "position": "MF",
+          "full_name": "AMER JAMOUS",
+          "caps": 19
+        },
+        {
+          "jersey": 8,
+          "position": "MF",
+          "full_name": "NOOR ALRAWABDEH",
+          "caps": 68
+        },
+        {
+          "jersey": 14,
+          "position": "MF",
+          "full_name": "RAJAEI AYED",
+          "caps": 72
+        },
+        {
+          "jersey": 15,
+          "position": "MF",
+          "full_name": "IBRAHIM SADEH",
+          "caps": 57
+        },
+        {
+          "jersey": 18,
+          "position": "MF",
+          "full_name": "Mohammad Taha",
+          "caps": 2
+        },
+        {
+          "jersey": 20,
+          "position": "MF",
+          "full_name": "MOHANNAD ABUTAHA",
+          "caps": 29
+        },
+        {
+          "jersey": 21,
+          "position": "MF",
+          "full_name": "NIZAR ALRASHDAN",
+          "caps": 47
+        },
+        {
+          "jersey": 25,
+          "position": "MF",
+          "full_name": "Mohammad Al-Dawoud",
+          "caps": 13
+        },
+        {
+          "jersey": 7,
+          "position": "FW",
+          "full_name": "Mohammad Abu Zrayq",
+          "caps": 41
+        },
+        {
+          "jersey": 9,
+          "position": "FW",
+          "full_name": "ALI OLWAN",
+          "caps": 66
+        },
+        {
+          "jersey": 10,
+          "position": "FW",
+          "full_name": "Musa Al-Taamari",
+          "caps": 92
+        },
+        {
+          "jersey": 11,
+          "position": "FW",
+          "full_name": "Odeh Al-Fakhouri",
+          "caps": 10
+        },
+        {
+          "jersey": 13,
+          "position": "FW",
+          "full_name": "MAHMOUD ALMARDI",
+          "caps": 89
+        },
+        {
+          "jersey": 24,
+          "position": "FW",
+          "full_name": "ALI AZAIZEH",
+          "caps": 4
+        }
+      ],
+      "selected_22": [
+        {
+          "jersey": 1,
+          "position": "GK",
+          "full_name": "YAZEED ABULAILA",
+          "caps": 76,
+          "game_index": 0,
+          "game_role": "GK",
+          "role_mismatch": false,
+          "game_name": "Abulaila",
+          "truncated": false
+        },
+        {
+          "jersey": 23,
+          "position": "DF",
+          "full_name": "Ihsan Haddad",
+          "caps": 92,
+          "game_index": 1,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Haddad",
+          "truncated": false
+        },
+        {
+          "jersey": 5,
+          "position": "DF",
+          "full_name": "YAZAN ALARAB",
+          "caps": 80,
+          "game_index": 2,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Alarab",
+          "truncated": false
+        },
+        {
+          "jersey": 3,
+          "position": "DF",
+          "full_name": "ABDALLAH NASIB",
+          "caps": 65,
+          "game_index": 3,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Nasib",
+          "truncated": false
+        },
+        {
+          "jersey": 2,
+          "position": "DF",
+          "full_name": "Mohammad Abu Hashish",
+          "caps": 56,
+          "game_index": 4,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Hashish",
+          "truncated": false
+        },
+        {
+          "jersey": 14,
+          "position": "MF",
+          "full_name": "RAJAEI AYED",
+          "caps": 72,
+          "game_index": 5,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Ayed",
+          "truncated": false
+        },
+        {
+          "jersey": 8,
+          "position": "MF",
+          "full_name": "NOOR ALRAWABDEH",
+          "caps": 68,
+          "game_index": 6,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Alrawabdeh",
+          "truncated": false
+        },
+        {
+          "jersey": 15,
+          "position": "MF",
+          "full_name": "IBRAHIM SADEH",
+          "caps": 57,
+          "game_index": 7,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Sadeh",
+          "truncated": false
+        },
+        {
+          "jersey": 21,
+          "position": "MF",
+          "full_name": "NIZAR ALRASHDAN",
+          "caps": 47,
+          "game_index": 8,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Alrashdan",
+          "truncated": false
+        },
+        {
+          "jersey": 10,
+          "position": "FW",
+          "full_name": "Musa Al-Taamari",
+          "caps": 92,
+          "game_index": 9,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Al-Taamari",
+          "truncated": false
+        },
+        {
+          "jersey": 13,
+          "position": "FW",
+          "full_name": "MAHMOUD ALMARDI",
+          "caps": 89,
+          "game_index": 10,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Almardi",
+          "truncated": false
+        },
+        {
+          "jersey": 19,
+          "position": "DF",
+          "full_name": "SAED ALROSAN",
+          "caps": 21,
+          "game_index": 11,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Alrosan",
+          "truncated": false
+        },
+        {
+          "jersey": 4,
+          "position": "DF",
+          "full_name": "HUSAM ABUDAHAB",
+          "caps": 18,
+          "game_index": 12,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Abudahab",
+          "truncated": false
+        },
+        {
+          "jersey": 16,
+          "position": "DF",
+          "full_name": "Mo Abualnadi",
+          "caps": 18,
+          "game_index": 13,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Abualnadi",
+          "truncated": false
+        },
+        {
+          "jersey": 20,
+          "position": "MF",
+          "full_name": "MOHANNAD ABUTAHA",
+          "caps": 29,
+          "game_index": 14,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Abutaha",
+          "truncated": false
+        },
+        {
+          "jersey": 6,
+          "position": "MF",
+          "full_name": "AMER JAMOUS",
+          "caps": 19,
+          "game_index": 15,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Jamous",
+          "truncated": false
+        },
+        {
+          "jersey": 25,
+          "position": "MF",
+          "full_name": "Mohammad Al-Dawoud",
+          "caps": 13,
+          "game_index": 16,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Al-Dawoud",
+          "truncated": false
+        },
+        {
+          "jersey": 9,
+          "position": "FW",
+          "full_name": "ALI OLWAN",
+          "caps": 66,
+          "game_index": 17,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Olwan",
+          "truncated": false
+        },
+        {
+          "jersey": 7,
+          "position": "FW",
+          "full_name": "Mohammad Abu Zrayq",
+          "caps": 41,
+          "game_index": 18,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Zrayq",
+          "truncated": false
+        },
+        {
+          "jersey": 11,
+          "position": "FW",
+          "full_name": "Odeh Al-Fakhouri",
+          "caps": 10,
+          "game_index": 19,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Al-Fakhou.",
+          "truncated": true
+        },
+        {
+          "jersey": 22,
+          "position": "GK",
+          "full_name": "Abdallah Al-Fakhouri",
+          "caps": 11,
+          "game_index": 20,
+          "game_role": "GK",
+          "role_mismatch": false,
+          "game_name": "A.Al-Fakh.",
+          "truncated": true
+        },
+        {
+          "jersey": 12,
+          "position": "GK",
+          "full_name": "Nour Bani Attiah",
+          "caps": 5,
+          "game_index": 21,
+          "game_role": "GK",
+          "role_mismatch": false,
+          "game_name": "Attiah",
+          "truncated": false
+        }
+      ],
+      "excluded_4": [
+        {
+          "jersey": 17,
+          "position": "DF",
+          "full_name": "Salim Obaid",
+          "caps": 11
+        },
+        {
+          "jersey": 26,
+          "position": "DF",
+          "full_name": "ANAS BADAWI",
+          "caps": 1
+        },
+        {
+          "jersey": 18,
+          "position": "MF",
+          "full_name": "Mohammad Taha",
+          "caps": 2
+        },
+        {
+          "jersey": 24,
+          "position": "FW",
+          "full_name": "ALI AZAIZEH",
+          "caps": 4
+        }
+      ],
+      "role_mismatches": 0
+    },
+    {
+      "slot": 29,
+      "team": "CURACAO",
+      "source_repo": "feuyeux/fifa-world-cup-2026",
+      "source_path": "squads/E_Curacao.md",
+      "source_sha": "d1a103081c38cf572b16279560c4624aa8531bf8",
+      "source_original_26": [
+        {
+          "jersey": 1,
+          "position": "GK",
+          "full_name": "Eloy ROOM",
+          "caps": 71
+        },
+        {
+          "jersey": 25,
+          "position": "GK",
+          "full_name": "Tyrick BODAK",
+          "caps": 4
+        },
+        {
+          "jersey": 26,
+          "position": "GK",
+          "full_name": "Trevor DOORNBUSCH",
+          "caps": 8
+        },
+        {
+          "jersey": 2,
+          "position": "DF",
+          "full_name": "Shurandy SAMBO",
+          "caps": 8
+        },
+        {
+          "jersey": 3,
+          "position": "DF",
+          "full_name": "Jurien GAARI",
+          "caps": 60
+        },
+        {
+          "jersey": 4,
+          "position": "DF",
+          "full_name": "Roshon VAN EIJMA",
+          "caps": 28
+        },
+        {
+          "jersey": 5,
+          "position": "DF",
+          "full_name": "Sherel FLORANUS",
+          "caps": 28
+        },
+        {
+          "jersey": 18,
+          "position": "DF",
+          "full_name": "Armando OBISPO",
+          "caps": 6
+        },
+        {
+          "jersey": 20,
+          "position": "DF",
+          "full_name": "Joshua BRENET",
+          "caps": 18
+        },
+        {
+          "jersey": 23,
+          "position": "DF",
+          "full_name": "Riechedly Bazoer",
+          "caps": 5
+        },
+        {
+          "jersey": 24,
+          "position": "DF",
+          "full_name": "Deveron FONVILLE",
+          "caps": 2
+        },
+        {
+          "jersey": 6,
+          "position": "MF",
+          "full_name": "Godfried ROEMERATOE",
+          "caps": 28
+        },
+        {
+          "jersey": 7,
+          "position": "MF",
+          "full_name": "Juninho BACUNA",
+          "caps": 49
+        },
+        {
+          "jersey": 8,
+          "position": "MF",
+          "full_name": "Livano COMENENCIA",
+          "caps": 20
+        },
+        {
+          "jersey": 10,
+          "position": "MF",
+          "full_name": "Leandro BACUNA",
+          "caps": 72
+        },
+        {
+          "jersey": 15,
+          "position": "MF",
+          "full_name": "Arjany MARTHA",
+          "caps": 9
+        },
+        {
+          "jersey": 21,
+          "position": "MF",
+          "full_name": "Tahith CHONG",
+          "caps": 6
+        },
+        {
+          "jersey": 22,
+          "position": "MF",
+          "full_name": "Kevin FELIDA",
+          "caps": 19
+        },
+        {
+          "jersey": 9,
+          "position": "FW",
+          "full_name": "Jürgen Locadia",
+          "caps": 13
+        },
+        {
+          "jersey": 11,
+          "position": "FW",
+          "full_name": "Jeremy Antonisse",
+          "caps": 27
+        },
+        {
+          "jersey": 12,
+          "position": "FW",
+          "full_name": "Sontje HANSEN",
+          "caps": 6
+        },
+        {
+          "jersey": 13,
+          "position": "FW",
+          "full_name": "Tyrese NOSLIN",
+          "caps": 7
+        },
+        {
+          "jersey": 14,
+          "position": "FW",
+          "full_name": "Kenji GORRE",
+          "caps": 38
+        },
+        {
+          "jersey": 16,
+          "position": "FW",
+          "full_name": "Jearl MARGARITHA",
+          "caps": 22
+        },
+        {
+          "jersey": 17,
+          "position": "FW",
+          "full_name": "Brandley KUWAS",
+          "caps": 35
+        },
+        {
+          "jersey": 19,
+          "position": "FW",
+          "full_name": "Gervane KASTANEER",
+          "caps": 29
+        }
+      ],
+      "selected_22": [
+        {
+          "jersey": 1,
+          "position": "GK",
+          "full_name": "Eloy ROOM",
+          "caps": 71,
+          "game_index": 0,
+          "game_role": "GK",
+          "role_mismatch": false,
+          "game_name": "Room",
+          "truncated": false
+        },
+        {
+          "jersey": 3,
+          "position": "DF",
+          "full_name": "Jurien GAARI",
+          "caps": 60,
+          "game_index": 1,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Gaari",
+          "truncated": false
+        },
+        {
+          "jersey": 4,
+          "position": "DF",
+          "full_name": "Roshon VAN EIJMA",
+          "caps": 28,
+          "game_index": 2,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Eijma",
+          "truncated": false
+        },
+        {
+          "jersey": 5,
+          "position": "DF",
+          "full_name": "Sherel FLORANUS",
+          "caps": 28,
+          "game_index": 3,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Floranus",
+          "truncated": false
+        },
+        {
+          "jersey": 20,
+          "position": "DF",
+          "full_name": "Joshua BRENET",
+          "caps": 18,
+          "game_index": 4,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Brenet",
+          "truncated": false
+        },
+        {
+          "jersey": 10,
+          "position": "MF",
+          "full_name": "Leandro BACUNA",
+          "caps": 72,
+          "game_index": 5,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Bacuna",
+          "truncated": false
+        },
+        {
+          "jersey": 7,
+          "position": "MF",
+          "full_name": "Juninho BACUNA",
+          "caps": 49,
+          "game_index": 6,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "J.Bacuna",
+          "truncated": false
+        },
+        {
+          "jersey": 6,
+          "position": "MF",
+          "full_name": "Godfried ROEMERATOE",
+          "caps": 28,
+          "game_index": 7,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Roemeratoe",
+          "truncated": false
+        },
+        {
+          "jersey": 8,
+          "position": "MF",
+          "full_name": "Livano COMENENCIA",
+          "caps": 20,
+          "game_index": 8,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Comenencia",
+          "truncated": false
+        },
+        {
+          "jersey": 14,
+          "position": "FW",
+          "full_name": "Kenji GORRE",
+          "caps": 38,
+          "game_index": 9,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Gorre",
+          "truncated": false
+        },
+        {
+          "jersey": 17,
+          "position": "FW",
+          "full_name": "Brandley KUWAS",
+          "caps": 35,
+          "game_index": 10,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Kuwas",
+          "truncated": false
+        },
+        {
+          "jersey": 2,
+          "position": "DF",
+          "full_name": "Shurandy SAMBO",
+          "caps": 8,
+          "game_index": 11,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Sambo",
+          "truncated": false
+        },
+        {
+          "jersey": 18,
+          "position": "DF",
+          "full_name": "Armando OBISPO",
+          "caps": 6,
+          "game_index": 12,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Obispo",
+          "truncated": false
+        },
+        {
+          "jersey": 23,
+          "position": "DF",
+          "full_name": "Riechedly Bazoer",
+          "caps": 5,
+          "game_index": 13,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Bazoer",
+          "truncated": false
+        },
+        {
+          "jersey": 22,
+          "position": "MF",
+          "full_name": "Kevin FELIDA",
+          "caps": 19,
+          "game_index": 14,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Felida",
+          "truncated": false
+        },
+        {
+          "jersey": 15,
+          "position": "MF",
+          "full_name": "Arjany MARTHA",
+          "caps": 9,
+          "game_index": 15,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Martha",
+          "truncated": false
+        },
+        {
+          "jersey": 21,
+          "position": "MF",
+          "full_name": "Tahith CHONG",
+          "caps": 6,
+          "game_index": 16,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Chong",
+          "truncated": false
+        },
+        {
+          "jersey": 19,
+          "position": "FW",
+          "full_name": "Gervane KASTANEER",
+          "caps": 29,
+          "game_index": 17,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Kastaneer",
+          "truncated": false
+        },
+        {
+          "jersey": 11,
+          "position": "FW",
+          "full_name": "Jeremy Antonisse",
+          "caps": 27,
+          "game_index": 18,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Antonisse",
+          "truncated": false
+        },
+        {
+          "jersey": 16,
+          "position": "FW",
+          "full_name": "Jearl MARGARITHA",
+          "caps": 22,
+          "game_index": 19,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Margaritha",
+          "truncated": false
+        },
+        {
+          "jersey": 26,
+          "position": "GK",
+          "full_name": "Trevor DOORNBUSCH",
+          "caps": 8,
+          "game_index": 20,
+          "game_role": "GK",
+          "role_mismatch": false,
+          "game_name": "Doornbusch",
+          "truncated": false
+        },
+        {
+          "jersey": 25,
+          "position": "GK",
+          "full_name": "Tyrick BODAK",
+          "caps": 4,
+          "game_index": 21,
+          "game_role": "GK",
+          "role_mismatch": false,
+          "game_name": "Bodak",
+          "truncated": false
+        }
+      ],
+      "excluded_4": [
+        {
+          "jersey": 24,
+          "position": "DF",
+          "full_name": "Deveron FONVILLE",
+          "caps": 2
+        },
+        {
+          "jersey": 9,
+          "position": "FW",
+          "full_name": "Jürgen Locadia",
+          "caps": 13
+        },
+        {
+          "jersey": 12,
+          "position": "FW",
+          "full_name": "Sontje HANSEN",
+          "caps": 6
+        },
+        {
+          "jersey": 13,
+          "position": "FW",
+          "full_name": "Tyrese NOSLIN",
+          "caps": 7
+        }
+      ],
+      "role_mismatches": 0
+    },
+    {
+      "slot": 31,
+      "team": "HAITI",
+      "source_repo": "feuyeux/fifa-world-cup-2026",
+      "source_path": "squads/C_Haiti.md",
+      "source_sha": "5334f5bde5848e5d809b47d7ae90e23bf28ba7b1",
+      "source_original_26": [
+        {
+          "jersey": 1,
+          "position": "GK",
+          "full_name": "Johny Placide",
+          "caps": 82
+        },
+        {
+          "jersey": 12,
+          "position": "GK",
+          "full_name": "Alexandre PIERRE",
+          "caps": 16
+        },
+        {
+          "jersey": 23,
+          "position": "GK",
+          "full_name": "Josue DUVERGER",
+          "caps": 7
+        },
+        {
+          "jersey": 2,
+          "position": "DF",
+          "full_name": "Carlens ARCUS",
+          "caps": 56
+        },
+        {
+          "jersey": 3,
+          "position": "DF",
+          "full_name": "Keeto THERMONCY",
+          "caps": 1
+        },
+        {
+          "jersey": 4,
+          "position": "DF",
+          "full_name": "Ricardo Ade",
+          "caps": 59
+        },
+        {
+          "jersey": 5,
+          "position": "DF",
+          "full_name": "Hannes DELCROIX",
+          "caps": 7
+        },
+        {
+          "jersey": 8,
+          "position": "DF",
+          "full_name": "Martin EXPERIENCE",
+          "caps": 21
+        },
+        {
+          "jersey": 13,
+          "position": "DF",
+          "full_name": "Duke Lacroix",
+          "caps": 16
+        },
+        {
+          "jersey": 14,
+          "position": "DF",
+          "full_name": "Garven METUSALA",
+          "caps": 16
+        },
+        {
+          "jersey": 22,
+          "position": "DF",
+          "full_name": "Jean-Kevin DUVERNE",
+          "caps": 17
+        },
+        {
+          "jersey": 24,
+          "position": "DF",
+          "full_name": "Wilguens PAUGAIN",
+          "caps": 8
+        },
+        {
+          "jersey": 6,
+          "position": "MF",
+          "full_name": "Carl SAINTE",
+          "caps": 26
+        },
+        {
+          "jersey": 10,
+          "position": "MF",
+          "full_name": "Jean-Ricner Bellegarde",
+          "caps": 10
+        },
+        {
+          "jersey": 17,
+          "position": "MF",
+          "full_name": "Danley JEAN JACQUES",
+          "caps": 31
+        },
+        {
+          "jersey": 25,
+          "position": "MF",
+          "full_name": "Dominique SIMON",
+          "caps": 2
+        },
+        {
+          "jersey": 26,
+          "position": "MF",
+          "full_name": "Woodensky PIERRE",
+          "caps": 1
+        },
+        {
+          "jersey": 7,
+          "position": "FW",
+          "full_name": "Derrick Etienne Jr.",
+          "caps": 51
+        },
+        {
+          "jersey": 9,
+          "position": "FW",
+          "full_name": "Duckens NAZON",
+          "caps": 82
+        },
+        {
+          "jersey": 11,
+          "position": "FW",
+          "full_name": "Louicius DEEDSON",
+          "caps": 32
+        },
+        {
+          "jersey": 15,
+          "position": "FW",
+          "full_name": "Ruben PROVIDENCE",
+          "caps": 15
+        },
+        {
+          "jersey": 16,
+          "position": "FW",
+          "full_name": "Lenny JOSEPH",
+          "caps": 2
+        },
+        {
+          "jersey": 18,
+          "position": "FW",
+          "full_name": "Wilson Isidor",
+          "caps": 4
+        },
+        {
+          "jersey": 19,
+          "position": "FW",
+          "full_name": "Yassin FORTUNE",
+          "caps": 4
+        },
+        {
+          "jersey": 20,
+          "position": "FW",
+          "full_name": "Frantzdy Pierrot",
+          "caps": 51
+        },
+        {
+          "jersey": 21,
+          "position": "FW",
+          "full_name": "Josue CASIMIR",
+          "caps": 7
+        }
+      ],
+      "selected_22": [
+        {
+          "jersey": 1,
+          "position": "GK",
+          "full_name": "Johny Placide",
+          "caps": 82,
+          "game_index": 0,
+          "game_role": "GK",
+          "role_mismatch": false,
+          "game_name": "Placide",
+          "truncated": false
+        },
+        {
+          "jersey": 4,
+          "position": "DF",
+          "full_name": "Ricardo Ade",
+          "caps": 59,
+          "game_index": 1,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Ade",
+          "truncated": false
+        },
+        {
+          "jersey": 2,
+          "position": "DF",
+          "full_name": "Carlens ARCUS",
+          "caps": 56,
+          "game_index": 2,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Arcus",
+          "truncated": false
+        },
+        {
+          "jersey": 8,
+          "position": "DF",
+          "full_name": "Martin EXPERIENCE",
+          "caps": 21,
+          "game_index": 3,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Experience",
+          "truncated": false
+        },
+        {
+          "jersey": 22,
+          "position": "DF",
+          "full_name": "Jean-Kevin DUVERNE",
+          "caps": 17,
+          "game_index": 4,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Duverne",
+          "truncated": false
+        },
+        {
+          "jersey": 17,
+          "position": "MF",
+          "full_name": "Danley JEAN JACQUES",
+          "caps": 31,
+          "game_index": 5,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Jacques",
+          "truncated": false
+        },
+        {
+          "jersey": 6,
+          "position": "MF",
+          "full_name": "Carl SAINTE",
+          "caps": 26,
+          "game_index": 6,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Sainte",
+          "truncated": false
+        },
+        {
+          "jersey": 10,
+          "position": "MF",
+          "full_name": "Jean-Ricner Bellegarde",
+          "caps": 10,
+          "game_index": 7,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Bellegarde",
+          "truncated": false
+        },
+        {
+          "jersey": 25,
+          "position": "MF",
+          "full_name": "Dominique SIMON",
+          "caps": 2,
+          "game_index": 8,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Simon",
+          "truncated": false
+        },
+        {
+          "jersey": 9,
+          "position": "FW",
+          "full_name": "Duckens NAZON",
+          "caps": 82,
+          "game_index": 9,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Nazon",
+          "truncated": false
+        },
+        {
+          "jersey": 7,
+          "position": "FW",
+          "full_name": "Derrick Etienne Jr.",
+          "caps": 51,
+          "game_index": 10,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Etienne",
+          "truncated": false
+        },
+        {
+          "jersey": 13,
+          "position": "DF",
+          "full_name": "Duke Lacroix",
+          "caps": 16,
+          "game_index": 11,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Lacroix",
+          "truncated": false
+        },
+        {
+          "jersey": 14,
+          "position": "DF",
+          "full_name": "Garven METUSALA",
+          "caps": 16,
+          "game_index": 12,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Metusala",
+          "truncated": false
+        },
+        {
+          "jersey": 24,
+          "position": "DF",
+          "full_name": "Wilguens PAUGAIN",
+          "caps": 8,
+          "game_index": 13,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Paugain",
+          "truncated": false
+        },
+        {
+          "jersey": 26,
+          "position": "MF",
+          "full_name": "Woodensky PIERRE",
+          "caps": 1,
+          "game_index": 14,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Pierre",
+          "truncated": false
+        },
+        {
+          "jersey": 20,
+          "position": "FW",
+          "full_name": "Frantzdy Pierrot",
+          "caps": 51,
+          "game_index": 15,
+          "game_role": "MF",
+          "role_mismatch": true,
+          "game_name": "Pierrot",
+          "truncated": false
+        },
+        {
+          "jersey": 11,
+          "position": "FW",
+          "full_name": "Louicius DEEDSON",
+          "caps": 32,
+          "game_index": 16,
+          "game_role": "MF",
+          "role_mismatch": true,
+          "game_name": "Deedson",
+          "truncated": false
+        },
+        {
+          "jersey": 15,
+          "position": "FW",
+          "full_name": "Ruben PROVIDENCE",
+          "caps": 15,
+          "game_index": 17,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Providence",
+          "truncated": false
+        },
+        {
+          "jersey": 21,
+          "position": "FW",
+          "full_name": "Josue CASIMIR",
+          "caps": 7,
+          "game_index": 18,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Casimir",
+          "truncated": false
+        },
+        {
+          "jersey": 18,
+          "position": "FW",
+          "full_name": "Wilson Isidor",
+          "caps": 4,
+          "game_index": 19,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Isidor",
+          "truncated": false
+        },
+        {
+          "jersey": 12,
+          "position": "GK",
+          "full_name": "Alexandre PIERRE",
+          "caps": 16,
+          "game_index": 20,
+          "game_role": "GK",
+          "role_mismatch": false,
+          "game_name": "A.Pierre",
+          "truncated": false
+        },
+        {
+          "jersey": 23,
+          "position": "GK",
+          "full_name": "Josue DUVERGER",
+          "caps": 7,
+          "game_index": 21,
+          "game_role": "GK",
+          "role_mismatch": false,
+          "game_name": "Duverger",
+          "truncated": false
+        }
+      ],
+      "excluded_4": [
+        {
+          "jersey": 3,
+          "position": "DF",
+          "full_name": "Keeto THERMONCY",
+          "caps": 1
+        },
+        {
+          "jersey": 5,
+          "position": "DF",
+          "full_name": "Hannes DELCROIX",
+          "caps": 7
+        },
+        {
+          "jersey": 16,
+          "position": "FW",
+          "full_name": "Lenny JOSEPH",
+          "caps": 2
+        },
+        {
+          "jersey": 19,
+          "position": "FW",
+          "full_name": "Yassin FORTUNE",
+          "caps": 4
+        }
+      ],
+      "role_mismatches": 2
+    },
+    {
+      "slot": 34,
+      "team": "DR CONGO",
+      "source_repo": "feuyeux/fifa-world-cup-2026",
+      "source_path": "squads/K_Congo DR.md",
+      "source_sha": "d3c7f6f26066c44d1f9e61fb2db86ecf1abf5a1e",
+      "source_original_26": [
+        {
+          "jersey": 1,
+          "position": "GK",
+          "full_name": "Lionel MPASI",
+          "caps": 29
+        },
+        {
+          "jersey": 16,
+          "position": "GK",
+          "full_name": "Timothy FAYULU",
+          "caps": 3
+        },
+        {
+          "jersey": 21,
+          "position": "GK",
+          "full_name": "Matthieu EPOLO",
+          "caps": 1
+        },
+        {
+          "jersey": 2,
+          "position": "DF",
+          "full_name": "Aaron WAN-BISSAKA",
+          "caps": 12
+        },
+        {
+          "jersey": 3,
+          "position": "DF",
+          "full_name": "Steve KAPUADI",
+          "caps": 4
+        },
+        {
+          "jersey": 4,
+          "position": "DF",
+          "full_name": "Axel Tuanzebe",
+          "caps": 14
+        },
+        {
+          "jersey": 5,
+          "position": "DF",
+          "full_name": "Dylan BATUBINSIKA",
+          "caps": 14
+        },
+        {
+          "jersey": 12,
+          "position": "DF",
+          "full_name": "Joris KAYEMBE",
+          "caps": 26
+        },
+        {
+          "jersey": 22,
+          "position": "DF",
+          "full_name": "Chancel MBEMBA",
+          "caps": 109
+        },
+        {
+          "jersey": 24,
+          "position": "DF",
+          "full_name": "Gedeon KALULU",
+          "caps": 28
+        },
+        {
+          "jersey": 26,
+          "position": "DF",
+          "full_name": "Arthur MASUAKU",
+          "caps": 45
+        },
+        {
+          "jersey": 6,
+          "position": "MF",
+          "full_name": "Ngalayel MUKAU",
+          "caps": 14
+        },
+        {
+          "jersey": 7,
+          "position": "MF",
+          "full_name": "Nathanael MBUKU",
+          "caps": 19
+        },
+        {
+          "jersey": 8,
+          "position": "MF",
+          "full_name": "Samuel Moutoussamy",
+          "caps": 58
+        },
+        {
+          "jersey": 10,
+          "position": "MF",
+          "full_name": "Theo BONGONDA",
+          "caps": 38
+        },
+        {
+          "jersey": 14,
+          "position": "MF",
+          "full_name": "Noah SADIKI",
+          "caps": 20
+        },
+        {
+          "jersey": 15,
+          "position": "MF",
+          "full_name": "Aaron TSHIBOLA",
+          "caps": 17
+        },
+        {
+          "jersey": 18,
+          "position": "MF",
+          "full_name": "Charles PICKEL",
+          "caps": 34
+        },
+        {
+          "jersey": 25,
+          "position": "MF",
+          "full_name": "Edo Kayembe",
+          "caps": 43
+        },
+        {
+          "jersey": 9,
+          "position": "FW",
+          "full_name": "Brian CIPENGA",
+          "caps": 8
+        },
+        {
+          "jersey": 11,
+          "position": "FW",
+          "full_name": "Gael KAKUTA",
+          "caps": 31
+        },
+        {
+          "jersey": 13,
+          "position": "FW",
+          "full_name": "Meschak Elia",
+          "caps": 69
+        },
+        {
+          "jersey": 17,
+          "position": "FW",
+          "full_name": "Cedric BAKAMBU",
+          "caps": 70
+        },
+        {
+          "jersey": 19,
+          "position": "FW",
+          "full_name": "Fiston MAYELE",
+          "caps": 37
+        },
+        {
+          "jersey": 20,
+          "position": "FW",
+          "full_name": "Yoane WISSA",
+          "caps": 38
+        },
+        {
+          "jersey": 23,
+          "position": "FW",
+          "full_name": "Simon BANZA",
+          "caps": 15
+        }
+      ],
+      "selected_22": [
+        {
+          "jersey": 1,
+          "position": "GK",
+          "full_name": "Lionel MPASI",
+          "caps": 29,
+          "game_index": 0,
+          "game_role": "GK",
+          "role_mismatch": false,
+          "game_name": "Mpasi",
+          "truncated": false
+        },
+        {
+          "jersey": 22,
+          "position": "DF",
+          "full_name": "Chancel MBEMBA",
+          "caps": 109,
+          "game_index": 1,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Mbemba",
+          "truncated": false
+        },
+        {
+          "jersey": 26,
+          "position": "DF",
+          "full_name": "Arthur MASUAKU",
+          "caps": 45,
+          "game_index": 2,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Masuaku",
+          "truncated": false
+        },
+        {
+          "jersey": 24,
+          "position": "DF",
+          "full_name": "Gedeon KALULU",
+          "caps": 28,
+          "game_index": 3,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Kalulu",
+          "truncated": false
+        },
+        {
+          "jersey": 12,
+          "position": "DF",
+          "full_name": "Joris KAYEMBE",
+          "caps": 26,
+          "game_index": 4,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Kayembe",
+          "truncated": false
+        },
+        {
+          "jersey": 8,
+          "position": "MF",
+          "full_name": "Samuel Moutoussamy",
+          "caps": 58,
+          "game_index": 5,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Moutoussa.",
+          "truncated": true
+        },
+        {
+          "jersey": 25,
+          "position": "MF",
+          "full_name": "Edo Kayembe",
+          "caps": 43,
+          "game_index": 6,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "E.Kayembe",
+          "truncated": false
+        },
+        {
+          "jersey": 10,
+          "position": "MF",
+          "full_name": "Theo BONGONDA",
+          "caps": 38,
+          "game_index": 7,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Bongonda",
+          "truncated": false
+        },
+        {
+          "jersey": 18,
+          "position": "MF",
+          "full_name": "Charles PICKEL",
+          "caps": 34,
+          "game_index": 8,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Pickel",
+          "truncated": false
+        },
+        {
+          "jersey": 17,
+          "position": "FW",
+          "full_name": "Cedric BAKAMBU",
+          "caps": 70,
+          "game_index": 9,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Bakambu",
+          "truncated": false
+        },
+        {
+          "jersey": 13,
+          "position": "FW",
+          "full_name": "Meschak Elia",
+          "caps": 69,
+          "game_index": 10,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Elia",
+          "truncated": false
+        },
+        {
+          "jersey": 4,
+          "position": "DF",
+          "full_name": "Axel Tuanzebe",
+          "caps": 14,
+          "game_index": 11,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Tuanzebe",
+          "truncated": false
+        },
+        {
+          "jersey": 5,
+          "position": "DF",
+          "full_name": "Dylan BATUBINSIKA",
+          "caps": 14,
+          "game_index": 12,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Batubinsi.",
+          "truncated": true
+        },
+        {
+          "jersey": 2,
+          "position": "DF",
+          "full_name": "Aaron WAN-BISSAKA",
+          "caps": 12,
+          "game_index": 13,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Wan-Bissa.",
+          "truncated": true
+        },
+        {
+          "jersey": 14,
+          "position": "MF",
+          "full_name": "Noah SADIKI",
+          "caps": 20,
+          "game_index": 14,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Sadiki",
+          "truncated": false
+        },
+        {
+          "jersey": 7,
+          "position": "MF",
+          "full_name": "Nathanael MBUKU",
+          "caps": 19,
+          "game_index": 15,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Mbuku",
+          "truncated": false
+        },
+        {
+          "jersey": 15,
+          "position": "MF",
+          "full_name": "Aaron TSHIBOLA",
+          "caps": 17,
+          "game_index": 16,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Tshibola",
+          "truncated": false
+        },
+        {
+          "jersey": 20,
+          "position": "FW",
+          "full_name": "Yoane WISSA",
+          "caps": 38,
+          "game_index": 17,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Wissa",
+          "truncated": false
+        },
+        {
+          "jersey": 19,
+          "position": "FW",
+          "full_name": "Fiston MAYELE",
+          "caps": 37,
+          "game_index": 18,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Mayele",
+          "truncated": false
+        },
+        {
+          "jersey": 11,
+          "position": "FW",
+          "full_name": "Gael KAKUTA",
+          "caps": 31,
+          "game_index": 19,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Kakuta",
+          "truncated": false
+        },
+        {
+          "jersey": 16,
+          "position": "GK",
+          "full_name": "Timothy FAYULU",
+          "caps": 3,
+          "game_index": 20,
+          "game_role": "GK",
+          "role_mismatch": false,
+          "game_name": "Fayulu",
+          "truncated": false
+        },
+        {
+          "jersey": 21,
+          "position": "GK",
+          "full_name": "Matthieu EPOLO",
+          "caps": 1,
+          "game_index": 21,
+          "game_role": "GK",
+          "role_mismatch": false,
+          "game_name": "Epolo",
+          "truncated": false
+        }
+      ],
+      "excluded_4": [
+        {
+          "jersey": 3,
+          "position": "DF",
+          "full_name": "Steve KAPUADI",
+          "caps": 4
+        },
+        {
+          "jersey": 6,
+          "position": "MF",
+          "full_name": "Ngalayel MUKAU",
+          "caps": 14
+        },
+        {
+          "jersey": 9,
+          "position": "FW",
+          "full_name": "Brian CIPENGA",
+          "caps": 8
+        },
+        {
+          "jersey": 23,
+          "position": "FW",
+          "full_name": "Simon BANZA",
+          "caps": 15
+        }
+      ],
+      "role_mismatches": 0
+    },
+    {
+      "slot": 36,
+      "team": "GHANA",
+      "source_repo": "feuyeux/fifa-world-cup-2026",
+      "source_path": "squads/L_Ghana.md",
+      "source_sha": "26940b134979cc94b6a89870721c851e97e8c933",
+      "source_original_26": [
+        {
+          "jersey": 1,
+          "position": "GK",
+          "full_name": "Lawrence Ati ZIGI",
+          "caps": 29
+        },
+        {
+          "jersey": 12,
+          "position": "GK",
+          "full_name": "Joseph ANANG",
+          "caps": 1
+        },
+        {
+          "jersey": 16,
+          "position": "GK",
+          "full_name": "Benjamin ASARE",
+          "caps": 11
+        },
+        {
+          "jersey": 2,
+          "position": "DF",
+          "full_name": "Alidu SEIDU",
+          "caps": 24
+        },
+        {
+          "jersey": 4,
+          "position": "DF",
+          "full_name": "Jonas ADJETEY",
+          "caps": 10
+        },
+        {
+          "jersey": 6,
+          "position": "DF",
+          "full_name": "Abdul MUMIN",
+          "caps": 5
+        },
+        {
+          "jersey": 14,
+          "position": "DF",
+          "full_name": "Gideon MENSAH",
+          "caps": 40
+        },
+        {
+          "jersey": 17,
+          "position": "DF",
+          "full_name": "Abdul Rahman Baba",
+          "caps": 51
+        },
+        {
+          "jersey": 18,
+          "position": "DF",
+          "full_name": "Jerome OPOKU",
+          "caps": 11
+        },
+        {
+          "jersey": 21,
+          "position": "DF",
+          "full_name": "Kojo Peprah OPPONG",
+          "caps": 4
+        },
+        {
+          "jersey": 23,
+          "position": "DF",
+          "full_name": "Derrick LUCKASSEN",
+          "caps": 1
+        },
+        {
+          "jersey": 26,
+          "position": "DF",
+          "full_name": "Marvin SENAYA",
+          "caps": 2
+        },
+        {
+          "jersey": 3,
+          "position": "MF",
+          "full_name": "Caleb YIRENKYI",
+          "caps": 11
+        },
+        {
+          "jersey": 5,
+          "position": "MF",
+          "full_name": "Thomas PARTEY",
+          "caps": 57
+        },
+        {
+          "jersey": 8,
+          "position": "MF",
+          "full_name": "Kwasi SIBO",
+          "caps": 8
+        },
+        {
+          "jersey": 11,
+          "position": "MF",
+          "full_name": "Antoine SEMENYO",
+          "caps": 34
+        },
+        {
+          "jersey": 15,
+          "position": "MF",
+          "full_name": "Elisha OWUSU",
+          "caps": 20
+        },
+        {
+          "jersey": 20,
+          "position": "MF",
+          "full_name": "Augustine BOAKYE",
+          "caps": 0
+        },
+        {
+          "jersey": 7,
+          "position": "FW",
+          "full_name": "Abdul FATAWU",
+          "caps": 28
+        },
+        {
+          "jersey": 9,
+          "position": "FW",
+          "full_name": "Jordan AYEW",
+          "caps": 120
+        },
+        {
+          "jersey": 10,
+          "position": "FW",
+          "full_name": "Brandon THOMAS-ASANTE",
+          "caps": 8
+        },
+        {
+          "jersey": 13,
+          "position": "FW",
+          "full_name": "Christopher Bonsu BAAH",
+          "caps": 9
+        },
+        {
+          "jersey": 19,
+          "position": "FW",
+          "full_name": "Inaki WILLIAMS",
+          "caps": 26
+        },
+        {
+          "jersey": 22,
+          "position": "FW",
+          "full_name": "Kamaldeen SULEMANA",
+          "caps": 28
+        },
+        {
+          "jersey": 24,
+          "position": "FW",
+          "full_name": "Ernest NUAMAH",
+          "caps": 18
+        },
+        {
+          "jersey": 25,
+          "position": "FW",
+          "full_name": "Prince Kwabena Adu",
+          "caps": 5
+        }
+      ],
+      "selected_22": [
+        {
+          "jersey": 1,
+          "position": "GK",
+          "full_name": "Lawrence Ati ZIGI",
+          "caps": 29,
+          "game_index": 0,
+          "game_role": "GK",
+          "role_mismatch": false,
+          "game_name": "Zigi",
+          "truncated": false
+        },
+        {
+          "jersey": 17,
+          "position": "DF",
+          "full_name": "Abdul Rahman Baba",
+          "caps": 51,
+          "game_index": 1,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Baba",
+          "truncated": false
+        },
+        {
+          "jersey": 14,
+          "position": "DF",
+          "full_name": "Gideon MENSAH",
+          "caps": 40,
+          "game_index": 2,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Mensah",
+          "truncated": false
+        },
+        {
+          "jersey": 2,
+          "position": "DF",
+          "full_name": "Alidu SEIDU",
+          "caps": 24,
+          "game_index": 3,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Seidu",
+          "truncated": false
+        },
+        {
+          "jersey": 18,
+          "position": "DF",
+          "full_name": "Jerome OPOKU",
+          "caps": 11,
+          "game_index": 4,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Opoku",
+          "truncated": false
+        },
+        {
+          "jersey": 5,
+          "position": "MF",
+          "full_name": "Thomas PARTEY",
+          "caps": 57,
+          "game_index": 5,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Partey",
+          "truncated": false
+        },
+        {
+          "jersey": 11,
+          "position": "MF",
+          "full_name": "Antoine SEMENYO",
+          "caps": 34,
+          "game_index": 6,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Semenyo",
+          "truncated": false
+        },
+        {
+          "jersey": 15,
+          "position": "MF",
+          "full_name": "Elisha OWUSU",
+          "caps": 20,
+          "game_index": 7,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Owusu",
+          "truncated": false
+        },
+        {
+          "jersey": 3,
+          "position": "MF",
+          "full_name": "Caleb YIRENKYI",
+          "caps": 11,
+          "game_index": 8,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Yirenkyi",
+          "truncated": false
+        },
+        {
+          "jersey": 9,
+          "position": "FW",
+          "full_name": "Jordan AYEW",
+          "caps": 120,
+          "game_index": 9,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Ayew",
+          "truncated": false
+        },
+        {
+          "jersey": 7,
+          "position": "FW",
+          "full_name": "Abdul FATAWU",
+          "caps": 28,
+          "game_index": 10,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Fatawu",
+          "truncated": false
+        },
+        {
+          "jersey": 4,
+          "position": "DF",
+          "full_name": "Jonas ADJETEY",
+          "caps": 10,
+          "game_index": 11,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Adjetey",
+          "truncated": false
+        },
+        {
+          "jersey": 6,
+          "position": "DF",
+          "full_name": "Abdul MUMIN",
+          "caps": 5,
+          "game_index": 12,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Mumin",
+          "truncated": false
+        },
+        {
+          "jersey": 21,
+          "position": "DF",
+          "full_name": "Kojo Peprah OPPONG",
+          "caps": 4,
+          "game_index": 13,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Oppong",
+          "truncated": false
+        },
+        {
+          "jersey": 8,
+          "position": "MF",
+          "full_name": "Kwasi SIBO",
+          "caps": 8,
+          "game_index": 14,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Sibo",
+          "truncated": false
+        },
+        {
+          "jersey": 20,
+          "position": "MF",
+          "full_name": "Augustine BOAKYE",
+          "caps": 0,
+          "game_index": 15,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Boakye",
+          "truncated": false
+        },
+        {
+          "jersey": 22,
+          "position": "FW",
+          "full_name": "Kamaldeen SULEMANA",
+          "caps": 28,
+          "game_index": 16,
+          "game_role": "MF",
+          "role_mismatch": true,
+          "game_name": "Sulemana",
+          "truncated": false
+        },
+        {
+          "jersey": 19,
+          "position": "FW",
+          "full_name": "Inaki WILLIAMS",
+          "caps": 26,
+          "game_index": 17,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Williams",
+          "truncated": false
+        },
+        {
+          "jersey": 24,
+          "position": "FW",
+          "full_name": "Ernest NUAMAH",
+          "caps": 18,
+          "game_index": 18,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Nuamah",
+          "truncated": false
+        },
+        {
+          "jersey": 13,
+          "position": "FW",
+          "full_name": "Christopher Bonsu BAAH",
+          "caps": 9,
+          "game_index": 19,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Baah",
+          "truncated": false
+        },
+        {
+          "jersey": 16,
+          "position": "GK",
+          "full_name": "Benjamin ASARE",
+          "caps": 11,
+          "game_index": 20,
+          "game_role": "GK",
+          "role_mismatch": false,
+          "game_name": "Asare",
+          "truncated": false
+        },
+        {
+          "jersey": 12,
+          "position": "GK",
+          "full_name": "Joseph ANANG",
+          "caps": 1,
+          "game_index": 21,
+          "game_role": "GK",
+          "role_mismatch": false,
+          "game_name": "Anang",
+          "truncated": false
+        }
+      ],
+      "excluded_4": [
+        {
+          "jersey": 23,
+          "position": "DF",
+          "full_name": "Derrick LUCKASSEN",
+          "caps": 1
+        },
+        {
+          "jersey": 26,
+          "position": "DF",
+          "full_name": "Marvin SENAYA",
+          "caps": 2
+        },
+        {
+          "jersey": 10,
+          "position": "FW",
+          "full_name": "Brandon THOMAS-ASANTE",
+          "caps": 8
+        },
+        {
+          "jersey": 25,
+          "position": "FW",
+          "full_name": "Prince Kwabena Adu",
+          "caps": 5
+        }
+      ],
+      "role_mismatches": 1
+    },
+    {
+      "slot": 50,
+      "team": "I.COAST",
+      "source_repo": "feuyeux/fifa-world-cup-2026",
+      "source_path": "squads/E_Ivory Coast.md",
+      "source_sha": "4f2b81046f9bcbb3f1ecfeaaec636de0a35a4e23",
+      "source_original_26": [
+        {
+          "jersey": 1,
+          "position": "GK",
+          "full_name": "Yahia Fofana",
+          "caps": 35
+        },
+        {
+          "jersey": 16,
+          "position": "GK",
+          "full_name": "Mohamed KONE",
+          "caps": 0
+        },
+        {
+          "jersey": 23,
+          "position": "GK",
+          "full_name": "Alban Lafont",
+          "caps": 4
+        },
+        {
+          "jersey": 2,
+          "position": "DF",
+          "full_name": "Ousmane DIOMANDE",
+          "caps": 15
+        },
+        {
+          "jersey": 3,
+          "position": "DF",
+          "full_name": "Ghislain KONAN",
+          "caps": 54
+        },
+        {
+          "jersey": 5,
+          "position": "DF",
+          "full_name": "Wilfried SINGO",
+          "caps": 34
+        },
+        {
+          "jersey": 7,
+          "position": "DF",
+          "full_name": "Odilon KOSSOUNOU",
+          "caps": 36
+        },
+        {
+          "jersey": 13,
+          "position": "DF",
+          "full_name": "Christopher OPERI",
+          "caps": 12
+        },
+        {
+          "jersey": 17,
+          "position": "DF",
+          "full_name": "Guela DOUE",
+          "caps": 20
+        },
+        {
+          "jersey": 20,
+          "position": "DF",
+          "full_name": "Emmanuel AGBADOU",
+          "caps": 20
+        },
+        {
+          "jersey": 21,
+          "position": "DF",
+          "full_name": "Evan NDICKA",
+          "caps": 28
+        },
+        {
+          "jersey": 4,
+          "position": "MF",
+          "full_name": "Jean Michael SERI",
+          "caps": 65
+        },
+        {
+          "jersey": 6,
+          "position": "MF",
+          "full_name": "Seko Fofana",
+          "caps": 33
+        },
+        {
+          "jersey": 8,
+          "position": "MF",
+          "full_name": "Franck KESSIE",
+          "caps": 102
+        },
+        {
+          "jersey": 18,
+          "position": "MF",
+          "full_name": "Ibrahim SANGARE",
+          "caps": 57
+        },
+        {
+          "jersey": 25,
+          "position": "MF",
+          "full_name": "Parfait GUIAGON",
+          "caps": 5
+        },
+        {
+          "jersey": 26,
+          "position": "MF",
+          "full_name": "Christ Inao OULAI",
+          "caps": 9
+        },
+        {
+          "jersey": 9,
+          "position": "FW",
+          "full_name": "Ange-Yoan BONNY",
+          "caps": 1
+        },
+        {
+          "jersey": 10,
+          "position": "FW",
+          "full_name": "Simon ADINGRA",
+          "caps": 29
+        },
+        {
+          "jersey": 11,
+          "position": "FW",
+          "full_name": "Yan DIOMANDE",
+          "caps": 10
+        },
+        {
+          "jersey": 12,
+          "position": "FW",
+          "full_name": "Elye WAHI",
+          "caps": 2
+        },
+        {
+          "jersey": 14,
+          "position": "FW",
+          "full_name": "Oumar DIAKITE",
+          "caps": 30
+        },
+        {
+          "jersey": 15,
+          "position": "FW",
+          "full_name": "Amad DIALLO",
+          "caps": 19
+        },
+        {
+          "jersey": 19,
+          "position": "FW",
+          "full_name": "Nicolas PEPE",
+          "caps": 56
+        },
+        {
+          "jersey": 22,
+          "position": "FW",
+          "full_name": "Evann GUESSAND",
+          "caps": 21
+        },
+        {
+          "jersey": 24,
+          "position": "FW",
+          "full_name": "Bazoumana TOURE",
+          "caps": 6
+        }
+      ],
+      "selected_22": [
+        {
+          "jersey": 1,
+          "position": "GK",
+          "full_name": "Yahia Fofana",
+          "caps": 35,
+          "game_index": 0,
+          "game_role": "GK",
+          "role_mismatch": false,
+          "game_name": "Fofana",
+          "truncated": false
+        },
+        {
+          "jersey": 3,
+          "position": "DF",
+          "full_name": "Ghislain KONAN",
+          "caps": 54,
+          "game_index": 1,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Konan",
+          "truncated": false
+        },
+        {
+          "jersey": 7,
+          "position": "DF",
+          "full_name": "Odilon KOSSOUNOU",
+          "caps": 36,
+          "game_index": 2,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Kossounou",
+          "truncated": false
+        },
+        {
+          "jersey": 5,
+          "position": "DF",
+          "full_name": "Wilfried SINGO",
+          "caps": 34,
+          "game_index": 3,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Singo",
+          "truncated": false
+        },
+        {
+          "jersey": 21,
+          "position": "DF",
+          "full_name": "Evan NDICKA",
+          "caps": 28,
+          "game_index": 4,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Ndicka",
+          "truncated": false
+        },
+        {
+          "jersey": 8,
+          "position": "MF",
+          "full_name": "Franck KESSIE",
+          "caps": 102,
+          "game_index": 5,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Kessie",
+          "truncated": false
+        },
+        {
+          "jersey": 4,
+          "position": "MF",
+          "full_name": "Jean Michael SERI",
+          "caps": 65,
+          "game_index": 6,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Seri",
+          "truncated": false
+        },
+        {
+          "jersey": 18,
+          "position": "MF",
+          "full_name": "Ibrahim SANGARE",
+          "caps": 57,
+          "game_index": 7,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Sangare",
+          "truncated": false
+        },
+        {
+          "jersey": 6,
+          "position": "MF",
+          "full_name": "Seko Fofana",
+          "caps": 33,
+          "game_index": 8,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "S.Fofana",
+          "truncated": false
+        },
+        {
+          "jersey": 19,
+          "position": "FW",
+          "full_name": "Nicolas PEPE",
+          "caps": 56,
+          "game_index": 9,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Pepe",
+          "truncated": false
+        },
+        {
+          "jersey": 14,
+          "position": "FW",
+          "full_name": "Oumar DIAKITE",
+          "caps": 30,
+          "game_index": 10,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Diakite",
+          "truncated": false
+        },
+        {
+          "jersey": 17,
+          "position": "DF",
+          "full_name": "Guela DOUE",
+          "caps": 20,
+          "game_index": 11,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Doue",
+          "truncated": false
+        },
+        {
+          "jersey": 20,
+          "position": "DF",
+          "full_name": "Emmanuel AGBADOU",
+          "caps": 20,
+          "game_index": 12,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Agbadou",
+          "truncated": false
+        },
+        {
+          "jersey": 2,
+          "position": "DF",
+          "full_name": "Ousmane DIOMANDE",
+          "caps": 15,
+          "game_index": 13,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Diomande",
+          "truncated": false
+        },
+        {
+          "jersey": 26,
+          "position": "MF",
+          "full_name": "Christ Inao OULAI",
+          "caps": 9,
+          "game_index": 14,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Oulai",
+          "truncated": false
+        },
+        {
+          "jersey": 25,
+          "position": "MF",
+          "full_name": "Parfait GUIAGON",
+          "caps": 5,
+          "game_index": 15,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Guiagon",
+          "truncated": false
+        },
+        {
+          "jersey": 10,
+          "position": "FW",
+          "full_name": "Simon ADINGRA",
+          "caps": 29,
+          "game_index": 16,
+          "game_role": "MF",
+          "role_mismatch": true,
+          "game_name": "Adingra",
+          "truncated": false
+        },
+        {
+          "jersey": 22,
+          "position": "FW",
+          "full_name": "Evann GUESSAND",
+          "caps": 21,
+          "game_index": 17,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Guessand",
+          "truncated": false
+        },
+        {
+          "jersey": 15,
+          "position": "FW",
+          "full_name": "Amad DIALLO",
+          "caps": 19,
+          "game_index": 18,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Diallo",
+          "truncated": false
+        },
+        {
+          "jersey": 11,
+          "position": "FW",
+          "full_name": "Yan DIOMANDE",
+          "caps": 10,
+          "game_index": 19,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Y.Diomande",
+          "truncated": false
+        },
+        {
+          "jersey": 23,
+          "position": "GK",
+          "full_name": "Alban Lafont",
+          "caps": 4,
+          "game_index": 20,
+          "game_role": "GK",
+          "role_mismatch": false,
+          "game_name": "Lafont",
+          "truncated": false
+        },
+        {
+          "jersey": 16,
+          "position": "GK",
+          "full_name": "Mohamed KONE",
+          "caps": 0,
+          "game_index": 21,
+          "game_role": "GK",
+          "role_mismatch": false,
+          "game_name": "Kone",
+          "truncated": false
+        }
+      ],
+      "excluded_4": [
+        {
+          "jersey": 13,
+          "position": "DF",
+          "full_name": "Christopher OPERI",
+          "caps": 12
+        },
+        {
+          "jersey": 9,
+          "position": "FW",
+          "full_name": "Ange-Yoan BONNY",
+          "caps": 1
+        },
+        {
+          "jersey": 12,
+          "position": "FW",
+          "full_name": "Elye WAHI",
+          "caps": 2
+        },
+        {
+          "jersey": 24,
+          "position": "FW",
+          "full_name": "Bazoumana TOURE",
+          "caps": 6
+        }
+      ],
+      "role_mismatches": 1
+    },
+    {
+      "slot": 52,
+      "team": "ALGERIA",
+      "source_repo": "feuyeux/fifa-world-cup-2026",
+      "source_path": "squads/J_Algeria.md",
+      "source_sha": "4b1ee1349defcf401d0575584b0a9d33cbc1be5b",
+      "source_original_26": [
+        {
+          "jersey": 1,
+          "position": "GK",
+          "full_name": "Melvin MASTIL",
+          "caps": 2
+        },
+        {
+          "jersey": 16,
+          "position": "GK",
+          "full_name": "Oussama BENBOT",
+          "caps": 5
+        },
+        {
+          "jersey": 23,
+          "position": "GK",
+          "full_name": "Luca ZIDANE",
+          "caps": 7
+        },
+        {
+          "jersey": 2,
+          "position": "DF",
+          "full_name": "Aissa MANDI",
+          "caps": 119
+        },
+        {
+          "jersey": 3,
+          "position": "DF",
+          "full_name": "Achref ABADA",
+          "caps": 9
+        },
+        {
+          "jersey": 4,
+          "position": "DF",
+          "full_name": "Mohamed Amine TOUGAI",
+          "caps": 30
+        },
+        {
+          "jersey": 5,
+          "position": "DF",
+          "full_name": "Zineddine BELAID",
+          "caps": 18
+        },
+        {
+          "jersey": 13,
+          "position": "DF",
+          "full_name": "Jaouen HADJAM",
+          "caps": 18
+        },
+        {
+          "jersey": 15,
+          "position": "DF",
+          "full_name": "Rayan AIT-NOURI",
+          "caps": 30
+        },
+        {
+          "jersey": 17,
+          "position": "DF",
+          "full_name": "Rafik BELGHALI",
+          "caps": 13
+        },
+        {
+          "jersey": 21,
+          "position": "DF",
+          "full_name": "Ramy BENSEBAINI",
+          "caps": 82
+        },
+        {
+          "jersey": 26,
+          "position": "DF",
+          "full_name": "Samir CHERGUI",
+          "caps": 5
+        },
+        {
+          "jersey": 6,
+          "position": "MF",
+          "full_name": "Ramiz ZERROUKI",
+          "caps": 53
+        },
+        {
+          "jersey": 8,
+          "position": "MF",
+          "full_name": "Houssem Aouar",
+          "caps": 22
+        },
+        {
+          "jersey": 10,
+          "position": "MF",
+          "full_name": "Fares CHAIBI",
+          "caps": 31
+        },
+        {
+          "jersey": 14,
+          "position": "MF",
+          "full_name": "Hicham BOUDAOUI",
+          "caps": 34
+        },
+        {
+          "jersey": 19,
+          "position": "MF",
+          "full_name": "Nabil Bentaleb",
+          "caps": 60
+        },
+        {
+          "jersey": 22,
+          "position": "MF",
+          "full_name": "Ibrahim MAZA",
+          "caps": 17
+        },
+        {
+          "jersey": 24,
+          "position": "MF",
+          "full_name": "Yacine Titraoui",
+          "caps": 5
+        },
+        {
+          "jersey": 7,
+          "position": "FW",
+          "full_name": "Riyad Mahrez",
+          "caps": 116
+        },
+        {
+          "jersey": 9,
+          "position": "FW",
+          "full_name": "Amine GOUIRI",
+          "caps": 23
+        },
+        {
+          "jersey": 11,
+          "position": "FW",
+          "full_name": "Anis HADJ MOUSSA",
+          "caps": 15
+        },
+        {
+          "jersey": 12,
+          "position": "FW",
+          "full_name": "Nadhir BENBOUALI",
+          "caps": 4
+        },
+        {
+          "jersey": 18,
+          "position": "FW",
+          "full_name": "Mohamed AMOURA",
+          "caps": 47
+        },
+        {
+          "jersey": 20,
+          "position": "FW",
+          "full_name": "Adil BOULBINA",
+          "caps": 12
+        },
+        {
+          "jersey": 25,
+          "position": "FW",
+          "full_name": "Fares GHEDJEMIS",
+          "caps": 1
+        }
+      ],
+      "selected_22": [
+        {
+          "jersey": 23,
+          "position": "GK",
+          "full_name": "Luca ZIDANE",
+          "caps": 7,
+          "game_index": 0,
+          "game_role": "GK",
+          "role_mismatch": false,
+          "game_name": "Zidane",
+          "truncated": false
+        },
+        {
+          "jersey": 2,
+          "position": "DF",
+          "full_name": "Aissa MANDI",
+          "caps": 119,
+          "game_index": 1,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Mandi",
+          "truncated": false
+        },
+        {
+          "jersey": 21,
+          "position": "DF",
+          "full_name": "Ramy BENSEBAINI",
+          "caps": 82,
+          "game_index": 2,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Bensebaini",
+          "truncated": false
+        },
+        {
+          "jersey": 4,
+          "position": "DF",
+          "full_name": "Mohamed Amine TOUGAI",
+          "caps": 30,
+          "game_index": 3,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Tougai",
+          "truncated": false
+        },
+        {
+          "jersey": 15,
+          "position": "DF",
+          "full_name": "Rayan AIT-NOURI",
+          "caps": 30,
+          "game_index": 4,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Ait-Nouri",
+          "truncated": false
+        },
+        {
+          "jersey": 19,
+          "position": "MF",
+          "full_name": "Nabil Bentaleb",
+          "caps": 60,
+          "game_index": 5,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Bentaleb",
+          "truncated": false
+        },
+        {
+          "jersey": 6,
+          "position": "MF",
+          "full_name": "Ramiz ZERROUKI",
+          "caps": 53,
+          "game_index": 6,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Zerrouki",
+          "truncated": false
+        },
+        {
+          "jersey": 14,
+          "position": "MF",
+          "full_name": "Hicham BOUDAOUI",
+          "caps": 34,
+          "game_index": 7,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Boudaoui",
+          "truncated": false
+        },
+        {
+          "jersey": 10,
+          "position": "MF",
+          "full_name": "Fares CHAIBI",
+          "caps": 31,
+          "game_index": 8,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Chaibi",
+          "truncated": false
+        },
+        {
+          "jersey": 7,
+          "position": "FW",
+          "full_name": "Riyad Mahrez",
+          "caps": 116,
+          "game_index": 9,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Mahrez",
+          "truncated": false
+        },
+        {
+          "jersey": 18,
+          "position": "FW",
+          "full_name": "Mohamed AMOURA",
+          "caps": 47,
+          "game_index": 10,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Amoura",
+          "truncated": false
+        },
+        {
+          "jersey": 5,
+          "position": "DF",
+          "full_name": "Zineddine BELAID",
+          "caps": 18,
+          "game_index": 11,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Belaid",
+          "truncated": false
+        },
+        {
+          "jersey": 13,
+          "position": "DF",
+          "full_name": "Jaouen HADJAM",
+          "caps": 18,
+          "game_index": 12,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Hadjam",
+          "truncated": false
+        },
+        {
+          "jersey": 17,
+          "position": "DF",
+          "full_name": "Rafik BELGHALI",
+          "caps": 13,
+          "game_index": 13,
+          "game_role": "DF",
+          "role_mismatch": false,
+          "game_name": "Belghali",
+          "truncated": false
+        },
+        {
+          "jersey": 8,
+          "position": "MF",
+          "full_name": "Houssem Aouar",
+          "caps": 22,
+          "game_index": 14,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Aouar",
+          "truncated": false
+        },
+        {
+          "jersey": 22,
+          "position": "MF",
+          "full_name": "Ibrahim MAZA",
+          "caps": 17,
+          "game_index": 15,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Maza",
+          "truncated": false
+        },
+        {
+          "jersey": 24,
+          "position": "MF",
+          "full_name": "Yacine Titraoui",
+          "caps": 5,
+          "game_index": 16,
+          "game_role": "MF",
+          "role_mismatch": false,
+          "game_name": "Titraoui",
+          "truncated": false
+        },
+        {
+          "jersey": 9,
+          "position": "FW",
+          "full_name": "Amine GOUIRI",
+          "caps": 23,
+          "game_index": 17,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Gouiri",
+          "truncated": false
+        },
+        {
+          "jersey": 11,
+          "position": "FW",
+          "full_name": "Anis HADJ MOUSSA",
+          "caps": 15,
+          "game_index": 18,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Moussa",
+          "truncated": false
+        },
+        {
+          "jersey": 20,
+          "position": "FW",
+          "full_name": "Adil BOULBINA",
+          "caps": 12,
+          "game_index": 19,
+          "game_role": "FW",
+          "role_mismatch": false,
+          "game_name": "Boulbina",
+          "truncated": false
+        },
+        {
+          "jersey": 16,
+          "position": "GK",
+          "full_name": "Oussama BENBOT",
+          "caps": 5,
+          "game_index": 20,
+          "game_role": "GK",
+          "role_mismatch": false,
+          "game_name": "Benbot",
+          "truncated": false
+        },
+        {
+          "jersey": 1,
+          "position": "GK",
+          "full_name": "Melvin MASTIL",
+          "caps": 2,
+          "game_index": 21,
+          "game_role": "GK",
+          "role_mismatch": false,
+          "game_name": "Mastil",
+          "truncated": false
+        }
+      ],
+      "excluded_4": [
+        {
+          "jersey": 3,
+          "position": "DF",
+          "full_name": "Achref ABADA",
+          "caps": 9
+        },
+        {
+          "jersey": 26,
+          "position": "DF",
+          "full_name": "Samir CHERGUI",
+          "caps": 5
+        },
+        {
+          "jersey": 12,
+          "position": "FW",
+          "full_name": "Nadhir BENBOUALI",
+          "caps": 4
+        },
+        {
+          "jersey": 25,
+          "position": "FW",
+          "full_name": "Fares GHEDJEMIS",
+          "caps": 1
+        }
+      ],
+      "role_mismatches": 0
+    }
+  ]
+}
