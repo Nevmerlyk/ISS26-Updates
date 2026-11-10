@@ -1,8 +1,0 @@
-{
-  "schemaVersion": 1,
-  "product": "ISS26-Universal-Tool",
-  "version": "1.2.0",
-  "archiveUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/universal-tool-v1.2.0/ISS26_Universal_Tool_update_1.2.0.zip",
-  "sha256": "A93A5F7873C6EA33FE7ECFE97F2E3ED4254663DB830980A7888280B0FC2EE482",
-  "notes": "Graphics CLUT galleries and auto-detected clean original BIN/CUE"
-}
