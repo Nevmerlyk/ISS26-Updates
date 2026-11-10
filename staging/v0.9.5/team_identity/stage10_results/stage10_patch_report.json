@@ -1,0 +1,48 @@
+{
+  "stage": 10,
+  "scope": "Screenshot-redrawn 24x16 flags Bosnia+Canada only on Test06; GDC never altered",
+  "test08_patch_sha256": "E65E5623756643E2DAE7069A66FE888E14439A5A534DBF171BB03630605648B1",
+  "test08_image_sha256": "DB1D4E84E0DEFD0A2AB2BDEC860A28A3245C658738371902ED53B234A994F685",
+  "baseline_patch_sha256": "3A2B98ECFDAA693F8C652543F9A7122D6095EC488C757268D67970688714A636",
+  "baseline_image_sha256": "A3B94E6837D9E4FFC75B8F0440E39BF26CE806B57668ACB49839488E5928FAB2",
+  "original_sha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
+  "patched_records": 1412,
+  "patch_bytes": 3371868,
+  "changed_sectors_vs_test06": [
+    6084,
+    6085,
+    6086,
+    6087,
+    6088,
+    6103,
+    6251,
+    6252,
+    6253,
+    6254,
+    6255,
+    6277,
+    6279
+  ],
+  "changed_sectors_count": 13,
+  "per_flag_pixel_delta": {
+    "19": 51,
+    "28": 281
+  },
+  "unchanged_other_52_sprites": true,
+  "transparent_right_4_pixels": true,
+  "clut_rows_unchanged": true,
+  "repacked_compressed_bytes_unpadded": 11742,
+  "repacked_reserved_bytes": 11791,
+  "mode2_form2_repaired": [
+    6277,
+    6279
+  ],
+  "preserved_stage5_large_graphics_and_rosters": true,
+  "GDC_sector_changes": [],
+  "runtime_tested": false,
+  "source_images": [
+    "image(20261110-212120).png",
+    "image(20261110-212351).png"
+  ],
+  "source_method": "Hand-redrawn small game-native sprite matching Master League screenshot style; not verbatim byte extraction"
+}
