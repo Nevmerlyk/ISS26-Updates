@@ -1,0 +1,26 @@
+{
+  "stage": 10,
+  "source": "user screenshot of original Master League Player Acquisition flags (Salamic, Forest)",
+  "method": "faithful manual pixel-art redraw, not direct bit-identical source extraction",
+  "slot_size": [
+    24,
+    16
+  ],
+  "active_opaque_area": [
+    20,
+    16
+  ],
+  "change_slots": [
+    28,
+    19
+  ],
+  "preserved_other_art_slots": 14,
+  "new_art_sha256": {
+    "bosnia": "BD162234B04C1E246ED19E4F5F13C98AD30D3677A0E6C3B0CEB0602BF6C8BE7C",
+    "canada": "E50F80EE804252026F4871E8EA294C70EA2FB94BFD92A16DBA76962407BCC888"
+  },
+  "reference_files": [
+    "image(20261110-212120).png",
+    "image(20261110-212351).png"
+  ]
+}
