@@ -1,4 +1,4 @@
-name: Publish ISS26 Team Identity Bosnia Stadium GDC Test Game patch 07
+name: QUARANTINED - ISS26 Test07 GDC visual regression
 on:
   push:
     branches: [main]
@@ -9,6 +9,9 @@ permissions:
   contents: write
 jobs:
   release_test_patch:
+    # User PCSX-Redux screenshots show severe stadium/field texture corruption.
+    # Do not republish Test07 until VRAM atlas ownership is proven at runtime.
+    if: false
     runs-on: ubuntu-latest
     timeout-minutes: 12
     steps:
