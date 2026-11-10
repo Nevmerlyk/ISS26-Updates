@@ -1,0 +1,55 @@
+team_slot,team,is_replacement,player_names_changed_since_2001,all_uppercase_names,still_original_roster,needs_roster_rebuild
+0,AUSTRALIA,False,22,0,False,False
+1,SAUDI ARABIA,False,22,0,False,False
+2,QATAR,True,0,0,True,True
+3,IRAN,False,22,0,False,False
+4,UZBEK,True,0,0,True,True
+5,KOREA,False,22,0,False,False
+6,JAPAN,False,22,0,False,False
+7,ARGENTINA,False,22,0,False,False
+8,URUGUAY,False,22,0,False,False
+9,PARAGUAY,False,22,0,False,False
+10,PANAMA,True,0,0,True,True
+11,ECUADOR,True,0,0,True,True
+12,BRAZIL,False,22,0,False,False
+13,COLOMBIA,False,22,0,False,False
+14,CANADA,True,22,0,False,False
+15,MEXICO,False,22,0,False,False
+16,UNITED STATES,False,22,0,False,False
+17,SOUTH AFRICA,False,22,0,False,False
+18,SENEGAL,True,0,0,True,True
+19,NIGERIA,False,0,0,True,False
+20,EGYPT,False,22,0,False,False
+21,TUNISIA,False,22,0,False,False
+22,MOROCCO,False,22,0,False,False
+23,BOSNIA,True,0,0,True,True
+24,UKRAINE,False,22,22,False,False
+25,TURKEY,False,22,0,False,False
+26,N.ZEAL,True,0,0,True,True
+27,IRAQ,True,0,0,True,True
+28,JORDAN,True,0,0,True,True
+29,CURACAO,True,0,0,True,True
+30,CROATIA,False,22,0,False,False
+31,HAITI,True,0,0,True,True
+32,HUNGARY,False,0,0,True,False
+33,AUSTRIA,False,22,0,False,False
+34,DR CONGO,True,0,0,True,True
+35,POLAND,False,0,0,True,False
+36,GHANA,True,0,0,True,True
+37,SWEDEN,False,22,0,False,False
+38,NORWAY,False,22,0,False,False
+39,DENMARK,False,0,0,True,False
+40,GERMANY,False,22,0,False,False
+41,CZECH,False,22,0,False,False
+42,ITALY,False,0,0,True,False
+43,SWITZERLAND,False,22,0,False,False
+44,NETHERLANDS,False,22,0,False,False
+45,BELGIUM,False,22,0,False,False
+46,FRANCE,False,22,0,False,False
+47,SPAIN,False,22,0,False,False
+48,PORTUGAL,False,22,0,False,False
+49,ENGLAND,False,22,0,False,False
+50,I.COAST,True,0,0,True,True
+51,SCOTLAND,False,22,0,False,False
+52,ALGERIA,True,0,0,True,True
+53,C.VERDE,True,22,22,False,False
