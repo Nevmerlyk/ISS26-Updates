@@ -1,0 +1,272 @@
+[
+  {
+    "raw_offset": 400440,
+    "expected_hex": "54525542494e00000000",
+    "replacement_hex": "54727562696e00000000",
+    "purpose": "Player name case only: UKRAINE #1 TRUBIN -> Trubin"
+  },
+  {
+    "raw_offset": 400450,
+    "expected_hex": "5a414241524e59490000",
+    "replacement_hex": "5a616261726e79690000",
+    "purpose": "Player name case only: UKRAINE #2 ZABARNYI -> Zabarnyi"
+  },
+  {
+    "raw_offset": 400460,
+    "expected_hex": "4d4154564949454e4b4f",
+    "replacement_hex": "4d6174766969656e6b6f",
+    "purpose": "Player name case only: UKRAINE #3 MATVIIENKO -> Matviienko"
+  },
+  {
+    "raw_offset": 400470,
+    "expected_hex": "4d594b4f4c454e4b4f00",
+    "replacement_hex": "4d796b6f6c656e6b6f00",
+    "purpose": "Player name case only: UKRAINE #4 MYKOLENKO -> Mykolenko"
+  },
+  {
+    "raw_offset": 400480,
+    "expected_hex": "424f4e44415200000000",
+    "replacement_hex": "426f6e64617200000000",
+    "purpose": "Player name case only: UKRAINE #5 BONDAR -> Bondar"
+  },
+  {
+    "raw_offset": 400490,
+    "expected_hex": "535544414b4f56000000",
+    "replacement_hex": "537564616b6f76000000",
+    "purpose": "Player name case only: UKRAINE #6 SUDAKOV -> Sudakov"
+  },
+  {
+    "raw_offset": 400500,
+    "expected_hex": "5a55424b4f5600000000",
+    "replacement_hex": "5a75626b6f7600000000",
+    "purpose": "Player name case only: UKRAINE #7 ZUBKOV -> Zubkov"
+  },
+  {
+    "raw_offset": 400510,
+    "expected_hex": "594152454d4348554b00",
+    "replacement_hex": "596172656d6368756b00",
+    "purpose": "Player name case only: UKRAINE #8 YAREMCHUK -> Yaremchuk"
+  },
+  {
+    "raw_offset": 400520,
+    "expected_hex": "504f4e4f4d4152454e4b",
+    "replacement_hex": "506f6e6f6d6172656e6b",
+    "purpose": "Player name case only: UKRAINE #9 PONOMARENK -> Ponomarenk"
+  },
+  {
+    "raw_offset": 400530,
+    "expected_hex": "5941524d4f4c49554b00",
+    "replacement_hex": "5961726d6f6c69756b00",
+    "purpose": "Player name case only: UKRAINE #10 YARMOLIUK -> Yarmoliuk"
+  },
+  {
+    "raw_offset": 400540,
+    "expected_hex": "53594b414e0000000000",
+    "replacement_hex": "53796b616e0000000000",
+    "purpose": "Player name case only: UKRAINE #11 SYKAN -> Sykan"
+  },
+  {
+    "raw_offset": 400550,
+    "expected_hex": "52495a4e594b00000000",
+    "replacement_hex": "52697a6e796b00000000",
+    "purpose": "Player name case only: UKRAINE #12 RIZNYK -> Riznyk"
+  },
+  {
+    "raw_offset": 400560,
+    "expected_hex": "5945524d414b4f560000",
+    "replacement_hex": "5965726d616b6f760000",
+    "purpose": "Player name case only: UKRAINE #13 YERMAKOV -> Yermakov"
+  },
+  {
+    "raw_offset": 400570,
+    "expected_hex": "53415241504959000000",
+    "replacement_hex": "53617261706979000000",
+    "purpose": "Player name case only: UKRAINE #14 SARAPIY -> Sarapiy"
+  },
+  {
+    "raw_offset": 400580,
+    "expected_hex": "4b52555348594e534b59",
+    "replacement_hex": "4b72757368796e736b79",
+    "purpose": "Player name case only: UKRAINE #15 KRUSHYNSKY -> Krushynsky"
+  },
+  {
+    "raw_offset": 400590,
+    "expected_hex": "4d594b48414c4b4f0000",
+    "replacement_hex": "4d796b68616c6b6f0000",
+    "purpose": "Player name case only: UKRAINE #16 MYKHALKO -> Mykhalko"
+  },
+  {
+    "raw_offset": 400600,
+    "expected_hex": "4f4348455245544e594b",
+    "replacement_hex": "4f6368657265746e796b",
+    "purpose": "Player name case only: UKRAINE #17 OCHERETNYK -> Ocheretnyk"
+  },
+  {
+    "raw_offset": 400610,
+    "expected_hex": "4e415a4152494e410000",
+    "replacement_hex": "4e617a6172696e610000",
+    "purpose": "Player name case only: UKRAINE #18 NAZARINA -> Nazarina"
+  },
+  {
+    "raw_offset": 400620,
+    "expected_hex": "414e4452494556534b59",
+    "replacement_hex": "416e6472696576736b79",
+    "purpose": "Player name case only: UKRAINE #19 ANDRIEVSKY -> Andrievsky"
+  },
+  {
+    "raw_offset": 400630,
+    "expected_hex": "564152464f4c4f4d4559",
+    "replacement_hex": "566172666f6c6f6d6579",
+    "purpose": "Player name case only: UKRAINE #20 VARFOLOMEY -> Varfolomey"
+  },
+  {
+    "raw_offset": 400640,
+    "expected_hex": "53594e4348554b000000",
+    "replacement_hex": "53796e6368756b000000",
+    "purpose": "Player name case only: UKRAINE #21 SYNCHUK -> Synchuk"
+  },
+  {
+    "raw_offset": 400650,
+    "expected_hex": "4b4153484348554b0000",
+    "replacement_hex": "4b6173686368756b0000",
+    "purpose": "Player name case only: UKRAINE #22 KASHCHUK -> Kashchuk"
+  },
+  {
+    "raw_offset": 393148,
+    "expected_hex": "564f5a494e4841000000",
+    "replacement_hex": "566f7a696e6861000000",
+    "purpose": "Player name case only: C.VERDE #1 VOZINHA -> Vozinha"
+  },
+  {
+    "raw_offset": 393158,
+    "expected_hex": "4d4f5245495241000000",
+    "replacement_hex": "4d6f7265697261000000",
+    "purpose": "Player name case only: C.VERDE #2 MOREIRA -> Moreira"
+  },
+  {
+    "raw_offset": 393168,
+    "expected_hex": "434f5354410000000000",
+    "replacement_hex": "436f7374610000000000",
+    "purpose": "Player name case only: C.VERDE #3 COSTA -> Costa"
+  },
+  {
+    "raw_offset": 393178,
+    "expected_hex": "4c4f5045530000000000",
+    "replacement_hex": "4c6f7065730000000000",
+    "purpose": "Player name case only: C.VERDE #4 LOPES -> Lopes"
+  },
+  {
+    "raw_offset": 393188,
+    "expected_hex": "50494e41000000000000",
+    "replacement_hex": "50696e61000000000000",
+    "purpose": "Player name case only: C.VERDE #5 PINA -> Pina"
+  },
+  {
+    "raw_offset": 393198,
+    "expected_hex": "4d4f4e544549524f0000",
+    "replacement_hex": "4d6f6e746569726f0000",
+    "purpose": "Player name case only: C.VERDE #6 MONTEIRO -> Monteiro"
+  },
+  {
+    "raw_offset": 393208,
+    "expected_hex": "44554152544500000000",
+    "replacement_hex": "44756172746500000000",
+    "purpose": "Player name case only: C.VERDE #7 DUARTE -> Duarte"
+  },
+  {
+    "raw_offset": 393218,
+    "expected_hex": "4b2e50494e4100000000",
+    "replacement_hex": "4b2e50696e6100000000",
+    "purpose": "Player name case only: C.VERDE #8 K.PINA -> K.Pina"
+  },
+  {
+    "raw_offset": 393228,
+    "expected_hex": "415243414e4a4f000000",
+    "replacement_hex": "417263616e6a6f000000",
+    "purpose": "Player name case only: C.VERDE #9 ARCANJO -> Arcanjo"
+  },
+  {
+    "raw_offset": 393238,
+    "expected_hex": "4d454e44455300000000",
+    "replacement_hex": "4d656e64657300000000",
+    "purpose": "Player name case only: C.VERDE #10 MENDES -> Mendes"
+  },
+  {
+    "raw_offset": 393248,
+    "expected_hex": "4c495652414d454e544f",
+    "replacement_hex": "4c697672616d656e746f",
+    "purpose": "Player name case only: C.VERDE #11 LIVRAMENTO -> Livramento"
+  },
+  {
+    "raw_offset": 393258,
+    "expected_hex": "444120524f5341000000",
+    "replacement_hex": "446120526f7361000000",
+    "purpose": "Player name case only: C.VERDE #12 DA ROSA -> Da Rosa"
+  },
+  {
+    "raw_offset": 393268,
+    "expected_hex": "53414e544f5300000000",
+    "replacement_hex": "53616e746f7300000000",
+    "purpose": "Player name case only: C.VERDE #13 SANTOS -> Santos"
+  },
+  {
+    "raw_offset": 393278,
+    "expected_hex": "4645524e414e44455300",
+    "replacement_hex": "4665726e616e64657300",
+    "purpose": "Player name case only: C.VERDE #14 FERNANDES -> Fernandes"
+  },
+  {
+    "raw_offset": 393288,
+    "expected_hex": "43414252414c00000000",
+    "replacement_hex": "43616272616c00000000",
+    "purpose": "Player name case only: C.VERDE #15 CABRAL -> Cabral"
+  },
+  {
+    "raw_offset": 393298,
+    "expected_hex": "50495245530000000000",
+    "replacement_hex": "50697265730000000000",
+    "purpose": "Player name case only: C.VERDE #16 PIRES -> Pires"
+  },
+  {
+    "raw_offset": 393308,
+    "expected_hex": "53454d45444f00000000",
+    "replacement_hex": "53656d65646f00000000",
+    "purpose": "Player name case only: C.VERDE #17 SEMEDO -> Semedo"
+  },
+  {
+    "raw_offset": 393318,
+    "expected_hex": "442e4455415254450000",
+    "replacement_hex": "442e4475617274650000",
+    "purpose": "Player name case only: C.VERDE #18 D.DUARTE -> D.Duarte"
+  },
+  {
+    "raw_offset": 393328,
+    "expected_hex": "572e53454d45444f0000",
+    "replacement_hex": "572e53656d65646f0000",
+    "purpose": "Player name case only: C.VERDE #19 W.SEMEDO -> W.Semedo"
+  },
+  {
+    "raw_offset": 393338,
+    "expected_hex": "524f4452494755455300",
+    "replacement_hex": "526f6472696775657300",
+    "purpose": "Player name case only: C.VERDE #20 RODRIGUES -> Rodrigues"
+  },
+  {
+    "raw_offset": 393348,
+    "expected_hex": "4a2e43414252414c0000",
+    "replacement_hex": "4a2e43616272616c0000",
+    "purpose": "Player name case only: C.VERDE #21 J.CABRAL -> J.Cabral"
+  },
+  {
+    "raw_offset": 393358,
+    "expected_hex": "444120434f5354410000",
+    "replacement_hex": "446120436f7374610000",
+    "purpose": "Player name case only: C.VERDE #22 DA COSTA -> Da Costa"
+  },
+  {
+    "raw_offset": 2951408,
+    "expected_hex": "552e412e452e0000",
+    "replacement_hex": "5161746172000000",
+    "purpose": "Correct Qatar name in secondary select bank; team/flag IDs unchanged"
+  }
+]
