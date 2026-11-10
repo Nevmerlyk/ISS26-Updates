@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "latest": {
-    "version": "0.8.1",
-    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.8.1/ISS26-LauncherUpdate.zip",
-    "zipSha256": "8CCA2A56F29247C5AFD1E1E574FA563C7029993E14B0B7F9FE1B6F08E3C5C617",
-    "launcherSha256": "D21495339E6D7159A7B9688968E9792979925A4EB146F94C6623DAEF1C9BEE20",
-    "updaterSha256": "0245FAA7FED315621D2236F6C0A995E3546CB33CD8596CA3341E6C3BFA000C68",
-    "notes": "ISS26 Academy v0.8.1 stable: Explorer renamed Academy with Practice, Calibrator and Progress tabs. Goals track planned, assigned, active, finished-schedule and failed runs with short descriptions. Previous session/report archives retained. Includes validated v0.7.2 recovery of missing test BIN/CUE. Completing a scripted run does not certify football competence. Game stable patch v0.9.4 unchanged."
+    "version": "0.8.3",
+    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.8.3/ISS26-LauncherUpdate.zip",
+    "zipSha256": "55A8570217328AC0D61C93A4756CAC229BA8AD8B2C068A370705F393495ACE65",
+    "launcherSha256": "1038475AA777110D47DF8494E523B7AF57399FEC52FD9A73FAF7E230F00D9143",
+    "updaterSha256": "32DB7D01113B7EC0344107DBEE10DA551E31B6C9D529BEE5310D1D4247334779",
+    "notes": "ISS26 Academy Rookie v0.8.3 stable: passive Test Game observation without manual scene-marking controls. Rookie stores natural controller input patterns and technical diagnostics. Portable knowledge within ISS26_Data/rookie; checksum-verified import of previous Calibrator memory, and ZIP archival of finished sessions with SHA256 verification of each file. Progress links to session archives, reports, and the Rookie database. Existing Goals, game-image recovery fixes, and game patch v0.9.4 remain unchanged. No verified autonomous gameplay, semantic scene recognition or decompilation yet."
   }
 }
