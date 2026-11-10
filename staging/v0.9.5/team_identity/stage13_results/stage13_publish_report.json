@@ -1,0 +1,21 @@
+{
+  "test_release": "0.9.6-teamidentity-test09",
+  "description": "Experimental Test08-to-Stage12 A/B of only 2 DATSEL large GPU source streams; independent clean-original release",
+  "baseline_patch_sha256": "E65E5623756643E2DAE7069A66FE888E14439A5A534DBF171BB03630605648B1",
+  "target_patch_sha256": "FA5E3DC3702808E8ABC197C9BB27B0707A4D44575D765918911AD846738D71B2",
+  "result_image_sha256": "6F81648EDCF02D5115FFD313DDE4DA3F5768EA4FBEAD4C1831D91EC813B70647",
+  "delta_format": "ISS26D01",
+  "delta_raw_sha256": "E6AA15A90FA6A68D4B924A05E13EF1EC37333455BAC5D18246938BD5031F63CE",
+  "delta_b64_chars": 3188,
+  "raw_diff_lbas": [
+    6089,
+    6090,
+    6256,
+    6257
+  ],
+  "changed_sector_count": 4,
+  "no_GDC_sector_changes": true,
+  "gameplay_confirmed": false,
+  "test_channel_update_requested": false,
+  "note": "Never promote to stable without PCSX Redux visual test. Bosnia large flag deliberately reverts to old style10 art."
+}
