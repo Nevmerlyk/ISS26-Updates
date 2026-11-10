@@ -18,7 +18,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           mkdir -p work
-          gh release download v0.9.6-teamidentity-test07 --repo Nevmerlyk/ISS26-Updates --pattern 'ISS26_0.9.5_TeamIdentity_Stage5_TEST06.iss26p' --dir work
+          gh release download v0.9.6-teamidentity-test06 --repo Nevmerlyk/ISS26-Updates --pattern 'ISS26_0.9.5_TeamIdentity_Stage5_TEST06.iss26p' --dir work
           echo '3a2b98ecfdaa693f8c652543f9a7122d6095ec488c757268d67970688714a636  work/ISS26_0.9.5_TeamIdentity_Stage5_TEST06.iss26p' | sha256sum -c -
       - name: Merge verified 63-sector stadium Bosnia graphics delta and assert exact SHA-256
         shell: python
