@@ -1,0 +1,206 @@
+{
+  "result": "BLOCKED_PENDING_RUNTIME_VRAM_PROOF",
+  "candidate_is_not_runtime_verified": true,
+  "changed_sector_count": 63,
+  "changed_sectors": [
+    10914,
+    10915,
+    11087,
+    11088,
+    11263,
+    11264,
+    11435,
+    11436,
+    11599,
+    11600,
+    11769,
+    11770,
+    11937,
+    11938,
+    12111,
+    12112,
+    12288,
+    12289,
+    12465,
+    12466,
+    12619,
+    12620,
+    12789,
+    12790,
+    12950,
+    13123,
+    13296,
+    13472,
+    13645,
+    13646,
+    13812,
+    13813,
+    13973,
+    13974,
+    14145,
+    14146,
+    14309,
+    14310,
+    14479,
+    14480,
+    14669,
+    14670,
+    14839,
+    14840,
+    15002,
+    15003,
+    15170,
+    15171,
+    15346,
+    15347,
+    15520,
+    15521,
+    15677,
+    15678,
+    15847,
+    15848,
+    16020,
+    16193,
+    16194,
+    16356,
+    16357,
+    16548,
+    16549
+  ],
+  "gdc_affected_count": 34,
+  "gdc_affected_sector_count": 63,
+  "gdc_affected": {
+    "GDC_AD.BIN": [
+      12619,
+      12620
+    ],
+    "GDC_AN.BIN": [
+      12789,
+      12790
+    ],
+    "GDC_BD.BIN": [
+      16356,
+      16357
+    ],
+    "GDC_BN.BIN": [
+      16548,
+      16549
+    ],
+    "GDC_CD.BIN": [
+      13296
+    ],
+    "GDC_CN.BIN": [
+      13472
+    ],
+    "GDC_DD.BIN": [
+      10914,
+      10915
+    ],
+    "GDC_DN.BIN": [
+      11087,
+      11088
+    ],
+    "GDC_FD.BIN": [
+      11263,
+      11264
+    ],
+    "GDC_FN.BIN": [
+      11435,
+      11436
+    ],
+    "GDC_GDJ.BIN": [
+      14309,
+      14310
+    ],
+    "GDC_GNJ.BIN": [
+      14479,
+      14480
+    ],
+    "GDC_HD.BIN": [
+      13645,
+      13646
+    ],
+    "GDC_HN.BIN": [
+      13812,
+      13813
+    ],
+    "GDC_ID.BIN": [
+      15346,
+      15347
+    ],
+    "GDC_IN.BIN": [
+      15520,
+      15521
+    ],
+    "GDC_JD.BIN": [
+      11599,
+      11600
+    ],
+    "GDC_JN.BIN": [
+      11769,
+      11770
+    ],
+    "GDC_MD.BIN": [
+      12288,
+      12289
+    ],
+    "GDC_MDJ.BIN": [
+      14669,
+      14670
+    ],
+    "GDC_MN.BIN": [
+      12465,
+      12466
+    ],
+    "GDC_MNJ.BIN": [
+      14839,
+      14840
+    ],
+    "GDC_OD.BIN": [
+      15677,
+      15678
+    ],
+    "GDC_ON.BIN": [
+      15847,
+      15848
+    ],
+    "GDC_PD.BIN": [
+      12950
+    ],
+    "GDC_PN.BIN": [
+      13123
+    ],
+    "GDC_RDJ.BIN": [
+      15002,
+      15003
+    ],
+    "GDC_RNJ.BIN": [
+      15170,
+      15171
+    ],
+    "GDC_SD.BIN": [
+      11937,
+      11938
+    ],
+    "GDC_SN.BIN": [
+      12111,
+      12112
+    ],
+    "GDC_TD.BIN": [
+      13973,
+      13974
+    ],
+    "GDC_TN.BIN": [
+      14145,
+      14146
+    ],
+    "GDC_VD.BIN": [
+      16020
+    ],
+    "GDC_VN.BIN": [
+      16193,
+      16194
+    ]
+  },
+  "safety_rationale": "User PCSX-Redux screenshots of Test07 show stadium/pitch texture corruption; identical VRAM atlas coordinates are not proof of identical runtime texture identity."
+}
