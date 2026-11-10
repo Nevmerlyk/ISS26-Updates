@@ -1,0 +1,11 @@
+{
+  "same_pixel_data": false,
+  "matching_bytes": 0,
+  "total_bytes": 896,
+  "actual_sha256": "2995915D8FC95544234CD1E10C3D6590A1B6B782134371CAD2687FAF944F8D23",
+  "expected_sha256": "C5808CEE6C44D2F799654FEB6EA1F4E04CB47F8628E090B4613D1D047EC75556",
+  "nonzero_current_bytes": 232,
+  "note": "VRAM comparison measures atlas tile bytes, not which CLUT or sprite the UI actually draws",
+  "input_vram": "/mnt/data/20261110_125152_1664ba.zip",
+  "member": "20261110_125152_1664ba/vram_probe_7200_7201.vram"
+}
