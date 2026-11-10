@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "channel": "test",
   "latest": {
-    "version": "0.9.6-flag-palette-test01",
-    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.6-flag-palette-test01/ISS26_0.9.5_FlagPalette_Test01.iss26p",
-    "patchSha256": "3BB97C81E3825371BBB0FE1C7E3CAA71038EA7098B4F6C68C382257819E01981",
+    "version": "0.9.5-flags-test1",
+    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.5-flags-test1/ISS26_0.9.5_FLAGS_TEST1.iss26p",
+    "patchSha256": "3B667CF6031BC2BFAA143D0D21ACF6D623447C222096805D529739235E2216A4",
     "baseSha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
-    "resultSha256": "56FCDEEF68296ABC570B091EB7636200B492152BE31F52611C5DC0097623657F"
+    "resultSha256": "5181FC06960A89359EAE62462DB97F1E2FFF709A622BAF85E9D4FE6E97038A7A"
   },
-  "notes": "Flag Palette Test 01: clean-original standalone 1-sector CLUT palette diagnostic in DAT2D.BIN. Small flag slots 5/8/10 recolored magenta/green/cyan; index 0 transparency preserved. This DOES NOT fix Bosnia and does not include stable v0.9.4 changes. Launch via Test Game only; Play Game stable v0.9.4 unchanged."
+  "notes": "Experimental v0.9.5 FLAGS TEST1. Bosnia large flag replaced only in DATSEL/DATSEL3; CLUT transparency repaired. Other 16 replacements, stadium GDC reuploads and match scoreboard small flags are NOT fixed. Use Launcher Test Game; Play Game remains v0.9.4. Do not promote test to stable."
 }
