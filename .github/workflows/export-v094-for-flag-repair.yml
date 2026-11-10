@@ -1,0 +1,27 @@
+name: Export official v0.9.4 for verified ISS26 flag repair
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/export-v094-for-flag-repair.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Retrieve published standalone base patch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p dist
+          gh release download v0.9.4-preview --repo Nevmerlyk/ISS26-Updates --pattern 'ISS26_0.9.4_preview.iss26p' --dir dist
+          echo '70e46566a7f2c3a7e5f1e930210a132d452ef0b752d18e92f4b5475de2cb45fe  dist/ISS26_0.9.4_preview.iss26p' | sha256sum -c -
+      - name: Upload verified base patch as temporary artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ISS26-v094-patch-for-small-flags-repair
+          path: dist/ISS26_0.9.4_preview.iss26p
+          retention-days: 1
