@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "channel": "test",
   "latest": {
-    "version": "0.9.5-flags-test1",
-    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.5-flags-test1/ISS26_0.9.5_FLAGS_TEST1.iss26p",
-    "patchSha256": "3B667CF6031BC2BFAA143D0D21ACF6D623447C222096805D529739235E2216A4",
+    "version": "0.9.6-selectflags-test01",
+    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.6-selectflags-test01/ISS26_0.9.5_SmallFlags_TEST01.iss26p",
+    "patchSha256": "101D0ECC1D302525C7849AAE0B72F62143CD66BF71ACF38B0B386E2793A6D8DD",
     "baseSha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
-    "resultSha256": "5181FC06960A89359EAE62462DB97F1E2FFF709A622BAF85E9D4FE6E97038A7A"
+    "resultSha256": "F87EE795CCEC409DF05AF097A1A0ED628ECB826C0478DC083C0F8FDB89EF51DD"
   },
-  "notes": "Experimental v0.9.5 FLAGS TEST1. Bosnia large flag replaced only in DATSEL/DATSEL3; CLUT transparency repaired. Other 16 replacements, stadium GDC reuploads and match scoreboard small flags are NOT fixed. Use Launcher Test Game; Play Game remains v0.9.4. Do not promote test to stable."
+  "notes": "ISS26 v0.9.5 small national flag selection artwork Test 01. Independently applicable clean-original patch: complete stable v0.9.4 baseline plus 16 new 24x16 national flag drawings (Bosnia, Qatar, Uzbekistan, Panama, Ecuador, Canada, New Zealand, Iraq, Jordan, Curacao, Haiti, DR Congo, Ghana, Cote d'Ivoire, Algeria, Cabo Verde), restored CLUT transparency for all 54 flag slots, preserved the other 38 pixel maps, repaired DATSEL/DATSEL3 upload pointers, verified full patched Track01 and sector hashes. Senegal retains existing shared texture. Requires visual emulator verification before promotion. Test Game ONLY; stable Play Game remains v0.9.4."
 }
