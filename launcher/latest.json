@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "latest": {
-    "version": "0.8.4",
-    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.8.4/ISS26-LauncherUpdate.zip",
-    "zipSha256": "092AA863C282399007F4E82D9D54AA9690DF4375224D1B884AEFF766DA9E763B",
-    "launcherSha256": "0C7CE3B9BCE7C1ABA09A019DBB7BF2E4A851A3DE06C5FD8784B4945C7F78EE1F",
-    "updaterSha256": "9543BFF39B3ECF86F24FB936831B2536F6B1C9F0642C1EB7BB72542C753D1E97",
-    "notes": "ISS26 Academy Rookie v0.8.4 stable: passive Test Game monitoring, secure opt-in private GitHub Issues reports with aggregate allowlisted diagnostics, local retry queue, encrypted Windows DPAPI GitHub token and private-repository check before upload. Report connection is in Academy Progress, not interactive Rookie. Existing portable Rookie memory, verified session archiving, Goals, fixes for test BIN/CUE recovery and stable game patch v0.9.4 remain unchanged. No automatic source changes, self-reprogramming or unverified game-playing abilities."
+    "version": "0.8.5",
+    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.8.5/ISS26-LauncherUpdate.zip",
+    "zipSha256": "928C8A6EA81F927BDA01F1B7E876534F4143FF3CC8674F6D81070AD41B3166DD",
+    "launcherSha256": "21430342321B294B3037DA54F9C07D75BB7951B8336E399EC4FC388BD65AF3F8",
+    "updaterSha256": "9CED2559272E4404C4219841C54F52F8375D749B133F45CCCF3EA190B58FC62C",
+    "notes": "ISS26 Academy Rookie v0.8.5 stable: a short read-only Russian journal of new visual discoveries and independently repeated transitions, natural Test Game button-to-stable-screen correlation, grouped rapid input bursts, black-screen and interrupted evidence safeguards. Fixes 256-rule Calibrator learning saturation by safely expanding to 1024. Existing portable knowledge, session ZIP archiving, private opt-in GitHub reports, test BIN/CUE recovery and game patch v0.9.4 preserved. Visual change is not verified menu identity or successful autonomous gameplay."
   }
 }
