@@ -1,0 +1,37 @@
+{
+  "status": "STATIC VERIFIED LOCAL CANDIDATE ONLY — VISUAL VALIDATION NEEDED",
+  "source": "2026 FIFA World Cup 26-player squad lists, as transcribed in feuyeux/fifa-world-cup-2026",
+  "source_metadata": "https://github.com/Nevmerlyk/ISS26-Updates/blob/development/team-identity-v095/staging/v0.9.5/team_identity/stage3_sources/rosters_15_fifa2026_selected.json",
+  "not_fifa_approved_22_rosters": true,
+  "teams": 15,
+  "players": 330,
+  "names_replaced": 330,
+  "field_write_segments": 333,
+  "non_target_rosters_preserved": 39,
+  "existing_case_fixes_preserved": 44,
+  "existing_small_flags_and_stable_v094_preserved": true,
+  "game_position_attributes_unchanged": true,
+  "candidate_patch": {
+    "baseline_patch": "/mnt/data/iss26_team_identity/stage2_results/ISS26_TeamIdentity_CaseFix_Stage2_CANDIDATE.iss26p",
+    "baseline_records": 1412,
+    "merged_records": 1412,
+    "edited_sectors": [
+      167,
+      168,
+      169,
+      170,
+      171,
+      172
+    ],
+    "edits": 333,
+    "original_sha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
+    "result_sha256": "D6DE5934896229BCFA4A88CDEEE114E2B630947DED68FD51C1EB90EBAB4DDD32",
+    "patch_sha256": "E8EE2D51CA513C7A61EB8A8D8C30565CA8E9007D4B7337B57C550EA3D4C4B03D",
+    "status": "verified format, full original sector preconditions and CD EDC/ECC; gameplay not tested"
+  },
+  "warnings": [
+    "22 selected per squad from official 26 via positional/caps-based selection; the 22-person selection is editorial, not an official FIFA list",
+    "Only names were changed, not attributes/positions/caps/club data; playable tactics need separate validation",
+    "No Test Game or Play Game feed was altered."
+  ]
+}
