@@ -1,0 +1,64 @@
+{
+  "stage": 5,
+  "status": "STATIC-VALIDATED CANDIDATE; requires emulator screen/stadium verification",
+  "patch": {
+    "baseline_patch": "stage3_results/ISS26_0.9.5_2026_15Squads_Stage3_CANDIDATE.iss26p",
+    "baseline_records": 1412,
+    "merged_records": 1412,
+    "edited_sectors": [
+      852,
+      955,
+      6089,
+      6090,
+      6256,
+      6257
+    ],
+    "edits": 6,
+    "original_sha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
+    "result_sha256": "A3B94E6837D9E4FFC75B8F0440E39BF26CE806B57668ACB49839488E5928FAB2",
+    "patch_sha256": "3A2B98ECFDAA693F8C652543F9A7122D6095EC488C757268D67970688714A636",
+    "status": "verified format, full original sector preconditions and CD EDC/ECC; gameplay not tested"
+  },
+  "style": {
+    "team_slot": 23,
+    "old": 7,
+    "new": 10,
+    "table_edits": 2
+  },
+  "graphics": [
+    {
+      "source": "DATSEL",
+      "lba": 6000,
+      "logical_offset": 182728,
+      "encoded_bytes_before": 1910,
+      "encoded_bytes_after": 1704,
+      "available_slack": 206,
+      "changed_pixels_in_64x28": 1792,
+      "raw_decoded_sha256_before": "893BC51EFD0052FAB64319B22661F57EC9F202F74C6C6C4301B43D27E83EFFDD",
+      "raw_decoded_sha256_after": "61BB56BADEBDF6ADC9BEA4C95276FDCB9785F595A417209F116DCCFFF4450220"
+    },
+    {
+      "source": "DATSEL3",
+      "lba": 6250,
+      "logical_offset": 13040,
+      "encoded_bytes_before": 1910,
+      "encoded_bytes_after": 1704,
+      "available_slack": 206,
+      "changed_pixels_in_64x28": 1792,
+      "raw_decoded_sha256_before": "893BC51EFD0052FAB64319B22661F57EC9F202F74C6C6C4301B43D27E83EFFDD",
+      "raw_decoded_sha256_after": "61BB56BADEBDF6ADC9BEA4C95276FDCB9785F595A417209F116DCCFFF4450220"
+    }
+  ],
+  "original_small_24x16_flags_preserved": true,
+  "existing_330_new_player_names_preserved": true,
+  "bosnia_texture_source": "Stage4 prepared original pixel-art, NOT extracted verbatim from Master League",
+  "scoreboard_24x8_source_replaced": false,
+  "stadium_GDC_uploads_replaced": false,
+  "public_feed_modified": false,
+  "warnings": [
+    "Only DATSEL and DATSEL3 style10 large textures and two select table IDs patched.",
+    "GDC stadium variants and scoreboard remain unresolved; may overwrite the new flag during runtime.",
+    "The stored 2026 22-person names are not yet matched to verified native PS1 roles and stats.",
+    "Do not promote to Play Game or Test Game until runtime proof is obtained."
+  ]
+}
