@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "channel": "test",
   "latest": {
-    "version": "0.9.6-selectflags-test04",
-    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.6-selectflags-test04/ISS26_0.9.5_SmallFlags_TEST04.iss26p",
-    "patchSha256": "7C4A1FFD10BF46C32043695EE9B1C43DC979ADAA11864E0D1E2887A4F4B2BB8F",
+    "version": "0.9.6-selectflags-test05",
+    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.6-selectflags-test05/ISS26_0.9.5_SmallFlags_TEST05.iss26p",
+    "patchSha256": "2F07692027F4F4CE173A26CA3B169F5335CF6D25378EACBD9B5693A77E561690",
     "baseSha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
-    "resultSha256": "8E73B0065ABFFEAF93AF5C25923363FB80819CC54F279C8FC892C3E5793C4706"
+    "resultSha256": "EC296541B42836303A7BA936F9E25DD69B89418DA744B0751F9A488548330560"
   },
-  "notes": "Small selection flags Test 04: 16 revised flags extended exactly +1 opaque scanline UP and +1 opaque scanline DOWN (20x14 -> 20x16 active content inside unchanged 24x16 tile); no horizontal change, unchanged 14 interior rows, other 38 untouched. New Zealand retains the actual Australian-sprite-derived artwork from Test 03. Bosnia's invisible/black slot is NOT resolved in this test; Master League flag source remains to be integrated separately. Large pre-match/in-match flags intentionally untouched. Independent v0.9.4-preserving clean-original base patch, EDC/ECC and full ISO SHA verified. Test Game only; Play Game remains stable v0.9.4."
+  "notes": "Selection Small Flags Test 05: experimental Bosnia and Canada microfix on complete v0.9.4-preserving independent PS1 patch. Bosnia (former Russia) selection-table style 55 -> legacy 7 corrected in SELECT.BIN's two verified tables to attempt rendering its existing 24x16 Bosnia artwork; emulator visual confirmation needed. Canada 24x16 maple-leaf pixels refined after user screenshot of Canada in Master League Player Acquisition; reference-based reconstruction, NOT exact native sprite extraction. All 52 other selection flag images unchanged vs Test 04. Game large-flag artwork resources untouched. Test Game only, stable Play Game stays 0.9.4. No claim Bosnia fixed before in-emulator verification."
 }
