@@ -77,6 +77,19 @@ def recalc_form1(data: bytearray) -> None:
     data[2076:2248] = p
     data[2248:2352] = ecc(source + p, 52, 43, 86, 88)
 
+def recalc_form2(data: bytearray) -> None:
+    if len(data) != SECTOR or data[15] != 2 or not (data[18] & 0x20):
+        raise ValueError("CD sector is not Mode2 Form2")
+    if data[16:20] != data[20:24]:
+        raise ValueError("Mode2 duplicated subheader mismatch")
+    data[2348:2352] = edc(data[16:2348])
+
+def recalc_cd(data: bytearray) -> None:
+    if data[18] & 0x20:
+        recalc_form2(data)
+    else:
+        recalc_form1(data)
+
 def verify_form1(data: bytes) -> bool:
     try:
         rebuilt = bytearray(data)
@@ -163,36 +176,82 @@ class Disc:
         return xor_bytes(original, self.base[lba].delta) if lba in self.base else original
     def read_user(self, lba: int) -> bytes:
         sector = self.patched_sector(lba)
-        if sector[15] != 2 or sector[18] & 0x20 or sector[16:20] != sector[20:24]:
-            raise ValueError(f"not an ISO Form1 user sector at {lba}")
-        return sector[DATA_OFFSET:DATA_OFFSET + USER]
+        if sector[15] != 2 or sector[16:20] != sector[20:24]:
+            raise ValueError(f"invalid Mode2 sector header at {lba}")
+        size = 2324 if sector[18] & 0x20 else USER
+        return sector[DATA_OFFSET:DATA_OFFSET + size]
     def read_file(self, lba: int, length: int) -> bytes:
         if length < 0: raise ValueError("negative file length")
         data = bytearray()
-        for n in range((length + USER - 1)//USER):
-            data.extend(self.read_user(lba+n))
+        page = 0
+        while len(data) < length:
+            data.extend(self.read_user(lba+page))
+            page += 1
+            if page > (length // USER) + 2:
+                raise ValueError("ISO extent payload exceeds expected size")
         return bytes(data[:length])
     def write_file(self, lba: int, old: bytes, new: bytes, label: str):
         if len(old) != len(new):
             raise ValueError("Edited ISO file must keep its existing length")
         changed = 0
-        for page in range((len(old) + USER - 1)//USER):
-            start = page*USER
-            a, b = old[start:start+USER], new[start:start+USER]
-            if a == b: continue
+        start = 0
+        page = 0
+        while start < len(old):
             sector_id = lba + page
-            if self.read_user(sector_id)[:len(a)] != a:
+            payload=self.read_user(sector_id)
+            n=min(len(payload),len(old)-start)
+            a,b=old[start:start+n],new[start:start+n]
+            if payload[:n] != a:
                 raise ValueError("Resource changed since verified edit was staged")
-            sector = self.edited.setdefault(sector_id, bytearray(self.patched_sector(sector_id)))
-            for j,(x,y) in enumerate(zip(a,b)):
-                if x != y:
-                    sector[DATA_OFFSET+j] = y
-                    changed += 1
-            recalc_form1(sector)
-            if not verify_form1(sector):
-                raise AssertionError("Form1 EDC/ECC check failed")
+            if a != b:
+                sector = self.edited.setdefault(sector_id, bytearray(self.patched_sector(sector_id)))
+                for j,(x,y) in enumerate(zip(a,b)):
+                    if x != y:
+                        sector[DATA_OFFSET+j] = y
+                        changed += 1
+                recalc_cd(sector)
+            start += n
+            page += 1
         self.changed_ranges.append({"label":label,"lba":lba,
                                     "changed_bytes":changed})
+    def write_form1_sequence(self, start_physical: int,
+                             replacement: bytes, label: str) -> None:
+        """Write logical bytes across multiple Form1 CD sectors, skipping EDC/ECC."""
+        if not replacement: raise ValueError("empty Form1 edit")
+        lba, offset = divmod(start_physical, SECTOR)
+        if not 24 <= offset < 2072: raise ValueError("invalid Form1 start")
+        touched = set()
+        for value in replacement:
+            if offset == 2072:
+                lba += 1
+                offset = DATA_OFFSET
+            sector = self.edited.setdefault(lba, bytearray(self.patched_sector(lba)))
+            if sector[15] != 2 or (sector[18] & 0x20):
+                raise ValueError("flag CLUT spans non-Form1 sector")
+            sector[offset] = value
+            touched.add(lba)
+            offset += 1
+        for sector in sorted(touched):
+            recalc_form1(self.edited[sector])
+        self.changed_ranges.append({"label":label,"lba":sorted(touched),
+                                    "changed_bytes":len(replacement)})
+
+    def read_form1_sequence(self, start_physical: int, count: int) -> bytes:
+        if count < 0:raise ValueError("negative count")
+        lba,offset = divmod(start_physical, SECTOR)
+        if not 24 <= offset < 2072:raise ValueError("invalid start")
+        output=bytearray()
+        for _ in range(count):
+            if offset == 2072:
+                lba += 1
+                offset = DATA_OFFSET
+            sec=self.patched_sector(lba)
+            if sec[15]!=2 or (sec[18]&0x20):
+                raise ValueError("CLUT spans non-Form1 sector")
+            output.append(sec[offset])
+            offset+=1
+        return bytes(output)
+
     def write_raw(self, position: int, replacement: bytes, label: str):
         """Write only user data bytes (style/CLUT), never CD headers or audio."""
         if not replacement: raise ValueError("empty raw edit")
@@ -204,7 +263,7 @@ class Disc:
             sec=self.edited.setdefault(lba,bytearray(self.patched_sector(lba)))
             sec[at]=b
         for lba in sorted({(position+i)//SECTOR for i in range(len(replacement))}):
-            recalc_form1(self.edited[lba])
+            recalc_cd(self.edited[lba])
         self.changed_ranges.append({"label":label,"raw_offset":position,
                                     "changed_bytes":len(replacement)})
     def read_physical(self, position: int, count: int) -> bytes:
