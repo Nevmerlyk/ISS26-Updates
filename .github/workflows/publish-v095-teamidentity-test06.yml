@@ -1,0 +1,72 @@
+name: Publish ISS26 Team Identity Bosnia Stage5 Test Game patch 06
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publish-v095-teamidentity-test06.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  release_test_patch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch verified standalone v0.9.4 baseline
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p work
+          gh release download v0.9.4-preview --repo Nevmerlyk/ISS26-Updates --pattern 'ISS26_0.9.4_preview.iss26p' --dir work
+          echo '70e46566a7f2c3a7e5f1e930210a132d452ef0b752d18e92f4b5475de2cb45fe  work/ISS26_0.9.4_preview.iss26p' | sha256sum -c -
+      - name: Merge verified 31-sector Stage5 Bosnia and national roster delta and assert exact SHA-256
+        shell: python
+        run: |
+          from pathlib import Path
+          import base64, zlib, struct, hashlib
+          src = Path('work/ISS26_0.9.4_preview.iss26p').read_bytes()
+          base = bytearray(src)
+          assert base[:8] == b'ISS26X01' and len(base) == 3371868
+          n, = struct.unpack_from('<I', base, 8)
+          assert n == 1412
+          records = {}
+          for i in range(n):
+              at = 12 + i * 2388
+              lba, = struct.unpack_from('<I', base, at)
+              assert lba not in records
+              records[lba] = at + 36
+          encoded = Path('staging/v0.9.5/test06_v094_to_stage5_delta.zlib.b64').read_text()
+          delta = zlib.decompress(base64.b64decode(encoded))
+          assert hashlib.sha256(delta).hexdigest().upper() == 'A5DC09DBD3A4E4C1C0B1E02FA9BB0ADFA7F2F3022EC1827533C6264AD72E6264'
+          assert delta[:8] == b'ISS26D01'
+          count, = struct.unpack_from('<I', delta, 8)
+          assert count == 31 and len(delta) == 12 + count * 2356
+          changed = []
+          for i in range(count):
+              at = 12 + i * 2356
+              lba, = struct.unpack_from('<I', delta, at)
+              assert lba in records and lba not in changed
+              changed.append(lba)
+              ptr = records[lba]
+              for j in range(2352):
+                  base[ptr + j] ^= delta[at + 4 + j]
+          assert changed == [167,168,169,170,171,172,852,955,1254,5328,5329,6082,6083,6084,6085,6086,6087,6088,6089,6090,6103,6250,6251,6252,6253,6254,6255,6256,6257,6277,6279]
+          digest = hashlib.sha256(base).hexdigest().upper()
+          expected = '3A2B98ECFDAA693F8C652543F9A7122D6095EC488C757268D67970688714A636'
+          assert digest == expected, (digest, expected)
+          dest = Path('work/ISS26_0.9.5_TeamIdentity_Stage5_TEST06.iss26p')
+          dest.write_bytes(base)
+          print('Verified patch', dest, len(base), digest)
+      - name: Publish pre-release asset for launcher Test Game
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tag='v0.9.6-teamidentity-test06'
+          file='work/ISS26_0.9.5_TeamIdentity_Stage5_TEST06.iss26p'
+          if gh release view "$tag" --repo Nevmerlyk/ISS26-Updates >/dev/null 2>&1; then
+            gh release upload "$tag" "$file" --repo Nevmerlyk/ISS26-Updates --clobber
+          else
+            gh release create "$tag" "$file" --repo Nevmerlyk/ISS26-Updates --title 'ISS26 Team Identity Stage5 Bosnia and 2026 squads experimental Test 06' --notes 'EXPERIMENTAL Test Game only. Full clean-original standalone PS1 update preserving stable v0.9.4 and all 16 small selection flags from Test 05, including Canada. Stage2 mixed-case fixes for 44 Ukraine/Cabo Verde player names and Qatar SELECT3 text; Stage3 330 names across 15 2026 squads. Bosnia team slot 23 moves shared graphic style 7 to dedicated unused original style 10 in two verified selection tables; original 64x28 Bosnia drawing injected into DATSEL and DATSEL3 GPU upload streams, with compressed size 1910 to 1704 bytes and unaffected non-Bosnia texels. 31 LBA sectors differ from original v0.9.4 patch; original SHA guards, decoded graphics, Mode2 EDC/ECC and complete ISO SHA statically verified. LIMITATIONS: No emulator gameplay verification yet; 34 stadium GDC big-flag overwrite paths and separate 24x8 scoreboard flag source remain unresolved, Bosnia prematch flag may still be wrong. Player attributes and positional role mapping not updated, 9 template differences require review. Do not promote to stable Play Game.' --prerelease
+          fi
+          gh release view "$tag" --repo Nevmerlyk/ISS26-Updates --json assets --jq '.assets[] | [.name, .size] | @tsv'
