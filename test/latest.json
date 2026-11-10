@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "channel": "test",
   "latest": {
-    "version": "0.9.6-selectflags-test02",
-    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.6-selectflags-test02/ISS26_0.9.5_SmallFlags_TEST02.iss26p",
-    "patchSha256": "0FFE0A69F62954A85B87044A3FC5561127FA27271F13E6AEC226C2B5A4B0C003",
+    "version": "0.9.6-selectflags-test03",
+    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.6-selectflags-test03/ISS26_0.9.5_SmallFlags_TEST03.iss26p",
+    "patchSha256": "91FDEAF8633115B5942231726E8A7A567D2213DAAEC75999EAF5B66ACC16552B",
     "baseSha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
-    "resultSha256": "3B71C3F2AB86F10CF4F37EAC288A5A8BDDA7A59E27D260397C4E0FB0C867DF15"
+    "resultSha256": "2D623DFDEFEEA2B45D65640E898D9DD8EB6DC460ECBF98534600423BBBF0E052"
   },
-  "notes": "Small Flags Test 02: standalone complete v0.9.4-preserving patch for clean European Track 01. 16 replaced selection flag artworks now with narrower active drawing area (20x14 inset into original 24x16 slot); New Zealand was rebuilt using Australian-style blue ensign Union Jack and four red stars with white borders. Other 38 flag pixel maps retained. DATSEL and DATSEL3 streams and CLUTs verified statically. Awaiting emulator visual review. Test Game ONLY; stable Play Game remains 0.9.4."
+  "notes": "Selection Small Flags Test 03: based on original v0.9.4 independent patch. 16 small 24x16 selection sprites changed: artwork moved 2 source pixels LEFT within the same UV rectangles to match existing flag alignment; 20x14 visible artwork retained. New Zealand (former Greece slot) reconstructed from the REAL untouched Australian original in-game small flag, with Australian stars replaced by FOUR WHITE-OUTLINED RED stars. 38 other small sprite pixel maps preserved. DATSEL + DATSEL3 rewritten safely, valid EDC/ECC, full original-guarded standalone disc SHA verified. Large pre-match and in-match flags intentionally NOT fixed. Test Game only; stable Play Game v0.9.4 unchanged."
 }
