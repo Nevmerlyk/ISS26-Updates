@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "channel": "test",
   "latest": {
-    "version": "0.9.6-selectflags-test01",
-    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.6-selectflags-test01/ISS26_0.9.5_SmallFlags_TEST01.iss26p",
-    "patchSha256": "101D0ECC1D302525C7849AAE0B72F62143CD66BF71ACF38B0B386E2793A6D8DD",
+    "version": "0.9.6-selectflags-test02",
+    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.6-selectflags-test02/ISS26_0.9.5_SmallFlags_TEST02.iss26p",
+    "patchSha256": "0FFE0A69F62954A85B87044A3FC5561127FA27271F13E6AEC226C2B5A4B0C003",
     "baseSha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
-    "resultSha256": "F87EE795CCEC409DF05AF097A1A0ED628ECB826C0478DC083C0F8FDB89EF51DD"
+    "resultSha256": "3B71C3F2AB86F10CF4F37EAC288A5A8BDDA7A59E27D260397C4E0FB0C867DF15"
   },
-  "notes": "ISS26 v0.9.5 small national flag selection artwork Test 01. Independently applicable clean-original patch: complete stable v0.9.4 baseline plus 16 new 24x16 national flag drawings (Bosnia, Qatar, Uzbekistan, Panama, Ecuador, Canada, New Zealand, Iraq, Jordan, Curacao, Haiti, DR Congo, Ghana, Cote d'Ivoire, Algeria, Cabo Verde), restored CLUT transparency for all 54 flag slots, preserved the other 38 pixel maps, repaired DATSEL/DATSEL3 upload pointers, verified full patched Track01 and sector hashes. Senegal retains existing shared texture. Requires visual emulator verification before promotion. Test Game ONLY; stable Play Game remains v0.9.4."
+  "notes": "Small Flags Test 02: standalone complete v0.9.4-preserving patch for clean European Track 01. 16 replaced selection flag artworks now with narrower active drawing area (20x14 inset into original 24x16 slot); New Zealand was rebuilt using Australian-style blue ensign Union Jack and four red stars with white borders. Other 38 flag pixel maps retained. DATSEL and DATSEL3 streams and CLUTs verified statically. Awaiting emulator visual review. Test Game ONLY; stable Play Game remains 0.9.4."
 }
