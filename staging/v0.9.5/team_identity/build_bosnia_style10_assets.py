@@ -10,7 +10,7 @@ from pathlib import Path
 from PIL import Image,ImageDraw
 ROOT=Path(__file__).resolve().parent
 OUTPUT=ROOT/'stage4_results'/'bosnia_style10_art'
-SOURCE=ROOT.parent/'iss26_small_fix_work'/'flags_24x16_v5.json'
+SOURCE=ROOT/'bosnia_24x16_v5_source.json'
 RGB={0:(0,0,0,0),1:(245,246,248,255),2:(25,26,29,255),3:(220,25,48,255),4:(0,62,160,255),5:(0,135,65,255),6:(255,218,41,255),7:(244,124,32,255),8:(137,21,53,255),9:(76,183,225,255),10:(5,35,100,255)}
 
 def pack4(pixels):
