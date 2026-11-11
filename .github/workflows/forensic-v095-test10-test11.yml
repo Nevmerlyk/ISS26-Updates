@@ -4,6 +4,7 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/forensic-v095-test10-test11.yml'
+      - 'tools/audit_v095_test10_test11_release_sectors.py'
   workflow_dispatch:
 permissions:
   contents: write
