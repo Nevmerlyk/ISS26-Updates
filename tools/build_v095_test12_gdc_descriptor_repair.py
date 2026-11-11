@@ -62,7 +62,9 @@ def build(source: Path, output: Path, report: Path) -> dict:
         before = bytes(mask)
         base = (lba-first_lba)*2048
         changed = 0
-        for offset in range(start,end):
+        # The descriptor table may begin in a preceding *unchanged*
+        # sector. Restore only its overlap with this modified sector.
+        for offset in range(max(start,base),min(end,base+2048)):
             idx = 24 + offset - base
             if not (24 <= idx < 2072):
                 raise ValueError(f"Descriptor crosses expected patch sector: {resource}")
