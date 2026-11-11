@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "latest": {
-    "version": "0.9.2",
-    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.9.2/ISS26-LauncherUpdate.zip",
-    "zipSha256": "A29F684FF4255F4A3D7B2D7A9A1693F29D4176008914173CF8C1B3E0A53C2074",
-    "launcherSha256": "7DAF4CFE859DA244A49CA424E70E6CDEB43505F5E416AD3D856AFFA7C2D0F7A8",
-    "updaterSha256": "A159B89C83ACB1EEBED480254F47730E702BC31118202E9785F6F7B55EB87AB0",
-    "notes": "Academy v0.9.2 English UI & Rookie Game: nine-stage title-to-kickoff plan and safe candidate screen/VRAM evidence after human transitions; five graphics investigation Goals including Test11 GDC A/B. No autonomous exam success is claimed. Stable game patch and saves unchanged."
+    "version": "0.9.3",
+    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.9.3/ISS26-LauncherUpdate.zip",
+    "zipSha256": "F566802FBE201ADEB32DA1AC0CAF22538BFA6F0BDD03F505D7E5F2A7E83040EA",
+    "launcherSha256": "2D2BDF150B73A7A8ED07CCFDB08BD1014B86985EFC07B25CEB6B7BD0D33C9028",
+    "updaterSha256": "2063B281EEA4E5D0401E0BF5F1EDBD83FCACC9C3FBC07AEDC3682F42FAE39105",
+    "notes": "Academy v0.9.3 Active Rookie Menu Controller: nine-stage title-to-kickoff plan and safe candidate screen/VRAM evidence after human transitions; five graphics investigation Goals including Test11 GDC A/B. No autonomous exam success is claimed. Stable game patch and saves unchanged."
   }
 }
