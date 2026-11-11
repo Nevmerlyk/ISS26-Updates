@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "latest": {
-    "version": "0.8.9",
-    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.8.9/ISS26-LauncherUpdate.zip",
-    "zipSha256": "76D0B89EBBB64FD62BF9A26C942EC7E56D06B9107CD13062736073432E293EA2",
-    "launcherSha256": "3549D6FA9131776EC6E125278E20E82E5B5352626595499F55D2640CB009C75F",
-    "updaterSha256": "1A9D5DCD5D615079DAC809997EEF1CAAB28F57FC413F57A262243F90B5CFCE07",
-    "notes": "Academy v0.8.9 Screenshot Recovery: corrected BPP enum, screenshot size and transient read handling; passive candidate GPU/VRAM capture at prematch, carried banner, crowd flags and HUD. Requires live scene verification. Stable game patch and saves unchanged."
+    "version": "0.9.0",
+    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.9.0/ISS26-LauncherUpdate.zip",
+    "zipSha256": "DE6E542A37F70BA95B01FFCDA0EF24597F5BC7D3A15CAE11A619AD89060B2CDB",
+    "launcherSha256": "9955266073A4A8BEEE9828644B5699B4C2B46CFC002A0EB22B0A9DE303D52111",
+    "updaterSha256": "9C9497D82C5394B33A144991624E9933698CE2F4A342997A33816C6C1377DFE3",
+    "notes": "Academy v0.9.0 Scene Candidates: accepts 1/2 MiB VRAM, rejects known menu overlays, retains bounded candidate GPU/VRAM captures without falsely confirming scene ownership at prematch, carried banner, crowd flags and HUD. Requires live scene verification. Stable game patch and saves unchanged."
   }
 }
