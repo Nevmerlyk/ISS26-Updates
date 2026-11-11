@@ -1,0 +1,84 @@
+name: Publish experimental Test11 GDC-only A/B rollback
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/build_v095_teamidentity_test11_gdc_ab.py'
+      - '.github/workflows/publish-v095-teamidentity-test11.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: iss26-teamidentity-test11-gdc-ab
+  cancel-in-progress: false
+
+jobs:
+  release_test_patch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Download pinned official Test10 full standalone patch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/iss26-test11
+          gh release download v0.9.6-teamidentity-test10 --repo Nevmerlyk/ISS26-Updates \
+            --pattern 'ISS26_0.9.5_TeamIdentity_PrematchNames_TEST10.iss26p' --dir /tmp/iss26-test11
+          echo '9832fa77f1df60a56683f9bea2ab631580056039a864a7e830ef8be61138926b  /tmp/iss26-test11/ISS26_0.9.5_TeamIdentity_PrematchNames_TEST10.iss26p' | sha256sum -c -
+      - name: Build and verify clean-original independent sector rollback
+        shell: bash
+        run: |
+          set -euo pipefail
+          python tools/build_v095_teamidentity_test11_gdc_ab.py \
+            --test10 /tmp/iss26-test11/ISS26_0.9.5_TeamIdentity_PrematchNames_TEST10.iss26p \
+            --output /tmp/iss26-test11/ISS26_0.9.5_TeamIdentity_GDC_AB_TEST11.iss26p \
+            --report /tmp/iss26-test11/diagnostic-report.json
+      - name: Publish TEST GAME diagnostic prerelease, never stable
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          tag=v0.9.6-teamidentity-test11
+          file=/tmp/iss26-test11/ISS26_0.9.5_TeamIdentity_GDC_AB_TEST11.iss26p
+          if gh release view "$tag" --repo Nevmerlyk/ISS26-Updates >/dev/null 2>&1; then
+            echo 'Test11 tag already exists; refuse overwrite to preserve reproducibility.'
+            exit 1
+          fi
+          gh release create "$tag" "$file" --repo Nevmerlyk/ISS26-Updates --target main \
+            --title "ISS26 Test11 — GDC original-sector A/B isolation" --prerelease \
+            --notes "EXPERIMENTAL TEST GAME ONLY. Based on fully verified independent Test10. Reverts ONLY 63 original-sector XOR edits associated with the 34 GDC stadium flags to the unmodified EU PS1 disc sectors; retains ALL 84 Test10 prematch-name records, all 2026 player updates and the Bosnia/Canada small selection flags exactly unchanged. This is NOT a flag artwork fix: original/legacy large flag graphics may reappear intentionally. Purpose is to diagnose whether corrupted giant Bosnia oval and Cabo stripe flags during stadium entry arise from stadium GDC modifications. Restore clean original disc at patch application; no previous patch required. Stable Play Game stays 0.9.4. Compare same Bosnia vs Cabo matchup at Key Square Stadium, using fresh boots in Test10 and Test11; capture prematch, field entry and small HUD icons."
+      - name: Verify public anonymous Test11 patch SHA256
+        shell: python
+        run: |
+          import hashlib,json,pathlib,time,urllib.request
+          report=json.loads(pathlib.Path('/tmp/iss26-test11/diagnostic-report.json').read_text())
+          link='https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.6-teamidentity-test11/ISS26_0.9.5_TeamIdentity_GDC_AB_TEST11.iss26p'
+          for attempt in range(9):
+              try:
+                  with urllib.request.urlopen(urllib.request.Request(link,headers={'User-Agent':'ISS26-Test11-Verifier'}), timeout=60) as response:
+                      data=response.read(4*1024*1024+1)
+                  assert len(data)<4*1024*1024
+                  assert hashlib.sha256(data).hexdigest().upper()==report['result_test11_sha256']
+                  print('PASS: public Test11 SHA-256',report['result_test11_sha256'])
+                  break
+              except Exception:
+                  if attempt==8:raise
+                  time.sleep(6)
+      - name: Save small test report only (no game bytes)
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp /tmp/iss26-test11/diagnostic-report.json diagnostics/teamidentity-test11-gdc-ab-report.json
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add diagnostics/teamidentity-test11-gdc-ab-report.json
+          git diff --cached --quiet || { git commit -m "docs: record verified Test11 GDC A/B diagnostic patch"; git push origin HEAD:main; }
