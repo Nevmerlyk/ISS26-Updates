@@ -34,6 +34,13 @@
   ],
   "test10_prematch_source_guard_fingerprint": "F1BA2A81B5D12FC9698EC3639DAB7021E6946C10E8E70B63789E5CF32D079155",
   "test10_raw_sector_header_changes": 0,
+  "test10_edc_ecc_valid_new_sectors": 84,
+  "bosnia_08_to_09_edc_ecc_valid": {
+    "6089": true,
+    "6090": true,
+    "6256": true,
+    "6257": true
+  },
   "test10_changed_bytes_in_added_sectors": 186735,
   "test10_changed_bytes_in_atlas_data": 163344,
   "test10_changed_bytes_in_sector_edc_ecc": 23391,
