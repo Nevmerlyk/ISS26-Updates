@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "audit": "Test08 -> Test09 -> Test10 independent clean-original patch comparison",
+  "verified_release_sha256": {
+    "test08": "E65E5623756643E2DAE7069A66FE888E14439A5A534DBF171BB03630605648B1",
+    "test09": "FA5E3DC3702808E8ABC197C9BB27B0707A4D44575D765918911AD846738D71B2",
+    "test10": "9832FA77F1DF60A56683F9BEA2AB631580056039A864A7E830EF8BE61138926B"
+  },
+  "track01_reference_sha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
+  "test08_sector_count": 1412,
+  "test09_sector_count": 1412,
+  "test10_sector_count": 1496,
+  "bosnia_large_graphics_changed_08_to_09": [
+    6089,
+    6090,
+    6256,
+    6257
+  ],
+  "test09_to_test10_preserved_records": 1412,
+  "test10_added_prematch_name_sectors": 84,
+  "test10_added_lba_ranges": [
+    [
+      8200,
+      8227
+    ],
+    [
+      8230,
+      8257
+    ],
+    [
+      8260,
+      8287
+    ]
+  ],
+  "test10_prematch_source_guard_fingerprint": "F1BA2A81B5D12FC9698EC3639DAB7021E6946C10E8E70B63789E5CF32D079155",
+  "test10_raw_sector_header_changes": 0,
+  "test10_changed_bytes_in_added_sectors": 186735,
+  "test10_changed_bytes_in_atlas_data": 163344,
+  "test10_changed_bytes_in_sector_edc_ecc": 23391,
+  "status": "PASS: patch hashes, sector guards, added ranges and A/B isolation",
+  "limitations": [
+    "Does not prove new pixel font is correctly rendered in emulator",
+    "Does not prove large flag/stadium textures are fixed",
+    "Full game image and user saves are not included or modified"
+  ]
+}
