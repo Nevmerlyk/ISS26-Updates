@@ -1,0 +1,90 @@
+name: Publish experimental ISS26 Test12 five-descriptor GDC repair
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publish-v095-teamidentity-test12.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: iss26-test12-gdc-descriptor
+  cancel-in-progress: false
+
+jobs:
+  build_and_publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download exact official Test10 release (clean-original standalone patch)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/iss26-test12
+          gh release download v0.9.6-teamidentity-test10 --repo Nevmerlyk/ISS26-Updates \
+            --pattern 'ISS26_0.9.5_TeamIdentity_PrematchNames_TEST10.iss26p' \
+            --dir /tmp/iss26-test12
+          echo '9832fa77f1df60a56683f9bea2ab631580056039a864a7e830ef8be61138926b  /tmp/iss26-test12/ISS26_0.9.5_TeamIdentity_PrematchNames_TEST10.iss26p' | sha256sum -c -
+      - name: Restore five GPU upload tables (not texture payload), recalculate sector ECC
+        shell: bash
+        run: |
+          set -euo pipefail
+          python tools/build_v095_test12_gdc_descriptor_repair.py \
+            --test10 /tmp/iss26-test12/ISS26_0.9.5_TeamIdentity_PrematchNames_TEST10.iss26p \
+            --output /tmp/iss26-test12/ISS26_0.9.5_GDC_Descriptor_TEST12.iss26p \
+            --report /tmp/iss26-test12/test12-report.json
+          python - <<'PY'
+          import json,hashlib,pathlib
+          folder=pathlib.Path('/tmp/iss26-test12')
+          r=json.loads((folder/'test12-report.json').read_text())
+          assert r['restored_gpu_descriptor_bytes']==2070
+          assert r['changed_sectors']==5 and r['records']==1496
+          assert r['untouched_other_patch_records']==1491
+          raw=(folder/'ISS26_0.9.5_GDC_Descriptor_TEST12.iss26p').read_bytes()
+          assert hashlib.sha256(raw).hexdigest().upper()==r['test12_sha256']
+          assert len(raw)==3572460
+          assert r['requires_visual_test'] and not r['game_patch_feeds_changed']
+          print('PASS: fully self-contained experimental Test12 metadata and digest')
+          PY
+      - name: Publish new independent Test12 only, NEVER stable or test feed
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          tag='v0.9.5-gdc-descriptor-test12'
+          if gh release view "$tag" --repo Nevmerlyk/ISS26-Updates >/dev/null 2>&1; then
+            echo 'Release already exists. Refusing to overwrite a fixed test artifact.'
+            exit 1
+          fi
+          gh release create "$tag" /tmp/iss26-test12/ISS26_0.9.5_GDC_Descriptor_TEST12.iss26p \
+            --repo Nevmerlyk/ISS26-Updates --target main --prerelease \
+            --title 'ISS26 Test12 — experimental GPU descriptor-only repair' \
+            --notes 'Independent clean-original EU PS1 patch based on Test10. Restores exactly 2,070 bytes of original GPU upload command lists at five affected GDC variant resources, then recalculates PS1 Mode2 Form1 EDC/ECC. All other 1,491 Test10 sector records remain bit-for-bit unchanged. Intended ONLY to test whether corrupted GPU descriptor bytes are causing large national-flag errors. No visual fix is claimed. Install on a CLEAN ORIGINAL disc through Test Game; do not apply to Test10 or Test11. Stable Play Game remains game patch v0.9.4; test/latest.json remains Test10.'
+      - name: Verify release download SHA256 and commit metadata-only report
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/iss26-test12-check
+          gh release download v0.9.5-gdc-descriptor-test12 \
+            --repo Nevmerlyk/ISS26-Updates \
+            --pattern 'ISS26_0.9.5_GDC_Descriptor_TEST12.iss26p' \
+            --dir /tmp/iss26-test12-check
+          cmp /tmp/iss26-test12/ISS26_0.9.5_GDC_Descriptor_TEST12.iss26p \
+              /tmp/iss26-test12-check/ISS26_0.9.5_GDC_Descriptor_TEST12.iss26p
+          mkdir -p diagnostics
+          cp /tmp/iss26-test12/test12-report.json diagnostics/v095-test12-descriptor-repair-report.json
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add diagnostics/v095-test12-descriptor-repair-report.json
+          git diff --cached --quiet || {
+            git commit -m 'diagnostics: verify independent Test12 descriptor-only GDC patch'
+            git push origin HEAD:main
+          }
