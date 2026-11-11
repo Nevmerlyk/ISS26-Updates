@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "kind": "game patch Test12 experimental, descriptor-only rollback",
+  "not_stable": true,
+  "requires_visual_test": true,
+  "original_clean_source_required_at_install": true,
+  "base_test10_sha256": "9832FA77F1DF60A56683F9BEA2AB631580056039A864A7E830EF8BE61138926B",
+  "test12_sha256": "7E4FAC687487A3328BB564446DC4835C97D9A5841F335539EA56851F1958C3DD",
+  "patch_bytes": 3572460,
+  "records": 1496,
+  "changed_sectors": 5,
+  "restored_gpu_descriptor_bytes": 2070,
+  "untouched_other_patch_records": 1491,
+  "affected_resources": {
+    "BIN/GDC_FD.BIN": {
+      "lba": 11263,
+      "original_iso_file_start_lba": 11200,
+      "descriptor_range": [
+        128488,
+        129032
+      ],
+      "descriptor_bytes_restored": 8,
+      "source_guard_unchanged": true,
+      "other_texture_delta_bytes_unchanged": true,
+      "parity_recomputed": true
+    },
+    "BIN/GDC_FN.BIN": {
+      "lba": 11435,
+      "original_iso_file_start_lba": 11370,
+      "descriptor_range": [
+        133440,
+        134240
+      ],
+      "descriptor_bytes_restored": 787,
+      "source_guard_unchanged": true,
+      "other_texture_delta_bytes_unchanged": true,
+      "parity_recomputed": true
+    },
+    "BIN/GDC_JD.BIN": {
+      "lba": 11599,
+      "original_iso_file_start_lba": 11540,
+      "descriptor_range": [
+        120496,
+        121040
+      ],
+      "descriptor_bytes_restored": 203,
+      "source_guard_unchanged": true,
+      "other_texture_delta_bytes_unchanged": true,
+      "parity_recomputed": true
+    },
+    "BIN/GDC_ID.BIN": {
+      "lba": 15346,
+      "original_iso_file_start_lba": 15280,
+      "descriptor_range": [
+        136652,
+        137196
+      ],
+      "descriptor_bytes_restored": 536,
+      "source_guard_unchanged": true,
+      "other_texture_delta_bytes_unchanged": true,
+      "parity_recomputed": true
+    },
+    "BIN/GDC_IN.BIN": {
+      "lba": 15520,
+      "original_iso_file_start_lba": 15450,
+      "descriptor_range": [
+        143896,
+        144440
+      ],
+      "descriptor_bytes_restored": 536,
+      "source_guard_unchanged": true,
+      "other_texture_delta_bytes_unchanged": true,
+      "parity_recomputed": true
+    }
+  },
+  "game_patch_feeds_changed": false,
+  "notice": "Targeted diagnostic candidate; no visual flag fix claimed."
+}
