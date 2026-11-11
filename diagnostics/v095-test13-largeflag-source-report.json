@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "purpose": "Isolate prior DATSEL/DATSEL3 4-sector large national graphic modifications on top of Test12",
+  "status": "EXPERIMENTAL VISUAL A/B ONLY; no name or flag fix claimed",
+  "input_test12_sha256": "7E4FAC687487A3328BB564446DC4835C97D9A5841F335539EA56851F1958C3DD",
+  "test13_sha256": "159A31A95BBAE3BD032417DFDCB8B5478016907DCC1E848D968CBF5B17E61214",
+  "result_size": 3562908,
+  "result_sector_records": 1492,
+  "removed_source_sectors": {
+    "6089": "DATSEL.BIN",
+    "6090": "DATSEL.BIN",
+    "6256": "DATSEL3.BIN",
+    "6257": "DATSEL3.BIN"
+  },
+  "preserved_test12_records": 1492,
+  "preserved_gpu_descriptor_repair": true,
+  "preserved_17_national_bitmap_names": true,
+  "renames_cabo_to_cape": false,
+  "changes_stable_or_test_feed": false,
+  "clean_original_disc_required": true
+}
