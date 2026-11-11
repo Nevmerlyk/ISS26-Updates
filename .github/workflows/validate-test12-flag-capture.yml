@@ -5,6 +5,7 @@ on:
     paths:
       - '.github/workflows/validate-test12-flag-capture.yml'
       - 'tools/analyze_flag_test12_phases.py'
+      - 'tools/Capture-ISS26-Test12.ps1'
       - 'tools/tests/test_analyze_flag_test12_phases.py'
       - 'diagnostics/TEST12_FLAG_SOURCE_ISOLATION.md'
   workflow_dispatch:
@@ -23,6 +24,18 @@ jobs:
           python-version: '3.12'
       - name: Test labeled and unlabeled VRAM, nested ZIP and traversal safety
         run: python -m unittest discover -s tools/tests -p 'test_analyze_flag_test12_phases.py' -v
+      - name: Parse PowerShell capture helper without executing it
+        shell: pwsh
+        run: |
+          $tokens = $null
+          $syntaxErrors = $null
+          [System.Management.Automation.Language.Parser]::ParseFile(
+            (Resolve-Path 'tools/Capture-ISS26-Test12.ps1').Path,
+            [ref]$tokens, [ref]$syntaxErrors) | Out-Null
+          if ($syntaxErrors.Count -ne 0) {
+            throw "Test12 PowerShell syntax errors: $($syntaxErrors -join '; ')"
+          }
+          Write-Host 'PASS: safe operator capture helper parses successfully'
       - name: Validate usage and keep stable game channel unchanged
         run: |
           python tools/analyze_flag_test12_phases.py --help
