@@ -90,6 +90,24 @@ def load_labels(path: Path | None) -> dict[str, dict]:
     return result
 
 
+def phase_from_operator_capture(name: str) -> dict | None:
+    # The existing v0.8.6 Lua calibrator.request interface makes an explicit
+    # human-supplied phase tag part of the saved snapshot name. This is an
+    # operator label, NOT an inferred visual classification.
+    expression = (
+        r"^cal_test12_(selection|prematch_banner|carried_banner|crowd_flags|hud)"
+        r"_[0-9a-f]{6}_[0-9]{6,12}\\.vram$"
+    )
+    match = re.fullmatch(expression, name)
+    if not match:
+        return None
+    return {
+        "phase": match.group(1),
+        "team": "",
+        "source": "operator-tagged Test12 capture request",
+    }
+
+
 def capture_frame(name: str) -> int:
     # Emulator's manual capture filenames end in an 8-digit frame counter.
     matches = re.findall(r"(?:_|^)(\d{6,12})(?:_|\.)", name)
@@ -173,7 +191,9 @@ def analyze(report: Path, labels: Path | None = None) -> dict:
     ordered = []
     for name in names:
         raw, full = snapshots[name]
-        label = manual.get(name, {"phase": "unknown", "team": "", "source": "none"})
+        label = manual.get(name) or phase_from_operator_capture(name) or {
+            "phase": "unknown", "team": "", "source": "none"
+        }
         ordered.append({
             "filename": name,
             "zip_path": full,
@@ -191,9 +211,13 @@ def analyze(report: Path, labels: Path | None = None) -> dict:
         clut = [i for i in range(54) if national_clut(old, i) != national_clut(new, i)]
         diffs.append({
             "from_snapshot": n1,
-            "from_operator_phase": manual.get(n1, {}).get("phase", "unknown"),
+            "from_operator_phase": (
+                manual.get(n1) or phase_from_operator_capture(n1) or {}
+            ).get("phase", "unknown"),
             "to_snapshot": n2,
-            "to_operator_phase": manual.get(n2, {}).get("phase", "unknown"),
+            "to_operator_phase": (
+                manual.get(n2) or phase_from_operator_capture(n2) or {}
+            ).get("phase", "unknown"),
             "changed_historical_64x28_flag_styles": style,
             "changed_national_clut_indices": clut,
             "grid_change_candidates": block_changes(old, new),
@@ -204,8 +228,8 @@ def analyze(report: Path, labels: Path | None = None) -> dict:
         "GPD files are inventoried but not decoded for tpage/UV/CLUT provenance.",
         "Same-scene Test10/Test11 screenshots and GPU primitive traces are still required for causal attribution.",
     ]
-    if not manual:
-        notes.append("No labels manifest: all phases remain unknown.")
+    if not manual and not any(phase_from_operator_capture(name) for name in names):
+        notes.append("No manual labels or operator-tagged captures: phases remain unknown.")
     if not traces:
         notes.append("No .gpd traces in ZIP; GPU command-level attribution unavailable.")
     if len(names) < 2:
@@ -214,7 +238,9 @@ def analyze(report: Path, labels: Path | None = None) -> dict:
         "schema_version": 1, "audit": "Test12: carried / fan / HUD VRAM phase correlation",
         "archive_name": report.name,
         "vram_capture_count": len(names),
-        "operator_labeled_count": len(manual),
+        "operator_labeled_count": sum(
+            1 for name in names if name in manual or phase_from_operator_capture(name)
+        ),
         "gpu_trace_count": len(traces),
         "gpu_trace_inventory": traces,
         "captures": ordered,
