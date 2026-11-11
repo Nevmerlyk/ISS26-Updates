@@ -29,39 +29,43 @@ The user’s **Test11** screenshots showed the large defects still present when 
 
 **Setup:** use the already published **Test11** with **Test Game** and a **fresh emulation boot**. Pick **Bosnia vs Cabo Verde** at **Key Square Stadium**. Avoid Save States that retain Test10 VRAM. Do not patch or write to VRAM for this diagnostic.
 
-1. **Prematch → player-carried banner**: capture a full screenshot and **raw VRAM** at both moments. In PCSX-Redux Academy/Explorer, use **Flag AutoTest → 2. Перед матчем** for the first; **3. Флаги на поле** for the second. Note exactly when the cloth banner is visible. Retain any GPU `.gpd` trace if the runtime produces one. Determine whether original 64×28 indexed tiles at style 10/1 and national CLUT cells change, *but do not infer draw ownership without decoding GPU commands*.
-2. **Player-carried banner → spectator waving flags**: when the stadium camera clearly shows *waving supporters' flags*, take a separate screenshot and use **3. Флаги на поле** again. The launcher currently labels both as `field`; distinguish them in the **manual manifest** below. Compare candidate 16×16-VRAM-word cells, historical flag style tiles and CLUTs. If fans display old tricolors, keep this as a visual observation pending an actual sprite/slot trace. No need to play a full new match.
-3. **Waving supporters → match HUD**: at 0:00 after kickoff, screenshot the team icons next to the score and perform another **3. Флаги на поле** capture. Contrast apparent HUD sprite size (~24×8 class) with selection icons (~24×16) and with the known Master League nationality flags. A direct match is *not* a guarantee of common memory ownership; require UV/CLUT tracing to establish it.
+1. **Prematch → player-carried banner**: capture a full screenshot and **raw VRAM** at both moments. While the prematch banner is actually visible, run `Capture-ISS26-Test12.ps1 -Phase prematch_banner`; while the players physically carry the cloth on screen, run `-Phase carried_banner`. Retain any GPU `.gpd` trace if available. Check changes in historical 64×28 indexed flag tiles and CLUT, but do not claim draw ownership before decoding GPU commands.
+2. **Player-carried banner → spectator waving flags**: when fans clearly wave their own small flags in the crowd, capture another screenshot and run `-Phase crowd_flags`. Compare changed 16×16 VRAM-word cells and CLUT/styling with the preceding ceremonial capture. If the fans appear to wave legacy tricolors, treat that as an observation until exact sprite/slot mapping is established.
+3. **Waving supporters → match HUD**: at 0:00 after kickoff, screenshot the scoreline flag icons and run `-Phase hud`. Contrast the small HUD sprite (~24×8 class) with selection icons (~24×16 class) and known Master League nationality flags. A visual match does not by itself establish texture memory ownership; UV/CLUT tracing is required.
 
 For a clean control after the first pass, use one unchanged team such as **Denmark** at the same stadium. Do not request repeated full Test08/Test09 sessions unless the recorded GPU primitive data leaves an unresolved A/B question.
 
-### Important instrumentation detail
+### How to capture with the EXISTING stable launcher 0.8.6
 
-The existing v0.8.6 PCSX-Redux Lua driver accepts manual **`selection`**, **`prematch`** and **`field`** capture requests, not dedicated `ceremony`, `crowd` or `hud` labels. Reuse the `field` button multiple times during different *visually observed* phases, then record the matching filenames separately. **Frame timestamps alone cannot identify a scene**. The optional timed AutoTest r1 makes unlabelled captures and cannot be treated as automatic menu detection.
+Academy v0.8.6 intentionally shows only **Practice**, **Rookie**, **Progress** tabs. The old `Flag Debug / VRAM` and `Crash Reports` buttons still exist in source code but **are NOT in the visible UI**. Do not tell the operator to look for them.
 
-## Offline analysis, after saving the Academy ZIP
+Instead use the small [Capture-ISS26-Test12.ps1](../tools/Capture-ISS26-Test12.ps1) helper. It writes an operator-chosen phase into the already existing Test Game `calibrator.request` handler, which captures **RAM + complete VRAM + screen** on the next Vsync via the bundled PCSX-Redux Lua driver. No new launcher/APK or Web Server is required. It never alters GPU memory, original BIN/CUE, saves or the game patch.
 
-Save **Crash Reports → Сохранить отчёт ZIP**, then choose the matching raw VRAM filenames from the archive. Create `test12-labels.json` next to the ZIP, matching the actual filenames verbatim (the illustrative names below must be replaced):
-
-```json
-{
-  "schemaVersion": 1,
-  "captures": [
-    {"snapshot": "flag_prematch_00001200.vram", "phase": "prematch_banner", "team": "Bosnia vs Cabo Verde"},
-    {"snapshot": "flag_field_00001700.vram", "phase": "carried_banner", "team": "Bosnia vs Cabo Verde"},
-    {"snapshot": "flag_field_00001900.vram", "phase": "crowd_flags", "team": "Bosnia vs Cabo Verde"},
-    {"snapshot": "flag_field_00002400.vram", "phase": "hud", "team": "Bosnia vs Cabo Verde"}
-  ]
-}
-```
-
-Run locally with Python 3.10+:
+1. Start **Test Game** with **Test11** as a normal interactive game; open Academy → **Progress** → **Открыть текущую сессию**, if you want to confirm the chosen session directory.
+2. Download the `.ps1` helper. In PowerShell, open the folder where you saved the script. The default installation path is `D:\ISS 26` (override with `-GameRoot`).
+3. At each ACTUAL visual moment, run one of:
 
 ```powershell
-python tools/analyze_flag_test12_phases.py "ISS26_Academy_....zip" --labels test12-labels.json --output test12.json
+powershell -NoProfile -ExecutionPolicy Bypass -File .\Capture-ISS26-Test12.ps1 -Phase prematch_banner
+powershell -NoProfile -ExecutionPolicy Bypass -File .\Capture-ISS26-Test12.ps1 -Phase carried_banner
+powershell -NoProfile -ExecutionPolicy Bypass -File .\Capture-ISS26-Test12.ps1 -Phase crowd_flags
+powershell -NoProfile -ExecutionPolicy Bypass -File .\Capture-ISS26-Test12.ps1 -Phase hud
 ```
 
-The program treats the user's observed phase as an **external label**, safely reads nested Academy ZIPs, and reports changed historical 64×28 style tiles, 54 CLUT regions and candidate 16×16 VRAM-word cells. It lists `.gpd` dumps **without pretending to decode draw primitives**. Report contains only hashes, coordinates, names and changed-cell counts, not original game or saved RAM.
+Run **only one command at the corresponding stage**; leave the game running for at least one further frame. Each command is a separate operator request, not a timed screenshot classifier. The resulting `.vram` filename begins with `cal_test12_<observed-phase>_<nonce>_<frame>`. The helper refuses to overwrite a pending request.
+4. At the end, in Academy → **Progress** select **Экспортировать ZIP Rookie (с памятью и сессией)**. Upload only the resulting ZIP to the conversation. The archive contains captured RAM/VRAM/screen but no original game BIN/CUE or BIOS.
+
+### Offline analysis
+
+With the helper, phase labels are embedded directly into snapshot filenames, so **no manual JSON manifest is needed**. Run:
+
+```powershell
+python tools/analyze_flag_test12_phases.py "ISS26_Academy_....zip" --output test12.json
+```
+
+Optionally, legacy captures from the prior hidden Flag AutoTest buttons can be classified with `--labels test12-labels.json`, but this is unnecessary for the new operator-tagged helper.
+
+The analyzer safely reads nested Academy ZIPs, reports changed historical 64×28 flag styles, 54 CLUT cells and candidate 16×16 VRAM-word regions, and inventories GPU `.gpd` files **without falsely claiming it decodes GPU draw primitives**. Output contains hashes, coordinates and counters, not copied ROM or RAM content. The phase comes only from the operator request, never from guessed screen content.
 
 ## Decision matrix after Test12
 
