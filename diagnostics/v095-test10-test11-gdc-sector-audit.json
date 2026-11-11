@@ -1,0 +1,949 @@
+{
+  "schema_version": 1,
+  "purpose": "TEST10 vs TEST11 exact published GDC XOR-sector metadata for patch 0.9.5",
+  "test10_sha256": "9832FA77F1DF60A56683F9BEA2AB631580056039A864A7E830EF8BE61138926B",
+  "test11_sha256": "8492E97B915CBB4E3C7C86B974561739912DD0045E4640AFC09FE76629912F11",
+  "test10_record_count": 1496,
+  "test11_record_count": 1433,
+  "unchanged_common_sector_count": 1433,
+  "reverted_gdc_sector_count": 63,
+  "reverted_lbas": [
+    10914,
+    10915,
+    11087,
+    11088,
+    11263,
+    11264,
+    11435,
+    11436,
+    11599,
+    11600,
+    11769,
+    11770,
+    11937,
+    11938,
+    12111,
+    12112,
+    12288,
+    12289,
+    12465,
+    12466,
+    12619,
+    12620,
+    12789,
+    12790,
+    12950,
+    13123,
+    13296,
+    13472,
+    13645,
+    13646,
+    13812,
+    13813,
+    13973,
+    13974,
+    14145,
+    14146,
+    14309,
+    14310,
+    14479,
+    14480,
+    14669,
+    14670,
+    14839,
+    14840,
+    15002,
+    15003,
+    15170,
+    15171,
+    15346,
+    15347,
+    15520,
+    15521,
+    15677,
+    15678,
+    15847,
+    15848,
+    16020,
+    16193,
+    16194,
+    16356,
+    16357,
+    16548,
+    16549
+  ],
+  "per_gdc_resource": {
+    "BIN/GDC_DD.BIN": {
+      "record_count": 2,
+      "payload_changed_bytes": 4036,
+      "edc_ecc_changed_bytes": 559,
+      "lbas": [
+        10914,
+        10915
+      ]
+    },
+    "BIN/GDC_DN.BIN": {
+      "record_count": 2,
+      "payload_changed_bytes": 4036,
+      "edc_ecc_changed_bytes": 554,
+      "lbas": [
+        11087,
+        11088
+      ]
+    },
+    "BIN/GDC_FD.BIN": {
+      "record_count": 2,
+      "payload_changed_bytes": 4029,
+      "edc_ecc_changed_bytes": 559,
+      "lbas": [
+        11263,
+        11264
+      ]
+    },
+    "BIN/GDC_FN.BIN": {
+      "record_count": 2,
+      "payload_changed_bytes": 4028,
+      "edc_ecc_changed_bytes": 560,
+      "lbas": [
+        11435,
+        11436
+      ]
+    },
+    "BIN/GDC_JD.BIN": {
+      "record_count": 2,
+      "payload_changed_bytes": 4012,
+      "edc_ecc_changed_bytes": 560,
+      "lbas": [
+        11599,
+        11600
+      ]
+    },
+    "BIN/GDC_JN.BIN": {
+      "record_count": 2,
+      "payload_changed_bytes": 4027,
+      "edc_ecc_changed_bytes": 558,
+      "lbas": [
+        11769,
+        11770
+      ]
+    },
+    "BIN/GDC_SD.BIN": {
+      "record_count": 2,
+      "payload_changed_bytes": 4035,
+      "edc_ecc_changed_bytes": 560,
+      "lbas": [
+        11937,
+        11938
+      ]
+    },
+    "BIN/GDC_SN.BIN": {
+      "record_count": 2,
+      "payload_changed_bytes": 4035,
+      "edc_ecc_changed_bytes": 556,
+      "lbas": [
+        12111,
+        12112
+      ]
+    },
+    "BIN/GDC_MD.BIN": {
+      "record_count": 2,
+      "payload_changed_bytes": 4036,
+      "edc_ecc_changed_bytes": 557,
+      "lbas": [
+        12288,
+        12289
+      ]
+    },
+    "BIN/GDC_MN.BIN": {
+      "record_count": 2,
+      "payload_changed_bytes": 4036,
+      "edc_ecc_changed_bytes": 559,
+      "lbas": [
+        12465,
+        12466
+      ]
+    },
+    "BIN/GDC_AD.BIN": {
+      "record_count": 2,
+      "payload_changed_bytes": 4035,
+      "edc_ecc_changed_bytes": 557,
+      "lbas": [
+        12619,
+        12620
+      ]
+    },
+    "BIN/GDC_AN.BIN": {
+      "record_count": 2,
+      "payload_changed_bytes": 4035,
+      "edc_ecc_changed_bytes": 559,
+      "lbas": [
+        12789,
+        12790
+      ]
+    },
+    "BIN/GDC_PD.BIN": {
+      "record_count": 1,
+      "payload_changed_bytes": 2010,
+      "edc_ecc_changed_bytes": 278,
+      "lbas": [
+        12950
+      ]
+    },
+    "BIN/GDC_PN.BIN": {
+      "record_count": 1,
+      "payload_changed_bytes": 2011,
+      "edc_ecc_changed_bytes": 278,
+      "lbas": [
+        13123
+      ]
+    },
+    "BIN/GDC_CD.BIN": {
+      "record_count": 1,
+      "payload_changed_bytes": 2010,
+      "edc_ecc_changed_bytes": 279,
+      "lbas": [
+        13296
+      ]
+    },
+    "BIN/GDC_CN.BIN": {
+      "record_count": 1,
+      "payload_changed_bytes": 2010,
+      "edc_ecc_changed_bytes": 279,
+      "lbas": [
+        13472
+      ]
+    },
+    "BIN/GDC_HD.BIN": {
+      "record_count": 2,
+      "payload_changed_bytes": 4036,
+      "edc_ecc_changed_bytes": 559,
+      "lbas": [
+        13645,
+        13646
+      ]
+    },
+    "BIN/GDC_HN.BIN": {
+      "record_count": 2,
+      "payload_changed_bytes": 4036,
+      "edc_ecc_changed_bytes": 558,
+      "lbas": [
+        13812,
+        13813
+      ]
+    },
+    "BIN/GDC_TD.BIN": {
+      "record_count": 2,
+      "payload_changed_bytes": 4034,
+      "edc_ecc_changed_bytes": 558,
+      "lbas": [
+        13973,
+        13974
+      ]
+    },
+    "BIN/GDC_TN.BIN": {
+      "record_count": 2,
+      "payload_changed_bytes": 4035,
+      "edc_ecc_changed_bytes": 559,
+      "lbas": [
+        14145,
+        14146
+      ]
+    },
+    "BIN/GDC_GDJ.BIN": {
+      "record_count": 2,
+      "payload_changed_bytes": 4036,
+      "edc_ecc_changed_bytes": 559,
+      "lbas": [
+        14309,
+        14310
+      ]
+    },
+    "BIN/GDC_GNJ.BIN": {
+      "record_count": 2,
+      "payload_changed_bytes": 4036,
+      "edc_ecc_changed_bytes": 559,
+      "lbas": [
+        14479,
+        14480
+      ]
+    },
+    "BIN/GDC_MDJ.BIN": {
+      "record_count": 2,
+      "payload_changed_bytes": 4047,
+      "edc_ecc_changed_bytes": 558,
+      "lbas": [
+        14669,
+        14670
+      ]
+    },
+    "BIN/GDC_MNJ.BIN": {
+      "record_count": 2,
+      "payload_changed_bytes": 4023,
+      "edc_ecc_changed_bytes": 557,
+      "lbas": [
+        14839,
+        14840
+      ]
+    },
+    "BIN/GDC_RDJ.BIN": {
+      "record_count": 2,
+      "payload_changed_bytes": 4038,
+      "edc_ecc_changed_bytes": 556,
+      "lbas": [
+        15002,
+        15003
+      ]
+    },
+    "BIN/GDC_RNJ.BIN": {
+      "record_count": 2,
+      "payload_changed_bytes": 4004,
+      "edc_ecc_changed_bytes": 558,
+      "lbas": [
+        15170,
+        15171
+      ]
+    },
+    "BIN/GDC_ID.BIN": {
+      "record_count": 2,
+      "payload_changed_bytes": 4014,
+      "edc_ecc_changed_bytes": 557,
+      "lbas": [
+        15346,
+        15347
+      ]
+    },
+    "BIN/GDC_IN.BIN": {
+      "record_count": 2,
+      "payload_changed_bytes": 4019,
+      "edc_ecc_changed_bytes": 555,
+      "lbas": [
+        15520,
+        15521
+      ]
+    },
+    "BIN/GDC_OD.BIN": {
+      "record_count": 2,
+      "payload_changed_bytes": 4036,
+      "edc_ecc_changed_bytes": 558,
+      "lbas": [
+        15677,
+        15678
+      ]
+    },
+    "BIN/GDC_ON.BIN": {
+      "record_count": 2,
+      "payload_changed_bytes": 4028,
+      "edc_ecc_changed_bytes": 559,
+      "lbas": [
+        15847,
+        15848
+      ]
+    },
+    "BIN/GDC_VD.BIN": {
+      "record_count": 1,
+      "payload_changed_bytes": 2010,
+      "edc_ecc_changed_bytes": 280,
+      "lbas": [
+        16020
+      ]
+    },
+    "BIN/GDC_VN.BIN": {
+      "record_count": 2,
+      "payload_changed_bytes": 4036,
+      "edc_ecc_changed_bytes": 558,
+      "lbas": [
+        16193,
+        16194
+      ]
+    },
+    "BIN/GDC_BD.BIN": {
+      "record_count": 2,
+      "payload_changed_bytes": 4032,
+      "edc_ecc_changed_bytes": 557,
+      "lbas": [
+        16356,
+        16357
+      ]
+    },
+    "BIN/GDC_BN.BIN": {
+      "record_count": 2,
+      "payload_changed_bytes": 4023,
+      "edc_ecc_changed_bytes": 560,
+      "lbas": [
+        16548,
+        16549
+      ]
+    }
+  },
+  "per_sector": [
+    {
+      "lba": 10914,
+      "resource": "BIN/GDC_DD.BIN",
+      "resource_offset": 110592,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2011,
+      "changed_edc_ecc_bytes": 280,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 10915,
+      "resource": "BIN/GDC_DD.BIN",
+      "resource_offset": 112640,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2025,
+      "changed_edc_ecc_bytes": 279,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 11087,
+      "resource": "BIN/GDC_DN.BIN",
+      "resource_offset": 116736,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2015,
+      "changed_edc_ecc_bytes": 278,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 11088,
+      "resource": "BIN/GDC_DN.BIN",
+      "resource_offset": 118784,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2021,
+      "changed_edc_ecc_bytes": 276,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 11263,
+      "resource": "BIN/GDC_FD.BIN",
+      "resource_offset": 129024,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2014,
+      "changed_edc_ecc_bytes": 279,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 11264,
+      "resource": "BIN/GDC_FD.BIN",
+      "resource_offset": 131072,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2015,
+      "changed_edc_ecc_bytes": 280,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 11435,
+      "resource": "BIN/GDC_FN.BIN",
+      "resource_offset": 133120,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2020,
+      "changed_edc_ecc_bytes": 280,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 11436,
+      "resource": "BIN/GDC_FN.BIN",
+      "resource_offset": 135168,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2008,
+      "changed_edc_ecc_bytes": 280,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 11599,
+      "resource": "BIN/GDC_JD.BIN",
+      "resource_offset": 120832,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 1999,
+      "changed_edc_ecc_bytes": 280,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 11600,
+      "resource": "BIN/GDC_JD.BIN",
+      "resource_offset": 122880,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2013,
+      "changed_edc_ecc_bytes": 280,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 11769,
+      "resource": "BIN/GDC_JN.BIN",
+      "resource_offset": 120832,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2007,
+      "changed_edc_ecc_bytes": 280,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 11770,
+      "resource": "BIN/GDC_JN.BIN",
+      "resource_offset": 122880,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2020,
+      "changed_edc_ecc_bytes": 278,
+      "first_changed_payload_offset": 25
+    },
+    {
+      "lba": 11937,
+      "resource": "BIN/GDC_SD.BIN",
+      "resource_offset": 116736,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2022,
+      "changed_edc_ecc_bytes": 280,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 11938,
+      "resource": "BIN/GDC_SD.BIN",
+      "resource_offset": 118784,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2013,
+      "changed_edc_ecc_bytes": 280,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 12111,
+      "resource": "BIN/GDC_SN.BIN",
+      "resource_offset": 124928,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2019,
+      "changed_edc_ecc_bytes": 280,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 12112,
+      "resource": "BIN/GDC_SN.BIN",
+      "resource_offset": 126976,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2016,
+      "changed_edc_ecc_bytes": 276,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 12288,
+      "resource": "BIN/GDC_MD.BIN",
+      "resource_offset": 139264,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2018,
+      "changed_edc_ecc_bytes": 277,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 12289,
+      "resource": "BIN/GDC_MD.BIN",
+      "resource_offset": 141312,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2018,
+      "changed_edc_ecc_bytes": 280,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 12465,
+      "resource": "BIN/GDC_MN.BIN",
+      "resource_offset": 153600,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2011,
+      "changed_edc_ecc_bytes": 279,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 12466,
+      "resource": "BIN/GDC_MN.BIN",
+      "resource_offset": 155648,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2025,
+      "changed_edc_ecc_bytes": 280,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 12619,
+      "resource": "BIN/GDC_AD.BIN",
+      "resource_offset": 120832,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2021,
+      "changed_edc_ecc_bytes": 279,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 12620,
+      "resource": "BIN/GDC_AD.BIN",
+      "resource_offset": 122880,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2014,
+      "changed_edc_ecc_bytes": 278,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 12789,
+      "resource": "BIN/GDC_AN.BIN",
+      "resource_offset": 120832,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2020,
+      "changed_edc_ecc_bytes": 280,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 12790,
+      "resource": "BIN/GDC_AN.BIN",
+      "resource_offset": 122880,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2015,
+      "changed_edc_ecc_bytes": 279,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 12950,
+      "resource": "BIN/GDC_PD.BIN",
+      "resource_offset": 102400,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2010,
+      "changed_edc_ecc_bytes": 278,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 13123,
+      "resource": "BIN/GDC_PN.BIN",
+      "resource_offset": 108544,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2011,
+      "changed_edc_ecc_bytes": 278,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 13296,
+      "resource": "BIN/GDC_CD.BIN",
+      "resource_offset": 114688,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2010,
+      "changed_edc_ecc_bytes": 279,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 13472,
+      "resource": "BIN/GDC_CN.BIN",
+      "resource_offset": 126976,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2010,
+      "changed_edc_ecc_bytes": 279,
+      "first_changed_payload_offset": 25
+    },
+    {
+      "lba": 13645,
+      "resource": "BIN/GDC_HD.BIN",
+      "resource_offset": 133120,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2012,
+      "changed_edc_ecc_bytes": 280,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 13646,
+      "resource": "BIN/GDC_HD.BIN",
+      "resource_offset": 135168,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2024,
+      "changed_edc_ecc_bytes": 279,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 13812,
+      "resource": "BIN/GDC_HN.BIN",
+      "resource_offset": 126976,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2013,
+      "changed_edc_ecc_bytes": 279,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 13813,
+      "resource": "BIN/GDC_HN.BIN",
+      "resource_offset": 129024,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2023,
+      "changed_edc_ecc_bytes": 279,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 13973,
+      "resource": "BIN/GDC_TD.BIN",
+      "resource_offset": 108544,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2018,
+      "changed_edc_ecc_bytes": 279,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 13974,
+      "resource": "BIN/GDC_TD.BIN",
+      "resource_offset": 110592,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2016,
+      "changed_edc_ecc_bytes": 279,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 14145,
+      "resource": "BIN/GDC_TN.BIN",
+      "resource_offset": 112640,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2025,
+      "changed_edc_ecc_bytes": 279,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 14146,
+      "resource": "BIN/GDC_TN.BIN",
+      "resource_offset": 114688,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2010,
+      "changed_edc_ecc_bytes": 280,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 14309,
+      "resource": "BIN/GDC_GDJ.BIN",
+      "resource_offset": 100352,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2020,
+      "changed_edc_ecc_bytes": 280,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 14310,
+      "resource": "BIN/GDC_GDJ.BIN",
+      "resource_offset": 102400,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2016,
+      "changed_edc_ecc_bytes": 279,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 14479,
+      "resource": "BIN/GDC_GNJ.BIN",
+      "resource_offset": 100352,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2020,
+      "changed_edc_ecc_bytes": 280,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 14480,
+      "resource": "BIN/GDC_GNJ.BIN",
+      "resource_offset": 102400,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2016,
+      "changed_edc_ecc_bytes": 279,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 14669,
+      "resource": "BIN/GDC_MDJ.BIN",
+      "resource_offset": 141312,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2026,
+      "changed_edc_ecc_bytes": 279,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 14670,
+      "resource": "BIN/GDC_MDJ.BIN",
+      "resource_offset": 143360,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2021,
+      "changed_edc_ecc_bytes": 279,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 14839,
+      "resource": "BIN/GDC_MNJ.BIN",
+      "resource_offset": 141312,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2007,
+      "changed_edc_ecc_bytes": 279,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 14840,
+      "resource": "BIN/GDC_MNJ.BIN",
+      "resource_offset": 143360,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2016,
+      "changed_edc_ecc_bytes": 278,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 15002,
+      "resource": "BIN/GDC_RDJ.BIN",
+      "resource_offset": 126976,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2017,
+      "changed_edc_ecc_bytes": 279,
+      "first_changed_payload_offset": 25
+    },
+    {
+      "lba": 15003,
+      "resource": "BIN/GDC_RDJ.BIN",
+      "resource_offset": 129024,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2021,
+      "changed_edc_ecc_bytes": 277,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 15170,
+      "resource": "BIN/GDC_RNJ.BIN",
+      "resource_offset": 122880,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 1994,
+      "changed_edc_ecc_bytes": 278,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 15171,
+      "resource": "BIN/GDC_RNJ.BIN",
+      "resource_offset": 124928,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2010,
+      "changed_edc_ecc_bytes": 280,
+      "first_changed_payload_offset": 25
+    },
+    {
+      "lba": 15346,
+      "resource": "BIN/GDC_ID.BIN",
+      "resource_offset": 135168,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2001,
+      "changed_edc_ecc_bytes": 278,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 15347,
+      "resource": "BIN/GDC_ID.BIN",
+      "resource_offset": 137216,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2013,
+      "changed_edc_ecc_bytes": 279,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 15520,
+      "resource": "BIN/GDC_IN.BIN",
+      "resource_offset": 143360,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2001,
+      "changed_edc_ecc_bytes": 279,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 15521,
+      "resource": "BIN/GDC_IN.BIN",
+      "resource_offset": 145408,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2018,
+      "changed_edc_ecc_bytes": 276,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 15677,
+      "resource": "BIN/GDC_OD.BIN",
+      "resource_offset": 116736,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2014,
+      "changed_edc_ecc_bytes": 279,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 15678,
+      "resource": "BIN/GDC_OD.BIN",
+      "resource_offset": 118784,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2022,
+      "changed_edc_ecc_bytes": 279,
+      "first_changed_payload_offset": 25
+    },
+    {
+      "lba": 15847,
+      "resource": "BIN/GDC_ON.BIN",
+      "resource_offset": 116736,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2002,
+      "changed_edc_ecc_bytes": 280,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 15848,
+      "resource": "BIN/GDC_ON.BIN",
+      "resource_offset": 118784,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2026,
+      "changed_edc_ecc_bytes": 279,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 16020,
+      "resource": "BIN/GDC_VD.BIN",
+      "resource_offset": 122880,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2010,
+      "changed_edc_ecc_bytes": 280,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 16193,
+      "resource": "BIN/GDC_VN.BIN",
+      "resource_offset": 129024,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2017,
+      "changed_edc_ecc_bytes": 278,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 16194,
+      "resource": "BIN/GDC_VN.BIN",
+      "resource_offset": 131072,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2019,
+      "changed_edc_ecc_bytes": 280,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 16356,
+      "resource": "BIN/GDC_BD.BIN",
+      "resource_offset": 114688,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2013,
+      "changed_edc_ecc_bytes": 278,
+      "first_changed_payload_offset": 25
+    },
+    {
+      "lba": 16357,
+      "resource": "BIN/GDC_BD.BIN",
+      "resource_offset": 116736,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2019,
+      "changed_edc_ecc_bytes": 279,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 16548,
+      "resource": "BIN/GDC_BN.BIN",
+      "resource_offset": 159744,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2018,
+      "changed_edc_ecc_bytes": 280,
+      "first_changed_payload_offset": 24
+    },
+    {
+      "lba": 16549,
+      "resource": "BIN/GDC_BN.BIN",
+      "resource_offset": 161792,
+      "changed_header_bytes": 0,
+      "changed_payload_bytes": 2005,
+      "changed_edc_ecc_bytes": 280,
+      "first_changed_payload_offset": 24
+    }
+  ],
+  "original_game_data_included": false,
+  "test12_published": false
+}
