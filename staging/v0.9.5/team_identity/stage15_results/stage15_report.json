@@ -1,0 +1,448 @@
+{
+  "stage": 15,
+  "status": "STATIC-VALIDATED; EMULATOR PREMATCH VISUAL CONFIRMATION REQUIRED",
+  "source": "T_NAME_E/F/G.BIN 26 GPU-4bpp national/club/stadium name textures, confirmed rasterized Russia/Greece/Jamaica",
+  "supported_54_national_slots": true,
+  "replaced_labels": {
+    "2": {
+      "team": "Qatar",
+      "block": 12,
+      "row": 3,
+      "changed_pixels": 565,
+      "drawn_pixels": 485,
+      "lines": [
+        "Qatar"
+      ]
+    },
+    "4": {
+      "team": "Uzbekistan",
+      "block": 12,
+      "row": 1,
+      "changed_pixels": 968,
+      "drawn_pixels": 914,
+      "lines": [
+        "Uzbekistan"
+      ]
+    },
+    "10": {
+      "team": "Panama",
+      "block": 10,
+      "row": 3,
+      "changed_pixels": 750,
+      "drawn_pixels": 698,
+      "lines": [
+        "Panama"
+      ]
+    },
+    "11": {
+      "team": "Ecuador",
+      "block": 10,
+      "row": 2,
+      "changed_pixels": 751,
+      "drawn_pixels": 759,
+      "lines": [
+        "Ecuador"
+      ]
+    },
+    "14": {
+      "team": "Canada",
+      "block": 9,
+      "row": 3,
+      "changed_pixels": 826,
+      "drawn_pixels": 665,
+      "lines": [
+        "Canada"
+      ]
+    },
+    "18": {
+      "team": "Senegal",
+      "block": 8,
+      "row": 3,
+      "changed_pixels": 960,
+      "drawn_pixels": 742,
+      "lines": [
+        "Senegal"
+      ]
+    },
+    "23": {
+      "team": "Bosnia",
+      "block": 7,
+      "row": 2,
+      "changed_pixels": 627,
+      "drawn_pixels": 621,
+      "lines": [
+        "Bosnia"
+      ]
+    },
+    "26": {
+      "team": "New Zealand",
+      "block": 6,
+      "row": 3,
+      "changed_pixels": 1382,
+      "drawn_pixels": 1086,
+      "lines": [
+        "New",
+        "Zealand"
+      ]
+    },
+    "27": {
+      "team": "Iraq",
+      "block": 6,
+      "row": 2,
+      "changed_pixels": 805,
+      "drawn_pixels": 330,
+      "lines": [
+        "Iraq"
+      ]
+    },
+    "28": {
+      "team": "Jordan",
+      "block": 6,
+      "row": 1,
+      "changed_pixels": 830,
+      "drawn_pixels": 587,
+      "lines": [
+        "Jordan"
+      ]
+    },
+    "29": {
+      "team": "Curacao",
+      "block": 6,
+      "row": 0,
+      "changed_pixels": 1059,
+      "drawn_pixels": 709,
+      "lines": [
+        "Curacao"
+      ]
+    },
+    "31": {
+      "team": "Haiti",
+      "block": 5,
+      "row": 2,
+      "changed_pixels": 836,
+      "drawn_pixels": 405,
+      "lines": [
+        "Haiti"
+      ]
+    },
+    "34": {
+      "team": "DR Congo",
+      "block": 4,
+      "row": 3,
+      "changed_pixels": 1359,
+      "drawn_pixels": 847,
+      "lines": [
+        "DR",
+        "Congo"
+      ]
+    },
+    "36": {
+      "team": "Ghana",
+      "block": 4,
+      "row": 1,
+      "changed_pixels": 773,
+      "drawn_pixels": 562,
+      "lines": [
+        "Ghana"
+      ]
+    },
+    "50": {
+      "team": "Ivory Coast",
+      "block": 0,
+      "row": 3,
+      "changed_pixels": 1019,
+      "drawn_pixels": 893,
+      "lines": [
+        "Ivory",
+        "Coast"
+      ]
+    },
+    "52": {
+      "team": "Algeria",
+      "block": 0,
+      "row": 1,
+      "changed_pixels": 1585,
+      "drawn_pixels": 645,
+      "lines": [
+        "Algeria"
+      ]
+    },
+    "53": {
+      "team": "Cabo Verde",
+      "block": 0,
+      "row": 0,
+      "changed_pixels": 1199,
+      "drawn_pixels": 928,
+      "lines": [
+        "Cabo",
+        "Verde"
+      ]
+    }
+  },
+  "replacement_count": 17,
+  "rendering_style": "custom pixel-font approximation based on original 4bpp palette, not a bit-exact reconstruction of Konami glyphs",
+  "localized_atlases_identical_originally": true,
+  "repack_meta": {
+    "used_encoded_end": 54648,
+    "table_offset": 55824,
+    "slack_bytes": 1176,
+    "chunks": [
+      {
+        "id": 0,
+        "before_bytes": 2241,
+        "after_bytes": 1945,
+        "method": "custom_WE_optimized"
+      },
+      {
+        "id": 1,
+        "before_bytes": 1814,
+        "after_bytes": 1814,
+        "method": "identical_original_compressed"
+      },
+      {
+        "id": 2,
+        "before_bytes": 2190,
+        "after_bytes": 2190,
+        "method": "identical_original_compressed"
+      },
+      {
+        "id": 3,
+        "before_bytes": 2039,
+        "after_bytes": 2039,
+        "method": "identical_original_compressed"
+      },
+      {
+        "id": 4,
+        "before_bytes": 1868,
+        "after_bytes": 1763,
+        "method": "custom_WE_optimized"
+      },
+      {
+        "id": 5,
+        "before_bytes": 1970,
+        "after_bytes": 1766,
+        "method": "custom_WE_optimized"
+      },
+      {
+        "id": 6,
+        "before_bytes": 2058,
+        "after_bytes": 1694,
+        "method": "custom_WE_optimized"
+      },
+      {
+        "id": 7,
+        "before_bytes": 1868,
+        "after_bytes": 1769,
+        "method": "custom_WE_optimized"
+      },
+      {
+        "id": 8,
+        "before_bytes": 1904,
+        "after_bytes": 1755,
+        "method": "custom_WE_optimized"
+      },
+      {
+        "id": 9,
+        "before_bytes": 2469,
+        "after_bytes": 2332,
+        "method": "custom_WE_optimized"
+      },
+      {
+        "id": 10,
+        "before_bytes": 1669,
+        "after_bytes": 1744,
+        "method": "custom_WE_optimized"
+      },
+      {
+        "id": 11,
+        "before_bytes": 1963,
+        "after_bytes": 1963,
+        "method": "identical_original_compressed"
+      },
+      {
+        "id": 12,
+        "before_bytes": 1474,
+        "after_bytes": 1580,
+        "method": "custom_WE_optimized"
+      },
+      {
+        "id": 13,
+        "before_bytes": 2363,
+        "after_bytes": 2363,
+        "method": "identical_original_compressed"
+      },
+      {
+        "id": 14,
+        "before_bytes": 2589,
+        "after_bytes": 2589,
+        "method": "identical_original_compressed"
+      },
+      {
+        "id": 15,
+        "before_bytes": 1951,
+        "after_bytes": 1951,
+        "method": "identical_original_compressed"
+      },
+      {
+        "id": 16,
+        "before_bytes": 1988,
+        "after_bytes": 1988,
+        "method": "identical_original_compressed"
+      },
+      {
+        "id": 17,
+        "before_bytes": 2159,
+        "after_bytes": 2159,
+        "method": "identical_original_compressed"
+      },
+      {
+        "id": 18,
+        "before_bytes": 1629,
+        "after_bytes": 1629,
+        "method": "identical_original_compressed"
+      },
+      {
+        "id": 19,
+        "before_bytes": 2121,
+        "after_bytes": 2121,
+        "method": "identical_original_compressed"
+      },
+      {
+        "id": 20,
+        "before_bytes": 2609,
+        "after_bytes": 2609,
+        "method": "identical_original_compressed"
+      },
+      {
+        "id": 21,
+        "before_bytes": 871,
+        "after_bytes": 871,
+        "method": "identical_original_compressed"
+      },
+      {
+        "id": 22,
+        "before_bytes": 3492,
+        "after_bytes": 3492,
+        "method": "identical_original_compressed"
+      },
+      {
+        "id": 23,
+        "before_bytes": 3458,
+        "after_bytes": 3458,
+        "method": "identical_original_compressed"
+      },
+      {
+        "id": 24,
+        "before_bytes": 3255,
+        "after_bytes": 3255,
+        "method": "identical_original_compressed"
+      },
+      {
+        "id": 25,
+        "before_bytes": 1765,
+        "after_bytes": 1765,
+        "method": "identical_original_compressed"
+      }
+    ],
+    "updated_command_ptrs": 26
+  },
+  "new_patch_sha256": "9832FA77F1DF60A56683F9BEA2AB631580056039A864A7E830EF8BE61138926B",
+  "result_disc_sha256": "1F1AB781AEE4FE60816405A6A0CDEEEA348941C19761BB4FC7A528E43B311456",
+  "patch_size": 3572460,
+  "edited_sectors": [
+    8200,
+    8201,
+    8202,
+    8203,
+    8204,
+    8205,
+    8206,
+    8207,
+    8208,
+    8209,
+    8210,
+    8211,
+    8212,
+    8213,
+    8214,
+    8215,
+    8216,
+    8217,
+    8218,
+    8219,
+    8220,
+    8221,
+    8222,
+    8223,
+    8224,
+    8225,
+    8226,
+    8227,
+    8230,
+    8231,
+    8232,
+    8233,
+    8234,
+    8235,
+    8236,
+    8237,
+    8238,
+    8239,
+    8240,
+    8241,
+    8242,
+    8243,
+    8244,
+    8245,
+    8246,
+    8247,
+    8248,
+    8249,
+    8250,
+    8251,
+    8252,
+    8253,
+    8254,
+    8255,
+    8256,
+    8257,
+    8260,
+    8261,
+    8262,
+    8263,
+    8264,
+    8265,
+    8266,
+    8267,
+    8268,
+    8269,
+    8270,
+    8271,
+    8272,
+    8273,
+    8274,
+    8275,
+    8276,
+    8277,
+    8278,
+    8279,
+    8280,
+    8281,
+    8282,
+    8283,
+    8284,
+    8285,
+    8286,
+    8287
+  ],
+  "changed_national_name_cells": 17,
+  "unchanged_national_name_cells": 37,
+  "other_labels_preserved": "2 bonus labels, clubs and all stadium names",
+  "large_flag_texture_modified": false,
+  "stadium_gdc_modified": false,
+  "notes": [
+    "UI labels are a GPU texture: language files all identical in this EU disc.",
+    "This test only updates prematch names; large flags are a distinct unresolved GPU/CLUT mapping.",
+    "Need verify Test09 or later in PCSX-Redux before publishing into Test Game."
+  ]
+}
