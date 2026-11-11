@@ -51,6 +51,28 @@ STADIUM_FILE_EXTENTS=[
     ("BIN/GDC_VD.BIN", 15960, 142028),
     ("BIN/GDC_VN.BIN", 16130, 148700),
 ]
+# Verified on clean EU Track01: these are the five GDC upload command
+# table byte ranges that physically overlap with reverted-sector extents.
+# All other 29 GDC files' known upload command lists lie outside those
+# 63 sector extents. Ranges are half-open relative to ISO file start.
+POTENTIAL_DESCRIPTOR_OVERLAPS = {
+    "BIN/GDC_FD.BIN": [(128488, 129032)],
+    "BIN/GDC_FN.BIN": [(133440, 134240)],
+    "BIN/GDC_JD.BIN": [(120496, 121040)],
+    "BIN/GDC_ID.BIN": [(136652, 137196)],
+    "BIN/GDC_IN.BIN": [(143896, 144440)],
+}
+
+def modified_descriptor_bytes(name: str, file_offset: int, mask: bytes) -> int:
+    # Modified-sector payload j corresponds to GDC file-offset
+    # file_offset+j (j=0..2047), because the relevant ISO file sectors are
+    # Mode2 Form1. Count nonzero XOR bytes, never store mask bytes.
+    return sum(
+        bool(mask[24+j])
+        for start,end in POTENTIAL_DESCRIPTOR_OVERLAPS.get(name, [])
+        for j in range(max(0,start-file_offset),
+                       min(2048,end-file_offset))
+    )
 
 def parse(p: Path, expected_sha: str, expected_count: int):
     data=p.read_bytes()
@@ -103,6 +125,7 @@ def report(test10: Path,test11: Path):
             "changed_header_bytes":sum(bool(v) for v in mask[:24]),
             "changed_payload_bytes":sum(bool(v) for v in mask[24:2072]),
             "changed_edc_ecc_bytes":sum(bool(v) for v in mask[2072:]),
+            "changed_upload_descriptor_bytes": modified_descriptor_bytes(name,offset,mask),
             "first_changed_payload_offset": next((i for i in range(24,2072) if mask[i]),None)
         }
         if info["changed_header_bytes"]:
@@ -112,6 +135,9 @@ def report(test10: Path,test11: Path):
         d["record_count"]+=1
         d["payload_changed_bytes"]+=info["changed_payload_bytes"]
         d["edc_ecc_changed_bytes"]+=info["changed_edc_ecc_bytes"]
+        d["changed_upload_descriptor_bytes"]=(
+            d.get("changed_upload_descriptor_bytes",0) +
+            info["changed_upload_descriptor_bytes"])
         d["lbas"].append(lba)
     return {
       "schema_version":1,
@@ -121,6 +147,8 @@ def report(test10: Path,test11: Path):
       "unchanged_common_sector_count":len(shared),
       "reverted_gdc_sector_count":len(removed),
       "reverted_lbas":removed,
+      "upload_descriptor_changes":sum(d["changed_upload_descriptor_bytes"] for d in per_resource.values()),
+      "upload_descriptor_overlap_candidate_files":sorted(POTENTIAL_DESCRIPTOR_OVERLAPS),
       "per_gdc_resource":per_resource,
       "per_sector":records,
       "original_game_data_included":False,
