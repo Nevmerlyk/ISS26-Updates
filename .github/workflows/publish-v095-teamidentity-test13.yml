@@ -1,0 +1,98 @@
+name: Publish experimental ISS26 Test13 large-flag source isolation
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publish-v095-teamidentity-test13.yml'
+      - 'tools/build_v095_test13_largeflags_source_ab.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: iss26-test13-flag-source-ab
+  cancel-in-progress: false
+
+jobs:
+  publish_test13:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download pinned published Test12 experimental patch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/iss26-test13
+          gh release download v0.9.5-gdc-descriptor-test12 \
+            --repo Nevmerlyk/ISS26-Updates \
+            --pattern 'ISS26_0.9.5_GDC_Descriptor_TEST12.iss26p' \
+            --dir /tmp/iss26-test13
+          echo '7e4fac687487a3328bb564446dc4835c97d9a5841f335539ea56851f1958c3dd  /tmp/iss26-test13/ISS26_0.9.5_GDC_Descriptor_TEST12.iss26p' | sha256sum -c -
+      - name: Build standalone four-sector A/B isolation and verify
+        shell: bash
+        run: |
+          set -euo pipefail
+          python tools/build_v095_test13_largeflags_source_ab.py \
+            --test12 /tmp/iss26-test13/ISS26_0.9.5_GDC_Descriptor_TEST12.iss26p \
+            --output /tmp/iss26-test13/ISS26_0.9.5_LargeFlagSource_TEST13.iss26p \
+            --report /tmp/iss26-test13/report.json
+          python - <<'PY'
+          from pathlib import Path
+          import json,hashlib,struct
+          root=Path('/tmp/iss26-test13')
+          r=json.loads((root/'report.json').read_text())
+          src=(root/'ISS26_0.9.5_GDC_Descriptor_TEST12.iss26p').read_bytes()
+          dst=(root/'ISS26_0.9.5_LargeFlagSource_TEST13.iss26p').read_bytes()
+          assert len(dst)==12+1492*2388
+          assert hashlib.sha256(dst).hexdigest().upper()==r['test13_sha256']
+          assert struct.unpack_from('<I',dst,8)[0]==1492
+          def maprows(b):
+              n,=struct.unpack_from('<I',b,8)
+              return {struct.unpack_from('<I',b,12+i*2388)[0]:b[12+i*2388+4:12+(i+1)*2388] for i in range(n)}
+          a=maprows(src);b=maprows(dst)
+          assert set(a)-set(b)=={6089,6090,6256,6257}
+          assert all(a[k]==b[k] for k in b) and len(b)==1492
+          assert not r['renames_cabo_to_cape'] and not r['changes_stable_or_test_feed']
+          print('PASS: Test13 SHA256, exact 4-sector isolation, unchanged 1492 original-sector records')
+          PY
+      - name: Publish prerelease only, never activate stable or test feed
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          tag='v0.9.5-largeflag-source-test13'
+          if gh release view "$tag" --repo Nevmerlyk/ISS26-Updates >/dev/null 2>&1; then
+            echo "Test13 tag already exists: refusing to overwrite"
+            exit 1
+          fi
+          gh release create "$tag" /tmp/iss26-test13/ISS26_0.9.5_LargeFlagSource_TEST13.iss26p \
+            --repo Nevmerlyk/ISS26-Updates --target main --prerelease \
+            --title 'ISS26 Test13 — isolate DATSEL large national flag source' \
+            --notes 'EXPERIMENTAL visual A/B diagnosis, not a confirmed flag fix. Independent EU clean-original PS1 test patch: based on published Test12, excludes exactly sectors 6089,6090 (DATSEL) and 6256,6257 (DATSEL3) from prior large national graphic edits. Preserves all 1,492 remaining Test12 records exactly: all 17 national prematch bitmap changes, player names, small flag assets and five repaired GDC GPU upload descriptors. Original/legacy large national flag art can reappear; requires comparison of Cabo/Cape Verde vs Bosnia at Key Square Stadium. Cape Verde name correction and spacing NOT YET INCLUDED. No stable or test feed changed.'
+      - name: Verify remote release asset and save metadata-only audit
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/iss26-test13-check
+          gh release download v0.9.5-largeflag-source-test13 \
+            --repo Nevmerlyk/ISS26-Updates \
+            --pattern 'ISS26_0.9.5_LargeFlagSource_TEST13.iss26p' \
+            --dir /tmp/iss26-test13-check
+          cmp /tmp/iss26-test13/ISS26_0.9.5_LargeFlagSource_TEST13.iss26p \
+              /tmp/iss26-test13-check/ISS26_0.9.5_LargeFlagSource_TEST13.iss26p
+          mkdir -p diagnostics
+          cp /tmp/iss26-test13/report.json diagnostics/v095-test13-largeflag-source-report.json
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add diagnostics/v095-test13-largeflag-source-report.json
+          git diff --cached --quiet || {
+            git commit -m 'diagnostics: verify independent Test13 large-flag source isolation'
+            git push origin HEAD:main
+          }
