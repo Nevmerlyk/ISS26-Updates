@@ -1,0 +1,51 @@
+name: Inspect published Test10 vs Test11 GDC flags (read-only)
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/forensic-v095-test10-test11.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Fetch only already-public experimental patch assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/iss26-v095-ab
+          gh release download v0.9.6-teamidentity-test10 \
+            --repo Nevmerlyk/ISS26-Updates \
+            --pattern 'ISS26_0.9.5_TeamIdentity_PrematchNames_TEST10.iss26p' \
+            --dir /tmp/iss26-v095-ab
+          gh release download v0.9.6-teamidentity-test11 \
+            --repo Nevmerlyk/ISS26-Updates \
+            --pattern 'ISS26_0.9.5_TeamIdentity_GDC_AB_TEST11.iss26p' \
+            --dir /tmp/iss26-v095-ab
+      - name: Audit exact TEST10/TEST11 sector masks; output metadata only
+        shell: bash
+        run: |
+          set -euo pipefail
+          python tools/audit_v095_test10_test11_release_sectors.py \
+            --test10 /tmp/iss26-v095-ab/ISS26_0.9.5_TeamIdentity_PrematchNames_TEST10.iss26p \
+            --test11 /tmp/iss26-v095-ab/ISS26_0.9.5_TeamIdentity_GDC_AB_TEST11.iss26p \
+            --report diagnostics/v095-test10-test11-gdc-sector-audit.json
+      - name: Commit small diagnostic report (NO game binaries or masks)
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add diagnostics/v095-test10-test11-gdc-sector-audit.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'diagnostics: map verified Test10 Test11 GDC sector edits'
+            git push origin HEAD:main
+          fi
