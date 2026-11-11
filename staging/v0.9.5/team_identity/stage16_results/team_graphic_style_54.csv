@@ -1,2 +1,55 @@
-<PARSED TEXT FOR SHEET: 1 / 1 TABS
-TAB NAME: team_graphic_style_54.csv>
+slot,team,style_id,valid_0_27,is_replaced,x_word,y,width_pixels,height_pixels
+0,AUSTRALIA,27,True,False,880,448,64,28
+1,SAUDI ARABIA,26,True,False,864,448,64,28
+2,Qatar,60,False,True,,,64,28
+3,IRAN,25,True,False,848,448,64,28
+4,Uzbekistan,59,False,True,,,64,28
+5,KOREA,23,True,False,880,416,64,28
+6,JAPAN,23,True,False,880,416,64,28
+7,ARGENTINA,22,True,False,864,416,64,28
+8,URUGUAY,12,True,False,832,352,64,28
+9,PARAGUAY,21,True,False,848,416,64,28
+10,Panama,58,False,True,,,64,28
+11,Ecuador,57,False,True,,,64,28
+12,BRAZIL,19,True,False,880,384,64,28
+13,COLOMBIA,7,True,False,880,288,64,28
+14,Canada,56,False,True,,,64,28
+15,MEXICO,18,True,False,864,384,64,28
+16,UNITED STATES,17,True,False,848,384,64,28
+17,SOUTH AFRICA,16,True,False,832,384,64,28
+18,Senegal,0,True,True,832,256,64,28
+19,NIGERIA,0,True,False,832,256,64,28
+20,EGYPT,7,True,False,880,288,64,28
+21,TUNISIA,15,True,False,880,352,64,28
+22,MOROCCO,14,True,False,864,352,64,28
+23,Bosnia,10,True,True,864,320,64,28
+24,UKRAINE,8,True,False,832,320,64,28
+25,TURKEY,13,True,False,848,352,64,28
+26,New Zealand,54,False,True,,,64,28
+27,Iraq,53,False,True,,,64,28
+28,Jordan,52,False,True,,,64,28
+29,Curacao,37,False,True,,,64,28
+30,CROATIA,11,True,False,880,320,64,28
+31,Haiti,35,False,True,,,64,28
+32,HUNGARY,7,True,False,880,288,64,28
+33,AUSTRIA,7,True,False,880,288,64,28
+34,DR Congo,24,True,True,832,448,64,28
+35,POLAND,8,True,False,832,320,64,28
+36,Ghana,20,True,True,832,416,64,28
+37,SWEDEN,9,True,False,848,320,64,28
+38,NORWAY,9,True,False,848,320,64,28
+39,DENMARK,9,True,False,848,320,64,28
+40,GERMANY,7,True,False,880,288,64,28
+41,CZECH,8,True,False,832,320,64,28
+42,ITALY,0,True,False,832,256,64,28
+43,SWITZERLAND,4,True,False,832,288,64,28
+44,NETHERLANDS,7,True,False,880,288,64,28
+45,BELGIUM,0,True,False,832,256,64,28
+46,FRANCE,0,True,False,832,256,64,28
+47,SPAIN,6,True,False,864,288,64,28
+48,PORTUGAL,5,True,False,848,288,64,28
+49,ENGLAND,4,True,False,832,288,64,28
+50,Ivory Coast,43,False,True,,,64,28
+51,SCOTLAND,2,True,False,864,256,64,28
+52,Algeria,3,True,True,880,256,64,28
+53,Cabo Verde,1,True,True,848,256,64,28
