@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "latest": {
-    "version": "0.8.6",
-    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.8.6/ISS26-LauncherUpdate.zip",
-    "zipSha256": "1D036BFD8FBAC07D563C042A2B9A0D660FB90B837A453667FCF2AB97FC96B859",
-    "launcherSha256": "6599B2398378788ECEE398D7B443345F075AA6DDE547E46441C59097ECEAE8B2",
-    "updaterSha256": "7F8282B91C03871E4AEB3351C48B6B6DA1E60D5845E0C446F5BEBB8E8B22BF02",
-    "notes": "Stable Windows v0.8.6 fixes RetroArch archive handle lock in Play Game. Preserves saves and original BIN/CUE."
+    "version": "0.8.7",
+    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.8.7/ISS26-LauncherUpdate.zip",
+    "zipSha256": "D174F73735FF86F2E0D63A9E3A12B3D8AD48CEFC183AB93A7CDA80911D9153A2",
+    "launcherSha256": "7C439B2B2CA45F3C46F486BDD7C5ADE7715F2FDD272D92C6E9DBFFCBB4836E6B",
+    "updaterSha256": "ED2332989691280B64CC64D5A361B1BC9A5BF0D319ECD57F5911885354A1AD0F",
+    "notes": "ISS26 Academy Rookie v0.8.7 stable: a short read-only Russian journal of new visual discoveries and independently repeated transitions, natural Test Game button-to-stable-screen correlation, grouped rapid input bursts, black-screen and interrupted evidence safeguards. Fixes 256-rule Calibrator learning saturation by safely expanding to 1024. Existing portable knowledge, session ZIP archiving, private opt-in GitHub reports, test BIN/CUE recovery and game patch v0.9.4 preserved. Visual change is not verified menu identity or successful autonomous gameplay."
   }
 }
