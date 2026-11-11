@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "latest": {
-    "version": "0.9.0",
-    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.9.0/ISS26-LauncherUpdate.zip",
-    "zipSha256": "DE6E542A37F70BA95B01FFCDA0EF24597F5BC7D3A15CAE11A619AD89060B2CDB",
-    "launcherSha256": "9955266073A4A8BEEE9828644B5699B4C2B46CFC002A0EB22B0A9DE303D52111",
-    "updaterSha256": "9C9497D82C5394B33A144991624E9933698CE2F4A342997A33816C6C1377DFE3",
-    "notes": "Academy v0.9.0 Scene Candidates: accepts 1/2 MiB VRAM, rejects known menu overlays, retains bounded candidate GPU/VRAM captures without falsely confirming scene ownership at prematch, carried banner, crowd flags and HUD. Requires live scene verification. Stable game patch and saves unchanged."
+    "version": "0.9.1",
+    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.9.1/ISS26-LauncherUpdate.zip",
+    "zipSha256": "16099E4A5FF01036610F84E6DCABA8C237A6FF1A6DBE5A8DA9605F644F25DF2C",
+    "launcherSha256": "5F38391BCF2CB74E3EA2CF6C77B647A6F41B774631259EE8F3863C6D250A4076",
+    "updaterSha256": "4556B45C72944E39B459EB13C61E404CF903B43146EBA3A94ACE2DAF9BF5E5FA",
+    "notes": "Academy v0.9.1 Rookie Exam Prep: nine-stage title-to-kickoff plan and safe candidate screen/VRAM evidence after human transitions; five graphics investigation Goals including Test11 GDC A/B. No autonomous exam success is claimed. Stable game patch and saves unchanged."
   }
 }
