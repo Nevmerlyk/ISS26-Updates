@@ -6,6 +6,6 @@
     "zipSha256": "F566802FBE201ADEB32DA1AC0CAF22538BFA6F0BDD03F505D7E5F2A7E83040EA",
     "launcherSha256": "2D2BDF150B73A7A8ED07CCFDB08BD1014B86985EFC07B25CEB6B7BD0D33C9028",
     "updaterSha256": "2063B281EEA4E5D0401E0BF5F1EDBD83FCACC9C3FBC07AEDC3682F42FAE39105",
-    "notes": "Academy v0.9.3 Active Rookie Menu Controller: nine-stage title-to-kickoff plan and safe candidate screen/VRAM evidence after human transitions; five graphics investigation Goals including Test11 GDC A/B. No autonomous exam success is claimed. Stable game patch and saves unchanged."
+    "notes": "Academy v0.9.3: Rookie Game now performs bounded START/CROSS/RIGHT controller attempts, checks visual changes, records screen/VRAM evidence, and shows live Rookie/Goal status. This is an experimental autonomous trial, not verified navigation or a passed kickoff exam. Stable and test game patches, originals and saves are unchanged."
   }
 }
