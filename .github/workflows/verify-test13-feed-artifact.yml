@@ -1,0 +1,28 @@
+name: Stage verified Test13 patch for test-feed SHA verification
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/verify-test13-feed-artifact.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify_test13:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Fetch exact published Test13
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/test13
+          gh release download v0.9.5-largeflag-source-test13 --repo Nevmerlyk/ISS26-Updates --pattern 'ISS26_0.9.5_LargeFlagSource_TEST13.iss26p' --dir /tmp/test13
+          echo '159a31a95bbae3bd032417dfdcb8b5478016907dcc1e848d968cbf5b17e61214  /tmp/test13/ISS26_0.9.5_LargeFlagSource_TEST13.iss26p' | sha256sum -c -
+      - name: Temporary test-feed validation artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ISS26-Test13-verified-patch
+          path: /tmp/test13/ISS26_0.9.5_LargeFlagSource_TEST13.iss26p
+          retention-days: 1
+          if-no-files-found: error
