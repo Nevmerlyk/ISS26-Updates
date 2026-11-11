@@ -1,0 +1,117 @@
+name: Publish stable ISS26 Windows launcher 0.8.6
+
+on:
+  push:
+    paths:
+      - '.github/workflows/publish-launcher-v086.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: iss26-launcher-v086-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: windows-latest
+    timeout-minutes: 35
+    steps:
+      - name: Checkout updates repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          path: updates
+      - name: Checkout pinned, CI-tested launcher source
+        uses: actions/checkout@v4
+        with:
+          repository: Nevmerlyk/ISS26-Android
+          ref: c56acd96a72009ec29f9ffe2b2bd692a01babd49
+          path: source
+          persist-credentials: false
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - name: Build verified launcher and updater
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          dotnet publish source/windows/ISS26.Launcher/ISS26.Launcher.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:PublishTrimmed=false -o pkg
+          if ($LASTEXITCODE -ne 0) { throw 'Launcher publish failed' }
+          dotnet publish source/windows/ISS26.Updater/ISS26.Updater.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:PublishTrimmed=false -o pkg
+          if ($LASTEXITCODE -ne 0) { throw 'Updater publish failed' }
+          if (-not (Test-Path pkg/ISS26.exe) -or -not (Test-Path pkg/ISS26.Updater.exe)) { throw 'Missing executable' }
+          $v = [xml](Get-Content source/windows/ISS26.Launcher/ISS26.Launcher.csproj)
+          if ([string]$v.Project.PropertyGroup.Version -ne '0.8.6') { throw 'Wrong launcher version' }
+      - name: Package and SHA256 verify
+        shell: python
+        run: |
+          import hashlib, io, json, pathlib, zipfile
+          p=pathlib.Path('pkg')
+          names=['ISS26.exe','ISS26.Updater.exe']
+          for name in names:
+              b=(p/name).read_bytes()
+              assert b[:2]==b'MZ' and 100000 < len(b) < 160*1024*1024, name
+          out=pathlib.Path('ISS26-LauncherUpdate.zip')
+          with zipfile.ZipFile(out,'w',zipfile.ZIP_DEFLATED,compresslevel=9) as z:
+              for name in names: z.write(p/name,arcname=name)
+          with zipfile.ZipFile(out) as z:
+              assert sorted(z.namelist())==sorted(names)
+              for name in names: assert z.read(name)==(p/name).read_bytes()
+          h=lambda b:hashlib.sha256(b).hexdigest().upper()
+          data={'schemaVersion':1,'latest':{
+              'version':'0.8.6',
+              'zipUrl':'https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.8.6/ISS26-LauncherUpdate.zip',
+              'zipSha256':h(out.read_bytes()),
+              'launcherSha256':h((p/'ISS26.exe').read_bytes()),
+              'updaterSha256':h((p/'ISS26.Updater.exe').read_bytes()),
+              'notes':'Stable Windows v0.8.6: Play Game RetroArch 7z file-lock fix; preserves original BIN/CUE, saves, Rookie and Academy.'}}
+          pathlib.Path('candidate-launcher-latest.json').write_text(json.dumps(data,indent=2)+'\n',encoding='utf-8')
+          print('PASS: all EXEs, archive members, and SHA-256 verified')
+      - name: Publish release asset before changing feed
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          gh release view launcher-v0.8.6 --repo Nevmerlyk/ISS26-Updates *> $null
+          if ($LASTEXITCODE -eq 0) {
+            gh release upload launcher-v0.8.6 ISS26-LauncherUpdate.zip --repo Nevmerlyk/ISS26-Updates --clobber
+          } else {
+            gh release create launcher-v0.8.6 ISS26-LauncherUpdate.zip --repo Nevmerlyk/ISS26-Updates --target main --title "ISS26 Windows Launcher v0.8.6 Stable" --notes "Fixes RetroArch archive file lock in Play Game. Launcher-only update: original PS1 BIN/CUE, saved games, Rookie and Academy data remain unchanged."
+          }
+          if ($LASTEXITCODE -ne 0) { throw 'GitHub release publish failed' }
+      - name: Verify unauthenticated public download SHA256
+        shell: python
+        run: |
+          import hashlib,json,pathlib,time,urllib.request
+          d=json.loads(pathlib.Path('candidate-launcher-latest.json').read_text())['latest']
+          expect=d['zipSha256']
+          for attempt in range(8):
+              try:
+                  req=urllib.request.Request(d['zipUrl'],headers={'User-Agent':'ISS26-Release-Validator'})
+                  with urllib.request.urlopen(req,timeout=60) as f: data=f.read(160*1024*1024+1)
+                  assert len(data)<160*1024*1024
+                  assert hashlib.sha256(data).hexdigest().upper()==expect
+                  print('PASS: public unauthenticated ZIP verified against candidate')
+                  break
+              except Exception:
+                  if attempt==7:raise
+                  time.sleep(8)
+      - name: Activate stable self-update manifest
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          Copy-Item candidate-launcher-latest.json updates/launcher/latest.json -Force
+          git -C updates config user.name "github-actions[bot]"
+          git -C updates config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git -C updates add launcher/latest.json
+          git -C updates diff --cached --quiet
+          if ($LASTEXITCODE -ne 0) {
+            git -C updates commit -m "Activate stable launcher v0.8.6 self-update"
+            if ($LASTEXITCODE -ne 0) { throw 'Feed commit failed' }
+            git -C updates push origin HEAD:main
+            if ($LASTEXITCODE -ne 0) { throw 'Feed push failed' }
+          }
+          Write-Host "Stable launcher v0.8.6 feed activated"
