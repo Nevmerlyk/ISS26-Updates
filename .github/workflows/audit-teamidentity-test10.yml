@@ -1,0 +1,57 @@
+name: Audit ISS26 Test10 national graphics (read only)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/audit-teamidentity-test10.yml'
+      - 'tools/audit_teamidentity_test10.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: iss26-test10-static-audit
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Download exact immutable test patch baselines
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/iss26-teamidentity
+          gh release download v0.9.6-teamidentity-test08 --repo Nevmerlyk/ISS26-Updates --pattern 'ISS26_0.9.5_TeamIdentity_BosniaCanada_TEST08.iss26p' --dir /tmp/iss26-teamidentity
+          gh release download v0.9.6-teamidentity-test09 --repo Nevmerlyk/ISS26-Updates --pattern 'ISS26_0.9.5_TeamIdentity_BigGPU_AB_TEST09.iss26p' --dir /tmp/iss26-teamidentity
+          gh release download v0.9.6-teamidentity-test10 --repo Nevmerlyk/ISS26-Updates --pattern 'ISS26_0.9.5_TeamIdentity_PrematchNames_TEST10.iss26p' --dir /tmp/iss26-teamidentity
+      - name: Validate Test08 Test09 Test10 exact release hashes and independent sectors
+        shell: bash
+        run: |
+          set -euo pipefail
+          python tools/audit_teamidentity_test10.py \
+            --test08 /tmp/iss26-teamidentity/ISS26_0.9.5_TeamIdentity_BosniaCanada_TEST08.iss26p \
+            --test09 /tmp/iss26-teamidentity/ISS26_0.9.5_TeamIdentity_BigGPU_AB_TEST09.iss26p \
+            --test10 /tmp/iss26-teamidentity/ISS26_0.9.5_TeamIdentity_PrematchNames_TEST10.iss26p \
+            --output diagnostics/teamidentity-test10-static-audit.json
+      - name: Commit small human-readable audit result only
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add diagnostics/teamidentity-test10-static-audit.json
+          if git diff --cached --quiet; then
+            echo 'Audit report already up to date.'
+          else
+            git commit -m 'docs: record independently verified Test10 national-graphics audit'
+            git push origin HEAD:main
+          fi
