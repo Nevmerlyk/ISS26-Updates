@@ -53,6 +53,33 @@ class Test12PhaseAnalyzer(unittest.TestCase):
             self.assertEqual(result["transitions"][1]["to_operator_phase"], "crowd_flags")
             self.assertTrue(any("NOT" in note for note in result["notes"]))
 
+    def test_existing_academy_operator_capture_tags(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            archive = root / "operator.zip"
+            with zipfile.ZipFile(archive, "w", zipfile.ZIP_DEFLATED) as z:
+                z.writestr(
+                    "cal_test12_carried_banner_a1b2c3_00000100.vram",
+                    bytes(reader.VRAM_BYTES),
+                )
+                z.writestr(
+                    "cal_test12_crowd_flags_d4e5f6_00000200.vram",
+                    bytes(reader.VRAM_BYTES),
+                )
+            result = reader.analyze(archive)
+            self.assertEqual(result["operator_labeled_count"], 2)
+            self.assertEqual(
+                [x["operator_phase"] for x in result["captures"]],
+                ["carried_banner", "crowd_flags"]
+            )
+            self.assertEqual(
+                result["transitions"][0]["to_operator_phase"], "crowd_flags"
+            )
+            self.assertIn(
+                "operator-tagged",
+                result["captures"][0]["phase_evidence"],
+            )
+
     def test_unknown_phase_without_labels(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
