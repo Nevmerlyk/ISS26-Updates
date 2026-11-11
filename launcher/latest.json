@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "latest": {
-    "version": "0.8.8",
-    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.8.8/ISS26-LauncherUpdate.zip",
-    "zipSha256": "9F2ED77BD5D76EABC5F403FDD5667949D2401D07A43A977B7056366A1AA094E9",
-    "launcherSha256": "1055CAAD05700EBC022517C99DA3242C1AEA0FE653E0E11BAF07A6DF4A06099B",
-    "updaterSha256": "70774C13DDD850A4AEA5E163B159D057CD15F06637590E776249053A6BAB120F",
-    "notes": "Academy v0.8.8 AutoCapture: passive candidate GPU/VRAM capture at prematch, carried banner, crowd flags and HUD. Requires live scene verification. Stable game patch and saves unchanged."
+    "version": "0.8.9",
+    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.8.9/ISS26-LauncherUpdate.zip",
+    "zipSha256": "76D0B89EBBB64FD62BF9A26C942EC7E56D06B9107CD13062736073432E293EA2",
+    "launcherSha256": "3549D6FA9131776EC6E125278E20E82E5B5352626595499F55D2640CB009C75F",
+    "updaterSha256": "1A9D5DCD5D615079DAC809997EEF1CAAB28F57FC413F57A262243F90B5CFCE07",
+    "notes": "Academy v0.8.9 Screenshot Recovery: corrected BPP enum, screenshot size and transient read handling; passive candidate GPU/VRAM capture at prematch, carried banner, crowd flags and HUD. Requires live scene verification. Stable game patch and saves unchanged."
   }
 }
