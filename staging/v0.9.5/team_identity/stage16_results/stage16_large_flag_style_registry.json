@@ -1,0 +1,992 @@
+{
+  "status": "READ-ONLY VERIFIED native style roster; big flag artwork not fixed",
+  "patch_sha256": "9832FA77F1DF60A56683F9BEA2AB631580056039A864A7E830EF8BE61138926B",
+  "national_teams": 54,
+  "native_style_count": 28,
+  "in_range_styles_used": 28,
+  "out_of_range_team_count": 11,
+  "out_of_range_teams": [
+    {
+      "slot": 2,
+      "team": "Qatar",
+      "style": 60
+    },
+    {
+      "slot": 4,
+      "team": "Uzbekistan",
+      "style": 59
+    },
+    {
+      "slot": 10,
+      "team": "Panama",
+      "style": 58
+    },
+    {
+      "slot": 11,
+      "team": "Ecuador",
+      "style": 57
+    },
+    {
+      "slot": 14,
+      "team": "Canada",
+      "style": 56
+    },
+    {
+      "slot": 26,
+      "team": "New Zealand",
+      "style": 54
+    },
+    {
+      "slot": 27,
+      "team": "Iraq",
+      "style": 53
+    },
+    {
+      "slot": 28,
+      "team": "Jordan",
+      "style": 52
+    },
+    {
+      "slot": 29,
+      "team": "Curacao",
+      "style": 37
+    },
+    {
+      "slot": 31,
+      "team": "Haiti",
+      "style": 35
+    },
+    {
+      "slot": 50,
+      "team": "Ivory Coast",
+      "style": 43
+    }
+  ],
+  "bosnia_style": 10,
+  "style_10_shared_with": [
+    "Bosnia"
+  ],
+  "both_native_selection_tables_byte_identical": true,
+  "caveat": "A native style ID identifies an indexed 4bpp flag pattern, but its final rendered colors depend on a separate CLUT/UV. Reuse does not guarantee correct modern flags.",
+  "styles": [
+    {
+      "style": 0,
+      "vram_x_word": 832,
+      "vram_y": 256,
+      "width_pixels": 64,
+      "height_pixels": 28,
+      "owners": [
+        "Senegal",
+        "NIGERIA",
+        "ITALY",
+        "BELGIUM",
+        "FRANCE"
+      ],
+      "owner_count": 5
+    },
+    {
+      "style": 1,
+      "vram_x_word": 848,
+      "vram_y": 256,
+      "width_pixels": 64,
+      "height_pixels": 28,
+      "owners": [
+        "Cabo Verde"
+      ],
+      "owner_count": 1
+    },
+    {
+      "style": 2,
+      "vram_x_word": 864,
+      "vram_y": 256,
+      "width_pixels": 64,
+      "height_pixels": 28,
+      "owners": [
+        "SCOTLAND"
+      ],
+      "owner_count": 1
+    },
+    {
+      "style": 3,
+      "vram_x_word": 880,
+      "vram_y": 256,
+      "width_pixels": 64,
+      "height_pixels": 28,
+      "owners": [
+        "Algeria"
+      ],
+      "owner_count": 1
+    },
+    {
+      "style": 4,
+      "vram_x_word": 832,
+      "vram_y": 288,
+      "width_pixels": 64,
+      "height_pixels": 28,
+      "owners": [
+        "SWITZERLAND",
+        "ENGLAND"
+      ],
+      "owner_count": 2
+    },
+    {
+      "style": 5,
+      "vram_x_word": 848,
+      "vram_y": 288,
+      "width_pixels": 64,
+      "height_pixels": 28,
+      "owners": [
+        "PORTUGAL"
+      ],
+      "owner_count": 1
+    },
+    {
+      "style": 6,
+      "vram_x_word": 864,
+      "vram_y": 288,
+      "width_pixels": 64,
+      "height_pixels": 28,
+      "owners": [
+        "SPAIN"
+      ],
+      "owner_count": 1
+    },
+    {
+      "style": 7,
+      "vram_x_word": 880,
+      "vram_y": 288,
+      "width_pixels": 64,
+      "height_pixels": 28,
+      "owners": [
+        "COLOMBIA",
+        "EGYPT",
+        "HUNGARY",
+        "AUSTRIA",
+        "GERMANY",
+        "NETHERLANDS"
+      ],
+      "owner_count": 6
+    },
+    {
+      "style": 8,
+      "vram_x_word": 832,
+      "vram_y": 320,
+      "width_pixels": 64,
+      "height_pixels": 28,
+      "owners": [
+        "UKRAINE",
+        "POLAND",
+        "CZECH"
+      ],
+      "owner_count": 3
+    },
+    {
+      "style": 9,
+      "vram_x_word": 848,
+      "vram_y": 320,
+      "width_pixels": 64,
+      "height_pixels": 28,
+      "owners": [
+        "SWEDEN",
+        "NORWAY",
+        "DENMARK"
+      ],
+      "owner_count": 3
+    },
+    {
+      "style": 10,
+      "vram_x_word": 864,
+      "vram_y": 320,
+      "width_pixels": 64,
+      "height_pixels": 28,
+      "owners": [
+        "Bosnia"
+      ],
+      "owner_count": 1
+    },
+    {
+      "style": 11,
+      "vram_x_word": 880,
+      "vram_y": 320,
+      "width_pixels": 64,
+      "height_pixels": 28,
+      "owners": [
+        "CROATIA"
+      ],
+      "owner_count": 1
+    },
+    {
+      "style": 12,
+      "vram_x_word": 832,
+      "vram_y": 352,
+      "width_pixels": 64,
+      "height_pixels": 28,
+      "owners": [
+        "URUGUAY"
+      ],
+      "owner_count": 1
+    },
+    {
+      "style": 13,
+      "vram_x_word": 848,
+      "vram_y": 352,
+      "width_pixels": 64,
+      "height_pixels": 28,
+      "owners": [
+        "TURKEY"
+      ],
+      "owner_count": 1
+    },
+    {
+      "style": 14,
+      "vram_x_word": 864,
+      "vram_y": 352,
+      "width_pixels": 64,
+      "height_pixels": 28,
+      "owners": [
+        "MOROCCO"
+      ],
+      "owner_count": 1
+    },
+    {
+      "style": 15,
+      "vram_x_word": 880,
+      "vram_y": 352,
+      "width_pixels": 64,
+      "height_pixels": 28,
+      "owners": [
+        "TUNISIA"
+      ],
+      "owner_count": 1
+    },
+    {
+      "style": 16,
+      "vram_x_word": 832,
+      "vram_y": 384,
+      "width_pixels": 64,
+      "height_pixels": 28,
+      "owners": [
+        "SOUTH AFRICA"
+      ],
+      "owner_count": 1
+    },
+    {
+      "style": 17,
+      "vram_x_word": 848,
+      "vram_y": 384,
+      "width_pixels": 64,
+      "height_pixels": 28,
+      "owners": [
+        "UNITED STATES"
+      ],
+      "owner_count": 1
+    },
+    {
+      "style": 18,
+      "vram_x_word": 864,
+      "vram_y": 384,
+      "width_pixels": 64,
+      "height_pixels": 28,
+      "owners": [
+        "MEXICO"
+      ],
+      "owner_count": 1
+    },
+    {
+      "style": 19,
+      "vram_x_word": 880,
+      "vram_y": 384,
+      "width_pixels": 64,
+      "height_pixels": 28,
+      "owners": [
+        "BRAZIL"
+      ],
+      "owner_count": 1
+    },
+    {
+      "style": 20,
+      "vram_x_word": 832,
+      "vram_y": 416,
+      "width_pixels": 64,
+      "height_pixels": 28,
+      "owners": [
+        "Ghana"
+      ],
+      "owner_count": 1
+    },
+    {
+      "style": 21,
+      "vram_x_word": 848,
+      "vram_y": 416,
+      "width_pixels": 64,
+      "height_pixels": 28,
+      "owners": [
+        "PARAGUAY"
+      ],
+      "owner_count": 1
+    },
+    {
+      "style": 22,
+      "vram_x_word": 864,
+      "vram_y": 416,
+      "width_pixels": 64,
+      "height_pixels": 28,
+      "owners": [
+        "ARGENTINA"
+      ],
+      "owner_count": 1
+    },
+    {
+      "style": 23,
+      "vram_x_word": 880,
+      "vram_y": 416,
+      "width_pixels": 64,
+      "height_pixels": 28,
+      "owners": [
+        "KOREA",
+        "JAPAN"
+      ],
+      "owner_count": 2
+    },
+    {
+      "style": 24,
+      "vram_x_word": 832,
+      "vram_y": 448,
+      "width_pixels": 64,
+      "height_pixels": 28,
+      "owners": [
+        "DR Congo"
+      ],
+      "owner_count": 1
+    },
+    {
+      "style": 25,
+      "vram_x_word": 848,
+      "vram_y": 448,
+      "width_pixels": 64,
+      "height_pixels": 28,
+      "owners": [
+        "IRAN"
+      ],
+      "owner_count": 1
+    },
+    {
+      "style": 26,
+      "vram_x_word": 864,
+      "vram_y": 448,
+      "width_pixels": 64,
+      "height_pixels": 28,
+      "owners": [
+        "SAUDI ARABIA"
+      ],
+      "owner_count": 1
+    },
+    {
+      "style": 27,
+      "vram_x_word": 880,
+      "vram_y": 448,
+      "width_pixels": 64,
+      "height_pixels": 28,
+      "owners": [
+        "AUSTRALIA"
+      ],
+      "owner_count": 1
+    }
+  ],
+  "team_assignments": [
+    {
+      "slot": 0,
+      "team": "AUSTRALIA",
+      "style_id": 27,
+      "valid_0_27": true,
+      "is_replaced": false,
+      "x_word": 880,
+      "y": 448,
+      "width_pixels": 64,
+      "height_pixels": 28
+    },
+    {
+      "slot": 1,
+      "team": "SAUDI ARABIA",
+      "style_id": 26,
+      "valid_0_27": true,
+      "is_replaced": false,
+      "x_word": 864,
+      "y": 448,
+      "width_pixels": 64,
+      "height_pixels": 28
+    },
+    {
+      "slot": 2,
+      "team": "Qatar",
+      "style_id": 60,
+      "valid_0_27": false,
+      "is_replaced": true,
+      "x_word": null,
+      "y": null,
+      "width_pixels": 64,
+      "height_pixels": 28
+    },
+    {
+      "slot": 3,
+      "team": "IRAN",
+      "style_id": 25,
+      "valid_0_27": true,
+      "is_replaced": false,
+      "x_word": 848,
+      "y": 448,
+      "width_pixels": 64,
+      "height_pixels": 28
+    },
+    {
+      "slot": 4,
+      "team": "Uzbekistan",
+      "style_id": 59,
+      "valid_0_27": false,
+      "is_replaced": true,
+      "x_word": null,
+      "y": null,
+      "width_pixels": 64,
+      "height_pixels": 28
+    },
+    {
+      "slot": 5,
+      "team": "KOREA",
+      "style_id": 23,
+      "valid_0_27": true,
+      "is_replaced": false,
+      "x_word": 880,
+      "y": 416,
+      "width_pixels": 64,
+      "height_pixels": 28
+    },
+    {
+      "slot": 6,
+      "team": "JAPAN",
+      "style_id": 23,
+      "valid_0_27": true,
+      "is_replaced": false,
+      "x_word": 880,
+      "y": 416,
+      "width_pixels": 64,
+      "height_pixels": 28
+    },
+    {
+      "slot": 7,
+      "team": "ARGENTINA",
+      "style_id": 22,
+      "valid_0_27": true,
+      "is_replaced": false,
+      "x_word": 864,
+      "y": 416,
+      "width_pixels": 64,
+      "height_pixels": 28
+    },
+    {
+      "slot": 8,
+      "team": "URUGUAY",
+      "style_id": 12,
+      "valid_0_27": true,
+      "is_replaced": false,
+      "x_word": 832,
+      "y": 352,
+      "width_pixels": 64,
+      "height_pixels": 28
+    },
+    {
+      "slot": 9,
+      "team": "PARAGUAY",
+      "style_id": 21,
+      "valid_0_27": true,
+      "is_replaced": false,
+      "x_word": 848,
+      "y": 416,
+      "width_pixels": 64,
+      "height_pixels": 28
+    },
+    {
+      "slot": 10,
+      "team": "Panama",
+      "style_id": 58,
+      "valid_0_27": false,
+      "is_replaced": true,
+      "x_word": null,
+      "y": null,
+      "width_pixels": 64,
+      "height_pixels": 28
+    },
+    {
+      "slot": 11,
+      "team": "Ecuador",
+      "style_id": 57,
+      "valid_0_27": false,
+      "is_replaced": true,
+      "x_word": null,
+      "y": null,
+      "width_pixels": 64,
+      "height_pixels": 28
+    },
+    {
+      "slot": 12,
+      "team": "BRAZIL",
+      "style_id": 19,
+      "valid_0_27": true,
+      "is_replaced": false,
+      "x_word": 880,
+      "y": 384,
+      "width_pixels": 64,
+      "height_pixels": 28
+    },
+    {
+      "slot": 13,
+      "team": "COLOMBIA",
+      "style_id": 7,
+      "valid_0_27": true,
+      "is_replaced": false,
+      "x_word": 880,
+      "y": 288,
+      "width_pixels": 64,
+      "height_pixels": 28
+    },
+    {
+      "slot": 14,
+      "team": "Canada",
+      "style_id": 56,
+      "valid_0_27": false,
+      "is_replaced": true,
+      "x_word": null,
+      "y": null,
+      "width_pixels": 64,
+      "height_pixels": 28
+    },
+    {
+      "slot": 15,
+      "team": "MEXICO",
+      "style_id": 18,
+      "valid_0_27": true,
+      "is_replaced": false,
+      "x_word": 864,
+      "y": 384,
+      "width_pixels": 64,
+      "height_pixels": 28
+    },
+    {
+      "slot": 16,
+      "team": "UNITED STATES",
+      "style_id": 17,
+      "valid_0_27": true,
+      "is_replaced": false,
+      "x_word": 848,
+      "y": 384,
+      "width_pixels": 64,
+      "height_pixels": 28
+    },
+    {
+      "slot": 17,
+      "team": "SOUTH AFRICA",
+      "style_id": 16,
+      "valid_0_27": true,
+      "is_replaced": false,
+      "x_word": 832,
+      "y": 384,
+      "width_pixels": 64,
+      "height_pixels": 28
+    },
+    {
+      "slot": 18,
+      "team": "Senegal",
+      "style_id": 0,
+      "valid_0_27": true,
+      "is_replaced": true,
+      "x_word": 832,
+      "y": 256,
+      "width_pixels": 64,
+      "height_pixels": 28
+    },
+    {
+      "slot": 19,
+      "team": "NIGERIA",
+      "style_id": 0,
+      "valid_0_27": true,
+      "is_replaced": false,
+      "x_word": 832,
+      "y": 256,
+      "width_pixels": 64,
+      "height_pixels": 28
+    },
+    {
+      "slot": 20,
+      "team": "EGYPT",
+      "style_id": 7,
+      "valid_0_27": true,
+      "is_replaced": false,
+      "x_word": 880,
+      "y": 288,
+      "width_pixels": 64,
+      "height_pixels": 28
+    },
+    {
+      "slot": 21,
+      "team": "TUNISIA",
+      "style_id": 15,
+      "valid_0_27": true,
+      "is_replaced": false,
+      "x_word": 880,
+      "y": 352,
+      "width_pixels": 64,
+      "height_pixels": 28
+    },
+    {
+      "slot": 22,
+      "team": "MOROCCO",
+      "style_id": 14,
+      "valid_0_27": true,
+      "is_replaced": false,
+      "x_word": 864,
+      "y": 352,
+      "width_pixels": 64,
+      "height_pixels": 28
+    },
+    {
+      "slot": 23,
+      "team": "Bosnia",
+      "style_id": 10,
+      "valid_0_27": true,
+      "is_replaced": true,
+      "x_word": 864,
+      "y": 320,
+      "width_pixels": 64,
+      "height_pixels": 28
+    },
+    {
+      "slot": 24,
+      "team": "UKRAINE",
+      "style_id": 8,
+      "valid_0_27": true,
+      "is_replaced": false,
+      "x_word": 832,
+      "y": 320,
+      "width_pixels": 64,
+      "height_pixels": 28
+    },
+    {
+      "slot": 25,
+      "team": "TURKEY",
+      "style_id": 13,
+      "valid_0_27": true,
+      "is_replaced": false,
+      "x_word": 848,
+      "y": 352,
+      "width_pixels": 64,
+      "height_pixels": 28
+    },
+    {
+      "slot": 26,
+      "team": "New Zealand",
+      "style_id": 54,
+      "valid_0_27": false,
+      "is_replaced": true,
+      "x_word": null,
+      "y": null,
+      "width_pixels": 64,
+      "height_pixels": 28
+    },
+    {
+      "slot": 27,
+      "team": "Iraq",
+      "style_id": 53,
+      "valid_0_27": false,
+      "is_replaced": true,
+      "x_word": null,
+      "y": null,
+      "width_pixels": 64,
+      "height_pixels": 28
+    },
+    {
+      "slot": 28,
+      "team": "Jordan",
+      "style_id": 52,
+      "valid_0_27": false,
+      "is_replaced": true,
+      "x_word": null,
+      "y": null,
+      "width_pixels": 64,
+      "height_pixels": 28
+    },
+    {
+      "slot": 29,
+      "team": "Curacao",
+      "style_id": 37,
+      "valid_0_27": false,
+      "is_replaced": true,
+      "x_word": null,
+      "y": null,
+      "width_pixels": 64,
+      "height_pixels": 28
+    },
+    {
+      "slot": 30,
+      "team": "CROATIA",
+      "style_id": 11,
+      "valid_0_27": true,
+      "is_replaced": false,
+      "x_word": 880,
+      "y": 320,
+      "width_pixels": 64,
+      "height_pixels": 28
+    },
+    {
+      "slot": 31,
+      "team": "Haiti",
+      "style_id": 35,
+      "valid_0_27": false,
+      "is_replaced": true,
+      "x_word": null,
+      "y": null,
+      "width_pixels": 64,
+      "height_pixels": 28
+    },
+    {
+      "slot": 32,
+      "team": "HUNGARY",
+      "style_id": 7,
+      "valid_0_27": true,
+      "is_replaced": false,
+      "x_word": 880,
+      "y": 288,
+      "width_pixels": 64,
+      "height_pixels": 28
+    },
+    {
+      "slot": 33,
+      "team": "AUSTRIA",
+      "style_id": 7,
+      "valid_0_27": true,
+      "is_replaced": false,
+      "x_word": 880,
+      "y": 288,
+      "width_pixels": 64,
+      "height_pixels": 28
+    },
+    {
+      "slot": 34,
+      "team": "DR Congo",
+      "style_id": 24,
+      "valid_0_27": true,
+      "is_replaced": true,
+      "x_word": 832,
+      "y": 448,
+      "width_pixels": 64,
+      "height_pixels": 28
+    },
+    {
+      "slot": 35,
+      "team": "POLAND",
+      "style_id": 8,
+      "valid_0_27": true,
+      "is_replaced": false,
+      "x_word": 832,
+      "y": 320,
+      "width_pixels": 64,
+      "height_pixels": 28
+    },
+    {
+      "slot": 36,
+      "team": "Ghana",
+      "style_id": 20,
+      "valid_0_27": true,
+      "is_replaced": true,
+      "x_word": 832,
+      "y": 416,
+      "width_pixels": 64,
+      "height_pixels": 28
+    },
+    {
+      "slot": 37,
+      "team": "SWEDEN",
+      "style_id": 9,
+      "valid_0_27": true,
+      "is_replaced": false,
+      "x_word": 848,
+      "y": 320,
+      "width_pixels": 64,
+      "height_pixels": 28
+    },
+    {
+      "slot": 38,
+      "team": "NORWAY",
+      "style_id": 9,
+      "valid_0_27": true,
+      "is_replaced": false,
+      "x_word": 848,
+      "y": 320,
+      "width_pixels": 64,
+      "height_pixels": 28
+    },
+    {
+      "slot": 39,
+      "team": "DENMARK",
+      "style_id": 9,
+      "valid_0_27": true,
+      "is_replaced": false,
+      "x_word": 848,
+      "y": 320,
+      "width_pixels": 64,
+      "height_pixels": 28
+    },
+    {
+      "slot": 40,
+      "team": "GERMANY",
+      "style_id": 7,
+      "valid_0_27": true,
+      "is_replaced": false,
+      "x_word": 880,
+      "y": 288,
+      "width_pixels": 64,
+      "height_pixels": 28
+    },
+    {
+      "slot": 41,
+      "team": "CZECH",
+      "style_id": 8,
+      "valid_0_27": true,
+      "is_replaced": false,
+      "x_word": 832,
+      "y": 320,
+      "width_pixels": 64,
+      "height_pixels": 28
+    },
+    {
+      "slot": 42,
+      "team": "ITALY",
+      "style_id": 0,
+      "valid_0_27": true,
+      "is_replaced": false,
+      "x_word": 832,
+      "y": 256,
+      "width_pixels": 64,
+      "height_pixels": 28
+    },
+    {
+      "slot": 43,
+      "team": "SWITZERLAND",
+      "style_id": 4,
+      "valid_0_27": true,
+      "is_replaced": false,
+      "x_word": 832,
+      "y": 288,
+      "width_pixels": 64,
+      "height_pixels": 28
+    },
+    {
+      "slot": 44,
+      "team": "NETHERLANDS",
+      "style_id": 7,
+      "valid_0_27": true,
+      "is_replaced": false,
+      "x_word": 880,
+      "y": 288,
+      "width_pixels": 64,
+      "height_pixels": 28
+    },
+    {
+      "slot": 45,
+      "team": "BELGIUM",
+      "style_id": 0,
+      "valid_0_27": true,
+      "is_replaced": false,
+      "x_word": 832,
+      "y": 256,
+      "width_pixels": 64,
+      "height_pixels": 28
+    },
+    {
+      "slot": 46,
+      "team": "FRANCE",
+      "style_id": 0,
+      "valid_0_27": true,
+      "is_replaced": false,
+      "x_word": 832,
+      "y": 256,
+      "width_pixels": 64,
+      "height_pixels": 28
+    },
+    {
+      "slot": 47,
+      "team": "SPAIN",
+      "style_id": 6,
+      "valid_0_27": true,
+      "is_replaced": false,
+      "x_word": 864,
+      "y": 288,
+      "width_pixels": 64,
+      "height_pixels": 28
+    },
+    {
+      "slot": 48,
+      "team": "PORTUGAL",
+      "style_id": 5,
+      "valid_0_27": true,
+      "is_replaced": false,
+      "x_word": 848,
+      "y": 288,
+      "width_pixels": 64,
+      "height_pixels": 28
+    },
+    {
+      "slot": 49,
+      "team": "ENGLAND",
+      "style_id": 4,
+      "valid_0_27": true,
+      "is_replaced": false,
+      "x_word": 832,
+      "y": 288,
+      "width_pixels": 64,
+      "height_pixels": 28
+    },
+    {
+      "slot": 50,
+      "team": "Ivory Coast",
+      "style_id": 43,
+      "valid_0_27": false,
+      "is_replaced": true,
+      "x_word": null,
+      "y": null,
+      "width_pixels": 64,
+      "height_pixels": 28
+    },
+    {
+      "slot": 51,
+      "team": "SCOTLAND",
+      "style_id": 2,
+      "valid_0_27": true,
+      "is_replaced": false,
+      "x_word": 864,
+      "y": 256,
+      "width_pixels": 64,
+      "height_pixels": 28
+    },
+    {
+      "slot": 52,
+      "team": "Algeria",
+      "style_id": 3,
+      "valid_0_27": true,
+      "is_replaced": true,
+      "x_word": 880,
+      "y": 256,
+      "width_pixels": 64,
+      "height_pixels": 28
+    },
+    {
+      "slot": 53,
+      "team": "Cabo Verde",
+      "style_id": 1,
+      "valid_0_27": true,
+      "is_replaced": true,
+      "x_word": 848,
+      "y": 256,
+      "width_pixels": 64,
+      "height_pixels": 28
+    }
+  ]
+}
