@@ -96,7 +96,7 @@ def phase_from_operator_capture(name: str) -> dict | None:
     # operator label, NOT an inferred visual classification.
     expression = (
         r"^cal_test12_(selection|prematch_banner|carried_banner|crowd_flags|hud)"
-        r"_[0-9a-f]{6}_[0-9]{6,12}\\.vram$"
+        r"_[0-9a-f]{6}_[0-9]{6,12}[.]vram$"
     )
     match = re.fullmatch(expression, name)
     if not match:
