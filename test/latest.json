@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "channel": "test",
   "latest": {
-    "version": "0.9.6-teamidentity-test09",
-    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.6-teamidentity-test09/ISS26_0.9.5_TeamIdentity_BigGPU_AB_TEST09.iss26p",
-    "patchSha256": "FA5E3DC3702808E8ABC197C9BB27B0707A4D44575D765918911AD846738D71B2",
+    "version": "0.9.6-teamidentity-test10",
+    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.6-teamidentity-test10/ISS26_0.9.5_TeamIdentity_PrematchNames_TEST10.iss26p",
+    "patchSha256": "9832FA77F1DF60A56683F9BEA2AB631580056039A864A7E830EF8BE61138926B",
     "baseSha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
-    "resultSha256": "6F81648EDCF02D5115FFD313DDE4DA3F5768EA4FBEAD4C1831D91EC813B70647"
+    "resultSha256": "1F1AB781AEE4FE60816405A6A0CDEEEA348941C19761BB4FC7A528E43B311456"
   },
-  "notes": "Controlled experimental Test09 A/B safety diagnostic. Full independent patch for CLEAN European Track01 PS1 game. Keeps Test08 Master League-inspired 24x16 Bosnia and Canada tiny flags, all other 52 tiny flags, 330 updated players in 15 teams, 44 corrected Ukraine/Cabo Verde name cases and Qatar additional text. Restores ONLY two compressed big GPU texture source streams in DATSEL/DATSEL3 to pre-Stage5 content. Exactly 4 CD sectors differ vs Test08; NO GDC stadium resources edited. This is NOT a confirmed large-flag fix; Bosnia big flag may revert to old artwork. Needed to compare stadium/field giant-graphic artifacts Test08 vs Test09. Old Russia/Greece prematch names and 24x8 scoreboard icons are not fixed. Emulator comparison requires FULL RESTART without older save state. Stable Play Game remains 0.9.4."
+  "notes": "EXPERIMENTAL ISS26 Team Identity Test10, independent EU PS1 Track01 clean-original patch. Corrects 17 renamed national PREMATCH BITMAP LABELS stored as indexed graphics, not ASCII strings, in T_NAME_E.BIN, T_NAME_F.BIN, T_NAME_G.BIN; old Russia->Bosnia, Greece->New Zealand, Jamaica->Canada, etc. Rebuilt 26 4bpp GPU upload streams, updated all pointers, 1176 bytes free in each atlas. All other 37 national names, 2 bonus names, 24 clubs and stadium labels unchanged at decoded texel level. Mixed-case bitmap appearance is approximation of native italic font, must visually verify in PCSX-Redux. Preserves all original Test09 small flags (including Master League-style Bosnia and Canada), 330 new 2026 national player names, 44 proper case Ukraine/Cabo Verde, Qatar SELECT3, and no GDC stadium changes. LARGE FLAGS on prematch panels and ceremonial walkout remain unresolved. Stable Play Game remains v0.9.4."
 }
