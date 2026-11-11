@@ -1,0 +1,6 @@
+{
+  "schemaVersion": 1,
+  "channel": "preview",
+  "latest": null,
+  "notes": "Opt-in permanently signed Android APK preview feed. No preview is approved until the user's permanent signing key is configured and a signed release is published."
+}
