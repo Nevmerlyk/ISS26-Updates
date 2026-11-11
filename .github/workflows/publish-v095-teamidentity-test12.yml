@@ -4,6 +4,7 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/publish-v095-teamidentity-test12.yml'
+      - 'tools/build_v095_test12_gdc_descriptor_repair.py'
   workflow_dispatch:
 
 permissions:
