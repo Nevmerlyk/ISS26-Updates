@@ -13,6 +13,8 @@ import json
 import struct
 from pathlib import Path
 
+from build_v094_pointer_repair import edc, ecc
+
 SECTOR = 2352
 RECORD = 4 + 32 + SECTOR
 BASE_COUNT = 1412
@@ -84,6 +86,26 @@ def audit(test08: Path, test09: Path, test10: Path) -> dict:
     assert changed_bytes == data_bytes + error_correction_bytes
     assert data_bytes > 0 and error_correction_bytes > 0
 
+    # EDC and ECC are linear in XOR differences: parity can be checked without
+    # reconstructing or uploading copyrighted source disc sectors.
+    def valid_mode2_form1_delta(mask: bytes) -> bool:
+        if mask[2072:2076] != edc(mask[16:2072]):
+            return False
+        payload = bytearray(mask[12:2076])
+        payload[:4] = bytes(4)
+        parity_p = bytes(ecc(payload, 86, 24, 2, 86))
+        if mask[2076:2248] != parity_p:
+            return False
+        parity_q = bytes(ecc(payload + parity_p, 52, 43, 86, 88))
+        return mask[2248:2352] == parity_q
+
+    bad_new_parity = [k for k in new if not valid_mode2_form1_delta(c[k][1])]
+    assert not bad_new_parity, f"Invalid EDC/ECC difference sectors in Test10: {bad_new_parity}"
+    bosnia_parity = {}
+    for k in BOSNIA_LARGE_GRAPHIC:
+        difference = bytes(x ^ y for x, y in zip(a[k][1], b[k][1]))
+        bosnia_parity[k] = valid_mode2_form1_delta(difference)
+
     return {
         "schema_version": 1,
         "audit": "Test08 -> Test09 -> Test10 independent clean-original patch comparison",
@@ -98,6 +120,8 @@ def audit(test08: Path, test09: Path, test10: Path) -> dict:
         "test10_added_lba_ranges": [[8200, 8227], [8230, 8257], [8260, 8287]],
         "test10_prematch_source_guard_fingerprint": actual_guard_fingerprint,
         "test10_raw_sector_header_changes": len(unexpected_headers),
+        "test10_edc_ecc_valid_new_sectors": len(new) - len(bad_new_parity),
+        "bosnia_08_to_09_edc_ecc_valid": {str(k): v for k,v in bosnia_parity.items()},
         "test10_changed_bytes_in_added_sectors": changed_bytes,
         "test10_changed_bytes_in_atlas_data": data_bytes,
         "test10_changed_bytes_in_sector_edc_ecc": error_correction_bytes,
