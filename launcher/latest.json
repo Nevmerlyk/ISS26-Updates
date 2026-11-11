@@ -1,11 +1,11 @@
 {
-  "schemaVersion": 1,
   "latest": {
-    "version": "0.9.3",
-    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.9.3/ISS26-LauncherUpdate.zip",
-    "zipSha256": "F566802FBE201ADEB32DA1AC0CAF22538BFA6F0BDD03F505D7E5F2A7E83040EA",
-    "launcherSha256": "2D2BDF150B73A7A8ED07CCFDB08BD1014B86985EFC07B25CEB6B7BD0D33C9028",
-    "updaterSha256": "2063B281EEA4E5D0401E0BF5F1EDBD83FCACC9C3FBC07AEDC3682F42FAE39105",
-    "notes": "Academy v0.9.3: Rookie Game now performs bounded START/CROSS/RIGHT controller attempts, checks visual changes, records screen/VRAM evidence, and shows live Rookie/Goal status. This is an experimental autonomous trial, not verified navigation or a passed kickoff exam. Stable and test game patches, originals and saves are unchanged."
-  }
+    "version": "0.9.4",
+    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.9.4/ISS26-LauncherUpdate.zip",
+    "zipSha256": "866C8AAFE4D328B90F1501378D3330EA1537419DB73F95DFDE9F6D0335C89D83",
+    "launcherSha256": "90B79B5BE537A1AA16175376D0B52BF021C6332C9E6A45575DCC524C4FC11A52",
+    "updaterSha256": "D0184BAF8495B09D0AC6C5581ECC80D8D98DF066102F187ADB08892CD7F5BDCC",
+    "notes": "Academy v0.9.4: live Rookie observations, rule rationale, controller decisions, screenshot outcomes and recent frame events. Semantic menu recognition and passing the exam remain unverified. Saves, original BIN/CUE and game patch channels unchanged."
+  },
+  "schemaVersion": 1
 }
