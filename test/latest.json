@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "channel": "test",
   "latest": {
-    "version": "0.9.6-teamidentity-test10",
-    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.6-teamidentity-test10/ISS26_0.9.5_TeamIdentity_PrematchNames_TEST10.iss26p",
-    "patchSha256": "9832FA77F1DF60A56683F9BEA2AB631580056039A864A7E830EF8BE61138926B",
+    "version": "0.9.5-largeflag-source-test13",
+    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.5-largeflag-source-test13/ISS26_0.9.5_LargeFlagSource_TEST13.iss26p",
+    "patchSha256": "159A31A95BBAE3BD032417DFDCB8B5478016907DCC1E848D968CBF5B17E61214",
     "baseSha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
-    "resultSha256": "1F1AB781AEE4FE60816405A6A0CDEEEA348941C19761BB4FC7A528E43B311456"
+    "resultSha256": "507F6957F6CE3C89178D0504409BDB1BB47D8DFF010C49325B3096D0171F0EE1"
   },
-  "notes": "EXPERIMENTAL ISS26 Team Identity Test10, independent EU PS1 Track01 clean-original patch. Corrects 17 renamed national PREMATCH BITMAP LABELS stored as indexed graphics, not ASCII strings, in T_NAME_E.BIN, T_NAME_F.BIN, T_NAME_G.BIN; old Russia->Bosnia, Greece->New Zealand, Jamaica->Canada, etc. Rebuilt 26 4bpp GPU upload streams, updated all pointers, 1176 bytes free in each atlas. All other 37 national names, 2 bonus names, 24 clubs and stadium labels unchanged at decoded texel level. Mixed-case bitmap appearance is approximation of native italic font, must visually verify in PCSX-Redux. Preserves all original Test09 small flags (including Master League-style Bosnia and Canada), 330 new 2026 national player names, 44 proper case Ukraine/Cabo Verde, Qatar SELECT3, and no GDC stadium changes. LARGE FLAGS on prematch panels and ceremonial walkout remain unresolved. Stable Play Game remains v0.9.4."
+  "notes": "EXPERIMENTAL Test13: isolate DATSEL/DATSEL3 four-sector large flag source modifications. 1492 modified sectors; independent clean-original EU Track01 patch. Result SHA-256 verified locally against the exact clean European Track01 and every source-sector SHA-256. All 17 prematch bitmap names, small flags, player names and five GDC descriptor repairs from Test12 preserved. Large flags may revert to legacy art; visual A/B check required. Cape Verde name and spacing NOT fixed. Stable Play Game stays on v0.9.4."
 }
