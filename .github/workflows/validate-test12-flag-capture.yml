@@ -1,0 +1,36 @@
+name: Validate Test12 flag phase analyzer
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/validate-test12-flag-capture.yml'
+      - 'tools/analyze_flag_test12_phases.py'
+      - 'tools/tests/test_analyze_flag_test12_phases.py'
+      - 'diagnostics/TEST12_FLAG_SOURCE_ISOLATION.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test labeled and unlabeled VRAM, nested ZIP and traversal safety
+        run: python -m unittest discover -s tools/tests -p 'test_analyze_flag_test12_phases.py' -v
+      - name: Validate usage and keep stable game channel unchanged
+        run: |
+          python tools/analyze_flag_test12_phases.py --help
+          python - <<'PY'
+          import json
+          with open('stable/latest.json',encoding='utf-8') as f:
+              active=json.load(f)
+          assert active['channel']=='stable'
+          assert active['latest']['version']=='0.9.4'
+          print('PASS: no Test12 game-patch activation')
+          PY
