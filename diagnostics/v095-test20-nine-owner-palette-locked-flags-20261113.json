@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "project": "ISS26 v0.9.5",
+  "date": "2026-11-13",
+  "milestone": "Test20: nine original-owner-palette-locked large national flags",
+  "status": "EXPERIMENTAL_OFFLINE_VALIDATED_NOT_EMULATOR_VALIDATED_NOT_STABLE",
+  "clean_original_sha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
+  "base_test18_patch_sha256": "209F978CD9C6AA18B78E48AE7B1AEE7F0AFA66F103BD6E4E0F75104C0A4BA01E",
+  "patch": {
+    "filename": "ISS26_Test_0.9.5_TEST20_NineHostLocked.iss26p",
+    "sha256": "154A3FB38C5F4C3CF6020BCA2D940A8447A226BA0408BEEDC6D82FA65202426B",
+    "size_bytes": 3572460,
+    "sector_records": 1496,
+    "result_track01_sha256": "2B2577467B81FAA279F5F9F7921EDACA41DE396E7D3D4910174409F6B3BDC381",
+    "independent_clean_source": true
+  },
+  "algorithm": {
+    "name": "4bpp original-owner palette locked multiplexing",
+    "basis": "For each source 64x28 tile, preserve the exact 15-bit BGR555 color at every pixel for existing owner by redistributing only matching-index palette aliases. A new national slot gets its own per-slot CLUT to render an approximated new picture, with exact measured per-pixel error bound.",
+    "selection": "Global distinct style assignment via Hungarian algorithm to nine national host templates; no shared club style templates.",
+    "max_error_per_new_flag": 70,
+    "error_count_out_of_1792": {
+      "Canada": 3,
+      "Curaçao": 47,
+      "Qatar": 17,
+      "Ecuador": 55,
+      "Panama": 61,
+      "Jordan": 35,
+      "Iraq": 37,
+      "New Zealand": 45,
+      "Uzbekistan": 28
+    },
+    "error_count_total": 328,
+    "style_assignments": {
+      "Canada": 17,
+      "Curaçao": 13,
+      "Qatar": 12,
+      "Ecuador": 14,
+      "Panama": 26,
+      "Jordan": 22,
+      "Iraq": 11,
+      "New Zealand": 2,
+      "Uzbekistan": 21
+    }
+  },
+  "validated": {
+    "nine_recovered_from_final_track01": true,
+    "other_45_large_flag_Bgr555_pixel_exact_against_test18": true,
+    "other_45_national_cluts_all_16_words_exact_against_test18": true,
+    "all_24_club_style_entries_unchanged": true,
+    "all_54_team_name_banks_unchanged": true,
+    "all_121_gpu_upload_streams_decompress": true,
+    "datsel_repack_free_bytes": 368,
+    "datsel3_repack_free_bytes": 492,
+    "all_1496_patched_sectors_accepted_and_edc_ecc_checked": true,
+    "clean_disc_install_passed": true,
+    "repeat_install_idempotent_passed": true,
+    "cue_rollback_passed": true,
+    "six_synthetic_codec_optimizer_tests_passed": true,
+    "nine_real_source_solver_cases_passed": true,
+    "zip_crc_passed": true,
+    "original_disc_unchanged": true
+  },
+  "bundle": {
+    "filename": "ISS26_Test_0.9.5_TEST20_HostPaletteLocked_Experimental.zip",
+    "bytes": 3042247,
+    "sha256": "E4FD98780DD545034BBB6CE87487BFC15F434E8FC11C5C8B051C0A030B0A58D5",
+    "includes": [
+      "self-contained ISS26X01 patch",
+      "Windows auto-install and rollback",
+      "CUE",
+      "nine in-disc flag preview",
+      "validation report",
+      "CLUT-constrained optimizer source and unit tests",
+      "Test18/Test20 selection GPU capture scripts",
+      "MIT flag-icons license",
+      "Russian README"
+    ],
+    "contains_original_game_data": false
+  },
+  "limitations": [
+    "Only large 64x28 static graphic output of nine new flags verified offline. No fresh Test20 gameplay screenshot.",
+    "The nine TARGET national CLUTs are changed. Their small selection and HUD icons are NOT validated and may still be incorrect.",
+    "All 45 other nations' CLUT words are unchanged, but 24 club visual runtime audit, other texture variants, carried flags, map, HUD not proven by gameplay.",
+    "Existing Test18 prematch large-flag visual problems (Cape Verde/Bosnia) and Bosnia-versus-club54 style collision remain.",
+    "Compact names such as C.VERDE remain; all screens not yet approved.",
+    "Six low-resolution flags derive from project raster candidates and may need artistic revision."
+  ],
+  "release_gates": {
+    "stable_095_approved": false,
+    "stable_feed_changed": false,
+    "test_feed_changed": false,
+    "emulator_smoke_test_passed": false
+  }
+}
