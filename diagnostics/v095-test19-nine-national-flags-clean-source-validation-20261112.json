@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "project": "ISS26 v0.9.5",
+  "milestone": "Test19 consolidated nine-new-nation large flag multiplex",
+  "date": "2026-11-12",
+  "status": "EXPERIMENTAL CLEAN-SOURCE PATCH VERIFIED OFFLINE; NOT ALL 54/ALL SCREENS; NOT STABLE",
+  "source": {
+    "original_eu_track01_sha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
+    "base_test18_patch_sha256": "209F978CD9C6AA18B78E48AE7B1AEE7F0AFA66F103BD6E4E0F75104C0A4BA01E"
+  },
+  "patch": {
+    "filename": "ISS26_Test_0.9.5_TEST19_NineFlags.iss26p",
+    "sha256": "5D090EF5C81F713F5D6A81D4E374DD021C1704F4F237D46E9CA5CA84AEE345E7",
+    "independent_xor_source_guards": true,
+    "sector_record_count": 1496,
+    "result_track01_sha256": "2566A9E1AA41C5C225965C55D314A47862168176B355621EA4E0637E322AAB8B",
+    "size_bytes": 3572460
+  },
+  "nine_new_large_flags": {
+    "Ecuador": {
+      "slot": 42,
+      "style": 3,
+      "source": "low-res project candidate"
+    },
+    "Jordan": {
+      "slot": 25,
+      "style": 20,
+      "source": "low-res project candidate"
+    },
+    "Iraq": {
+      "slot": 26,
+      "style": 24,
+      "source": "low-res project candidate"
+    },
+    "New Zealand": {
+      "slot": 27,
+      "style": 1,
+      "source": "low-res project candidate"
+    },
+    "Qatar": {
+      "slot": 51,
+      "style": 18,
+      "source": "MIT flag-icons SVG raster"
+    },
+    "Curaçao": {
+      "slot": 24,
+      "style": 17,
+      "source": "MIT flag-icons SVG raster plus exact two-star 64x28 correction"
+    },
+    "Canada": {
+      "slot": 39,
+      "style": 14,
+      "source": "MIT flag-icons SVG raster"
+    },
+    "Panama": {
+      "slot": 43,
+      "style": 8,
+      "source": "low-res project candidate"
+    },
+    "Uzbekistan": {
+      "slot": 49,
+      "style": 11,
+      "source": "low-res project candidate with 12 tiny stars in 3+4+5 rows"
+    }
+  },
+  "validations": {
+    "other_45_national_large_flags_unchanged_exact_BGR555": true,
+    "club_style_tables_24_entries_unchanged": true,
+    "all_54_source_name_banks_preserved": true,
+    "all_nine_final_disc_large_flags_match_targets": true,
+    "dat_resource_gpu_decodable_stream_counts": {
+      "DATSEL": 55,
+      "DATSEL2": 23,
+      "DATSEL3": 22,
+      "DAT2D": 21
+    },
+    "dat_resources_consistent": true,
+    "dat_gpu_packing_remaining_bytes": {
+      "DATSEL": 272,
+      "DATSEL3": 396
+    },
+    "mode2_1496_records_guarded_edc_ecc_pass": true,
+    "installer_from_clean_pass": true,
+    "installer_second_run_pass": true,
+    "installer_rollback_pass": true,
+    "zip_crc_check_pass": true,
+    "original_media_unchanged": true
+  },
+  "zip": {
+    "filename": "ISS26_Test_0.9.5_TEST19_Nine_National_Flags.zip",
+    "size_bytes": 3036798,
+    "sha256": "5E0513F0C69B59884365EEF088C402500E4D7F3776F06DDA1EFF453B12549707",
+    "items": 10
+  },
+  "no_promotion": {
+    "stable_feed_unchanged": true,
+    "test_feed_unchanged": true,
+    "not_tested_in_emulator": true,
+    "all_54_flags_all_screens_not_confirmed": true,
+    "small_flag_icon_palettes_may_change_for_shared_template_national_slots": true,
+    "bosnia_slot30_style10_55_and_club54_conflict_unresolved": true,
+    "world_map_hud_ceremonial_crowd_edit_mode_not_verified": true,
+    "short_names_C_VERDE_N_ZEAL_not_rewritten": true
+  },
+  "source_credit": "https://github.com/lipis/flag-icons (MIT, Copyright 2013 Panayiotis Lipiridis)"
+}
