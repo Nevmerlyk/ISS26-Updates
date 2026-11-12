@@ -1,0 +1,25 @@
+name: Verify guarded Cape Verde name atlas patch builder
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/validate-v095-name-overlay.yml'
+      - 'tools/build_v095_targeted_name_overlay.py'
+      - 'tools/tests/test_build_v095_targeted_name_overlay.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify complete clean-original image and patch guard handling on synthetic fixtures
+        run: |
+          python -m unittest discover -s tools/tests -p 'test_build_v095_targeted_name_overlay.py' -v
+      - name: Enforce no replacement glyph edits until artist codec proves exact bytes
+        run: |
+          set -euo pipefail
+          test ! -f staging/v0.9.5/cape_verde_unverified_edits.json
+          echo 'PASS: atlas builder validated; no speculative game patch published'
