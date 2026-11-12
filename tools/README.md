@@ -71,3 +71,30 @@ images remained intact. **That is not the published Test13 image**.
 The real Test13 bitmap coordinates have not yet been verified against a
 prematch GPU capture. **No actual Test14 patch or stable release has been
 published.** See `diagnostics/v095-test14-pixel-build-gate-20261112.json`.
+
+
+## ISS26 v0.9.5 — Test13 name atlas recovery without a full Test13 binary
+
+Use \`Run-Test13-Staged-Inspector.cmd\` in the \`tools\` folder (or run
+\`inspect_v095_test13_from_stage.py --clean-track "D:\ISS 26\ISS Pro Evolution 2 (Europe) (En,Fr,De) (Track 01).bin"\`).
+The inspector retrieves the five published
+\`staging/v0.9.5/test10_prematch_names_delta.part*.b64\` files,
+verifies the **66,016-byte** XZ transfer against the pinned SHA256
+\`C425FEE3E5B561A507E864DA22E08EDD3C5F0A3D43FCE42371A7DB8BD65317AC\`,
+then reconstructs the **84** clean-source-guarded name sectors in memory.
+These records were preserved unchanged in Test13.
+
+It compares all 26 unpacked 4bpp GPU name tiles in the original vs modified
+atlases, saves synthetic grayscale PNGs with differences in red, and validates
+the three Test13 atlas hashes. This avoids needing the complete public
+3.5MB Test13 release file and does **not** alter the user's original BIN.
+
+Tests: \`python -m unittest -v tests.test_inspect_v095_test13_from_stage\`
+(or use Python's unittest discovery). Four local regression tests of the
+equivalent standalone package passed, including an integration run against
+the user's clean original with synthetic source masks.
+
+**Still blocked:** the published staged delta has not yet been processed
+together with the original image in this server environment. Cape Verde
+pixel boundaries, live prematch GPU/VRAM matching, and Test14 gameplay are
+**not verified**. No stable feed change has been made.
