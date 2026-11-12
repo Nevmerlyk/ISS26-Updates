@@ -31,10 +31,28 @@ jobs:
           python -m pip install --disable-pip-version-check pyinstaller==6.16.0
           python -m PyInstaller --onefile --console --clean --name ISS26-CapeVerde-Probe tools/probe_v095_name_gpu_atlas.py
           if (-not (Test-Path "dist/ISS26-CapeVerde-Probe.exe")) { throw "Missing EXE" }
+          @'
+          @echo off
+          cd /d "%~dp0"
+          echo ISS26 v0.9.5 Cape Verde - read-only name atlas probe
+          echo Uses the CLEAN original EU 12-track game at D:\ISS 26.
+          "ISS26-CapeVerde-Probe.exe"
+          if errorlevel 1 (
+              echo.
+              echo PROBE FAILED. Please share this output; game files are untouched.
+          ) else (
+              echo.
+              echo PASS: Report saved to "%USERPROFILE%\ISS26-CapeVerde-probe.json"
+          )
+          echo.
+          pause
+          '@ | Set-Content -Path "dist/Run-ISS26-CapeVerde-Probe.cmd" -Encoding Ascii
       - name: Save read-only probe executable
         uses: actions/upload-artifact@v4
         with:
           name: ISS26-v095-CapeVerde-AtlasProbe
-          path: dist/ISS26-CapeVerde-Probe.exe
+          path: |
+            dist/ISS26-CapeVerde-Probe.exe
+            dist/Run-ISS26-CapeVerde-Probe.cmd
           if-no-files-found: error
           retention-days: 7
