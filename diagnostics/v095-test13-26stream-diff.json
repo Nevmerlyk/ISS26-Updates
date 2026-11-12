@@ -1,0 +1,1072 @@
+{
+  "schema_version": 1,
+  "subject": "ISS26 Test13 prematch national name stream prefix/size differential",
+  "input_probe": "ISS26-CapeVerde-probe.json",
+  "clean_original_sha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
+  "patch_test13_sha256": "159A31A95BBAE3BD032417DFDCB8B5478016907DCC1E848D968CBF5B17E61214",
+  "method": "Compare original and Test13 GPU list offsets and first-64-byte stream digest. Does not decode text pixels or prove full stream byte equality.",
+  "resources": {
+    "BIN/T_NAME_E.BIN": {
+      "resource_bytes": 56256,
+      "original_sha256": "C0931A9FBAB344715D38F9C21310549F4442C778FCEC47EA2FB7C3EC600A723F",
+      "test13_sha256": "01B9CCAAC6FF79372E30A3595AA98B9E41E6A6BA508ABABE77362829CF13300E",
+      "unchanged_geometry": true,
+      "prefix_changed_count": 8,
+      "compressed_length_changed_count": 10,
+      "streams": [
+        {
+          "stream_id": 0,
+          "vram_xy_words": [
+            0,
+            0
+          ],
+          "before_offset": 4,
+          "after_offset": 4,
+          "before_length": 2244,
+          "after_length": 1948,
+          "length_delta": -296,
+          "prefix_64_sha256_changed": true
+        },
+        {
+          "stream_id": 1,
+          "vram_xy_words": [
+            32,
+            0
+          ],
+          "before_offset": 2248,
+          "after_offset": 1952,
+          "before_length": 1816,
+          "after_length": 1816,
+          "length_delta": 0,
+          "prefix_64_sha256_changed": false
+        },
+        {
+          "stream_id": 2,
+          "vram_xy_words": [
+            0,
+            128
+          ],
+          "before_offset": 4064,
+          "after_offset": 3768,
+          "before_length": 2192,
+          "after_length": 2192,
+          "length_delta": 0,
+          "prefix_64_sha256_changed": false
+        },
+        {
+          "stream_id": 3,
+          "vram_xy_words": [
+            32,
+            128
+          ],
+          "before_offset": 6256,
+          "after_offset": 5960,
+          "before_length": 2040,
+          "after_length": 2040,
+          "length_delta": 0,
+          "prefix_64_sha256_changed": false
+        },
+        {
+          "stream_id": 4,
+          "vram_xy_words": [
+            64,
+            0
+          ],
+          "before_offset": 8296,
+          "after_offset": 8000,
+          "before_length": 1868,
+          "after_length": 1764,
+          "length_delta": -104,
+          "prefix_64_sha256_changed": true
+        },
+        {
+          "stream_id": 5,
+          "vram_xy_words": [
+            96,
+            0
+          ],
+          "before_offset": 10164,
+          "after_offset": 9764,
+          "before_length": 1972,
+          "after_length": 1768,
+          "length_delta": -204,
+          "prefix_64_sha256_changed": true
+        },
+        {
+          "stream_id": 6,
+          "vram_xy_words": [
+            64,
+            128
+          ],
+          "before_offset": 12136,
+          "after_offset": 11532,
+          "before_length": 2060,
+          "after_length": 1696,
+          "length_delta": -364,
+          "prefix_64_sha256_changed": true
+        },
+        {
+          "stream_id": 7,
+          "vram_xy_words": [
+            96,
+            128
+          ],
+          "before_offset": 14196,
+          "after_offset": 13228,
+          "before_length": 1868,
+          "after_length": 1772,
+          "length_delta": -96,
+          "prefix_64_sha256_changed": true
+        },
+        {
+          "stream_id": 8,
+          "vram_xy_words": [
+            128,
+            0
+          ],
+          "before_offset": 16064,
+          "after_offset": 15000,
+          "before_length": 1904,
+          "after_length": 1756,
+          "length_delta": -148,
+          "prefix_64_sha256_changed": true
+        },
+        {
+          "stream_id": 9,
+          "vram_xy_words": [
+            160,
+            0
+          ],
+          "before_offset": 17968,
+          "after_offset": 16756,
+          "before_length": 2472,
+          "after_length": 2332,
+          "length_delta": -140,
+          "prefix_64_sha256_changed": true
+        },
+        {
+          "stream_id": 10,
+          "vram_xy_words": [
+            128,
+            128
+          ],
+          "before_offset": 20440,
+          "after_offset": 19088,
+          "before_length": 1672,
+          "after_length": 1744,
+          "length_delta": 72,
+          "prefix_64_sha256_changed": false
+        },
+        {
+          "stream_id": 11,
+          "vram_xy_words": [
+            160,
+            128
+          ],
+          "before_offset": 22112,
+          "after_offset": 20832,
+          "before_length": 1964,
+          "after_length": 1964,
+          "length_delta": 0,
+          "prefix_64_sha256_changed": false
+        },
+        {
+          "stream_id": 12,
+          "vram_xy_words": [
+            192,
+            0
+          ],
+          "before_offset": 24076,
+          "after_offset": 22796,
+          "before_length": 1476,
+          "after_length": 1580,
+          "length_delta": 104,
+          "prefix_64_sha256_changed": true
+        },
+        {
+          "stream_id": 13,
+          "vram_xy_words": [
+            224,
+            0
+          ],
+          "before_offset": 25552,
+          "after_offset": 24376,
+          "before_length": 2364,
+          "after_length": 2364,
+          "length_delta": 0,
+          "prefix_64_sha256_changed": false
+        },
+        {
+          "stream_id": 14,
+          "vram_xy_words": [
+            192,
+            128
+          ],
+          "before_offset": 27916,
+          "after_offset": 26740,
+          "before_length": 2592,
+          "after_length": 2592,
+          "length_delta": 0,
+          "prefix_64_sha256_changed": false
+        },
+        {
+          "stream_id": 15,
+          "vram_xy_words": [
+            224,
+            128
+          ],
+          "before_offset": 30508,
+          "after_offset": 29332,
+          "before_length": 1952,
+          "after_length": 1952,
+          "length_delta": 0,
+          "prefix_64_sha256_changed": false
+        },
+        {
+          "stream_id": 16,
+          "vram_xy_words": [
+            256,
+            0
+          ],
+          "before_offset": 32460,
+          "after_offset": 31284,
+          "before_length": 1988,
+          "after_length": 1988,
+          "length_delta": 0,
+          "prefix_64_sha256_changed": false
+        },
+        {
+          "stream_id": 17,
+          "vram_xy_words": [
+            288,
+            0
+          ],
+          "before_offset": 34448,
+          "after_offset": 33272,
+          "before_length": 2160,
+          "after_length": 2160,
+          "length_delta": 0,
+          "prefix_64_sha256_changed": false
+        },
+        {
+          "stream_id": 18,
+          "vram_xy_words": [
+            256,
+            128
+          ],
+          "before_offset": 36608,
+          "after_offset": 35432,
+          "before_length": 1632,
+          "after_length": 1632,
+          "length_delta": 0,
+          "prefix_64_sha256_changed": false
+        },
+        {
+          "stream_id": 19,
+          "vram_xy_words": [
+            288,
+            128
+          ],
+          "before_offset": 38240,
+          "after_offset": 37064,
+          "before_length": 2124,
+          "after_length": 2124,
+          "length_delta": 0,
+          "prefix_64_sha256_changed": false
+        },
+        {
+          "stream_id": 20,
+          "vram_xy_words": [
+            320,
+            0
+          ],
+          "before_offset": 40364,
+          "after_offset": 39188,
+          "before_length": 2612,
+          "after_length": 2612,
+          "length_delta": 0,
+          "prefix_64_sha256_changed": false
+        },
+        {
+          "stream_id": 21,
+          "vram_xy_words": [
+            352,
+            0
+          ],
+          "before_offset": 42976,
+          "after_offset": 41800,
+          "before_length": 872,
+          "after_length": 872,
+          "length_delta": 0,
+          "prefix_64_sha256_changed": false
+        },
+        {
+          "stream_id": 22,
+          "vram_xy_words": [
+            384,
+            0
+          ],
+          "before_offset": 43848,
+          "after_offset": 42672,
+          "before_length": 3492,
+          "after_length": 3492,
+          "length_delta": 0,
+          "prefix_64_sha256_changed": false
+        },
+        {
+          "stream_id": 23,
+          "vram_xy_words": [
+            416,
+            0
+          ],
+          "before_offset": 47340,
+          "after_offset": 46164,
+          "before_length": 3460,
+          "after_length": 3460,
+          "length_delta": 0,
+          "prefix_64_sha256_changed": false
+        },
+        {
+          "stream_id": 24,
+          "vram_xy_words": [
+            384,
+            128
+          ],
+          "before_offset": 50800,
+          "after_offset": 49624,
+          "before_length": 3256,
+          "after_length": 3256,
+          "length_delta": 0,
+          "prefix_64_sha256_changed": false
+        },
+        {
+          "stream_id": 25,
+          "vram_xy_words": [
+            416,
+            128
+          ],
+          "before_offset": 54056,
+          "after_offset": 52880,
+          "before_length": 1768,
+          "after_length": 2944,
+          "length_delta": 1176,
+          "prefix_64_sha256_changed": false
+        }
+      ]
+    },
+    "BIN/T_NAME_F.BIN": {
+      "resource_bytes": 56256,
+      "original_sha256": "C0931A9FBAB344715D38F9C21310549F4442C778FCEC47EA2FB7C3EC600A723F",
+      "test13_sha256": "01B9CCAAC6FF79372E30A3595AA98B9E41E6A6BA508ABABE77362829CF13300E",
+      "unchanged_geometry": true,
+      "prefix_changed_count": 8,
+      "compressed_length_changed_count": 10,
+      "streams": [
+        {
+          "stream_id": 0,
+          "vram_xy_words": [
+            0,
+            0
+          ],
+          "before_offset": 4,
+          "after_offset": 4,
+          "before_length": 2244,
+          "after_length": 1948,
+          "length_delta": -296,
+          "prefix_64_sha256_changed": true
+        },
+        {
+          "stream_id": 1,
+          "vram_xy_words": [
+            32,
+            0
+          ],
+          "before_offset": 2248,
+          "after_offset": 1952,
+          "before_length": 1816,
+          "after_length": 1816,
+          "length_delta": 0,
+          "prefix_64_sha256_changed": false
+        },
+        {
+          "stream_id": 2,
+          "vram_xy_words": [
+            0,
+            128
+          ],
+          "before_offset": 4064,
+          "after_offset": 3768,
+          "before_length": 2192,
+          "after_length": 2192,
+          "length_delta": 0,
+          "prefix_64_sha256_changed": false
+        },
+        {
+          "stream_id": 3,
+          "vram_xy_words": [
+            32,
+            128
+          ],
+          "before_offset": 6256,
+          "after_offset": 5960,
+          "before_length": 2040,
+          "after_length": 2040,
+          "length_delta": 0,
+          "prefix_64_sha256_changed": false
+        },
+        {
+          "stream_id": 4,
+          "vram_xy_words": [
+            64,
+            0
+          ],
+          "before_offset": 8296,
+          "after_offset": 8000,
+          "before_length": 1868,
+          "after_length": 1764,
+          "length_delta": -104,
+          "prefix_64_sha256_changed": true
+        },
+        {
+          "stream_id": 5,
+          "vram_xy_words": [
+            96,
+            0
+          ],
+          "before_offset": 10164,
+          "after_offset": 9764,
+          "before_length": 1972,
+          "after_length": 1768,
+          "length_delta": -204,
+          "prefix_64_sha256_changed": true
+        },
+        {
+          "stream_id": 6,
+          "vram_xy_words": [
+            64,
+            128
+          ],
+          "before_offset": 12136,
+          "after_offset": 11532,
+          "before_length": 2060,
+          "after_length": 1696,
+          "length_delta": -364,
+          "prefix_64_sha256_changed": true
+        },
+        {
+          "stream_id": 7,
+          "vram_xy_words": [
+            96,
+            128
+          ],
+          "before_offset": 14196,
+          "after_offset": 13228,
+          "before_length": 1868,
+          "after_length": 1772,
+          "length_delta": -96,
+          "prefix_64_sha256_changed": true
+        },
+        {
+          "stream_id": 8,
+          "vram_xy_words": [
+            128,
+            0
+          ],
+          "before_offset": 16064,
+          "after_offset": 15000,
+          "before_length": 1904,
+          "after_length": 1756,
+          "length_delta": -148,
+          "prefix_64_sha256_changed": true
+        },
+        {
+          "stream_id": 9,
+          "vram_xy_words": [
+            160,
+            0
+          ],
+          "before_offset": 17968,
+          "after_offset": 16756,
+          "before_length": 2472,
+          "after_length": 2332,
+          "length_delta": -140,
+          "prefix_64_sha256_changed": true
+        },
+        {
+          "stream_id": 10,
+          "vram_xy_words": [
+            128,
+            128
+          ],
+          "before_offset": 20440,
+          "after_offset": 19088,
+          "before_length": 1672,
+          "after_length": 1744,
+          "length_delta": 72,
+          "prefix_64_sha256_changed": false
+        },
+        {
+          "stream_id": 11,
+          "vram_xy_words": [
+            160,
+            128
+          ],
+          "before_offset": 22112,
+          "after_offset": 20832,
+          "before_length": 1964,
+          "after_length": 1964,
+          "length_delta": 0,
+          "prefix_64_sha256_changed": false
+        },
+        {
+          "stream_id": 12,
+          "vram_xy_words": [
+            192,
+            0
+          ],
+          "before_offset": 24076,
+          "after_offset": 22796,
+          "before_length": 1476,
+          "after_length": 1580,
+          "length_delta": 104,
+          "prefix_64_sha256_changed": true
+        },
+        {
+          "stream_id": 13,
+          "vram_xy_words": [
+            224,
+            0
+          ],
+          "before_offset": 25552,
+          "after_offset": 24376,
+          "before_length": 2364,
+          "after_length": 2364,
+          "length_delta": 0,
+          "prefix_64_sha256_changed": false
+        },
+        {
+          "stream_id": 14,
+          "vram_xy_words": [
+            192,
+            128
+          ],
+          "before_offset": 27916,
+          "after_offset": 26740,
+          "before_length": 2592,
+          "after_length": 2592,
+          "length_delta": 0,
+          "prefix_64_sha256_changed": false
+        },
+        {
+          "stream_id": 15,
+          "vram_xy_words": [
+            224,
+            128
+          ],
+          "before_offset": 30508,
+          "after_offset": 29332,
+          "before_length": 1952,
+          "after_length": 1952,
+          "length_delta": 0,
+          "prefix_64_sha256_changed": false
+        },
+        {
+          "stream_id": 16,
+          "vram_xy_words": [
+            256,
+            0
+          ],
+          "before_offset": 32460,
+          "after_offset": 31284,
+          "before_length": 1988,
+          "after_length": 1988,
+          "length_delta": 0,
+          "prefix_64_sha256_changed": false
+        },
+        {
+          "stream_id": 17,
+          "vram_xy_words": [
+            288,
+            0
+          ],
+          "before_offset": 34448,
+          "after_offset": 33272,
+          "before_length": 2160,
+          "after_length": 2160,
+          "length_delta": 0,
+          "prefix_64_sha256_changed": false
+        },
+        {
+          "stream_id": 18,
+          "vram_xy_words": [
+            256,
+            128
+          ],
+          "before_offset": 36608,
+          "after_offset": 35432,
+          "before_length": 1632,
+          "after_length": 1632,
+          "length_delta": 0,
+          "prefix_64_sha256_changed": false
+        },
+        {
+          "stream_id": 19,
+          "vram_xy_words": [
+            288,
+            128
+          ],
+          "before_offset": 38240,
+          "after_offset": 37064,
+          "before_length": 2124,
+          "after_length": 2124,
+          "length_delta": 0,
+          "prefix_64_sha256_changed": false
+        },
+        {
+          "stream_id": 20,
+          "vram_xy_words": [
+            320,
+            0
+          ],
+          "before_offset": 40364,
+          "after_offset": 39188,
+          "before_length": 2612,
+          "after_length": 2612,
+          "length_delta": 0,
+          "prefix_64_sha256_changed": false
+        },
+        {
+          "stream_id": 21,
+          "vram_xy_words": [
+            352,
+            0
+          ],
+          "before_offset": 42976,
+          "after_offset": 41800,
+          "before_length": 872,
+          "after_length": 872,
+          "length_delta": 0,
+          "prefix_64_sha256_changed": false
+        },
+        {
+          "stream_id": 22,
+          "vram_xy_words": [
+            384,
+            0
+          ],
+          "before_offset": 43848,
+          "after_offset": 42672,
+          "before_length": 3492,
+          "after_length": 3492,
+          "length_delta": 0,
+          "prefix_64_sha256_changed": false
+        },
+        {
+          "stream_id": 23,
+          "vram_xy_words": [
+            416,
+            0
+          ],
+          "before_offset": 47340,
+          "after_offset": 46164,
+          "before_length": 3460,
+          "after_length": 3460,
+          "length_delta": 0,
+          "prefix_64_sha256_changed": false
+        },
+        {
+          "stream_id": 24,
+          "vram_xy_words": [
+            384,
+            128
+          ],
+          "before_offset": 50800,
+          "after_offset": 49624,
+          "before_length": 3256,
+          "after_length": 3256,
+          "length_delta": 0,
+          "prefix_64_sha256_changed": false
+        },
+        {
+          "stream_id": 25,
+          "vram_xy_words": [
+            416,
+            128
+          ],
+          "before_offset": 54056,
+          "after_offset": 52880,
+          "before_length": 1768,
+          "after_length": 2944,
+          "length_delta": 1176,
+          "prefix_64_sha256_changed": false
+        }
+      ]
+    },
+    "BIN/T_NAME_G.BIN": {
+      "resource_bytes": 56256,
+      "original_sha256": "C0931A9FBAB344715D38F9C21310549F4442C778FCEC47EA2FB7C3EC600A723F",
+      "test13_sha256": "01B9CCAAC6FF79372E30A3595AA98B9E41E6A6BA508ABABE77362829CF13300E",
+      "unchanged_geometry": true,
+      "prefix_changed_count": 8,
+      "compressed_length_changed_count": 10,
+      "streams": [
+        {
+          "stream_id": 0,
+          "vram_xy_words": [
+            0,
+            0
+          ],
+          "before_offset": 4,
+          "after_offset": 4,
+          "before_length": 2244,
+          "after_length": 1948,
+          "length_delta": -296,
+          "prefix_64_sha256_changed": true
+        },
+        {
+          "stream_id": 1,
+          "vram_xy_words": [
+            32,
+            0
+          ],
+          "before_offset": 2248,
+          "after_offset": 1952,
+          "before_length": 1816,
+          "after_length": 1816,
+          "length_delta": 0,
+          "prefix_64_sha256_changed": false
+        },
+        {
+          "stream_id": 2,
+          "vram_xy_words": [
+            0,
+            128
+          ],
+          "before_offset": 4064,
+          "after_offset": 3768,
+          "before_length": 2192,
+          "after_length": 2192,
+          "length_delta": 0,
+          "prefix_64_sha256_changed": false
+        },
+        {
+          "stream_id": 3,
+          "vram_xy_words": [
+            32,
+            128
+          ],
+          "before_offset": 6256,
+          "after_offset": 5960,
+          "before_length": 2040,
+          "after_length": 2040,
+          "length_delta": 0,
+          "prefix_64_sha256_changed": false
+        },
+        {
+          "stream_id": 4,
+          "vram_xy_words": [
+            64,
+            0
+          ],
+          "before_offset": 8296,
+          "after_offset": 8000,
+          "before_length": 1868,
+          "after_length": 1764,
+          "length_delta": -104,
+          "prefix_64_sha256_changed": true
+        },
+        {
+          "stream_id": 5,
+          "vram_xy_words": [
+            96,
+            0
+          ],
+          "before_offset": 10164,
+          "after_offset": 9764,
+          "before_length": 1972,
+          "after_length": 1768,
+          "length_delta": -204,
+          "prefix_64_sha256_changed": true
+        },
+        {
+          "stream_id": 6,
+          "vram_xy_words": [
+            64,
+            128
+          ],
+          "before_offset": 12136,
+          "after_offset": 11532,
+          "before_length": 2060,
+          "after_length": 1696,
+          "length_delta": -364,
+          "prefix_64_sha256_changed": true
+        },
+        {
+          "stream_id": 7,
+          "vram_xy_words": [
+            96,
+            128
+          ],
+          "before_offset": 14196,
+          "after_offset": 13228,
+          "before_length": 1868,
+          "after_length": 1772,
+          "length_delta": -96,
+          "prefix_64_sha256_changed": true
+        },
+        {
+          "stream_id": 8,
+          "vram_xy_words": [
+            128,
+            0
+          ],
+          "before_offset": 16064,
+          "after_offset": 15000,
+          "before_length": 1904,
+          "after_length": 1756,
+          "length_delta": -148,
+          "prefix_64_sha256_changed": true
+        },
+        {
+          "stream_id": 9,
+          "vram_xy_words": [
+            160,
+            0
+          ],
+          "before_offset": 17968,
+          "after_offset": 16756,
+          "before_length": 2472,
+          "after_length": 2332,
+          "length_delta": -140,
+          "prefix_64_sha256_changed": true
+        },
+        {
+          "stream_id": 10,
+          "vram_xy_words": [
+            128,
+            128
+          ],
+          "before_offset": 20440,
+          "after_offset": 19088,
+          "before_length": 1672,
+          "after_length": 1744,
+          "length_delta": 72,
+          "prefix_64_sha256_changed": false
+        },
+        {
+          "stream_id": 11,
+          "vram_xy_words": [
+            160,
+            128
+          ],
+          "before_offset": 22112,
+          "after_offset": 20832,
+          "before_length": 1964,
+          "after_length": 1964,
+          "length_delta": 0,
+          "prefix_64_sha256_changed": false
+        },
+        {
+          "stream_id": 12,
+          "vram_xy_words": [
+            192,
+            0
+          ],
+          "before_offset": 24076,
+          "after_offset": 22796,
+          "before_length": 1476,
+          "after_length": 1580,
+          "length_delta": 104,
+          "prefix_64_sha256_changed": true
+        },
+        {
+          "stream_id": 13,
+          "vram_xy_words": [
+            224,
+            0
+          ],
+          "before_offset": 25552,
+          "after_offset": 24376,
+          "before_length": 2364,
+          "after_length": 2364,
+          "length_delta": 0,
+          "prefix_64_sha256_changed": false
+        },
+        {
+          "stream_id": 14,
+          "vram_xy_words": [
+            192,
+            128
+          ],
+          "before_offset": 27916,
+          "after_offset": 26740,
+          "before_length": 2592,
+          "after_length": 2592,
+          "length_delta": 0,
+          "prefix_64_sha256_changed": false
+        },
+        {
+          "stream_id": 15,
+          "vram_xy_words": [
+            224,
+            128
+          ],
+          "before_offset": 30508,
+          "after_offset": 29332,
+          "before_length": 1952,
+          "after_length": 1952,
+          "length_delta": 0,
+          "prefix_64_sha256_changed": false
+        },
+        {
+          "stream_id": 16,
+          "vram_xy_words": [
+            256,
+            0
+          ],
+          "before_offset": 32460,
+          "after_offset": 31284,
+          "before_length": 1988,
+          "after_length": 1988,
+          "length_delta": 0,
+          "prefix_64_sha256_changed": false
+        },
+        {
+          "stream_id": 17,
+          "vram_xy_words": [
+            288,
+            0
+          ],
+          "before_offset": 34448,
+          "after_offset": 33272,
+          "before_length": 2160,
+          "after_length": 2160,
+          "length_delta": 0,
+          "prefix_64_sha256_changed": false
+        },
+        {
+          "stream_id": 18,
+          "vram_xy_words": [
+            256,
+            128
+          ],
+          "before_offset": 36608,
+          "after_offset": 35432,
+          "before_length": 1632,
+          "after_length": 1632,
+          "length_delta": 0,
+          "prefix_64_sha256_changed": false
+        },
+        {
+          "stream_id": 19,
+          "vram_xy_words": [
+            288,
+            128
+          ],
+          "before_offset": 38240,
+          "after_offset": 37064,
+          "before_length": 2124,
+          "after_length": 2124,
+          "length_delta": 0,
+          "prefix_64_sha256_changed": false
+        },
+        {
+          "stream_id": 20,
+          "vram_xy_words": [
+            320,
+            0
+          ],
+          "before_offset": 40364,
+          "after_offset": 39188,
+          "before_length": 2612,
+          "after_length": 2612,
+          "length_delta": 0,
+          "prefix_64_sha256_changed": false
+        },
+        {
+          "stream_id": 21,
+          "vram_xy_words": [
+            352,
+            0
+          ],
+          "before_offset": 42976,
+          "after_offset": 41800,
+          "before_length": 872,
+          "after_length": 872,
+          "length_delta": 0,
+          "prefix_64_sha256_changed": false
+        },
+        {
+          "stream_id": 22,
+          "vram_xy_words": [
+            384,
+            0
+          ],
+          "before_offset": 43848,
+          "after_offset": 42672,
+          "before_length": 3492,
+          "after_length": 3492,
+          "length_delta": 0,
+          "prefix_64_sha256_changed": false
+        },
+        {
+          "stream_id": 23,
+          "vram_xy_words": [
+            416,
+            0
+          ],
+          "before_offset": 47340,
+          "after_offset": 46164,
+          "before_length": 3460,
+          "after_length": 3460,
+          "length_delta": 0,
+          "prefix_64_sha256_changed": false
+        },
+        {
+          "stream_id": 24,
+          "vram_xy_words": [
+            384,
+            128
+          ],
+          "before_offset": 50800,
+          "after_offset": 49624,
+          "before_length": 3256,
+          "after_length": 3256,
+          "length_delta": 0,
+          "prefix_64_sha256_changed": false
+        },
+        {
+          "stream_id": 25,
+          "vram_xy_words": [
+            416,
+            128
+          ],
+          "before_offset": 54056,
+          "after_offset": 52880,
+          "before_length": 1768,
+          "after_length": 2944,
+          "length_delta": 1176,
+          "prefix_64_sha256_changed": false
+        }
+      ]
+    }
+  },
+  "all_three_language_tables_have_identical_deltas": true,
+  "identified_changed_prefix_streams": [
+    0,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    12
+  ],
+  "notes": [
+    "26 GPU upload streams per resource; Test13 preserved destination geometry",
+    "Only 8 stream prefixes differ; other streams cannot be certified byte-identical from a prefix hash",
+    "File logical size 56256 bytes; the 28×2048=57344-byte sector payload includes tail padding",
+    "Need actual decoder and image-to-stream attribution before label replacement"
+  ],
+  "test14_built": false
+}
