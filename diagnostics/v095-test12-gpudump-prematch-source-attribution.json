@@ -1,0 +1,227 @@
+{
+  "schema_version": 1,
+  "game_patch": "v0.9.5 in development; evidence from user Test12",
+  "source_archive": "20261112_003357_a3a1de.zip",
+  "source_gpd": "flag_auto_crowd_flags_00003888.gpd",
+  "source_vram": "flag_auto_crowd_flags_00003888.vram",
+  "source_screen": "flag_auto_crowd_flags_00003888.screen.raw",
+  "scene_verification": "Stadium intro by screen visual inspection; AutoCapture crowd_flags label is erroneous",
+  "gpudump_format": "PSXGPUDUMPv1r1",
+  "game_id": "SLES03321",
+  "parsed_gp0_commands": 1479,
+  "recorded_vsync": 2,
+  "name": {
+    "left_first": {
+      "observed_text": "Cabo",
+      "screen_xy": [
+        24,
+        38
+      ],
+      "screen_wh": [
+        128,
+        16
+      ],
+      "uv": [
+        128,
+        40
+      ],
+      "tpage": 523,
+      "clut_id": 31939,
+      "pixel_bbox_local": [
+        2,
+        2,
+        58,
+        12
+      ],
+      "actual_screen_x_range": [
+        26,
+        82
+      ]
+    },
+    "left_second": {
+      "observed_text": "Verde",
+      "screen_xy": [
+        152,
+        38
+      ],
+      "screen_wh": [
+        88,
+        16
+      ],
+      "uv": [
+        128,
+        56
+      ],
+      "tpage": 523,
+      "clut_id": 31939,
+      "pixel_bbox_local": [
+        3,
+        0,
+        64,
+        10
+      ],
+      "actual_screen_x_range": [
+        155,
+        216
+      ]
+    },
+    "right_first": {
+      "observed_text": "Bosnia",
+      "screen_xy": [
+        405,
+        38
+      ],
+      "screen_wh": [
+        128,
+        16
+      ],
+      "uv": [
+        128,
+        72
+      ],
+      "tpage": 523,
+      "clut_id": 31939,
+      "pixel_bbox_local": [
+        1,
+        2,
+        79,
+        12
+      ]
+    },
+    "measured_gap_between_Cabo_and_Verde_ink_pixels": 72,
+    "rectangles_touch": true,
+    "conclusion": "Visual gap is within name bitmap/transparent pixels, not a gap between screen draw rectangles. Repack Cape Verde into contiguous 4bpp sprite content; leave global draw XY unchanged."
+  },
+  "flags": {
+    "left": {
+      "observed": "damaged narrow stripes instead of Cape Verde",
+      "screen_xy": [
+        24,
+        52
+      ],
+      "wh": [
+        64,
+        28
+      ],
+      "uv": [
+        192,
+        0
+      ],
+      "tpage": 520,
+      "clut_id": 32320,
+      "clut_xy_words": [
+        0,
+        505
+      ],
+      "texture_vram_xy_words": [
+        560,
+        0
+      ],
+      "byte_identical_source_atlas_xy_words": [
+        848,
+        256
+      ],
+      "indexed_colors_used": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "nontransparent_index_with_zero_clut": []
+    },
+    "right": {
+      "observed": "damaged multicolor oval instead of Bosnia and Herzegovina",
+      "screen_xy": [
+        424,
+        52
+      ],
+      "wh": [
+        64,
+        28
+      ],
+      "uv": [
+        192,
+        28
+      ],
+      "tpage": 520,
+      "clut_id": 32398,
+      "clut_xy_words": [
+        224,
+        506
+      ],
+      "texture_vram_xy_words": [
+        560,
+        28
+      ],
+      "byte_identical_source_atlas_xy_words": [
+        864,
+        312
+      ],
+      "indexed_colors_used": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "nontransparent_index_with_zero_clut": [
+        12,
+        13,
+        14
+      ]
+    },
+    "shared_overlay": {
+      "screen_xy": [
+        [
+          24,
+          52
+        ],
+        [
+          424,
+          52
+        ]
+      ],
+      "wh": [
+        64,
+        28
+      ],
+      "uv": [
+        192,
+        56
+      ],
+      "tpage": 584,
+      "clut_id": 31746
+    }
+  },
+  "original_disc_catalog": {
+    "BIN/DATSEL.BIN": {
+      "lba": 6000,
+      "size": 215324
+    },
+    "BIN/DATSEL2.BIN": {
+      "lba": 6150,
+      "size": 130376
+    },
+    "BIN/DATSEL3.BIN": {
+      "lba": 6250,
+      "size": 54948
+    },
+    "BIN/DAT2D.BIN": {
+      "lba": 5300,
+      "size": 66272
+    }
+  },
+  "source_file_last_writer_verified": false,
+  "test14_or_stable_released": false,
+  "further_action": "Find exact compressed upload source/style and implement 4bpp name/flag atlas decoder-repacker; verify modified pixels without affecting the remaining original teams.",
+  "notice": "Only derived coordinates/color-index metadata. No original game, VRAM pixel payload, artwork or BIOS distributed."
+}
