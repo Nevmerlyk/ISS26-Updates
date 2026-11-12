@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "title": "ISS26 v0.9.5 Test16 bulk flag+EDC research candidate",
+  "status": "Experimental; offline verified; not all 54 team flags and names fixed; no stable/test feed promotion",
+  "source_clean_track01_sha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
+  "input_test15_patch_sha256": "8AB02D07DA10E0926D20543E27CA7CE27E7058863FC23CF1B2E13B9897F08420",
+  "experimental_test16_patch_sha256": "153835B3324146AE87DD9EDC911808A63017C91DECA3153644A9A436313E82D7",
+  "experimental_test16_track01_sha256": "97BEF5B3ABCA687FBD57017F321634CB8F2F347C826DACE050AC7D9CE450245A",
+  "independent_xor_patch_records": 1494,
+  "iso_datsel_invalid_gpu_streams_found_in_test15": [
+    43,
+    44,
+    45
+  ],
+  "restored_streams": [
+    43,
+    44,
+    45
+  ],
+  "all_55_datsel_lz_streams_roundtrip_verified": true,
+  "unchanged_other_52_datsel_decoded_streams": true,
+  "five_large_flag_styles_repainted": {
+    "Cape Verde": 1,
+    "Algeria": 3,
+    "Bosnia": 10,
+    "Ghana": 20,
+    "DR Congo": 24
+  },
+  "source_asset": "BIN/DATSEL.BIN",
+  "experimental_datsel_changed_lbas": [
+    6088,
+    6089,
+    6090,
+    6091,
+    6092,
+    6093,
+    6094,
+    6095,
+    6096,
+    6097,
+    6098,
+    6099,
+    6100,
+    6101,
+    6102,
+    6103
+  ],
+  "form2_edc_repaired_sector_count": 104,
+  "total_form1_sectors_validated": 1388,
+  "total_form2_sectors_validated": 106,
+  "invalid_form1_parity_after": 0,
+  "invalid_form2_edc_after": 0,
+  "prematch_name_atlas_e_f_g_preserved_from_test15": true,
+  "clean_install_and_idempotent_reinstall_verified": true,
+  "original_disc_modified": false,
+  "cd_audio_02_through_12_unchanged": true,
+  "known_release_blockers": [
+    "Bosnia national slot30 style IDs differ across five tables: 55,10,10,55,55; club slot54 also uses style10",
+    "Senegal national slot35 shares style0 with national slots7,8,11,34",
+    "Unverified additional national styles52..60 and small flag/crowd/HUD/ceremonial/world-map sources",
+    "36+ untouched names outside known changed 17 not exhaustively verified across all game menus",
+    "No emulator gameplay test for Test16",
+    "Actual stable 0.9.5 completion requires 54-slot visual and technical regression"
+  ],
+  "build_artifact": "Delivered through ChatGPT conversation only, not published to GitHub release",
+  "artifact_zip_sha256": "3EF254FF1C84F490FB0BA71C66BF91290DFC51A9E5312A448CAC00B0128",
+  "created_at": "2026-11-12"
+}
