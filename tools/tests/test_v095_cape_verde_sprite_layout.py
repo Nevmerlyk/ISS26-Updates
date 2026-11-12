@@ -43,4 +43,18 @@ class LayoutTest(unittest.TestCase):
             recompose(bytes(58*8),58,rectangle(88,3,62))
         with self.assertRaises(ValueError):
             recompose(rectangle(58,0,57),58,rectangle(88,3,62),space_px=72)
+    def test_full_height_authentic_cape_bounds_and_right_overflow(self):
+        # Real Cape glyph has a 62px canvas, 60px ink and y=2..14.
+        cape=bytearray(62*16//2)
+        for y in range(2,15):
+            for x in range(60):
+                set_pixel(cape,62,x,y,4)
+        verde=rectangle(88,3,62,top=2)
+        left,right,report=recompose(bytes(cape),62,verde,space_px=7)
+        self.assertEqual(report["first_ink_screen_x"],26)
+        self.assertEqual(report["last_ink_screen_x"],154)
+        self.assertEqual(report["visible_word_gap_px"],7)
+        self.assertTrue(report["second_sprite_nonempty"])
+        self.assertEqual(pixel(left,128,2,2),4)
+        self.assertEqual(pixel(right,88,2,2),4)
 if __name__=="__main__":unittest.main()
