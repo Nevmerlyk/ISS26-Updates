@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "goal": "ISS26 v0.9.5 targeted prematch name repair",
+  "source": "User-supplied clean European Track01",
+  "sha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
+  "verified_three_identical_resources": [
+    "BIN/T_NAME_E.BIN",
+    "BIN/T_NAME_F.BIN",
+    "BIN/T_NAME_G.BIN"
+  ],
+  "each_resource": {
+    "sector_count": 28,
+    "user_data_bytes": 57344,
+    "command_list_pointer_offset": 0,
+    "command_list_offset": 55824,
+    "upload_records": 26,
+    "upload_record_bytes": 16,
+    "all_kind": 10,
+    "upload_width_words": 32,
+    "upload_height_pixels": 128,
+    "compressed_stream_start_offset": 4,
+    "compressed_stream_total_bytes_before_command_table": 55820,
+    "min_stream_span_bytes": 872,
+    "max_stream_span_bytes": 3492,
+    "stream_offsets_monotonic": true,
+    "stream_offsets_4byte_aligned": true
+  },
+  "important_limitation": "Upload rectangles address VRAM, not screen name positions. The compression format represented by kind=10 has not yet been decoded; no Cape Verde bitmap offset or packer is claimed.",
+  "next_required": "Decode kind-10 streams and compare clean versus Test13 separately after verifying official Test13 patch; then isolate the glyph pixels from GPU dump before edits.",
+  "original_modified": false,
+  "test14_built": false
+}
