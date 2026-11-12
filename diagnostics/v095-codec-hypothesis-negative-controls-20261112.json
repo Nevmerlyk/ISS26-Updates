@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "task": "ISS26 0.9.5 / Cape Verde GPU name atlas codec investigation",
+  "date": "2026-11-12",
+  "provenance": {
+    "game": "ISS Pro Evolution 2 EU SLES-03321",
+    "clean_track01_sha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
+    "original_name_atlas_sha256": "C0931A9FBAB344715D38F9C21310549F4442C778FCEC47EA2FB7C3EC600A723F"
+  },
+  "verified": {
+    "atlas_languages": [
+      "E",
+      "F",
+      "G"
+    ],
+    "stream_count_each": 26,
+    "stream_kind": 10,
+    "gpu_upload_width_words": 32,
+    "gpu_upload_height_px": 128,
+    "gpu_upload_byte_capacity": 8192,
+    "source_code_executable": "SLES_033.21",
+    "psx_exe_size_bytes": 339968,
+    "psx_text_load_address": "0x80010000",
+    "psx_entry_pc": "0x80010008"
+  },
+  "hypothesis_audit": {
+    "family": "eight-bit control flag and two-byte backreference fixed-size LZSS variants",
+    "hypotheses_tried": 288,
+    "required_exact_uncompressed_output_bytes": 8192,
+    "all_26_packets_consistent_hypotheses": 0,
+    "conclusion": "None of the tested simplistic models is supported by the complete original name-atlas corpus; this does NOT disprove all LZSS families."
+  },
+  "local_test_result": {
+    "passed": 5,
+    "failed": 0
+  },
+  "next_step": "Trace game routine loading the kind-10 graphics streams, derive authentic decompressor including its output and termination semantics, then implement exact decode/repack round trip; correlate Cape Verde content with GPU VRAM samples.",
+  "verified_codec": false,
+  "test14_built": false,
+  "original_modified": false,
+  "stable_feed_changed": false,
+  "caveat": "Disassembly of the PS-X EXE succeeded but the precise name-texture decoder has NOT yet been identified. Not a releasable game patch."
+}
