@@ -4,7 +4,7 @@
   "input_probe": "ISS26-CapeVerde-probe.json",
   "clean_original_sha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
   "patch_test13_sha256": "159A31A95BBAE3BD032417DFDCB8B5478016907DCC1E848D968CBF5B17E61214",
-  "method": "Compare original and Test13 GPU list offsets and first-64-byte stream digest. Does not decode text pixels or prove full stream byte equality.",
+  "method": "Compare original versus Test13 GPU upload start offsets and first-64-byte stream SHA256. Span is up to the next stream or GPU table; this is not necessarily exact compressed payload length.",
   "resources": {
     "BIN/T_NAME_E.BIN": {
       "resource_bytes": 56256,
@@ -12,7 +12,6 @@
       "test13_sha256": "01B9CCAAC6FF79372E30A3595AA98B9E41E6A6BA508ABABE77362829CF13300E",
       "unchanged_geometry": true,
       "prefix_changed_count": 8,
-      "compressed_length_changed_count": 10,
       "streams": [
         {
           "stream_id": 0,
@@ -22,10 +21,10 @@
           ],
           "before_offset": 4,
           "after_offset": 4,
-          "before_length": 2244,
-          "after_length": 1948,
-          "length_delta": -296,
-          "prefix_64_sha256_changed": true
+          "prefix_64_sha256_changed": true,
+          "before_allocated_span": 2244,
+          "after_allocated_span": 1948,
+          "allocated_span_delta": -296
         },
         {
           "stream_id": 1,
@@ -35,10 +34,10 @@
           ],
           "before_offset": 2248,
           "after_offset": 1952,
-          "before_length": 1816,
-          "after_length": 1816,
-          "length_delta": 0,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 1816,
+          "after_allocated_span": 1816,
+          "allocated_span_delta": 0
         },
         {
           "stream_id": 2,
@@ -48,10 +47,10 @@
           ],
           "before_offset": 4064,
           "after_offset": 3768,
-          "before_length": 2192,
-          "after_length": 2192,
-          "length_delta": 0,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 2192,
+          "after_allocated_span": 2192,
+          "allocated_span_delta": 0
         },
         {
           "stream_id": 3,
@@ -61,10 +60,10 @@
           ],
           "before_offset": 6256,
           "after_offset": 5960,
-          "before_length": 2040,
-          "after_length": 2040,
-          "length_delta": 0,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 2040,
+          "after_allocated_span": 2040,
+          "allocated_span_delta": 0
         },
         {
           "stream_id": 4,
@@ -74,10 +73,10 @@
           ],
           "before_offset": 8296,
           "after_offset": 8000,
-          "before_length": 1868,
-          "after_length": 1764,
-          "length_delta": -104,
-          "prefix_64_sha256_changed": true
+          "prefix_64_sha256_changed": true,
+          "before_allocated_span": 1868,
+          "after_allocated_span": 1764,
+          "allocated_span_delta": -104
         },
         {
           "stream_id": 5,
@@ -87,10 +86,10 @@
           ],
           "before_offset": 10164,
           "after_offset": 9764,
-          "before_length": 1972,
-          "after_length": 1768,
-          "length_delta": -204,
-          "prefix_64_sha256_changed": true
+          "prefix_64_sha256_changed": true,
+          "before_allocated_span": 1972,
+          "after_allocated_span": 1768,
+          "allocated_span_delta": -204
         },
         {
           "stream_id": 6,
@@ -100,10 +99,10 @@
           ],
           "before_offset": 12136,
           "after_offset": 11532,
-          "before_length": 2060,
-          "after_length": 1696,
-          "length_delta": -364,
-          "prefix_64_sha256_changed": true
+          "prefix_64_sha256_changed": true,
+          "before_allocated_span": 2060,
+          "after_allocated_span": 1696,
+          "allocated_span_delta": -364
         },
         {
           "stream_id": 7,
@@ -113,10 +112,10 @@
           ],
           "before_offset": 14196,
           "after_offset": 13228,
-          "before_length": 1868,
-          "after_length": 1772,
-          "length_delta": -96,
-          "prefix_64_sha256_changed": true
+          "prefix_64_sha256_changed": true,
+          "before_allocated_span": 1868,
+          "after_allocated_span": 1772,
+          "allocated_span_delta": -96
         },
         {
           "stream_id": 8,
@@ -126,10 +125,10 @@
           ],
           "before_offset": 16064,
           "after_offset": 15000,
-          "before_length": 1904,
-          "after_length": 1756,
-          "length_delta": -148,
-          "prefix_64_sha256_changed": true
+          "prefix_64_sha256_changed": true,
+          "before_allocated_span": 1904,
+          "after_allocated_span": 1756,
+          "allocated_span_delta": -148
         },
         {
           "stream_id": 9,
@@ -139,10 +138,10 @@
           ],
           "before_offset": 17968,
           "after_offset": 16756,
-          "before_length": 2472,
-          "after_length": 2332,
-          "length_delta": -140,
-          "prefix_64_sha256_changed": true
+          "prefix_64_sha256_changed": true,
+          "before_allocated_span": 2472,
+          "after_allocated_span": 2332,
+          "allocated_span_delta": -140
         },
         {
           "stream_id": 10,
@@ -152,10 +151,10 @@
           ],
           "before_offset": 20440,
           "after_offset": 19088,
-          "before_length": 1672,
-          "after_length": 1744,
-          "length_delta": 72,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 1672,
+          "after_allocated_span": 1744,
+          "allocated_span_delta": 72
         },
         {
           "stream_id": 11,
@@ -165,10 +164,10 @@
           ],
           "before_offset": 22112,
           "after_offset": 20832,
-          "before_length": 1964,
-          "after_length": 1964,
-          "length_delta": 0,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 1964,
+          "after_allocated_span": 1964,
+          "allocated_span_delta": 0
         },
         {
           "stream_id": 12,
@@ -178,10 +177,10 @@
           ],
           "before_offset": 24076,
           "after_offset": 22796,
-          "before_length": 1476,
-          "after_length": 1580,
-          "length_delta": 104,
-          "prefix_64_sha256_changed": true
+          "prefix_64_sha256_changed": true,
+          "before_allocated_span": 1476,
+          "after_allocated_span": 1580,
+          "allocated_span_delta": 104
         },
         {
           "stream_id": 13,
@@ -191,10 +190,10 @@
           ],
           "before_offset": 25552,
           "after_offset": 24376,
-          "before_length": 2364,
-          "after_length": 2364,
-          "length_delta": 0,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 2364,
+          "after_allocated_span": 2364,
+          "allocated_span_delta": 0
         },
         {
           "stream_id": 14,
@@ -204,10 +203,10 @@
           ],
           "before_offset": 27916,
           "after_offset": 26740,
-          "before_length": 2592,
-          "after_length": 2592,
-          "length_delta": 0,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 2592,
+          "after_allocated_span": 2592,
+          "allocated_span_delta": 0
         },
         {
           "stream_id": 15,
@@ -217,10 +216,10 @@
           ],
           "before_offset": 30508,
           "after_offset": 29332,
-          "before_length": 1952,
-          "after_length": 1952,
-          "length_delta": 0,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 1952,
+          "after_allocated_span": 1952,
+          "allocated_span_delta": 0
         },
         {
           "stream_id": 16,
@@ -230,10 +229,10 @@
           ],
           "before_offset": 32460,
           "after_offset": 31284,
-          "before_length": 1988,
-          "after_length": 1988,
-          "length_delta": 0,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 1988,
+          "after_allocated_span": 1988,
+          "allocated_span_delta": 0
         },
         {
           "stream_id": 17,
@@ -243,10 +242,10 @@
           ],
           "before_offset": 34448,
           "after_offset": 33272,
-          "before_length": 2160,
-          "after_length": 2160,
-          "length_delta": 0,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 2160,
+          "after_allocated_span": 2160,
+          "allocated_span_delta": 0
         },
         {
           "stream_id": 18,
@@ -256,10 +255,10 @@
           ],
           "before_offset": 36608,
           "after_offset": 35432,
-          "before_length": 1632,
-          "after_length": 1632,
-          "length_delta": 0,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 1632,
+          "after_allocated_span": 1632,
+          "allocated_span_delta": 0
         },
         {
           "stream_id": 19,
@@ -269,10 +268,10 @@
           ],
           "before_offset": 38240,
           "after_offset": 37064,
-          "before_length": 2124,
-          "after_length": 2124,
-          "length_delta": 0,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 2124,
+          "after_allocated_span": 2124,
+          "allocated_span_delta": 0
         },
         {
           "stream_id": 20,
@@ -282,10 +281,10 @@
           ],
           "before_offset": 40364,
           "after_offset": 39188,
-          "before_length": 2612,
-          "after_length": 2612,
-          "length_delta": 0,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 2612,
+          "after_allocated_span": 2612,
+          "allocated_span_delta": 0
         },
         {
           "stream_id": 21,
@@ -295,10 +294,10 @@
           ],
           "before_offset": 42976,
           "after_offset": 41800,
-          "before_length": 872,
-          "after_length": 872,
-          "length_delta": 0,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 872,
+          "after_allocated_span": 872,
+          "allocated_span_delta": 0
         },
         {
           "stream_id": 22,
@@ -308,10 +307,10 @@
           ],
           "before_offset": 43848,
           "after_offset": 42672,
-          "before_length": 3492,
-          "after_length": 3492,
-          "length_delta": 0,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 3492,
+          "after_allocated_span": 3492,
+          "allocated_span_delta": 0
         },
         {
           "stream_id": 23,
@@ -321,10 +320,10 @@
           ],
           "before_offset": 47340,
           "after_offset": 46164,
-          "before_length": 3460,
-          "after_length": 3460,
-          "length_delta": 0,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 3460,
+          "after_allocated_span": 3460,
+          "allocated_span_delta": 0
         },
         {
           "stream_id": 24,
@@ -334,10 +333,10 @@
           ],
           "before_offset": 50800,
           "after_offset": 49624,
-          "before_length": 3256,
-          "after_length": 3256,
-          "length_delta": 0,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 3256,
+          "after_allocated_span": 3256,
+          "allocated_span_delta": 0
         },
         {
           "stream_id": 25,
@@ -347,12 +346,13 @@
           ],
           "before_offset": 54056,
           "after_offset": 52880,
-          "before_length": 1768,
-          "after_length": 2944,
-          "length_delta": 1176,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 1768,
+          "after_allocated_span": 2944,
+          "allocated_span_delta": 1176
         }
-      ]
+      ],
+      "allocated_span_changed_count": 10
     },
     "BIN/T_NAME_F.BIN": {
       "resource_bytes": 56256,
@@ -360,7 +360,6 @@
       "test13_sha256": "01B9CCAAC6FF79372E30A3595AA98B9E41E6A6BA508ABABE77362829CF13300E",
       "unchanged_geometry": true,
       "prefix_changed_count": 8,
-      "compressed_length_changed_count": 10,
       "streams": [
         {
           "stream_id": 0,
@@ -370,10 +369,10 @@
           ],
           "before_offset": 4,
           "after_offset": 4,
-          "before_length": 2244,
-          "after_length": 1948,
-          "length_delta": -296,
-          "prefix_64_sha256_changed": true
+          "prefix_64_sha256_changed": true,
+          "before_allocated_span": 2244,
+          "after_allocated_span": 1948,
+          "allocated_span_delta": -296
         },
         {
           "stream_id": 1,
@@ -383,10 +382,10 @@
           ],
           "before_offset": 2248,
           "after_offset": 1952,
-          "before_length": 1816,
-          "after_length": 1816,
-          "length_delta": 0,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 1816,
+          "after_allocated_span": 1816,
+          "allocated_span_delta": 0
         },
         {
           "stream_id": 2,
@@ -396,10 +395,10 @@
           ],
           "before_offset": 4064,
           "after_offset": 3768,
-          "before_length": 2192,
-          "after_length": 2192,
-          "length_delta": 0,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 2192,
+          "after_allocated_span": 2192,
+          "allocated_span_delta": 0
         },
         {
           "stream_id": 3,
@@ -409,10 +408,10 @@
           ],
           "before_offset": 6256,
           "after_offset": 5960,
-          "before_length": 2040,
-          "after_length": 2040,
-          "length_delta": 0,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 2040,
+          "after_allocated_span": 2040,
+          "allocated_span_delta": 0
         },
         {
           "stream_id": 4,
@@ -422,10 +421,10 @@
           ],
           "before_offset": 8296,
           "after_offset": 8000,
-          "before_length": 1868,
-          "after_length": 1764,
-          "length_delta": -104,
-          "prefix_64_sha256_changed": true
+          "prefix_64_sha256_changed": true,
+          "before_allocated_span": 1868,
+          "after_allocated_span": 1764,
+          "allocated_span_delta": -104
         },
         {
           "stream_id": 5,
@@ -435,10 +434,10 @@
           ],
           "before_offset": 10164,
           "after_offset": 9764,
-          "before_length": 1972,
-          "after_length": 1768,
-          "length_delta": -204,
-          "prefix_64_sha256_changed": true
+          "prefix_64_sha256_changed": true,
+          "before_allocated_span": 1972,
+          "after_allocated_span": 1768,
+          "allocated_span_delta": -204
         },
         {
           "stream_id": 6,
@@ -448,10 +447,10 @@
           ],
           "before_offset": 12136,
           "after_offset": 11532,
-          "before_length": 2060,
-          "after_length": 1696,
-          "length_delta": -364,
-          "prefix_64_sha256_changed": true
+          "prefix_64_sha256_changed": true,
+          "before_allocated_span": 2060,
+          "after_allocated_span": 1696,
+          "allocated_span_delta": -364
         },
         {
           "stream_id": 7,
@@ -461,10 +460,10 @@
           ],
           "before_offset": 14196,
           "after_offset": 13228,
-          "before_length": 1868,
-          "after_length": 1772,
-          "length_delta": -96,
-          "prefix_64_sha256_changed": true
+          "prefix_64_sha256_changed": true,
+          "before_allocated_span": 1868,
+          "after_allocated_span": 1772,
+          "allocated_span_delta": -96
         },
         {
           "stream_id": 8,
@@ -474,10 +473,10 @@
           ],
           "before_offset": 16064,
           "after_offset": 15000,
-          "before_length": 1904,
-          "after_length": 1756,
-          "length_delta": -148,
-          "prefix_64_sha256_changed": true
+          "prefix_64_sha256_changed": true,
+          "before_allocated_span": 1904,
+          "after_allocated_span": 1756,
+          "allocated_span_delta": -148
         },
         {
           "stream_id": 9,
@@ -487,10 +486,10 @@
           ],
           "before_offset": 17968,
           "after_offset": 16756,
-          "before_length": 2472,
-          "after_length": 2332,
-          "length_delta": -140,
-          "prefix_64_sha256_changed": true
+          "prefix_64_sha256_changed": true,
+          "before_allocated_span": 2472,
+          "after_allocated_span": 2332,
+          "allocated_span_delta": -140
         },
         {
           "stream_id": 10,
@@ -500,10 +499,10 @@
           ],
           "before_offset": 20440,
           "after_offset": 19088,
-          "before_length": 1672,
-          "after_length": 1744,
-          "length_delta": 72,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 1672,
+          "after_allocated_span": 1744,
+          "allocated_span_delta": 72
         },
         {
           "stream_id": 11,
@@ -513,10 +512,10 @@
           ],
           "before_offset": 22112,
           "after_offset": 20832,
-          "before_length": 1964,
-          "after_length": 1964,
-          "length_delta": 0,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 1964,
+          "after_allocated_span": 1964,
+          "allocated_span_delta": 0
         },
         {
           "stream_id": 12,
@@ -526,10 +525,10 @@
           ],
           "before_offset": 24076,
           "after_offset": 22796,
-          "before_length": 1476,
-          "after_length": 1580,
-          "length_delta": 104,
-          "prefix_64_sha256_changed": true
+          "prefix_64_sha256_changed": true,
+          "before_allocated_span": 1476,
+          "after_allocated_span": 1580,
+          "allocated_span_delta": 104
         },
         {
           "stream_id": 13,
@@ -539,10 +538,10 @@
           ],
           "before_offset": 25552,
           "after_offset": 24376,
-          "before_length": 2364,
-          "after_length": 2364,
-          "length_delta": 0,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 2364,
+          "after_allocated_span": 2364,
+          "allocated_span_delta": 0
         },
         {
           "stream_id": 14,
@@ -552,10 +551,10 @@
           ],
           "before_offset": 27916,
           "after_offset": 26740,
-          "before_length": 2592,
-          "after_length": 2592,
-          "length_delta": 0,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 2592,
+          "after_allocated_span": 2592,
+          "allocated_span_delta": 0
         },
         {
           "stream_id": 15,
@@ -565,10 +564,10 @@
           ],
           "before_offset": 30508,
           "after_offset": 29332,
-          "before_length": 1952,
-          "after_length": 1952,
-          "length_delta": 0,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 1952,
+          "after_allocated_span": 1952,
+          "allocated_span_delta": 0
         },
         {
           "stream_id": 16,
@@ -578,10 +577,10 @@
           ],
           "before_offset": 32460,
           "after_offset": 31284,
-          "before_length": 1988,
-          "after_length": 1988,
-          "length_delta": 0,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 1988,
+          "after_allocated_span": 1988,
+          "allocated_span_delta": 0
         },
         {
           "stream_id": 17,
@@ -591,10 +590,10 @@
           ],
           "before_offset": 34448,
           "after_offset": 33272,
-          "before_length": 2160,
-          "after_length": 2160,
-          "length_delta": 0,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 2160,
+          "after_allocated_span": 2160,
+          "allocated_span_delta": 0
         },
         {
           "stream_id": 18,
@@ -604,10 +603,10 @@
           ],
           "before_offset": 36608,
           "after_offset": 35432,
-          "before_length": 1632,
-          "after_length": 1632,
-          "length_delta": 0,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 1632,
+          "after_allocated_span": 1632,
+          "allocated_span_delta": 0
         },
         {
           "stream_id": 19,
@@ -617,10 +616,10 @@
           ],
           "before_offset": 38240,
           "after_offset": 37064,
-          "before_length": 2124,
-          "after_length": 2124,
-          "length_delta": 0,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 2124,
+          "after_allocated_span": 2124,
+          "allocated_span_delta": 0
         },
         {
           "stream_id": 20,
@@ -630,10 +629,10 @@
           ],
           "before_offset": 40364,
           "after_offset": 39188,
-          "before_length": 2612,
-          "after_length": 2612,
-          "length_delta": 0,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 2612,
+          "after_allocated_span": 2612,
+          "allocated_span_delta": 0
         },
         {
           "stream_id": 21,
@@ -643,10 +642,10 @@
           ],
           "before_offset": 42976,
           "after_offset": 41800,
-          "before_length": 872,
-          "after_length": 872,
-          "length_delta": 0,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 872,
+          "after_allocated_span": 872,
+          "allocated_span_delta": 0
         },
         {
           "stream_id": 22,
@@ -656,10 +655,10 @@
           ],
           "before_offset": 43848,
           "after_offset": 42672,
-          "before_length": 3492,
-          "after_length": 3492,
-          "length_delta": 0,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 3492,
+          "after_allocated_span": 3492,
+          "allocated_span_delta": 0
         },
         {
           "stream_id": 23,
@@ -669,10 +668,10 @@
           ],
           "before_offset": 47340,
           "after_offset": 46164,
-          "before_length": 3460,
-          "after_length": 3460,
-          "length_delta": 0,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 3460,
+          "after_allocated_span": 3460,
+          "allocated_span_delta": 0
         },
         {
           "stream_id": 24,
@@ -682,10 +681,10 @@
           ],
           "before_offset": 50800,
           "after_offset": 49624,
-          "before_length": 3256,
-          "after_length": 3256,
-          "length_delta": 0,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 3256,
+          "after_allocated_span": 3256,
+          "allocated_span_delta": 0
         },
         {
           "stream_id": 25,
@@ -695,12 +694,13 @@
           ],
           "before_offset": 54056,
           "after_offset": 52880,
-          "before_length": 1768,
-          "after_length": 2944,
-          "length_delta": 1176,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 1768,
+          "after_allocated_span": 2944,
+          "allocated_span_delta": 1176
         }
-      ]
+      ],
+      "allocated_span_changed_count": 10
     },
     "BIN/T_NAME_G.BIN": {
       "resource_bytes": 56256,
@@ -708,7 +708,6 @@
       "test13_sha256": "01B9CCAAC6FF79372E30A3595AA98B9E41E6A6BA508ABABE77362829CF13300E",
       "unchanged_geometry": true,
       "prefix_changed_count": 8,
-      "compressed_length_changed_count": 10,
       "streams": [
         {
           "stream_id": 0,
@@ -718,10 +717,10 @@
           ],
           "before_offset": 4,
           "after_offset": 4,
-          "before_length": 2244,
-          "after_length": 1948,
-          "length_delta": -296,
-          "prefix_64_sha256_changed": true
+          "prefix_64_sha256_changed": true,
+          "before_allocated_span": 2244,
+          "after_allocated_span": 1948,
+          "allocated_span_delta": -296
         },
         {
           "stream_id": 1,
@@ -731,10 +730,10 @@
           ],
           "before_offset": 2248,
           "after_offset": 1952,
-          "before_length": 1816,
-          "after_length": 1816,
-          "length_delta": 0,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 1816,
+          "after_allocated_span": 1816,
+          "allocated_span_delta": 0
         },
         {
           "stream_id": 2,
@@ -744,10 +743,10 @@
           ],
           "before_offset": 4064,
           "after_offset": 3768,
-          "before_length": 2192,
-          "after_length": 2192,
-          "length_delta": 0,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 2192,
+          "after_allocated_span": 2192,
+          "allocated_span_delta": 0
         },
         {
           "stream_id": 3,
@@ -757,10 +756,10 @@
           ],
           "before_offset": 6256,
           "after_offset": 5960,
-          "before_length": 2040,
-          "after_length": 2040,
-          "length_delta": 0,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 2040,
+          "after_allocated_span": 2040,
+          "allocated_span_delta": 0
         },
         {
           "stream_id": 4,
@@ -770,10 +769,10 @@
           ],
           "before_offset": 8296,
           "after_offset": 8000,
-          "before_length": 1868,
-          "after_length": 1764,
-          "length_delta": -104,
-          "prefix_64_sha256_changed": true
+          "prefix_64_sha256_changed": true,
+          "before_allocated_span": 1868,
+          "after_allocated_span": 1764,
+          "allocated_span_delta": -104
         },
         {
           "stream_id": 5,
@@ -783,10 +782,10 @@
           ],
           "before_offset": 10164,
           "after_offset": 9764,
-          "before_length": 1972,
-          "after_length": 1768,
-          "length_delta": -204,
-          "prefix_64_sha256_changed": true
+          "prefix_64_sha256_changed": true,
+          "before_allocated_span": 1972,
+          "after_allocated_span": 1768,
+          "allocated_span_delta": -204
         },
         {
           "stream_id": 6,
@@ -796,10 +795,10 @@
           ],
           "before_offset": 12136,
           "after_offset": 11532,
-          "before_length": 2060,
-          "after_length": 1696,
-          "length_delta": -364,
-          "prefix_64_sha256_changed": true
+          "prefix_64_sha256_changed": true,
+          "before_allocated_span": 2060,
+          "after_allocated_span": 1696,
+          "allocated_span_delta": -364
         },
         {
           "stream_id": 7,
@@ -809,10 +808,10 @@
           ],
           "before_offset": 14196,
           "after_offset": 13228,
-          "before_length": 1868,
-          "after_length": 1772,
-          "length_delta": -96,
-          "prefix_64_sha256_changed": true
+          "prefix_64_sha256_changed": true,
+          "before_allocated_span": 1868,
+          "after_allocated_span": 1772,
+          "allocated_span_delta": -96
         },
         {
           "stream_id": 8,
@@ -822,10 +821,10 @@
           ],
           "before_offset": 16064,
           "after_offset": 15000,
-          "before_length": 1904,
-          "after_length": 1756,
-          "length_delta": -148,
-          "prefix_64_sha256_changed": true
+          "prefix_64_sha256_changed": true,
+          "before_allocated_span": 1904,
+          "after_allocated_span": 1756,
+          "allocated_span_delta": -148
         },
         {
           "stream_id": 9,
@@ -835,10 +834,10 @@
           ],
           "before_offset": 17968,
           "after_offset": 16756,
-          "before_length": 2472,
-          "after_length": 2332,
-          "length_delta": -140,
-          "prefix_64_sha256_changed": true
+          "prefix_64_sha256_changed": true,
+          "before_allocated_span": 2472,
+          "after_allocated_span": 2332,
+          "allocated_span_delta": -140
         },
         {
           "stream_id": 10,
@@ -848,10 +847,10 @@
           ],
           "before_offset": 20440,
           "after_offset": 19088,
-          "before_length": 1672,
-          "after_length": 1744,
-          "length_delta": 72,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 1672,
+          "after_allocated_span": 1744,
+          "allocated_span_delta": 72
         },
         {
           "stream_id": 11,
@@ -861,10 +860,10 @@
           ],
           "before_offset": 22112,
           "after_offset": 20832,
-          "before_length": 1964,
-          "after_length": 1964,
-          "length_delta": 0,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 1964,
+          "after_allocated_span": 1964,
+          "allocated_span_delta": 0
         },
         {
           "stream_id": 12,
@@ -874,10 +873,10 @@
           ],
           "before_offset": 24076,
           "after_offset": 22796,
-          "before_length": 1476,
-          "after_length": 1580,
-          "length_delta": 104,
-          "prefix_64_sha256_changed": true
+          "prefix_64_sha256_changed": true,
+          "before_allocated_span": 1476,
+          "after_allocated_span": 1580,
+          "allocated_span_delta": 104
         },
         {
           "stream_id": 13,
@@ -887,10 +886,10 @@
           ],
           "before_offset": 25552,
           "after_offset": 24376,
-          "before_length": 2364,
-          "after_length": 2364,
-          "length_delta": 0,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 2364,
+          "after_allocated_span": 2364,
+          "allocated_span_delta": 0
         },
         {
           "stream_id": 14,
@@ -900,10 +899,10 @@
           ],
           "before_offset": 27916,
           "after_offset": 26740,
-          "before_length": 2592,
-          "after_length": 2592,
-          "length_delta": 0,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 2592,
+          "after_allocated_span": 2592,
+          "allocated_span_delta": 0
         },
         {
           "stream_id": 15,
@@ -913,10 +912,10 @@
           ],
           "before_offset": 30508,
           "after_offset": 29332,
-          "before_length": 1952,
-          "after_length": 1952,
-          "length_delta": 0,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 1952,
+          "after_allocated_span": 1952,
+          "allocated_span_delta": 0
         },
         {
           "stream_id": 16,
@@ -926,10 +925,10 @@
           ],
           "before_offset": 32460,
           "after_offset": 31284,
-          "before_length": 1988,
-          "after_length": 1988,
-          "length_delta": 0,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 1988,
+          "after_allocated_span": 1988,
+          "allocated_span_delta": 0
         },
         {
           "stream_id": 17,
@@ -939,10 +938,10 @@
           ],
           "before_offset": 34448,
           "after_offset": 33272,
-          "before_length": 2160,
-          "after_length": 2160,
-          "length_delta": 0,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 2160,
+          "after_allocated_span": 2160,
+          "allocated_span_delta": 0
         },
         {
           "stream_id": 18,
@@ -952,10 +951,10 @@
           ],
           "before_offset": 36608,
           "after_offset": 35432,
-          "before_length": 1632,
-          "after_length": 1632,
-          "length_delta": 0,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 1632,
+          "after_allocated_span": 1632,
+          "allocated_span_delta": 0
         },
         {
           "stream_id": 19,
@@ -965,10 +964,10 @@
           ],
           "before_offset": 38240,
           "after_offset": 37064,
-          "before_length": 2124,
-          "after_length": 2124,
-          "length_delta": 0,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 2124,
+          "after_allocated_span": 2124,
+          "allocated_span_delta": 0
         },
         {
           "stream_id": 20,
@@ -978,10 +977,10 @@
           ],
           "before_offset": 40364,
           "after_offset": 39188,
-          "before_length": 2612,
-          "after_length": 2612,
-          "length_delta": 0,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 2612,
+          "after_allocated_span": 2612,
+          "allocated_span_delta": 0
         },
         {
           "stream_id": 21,
@@ -991,10 +990,10 @@
           ],
           "before_offset": 42976,
           "after_offset": 41800,
-          "before_length": 872,
-          "after_length": 872,
-          "length_delta": 0,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 872,
+          "after_allocated_span": 872,
+          "allocated_span_delta": 0
         },
         {
           "stream_id": 22,
@@ -1004,10 +1003,10 @@
           ],
           "before_offset": 43848,
           "after_offset": 42672,
-          "before_length": 3492,
-          "after_length": 3492,
-          "length_delta": 0,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 3492,
+          "after_allocated_span": 3492,
+          "allocated_span_delta": 0
         },
         {
           "stream_id": 23,
@@ -1017,10 +1016,10 @@
           ],
           "before_offset": 47340,
           "after_offset": 46164,
-          "before_length": 3460,
-          "after_length": 3460,
-          "length_delta": 0,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 3460,
+          "after_allocated_span": 3460,
+          "allocated_span_delta": 0
         },
         {
           "stream_id": 24,
@@ -1030,10 +1029,10 @@
           ],
           "before_offset": 50800,
           "after_offset": 49624,
-          "before_length": 3256,
-          "after_length": 3256,
-          "length_delta": 0,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 3256,
+          "after_allocated_span": 3256,
+          "allocated_span_delta": 0
         },
         {
           "stream_id": 25,
@@ -1043,12 +1042,13 @@
           ],
           "before_offset": 54056,
           "after_offset": 52880,
-          "before_length": 1768,
-          "after_length": 2944,
-          "length_delta": 1176,
-          "prefix_64_sha256_changed": false
+          "prefix_64_sha256_changed": false,
+          "before_allocated_span": 1768,
+          "after_allocated_span": 2944,
+          "allocated_span_delta": 1176
         }
-      ]
+      ],
+      "allocated_span_changed_count": 10
     }
   },
   "all_three_language_tables_have_identical_deltas": true,
@@ -1066,7 +1066,8 @@
     "26 GPU upload streams per resource; Test13 preserved destination geometry",
     "Only 8 stream prefixes differ; other streams cannot be certified byte-identical from a prefix hash",
     "File logical size 56256 bytes; the 28×2048=57344-byte sector payload includes tail padding",
-    "Need actual decoder and image-to-stream attribution before label replacement"
+    "Need actual decoder and image-to-stream attribution before label replacement",
+    "Last allocated span grows by 1176 bytes because table offset remains fixed at 55824; payload-vs-padding boundary is not known. Sum of allocated spans is unchanged by construction."
   ],
   "test14_built": false
 }
