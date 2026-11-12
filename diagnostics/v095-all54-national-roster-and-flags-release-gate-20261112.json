@@ -78,7 +78,9 @@
     "other_1490_test17_sector_records_identical": true,
     "other_53_national_style_records_unchanged": true,
     "all_24_club_style_records_unchanged": true,
-    "emulator_smoke_test_passed": false
+    "emulator_smoke_test_passed": false,
+    "result_track01_sha256": "C814A2A2215CEDEF71D7F2D56E1B976F33D6BD58AAB7E1DD8AF463D97AE0891E",
+    "clean_original_apply_checked": true
   },
   "unresolved": [
     "Replace missing or misrouted national art for Curaçao, Jordan, Iraq, New Zealand, Bosnia, Canada, Ecuador, Panama, Uzbekistan, Qatar and inspect Haiti",
@@ -95,6 +97,6 @@
   },
   "local_pack": {
     "archive": "ISS26_v095_All54_Audit_and_Research_Patch.zip",
-    "archive_sha256": "471E686AB5DA9ABDFDB53FF3A0E4B035ACAC2EDC1C3284370CE3880BFDAF9AEA"
+    "archive_sha256": "C6FBB92994BABA6A85A8C233DAA15A747AD4C238E893D6280546670B9D59E1EF"
   }
 }
