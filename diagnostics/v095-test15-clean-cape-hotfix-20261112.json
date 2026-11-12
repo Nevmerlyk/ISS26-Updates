@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "project": "ISS26",
+  "version": "v0.9.5",
+  "test": "Test15",
+  "release_status": "built and independently validated offline; no emulator screenshot for Test15 yet",
+  "origin": {
+    "clean_original_sha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
+    "source_patch": "official Test13",
+    "source_test13_sha256": "159A31A95BBAE3BD032417DFDCB8B5478016907DCC1E848D968CBF5B17E61214",
+    "name_atlas_4bpp": "three E/F/G resources",
+    "screenshot_evidence": "Test14 Cape Verde entrance and match successful; artifact at p/e confirmed"
+  },
+  "fix": {
+    "reason": "source glyph crops included detached neighboring-letter fragments",
+    "original_letter_isolated_pixel_components": {
+      "C": [
+        131,
+        3
+      ],
+      "a": [
+        97
+      ],
+      "p": [
+        119,
+        6
+      ],
+      "e": [
+        98,
+        18
+      ]
+    },
+    "removed_source_fragment_pixels": 27,
+    "changed_rendered_pixels_vs_Test14": 25,
+    "removed_rendered_pixels": 24,
+    "restored_overlapped_pixel": 1,
+    "unchanged_verde": true,
+    "unchanged_screen_draw_positions": true,
+    "interword_gap_pixels": 7
+  },
+  "result": {
+    "patch_file": "ISS26_Test_0.9.5_TEST15.iss26p",
+    "patch_sha256": "8AB02D07DA10E0926D20543E27CA7CE27E7058863FC23CF1B2E13B9897F08420",
+    "patch_sector_records": 1492,
+    "changed_records_from_test14": 84,
+    "other_25_tiles_unchanged_across_each_atlas": true,
+    "final_track01_sha256": "CC43BC322EA570409C9F77725350C92B2A790F8F4B1A4F5E3337DFCF284CA395"
+  },
+  "validation": {
+    "mode2_form1_ecc_and_edc": true,
+    "clean_source_guard_sha_matches": true,
+    "full_track01_sha_matches": true,
+    "all_other_patch_sector_records_unchanged": true,
+    "installer_upgrade_from_test14_passed": true,
+    "installer_idempotent_second_run_passed": true,
+    "zip_integrity_passed": true,
+    "local_hotfix_unit_tests_passed": 4
+  },
+  "remaining": [
+    "Test15 actual emulator screenshot and gameplay smoke test",
+    "Cape Verde/Bosnia large flags and carried banners remain broken from Test13",
+    "Legacy Test13 104 Mode2 Form2 EDC anomalies need independent verification before stable"
+  ],
+  "stable_feed_changed": false,
+  "test_feed_changed": false,
+  "game_original_changed": false,
+  "github_binary_release_published": false
+}
