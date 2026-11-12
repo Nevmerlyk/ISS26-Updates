@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "project": "ISS26",
+  "date": "2026-11-12",
+  "milestone": "v0.9.5 Test14 Cape Verde prematch name independent patch",
+  "status": "LOCALLY BUILT; VERIFIED OFFLINE; NOT PUBLISHED TO GH RELEASE OR TEST FEED; NOT YET TESTED IN EMULATOR",
+  "provenance": {
+    "user_academy_archive": "20261112_003357_a3a1de(2).zip",
+    "test12_vram_capture": "flag_auto_crowd_flags_00003888.vram",
+    "note": "Captured on Test12; Test13 preserved prematch name atlas byte-identically, cross-checked against the verified Test13 patch",
+    "official_test13_github_actions_artifact_id": 13899659855,
+    "official_test13_patch_sha256": "159A31A95BBAE3BD032417DFDCB8B5478016907DCC1E848D968CBF5B17E61214",
+    "clean_track01_sha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44"
+  },
+  "confirmed_vram_name_atlas": {
+    "gpu_tpage": 523,
+    "gpu_clut": 31939,
+    "cabo": {
+      "tile": 0,
+      "x": 0,
+      "y": 0,
+      "uv": [
+        128,
+        40,
+        128,
+        16
+      ]
+    },
+    "verde": {
+      "tile": 0,
+      "x": 0,
+      "y": 16,
+      "uv": [
+        128,
+        56,
+        88,
+        16
+      ]
+    },
+    "both_unique_exact_4bpp_matches": true,
+    "three_name_atlases_identical": true
+  },
+  "result": {
+    "patch_filename": "ISS26_Test_0.9.5_TEST14.iss26p",
+    "patch_sha256": "0C018A2CD61CEF20D4691680252B8C61E9F01A130F9F3DE8A909124EBB36D251",
+    "patch_bytes": 3562908,
+    "sector_records": 1492,
+    "changed_relative_to_test13": {
+      "sector_count": 84,
+      "atlas_sector_lbas": [
+        [
+          8200,
+          8227
+        ],
+        [
+          8230,
+          8257
+        ],
+        [
+          8260,
+          8287
+        ]
+      ],
+      "unchanged_sector_records": 1408,
+      "source_guards_unchanged": true
+    },
+    "pixel_edits_per_language": 1441,
+    "affected_texture_tiles": [
+      0
+    ],
+    "untouched_tiles_each_language": 25,
+    "atlas_sha256_after": "D1EFF04D7B77324E1B2FE2F2183FC6E3EC914F758757BDDDA240864D1B55B624",
+    "repacked_unused_bytes_per_atlas": 1532,
+    "standalone_applied_track01_sha256": "DCF66A8D03A97D2D267CF0EFCF11247A8B605B3B25323ACE223C2E59B1324E34",
+    "standalone_applied_track01_bytes": 496156752,
+    "original_12track_cue_preserved_audio_2_through_12": true
+  },
+  "validation": {
+    "source_original_unchanged": true,
+    "name_atlas_all_non_target_pixels_identical": true,
+    "mode2_form1_modified_sectors_valid_edc_ecc": true,
+    "preexisting_test13_form2_bad_edc_sector_count": 104,
+    "preexisting_form2_sector_edc_introduced_regressions": 0,
+    "in_game_boot_test": false,
+    "visual_preview_only": true
+  },
+  "notes": [
+    "This is an experimental independent patch for a clean European ISS Pro Evolution 2 Track01; no previous test patch installation required",
+    "Flags of Bosnia and Cape Verde remain broken from Test13; not part of name-only Test14 fix",
+    "No stable or test feed changed; binary currently available from ChatGPT local artifact only",
+    "108? no, exactly 104 preexisting Form2 EDC errors remain from Test13 and must be addressed separately before stable release"
+  ]
+}
