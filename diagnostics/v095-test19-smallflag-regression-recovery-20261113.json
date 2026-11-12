@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "project": "ISS26 v0.9.5",
+  "date": "2026-11-13",
+  "purpose": "Verified root-cause scope for Test19 small-flag regression and independent clean-disc rollback",
+  "source": {
+    "clean_track_sha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
+    "test18_track_sha256": "9C9AF3C883EE46286698078EA37FEE657DCB2F1C52AB023751B829C9D467E591",
+    "test19_track_sha256": "2566A9E1AA41C5C225965C55D314A47862168176B355621EA4E0637E322AAB8B"
+  },
+  "regression": {
+    "modified_cd_sector_records": 46,
+    "modified_style_entries": 45,
+    "style_tables": [
+      "OPENNING.BIN",
+      "SELECT.BIN style table 1",
+      "SELECT.BIN style table 2",
+      "SELFORM.BIN",
+      "REPLAYS.BIN"
+    ],
+    "national_slots_remapped": [
+      24,
+      25,
+      26,
+      27,
+      39,
+      42,
+      43,
+      49,
+      51
+    ],
+    "national_clut_slots_changed": [
+      0,
+      1,
+      12,
+      17,
+      18,
+      19,
+      23,
+      24,
+      25,
+      26,
+      27,
+      29,
+      31,
+      37,
+      38,
+      39,
+      42,
+      43,
+      49,
+      51
+    ],
+    "national_clut_words_changed": 174,
+    "club_style_bytes_changed": 0,
+    "why_prior_check_failed": "Test19 validated 64x28 BGR555 result for older owner flags but did not guard separate 24x16 selection/HUD palettes or unchanged selector-style IDs. Shared index remapping changed appearance of small icons."
+  },
+  "rollback": {
+    "description": "Standalone source-guarded ISS26X01 patch restoring byte-identical Test18 Track01, no source game redistribution",
+    "patch_filename": "ISS26_Test_0.9.5_TEST19_REGRESSION_SAFE.iss26p",
+    "patch_sha256": "209F978CD9C6AA18B78E48AE7B1AEE7F0AFA66F103BD6E4E0F75104C0A4BA01E",
+    "reconstructed_track_sha256": "9C9AF3C883EE46286698078EA37FEE657DCB2F1C52AB023751B829C9D467E591",
+    "verified_source_guards": 1496,
+    "installer_fresh_clean_source_pass": true,
+    "installer_idempotent_pass": true,
+    "installer_testgame_cue_backup_rollback_pass": true,
+    "original_media_unchanged": true,
+    "emulator_result_not_yet_verified": true,
+    "explicit_limitation": "Test18 still contains existing incorrect large flags and other unverified 54-team visuals; this rollback only eliminates newly introduced Test19 regressions."
+  },
+  "new_gate": {
+    "checks": [
+      "No unreviewed change to 2 SELECT.BIN style tables",
+      "No unreviewed change to 54 nation CLUT palettes",
+      "24 club style entries unchanged"
+    ],
+    "test19_rejected": true,
+    "rollback_passed": true,
+    "automated_tests_passed": 10
+  },
+  "local_bundle": {
+    "name": "ISS26_Test19_SmallFlag_Regression_SafeRollback.zip",
+    "size_bytes": 3036436,
+    "sha256": "42BC8B46E5D28D81D6B190D8EE5DD4D9CA269BFA8C185200CA47E49692E4BE23"
+  },
+  "remaining_before_stable": [
+    "Separate large 64x28 and small 24x16 CLUT/style routing using real selection-screen GPD and VRAM",
+    "Repair large prematch/carried flags with actual last-writer attribution",
+    "Validate all 54 flags in selection, HUD, ceremony, crowd, world map",
+    "Resolve Bosnia and club54 style conflict",
+    "Verify all national names on all screens"
+  ],
+  "stable_latest_changed": false,
+  "test_latest_changed": false,
+  "stable_v095_published": false
+}
