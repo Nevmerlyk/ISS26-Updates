@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-12",
+  "milestone": "ISS26 v0.9.5 full original-font Cape Verde preview",
+  "status": "art_preview_verified_not_a_game_patch",
+  "source": {
+    "game": "ISS Pro Evolution 2 Europe SLES-03321",
+    "clean_track01_sha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
+    "name_atlas_sha256": "C0931A9FBAB344715D38F9C21310549F4442C778FCEC47EA2FB7C3EC600A723F"
+  },
+  "artwork": {
+    "text": "Cape Verde",
+    "cape_sprite_px": [
+      62,
+      16
+    ],
+    "verde_sprite_px": [
+      62,
+      16
+    ],
+    "screen_draw_rects": [
+      [
+        24,
+        38,
+        128,
+        16
+      ],
+      [
+        152,
+        38,
+        88,
+        16
+      ]
+    ],
+    "interword_gap_px": 7,
+    "first_ink_screen_x": 26,
+    "last_ink_screen_x": 153,
+    "first_sprite_bytes": 1024,
+    "second_sprite_bytes": 704,
+    "first_sprite_sha256": "C0B9BC59994F952EEBDE7B1C310DA26084FA328BDBA125F442B0A0EB485CAC66",
+    "second_sprite_sha256": "71F0173B7771B5B2D6FDDB73ADB0D50ADA4C58E529493800662120B72005F9FC",
+    "original_game_name_sources": [
+      "Chile",
+      "Croatia",
+      "Japan",
+      "Valencia",
+      "England"
+    ],
+    "palette": "4-bit indexed PS1 font, original indices retained",
+    "draw_geometry_changed": false
+  },
+  "verification": {
+    "local_unittest_discover_total": 36,
+    "passed": 36,
+    "skipped": 0,
+    "errors": 0,
+    "original_track_sha_matches_before_and_after": true,
+    "archive_checksum_integrity_passed": true
+  },
+  "source_files": [
+    "tools/build_v095_cape_original_font.py",
+    "tools/build_v095_full_cape_verde_art.py",
+    "tools/v095_cape_verde_sprite_layout.py",
+    "tools/v095_name_lz_codec.py",
+    "tools/tests/test_build_v095_full_cape_verde_art.py"
+  ],
+  "constraints": [
+    "Real Test13 Cabo/Verde UV and CLUT not yet confirmed in this environment",
+    "Preview is not applied to Test13 or original disc",
+    "Bosnia and Cape Verde flags still require repair",
+    "Stable/test feeds unchanged",
+    "No actual Test14 patch built"
+  ],
+  "next_step": "Locate exact Test13 Cabo and Verde pixels from verified source delta + GPU draw trace; replace targeted texture without touching other labels; build independent Test14 and visually test it."
+}
