@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "project": "ISS26 v0.9.5",
+  "stage": "Test20 selection flag regression protection — read-only tools, not game patch",
+  "date": "2026-11-13",
+  "baseline_test18_track01_sha256": "9C9AF3C883EE46286698078EA37FEE657DCB2F1C52AB023751B829C9D467E591",
+  "rejected_test19_track01_sha256": "2566A9E1AA41C5C225965C55D314A47862168176B355621EA4E0637E322AAB8B",
+  "evidence": {
+    "user_test19_selection_screenshot": "54 icon images visually indexed by team slot 0–53 in 14+14+14+12 grid",
+    "visually_suspect_slots": [
+      0,
+      24,
+      25,
+      26,
+      27,
+      39,
+      42,
+      43,
+      49,
+      51
+    ],
+    "caveat": "Screenshot crops do not prove each icon's real GPU texture source or CLUT; evidence remains visual only",
+    "exact_modified_style_entries_from_test18_to_test19": 45,
+    "modified_national_palette_slots_from_test18_to_test19": 20,
+    "modified_palette_color_words": 174,
+    "club_style_table_changes": 0,
+    "real_test12_prematch_gpu_sprites": [
+      {
+        "national": "Cape Verde",
+        "screen": [
+          24,
+          52,
+          64,
+          28
+        ],
+        "tpage": 520,
+        "uv": [
+          192,
+          0
+        ],
+        "clut": 32320
+      },
+      {
+        "national": "Bosnia",
+        "screen": [
+          424,
+          52,
+          64,
+          28
+        ],
+        "tpage": 520,
+        "uv": [
+          192,
+          28
+        ],
+        "clut": 32398
+      }
+    ],
+    "actual_test18_selection_gpu_capture_available": false,
+    "actual_test19_selection_gpu_capture_available": false
+  },
+  "implemented": {
+    "source": "local artifact bundle delivered in current project conversation",
+    "code": [
+      "selection_gpu_guard.py",
+      "test20_release_gate.py",
+      "audit_v095_flag_screen_routing.py",
+      "Capture-ISS26-Selection-TEST18.lua",
+      "Capture-ISS26-Selection-TEST19.lua",
+      "Pack-And-Compare-Selection.ps1",
+      "test_selection_gpu_guard.py",
+      "test_test20_release_gate.py"
+    ],
+    "features": [
+      "PSXGPUDUMPv1r1 GP0 command parser including texture rectangles, polygons, UV/tpage/CLUT, draw offsets",
+      "Compare PS1 indexed 4bpp texture SHA separately from CLUT-derived 15-bit color SHA",
+      "Preserve textured draw color modulation and reject texture windows not yet modeled",
+      "Prove exactly 54 small-icon grid cells 14+14+14+12 or fail closed",
+      "Combine live icon comparison with SHA-pinned Test18-vs-candidate style and palette audit",
+      "One-command PowerShell archive of paired 3-frame selection captures"
+    ],
+    "tests": {
+      "local_including_actual_Test12_GPD_passed": 12,
+      "failed": 0,
+      "bundle_without_private_source_passed": 11,
+      "bundle_skipped_real_GPD_fixture": 1,
+      "test19_without_live_selector_capture_release_gate": "REJECTED"
+    },
+    "bundle": {
+      "filename": "ISS26-v095-Test20-Selection-Flag-Regression-Guard.zip",
+      "bytes": 150790,
+      "sha256": "6689438EC87B5936D2100AE6542C028E33072F65BABEB4504DD1DE8191076FD8"
+    }
+  },
+  "constraints": {
+    "test20_game_patch_compiled": false,
+    "stable_095_published": false,
+    "test18_selection_atlas_and_clut_gpd_required": true,
+    "test19_selection_atlas_and_clut_gpd_required": true,
+    "other_screen_checks_pending": [
+      "HUD",
+      "prematch flags",
+      "carried flags",
+      "crowd flags",
+      "world map",
+      "24 club emblems"
+    ],
+    "stable_feed_unchanged": true,
+    "game_original_unchanged": true
+  },
+  "next_step": "Run bundled Lua scripts once each in verified Test18 and Test19 PCSX-Redux at the identical 54-team selection scene. Use GPD/VRAM to match small icon source texture, re-route independently from prematch CLUT and assemble then validate a standalone Test20."
+}
