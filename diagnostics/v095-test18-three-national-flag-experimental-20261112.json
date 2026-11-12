@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "project": "ISS26",
+  "milestone": "v0.9.5 Test18 consolidated three-nation flag graphics (experimental)",
+  "date": "2026-11-12",
+  "status": "OFFLINE_VERIFIED; NOT EMULATOR_VERIFIED; NOT STABLE RELEASE",
+  "clean_eu_track01_sha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
+  "baseline": "Test17 + independent source-guarded Ivory Coast candidate",
+  "patch": {
+    "filename": "ISS26_Test_0.9.5_TEST18_ThreeFlags.iss26p",
+    "sha256": "209F978CD9C6AA18B78E48AE7B1AEE7F0AFA66F103BD6E4E0F75104C0A4BA01E",
+    "record_count": 1496,
+    "result_track01_sha256": "9C9AF3C883EE46286698078EA37FEE657DCB2F1C52AB023751B829C9D467E591",
+    "independent_from_clean_original": true
+  },
+  "new_fixes": {
+    "ivory_coast": "Slot3 remapped to original vertical tricolor art style0, individual 16-entry CLUT orange-white-green",
+    "senegal": "Slot35 CLUT entries 9/10 changed from red to green to make the existing central star all green; style0 art unchanged for France/Belgium/Italy/Nigeria",
+    "haiti": "Slot22 own style35 art replaced in both DATSEL upload46 and DATSEL3 upload7, corrected blue/red/white flag geometry and 15-entry custom CLUT; coat of arms drawn as approximate 64x28 pixel art"
+  },
+  "validation": {
+    "verified_mode2_form1_records": 1390,
+    "verified_mode2_form2_records": 106,
+    "invalid_edc_ecc": 0,
+    "valid_gpu_packets": {
+      "DATSEL": 55,
+      "DATSEL2": 23,
+      "DATSEL3": 22,
+      "DAT2D": 21
+    },
+    "haiti_duplicate_uploads_byte_identical": true,
+    "all_other_decoded_gpu_streams_unchanged_from_test17": true,
+    "all_54_names_from_both_roster_banks_preserved": true,
+    "changed_5_style_tables_only_slot3": true,
+    "all_24_club_style_references_unchanged": true,
+    "changed_national_clut_slots": [
+      3,
+      22,
+      35
+    ],
+    "other_51_national_clut_slots_unchanged": true,
+    "all_54_palette_index0_transparent": true,
+    "installer_clean_source_works": true,
+    "installer_idempotence_works": true,
+    "previous_testgame_cue_backup_restore_passed": true,
+    "zip_integrity_passed": true
+  },
+  "bundle": {
+    "filename": "ISS26_Test_0.9.5_TEST18_3Flags_Experimental.zip",
+    "sha256": "26D390AAF372140B3F793D0000DE1B9AF3443939EA554561C18FD0192297758F",
+    "bytes": 3033020
+  },
+  "explicit_release_gates": [
+    "Haiti coat 64x28 is a visual approximation, not an official faithful miniature",
+    "Bosnia style10/55 club54 collision unresolved",
+    "Curaçao, Jordan, Iraq, New Zealand, Canada, Ecuador, Panama, Uzbekistan, Qatar large flags and other screen paths unresolved",
+    "Short labels C.VERDE, N.ZEAL, I.COAST, QAT, USA, BELG remain in short name bank",
+    "Need 54 team actual-game QA across small flags, large prematch, banners carried by players, crowd, HUD, world map, selection and club emblems"
+  ],
+  "stable_feed_modified": false,
+  "test_feed_modified": false,
+  "emulator_tested": false
+}
