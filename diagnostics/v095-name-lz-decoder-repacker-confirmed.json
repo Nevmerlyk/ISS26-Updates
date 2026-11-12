@@ -1,0 +1,74 @@
+{
+  "schema_version": 2,
+  "project": "ISS26 v0.9.5",
+  "task": "Authentic decompressor and encoder for T_NAME_E/F/G graphics",
+  "source": {
+    "disc": "ISS Pro Evolution 2 European PS1 SLES-03321",
+    "track01_sha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
+    "original_atlas_sha256": "C0931A9FBAB344715D38F9C21310549F4442C778FCEC47EA2FB7C3EC600A723F",
+    "verified_disc_unchanged": true
+  },
+  "reverse_engineering": {
+    "psx_executable": "SLES_033.21",
+    "mips_decoder_address": "0x8001CE34",
+    "control_bits": "LSB-first; 0=1 raw byte, 1=command",
+    "commands": [
+      {
+        "opcode": "0x00..0x7F",
+        "kind": "long backward copy",
+        "length": "(opcode >> 2)+3",
+        "distance": "((opcode & 3)<<8)|next_byte"
+      },
+      {
+        "opcode": "0x80..0xBF",
+        "kind": "short backward copy",
+        "length": "(opcode >> 4)-6",
+        "distance": "(opcode & 15)+1"
+      },
+      {
+        "opcode": "0xC0..0xFE",
+        "kind": "raw run",
+        "length": "opcode-0xB8"
+      },
+      {
+        "opcode": "0xFF",
+        "kind": "stop"
+      }
+    ],
+    "output_size_bytes": 8192,
+    "all_streams_valid": true,
+    "source_streams_per_atlas": 26,
+    "atlases_tested": [
+      "T_NAME_E.BIN",
+      "T_NAME_F.BIN",
+      "T_NAME_G.BIN"
+    ],
+    "original_decoded_concat_sha256": "D2C54CE4B3172075687B63C79B4BEBD50338E203AB09E94C2BEC3B55ED8C5476"
+  },
+  "encoder": {
+    "implementation": "Greedy LZ within original token grammar, always decode/compare before returning",
+    "old_compressed_payload_bytes_all_26": 55777,
+    "new_compressed_payload_bytes_all_26": 55000,
+    "saving_bytes_before_alignment": 777,
+    "repacked_aligned_used_bytes": 55040,
+    "original_allocated_bytes": 55820,
+    "free_bytes_after_repack": 780,
+    "uncompressed_pixels_bit_identical_all_26": true,
+    "one_pixel_edit_exactly_one_tile_changed": true,
+    "in_memory_only": true
+  },
+  "safety": {
+    "no_disc_image_exported": true,
+    "no_original_resource_exported": true,
+    "not_a_gameplay_test": true,
+    "not_a_flag_repair": true,
+    "test14_released": false,
+    "stable_feed_changed": false
+  },
+  "next_steps": [
+    "Acquire verified official Test13 .iss26p to reconstruct its three modified name atlases",
+    "Identify specific Cape Verde glyph bounds in Test13 decoded tiles and correct the spelling+spacing",
+    "Repack all 26 decoded tiles with safe geometry and all other team names unchanged",
+    "Compose independent clean-original Test14 patch and test in-game, including stadium/banner and Bosnia flags"
+  ]
+}
