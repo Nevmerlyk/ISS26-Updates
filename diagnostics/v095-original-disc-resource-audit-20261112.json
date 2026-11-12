@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "description": "Read-only verification against user-provided clean European 12-track disc",
+  "track01_sha256": "d9b483bdea7774346df437febf038e68cb2c4ad9932a7ad993d3c2b1f620ea44",
+  "track_count": 12,
+  "all_tracks_present": true,
+  "resources": [
+    {
+      "path": "BIN/DATSEL.BIN",
+      "lba": 6000,
+      "size": 215324,
+      "sha256": "590f4ccfd964380aa390806be069ad7af4c5e7016a9cc6a0f0a38a75a918c862"
+    },
+    {
+      "path": "BIN/DATSEL2.BIN",
+      "lba": 6150,
+      "size": 130376,
+      "sha256": "66638df4557032d8c1320b543cb9119ae1bb67882c3193ab51b2803662461bd2"
+    },
+    {
+      "path": "BIN/DATSEL3.BIN",
+      "lba": 6250,
+      "size": 54948,
+      "sha256": "4de3a39f21e184841b05108ba5f0a97a182579f836804b42f9cf9feafaf6c273"
+    },
+    {
+      "path": "BIN/DAT2D.BIN",
+      "lba": 5300,
+      "size": 66272,
+      "sha256": "3c91172457d63b55c19bc2ed8223ea841d342a1aae4de6987f232d969ad8cc74"
+    }
+  ],
+  "sector_mode": "MODE2/2352",
+  "user_disc_modified": false,
+  "patch_modified": false,
+  "notes": "Hash verified original Track01 against latest.json baseSha256; no original game data stored."
+}
