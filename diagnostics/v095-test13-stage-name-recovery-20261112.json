@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-12",
+  "milestone": "ISS26 v0.9.5 Test13 name atlas recovery without full release binary",
+  "source": "Nevmerlyk/ISS26-Updates",
+  "verified": {
+    "staged_name_delta_files": 5,
+    "compressed_transfer_bytes": 66016,
+    "compressed_format": "XZ/LZMA",
+    "compressed_sha256": "C425FEE3E5B561A507E864DA22E08EDD3C5F0A3D43FCE42371A7DB8BD65317AC",
+    "matches_pinned_workflow_digest": true,
+    "expected_uncompressed_sha256": "3006D0D0111670B611CBCC87FAE80E3F94CBCD7DE8DB6F340407996C7FD6BE14",
+    "source_atlas_resources": [
+      "BIN/T_NAME_E.BIN",
+      "BIN/T_NAME_F.BIN",
+      "BIN/T_NAME_G.BIN"
+    ],
+    "source_sector_records": 84,
+    "source_sector_group_lbas": [
+      [
+        8200,
+        8227
+      ],
+      [
+        8230,
+        8257
+      ],
+      [
+        8260,
+        8287
+      ]
+    ],
+    "original_track_sha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
+    "pinned_test13_name_atlas_sha256": "01B9CCAAC6FF79372E30A3595AA98B9E41E6A6BA508ABABE77362829CF13300E",
+    "direct_original_disc_test": "4/4 local stage-reconstructor synthetic regression tests passed using real clean Track01",
+    "published_staged_data_not_directly_extracted_in_model_runtime": true
+  },
+  "new_tools": [
+    "tools/inspect_v095_test13_from_stage.py",
+    "tools/tests/test_inspect_v095_test13_from_stage.py",
+    "tools/Run-Test13-Staged-Inspector.cmd"
+  ],
+  "why_it_matters": "The original Test10 name sector masks are preserved unchanged in Test13. The three Test13 name resources can be reconstructed using the public 84 sector delta alone, without retrieving the 3.5MB Test13 patch.",
+  "not_yet_verified": [
+    "Actual Test13 bitmap pixels in this execution environment",
+    "Matching Cape Verde glyph positions in stage atlases with prematch GPU capture",
+    "Generated, booted, or gameplay-verified Test14 candidate"
+  ],
+  "stable_feed_unchanged": true,
+  "original_disc_untouched": true,
+  "test14_released": false
+}
