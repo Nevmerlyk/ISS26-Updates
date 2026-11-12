@@ -1,0 +1,52 @@
+name: Audit v0.9.5 Cape Verde prematch name atlas changes
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/audit-v095-prematch-name-atlases.yml'
+      - 'tools/audit_v095_prematch_name_atlases.py'
+      - 'tools/tests/test_audit_v095_prematch_name_atlases.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: iss26-v095-prematch-name-atlas-audit
+  cancel-in-progress: false
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - name: Synthetic sector safety tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s tools/tests -p test_audit_v095_prematch_name_atlases.py -v
+      - name: Download pinned experimental Test13 patch (no original game)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/iss26-name-audit
+          gh release download v0.9.5-largeflag-source-test13 \
+            --repo Nevmerlyk/ISS26-Updates \
+            --pattern 'ISS26_0.9.5_LargeFlagSource_TEST13.iss26p' \
+            --dir /tmp/iss26-name-audit
+          echo '159a31a95bbae3bd032417dfdcb8b5478016907dcc1e848d968cbf5b17e61214  /tmp/iss26-name-audit/ISS26_0.9.5_LargeFlagSource_TEST13.iss26p' | sha256sum -c -
+      - name: Identify exactly changed name atlas sector spans
+        run: |
+          set -euo pipefail
+          python tools/audit_v095_prematch_name_atlases.py \
+            --patch /tmp/iss26-name-audit/ISS26_0.9.5_LargeFlagSource_TEST13.iss26p \
+            --report diagnostics/v095-test13-prematch-name-atlas-audit.json
+      - name: Save metadata only (no copyrighted images)
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add diagnostics/v095-test13-prematch-name-atlas-audit.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'diagnostics: map three Test13 prematch name atlases'
+            git push origin HEAD:main
+          fi
