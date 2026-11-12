@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-12",
+  "milestone": "ISS26 v0.9.5 original-font Cape sprite completed",
+  "source": "User-provided clean EU ISS Pro Evolution 2 PS1 Track01",
+  "original_track_sha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
+  "original_name_atlas_sha256": "C0931A9FBAB344715D38F9C21310549F4442C778FCEC47EA2FB7C3EC600A723F",
+  "artifact": {
+    "text": "Cape",
+    "pixel_format": "4bpp indexed",
+    "width_px": 62,
+    "height_px": 16,
+    "packed_bytes": 496,
+    "payload_sha256": "16C95263ABFF9EE8FA8903CD1F30BC7EA6E1BFDD612CF35400258E0117FBC2F4",
+    "pixel_indices": [
+      0,
+      3,
+      4,
+      5,
+      6,
+      8,
+      9,
+      10,
+      11,
+      13,
+      14,
+      15
+    ],
+    "sources": [
+      {
+        "letter": "C",
+        "source": "Chile",
+        "vram_origin": [
+          512,
+          224
+        ],
+        "source_x_range": [
+          0,
+          18
+        ]
+      },
+      {
+        "letter": "a",
+        "source": "Croatia",
+        "vram_origin": [
+          384,
+          96
+        ],
+        "source_x_range": [
+          46,
+          60
+        ]
+      },
+      {
+        "letter": "p",
+        "source": "Japan",
+        "vram_origin": [
+          640,
+          224
+        ],
+        "source_x_range": [
+          29,
+          46
+        ]
+      },
+      {
+        "letter": "e",
+        "source": "Chile",
+        "vram_origin": [
+          512,
+          224
+        ],
+        "source_x_range": [
+          48,
+          63
+        ]
+      }
+    ],
+    "overlap_between_letters_px": 2
+  },
+  "tested_locally": {
+    "source_sha_verified": true,
+    "four_tests_passed": true,
+    "all_suites_total": 29,
+    "all_suites_skipped": 4,
+    "all_suites_failed": 0
+  },
+  "new_code": [
+    "tools/build_v095_cape_original_font.py",
+    "tools/tests/test_build_v095_cape_original_font.py"
+  ],
+  "important": "This is a reproducible sprite candidate sourced from original font pixels, not a verified Test13 artwork replacement. To patch Test13, locate its exact Cabo/Verde UV+tile coordinates and preserve the other 16 renamed nations. No standalone Test14 has been assembled or released.",
+  "original_disc_modified": false,
+  "feeds_changed": false,
+  "test14_released": false
+}
