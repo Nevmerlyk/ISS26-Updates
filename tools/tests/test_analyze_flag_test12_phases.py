@@ -53,6 +53,27 @@ class Test12PhaseAnalyzer(unittest.TestCase):
             self.assertEqual(result["transitions"][1]["to_operator_phase"], "crowd_flags")
             self.assertTrue(any("NOT" in note for note in result["notes"]))
 
+    def test_user_verified_style10_starts_at_y312_not_y320(self):
+        # True Bosnia 64x28 source atlas duplicate was at word (864,312),
+        # corresponding to style=10 (col 2, row 2, stride 28).
+        raw = bytearray(reader.VRAM_BYTES)
+        pos = ((312 * 1024) + 864) * 2
+        raw[pos:pos + 2] = b"\\x5A\\xA5"
+        self.assertEqual(reader.style_tile(bytes(raw), 10)[:2], b"\\x5A\\xA5")
+        old_wrong_pos = ((320 * 1024) + 864) * 2
+        self.assertEqual(bytes(raw[old_wrong_pos:old_wrong_pos + 2]), b"\\x00\\x00")
+
+    def test_current_redux_2mb_and_legacy_1mb_vram_are_both_supported(self):
+        with tempfile.TemporaryDirectory() as directory:
+            folder = Path(directory)
+            for size, label in [(reader.VRAM_BYTES, "1024x1024"),
+                                (reader.LEGACY_VRAM_BYTES, "1024x512")]:
+                archive = folder / (label + ".zip")
+                with zipfile.ZipFile(archive,"w",zipfile.ZIP_DEFLATED) as z:
+                    z.writestr("snap_00000100.vram", bytes(size))
+                result = reader.analyze(archive)
+                self.assertIn(label, result["vram_layout"])
+
     def test_existing_academy_operator_capture_tags(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
