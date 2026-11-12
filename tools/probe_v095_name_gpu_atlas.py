@@ -236,24 +236,7 @@ def find_original_track(game_root:Path)->Path:
     if not cue.is_file():
         raise FileNotFoundError(f"Original EU CUE not found: {cue}")
     source=cue.read_text(encoding="utf-8-sig",errors="replace")
-    files=re.findall(r'^\\s*FILE\\s+"([^"]+)"\\s+BINARY\\s*
-        patch=args.test13.read_bytes()
-    else:
-        req=urllib.request.Request(PATCH_URL,headers={"User-Agent":"ISS26-CapeVerde-Probe/1"})
-        with urllib.request.urlopen(req,timeout=60) as response:
-            patch=response.read(4*1024*1024)
-    result=probe(disc,patch)
-    args.output.parent.mkdir(parents=True,exist_ok=True)
-    args.output.write_text(json.dumps(result,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
-    for name,row in result["resources"].items():
-        print(f"{name}: original uploads {row['original_upload_count']}; "
-              f"Test13 uploads {row['test13_upload_count']}; "
-              f"geometry unchanged = {row['vram_rectangle_geometry_unchanged']}")
-    print("PASS: clean original + official Test13 verified; no game data changed")
-
-if __name__=="__main__":
-    main()
-,source,re.I|re.M)
+    files=re.findall(r'^\s*FILE\s+"([^"]+)"\s+BINARY\s*$',source,re.I|re.M)
     if len(files)!=12:
         raise ValueError("Expected the 12-track original EU CUE; never use a Test Game CUE")
     first=Path(files[0])
@@ -267,20 +250,20 @@ def main():
     ap.add_argument("--clean-track",type=Path,
                     help="Original EU PS1 Track 01 .bin, NOT patched image")
     ap.add_argument("--game-root",type=Path,
-                    help="Folder containing the clean original 12-track CUE; defaults to D:\\ISS 26")
+                    help="Folder containing original CUE; defaults to D:\\ISS 26")
     ap.add_argument("--test13",type=Path,
                     help="Optional local official Test13 .iss26p (downloaded if absent)")
     ap.add_argument("--output",type=Path,
                     default=Path.home()/"ISS26-CapeVerde-probe.json")
     args=ap.parse_args()
-    disc=args.clean_track or find_original_track(args.game_root or Path(r"D:\\ISS 26"))
+    disc=args.clean_track or find_original_track(args.game_root or Path(r"D:\ISS 26"))
     if args.test13:
         patch=args.test13.read_bytes()
     else:
         req=urllib.request.Request(PATCH_URL,headers={"User-Agent":"ISS26-CapeVerde-Probe/1"})
         with urllib.request.urlopen(req,timeout=60) as response:
             patch=response.read(4*1024*1024)
-    result=probe(args.clean_track,patch)
+    result=probe(disc,patch)
     args.output.parent.mkdir(parents=True,exist_ok=True)
     args.output.write_text(json.dumps(result,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     for name,row in result["resources"].items():
