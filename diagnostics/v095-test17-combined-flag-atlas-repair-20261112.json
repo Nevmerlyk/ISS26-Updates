@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "project": "ISS26 v0.9.5",
+  "date": "2026-11-12",
+  "channel": "local-experimental-Test17",
+  "status": "built_offline_verified_not_stable_not_emulator_tested",
+  "base_disc": {
+    "game": "ISS Pro Evolution 2 Europe SLES-03321",
+    "track01_sha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44"
+  },
+  "candidate": {
+    "name": "ISS26_Test_0.9.5_TEST17_AllGraphicsCandidate.iss26p",
+    "sha256": "1C0F5ECAEED08349DEBAD33354D30110F78231C43FA69CEC02D203D3104AD96D",
+    "records": 1496,
+    "result_track01_sha256": "25CCBB7BAE591BB4DC8B162ED3880D2F2074597694343AAB80B71F19A2539645"
+  },
+  "repair": {
+    "bosnia_4bpp_flag_style": 10,
+    "stars": "diagonal top-left to bottom-right; 7 full plus 2 cropped",
+    "datsel3_repaired_uploads": {
+      "4": "DATSEL 43",
+      "5": "DATSEL 44",
+      "6": "DATSEL 45"
+    },
+    "provenance": "On the verified clean disc these three DATSEL3 uploads decode byte-identically to DATSEL uploads and have identical VRAM rectangles",
+    "other_19_datsel3_gpu_packets_pixel_identical": true,
+    "all_other_54_datsel_packets_pixel_identical": true
+  },
+  "validation": {
+    "cd_records_checked": 1496,
+    "mode2_form1_valid": 1390,
+    "mode2_form2_valid": 106,
+    "sector_parity_errors": 0,
+    "gpu_decodes": {
+      "DATSEL": 55,
+      "DATSEL2": 23,
+      "DATSEL3": 22,
+      "DAT2D": 21
+    },
+    "same_vram_rectangles": 47,
+    "pixel_identical_duplicate_upload_groups": 42,
+    "existing_original_distinctions_preserved": 5,
+    "new_cross_resource_conflicts": 0,
+    "language_name_atlases_unchanged": true,
+    "all_5_style_tables_unchanged": true,
+    "installer_clean_source_test": "passed",
+    "installer_idempotence": "passed",
+    "installer_rollback": "passed",
+    "clean_original_unchanged": true
+  },
+  "local_zip": {
+    "filename": "ISS26_Test_0.9.5_TEST17_Flag_Atlas_Repair.zip",
+    "size_bytes": 3030628,
+    "sha256": "41F9EA74A6CD189C1F139A7D9D8B143460FA0BB4C12518936EC83FCC6F929723"
+  },
+  "release_gate": {
+    "national_slots": 54,
+    "known_renamed_slots": 17,
+    "other_slots_not_independently_verified": 37,
+    "bosnia_style_table_mismatch": "55/10/10/55/55, shared numeric style10 with club slot54",
+    "senegal_shared_style": "0 with national slots7,8,11,34",
+    "all_54_name_and_flag_screen_variants_tested": false,
+    "club54_emblem_isolation_verified": false,
+    "emulator_test_passed": false,
+    "stable_feed_modified": false,
+    "test_feed_modified": false
+  },
+  "limitations": "This candidate restores damaged duplicated graphics and Bosnia flag geometry; it is not a fully verified 54-team correction and is not a stable 0.9.5 release."
+}
