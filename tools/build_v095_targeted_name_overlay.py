@@ -63,8 +63,8 @@ def validate_manifest(manifest:dict):
     if manifest.get("target_screen")!="prematch_team_name":
         raise ValueError("Only prematch names may be edited")
     edits=manifest.get("edits")
-    if not isinstance(edits,list) or not 1<=len(edits)<=512:
-        raise ValueError("Require 1..512 explicitly verified raster byte edits")
+    if not isinstance(edits,list) or not 1<=len(edits)<=1024:
+        raise ValueError("Require 1..1024 explicitly verified raster byte edits")
     checked=[]
     changed_positions=set()
     for row in edits:
