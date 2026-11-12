@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "project": "ISS26 0.9.5",
+  "date": "2026-11-13",
+  "milestone": "shared national CLUT / small-vs-prematch flag regression preflight",
+  "status": "READ_ONLY_ANALYSIS_AND_AUTOMATED_RELEASE_GUARD; NOT A NEW GAME PATCH",
+  "sources": {
+    "baseline_test18_track01_sha256": "9C9AF3C883EE46286698078EA37FEE657DCB2F1C52AB023751B829C9D467E591",
+    "rejected_test19_track01_sha256": "2566A9E1AA41C5C225965C55D314A47862168176B355621EA4E0637E322AAB8B",
+    "reference_academy_zip": "20261112_003357_a3a1de(2).zip",
+    "gpu_source": "Test12 flag_auto_crowd_flags_00003888.gpd",
+    "gpu_format": "PSXGPUDUMPv1r1 standard, read-only GP0 command parser"
+  },
+  "test19_change_surface": {
+    "national_palette_slots_modified": 20,
+    "national_palette_words_modified": 174,
+    "national_palette_slots_with_old_colors_absent_from_new_set": 15,
+    "national_style_table_cells_modified": 45,
+    "club_style_table_cells_modified": 0,
+    "cape_verde_distinct_palette_colors_before_after": [
+      12,
+      5
+    ],
+    "algeria_distinct_palette_colors_before_after": [
+      12,
+      3
+    ],
+    "small_icon_regression_guard": "FAIL",
+    "test18_self_comparison_guard": "PASS",
+    "important_limit": "Missing old palette entries is a conservative loss-of-color warning. It does not identify which missing colors are actually used by each 24x16 selection icon. Per-screen small-flag GPU draw path still unverified."
+  },
+  "proven_gpudump_sprites": [
+    {
+      "scene": "prematch_left_national_flag",
+      "screen_xy": [
+        24,
+        52
+      ],
+      "screen_wh": [
+        64,
+        28
+      ],
+      "uv": [
+        192,
+        0
+      ],
+      "tpage": 520,
+      "clut": 32320,
+      "team": "Cape Verde"
+    },
+    {
+      "scene": "prematch_right_national_flag",
+      "screen_xy": [
+        424,
+        52
+      ],
+      "screen_wh": [
+        64,
+        28
+      ],
+      "uv": [
+        192,
+        28
+      ],
+      "tpage": 520,
+      "clut": 32398,
+      "team": "Bosnia"
+    },
+    {
+      "scene": "prematch_overlay",
+      "screen_xy": [
+        [
+          24,
+          52
+        ],
+        [
+          424,
+          52
+        ]
+      ],
+      "uv": [
+        192,
+        56
+      ],
+      "tpage": 584,
+      "clut": 31746
+    },
+    {
+      "scene": "prematch_national_names",
+      "screen_rects": [
+        [
+          24,
+          38,
+          128,
+          16
+        ],
+        [
+          152,
+          38,
+          88,
+          16
+        ],
+        [
+          405,
+          38,
+          128,
+          16
+        ],
+        [
+          533,
+          38,
+          88,
+          16
+        ]
+      ],
+      "tpage": 523,
+      "clut": 31939
+    }
+  ],
+  "validation": {
+    "local_unit_tests_passed": 7,
+    "local_unit_tests_failed": 0,
+    "real_disc_sha_pinned": true,
+    "archive_test12_gpudump_actual": true,
+    "zip_crc_passed": true
+  },
+  "local_archive": {
+    "name": "ISS26-v095-Flag-Screen-Routing-Audit.zip",
+    "size_bytes": 104803,
+    "sha256": "2599618FB6F72325E1C67D167142295B2636BCD0A003D325AF06C0C9987F3C94",
+    "contains": [
+      "read-only Python source and 7 tests",
+      "Test18-vs-Test19 GPU palette and style audit JSON",
+      "20-nation CLUT loss CSV",
+      "side-by-side CLUT palette visual",
+      "optional Windows audit script",
+      "Russian README"
+    ],
+    "game_or_patch_binaries_included": false
+  },
+  "next_technical_work": "Acquire and attribute actual small national selector GPUDUMP UV/tpage/CLUT in Test18 and Test19, then implement independent palette routing to protect 24x16 icons while promoting large flags. Also guard HUD, ceremony and club emblems.",
+  "safety": {
+    "test19_not_promoted": true,
+    "test18_safe_rollback_not_modified": true,
+    "stable_channel_unchanged": true,
+    "test_channel_unchanged": true,
+    "original_media_unchanged": true,
+    "new_test20_game_patch_built": false
+  }
+}
