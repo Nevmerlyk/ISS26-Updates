@@ -18,8 +18,9 @@ import struct
 import zipfile
 
 VRAM_WIDTH_WORDS = 1024
-VRAM_HEIGHT = 512
+VRAM_HEIGHT = 1024  # Modern PCSX-Redux uses 2MB VRAM.
 VRAM_BYTES = VRAM_WIDTH_WORDS * VRAM_HEIGHT * 2
+LEGACY_VRAM_BYTES = VRAM_WIDTH_WORDS * 512 * 2
 MAX_FILES = 2500
 MAX_UNCOMPRESSED = 320 * 1024 * 1024
 MAX_CAPTURE_COUNT = 128
@@ -117,7 +118,9 @@ def capture_frame(name: str) -> int:
 def style_tile(raw: bytes, style: int) -> bytes:
     assert 0 <= style < 28
     word_x = 832 + 16 * (style % 4)
-    y = 256 + 32 * (style // 4)
+    # Verified against user Test12 GPUDUMP: Bosnia's texture at (864,312)
+    # matches style #10 = (832+2*16,256+2*28), not a 32px row stride.
+    y = 256 + 28 * (style // 4)
     result = bytearray()
     for row in range(28):
         offset = ((y + row) * VRAM_WIDTH_WORDS + word_x) * 2
@@ -134,9 +137,12 @@ def national_clut(raw: bytes, index: int) -> bytes:
 def block_changes(before: bytes, after: bytes, top: int = 20) -> dict:
     # Each grid cell is 16 16-bit VRAM words by 16 rows. No semantics are
     # assigned: changes could be animations, UI or textures rather than flags.
+    if len(before) != len(after) or len(before) not in (LEGACY_VRAM_BYTES, VRAM_BYTES):
+        raise ValueError('VRAM snapshot dimensions differ or are unsupported')
     result = []
     total_blocks = 0
-    for y in range(0, VRAM_HEIGHT, GRID_ROWS):
+    actual_height = len(before) // (VRAM_WIDTH_WORDS * 2)
+    for y in range(0, actual_height, GRID_ROWS):
         for x in range(0, VRAM_WIDTH_WORDS, GRID_WORDS):
             changed_words = 0
             for dy in range(GRID_ROWS):
@@ -177,7 +183,7 @@ def analyze(report: Path, labels: Path | None = None) -> dict:
                 traces.append({"name": name, "size_bytes": entry.file_size})
             if not name.endswith(".vram"):
                 continue
-            if entry.file_size != VRAM_BYTES:
+            if entry.file_size not in (LEGACY_VRAM_BYTES, VRAM_BYTES):
                 raise ValueError(f"Invalid VRAM snapshot size {name}: {entry.file_size}")
             if name in snapshots:
                 raise ValueError("Ambiguous duplicate snapshot name: " + name)
@@ -203,6 +209,9 @@ def analyze(report: Path, labels: Path | None = None) -> dict:
             "team": label["team"],
             "phase_evidence": label["source"],
         })
+    sizes={len(snapshots[n][0]) for n in names}
+    if len(sizes)>1:
+        raise ValueError("Cannot compare mixed legacy 1MB and modern 2MB VRAM captures")
     diffs = []
     for n1, n2 in zip(names, names[1:]):
         old = snapshots[n1][0]
@@ -238,6 +247,10 @@ def analyze(report: Path, labels: Path | None = None) -> dict:
         "schema_version": 1, "audit": "Test12: carried / fan / HUD VRAM phase correlation",
         "archive_name": report.name,
         "vram_capture_count": len(names),
+        "vram_layout": ("1024x1024 words / 2MB" if VRAM_BYTES in sizes else
+                        "1024x512 words / 1MB legacy" if LEGACY_VRAM_BYTES in sizes else
+                        "no snapshots"),
+        "national_flag_style_row_stride_px": 28,
         "operator_labeled_count": sum(
             1 for name in names if name in manual or phase_from_operator_capture(name)
         ),
