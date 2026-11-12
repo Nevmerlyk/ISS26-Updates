@@ -35,9 +35,8 @@ class TestV095Test13StreamDiff(unittest.TestCase):
         )
         self.assertEqual(set(d["resources"]), set(NAMES))
         self.assertTrue(d["all_three_language_tables_have_identical_deltas"])
-        self.assertEqual(
-            *[d["resources"][name]["streams"] for name in NAMES]
-        )
+        for name in NAMES[1:]:
+            self.assertEqual(d["resources"][NAMES[0]]["streams"], d["resources"][name]["streams"])
 
     def test_expected_26_uploads_and_eight_changed_prefixes(self):
         for name in NAMES:
