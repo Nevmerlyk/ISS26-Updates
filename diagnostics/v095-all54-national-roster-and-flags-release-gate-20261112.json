@@ -80,7 +80,10 @@
     "all_24_club_style_records_unchanged": true,
     "emulator_smoke_test_passed": false,
     "result_track01_sha256": "C814A2A2215CEDEF71D7F2D56E1B976F33D6BD58AAB7E1DD8AF463D97AE0891E",
-    "clean_original_apply_checked": true
+    "clean_original_apply_checked": true,
+    "installer_checked_against_clean_original": true,
+    "installer_idempotent": true,
+    "default_test_game_cue_unchanged": true
   },
   "unresolved": [
     "Replace missing or misrouted national art for Curaçao, Jordan, Iraq, New Zealand, Bosnia, Canada, Ecuador, Panama, Uzbekistan, Qatar and inspect Haiti",
@@ -97,6 +100,7 @@
   },
   "local_pack": {
     "archive": "ISS26_v095_All54_Audit_and_Research_Patch.zip",
-    "archive_sha256": "C6FBB92994BABA6A85A8C233DAA15A747AD4C238E893D6280546670B9D59E1EF"
+    "archive_sha256": "05343D38668CEE8B7DDDB0E58F26A094FCCFD85036F01D961FC4889CCCB520EF",
+    "contains_installer": true
   }
 }
