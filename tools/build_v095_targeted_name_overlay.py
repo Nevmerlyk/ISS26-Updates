@@ -88,10 +88,8 @@ def validate_manifest(manifest:dict):
             raise ValueError("Invalid hex payload") from exc
         if not old_bytes or len(old_bytes)!=len(new_bytes) or len(old_bytes)>256:
             raise ValueError("Only length-preserving, 1..256-byte changes allowed")
-        if not 24<=offset and offset+len(old_bytes)<=2072:
-            raise ValueError("Edit must remain inside Mode2 Form1 user payload")
-        if offset+len(old_bytes)>2072:
-            raise ValueError("Edit crosses CD parity boundary")
+        if offset < 24 or offset + len(old_bytes) > 2072:
+            raise ValueError("Edit crosses CD header or Form1 user payload boundary")
         if old_bytes==new_bytes:
             raise ValueError("No-op edit is not permitted")
         for i in range(len(old_bytes)):
@@ -107,10 +105,13 @@ def build(clean_track:Path,base_patch:Path,manifest_path:Path,output:Path,
           expected_patch_sha:str=PATCH_SHA, expected_records:int=COUNT):
     # Validate and load NO MORE THAN the small original patch.
     # Only source sectors touched by the verified manifest are read from ISO.
+    h=hashlib.sha256()
     with clean_track.open("rb") as src:
-        actual=hashlib.file_digest(src,"sha256").hexdigest().upper()
-        if actual!=expected_clean_sha:
-            raise ValueError("Clean European Track01 SHA256 differs from pinned source")
+        while block:=src.read(4*1024*1024):
+            h.update(block)
+    actual=h.hexdigest().upper()
+    if actual!=expected_clean_sha:
+        raise ValueError("Clean European Track01 SHA256 differs from pinned source")
     records=read_patch(base_patch.read_bytes(),expected_patch_sha,expected_records)
     manifest=json.loads(manifest_path.read_text(encoding="utf-8"))
     edits=validate_manifest(manifest)
