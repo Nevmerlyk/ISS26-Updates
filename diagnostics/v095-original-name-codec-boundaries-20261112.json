@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "audit": "ISS26 0.9.5 name GPU packet boundaries from clean SLES-03321 Track01",
+  "source_track_sha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
+  "name_resource_sha256": "C0931A9FBAB344715D38F9C21310549F4442C778FCEC47EA2FB7C3EC600A723F",
+  "original_resources": [
+    "BIN/T_NAME_E.BIN",
+    "BIN/T_NAME_F.BIN",
+    "BIN/T_NAME_G.BIN"
+  ],
+  "resources_byte_identical": true,
+  "resource_logical_size_bytes": 56256,
+  "gpu_upload_descriptor_count": 26,
+  "gpu_upload_descriptor_kind": 10,
+  "codec_kind_10_confirmed": false,
+  "allocated_stream_region_bytes": 55820,
+  "actual_bytes_through_last_nonzero_ff_total": 55777,
+  "alignment_padding_bytes_total": 43,
+  "alignment_padding_distribution": {
+    "0": 5,
+    "1": 7,
+    "2": 6,
+    "3": 8
+  },
+  "all_26_streams_end_with_FF_then_zero_padding": true,
+  "repeated_sequence_7c01_count": 3344,
+  "source_disc_modified": false,
+  "codec_decoded": false,
+  "test14_built": false,
+  "caveats": [
+    "FF is a reliable observed end-of-packet byte in original streams, but has not yet been proven as decoder end opcode",
+    "0x7c01 sequence is recurrent but no RLE interpretation has yet passed strict output length and pixel correctness verification",
+    "The GPU upload record kind=10 alone does not identify the compression method",
+    "For final edits, verify exact original/Test13 output pixels and round-trip, not merely the packet boundary geometry"
+  ],
+  "next_step": "Identify command grammar for byte stream before FF, decode 8192-byte GPU target for all 26 streams, and correlate Cape Verde VRAM pixels."
+}
