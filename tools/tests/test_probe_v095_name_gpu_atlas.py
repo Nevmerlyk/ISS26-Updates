@@ -4,11 +4,12 @@ import io
 from pathlib import Path
 import struct
 import sys
+import tempfile
 import unittest
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from probe_v095_name_gpu_atlas import (
   SECTOR,GPU_BASE,apply_sector,directory_files,normalized_geometry,
-  raw_sector,resource_data,upload_lists,user_data,
+  raw_sector,resource_data,upload_lists,user_data,find_original_track,
 )
 
 def sector(payload:bytes)->bytes:
@@ -90,6 +91,19 @@ class ProbeTests(unittest.TestCase):
         self.assertEqual(new[:3],b"CAA")
         self.assertEqual(new[2048:2051],b"BBB")
         self.assertEqual(seen,{20})
+
+    def test_autodetect_exact_original_cue_and_reject_test_cue(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root=Path(temp)
+            cue=root/"ISS Pro Evolution 2 (Europe) (En,Fr,De).cue"
+            original=root/"Track01.bin"
+            original.write_bytes(b"test fixture")
+            entries=['FILE "Track%02d.bin" BINARY' % i for i in range(1,13)]
+            cue.write_text("\n".join(entries),encoding="utf-8")
+            self.assertEqual(find_original_track(root),original)
+            cue.write_text(entries[0],encoding="utf-8")
+            with self.assertRaisesRegex(ValueError,"12-track original"):
+                find_original_track(root)
 
     def test_iso9660_names_resolved_inside_bin_directory(self):
         disc=bytearray(SECTOR*32)
