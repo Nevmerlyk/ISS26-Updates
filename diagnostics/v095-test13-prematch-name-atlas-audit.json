@@ -1,0 +1,546 @@
+{
+  "schema_version": 1,
+  "audit": "ISS26 v0.9.5 Test13 prematch names, source-independent atlas inventory",
+  "patch_sha256": "159A31A95BBAE3BD032417DFDCB8B5478016907DCC1E848D968CBF5B17E61214",
+  "clean_disc_required_for_later_repacker_sha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
+  "all_patch_record_count": 1492,
+  "name_atlas_changed_sector_count": 84,
+  "name_atlas_group_count": 3,
+  "resources": {
+    "T_NAME_E.BIN": {
+      "changed_sector_count": 28,
+      "all_source_sector_guard_hashes_sha256": "E61297A7FA1BDC6F36BB2AEC8C11484650D7587ED19EBBED6913722AA8C0EA64",
+      "total_changed_user_payload_bytes": 54448,
+      "total_changed_edc_ecc_bytes": 7797,
+      "sector_metadata": [
+        {
+          "lba": 8200,
+          "changed_user_payload_bytes": 2001,
+          "changed_edc_ecc_bytes": 278,
+          "xor_mask_sha256": "6D44A27FCBFC0E95D13499F4904C1B1ABF47FC745CA5E54149038FBB2609005B"
+        },
+        {
+          "lba": 8201,
+          "changed_user_payload_bytes": 2022,
+          "changed_edc_ecc_bytes": 279,
+          "xor_mask_sha256": "93D318FFCDD14328C9421C480F0E191AD9232A18AF7473EB8D4F0248753B07F2"
+        },
+        {
+          "lba": 8202,
+          "changed_user_payload_bytes": 2016,
+          "changed_edc_ecc_bytes": 279,
+          "xor_mask_sha256": "2DA593F124CC34BE091DA54B90D46062E6B4D31C6D7779AC83CD344F40040D0B"
+        },
+        {
+          "lba": 8203,
+          "changed_user_payload_bytes": 2001,
+          "changed_edc_ecc_bytes": 278,
+          "xor_mask_sha256": "8695A64806AD126F047E665DF993A39F0271A21EAC5F918E86E7FEF58E2E07B1"
+        },
+        {
+          "lba": 8204,
+          "changed_user_payload_bytes": 1998,
+          "changed_edc_ecc_bytes": 278,
+          "xor_mask_sha256": "913BAB246FE184FE2E0C60012DBCE7BE1DE04FAD6849C12D629298715E0F414E"
+        },
+        {
+          "lba": 8205,
+          "changed_user_payload_bytes": 2012,
+          "changed_edc_ecc_bytes": 275,
+          "xor_mask_sha256": "D0E9BB1BAF1D18894D44692A941A3506D57EC9E56E2E96FD5675540B6D9B2B55"
+        },
+        {
+          "lba": 8206,
+          "changed_user_payload_bytes": 1941,
+          "changed_edc_ecc_bytes": 277,
+          "xor_mask_sha256": "58386C5136D460D95AEDEE8B37FA8E95469D424A0676863807C4C9BCE051DD23"
+        },
+        {
+          "lba": 8207,
+          "changed_user_payload_bytes": 2010,
+          "changed_edc_ecc_bytes": 280,
+          "xor_mask_sha256": "45050AC8A2DB22FF162F66058F4027752A79538182A3C22E11AA8C2A97724CEA"
+        },
+        {
+          "lba": 8208,
+          "changed_user_payload_bytes": 2009,
+          "changed_edc_ecc_bytes": 278,
+          "xor_mask_sha256": "52CD5BA108BCFB49AFBCBE9E73DC6F33D7B3B1DF8BC24DABF4D4F9EE675CC593"
+        },
+        {
+          "lba": 8209,
+          "changed_user_payload_bytes": 1924,
+          "changed_edc_ecc_bytes": 280,
+          "xor_mask_sha256": "BE7DE872A7992F09001859D834633EFEDBC67917A4D5B392382ECA9D423EF4FB"
+        },
+        {
+          "lba": 8210,
+          "changed_user_payload_bytes": 1990,
+          "changed_edc_ecc_bytes": 278,
+          "xor_mask_sha256": "B29D20E1128AEAE6469FFC1194DC52EBC94525BF7B0E047B6DD7372B1B7DF77F"
+        },
+        {
+          "lba": 8211,
+          "changed_user_payload_bytes": 1978,
+          "changed_edc_ecc_bytes": 279,
+          "xor_mask_sha256": "F90236B856F89CE9E1B997C0712A5F784A317C0A270E82B8F8DA04EB46C43592"
+        },
+        {
+          "lba": 8212,
+          "changed_user_payload_bytes": 1990,
+          "changed_edc_ecc_bytes": 278,
+          "xor_mask_sha256": "7F60BC60B758D678F207F14C2A59C0E0FE266B97AA33F8EC6DA0E93D850B67EB"
+        },
+        {
+          "lba": 8213,
+          "changed_user_payload_bytes": 2005,
+          "changed_edc_ecc_bytes": 279,
+          "xor_mask_sha256": "EDEFEE7A3D0DCECCD447AE88579AD4D3CB302B4A904C1DE86A8CAF9AEDA04C44"
+        },
+        {
+          "lba": 8214,
+          "changed_user_payload_bytes": 2023,
+          "changed_edc_ecc_bytes": 279,
+          "xor_mask_sha256": "B1E5D794879347DF79164F2BDBFB47737960841C06EA01C86BA065A8652A44E2"
+        },
+        {
+          "lba": 8215,
+          "changed_user_payload_bytes": 1979,
+          "changed_edc_ecc_bytes": 278,
+          "xor_mask_sha256": "87B5489DE73AECFD7447EB77EE9CC8D43488CC12BB3C1106C88009F5F809D47E"
+        },
+        {
+          "lba": 8216,
+          "changed_user_payload_bytes": 2016,
+          "changed_edc_ecc_bytes": 278,
+          "xor_mask_sha256": "6763D81B8486F2A209CE72DC9FB3228F20A32923EC23A779BB479C7ABE8C677F"
+        },
+        {
+          "lba": 8217,
+          "changed_user_payload_bytes": 1953,
+          "changed_edc_ecc_bytes": 279,
+          "xor_mask_sha256": "BB556F6CBDAE50E01670F33EAC985974CC43795B1645B7DD4686EE5FAD323769"
+        },
+        {
+          "lba": 8218,
+          "changed_user_payload_bytes": 1960,
+          "changed_edc_ecc_bytes": 280,
+          "xor_mask_sha256": "1FE4DC241ED8E63EE64D4E64C17FED93B3B4EEE1B4927C600D7C1C6B95174EAA"
+        },
+        {
+          "lba": 8219,
+          "changed_user_payload_bytes": 2012,
+          "changed_edc_ecc_bytes": 279,
+          "xor_mask_sha256": "528C010180A1481553BD92C86A51027760CAAD5DEE8E9993CCF8624869CBFC83"
+        },
+        {
+          "lba": 8220,
+          "changed_user_payload_bytes": 1971,
+          "changed_edc_ecc_bytes": 279,
+          "xor_mask_sha256": "E2291FCC3B634B01161B44C17B804B0E991DCF6C4F7AFDC2B11C702F09222D7D"
+        },
+        {
+          "lba": 8221,
+          "changed_user_payload_bytes": 2010,
+          "changed_edc_ecc_bytes": 280,
+          "xor_mask_sha256": "78A0C3087533D217B512821F4A83EB6BFF562E5B2358564AE63107B78DF71604"
+        },
+        {
+          "lba": 8222,
+          "changed_user_payload_bytes": 2024,
+          "changed_edc_ecc_bytes": 278,
+          "xor_mask_sha256": "0C85EA9FC5BB41F0B0FB4075384B9E4AF6DCFA8C73AEF07859F48DBFD7AB1AA9"
+        },
+        {
+          "lba": 8223,
+          "changed_user_payload_bytes": 2021,
+          "changed_edc_ecc_bytes": 277,
+          "xor_mask_sha256": "43038C8D75668313CC90C5C5EC625E31F48381984CF9C7D2DCB6B90AAD580CA4"
+        },
+        {
+          "lba": 8224,
+          "changed_user_payload_bytes": 2009,
+          "changed_edc_ecc_bytes": 279,
+          "xor_mask_sha256": "B8615BB1BB3005268314E2BCDDA73108B8E673A22C7E3C1C0BFC6E9D6B1D8B5F"
+        },
+        {
+          "lba": 8225,
+          "changed_user_payload_bytes": 2014,
+          "changed_edc_ecc_bytes": 280,
+          "xor_mask_sha256": "A383EFB9878A8E3AB50D178C0F26F4E1AB94E819E89AE3D68A4C8D598CDB45A9"
+        },
+        {
+          "lba": 8226,
+          "changed_user_payload_bytes": 1991,
+          "changed_edc_ecc_bytes": 276,
+          "xor_mask_sha256": "1FB3F44DF18737BBF88CD2643983EB31C972E4A9969E725DE90E2E6E37E2D499"
+        },
+        {
+          "lba": 8227,
+          "changed_user_payload_bytes": 568,
+          "changed_edc_ecc_bytes": 279,
+          "xor_mask_sha256": "6C2A4A201DE13984559901AC3859E0BD0A11B6CA2131E71516FE946A2ADF3146"
+        }
+      ]
+    },
+    "T_NAME_F.BIN": {
+      "changed_sector_count": 28,
+      "all_source_sector_guard_hashes_sha256": "DA686ECB86D3CB2D55AC2363F871CD44DB09F87017F57F5354DB27DF2B046FAF",
+      "total_changed_user_payload_bytes": 54448,
+      "total_changed_edc_ecc_bytes": 7797,
+      "sector_metadata": [
+        {
+          "lba": 8230,
+          "changed_user_payload_bytes": 2001,
+          "changed_edc_ecc_bytes": 278,
+          "xor_mask_sha256": "6D44A27FCBFC0E95D13499F4904C1B1ABF47FC745CA5E54149038FBB2609005B"
+        },
+        {
+          "lba": 8231,
+          "changed_user_payload_bytes": 2022,
+          "changed_edc_ecc_bytes": 279,
+          "xor_mask_sha256": "93D318FFCDD14328C9421C480F0E191AD9232A18AF7473EB8D4F0248753B07F2"
+        },
+        {
+          "lba": 8232,
+          "changed_user_payload_bytes": 2016,
+          "changed_edc_ecc_bytes": 279,
+          "xor_mask_sha256": "2DA593F124CC34BE091DA54B90D46062E6B4D31C6D7779AC83CD344F40040D0B"
+        },
+        {
+          "lba": 8233,
+          "changed_user_payload_bytes": 2001,
+          "changed_edc_ecc_bytes": 278,
+          "xor_mask_sha256": "8695A64806AD126F047E665DF993A39F0271A21EAC5F918E86E7FEF58E2E07B1"
+        },
+        {
+          "lba": 8234,
+          "changed_user_payload_bytes": 1998,
+          "changed_edc_ecc_bytes": 278,
+          "xor_mask_sha256": "913BAB246FE184FE2E0C60012DBCE7BE1DE04FAD6849C12D629298715E0F414E"
+        },
+        {
+          "lba": 8235,
+          "changed_user_payload_bytes": 2012,
+          "changed_edc_ecc_bytes": 275,
+          "xor_mask_sha256": "D0E9BB1BAF1D18894D44692A941A3506D57EC9E56E2E96FD5675540B6D9B2B55"
+        },
+        {
+          "lba": 8236,
+          "changed_user_payload_bytes": 1941,
+          "changed_edc_ecc_bytes": 277,
+          "xor_mask_sha256": "58386C5136D460D95AEDEE8B37FA8E95469D424A0676863807C4C9BCE051DD23"
+        },
+        {
+          "lba": 8237,
+          "changed_user_payload_bytes": 2010,
+          "changed_edc_ecc_bytes": 280,
+          "xor_mask_sha256": "45050AC8A2DB22FF162F66058F4027752A79538182A3C22E11AA8C2A97724CEA"
+        },
+        {
+          "lba": 8238,
+          "changed_user_payload_bytes": 2009,
+          "changed_edc_ecc_bytes": 278,
+          "xor_mask_sha256": "52CD5BA108BCFB49AFBCBE9E73DC6F33D7B3B1DF8BC24DABF4D4F9EE675CC593"
+        },
+        {
+          "lba": 8239,
+          "changed_user_payload_bytes": 1924,
+          "changed_edc_ecc_bytes": 280,
+          "xor_mask_sha256": "BE7DE872A7992F09001859D834633EFEDBC67917A4D5B392382ECA9D423EF4FB"
+        },
+        {
+          "lba": 8240,
+          "changed_user_payload_bytes": 1990,
+          "changed_edc_ecc_bytes": 278,
+          "xor_mask_sha256": "B29D20E1128AEAE6469FFC1194DC52EBC94525BF7B0E047B6DD7372B1B7DF77F"
+        },
+        {
+          "lba": 8241,
+          "changed_user_payload_bytes": 1978,
+          "changed_edc_ecc_bytes": 279,
+          "xor_mask_sha256": "F90236B856F89CE9E1B997C0712A5F784A317C0A270E82B8F8DA04EB46C43592"
+        },
+        {
+          "lba": 8242,
+          "changed_user_payload_bytes": 1990,
+          "changed_edc_ecc_bytes": 278,
+          "xor_mask_sha256": "7F60BC60B758D678F207F14C2A59C0E0FE266B97AA33F8EC6DA0E93D850B67EB"
+        },
+        {
+          "lba": 8243,
+          "changed_user_payload_bytes": 2005,
+          "changed_edc_ecc_bytes": 279,
+          "xor_mask_sha256": "EDEFEE7A3D0DCECCD447AE88579AD4D3CB302B4A904C1DE86A8CAF9AEDA04C44"
+        },
+        {
+          "lba": 8244,
+          "changed_user_payload_bytes": 2023,
+          "changed_edc_ecc_bytes": 279,
+          "xor_mask_sha256": "B1E5D794879347DF79164F2BDBFB47737960841C06EA01C86BA065A8652A44E2"
+        },
+        {
+          "lba": 8245,
+          "changed_user_payload_bytes": 1979,
+          "changed_edc_ecc_bytes": 278,
+          "xor_mask_sha256": "87B5489DE73AECFD7447EB77EE9CC8D43488CC12BB3C1106C88009F5F809D47E"
+        },
+        {
+          "lba": 8246,
+          "changed_user_payload_bytes": 2016,
+          "changed_edc_ecc_bytes": 278,
+          "xor_mask_sha256": "6763D81B8486F2A209CE72DC9FB3228F20A32923EC23A779BB479C7ABE8C677F"
+        },
+        {
+          "lba": 8247,
+          "changed_user_payload_bytes": 1953,
+          "changed_edc_ecc_bytes": 279,
+          "xor_mask_sha256": "BB556F6CBDAE50E01670F33EAC985974CC43795B1645B7DD4686EE5FAD323769"
+        },
+        {
+          "lba": 8248,
+          "changed_user_payload_bytes": 1960,
+          "changed_edc_ecc_bytes": 280,
+          "xor_mask_sha256": "1FE4DC241ED8E63EE64D4E64C17FED93B3B4EEE1B4927C600D7C1C6B95174EAA"
+        },
+        {
+          "lba": 8249,
+          "changed_user_payload_bytes": 2012,
+          "changed_edc_ecc_bytes": 279,
+          "xor_mask_sha256": "528C010180A1481553BD92C86A51027760CAAD5DEE8E9993CCF8624869CBFC83"
+        },
+        {
+          "lba": 8250,
+          "changed_user_payload_bytes": 1971,
+          "changed_edc_ecc_bytes": 279,
+          "xor_mask_sha256": "E2291FCC3B634B01161B44C17B804B0E991DCF6C4F7AFDC2B11C702F09222D7D"
+        },
+        {
+          "lba": 8251,
+          "changed_user_payload_bytes": 2010,
+          "changed_edc_ecc_bytes": 280,
+          "xor_mask_sha256": "78A0C3087533D217B512821F4A83EB6BFF562E5B2358564AE63107B78DF71604"
+        },
+        {
+          "lba": 8252,
+          "changed_user_payload_bytes": 2024,
+          "changed_edc_ecc_bytes": 278,
+          "xor_mask_sha256": "0C85EA9FC5BB41F0B0FB4075384B9E4AF6DCFA8C73AEF07859F48DBFD7AB1AA9"
+        },
+        {
+          "lba": 8253,
+          "changed_user_payload_bytes": 2021,
+          "changed_edc_ecc_bytes": 277,
+          "xor_mask_sha256": "43038C8D75668313CC90C5C5EC625E31F48381984CF9C7D2DCB6B90AAD580CA4"
+        },
+        {
+          "lba": 8254,
+          "changed_user_payload_bytes": 2009,
+          "changed_edc_ecc_bytes": 279,
+          "xor_mask_sha256": "B8615BB1BB3005268314E2BCDDA73108B8E673A22C7E3C1C0BFC6E9D6B1D8B5F"
+        },
+        {
+          "lba": 8255,
+          "changed_user_payload_bytes": 2014,
+          "changed_edc_ecc_bytes": 280,
+          "xor_mask_sha256": "A383EFB9878A8E3AB50D178C0F26F4E1AB94E819E89AE3D68A4C8D598CDB45A9"
+        },
+        {
+          "lba": 8256,
+          "changed_user_payload_bytes": 1991,
+          "changed_edc_ecc_bytes": 276,
+          "xor_mask_sha256": "1FB3F44DF18737BBF88CD2643983EB31C972E4A9969E725DE90E2E6E37E2D499"
+        },
+        {
+          "lba": 8257,
+          "changed_user_payload_bytes": 568,
+          "changed_edc_ecc_bytes": 279,
+          "xor_mask_sha256": "6C2A4A201DE13984559901AC3859E0BD0A11B6CA2131E71516FE946A2ADF3146"
+        }
+      ]
+    },
+    "T_NAME_G.BIN": {
+      "changed_sector_count": 28,
+      "all_source_sector_guard_hashes_sha256": "F2E636011176A8025D6C0A2A4E65F612FD7B14B56865A883FB2981B35ED961E9",
+      "total_changed_user_payload_bytes": 54448,
+      "total_changed_edc_ecc_bytes": 7797,
+      "sector_metadata": [
+        {
+          "lba": 8260,
+          "changed_user_payload_bytes": 2001,
+          "changed_edc_ecc_bytes": 278,
+          "xor_mask_sha256": "6D44A27FCBFC0E95D13499F4904C1B1ABF47FC745CA5E54149038FBB2609005B"
+        },
+        {
+          "lba": 8261,
+          "changed_user_payload_bytes": 2022,
+          "changed_edc_ecc_bytes": 279,
+          "xor_mask_sha256": "93D318FFCDD14328C9421C480F0E191AD9232A18AF7473EB8D4F0248753B07F2"
+        },
+        {
+          "lba": 8262,
+          "changed_user_payload_bytes": 2016,
+          "changed_edc_ecc_bytes": 279,
+          "xor_mask_sha256": "2DA593F124CC34BE091DA54B90D46062E6B4D31C6D7779AC83CD344F40040D0B"
+        },
+        {
+          "lba": 8263,
+          "changed_user_payload_bytes": 2001,
+          "changed_edc_ecc_bytes": 278,
+          "xor_mask_sha256": "8695A64806AD126F047E665DF993A39F0271A21EAC5F918E86E7FEF58E2E07B1"
+        },
+        {
+          "lba": 8264,
+          "changed_user_payload_bytes": 1998,
+          "changed_edc_ecc_bytes": 278,
+          "xor_mask_sha256": "913BAB246FE184FE2E0C60012DBCE7BE1DE04FAD6849C12D629298715E0F414E"
+        },
+        {
+          "lba": 8265,
+          "changed_user_payload_bytes": 2012,
+          "changed_edc_ecc_bytes": 275,
+          "xor_mask_sha256": "D0E9BB1BAF1D18894D44692A941A3506D57EC9E56E2E96FD5675540B6D9B2B55"
+        },
+        {
+          "lba": 8266,
+          "changed_user_payload_bytes": 1941,
+          "changed_edc_ecc_bytes": 277,
+          "xor_mask_sha256": "58386C5136D460D95AEDEE8B37FA8E95469D424A0676863807C4C9BCE051DD23"
+        },
+        {
+          "lba": 8267,
+          "changed_user_payload_bytes": 2010,
+          "changed_edc_ecc_bytes": 280,
+          "xor_mask_sha256": "45050AC8A2DB22FF162F66058F4027752A79538182A3C22E11AA8C2A97724CEA"
+        },
+        {
+          "lba": 8268,
+          "changed_user_payload_bytes": 2009,
+          "changed_edc_ecc_bytes": 278,
+          "xor_mask_sha256": "52CD5BA108BCFB49AFBCBE9E73DC6F33D7B3B1DF8BC24DABF4D4F9EE675CC593"
+        },
+        {
+          "lba": 8269,
+          "changed_user_payload_bytes": 1924,
+          "changed_edc_ecc_bytes": 280,
+          "xor_mask_sha256": "BE7DE872A7992F09001859D834633EFEDBC67917A4D5B392382ECA9D423EF4FB"
+        },
+        {
+          "lba": 8270,
+          "changed_user_payload_bytes": 1990,
+          "changed_edc_ecc_bytes": 278,
+          "xor_mask_sha256": "B29D20E1128AEAE6469FFC1194DC52EBC94525BF7B0E047B6DD7372B1B7DF77F"
+        },
+        {
+          "lba": 8271,
+          "changed_user_payload_bytes": 1978,
+          "changed_edc_ecc_bytes": 279,
+          "xor_mask_sha256": "F90236B856F89CE9E1B997C0712A5F784A317C0A270E82B8F8DA04EB46C43592"
+        },
+        {
+          "lba": 8272,
+          "changed_user_payload_bytes": 1990,
+          "changed_edc_ecc_bytes": 278,
+          "xor_mask_sha256": "7F60BC60B758D678F207F14C2A59C0E0FE266B97AA33F8EC6DA0E93D850B67EB"
+        },
+        {
+          "lba": 8273,
+          "changed_user_payload_bytes": 2005,
+          "changed_edc_ecc_bytes": 279,
+          "xor_mask_sha256": "EDEFEE7A3D0DCECCD447AE88579AD4D3CB302B4A904C1DE86A8CAF9AEDA04C44"
+        },
+        {
+          "lba": 8274,
+          "changed_user_payload_bytes": 2023,
+          "changed_edc_ecc_bytes": 279,
+          "xor_mask_sha256": "B1E5D794879347DF79164F2BDBFB47737960841C06EA01C86BA065A8652A44E2"
+        },
+        {
+          "lba": 8275,
+          "changed_user_payload_bytes": 1979,
+          "changed_edc_ecc_bytes": 278,
+          "xor_mask_sha256": "87B5489DE73AECFD7447EB77EE9CC8D43488CC12BB3C1106C88009F5F809D47E"
+        },
+        {
+          "lba": 8276,
+          "changed_user_payload_bytes": 2016,
+          "changed_edc_ecc_bytes": 278,
+          "xor_mask_sha256": "6763D81B8486F2A209CE72DC9FB3228F20A32923EC23A779BB479C7ABE8C677F"
+        },
+        {
+          "lba": 8277,
+          "changed_user_payload_bytes": 1953,
+          "changed_edc_ecc_bytes": 279,
+          "xor_mask_sha256": "BB556F6CBDAE50E01670F33EAC985974CC43795B1645B7DD4686EE5FAD323769"
+        },
+        {
+          "lba": 8278,
+          "changed_user_payload_bytes": 1960,
+          "changed_edc_ecc_bytes": 280,
+          "xor_mask_sha256": "1FE4DC241ED8E63EE64D4E64C17FED93B3B4EEE1B4927C600D7C1C6B95174EAA"
+        },
+        {
+          "lba": 8279,
+          "changed_user_payload_bytes": 2012,
+          "changed_edc_ecc_bytes": 279,
+          "xor_mask_sha256": "528C010180A1481553BD92C86A51027760CAAD5DEE8E9993CCF8624869CBFC83"
+        },
+        {
+          "lba": 8280,
+          "changed_user_payload_bytes": 1971,
+          "changed_edc_ecc_bytes": 279,
+          "xor_mask_sha256": "E2291FCC3B634B01161B44C17B804B0E991DCF6C4F7AFDC2B11C702F09222D7D"
+        },
+        {
+          "lba": 8281,
+          "changed_user_payload_bytes": 2010,
+          "changed_edc_ecc_bytes": 280,
+          "xor_mask_sha256": "78A0C3087533D217B512821F4A83EB6BFF562E5B2358564AE63107B78DF71604"
+        },
+        {
+          "lba": 8282,
+          "changed_user_payload_bytes": 2024,
+          "changed_edc_ecc_bytes": 278,
+          "xor_mask_sha256": "0C85EA9FC5BB41F0B0FB4075384B9E4AF6DCFA8C73AEF07859F48DBFD7AB1AA9"
+        },
+        {
+          "lba": 8283,
+          "changed_user_payload_bytes": 2021,
+          "changed_edc_ecc_bytes": 277,
+          "xor_mask_sha256": "43038C8D75668313CC90C5C5EC625E31F48381984CF9C7D2DCB6B90AAD580CA4"
+        },
+        {
+          "lba": 8284,
+          "changed_user_payload_bytes": 2009,
+          "changed_edc_ecc_bytes": 279,
+          "xor_mask_sha256": "B8615BB1BB3005268314E2BCDDA73108B8E673A22C7E3C1C0BFC6E9D6B1D8B5F"
+        },
+        {
+          "lba": 8285,
+          "changed_user_payload_bytes": 2014,
+          "changed_edc_ecc_bytes": 280,
+          "xor_mask_sha256": "A383EFB9878A8E3AB50D178C0F26F4E1AB94E819E89AE3D68A4C8D598CDB45A9"
+        },
+        {
+          "lba": 8286,
+          "changed_user_payload_bytes": 1991,
+          "changed_edc_ecc_bytes": 276,
+          "xor_mask_sha256": "1FB3F44DF18737BBF88CD2643983EB31C972E4A9969E725DE90E2E6E37E2D499"
+        },
+        {
+          "lba": 8287,
+          "changed_user_payload_bytes": 568,
+          "changed_edc_ecc_bytes": 279,
+          "xor_mask_sha256": "6C2A4A201DE13984559901AC3859E0BD0A11B6CA2131E71516FE946A2ADF3146"
+        }
+      ]
+    }
+  },
+  "user_required_visible_name": "Cape Verde",
+  "regression_observed_in_game": "Cabo         Verde (split word spacing)",
+  "font_and_glyph_source": "compressed graphical name atlas; source pixels not decoded from XOR masks",
+  "name_placement_or_glyph_coordinates_verified": false,
+  "game_patch_ready_for_stable": false,
+  "next_step": "Decode actual compressed sprite with clean original Track01 plus patched resource; identify layout and replace only target name; rebuild independent sector patch.",
+  "note": "No artwork or copyrighted game bytes emitted. Cannot assert which of E/F/G controls current display from sector metadata alone."
+}
