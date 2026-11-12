@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "project": "ISS26",
+  "milestone": "v0.9.5 Test14 Cape Verde name geometry preflight",
+  "date": "2026-11-12",
+  "evidence": "Verified Test12 GPUDUMP draw geometry and clean EU Track01",
+  "screen_draw_rects": [
+    {
+      "x": 24,
+      "y": 38,
+      "w": 128,
+      "h": 16
+    },
+    {
+      "x": 152,
+      "y": 38,
+      "w": 88,
+      "h": 16
+    }
+  ],
+  "measured_first_word_ink_x": [
+    26,
+    82
+  ],
+  "measured_second_word_ink_x": [
+    155,
+    216
+  ],
+  "observed_blank_gap_pixels": 72,
+  "proposal": {
+    "using_existing_draw_rectangles": true,
+    "example_cape_width_px": 57,
+    "space_px": 7,
+    "verde_width_px": 62,
+    "screen_ink_x_cape_start": 26,
+    "screen_ink_x_verde_start": 90,
+    "screen_ink_x_verde_end": 151,
+    "second_rect_may_take_overflow_from_longer_text": true
+  },
+  "verified_tests": {
+    "original_disc_integration_regression_tests": 19,
+    "new_inspector_tests": 2,
+    "new_layout_tests": 4,
+    "total_local_passed": 25,
+    "failed": 0
+  },
+  "prefix_changed_stream_ids_from_test13_diagnostic": [
+    0,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    12
+  ],
+  "caveats": [
+    "Prefix differences do not uniquely identify Cape Verde glyph pixels",
+    "Layout tests use synthetic Cape and Verde bitmaps; actual artwork Test13 not decoded in this session",
+    "No changes to original BIN, test channel or stable manifest",
+    "Test14 not generated; Bosnia/Cape Verde flags not corrected"
+  ],
+  "next_step": "Apply pinned five-part Test10 name delta preserved in Test13 to clean original locally, use rendered names plus GPU UV/CLUT attribution to identify actual Cape Verde sprite nibbles, typeset Cape, then assemble a standalone Test14 patch."
+}
