@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "project": "ISS26 v0.9.5",
+  "date": "2026-11-12",
+  "goal": "Test14 Cape Verde corrected prematch name",
+  "status": "BUILD_PIPELINE_IMPLEMENTED_NOT_VISUALLY_VERIFIED",
+  "clean_original_sha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
+  "pinned_test13_sha256": "159A31A95BBAE3BD032417DFDCB8B5478016907DCC1E848D968CBF5B17E61214",
+  "original_atlas_26_decode_success": true,
+  "test14_builder_tool": "tools/build_v095_test14_from_pixels.py",
+  "existing_sector_patch_builder": "tools/build_v095_targeted_name_overlay.py",
+  "pipeline_guards": [
+    "Requires confirmed Cape Verde prematch 4bpp pixel edit manifest",
+    "Requires original Track01 and signed-off pinned Test13 patch SHA",
+    "Decodes and repacks all 26 name textures per E/F/G language resource",
+    "Ensures all non-target decoded pixels are unmodified",
+    "Rejects changed geometry and sector user payload size",
+    "Generates only original-sector guarded XOR masks and recomputes Mode2/Form1 EDC/ECC",
+    "Preserves all Test13 sector records outside the name atlases"
+  ],
+  "local_integration_tests": {
+    "passed": 10,
+    "failed": 0,
+    "detail": "Standalone direct-patch prototype tested on clean user-supplied EU Track01 with synthetic 84-sector Test13-like independent XOR patch; single pixel changed in each of three atlases; all other tile bytes unchanged; valid EDC/ECC. Does NOT test published Test13 actual image."
+  },
+  "not_yet_done": [
+    "Acquire binary Test13 release in a runtime capable of executing inspector",
+    "Correlate the actual Cabo / Verde visual to tile/x/y in published Test13",
+    "Create verified pixel edit manifest for Cape Verde, fix spelling/spacing",
+    "Assemble and test actual Test14 visually in emulator",
+    "Diagnose and repair Bosnia/Cape Verde flags independently"
+  ],
+  "stable_feed_modified": false,
+  "original_disc_modified": false,
+  "test14_released": false
+}
