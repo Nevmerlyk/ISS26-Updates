@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "project": "ISS26 v0.9.5",
+  "date": "2026-11-12",
+  "status": "RESEARCH_WITH_SOURCE_GUARDED_EXPERIMENTAL_PATCH__STABLE_NOT_RELEASED",
+  "source": {
+    "clean_track01_sha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
+    "test17_track01_sha256": "25CCBB7BAE591BB4DC8B162ED3880D2F2074597694343AAB80B71F19A2539645",
+    "test17_independent_patch_sha256": "1C0F5ECAEED08349DEBAD33354D30110F78231C43FA69CEC02D203D3104AD96D"
+  },
+  "names": {
+    "select_text_bank_absolute_offset": "0x1E901C (SELECT.BIN)",
+    "short_text_bank_segments": [
+      "0x0F7518",
+      "0x0F77EC (ENDING.BIN)"
+    ],
+    "national_slots_verified": 54,
+    "club_slots": 24,
+    "select_names_match_expected_current_roster": true,
+    "short_name_aliases": [
+      "C.VERDE",
+      "N.ZEAL",
+      "I.COAST",
+      "QAT",
+      "USA",
+      "BELG"
+    ],
+    "all_screens_visually_verified": false
+  },
+  "styles": {
+    "tables_raw_offsets": [
+      "0x1D6F48",
+      "0x1E94CC",
+      "0x224C50",
+      "0x4AD4B8",
+      "0x575864"
+    ],
+    "national_mismatch_slot": 30,
+    "bosnia_styles": [
+      55,
+      10,
+      10,
+      55,
+      55
+    ],
+    "flag_atlas_static_range_0_to_35": true,
+    "styles_above35_require_other_mapping": [
+      3,
+      24,
+      25,
+      26,
+      27,
+      30,
+      39,
+      42,
+      43,
+      49,
+      51
+    ],
+    "note": "This is static candidate mapping only, not proof of a missing flag in all rendering contexts. Wrapped y-coordinates can collide with unrelated textures. Five style tables serve different screens."
+  },
+  "safe_candidate": {
+    "name": "ISS26_Test_0.9.5_RESEARCH_IvoryCoast.iss26p",
+    "sha256": "4CFE5D5595BA45FB2C53ECEE09C2F2EE9F0419D400D19C5EF8235F8DBB2B9CEB",
+    "purpose": "Ivory Coast national slot3 uses existing flag template style0 with orange-white-green individualized palette",
+    "independent_clean_original": true,
+    "records": 1496,
+    "changed_vs_test17_sector_lbas": [
+      820,
+      852,
+      955,
+      2085,
+      2433,
+      5328
+    ],
+    "all_1496_clean_source_sector_guards_pass": true,
+    "all_6_modified_mode2_form1_EDC_ECC_pass": true,
+    "other_1490_test17_sector_records_identical": true,
+    "other_53_national_style_records_unchanged": true,
+    "all_24_club_style_records_unchanged": true,
+    "emulator_smoke_test_passed": false
+  },
+  "unresolved": [
+    "Replace missing or misrouted national art for Curaçao, Jordan, Iraq, New Zealand, Bosnia, Canada, Ecuador, Panama, Uzbekistan, Qatar and inspect Haiti",
+    "Confirm distinct small icons, selection, prematch big flags, player-carried banners, crowd flags, HUD, world map for every national slot",
+    "Resolve Bosnia source and club slot54 mixed style10/55 without club regressions",
+    "Ensure no conflicting GPU overwrite from DATSEL/DATSEL2/DATSEL3/DAT2D",
+    "Verify shortened names and full names on every UI screen before stable"
+  ],
+  "release_state": {
+    "stable_latest_unchanged": true,
+    "test_latest_unchanged": true,
+    "all_54_fixed": false,
+    "no_published_stable_095": true
+  },
+  "local_pack": {
+    "archive": "ISS26_v095_All54_Audit_and_Research_Patch.zip",
+    "archive_sha256": "471E686AB5DA9ABDFDB53FF3A0E4B035ACAC2EDC1C3284370CE3880BFDAF9AEA"
+  }
+}
