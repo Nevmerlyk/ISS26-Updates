@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "project": "ISS26",
+  "milestone": "v0.9.5 Test14 prematch-name VRAM source locator",
+  "date": "2026-11-12",
+  "status": "local tool built and tested; Test14 game patch not released",
+  "read_only": true,
+  "clean_eu_track01_sha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
+  "reference": "Original EU PS1 SLES-03321, source Test12 prematch GPUDUMP",
+  "gpu": {
+    "tpage": 523,
+    "clut": 31939,
+    "clut_vram_word_xy": [
+      48,
+      499
+    ],
+    "page_origin_vram_words_xy": [
+      704,
+      0
+    ],
+    "cabo_uv_box": [
+      128,
+      40,
+      128,
+      16
+    ],
+    "verde_uv_box": [
+      128,
+      56,
+      88,
+      16
+    ]
+  },
+  "name_atlas": {
+    "blocks": 26,
+    "each_uncompressed_bytes": 8192,
+    "source": "Test10 84-sector delta retained bit-identically in Test13",
+    "expected_test13_resource_sha256": "01B9CCAAC6FF79372E30A3595AA98B9E41E6A6BA508ABABE77362829CF13300E",
+    "expected_stage_xz_sha256": "C425FEE3E5B561A507E864DA22E08EDD3C5F0A3D43FCE42371A7DB8BD65317AC"
+  },
+  "implemented": [
+    "Read 1MB/2MB PCSX-Redux VRAM or single/multiple VRAM Academy session ZIP",
+    "Find likely prematch scene by two observed name ink bounding boxes; reject ties",
+    "Extract 128x16 and 88x16 4bpp GPU name crops from exact tpage+UV",
+    "Reconstruct all 3 Test13 name atlases through SHA-pinned public Test10 stage",
+    "Scan decoded tiles for nibble-perfect unique source match, including odd pixel alignments",
+    "Never authorize a patch when multiple matches, no pixels, wrong hash, or mismatches"
+  ],
+  "local_tests": {
+    "passed": 43,
+    "failed": 0,
+    "skipped": 0,
+    "real_original_atlas_fixture": {
+      "capture": "synthetic VRAM with two actual clean-game atlas samples",
+      "sample1": {
+        "tile": 0,
+        "x": 0,
+        "y": 48,
+        "unique": true
+      },
+      "sample2": {
+        "tile": 4,
+        "x": 12,
+        "y": 64,
+        "unique": true
+      },
+      "is_actual_Cape_Verde_Test13": false
+    }
+  },
+  "artifact_sha256": "829FB7BCDAD857E25295DEC079F62860C03EE1E158DA596C4F82CE9AD2B01AB6",
+  "artifact_filename": "ISS26-v095-Test14-VRAM-NameLocator.zip",
+  "limitations": [
+    "No actual Test13 Academy prematch VRAM capture is currently available for analysis",
+    "The known clean-game fixture coordinates are not locations of Cape Verde",
+    "No user-owned game data, VRAM, images or binary patches uploaded to GitHub",
+    "Full Test14 patch and live gameplay verification still required"
+  ],
+  "stable_feed_changed": false,
+  "test_feed_changed": false,
+  "original_disc_modified": false
+}
