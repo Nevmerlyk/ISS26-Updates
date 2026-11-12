@@ -58,10 +58,10 @@ class Test12PhaseAnalyzer(unittest.TestCase):
         # corresponding to style=10 (col 2, row 2, stride 28).
         raw = bytearray(reader.VRAM_BYTES)
         pos = ((312 * 1024) + 864) * 2
-        raw[pos:pos + 2] = b"\\x5A\\xA5"
-        self.assertEqual(reader.style_tile(bytes(raw), 10)[:2], b"\\x5A\\xA5")
+        raw[pos:pos + 2] = bytes.fromhex("5aa5")
+        self.assertEqual(reader.style_tile(bytes(raw), 10)[:2], bytes.fromhex("5aa5"))
         old_wrong_pos = ((320 * 1024) + 864) * 2
-        self.assertEqual(bytes(raw[old_wrong_pos:old_wrong_pos + 2]), b"\\x00\\x00")
+        self.assertEqual(bytes(raw[old_wrong_pos:old_wrong_pos + 2]), bytes(2))
 
     def test_current_redux_2mb_and_legacy_1mb_vram_are_both_supported(self):
         with tempfile.TemporaryDirectory() as directory:
