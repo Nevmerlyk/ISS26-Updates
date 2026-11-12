@@ -51,3 +51,23 @@ The codec is **real and tested**. **Test14 is not built yet**: the exact
 Cabo→Cape Verde bitmap coordinates inside the Test13 atlases have not
 been approved from pixel/VRAM correlation. Do not promote this codec
 investigation or the untested graphics to the stable patch feed.
+
+
+## ISS26 v0.9.5 — Test14 pixel candidate assembly gate
+
+The new `build_v095_test14_from_pixels.py` converts a **GPU-capture-verified**
+list of Cape Verde nibble edits (`tile, x, y, old, new`) into the bounded,
+source-guarded byte edits accepted by `build_v095_targeted_name_overlay.py`.
+It reconstructs the three Test13 `T_NAME_E/F/G.BIN` resources in memory,
+decodes/re-encodes the 26 compressed textures, verifies no unrelated
+decoded pixels change, then generates a standalone `ISS26X01` patch from
+**clean EU Track01**. Manifest limit was raised from 512 to 1024 256-byte
+regions (still restricted to the 84 prematch-name Form1 sectors).
+
+The build pipeline has been regression-tested locally against the user's clean
+disc with a **synthetic**, independent 84-sector Test13-like patch; three
+language atlases changed by one verified test pixel and all other decoded
+images remained intact. **That is not the published Test13 image**.
+The real Test13 bitmap coordinates have not yet been verified against a
+prematch GPU capture. **No actual Test14 patch or stable release has been
+published.** See `diagnostics/v095-test14-pixel-build-gate-20261112.json`.
