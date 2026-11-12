@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "project": "ISS26 v0.9.5",
+  "date": "2026-11-12",
+  "task": "One-pass Test14 Cape Verde name patch from clean PS1 EU Track01 and actual Academy VRAM",
+  "work_completed": {
+    "integrated_runner": "build_test14_one_pass.py",
+    "windows_launcher": "Run-ISS26-Test14-One-Pass.cmd",
+    "applies_to": "clean original European PS1 Track01 (standalone ISS26X01)",
+    "geometry": "Cabo/Verde screen sprites 128x16 and 88x16, original fixed draw positions",
+    "artwork": "Cape Verde 4bpp from original game font, 7px interword spacing",
+    "verified_integrity": [
+      "Pinned SHA256 for clean Track01",
+      "Pinned Test13 release, 1492 sector records",
+      "84 staged name-sector records to reconstruct all 3 Test13 language atlases",
+      "Actual 1MB/2MB VRAM nibble-precise, unique source mapping",
+      "Unchanged other decoded name pixels",
+      "CD Mode2 Form1 sector EDC/ECC parity guards"
+    ],
+    "offline_tests": {
+      "passed": 48,
+      "failed": 0,
+      "skipped": 0
+    },
+    "synthetic_capture_is_not_real_Test13": true
+  },
+  "unmet_prerequisite": "Original raw Academy Test12/13 ZIP (20261112_003357_a3a1de.zip) was found in Project Library but original archive bytes could not be materialized into current container. There is no actual Test13 .vram present locally.",
+  "result": "No authentic Test14 patch was built or published; safely failed closed",
+  "release_state": {
+    "stable_channel_modified": false,
+    "test_channel_modified": false,
+    "user_original_disc_modified": false
+  },
+  "exact_needed_attachment": "20261112_003357_a3a1de.zip attached to this conversation from Library"
+}
