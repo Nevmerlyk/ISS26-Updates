@@ -121,3 +121,37 @@ and an intact second-sprite overflow. **The Verde pixels in this geometry
 check are synthetic**, not an extraction from Test13. The true Test13
 Cabo/Verde graphics and UV linkage remain the release gate. No Test14
 patch or stable release has been published.
+
+
+## ISS26 0.9.5 — name texture provenance for Test14
+
+`tools/probe_v095_name_vram_origin.py` is a **read-only** VRAM-to-Test13 name
+atlas matcher. It expects the user's clean European Track01 and either a local
+SHA-pinned Test13 independent patch or a verified download, plus a single
+Academy/PCSX-Redux `.vram` capture of the prematch stadium introduction.
+The engine uses established GPUDUMP draw information:
+
+- 4bpp texture page `tpage=523`, VRAM page origin 704 16-bit words at row 0
+- name CLUT `31939` (48 words, row 499)
+- Cabo UV rectangle `(128,40,128,16)`
+- Verde UV rectangle `(128,56,88,16)`
+
+It extracts actual 4bpp pixels, decodes all 26 name atlas tiles reconstructed
+from the independent Test13 XOR patch, and seeks nibble-exact matches.
+An exact, **unique** match is required for each name to accept atlas pixel
+provenance. No automatic release or patch edit follows from that match:
+patch version and in-game spelling/spacing still require independent review.
+`tools/tests/test_probe_v095_name_vram_origin.py` provides synthetic safety
+tests without copyrighted files.
+
+A separate portable ZIP, `ISS26-v095-Test14-VRAM-NameLocator.zip`, adds safe
+multi-capture Academy ZIP selection by ink bounding boxes and staged 84-sector
+reconstruction without needing a full Test13 patch. Its local read-only
+implementation passed **43 of 43** tests, including matching real original-game
+atlas pixels embedded into a *synthetic* VRAM test fixture. That fixture is
+**not** evidence of Test13 Cape Verde coordinates. See
+`diagnostics/v095-test14-name-vram-source-locator-20261112.json`.
+
+**Test14 is not assembled or promoted.** The actual Test13 stadium-intro
+VRAM is still required to establish a unique Cabo/Verde texture match. The
+stable/test feeds and original BIN remain unchanged.
