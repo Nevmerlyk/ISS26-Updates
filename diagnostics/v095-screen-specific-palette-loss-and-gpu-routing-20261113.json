@@ -122,19 +122,21 @@
     "local_unit_tests_failed": 0,
     "real_disc_sha_pinned": true,
     "archive_test12_gpudump_actual": true,
-    "zip_crc_passed": true
+    "zip_crc_passed": true,
+    "lua_capture_emulator_tested": false
   },
   "local_archive": {
     "name": "ISS26-v095-Flag-Screen-Routing-Audit.zip",
-    "size_bytes": 104803,
-    "sha256": "2599618FB6F72325E1C67D167142295B2636BCD0A003D325AF06C0C9987F3C94",
+    "size_bytes": 105908,
+    "sha256": "9AF836DC5ABD2AF1FAE4CA45350403345D6DEDF5F56527948267680774E42A62",
     "contains": [
       "read-only Python source and 7 tests",
       "Test18-vs-Test19 GPU palette and style audit JSON",
       "20-nation CLUT loss CSV",
       "side-by-side CLUT palette visual",
       "optional Windows audit script",
-      "Russian README"
+      "Russian README",
+      "optional PCSX-Redux Lua 3-frame selection GPU dump capture (NOT emulator-tested)"
     ],
     "game_or_patch_binaries_included": false
   },
