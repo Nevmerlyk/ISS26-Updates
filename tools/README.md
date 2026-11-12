@@ -29,3 +29,25 @@ After checking that the uploaded asset works anonymously, copy the content of `c
 - The exporter modifies **Track 01 only**. Audio Tracks 02–12, including the custom main-menu soundtrack from the standalone v0.8 installation, are NOT included in this public update and remain untouched.
 - If the exporter rejects the original, modified file size, changed sector count, or patch size, **do not force publication**. Investigate the mismatch.
 - Never upload full BIN/CUE, existing game audio, copyrighted recordings, or the full 34 MB standalone v0.8 ZIP to this public repo.
+
+
+## ISS26 v0.9.5 — Verified prematch name atlas codec (November 12, 2026)
+
+* \`v095_name_lz_codec.py\` is the authentic **MIPS-derived** LZ decoder/encoder
+  for \`BIN/T_NAME_E.BIN\`, \`T_NAME_F.BIN\`, and \`T_NAME_G.BIN\`.
+  The decoder was reversed from \`SLES_033.21\` at virtual address \`0x8001CE34\`.
+* All **26** original 8192-byte GPU tiles decode exactly. A memory-only
+  decode → encode → decode operation reproduced all tiles byte for byte.
+  Repacking the original atlas leaves **780 bytes** of space before the GPU
+  table, preserves its dimensions, and changes no source disc.
+* \`probe_v095_test13_name_pixels.py\` uses the verified clean original and
+  pinned Test13 XOR patch to report which individual pixels changed,
+  without writing any game content. It can download the published
+  Test13 file automatically on a computer that has Internet access.
+* \`tests/test_v095_name_lz_codec.py\` contains synthetic format, isolation,
+  and corrupt-stream tests that do not require copyrighted files.
+
+The codec is **real and tested**. **Test14 is not built yet**: the exact
+Cabo→Cape Verde bitmap coordinates inside the Test13 atlases have not
+been approved from pixel/VRAM correlation. Do not promote this codec
+investigation or the untested graphics to the stable patch feed.
