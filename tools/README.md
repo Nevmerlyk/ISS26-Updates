@@ -98,3 +98,26 @@ the user's clean original with synthetic source masks.
 together with the original image in this server environment. Cape Verde
 pixel boundaries, live prematch GPU/VRAM matching, and Test14 gameplay are
 **not verified**. No stable feed change has been made.
+
+
+## ISS26 v0.9.5 — original PS1-font Cape art candidate
+
+Run `tools/build_v095_cape_original_font.py` with the owner's **clean** EU
+Track01 to construct the word **Cape** from genuine 4bpp name-font glyphs:
+**C** from Chile, **a** from Croatia, **p** from Japan, **e** from Chile.
+Output: **62×16 pixels, 496 bytes** and nearest-neighbor PNG preview.
+SHA256 of the 4bpp payload is
+`16C95263ABFF9EE8FA8903CD1F30BC7EA6E1BFDD612CF35400258E0117FBC2F4`.
+
+The tool verifies the original Track01 and name resource hashes, changes
+no disc data, and requires only Python stdlib and `v095_name_lz_codec.py`.
+Synthetic font and palette-index regression tests live in
+`tools/tests/test_build_v095_cape_original_font.py`.
+
+A local integration check with `v095_cape_verde_sprite_layout.py` confirms
+the real 62px Cape artwork fits the unchanged prematch draw rectangles
+`(24,38,128,16)` and `(152,38,88,16)`, allowing a 7px inter-word gap
+and an intact second-sprite overflow. **The Verde pixels in this geometry
+check are synthetic**, not an extraction from Test13. The true Test13
+Cabo/Verde graphics and UV linkage remain the release gate. No Test14
+patch or stable release has been published.
