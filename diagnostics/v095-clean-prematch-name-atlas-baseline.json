@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "source": "user-owned clean European Track 01 verified SHA-256",
+  "track01_sha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
+  "read_only": true,
+  "atlas_groups": {
+    "BIN/T_NAME_E.BIN": {
+      "first_lba": 8200,
+      "last_lba": 8227
+    },
+    "BIN/T_NAME_F.BIN": {
+      "first_lba": 8230,
+      "last_lba": 8257
+    },
+    "BIN/T_NAME_G.BIN": {
+      "first_lba": 8260,
+      "last_lba": 8287
+    }
+  },
+  "sectors_per_group": 28,
+  "user_bytes_per_group": 57344,
+  "user_payload_sha256": "7BC5550540BCBD37386074D2BD6C278AD54FC43CAD7188CD2DFF1784B7F45BB8",
+  "all_three_language_resources_byte_identical": true,
+  "cd_sector_mode": "Mode2 Form1",
+  "clean_original_modified": false,
+  "patch_released": false,
+  "next_step": "Compare reconstructed Test13 atlas content to clean baseline and locate specific compressed glyph assets before any changes."
+}
