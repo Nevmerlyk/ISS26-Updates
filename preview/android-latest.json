@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "channel": "preview",
   "latest": {
-    "versionCode": 24,
-    "versionName": "0.10.12-preview.1",
+    "versionCode": 26,
+    "versionName": "0.10.13-preview.1",
     "packageName": "com.iss26.android",
-    "apkUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/android-v0.10.12-preview-1/ISS26-Android-v0.10.12-Preview.apk",
-    "apkSha256": "47053cc9000276a7e822aad803dfaebde269b07399887f86a1945d0d9d533e27"
+    "apkUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/android-v0.10.13-preview-1/ISS26-Android-v0.10.13-Preview.apk",
+    "apkSha256": "57e864dc569ed66345312554fc45a7fc7d45debe65a71d5139cd8648df74d6a1"
   },
   "signingCertSha256": "19b6874f7f5a8dce2ec0d505d5195cc003c58cf18b07e895263fe207d9be70db"
 }
