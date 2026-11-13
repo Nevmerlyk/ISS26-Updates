@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "project": "ISS26",
+  "target_release": "0.9.5",
+  "date": "2026-11-13",
+  "status": "verified original-code GPU upload path; ultimate upstream RAM writer still unknown",
+  "read_only_original": {
+    "track01_sha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
+    "SLES_033.21_sha256": "868EF5E9B3AE90D689498DC5BAF0C10D8C3D3DCD608D17A4569512259CC7ACB9",
+    "SELECT.BIN_sha256": "3B1A20E3A3B75092ABF2CD73F459EF90CA9866B38010DF1EFBC7D7B96884A866"
+  },
+  "original_ps1_code": {
+    "overlay": "SELECT.BIN",
+    "overlay_cd_lba": 850,
+    "overlay_ram_base": "0x8007F000",
+    "flag_upload_calls": [
+      {
+        "select_offset": "0x13F38",
+        "pc": "0x80092F38",
+        "gpu_wrapper": "0x800387EC"
+      },
+      {
+        "select_offset": "0x1410C",
+        "pc": "0x8009310C",
+        "gpu_wrapper": "0x8003878C"
+      }
+    ],
+    "vram_upload_rect_words": {"x": 560, "y": 0, "width": 16, "height": 56},
+    "pixel_dimensions_4bpp": [64, 56],
+    "ram_buffer_start": "0x800CC600",
+    "ram_buffer_size": 1792,
+    "flag1_ram": {"address": "0x800CC600", "bytes": 896},
+    "flag2_ram": {"address": "0x800CC980", "bytes": 896},
+    "async_resource_request_gate": "0x8001C5E4",
+    "source_file_provenance_verified": false
+  },
+  "test21_routing": {
+    "collect_before_upload": ["RAM 0x800CC600+896", "RAM 0x800CC980+896"],
+    "collect_after_upload": ["VRAM words (560,0) w16 h56", "GPU command trace"],
+    "collect_cpu_pc": ["0x80092F38", "0x8009310C", "0x8001C5E4"],
+    "record_active_disc_cue_sha256": true,
+    "attribute_upstream_decompressor_from_trace_not_color_match": true
+  },
+  "static_audit": {
+    "script": "tools/v095_static_prematch_ram_trace.py",
+    "original_eu_test": "PASS, 2 MIPS upload sites and original SLES/SELECT SHA-256",
+    "local_tests": 6,
+    "no_game_patch_generated": true
+  },
+  "release_gate": {
+    "all_54_national_flags_and_names_verified": false,
+    "known_test20_small_flag_failures": ["Jordan", "New Zealand", "Canada", "Ecuador", "Panama", "Uzbekistan"],
+    "known_test20_large_flag_failures": ["Cape Verde", "Bosnia"],
+    "stable_remains": "0.9.4",
+    "standalone_clean_disc_required": true,
+    "clubs_preserved": 24,
+    "do_not_change_audio_tracks": "02-12"
+  }
+}
