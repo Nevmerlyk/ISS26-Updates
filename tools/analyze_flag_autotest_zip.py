@@ -20,7 +20,8 @@ import re
 import struct
 import zipfile
 
-VRAM_SIZE = 1024 * 512 * 2
+VRAM_SIZE = 1024 * 512 * 2  # legacy ePSXe capture
+MODERN_VRAM_SIZE = 1024 * 1024 * 2  # PCSX-Redux / Academy capture
 MAX_ENTRIES = 2500
 MAX_UNCOMPRESSED = 320 * 1024 * 1024
 MAX_SINGLE = 12 * 1024 * 1024
@@ -32,19 +33,44 @@ TILE_H = 28
 def _digest(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest().upper()
 
-def tile_index_bytes(vram: bytes, style: int) -> bytes:
-    if len(vram) != VRAM_SIZE or not 0 <= style < STYLE_COUNT:
-        raise ValueError("VRAM must be 1024x512 16bpp; style must be 0..27")
-    word_x = 832 + 16 * (style % 4)
-    y = 256 + 32 * (style // 4)
+def vram_tile(vram: bytes, word_x: int, y: int) -> bytes:
+    """Extract one 64x28 4bpp tile at an actual VRAM word coordinate."""
+    if len(vram) not in (VRAM_SIZE, MODERN_VRAM_SIZE):
+        raise ValueError("VRAM must be 1024x512 or 1024x1024 16bpp")
+    height = len(vram) // (1024 * 2)
+    if not (0 <= word_x <= 1024 - 32 and 0 <= y <= height - TILE_H):
+        raise ValueError("VRAM tile coordinates out of bounds")
     raw = bytearray()
     for row in range(TILE_H):
         address = ((y + row) * 1024 + word_x) * 2
         raw.extend(vram[address:address + 32])
     return bytes(raw)
 
+def tile_index_bytes(vram: bytes, style: int) -> bytes:
+    if not 0 <= style < STYLE_COUNT:
+        raise ValueError("Style must be 0..27")
+    word_x = 832 + 16 * (style % 4)
+    # GPU evidence: 28px row stride, NOT the old erroneous 32px stride.
+    y = 256 + 28 * (style // 4)
+    return vram_tile(vram, word_x, y)
+
+def gpu_clut(vram: bytes, word_x: int, y: int) -> tuple[int, ...]:
+    if len(vram) not in (VRAM_SIZE, MODERN_VRAM_SIZE):
+        raise ValueError("Invalid VRAM capture size")
+    if not (0 <= word_x <= 1008 and 0 <= y < len(vram) // 2048):
+        raise ValueError("CLUT coordinates out of bounds")
+    pos = ((y * 1024) + word_x) * 2
+    return struct.unpack("<16H", vram[pos:pos+32])
+
+def unresolved_zero_clut_indices(tile: bytes, clut: tuple[int, ...]) -> list[int]:
+    """An advisory signal, NOT a source/primitive identification."""
+    if len(tile) != 896 or len(clut) != 16:
+        raise ValueError("Expected 64x28 tile and 16-color CLUT")
+    used = {n for b in tile for n in (b & 15, b >> 4)}
+    return sorted(n for n in used if n != 0 and clut[n] == 0)
+
 def palette(vram: bytes, nation_flag_index: int) -> tuple[int, ...]:
-    if len(vram) != VRAM_SIZE or not 0 <= nation_flag_index < SLOT_COUNT:
+    if len(vram) not in (VRAM_SIZE, MODERN_VRAM_SIZE) or not 0 <= nation_flag_index < SLOT_COUNT:
         raise ValueError("Invalid national flag palette input")
     # DAT2D national 16-word CLUT cells begin at (0,505).
     pos = ((505 * 1024) + (16 * nation_flag_index)) * 2
@@ -93,8 +119,8 @@ def scan(report_zip: Path) -> dict:
             if not name.endswith(".vram"):
                 continue
             raw = archive.read(info)
-            if len(raw) != VRAM_SIZE:
-                notes.append(f"Skipped {name}: VRAM length {len(raw)} != {VRAM_SIZE}")
+            if len(raw) not in (VRAM_SIZE, MODERN_VRAM_SIZE):
+                notes.append(f"Skipped {name}: unsupported VRAM length {len(raw)}")
                 continue
             matches = re.findall(r"(\d+)", name)
             frame = int(matches[-1]) if matches else -1
@@ -102,8 +128,31 @@ def scan(report_zip: Path) -> dict:
                      for style in range(STYLE_COUNT)]
             cluts = [_digest(struct.pack("<16H", *palette(raw, i)))
                      for i in range(SLOT_COUNT)]
+            # Verified Test12 stadium GPU packet: flags are copied to (560,0/28)
+            # from (848,256) and (864,312), but the *last writer* remains unknown.
+            cape_dst = vram_tile(raw, 560, 0)
+            bosnia_dst = vram_tile(raw, 560, 28)
+            cape_src = vram_tile(raw, 848, 256)
+            bosnia_src = vram_tile(raw, 864, 312)
+            cape_clut = gpu_clut(raw, 0, 505)
+            bosnia_clut = gpu_clut(raw, 224, 506)
             snapshots.append({
                 "name": name, "frame": frame, "sha256": _digest(raw),
+                "vram_layout": "2MB" if len(raw) == MODERN_VRAM_SIZE else "1MB",
+                "prematch_flags": {
+                    "cape_dest_sha256": _digest(cape_dst),
+                    "cape_atlas_sha256": _digest(cape_src),
+                    "cape_dest_equals_atlas": cape_dst == cape_src,
+                    "cape_nontransparent_zero_clut_indices": unresolved_zero_clut_indices(cape_dst, cape_clut),
+                    "bosnia_dest_sha256": _digest(bosnia_dst),
+                    "bosnia_atlas_sha256": _digest(bosnia_src),
+                    "bosnia_dest_equals_atlas": bosnia_dst == bosnia_src,
+                    "bosnia_nontransparent_zero_clut_indices": unresolved_zero_clut_indices(bosnia_dst, bosnia_clut),
+                },
+                "prematch_cape_index": cape_dst.hex(),
+                "prematch_bosnia_index": bosnia_dst.hex(),
+                "prematch_cape_clut": list(cape_clut),
+                "prematch_bosnia_clut": list(bosnia_clut),
                 "styles": tiles, "cluts": cluts,
                 "bosnia_style10_index": tile_index_bytes(raw, 10).hex(),
                 "bosnia_clut30": list(palette(raw, 30)),
@@ -129,6 +178,8 @@ def scan(report_zip: Path) -> dict:
         notes.append("No valid raw VRAM snapshots: AutoTest may have halted before capture")
     if not traces:
         notes.append("No .gpd GPU traces: verify the installed PCSX-Redux GPU dump support and logs")
+    notes.append("Prematch VRAM source equality is a snapshot comparison, not proof of the GPU last writer or disc source.")
+    notes.append("The 64x28 style atlas uses 28-row stride; CLUTs (0,505) and (224,506) are from verified Test12 GPU draws.")
     if len(snapshots) < 2:
         notes.append("At least two captures are necessary to detect stadium flag texture reuploads")
     if task.get("id") != "iss26-flags-gpu-provenance":
@@ -164,7 +215,9 @@ def analyze(input_file: Path, output: Path) -> dict:
     stripped["snapshots"] = [
         {k:v for k,v in sample.items()
          if k not in ("bosnia_style10_index", "bosnia_clut30",
-                      "cabo_verde_style1_index", "cabo_verde_clut0")}
+                      "cabo_verde_style1_index", "cabo_verde_clut0",
+                      "prematch_cape_index", "prematch_bosnia_index",
+                      "prematch_cape_clut", "prematch_bosnia_clut")}
         for sample in result["snapshots"]]
     (output / "summary.json").write_text(
         json.dumps(stripped, indent=2, ensure_ascii=False) + "\n",
@@ -176,9 +229,15 @@ def analyze(input_file: Path, output: Path) -> dict:
     for snap in result["snapshots"]:
         for style, clut_id, src in (
             (10, 30, "bosnia"),
-            (1, 0, "cabo_verde")):
-            tile = bytes.fromhex(snap[f"{src}_style{style}_index"])
-            clut = tuple(snap[f"{src}_clut{clut_id}"])
+            (1, 0, "cabo_verde"),
+            (-1, -1, "prematch_cape"),
+            (-1, -1, "prematch_bosnia")):
+            if style >= 0:
+                tile = bytes.fromhex(snap[f"{src}_style{style}_index"])
+                clut = tuple(snap[f"{src}_clut{clut_id}"])
+            else:
+                tile = bytes.fromhex(snap[f"{src}_index"])
+                clut = tuple(snap[f"{src}_clut"])
             ppm = (f"P6\n64 28\n255\n").encode("ascii") + render(tile, clut)
             (output / (Path(snap["name"]).stem + f"_{src}_reference.ppm")).write_bytes(ppm)
     return result
