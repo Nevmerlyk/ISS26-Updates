@@ -8,8 +8,8 @@ A failed compilation, verification, or upload does not move the auto-update feed
 param([string]$OutputDirectory = "")
 Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
-$expectedPrivateSha = "ae0799544ee41cc2108f3f4553c7c8c9b3e1f9d3"
-$publicScriptsCommit = "538051f483e49a4f4c5e65e2a011f5874ee5fbbe"
+$expectedPrivateSha = "167f0d0952c8f7f77a535b613ea6f342cb83a564"
+$publicScriptsCommit = "275836b99c86f3c44fbb49eb591c339bfc1dec61"
 $base = "https://raw.githubusercontent.com/Nevmerlyk/ISS26-Updates/$publicScriptsCommit/tools"
 $folder = Join-Path ([IO.Path]::GetTempPath()) ("ISS26-095-release-" + [guid]::NewGuid().ToString("N"))
 New-Item -ItemType Directory -Path $folder -Force | Out-Null
