@@ -12,7 +12,7 @@ $ErrorActionPreference = "Stop"
 $repo = "Nevmerlyk/ISS26-Android"
 $branch = "release/academy-updater-v095-compat"
 $version = "0.9.5"
-$expectedSha = "ae0799544ee41cc2108f3f4553c7c8c9b3e1f9d3"
+$expectedSha = "167f0d0952c8f7f77a535b613ea6f342cb83a564"
 function CheckLastExit([string]$step) {
     if ($LASTEXITCODE -ne 0) { throw "$step failed (exit $LASTEXITCODE)" }
 }
