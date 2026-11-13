@@ -1,0 +1,59 @@
+name: Validate Academy v0.9.6 local release tools
+
+on:
+  push:
+    paths:
+      - 'tools/Build-ISS26-Academy-v096-Stable-Local.ps1'
+      - 'tools/Release-ISS26-Academy-v096-Stable-Local.ps1'
+      - '.github/workflows/validate-academy-v096-local-release.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ps1-parse:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - name: PowerShell syntax parse without executing GitHub release
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $paths = @(
+            'tools/Build-ISS26-Academy-v096-Stable-Local.ps1',
+            'tools/Release-ISS26-Academy-v096-Stable-Local.ps1'
+          )
+          foreach ($path in $paths) {
+            $tokens = $null
+            $errors = $null
+            [System.Management.Automation.Language.Parser]::ParseFile(
+              (Resolve-Path $path).Path, [ref]$tokens, [ref]$errors) | Out-Null
+            if ($errors.Count -gt 0) {
+              $errors | ForEach-Object { Write-Error $_.ToString() }
+              throw "PowerShell syntax failure: $path"
+            }
+            Write-Host "PASS: parsed $path"
+          }
+      - name: Ensure stable builder and publisher pin exact source and preserve game patch feed
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $commit = '2d437b3bde5e651803632c8d38f74fdedc5b3fc1'
+          $builder = Get-Content 'tools/Build-ISS26-Academy-v096-Stable-Local.ps1' -Raw
+          $publisher = Get-Content 'tools/Release-ISS26-Academy-v096-Stable-Local.ps1' -Raw
+          if (!$builder.Contains($commit) -or !$publisher.Contains($commit)) {
+            throw 'Publisher and builder source commit pin mismatch'
+          }
+          if (!$builder.Contains('stable/academy-v0.9.6-source')) {
+            throw 'Builder must clone the immutable candidate source branch'
+          }
+          if (!$publisher.Contains('launcher/latest.json') -or
+              !$publisher.Contains('stable/latest.json')) {
+            throw 'Launcher-only feed promotion and game-feed guard required'
+          }
+          if (!$publisher.Contains('HashOf $gameFeed')) {
+            throw 'Game patch feed must be protected against changes'
+          }
+          Write-Host 'PASS: pinned source, protected patch feed and launcher-only promotion'
