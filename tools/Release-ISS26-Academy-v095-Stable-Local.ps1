@@ -81,6 +81,16 @@ try {
         $oldFeed.latest.zipSha256.ToUpperInvariant() -ne $zipSha) {
         throw "Another v0.9.5 is already live with different bits; refusing overwrite"
     }
+    # Preflight retirement requirements before creating a new release.
+    # An older 0.9.6 package must stay downloadable for recovery.
+    $legacyTag = "launcher-v0.9.6"
+    $legacyJson = gh api "repos/$publicRepo/releases/tags/$legacyTag"
+    RequireExit "Read original v0.9.6 backup release"
+    $legacyRelease = ($legacyJson -join "`n") | ConvertFrom-Json
+    if ($legacyRelease.tag_name -ne $legacyTag -or
+        @($legacyRelease.assets | Where-Object { $_.name -eq "ISS26-LauncherUpdate.zip" }).Count -ne 1) {
+        throw "v0.9.6 recovery asset missing; refusing to change public release channel"
+    }
     $released = @(gh release list --repo $publicRepo --limit 100 --json tagName |
         ConvertFrom-Json)
     RequireExit "Read public releases"
@@ -157,7 +167,7 @@ A real autonomous five-minute Rookie exam remains to be verified.
         $previousTag = "launcher-v0.9.6"
         $priorJson = gh api "repos/$publicRepo/releases/tags/$previousTag"
         RequireExit "Read previous Academy 0.9.6 release"
-        $prior = $priorJson | ConvertFrom-Json
+        $prior = ($priorJson -join "`n") | ConvertFrom-Json
         if ($prior.tag_name -ne $previousTag -or
             @($prior.assets | Where-Object { $_.name -eq "ISS26-LauncherUpdate.zip" }).Count -ne 1) {
             throw "Cannot safely archive v0.9.6: its backup asset is missing"
@@ -198,7 +208,8 @@ A real autonomous five-minute Rookie exam remains to be verified.
         }
         $reportStatus | ConvertTo-Json -Depth 5 |
             Set-Content -LiteralPath (Join-Path $output "Academy_v095_release-status.json") -Encoding utf8NoBOM
-        Write-Host "STABLE: Academy + Rookie v0.9.5 release and launcher feed published."
+        Write-Host "STABLE: Academy + Updater v0.9.5 published and auto-update feed promoted."
+        Write-Host "ARCHIVED: v0.9.6 is now a prerelease; its binary ZIP remains downloadable."
         Write-Host "Version: $version; source: $expectedCommit"
         Write-Host "SHA256: $zipSha"
         Write-Host "Original game and stable/latest.json unchanged."
