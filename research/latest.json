@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "revision": 1,
+  "revision": 2,
   "goals": [
     {
       "id": "research_prematch_flag_source",
       "title": "Find prematch flag texture source",
-      "description": "Record screen, VRAM and GPU trace candidates during the two large flags before kickoff. Investigate atlas/CLUT ownership offline; do not assert the owner from palette color alone.",
+      "description": "Verified SELECT code uploads two 64×28 flags from RAM 0x800CC600 and 0x800CC980 in one 64×56 GPU transfer (560,0), at PC 0x80092F38 / 0x8009310C. Original loader ID 5 stages stadium GDC data at RAM 0x800C8000, overlapping those flag buffers at +0x4600. Research the last writer and load/copy ordering; do not infer source from matching colors or static VRAM snapshots.",
       "phase": "prematch_banner"
     },
     {
