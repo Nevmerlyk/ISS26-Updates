@@ -108,6 +108,16 @@ def audit(track, patch=None):
         sles = resource(f, SLES_LBA, SLES_BYTES)
     if sha(select) != SELECT_SHA or sha(sles) != SLES_SHA:
         raise ValueError("Original SELECT/SLES file checksum mismatch")
+    # Loader ID 5: original SLES resource table is 12 bytes per entry,
+    # located at 0x800536E0 + 12*id. This is stadium GDC staging RAM.
+    descriptor_vaddr = 0x800536E0 + 12 * 5
+    descriptor_offset = descriptor_vaddr - 0x80010000 + 0x800
+    gdc_lba, gdc_ram, gdc_sectors = struct.unpack_from("<III", sles, descriptor_offset)
+    if (gdc_lba, gdc_ram, gdc_sectors) != (10860, 0x800C8000, 121):
+        raise ValueError("Original GDC loader descriptor mismatch")
+    staging_offset = 0x800CC600 - gdc_ram
+    if staging_offset != 0x4600 or staging_offset + 1792 > 2048 * gdc_sectors:
+        raise ValueError("Unexpected overlap of GPU flag buffer and stadium GDC staging")
 
     found = []
     for off in range(0, len(select) - 64, 4):
@@ -147,6 +157,17 @@ def audit(track, patch=None):
         "sles_sha256": SLES_SHA, "select_sha256": SELECT_SHA,
         "verified_sites": found,
         "async_resource_gate_pc": hex(loader_pc),
+        "gdc_stadium_read_buffer": {
+            "resource_id": 5,
+            "descriptor_vaddr": hex(descriptor_vaddr),
+            "base_lba": gdc_lba,
+            "read_ram_base": hex(gdc_ram),
+            "read_sector_count": gdc_sectors,
+            "variant_lba_formula": "10860 + 170*(2*stadium_id+day_or_night)",
+            "flag_gpu_buffer_offset": staging_offset,
+            "ram_read_region_overlap_verified": True,
+            "last_writer_proved": False
+        },
         "upstream_flag_buffer_writer_identified": False,
         "optional_candidate_patch": check_patch(track, patch, select) if patch else None,
         "next_capture": {
