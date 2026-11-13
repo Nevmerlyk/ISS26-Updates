@@ -1,6 +1,6 @@
 #requires -Version 7.0
 <#
-ISS26 Academy Research Agent v0.9.6 + Test21 RAM/MIPS provenance - local preview builder.
+ISS26 Academy Research Agent v0.9.6 + Test21 + Rookie adaptive navigation - local preview builder.
 Does not install, publish, change feeds, change BIN/CUE or require original game assets.
 Requires Windows, PowerShell 7, .NET SDK 8, Git, GitHub CLI authorized for
 private Nevmerlyk/ISS26-Android and Python 3.
@@ -12,7 +12,7 @@ $ErrorActionPreference = "Stop"
 $repo = "Nevmerlyk/ISS26-Android"
 $branch = "feature/academy-research-bridge-v096"
 $version = "0.9.6"
-$expectedSha = "d57eba4e2cb38550a3734685fff00544eb6c41f3"
+$expectedSha = "36a9a81c3b22346af039342b46d126439ffabaaf"
 function CheckLastExit([string]$step) {
     if ($LASTEXITCODE -ne 0) { throw "$step failed (exit $LASTEXITCODE)" }
 }
