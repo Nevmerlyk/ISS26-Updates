@@ -5,7 +5,7 @@
     {
       "id": "research_prematch_flag_source",
       "title": "Find prematch flag texture source",
-      "description": "Verified original PS1 SELECT code uploads both 64×28 prematch flags as one 64×56 4bpp rectangle to VRAM (560,0), using RAM 0x800CC600 (left, 896 bytes) and 0x800CC980 (right, 896 bytes). Upload paths 0x80092F38 and 0x8009310C. Investigate the preceding buffer writer using matched screen, GPU and MIPS trace evidence; palette or VRAM equality alone does not prove which disc resource supplied the pixels.",
+      "description": "Verified SELECT code uploads two 64×28 flags from RAM 0x800CC600 and 0x800CC980 in one 64×56 GPU transfer (560,0), at PC 0x80092F38 / 0x8009310C. Original loader ID 5 stages stadium GDC data at RAM 0x800C8000, overlapping those flag buffers at +0x4600. Research the last writer and load/copy ordering; do not infer source from matching colors or static VRAM snapshots.",
       "phase": "prematch_banner"
     },
     {
