@@ -9,7 +9,7 @@ param([string]$OutputDirectory = "")
 Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 $expectedPrivateSha = "ae0799544ee41cc2108f3f4553c7c8c9b3e1f9d3"
-$publicScriptsCommit = "1adba151cee1bb719cd0a16b02a5f7dc0b3117ba"
+$publicScriptsCommit = "6f2c425232ae640dc282c93f67dbedfe183a2e1d"
 $base = "https://raw.githubusercontent.com/Nevmerlyk/ISS26-Updates/$publicScriptsCommit/tools"
 $folder = Join-Path ([IO.Path]::GetTempPath()) ("ISS26-095-release-" + [guid]::NewGuid().ToString("N"))
 New-Item -ItemType Directory -Path $folder -Force | Out-Null
