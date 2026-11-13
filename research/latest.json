@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "revision": 1,
+  "goals": [
+    {
+      "id": "research_prematch_flag_source",
+      "title": "Find prematch flag texture source",
+      "description": "Record screen, VRAM and GPU trace candidates during the two large flags before kickoff. Investigate atlas/CLUT ownership offline; do not assert the owner from palette color alone.",
+      "phase": "prematch_banner"
+    },
+    {
+      "id": "research_carried_banner_source",
+      "title": "Trace the carried ceremonial banner",
+      "description": "Capture the banner carried by players and its possible GPU upload. Compare with original stadium GDC resources and other prematch captures.",
+      "phase": "carried_banner"
+    },
+    {
+      "id": "research_crowd_flags_reload",
+      "title": "Track crowd flag reloads",
+      "description": "Collect audience flag captures and investigate whether stadium graphics uploads overwrite previously loaded country-flag textures.",
+      "phase": "crowd_flags"
+    },
+    {
+      "id": "research_hud_small_flags",
+      "title": "Locate small scoreboard flags",
+      "description": "Capture match HUD flag candidates for Bosnia, Canada and New Zealand, then correlate their palette and sprite placement using locally retained evidence.",
+      "phase": "hud"
+    }
+  ]
+}
