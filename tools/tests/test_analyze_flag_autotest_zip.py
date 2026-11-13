@@ -57,7 +57,7 @@ class AutoTestFlagReports(unittest.TestCase):
             # Actual prematch CLUT for Bosnia is (224,506); not the
             # historical "national reverse flag index 30" probe.
             clut = ((506 * 1024) + 224) * 2
-            first[clut + 2:clut + 4] = b"\\x1f\\x00"
+            first[clut + 2:clut + 4] = bytes((31, 0))
             second = bytearray(first)
             second[bosnia_draw] = 0x53  # new upload overwrites drawn tile
             with zipfile.ZipFile(report, "w", compression=zipfile.ZIP_DEFLATED) as z:
