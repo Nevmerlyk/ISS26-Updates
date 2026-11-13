@@ -1,11 +1,11 @@
 {
+  "schemaVersion": 1,
   "latest": {
-    "version": "0.9.4",
-    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.9.4/ISS26-LauncherUpdate.zip",
-    "zipSha256": "866C8AAFE4D328B90F1501378D3330EA1537419DB73F95DFDE9F6D0335C89D83",
-    "launcherSha256": "90B79B5BE537A1AA16175376D0B52BF021C6332C9E6A45575DCC524C4FC11A52",
-    "updaterSha256": "D0184BAF8495B09D0AC6C5581ECC80D8D98DF066102F187ADB08892CD7F5BDCC",
-    "notes": "Academy v0.9.4: live Rookie observations, rule rationale, controller decisions, screenshot outcomes and recent frame events. Semantic menu recognition and passing the exam remain unverified. Saves, original BIN/CUE and game patch channels unchanged."
-  },
-  "schemaVersion": 1
+    "version": "0.9.6",
+    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.9.6/ISS26-LauncherUpdate.zip",
+    "zipSha256": "24AEE05D8AF0A2AA79ADD5A749B95E2179658D1A1DD129526CB6333F874899B6",
+    "launcherSha256": "6CF34120C797F38D56444CE83804BE4E51BF20BC58178121439A5EB70F04B29B",
+    "updaterSha256": "2209B304DBC25A1B19E270B20A76DD360CED61717B2A8C684B2939C0930DABBC",
+    "notes": "Stable Academy and Rookie v0.9.6: five-minute practical exam, expanded navigation theory, live decision trace, opt-in report after every session. Game patch channel unchanged."
+  }
 }
