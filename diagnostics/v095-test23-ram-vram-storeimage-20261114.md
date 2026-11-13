@@ -77,3 +77,48 @@ advance stable/test feeds before patch verification.
 
 The user's original BIN/CUE, tracks 02–12, installed Academy 0.9.5
 and game patch feeds were not modified.
+
+## Test24 — proven original per-team atlas routing (follow-up)
+
+Direct verification on the user's **clean** original `SLES_033.21`
+and `BIN/SELECT.BIN` corrects previous ambiguity:
+
+| PC | Original PS1 function | Direction |
+|---|---|---|
+| `0x8003878C` | `LoadImage` | RAM → VRAM |
+| `0x800387EC` | `StoreImage` | VRAM → RAM |
+| `0x8003884C` | `MoveImage` | VRAM → VRAM |
+
+These are confirmed by debug names embedded in the original executable,
+not inferred from MIPS JAL numbers.
+
+The selector at `0x800931D4` uses per-team **style IDs** from the
+runtime selection table at `0x80080554`. The subsequent calls at
+`0x80093338` (home) and `0x800933CC` (away) invoke `MoveImage`
+to copy the selected **16×28 words** from the shared source atlas into
+staging `(560,0)` or `(560,28)`. The verified source coordinate rule is:
+
+```
+atlasX = (style < 36 ? 832 : 768) + 16 * (style % 4)
+atlasY = 256 + 28 * ((style % 36) // 4)
+```
+
+Test13's observed tiles therefore match **style 1** for Cape Verde
+(source 848,256) and **style 10** for Bosnia (864,312) in all 12 VRAM
+captures. The `StoreImage` call at `0x80092F58` later transfers the
+staging pixels into `0x800CC600`; `LoadImage` at `0x8009312C`
+transfers them back to VRAM.
+
+The original Track01 contains five 78-byte style tables (54 standard
+national slots +24 clubs), with four styles shared between national and
+club categories: **0, 7, 10, 17**. These are **original-disc values**:
+the modified Test13's five table values still need independent inspection,
+as do the four bonus-national slots. This is a real risk of club-logo
+regressions if a shared style's art is overwritten.
+
+The read-only Test24 extension to
+[Academy PR #46](https://github.com/Nevmerlyk/ISS26-Android/pull/46)
+now monitors `STYLE_SLOTS` and `STYLE_MOVE` at the selector and actual
+`MoveImage` wrapper, plus unambiguous `GPU_TRANSFER_CALL` directions.
+Local, clean-original + Test13-archive Python integration tests:
+**8/8 passed**. This is source-only with no stable feed or game patch change.
