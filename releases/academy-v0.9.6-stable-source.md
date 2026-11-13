@@ -2,7 +2,7 @@
 
 - Stable source repository: private `Nevmerlyk/ISS26-Android`
 - Frozen source branch: `stable/academy-v0.9.6-source`
-- Frozen commit: `64780ba4bcc15765daf2982b452256bd02629a1b`
+- Frozen commit: `a0e6ff762ae2037e438ce02f9f0e1b2ebcf51510`
 - Launcher version: `0.9.6`
 - Game patch version: unchanged, `0.9.4`
 - Source designation: stable by project owner's request.
