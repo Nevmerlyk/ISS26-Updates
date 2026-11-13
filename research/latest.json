@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "revision": 1,
+  "revision": 2,
   "goals": [
     {
       "id": "research_prematch_flag_source",
       "title": "Find prematch flag texture source",
-      "description": "Record screen, VRAM and GPU trace candidates during the two large flags before kickoff. Investigate atlas/CLUT ownership offline; do not assert the owner from palette color alone.",
+      "description": "Verified original PS1 SELECT code uploads both 64×28 prematch flags as one 64×56 4bpp rectangle to VRAM (560,0), using RAM 0x800CC600 (left, 896 bytes) and 0x800CC980 (right, 896 bytes). Upload paths 0x80092F38 and 0x8009310C. Investigate the preceding buffer writer using matched screen, GPU and MIPS trace evidence; palette or VRAM equality alone does not prove which disc resource supplied the pixels.",
       "phase": "prematch_banner"
     },
     {
