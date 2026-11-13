@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "latest": {
-    "version": "0.9.6",
-    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.9.6/ISS26-LauncherUpdate.zip",
-    "zipSha256": "24AEE05D8AF0A2AA79ADD5A749B95E2179658D1A1DD129526CB6333F874899B6",
-    "launcherSha256": "6CF34120C797F38D56444CE83804BE4E51BF20BC58178121439A5EB70F04B29B",
-    "updaterSha256": "2209B304DBC25A1B19E270B20A76DD360CED61717B2A8C684B2939C0930DABBC",
-    "notes": "Stable Academy and Rookie v0.9.6: five-minute practical exam, expanded navigation theory, live decision trace, opt-in report after every session. Game patch channel unchanged."
+    "version": "0.9.6.1",
+    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.9.5/ISS26-LauncherUpdate.zip",
+    "zipSha256": "FE46B273D256A9F60451E0CDE8681C987D88620A2BAD7CCBB7DB68ACAC0677A3",
+    "launcherSha256": "237AA9453FF2CF23848C982236FADD61613DD64207162CD1F4D872EBC293EEA3",
+    "updaterSha256": "BD1EFFD21CE42F0C1AFF100860027B38DB21FF55CFA3903736678CFECC986315",
+    "notes": "ISS26 Academy/Updater PRODUCT 0.9.5. Transport 0.9.6.1 enables upgrades from installed 0.9.6; exact SHA-256 prevents repeats. Rookie adaptive menu and Test21 RAM/MIPS diagnostics. Game patch unchanged."
   }
 }
