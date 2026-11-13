@@ -5,6 +5,7 @@ on:
     paths:
       - 'tools/Build-ISS26-Academy-v096-Stable-Local.ps1'
       - 'tools/Release-ISS26-Academy-v096-Stable-Local.ps1'
+      - 'tools/ISS26-Academy-v096-Stable-OneClick.ps1'
       - '.github/workflows/validate-academy-v096-local-release.yml'
   workflow_dispatch:
 
@@ -23,7 +24,8 @@ jobs:
           $ErrorActionPreference = 'Stop'
           $paths = @(
             'tools/Build-ISS26-Academy-v096-Stable-Local.ps1',
-            'tools/Release-ISS26-Academy-v096-Stable-Local.ps1'
+            'tools/Release-ISS26-Academy-v096-Stable-Local.ps1',
+            'tools/ISS26-Academy-v096-Stable-OneClick.ps1'
           )
           foreach ($path in $paths) {
             $tokens = $null
@@ -43,8 +45,12 @@ jobs:
           $commit = '2d437b3bde5e651803632c8d38f74fdedc5b3fc1'
           $builder = Get-Content 'tools/Build-ISS26-Academy-v096-Stable-Local.ps1' -Raw
           $publisher = Get-Content 'tools/Release-ISS26-Academy-v096-Stable-Local.ps1' -Raw
+          $bootstrap = Get-Content 'tools/ISS26-Academy-v096-Stable-OneClick.ps1' -Raw
           if (!$builder.Contains($commit) -or !$publisher.Contains($commit)) {
             throw 'Publisher and builder source commit pin mismatch'
+          }
+          if (!$bootstrap.Contains($commit)) {
+            throw 'One-click launcher private source SHA mismatch'
           }
           if (!$builder.Contains('stable/academy-v0.9.6-source')) {
             throw 'Builder must clone the immutable candidate source branch'
