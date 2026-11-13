@@ -13,7 +13,7 @@ $ErrorActionPreference = "Stop"
 $publicRepo = "Nevmerlyk/ISS26-Updates"
 $version = "0.9.6"
 $tag = "launcher-v$version"
-$expectedCommit = "2d437b3bde5e651803632c8d38f74fdedc5b3fc1"
+$expectedCommit = "f5b6224cb13bfe6f3975a6f0c2230dc815b94148"
 $runFolder = Join-Path ([IO.Path]::GetTempPath()) ("ISS26-publish-v096-" + [guid]::NewGuid().ToString("N"))
 if ([string]::IsNullOrWhiteSpace($OutputDirectory)) {
     $OutputDirectory = Join-Path (Get-Location).Path "ISS26_Academy_v096_stable"
