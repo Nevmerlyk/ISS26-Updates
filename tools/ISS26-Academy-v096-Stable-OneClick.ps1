@@ -3,8 +3,8 @@
 [CmdletBinding()]
 param([string]$OutputDirectory = "")
 $ErrorActionPreference = "Stop"
-$publicCommit = "16f47776c4812b0c00f94064a85a7c61d30d01f5"
-$expectedSource = "2d437b3bde5e651803632c8d38f74fdedc5b3fc1"
+$publicCommit = "bad709e4256379ac44a2aae6ea5a41499595f456"
+$expectedSource = "f5b6224cb13bfe6f3975a6f0c2230dc815b94148"
 if (-not (Get-Command pwsh -ErrorAction SilentlyContinue)) {
     throw "PowerShell 7 is required. Install it from https://aka.ms/powershell"
 }
@@ -27,7 +27,7 @@ foreach ($item in @(
         throw "Refusing to execute release script with mismatched source SHA"
     }
 }
-$callArgs = @("-NoProfile","-File",$publisher)
+$callArgs = @("-NoProfile","-ExecutionPolicy","Bypass","-File",$publisher)
 if (-not [string]::IsNullOrWhiteSpace($OutputDirectory)) {
     $callArgs += @("-OutputDirectory",$OutputDirectory)
 }
