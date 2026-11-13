@@ -31,3 +31,15 @@ pwsh -NoProfile -File .\Release-ISS26-Academy-v096-Stable-Local.ps1
 Requires: Windows, PowerShell 7, Git, GitHub CLI authenticated to both repositories, .NET SDK 8, Python 3. The release script runs the SHA-pinned builder and tests, creates `launcher-v0.9.6` in `ISS26-Updates`, verifies the release ZIP, and promotes **only** `launcher/latest.json`. The commercial PS1 game is not embedded and `stable/latest.json` (the game patch feed) must remain byte-for-byte untouched.
 
 If any build or promotion step fails, the script stops without manually changing the stable launcher feed. No claims of actual gameplay/exam success are made until real session captures confirm them.
+
+## Single-file publisher (easier)
+
+The [ISS26-Academy-v096-Stable-OneClick.ps1](../tools/ISS26-Academy-v096-Stable-OneClick.ps1) bootstrap downloads both **immutable commit-pinned** publisher scripts and invokes the release gate. It does not upload game assets and stops if the pinned private source fails a build or regression test.
+
+Windows PowerShell command from the directory containing the downloaded bootstrap:
+
+```powershell
+pwsh -NoProfile -File .\ISS26-Academy-v096-Stable-OneClick.ps1
+```
+
+GitHub Actions [public PowerShell syntax/source-pin validation](https://github.com/Nevmerlyk/ISS26-Updates/actions/runs/43424935629) passed, but **that job did not compile the private .NET source or publish a Windows binary**. The actual Windows builder is the remaining release gate.
