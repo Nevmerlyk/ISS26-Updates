@@ -12,6 +12,7 @@ $ErrorActionPreference = "Stop"
 $repo = "Nevmerlyk/ISS26-Android"
 $branch = "feature/academy-research-bridge-v096"
 $version = "0.9.6"
+$expectedSha = "350872dd1a6de229cb537000959d0e9c5b958bdf"
 function CheckLastExit([string]$step) {
     if ($LASTEXITCODE -ne 0) { throw "$step failed (exit $LASTEXITCODE)" }
 }
@@ -62,6 +63,7 @@ try {
         if ($actualBranch -ne $branch) { throw "Unexpected source branch: $actualBranch" }
         $revision = (git rev-parse HEAD).Trim()
         CheckLastExit "git revision"
+        if ($revision -ne $expectedSha) { throw "Source changed since review: $revision (expected $expectedSha)" }
         foreach ($project in @(
             "windows/ISS26.Launcher/ISS26.Launcher.csproj",
             "windows/ISS26.Updater/ISS26.Updater.csproj"
