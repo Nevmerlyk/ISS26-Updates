@@ -14,7 +14,7 @@ $publicRepo = "Nevmerlyk/ISS26-Updates"
 $version = "0.9.5"
 $transportVersion = "0.9.6.1" # SemVer bridge for installed 0.9.6
 $tag = "launcher-v$version"
-$expectedCommit = "125cc40c461ff3bc5413ef89e63324a1e1d32d3f"
+$expectedCommit = "ea0ff8491906003ce2a02e27c4ceca017e810ce9"
 $runFolder = Join-Path ([IO.Path]::GetTempPath()) ("ISS26-publish-v095-" + [guid]::NewGuid().ToString("N"))
 if ([string]::IsNullOrWhiteSpace($OutputDirectory)) {
     $OutputDirectory = Join-Path (Get-Location).Path "ISS26_Academy_v095_stable"
