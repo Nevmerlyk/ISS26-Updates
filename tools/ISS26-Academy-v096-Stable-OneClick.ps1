@@ -3,8 +3,8 @@
 [CmdletBinding()]
 param([string]$OutputDirectory = "")
 $ErrorActionPreference = "Stop"
-$publicCommit = "bad709e4256379ac44a2aae6ea5a41499595f456"
-$expectedSource = "f5b6224cb13bfe6f3975a6f0c2230dc815b94148"
+$publicCommit = "42255c9fc888305dd47f95be2ff8475334fd8ee6"
+$expectedSource = "64780ba4bcc15765daf2982b452256bd02629a1b"
 if (-not (Get-Command pwsh -ErrorAction SilentlyContinue)) {
     throw "PowerShell 7 is required. Install it from https://aka.ms/powershell"
 }
