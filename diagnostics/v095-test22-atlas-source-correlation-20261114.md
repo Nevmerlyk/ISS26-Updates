@@ -46,3 +46,16 @@ Do not call the automatically named `crowd_flags` and `carried_banner` captures 
 5. Use ONE targeted visual match for acceptance after a candidate fix, not another blind general test.
 
 Local evidence kit `ISS26_v095_Flag_Source_Research_20261114.zip` was produced in the analysis session. Six Python synthetic/integration tests passed on the supplied original and Academy archive. GitHub does not contain the user's original data.
+
+## Draw-time GPU proof from actual PCSX-Redux .gpd packets
+
+Decoded the **live GP0 commands after the dump's TraceBegin marker**, not just its initial VRAM snapshot, according to the PCSX-Redux GPUDUMPv1r1 packet specification.
+
+- `flag_auto_prematch_banner_00005148.gpd` contains **40 textured polygon samples for Cape Verde** and **40 for Bosnia**, with no parser errors.
+- In the same trace, both images use 4bpp texture page **(512,0)**. Cape Verde samples the staging area near **(560,0)** with actual draw CLUT **(0,505)**; Bosnia samples near **(560,28)** with CLUT **(224,506)**. Draw primitive opcode is `0x3C` (gouraud textured quad), not a guess inferred from the atlas.
+- The live traced spans from all 12 dumps have **zero GPU transfers into (560,0..56)**. Those transfers occurred *before* their trace began. GPU drawing ownership of the staging tile is proven; the final CPU/GPU source writer is not.
+- Also confirmed matching source-page/CLUT references in other actual draw phases; phase names are heuristic, not verified ceremonial-flag identity.
+
+Validated read-only Python GPUDUMP decoder and synthetic/source-archive tests: **8/8 passed**. Locally available research kit contains the code, condensed GP0 evidence, original-disc atlas comparison, and an enlarged preview. No game binary is distributed in the documentation.
+
+This is sufficient to narrow the next breakpoint: trace the last 1,792-byte upload/VRAM transfer to staging rectangle `(560,0,16,56)` before the stadium label appears, while sampling `tpage`, UV, CLUT and draw primitive. **Do not globally replace DATSEL3 block 4/5**: clean source contains shared legacy crest graphics, not isolated team flag sprites.
