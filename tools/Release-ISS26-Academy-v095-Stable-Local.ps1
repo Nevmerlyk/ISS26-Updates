@@ -151,6 +151,53 @@ A real autonomous five-minute Rookie exam remains to be verified.
             git push origin HEAD:main
             RequireExit "Push verified launcher feed"
         }
+        # Retire v0.9.6 ONLY after the v0.9.5 asset is verified and the
+        # auto-update feed has been pushed. Preserve its binary asset for
+        # disaster recovery and existing direct links; never delete/tag-move.
+        $previousTag = "launcher-v0.9.6"
+        $priorJson = gh api "repos/$publicRepo/releases/tags/$previousTag"
+        RequireExit "Read previous Academy 0.9.6 release"
+        $prior = $priorJson | ConvertFrom-Json
+        if ($prior.tag_name -ne $previousTag -or
+            @($prior.assets | Where-Object { $_.name -eq "ISS26-LauncherUpdate.zip" }).Count -ne 1) {
+            throw "Cannot safely archive v0.9.6: its backup asset is missing"
+        }
+        $archiveMarker = "ARCHIVED / SUPERSEDED: ISS26 Academy + Updater v0.9.6"
+        $notes = [string]$prior.body
+        if (-not $notes.StartsWith($archiveMarker,[StringComparison]::Ordinal)) {
+            $notes = $archiveMarker + "`nReplaced by product v0.9.5 using transport v0.9.6.1." +
+                "`nThe 0.9.6 installer is preserved for disaster recovery only." +
+                "`nDo not install this version as the current stable release.`n`n" + $notes
+        }
+        $retiredNotes = Join-Path $runFolder "archived-v096-notes.md"
+        [IO.File]::WriteAllText($retiredNotes,$notes,[Text.UTF8Encoding]::new($false))
+        gh release edit $previousTag --repo $publicRepo --prerelease=true --latest=false --title "ISS26 Academy v0.9.6 (ARCHIVED — replaced by v0.9.5)" --notes-file $retiredNotes
+        RequireExit "Archive superseded v0.9.6 without deleting its binary"
+        $retired = (gh api "repos/$publicRepo/releases/tags/$previousTag" | ConvertFrom-Json)
+        RequireExit "Verify v0.9.6 archived release"
+        if (-not $retired.prerelease -or
+            @($retired.assets | Where-Object { $_.name -eq "ISS26-LauncherUpdate.zip" }).Count -ne 1) {
+            throw "v0.9.6 could not be verified as archived with a preserved asset"
+        }
+        gh release edit $tag --repo $publicRepo --prerelease=false --latest=true
+        RequireExit "Confirm v0.9.5 is the latest stable release"
+        $latest = (gh api "repos/$publicRepo/releases/latest" | ConvertFrom-Json)
+        RequireExit "Verify GitHub latest stable release"
+        if ($latest.tag_name -ne $tag -or $latest.prerelease) {
+            throw "GitHub latest release is not the verified v0.9.5"
+        }
+        $reportStatus = [ordered]@{
+            schemaVersion=1
+            productVersion=$version
+            updateTransport=$transportVersion
+            latestTag=$tag
+            archivedTag=$previousTag
+            archivedAssetPreserved=$true
+            deployedZipSha256=$zipSha
+            completedUtc=[DateTimeOffset]::UtcNow.ToString("O")
+        }
+        $reportStatus | ConvertTo-Json -Depth 5 |
+            Set-Content -LiteralPath (Join-Path $output "Academy_v095_release-status.json") -Encoding utf8NoBOM
         Write-Host "STABLE: Academy + Rookie v0.9.5 release and launcher feed published."
         Write-Host "Version: $version; source: $expectedCommit"
         Write-Host "SHA256: $zipSha"
