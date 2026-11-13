@@ -35,7 +35,7 @@ function HashFile([string]$file) {
     return (Get-FileHash -LiteralPath $file -Algorithm SHA256).Hash.ToUpperInvariant()
 }
 function GitHubFile([string]$path) {
-    return GhGet "repos/$repo/contents/tools/Finalize-ISS26-Academy-v095-FromVerifiedBuild.ps1?ref=main"
+    return GhGet ("repos/" + $repo + "/contents/" + $path + "?ref=main")
 }
 function DecodeFile($obj) {
     $bytes = [Convert]::FromBase64String(([string]$obj.content -replace '\s',''))
