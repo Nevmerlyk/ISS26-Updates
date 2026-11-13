@@ -42,7 +42,7 @@ jobs:
         shell: pwsh
         run: |
           $ErrorActionPreference = 'Stop'
-          $commit = '2d437b3bde5e651803632c8d38f74fdedc5b3fc1'
+          $commit = 'f5b6224cb13bfe6f3975a6f0c2230dc815b94148'
           $builder = Get-Content 'tools/Build-ISS26-Academy-v096-Stable-Local.ps1' -Raw
           $publisher = Get-Content 'tools/Release-ISS26-Academy-v096-Stable-Local.ps1' -Raw
           $bootstrap = Get-Content 'tools/ISS26-Academy-v096-Stable-OneClick.ps1' -Raw
