@@ -49,6 +49,9 @@ class TestGPUDumpParser(unittest.TestCase):
         self.assertEqual(row["clut_xy_words"], [0, 505])
         self.assertEqual(row["source_min_xy_words"], [560, 0])
         self.assertEqual(row["uv_bounds_pixels"], [192, 0, 255, 27])
+        self.assertEqual(out["stage_touch_draw_count"], 1)
+        self.assertEqual(len(out["draw_groups_touching_560_0_16_56"]), 1)
+        self.assertEqual(out["draw_groups_touching_560_0_16_56"][0]["clut_xy_words"], [0, 505])
 
     def test_split_gpu_packet_does_not_desynchronize(self):
         words = textured_quad()
