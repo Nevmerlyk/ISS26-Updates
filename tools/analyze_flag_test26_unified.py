@@ -83,6 +83,64 @@ def _matches(stage: bytes, styles: list[bytes]) -> list[int]:
     return [index for index, value in enumerate(styles) if value == stage] if any(stage) else []
 
 
+def ranked_partial_style_sources(stage: bytes, styles: list[bytes], max_shift: int = 2) -> list[dict]:
+    """Rank *candidate* style origins when a final staging tile is not byte-identical.
+
+    Searches 0..71 atlas cells at offsets -2..+2 VRAM words / rows. Ignores
+    zero-filled staging words to avoid ranking blank atlas. A partial match
+    is NOT a provenance claim (palette and GP0 uploader remain unverified).
+    This is a diagnostic of shifted/split/overwritten 4bpp flag staging.
+    """
+    if len(stage) != STYLE_BYTES or len(styles) != STYLE_COUNT or any(
+        len(t) != STYLE_BYTES for t in styles
+    ):
+        raise ValueError("Expected 72 full 16x28-word style cells")
+    if not 0 <= max_shift <= 4:
+        raise ValueError("Invalid maximum shift")
+    words = struct.unpack("<" + "H" * (STYLE_WORDS * STYLE_ROWS), stage)
+    active = sum(value != 0 for value in words)
+    if active < 24:
+        return []
+    tiles = [
+        struct.unpack("<" + "H" * (STYLE_WORDS * STYLE_ROWS), buf)
+        for buf in styles
+    ]
+    candidates = []
+    for style, source in enumerate(tiles):
+        best = (0, 0, 0, 0)
+        for dy in range(-max_shift, max_shift + 1):
+            y0, y1 = max(0, -dy), min(STYLE_ROWS, STYLE_ROWS - dy)
+            for dx in range(-max_shift, max_shift + 1):
+                x0, x1 = max(0, -dx), min(STYLE_WORDS, STYLE_WORDS - dx)
+                equal = compared = 0
+                for y in range(y0, y1):
+                    for x in range(x0, x1):
+                        item = words[y * STYLE_WORDS + x]
+                        if item == 0:
+                            continue
+                        compared += 1
+                        equal += int(item == source[(y + dy) * STYLE_WORDS + x + dx])
+                score = (equal, compared, dx, dy)
+                if equal > best[0] or (equal == best[0] and compared > best[1]):
+                    best = score
+        if best[0] >= 12:
+            equal, compared, dx, dy = best
+            candidates.append({
+                "style_id": style,
+                "matching_nonzero_stage_words": equal,
+                "compared_nonzero_stage_words": compared,
+                "total_nonzero_stage_words": active,
+                "fraction_of_nonzero_stage_words": round(equal / active, 4),
+                "source_offset_words_xy": [dx, dy],
+            })
+    candidates.sort(key=lambda c: (
+        -c["matching_nonzero_stage_words"],
+        -c["fraction_of_nonzero_stage_words"],
+        c["style_id"],
+    ))
+    return candidates[:5]
+
+
 def fingerprint(raw: bytes) -> dict:
     styles = [tile(raw, *atlas_xy(i)) for i in range(STYLE_COUNT)]
     homes = {side: tile(raw, *coords) for side, coords in TEAM_STAGING.items()}
@@ -94,6 +152,7 @@ def fingerprint(raw: bytes) -> dict:
             side: {
                 "tile_sha256": sha(buf),
                 "matching_style_ids": _matches(buf, styles),
+                "ranked_partial_style_candidates": ranked_partial_style_sources(buf, styles),
                 "draw_clut_candidate_xy": list(DRAW_CLUT_CANDIDATES[side]),
                 "draw_clut_candidate_sha256": sha(clut(raw, *DRAW_CLUT_CANDIDATES[side])),
             }
