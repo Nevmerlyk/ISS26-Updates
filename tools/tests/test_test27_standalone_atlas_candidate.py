@@ -17,10 +17,18 @@ def palette():
     values=[0]+list(dict.fromkeys(bgr555(x) for flag in ("cape_verde","bosnia") for x in COLORS[flag][1:]))
     return struct.pack("<16H",*(values+[0]*(16-len(values))))
 
-def resource(capacity=32768):
+def resource(capacity=32768, *, noisy=True):
     base=0x800F0000
     w,h=64,140
-    raw=bytes([0x97])*(w*h*2)
+    raw=bytearray(bytes([0x97])*(w*h*2))
+    if noisy:
+        import random
+        rng=random.Random(27)
+        for x,y in stream.TARGETS.values():
+            for row in range(28):
+                at=2*((y-256+row)*w+x-800)
+                raw[at:at+32]=bytes(rng.randrange(256) for _ in range(32))
+    raw=bytes(raw)
     packed=encode_stream(raw,expected_bytes=len(raw))
     start=32
     table=start+capacity
@@ -85,6 +93,42 @@ class Standalone(unittest.TestCase):
         self.assertEqual(method,"compact_search")
         self.assertEqual(decode_stream(packet,expected_bytes=len(raw)),raw)
 
+    def test_real_format_flags_nonzero_aux_and_after_table_stream(self):
+        blob,raw,table=resource()
+        base=0x800F0000
+        packed=encode_stream(raw,expected_bytes=len(raw))
+        late=bytearray(128+len(packed)+16)
+        struct.pack_into("<I",late,0,base+32)
+        struct.pack_into("<HHHHHHI",late,32,0x10A,800,256,64,140,7,base+128)
+        struct.pack_into("<H",late,48,255)
+        late[128:128+len(packed)]=packed
+        late[128+len(packed):]=b"X"*16
+        routes=build.find_routes(bytes(late))
+        edited,info=stream.rewrite_resource(bytes(late),routes,palette(),require_clut_sha=False)
+        self.assertEqual(edited[:128],late[:128])
+        self.assertEqual(edited[-16:],b"X"*16)
+        self.assertEqual(len(info),2)
+
+    def test_multiple_roots_disjoint_uploads(self):
+        blob,raw,table=resource()
+        mod=bytearray(blob)
+        second=table+32
+        mod.extend(bytes(32))
+        struct.pack_into("<I",mod,4,0x800F0000+second)
+        struct.pack_into("<HHHHHHI",mod,second,9,0,0,1,1,5,0x800F0000+16)
+        struct.pack_into("<H",mod,second+16,255)
+        routes=build.find_routes(bytes(mod))
+        edited,info=stream.rewrite_resource(bytes(mod),routes,palette(),require_clut_sha=False)
+        self.assertEqual(edited[table:],mod[table:])
+
+    def test_inferred_aligned_base_unique(self):
+        blob,raw,table=resource()
+        mod=bytearray(blob)
+        base=0x800b8000
+        struct.pack_into("<I",mod,0,base+table)
+        struct.pack_into("<I",mod,table+12,base+32)
+        self.assertEqual(build.find_routes(bytes(mod))[0]["gpu_base"],base)
+
     def test_wrong_hash_blocks_source_write(self):
         blob,_,_=resource()
         routes=build.find_routes(blob)
@@ -101,9 +145,9 @@ class Standalone(unittest.TestCase):
         with self.assertRaises(ValueError):
             build.find_routes(bytes(dup))
     def test_insufficient_stream_size_never_relocates_resource(self):
-        big,raw,_=resource()
-        capacity=len(encode_stream(raw,expected_bytes=len(raw)))
-        blob,_,_=resource(capacity)
+        big,raw,_=resource(noisy=False)
+        capacity=(len(encode_stream(raw,expected_bytes=len(raw)))+3)&~3
+        blob,_,_=resource(capacity,noisy=False)
         routes=build.find_routes(blob)
         with self.assertRaisesRegex(ValueError,"capacity"):
             stream.rewrite_resource(blob,routes,palette(),require_clut_sha=False)
