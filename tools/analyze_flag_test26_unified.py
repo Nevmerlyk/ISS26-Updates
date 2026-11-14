@@ -160,6 +160,23 @@ def analyze_archive(report: Path, labels: Path | None = None) -> dict:
     missing = set(operator_labels) - seen_names
     if missing:
         raise ValueError("Operator-labelled VRAM member not in ZIP: " + ", ".join(sorted(missing)))
+    # A filename such as flag_auto_crowd_flags is NOT an operator label.
+    # Match GPU traces to verified scenes only when an operator-tagged
+    # VRAM snapshot carries the *same encoded emulator frame*.
+    tagged_frames = {}
+    for sample in captures:
+        if sample["operator_phase"] != "unknown" and sample["frame_if_encoded"] >= 0:
+            tagged_frames.setdefault(sample["frame_if_encoded"], set()).add(sample["operator_phase"])
+    for trace in gpds:
+        short_name = PurePosixPath(trace["zip_member"].replace("\\", "/")).name
+        frame = capture_frame(short_name)
+        matched = tagged_frames.get(frame, set())
+        trace["frame_if_encoded"] = frame
+        trace["operator_phase"] = next(iter(matched)) if len(matched) == 1 else "unknown"
+        trace["phase_link_evidence"] = (
+            "exact encoded frame + operator-labelled VRAM snapshot"
+            if len(matched) == 1 else "none (or ambiguous)"
+        )
     if len({c["vram_size_bytes"] for c in captures}) > 1:
         raise ValueError("Cannot correlate mixed 1MB and 2MB VRAM captures")
 
@@ -191,6 +208,15 @@ def analyze_archive(report: Path, labels: Path | None = None) -> dict:
         phase: {
             "operator_tagged_vram_captures": sum(c["operator_phase"] == phase for c in captures),
             "verified_gpu_draw_ownership": False,
+            "same_frame_operator_tagged_gpu_dump_count": sum(
+                row["operator_phase"] == phase and
+                row.get("decoded_gp0", {}).get("trace_begin_found", False)
+                for row in gpds
+            ),
+            "stage_flag_draw_candidate_count": sum(
+                row.get("decoded_gp0", {}).get("stage_touch_draw_count", 0)
+                for row in gpds if row["operator_phase"] == phase
+            ),
         }
         for phase in PHASES
     }
@@ -217,6 +243,8 @@ def analyze_archive(report: Path, labels: Path | None = None) -> dict:
         "limitations": [
             "A phase is accepted only from an operator label, not inferred from a task filename.",
             "GPUDUMP textured primitives and transfers are decoded after TraceBegin when supported.",
+            "GPU traces are phase-linked only on exact encoded frame match with operator-labelled VRAM.",
+            "Stage-flag draw groups are UV bounding-box candidates, not proof of a crowd or ceremony flag.",
             "Decoded GP0 polygons do not automatically identify a crowd, ceremony, or selection scene.",
             "Style pixels matching staging only proves byte equality at capture time; no last uploader is identified.",
             "A crowd_flags phase label does not prove its VRAM styles are crowd artwork.",
