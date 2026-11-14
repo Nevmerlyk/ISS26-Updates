@@ -119,6 +119,47 @@ class Test26UnifiedFlagProvenance(unittest.TestCase):
                              ["verified_gpu_draw_ownership"])
             self.assertEqual(result["transitions"], [])
 
+    def test_live_gpu_trace_links_only_to_same_frame_operator_scene(self):
+        # One real-formatted synthetic GPD packet, *no* copyrighted graphics.
+        from parse_v095_gpudump import MAGIC
+        import struct
+        def packet(kind, *data):
+            return struct.pack("<I", (kind << 24) | len(data)) + (
+                struct.pack("<" + str(len(data)) + "I", *data) if data else b""
+            )
+        clut = 505 << 6
+        quad = (
+            0x3CFFFFFF, 0, (clut << 16) | 192,
+            0x00FFFFFF, 1, (8 << 16) | 255,
+            0x00FFFFFF, 0x00010001, (27 << 8) | 255,
+            0x00FFFFFF, 0x00010000, (27 << 8) | 192,
+        )
+        gpudump = MAGIC + packet(5) + packet(0, *quad)
+        with tempfile.TemporaryDirectory() as td:
+            source = Path(td) / "synth.zip"
+            with zipfile.ZipFile(source, "w", zipfile.ZIP_DEFLATED) as z:
+                z.writestr("cal_test12_carried_banner_abcdef_00000200.vram",
+                           bytes(tool.LEGACY_VRAM_BYTES))
+                z.writestr("flag_auto_crowd_flags_00000200.gpd", gpudump)
+                z.writestr("flag_auto_crowd_flags_00000199.gpd", gpudump)
+            result = tool.analyze_archive(source)
+            by_frame = {g["frame_if_encoded"]:g for g in result["gpu_dumps_inventory_only"]}
+            self.assertEqual(by_frame[200]["operator_phase"], "carried_banner")
+            self.assertEqual(by_frame[199]["operator_phase"], "unknown")
+            self.assertTrue(by_frame[200]["decoded_gp0"]["trace_begin_found"])
+            self.assertEqual(by_frame[200]["decoded_gp0"]["stage_touch_draw_count"], 1)
+            self.assertEqual(
+                result["operator_phase_coverage"]["carried_banner"]["stage_flag_draw_candidate_count"],
+                1,
+            )
+            self.assertEqual(
+                result["operator_phase_coverage"]["crowd_flags"]["same_frame_operator_tagged_gpu_dump_count"],
+                0,
+            )
+            self.assertFalse(
+                result["operator_phase_coverage"]["carried_banner"]["verified_gpu_draw_ownership"]
+            )
+
     def test_reject_unsafe_archive_and_duplicate_snapshot_name(self):
         with tempfile.TemporaryDirectory() as td:
             p = Path(td) / "bad.zip"
