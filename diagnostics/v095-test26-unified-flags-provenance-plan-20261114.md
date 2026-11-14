@@ -18,14 +18,14 @@ The flag types may share images or use different resources. Do not overwrite sha
 ## Implemented in the Test26 branch
 
 - New read-only Python tool: tools/analyze_flag_test26_unified.py
-- Synthetic regressions: tools/tests/test_analyze_flag_test26_unified.py
+- Synthetic regressions: tools/tests/test_analyze_flag_test26_unified.py and tools/tests/test_parse_v095_gpudump.py
 - Reads an Academy ZIP and emits hashes, VRAM coordinates, scene-label coverage and changes between captures, without exporting images, game graphics or RAM.
 - Scans **all 72 style cells** across the two separate 4x9 atlases. The existing Test12 analyzer only scanned styles 0–27.
 - Verified original selector layout: atlasX=(style<36?832:768)+16*(style%4), atlasY=256+28*((style%36)//4).
 - Reference cells: Cape Verde style1 (848,256); old Bosnia style10 (864,312); Test25 Bosnia style55 (816,368).
 - Samples 64x28 4bpp flags as 16x28 VRAM words, both pre-match staging rectangles (560,0) / (560,28), and 16-color CLUT candidate rows (0,505) / (224,506), plus 54 nation palettes.
 - Only considers a phase confirmed by an explicit operator tag or supplied phase manifest. A time-sampled event called crowd_flags is *not* proof of a spectator flag scene.
-- Inventories .gpd packets but does **not** yet decode GP0 draw commands. Atlas/staging equality is not a last-writer trace.
+- Decodes live .gpd packets after TraceBegin with tools/parse_v095_gpudump.py, enumerating textured polygon UV/tpage/CLUT, sample source coordinates, MoveImage and CPU-to-VRAM transfers. No automatic scene/flag classification; atlas/staging equality is not a last-writer trace.
 - Retains ZIP path/size/capture-count limits and checks for duplicate basenames.
 
 ## Running the source-only analyzer
@@ -36,9 +36,10 @@ On Windows, from a checked-out repository:
 
 Synthetic regression suite:
 
+    python -m unittest discover -s tools/tests -p "test_*v095_gpudump.py"
     python -m unittest discover -s tools/tests -p "test_analyze_flag_test26_unified.py"
 
-The November 14 Academy ZIP has been received, but the direct runtime file reader returned a service error. **No claim is made that the newly added script has run against that archive**. The file may also lack manually labelled crowd phases, which the analyzer will report honestly.
+The November 14 Academy ZIP has been received, but the direct runtime file reader returned a service error; no claim is made that the new scripts were run on real session files. **No claim is made that the newly added script has run against that archive**. The file may also lack manually labelled crowd phases, which the analyzer will report honestly.
 
 If existing Academy captures have unknown scene labels, make a manifest with exact VRAM basenames and operator-verified screen phases. Example:
 
