@@ -296,8 +296,20 @@ def build(track:Path,base:Path,archive:Path):
                 print("TARGET GEOMETRY:",name,"clean",clean_sig,"patched",new_sig,flush=True)
                 if clean_sig!=new_sig or not all(clean_sig.values()):
                     raise ValueError("Logical target GPU geometry differs or is absent")
+                original_routes=find_routes(original,base_hint)
+                print("CLEAN ROUTES:",name,json.dumps(original_routes),flush=True)
+                # Log the exact original and patched slice sizes, including
+                # short packets, before any compression attempt.
                 routes=find_routes(old,base_hint)
                 print("ROUTE PASS:",name,json.dumps(routes),flush=True)
+                key=lambda r:(r["flag"],tuple(r["fragment"]))
+                clean_by={key(r):r for r in original_routes}
+                if set(clean_by)!={key(r) for r in routes}:
+                    raise ValueError("Original vs patched fragment layout mismatch")
+                for r in routes:
+                    before=clean_by[key(r)]
+                    if r["decoded_bytes"]!=before["decoded_bytes"]:
+                        raise ValueError(f"{r['flag']} packet decoded length differs from clean ({before['decoded_bytes']} -> {r['decoded_bytes']}); original compressed packet may be damaged")
                 if len(palette_mapping)!=len(TARGETS):
                     continue
                 new,changes=rewrite_resource(old,routes,palette)
