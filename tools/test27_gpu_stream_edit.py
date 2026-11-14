@@ -11,7 +11,7 @@ import hashlib
 import math
 import struct
 from dataclasses import dataclass
-from v095_name_lz_codec import decode_stream, encode_stream
+from v095_name_lz_codec import decode_stream, encode_with_budget
 from test27_flag_art_4bpp import candidate, COLORS, pack_4bpp, bgr555
 
 TARGETS={"cape_verde":(848,256),"bosnia":(816,368)}
@@ -193,9 +193,11 @@ def rewrite_resource(blob:bytes,routes:list[dict],live_clut:bytes,*,require_clut
             changes.append({"flag":flag,"upload_index":uploads.index(u),
                 "old_tile_sha256":sha(actual),"new_tile_sha256":sha(art),
                 "vram_words":[*TARGETS[flag],16,28],"palette_mapping":colors})
-        packed=encode_stream(changed,expected_bytes=expected)
-        if len(packed)>len(original):
-            raise ValueError("Flag insertion exceeds existing GPU stream capacity; no relocation")
+        packed,method=encode_with_budget(changed,expected_bytes=expected,capacity=len(original))
+        for item in changes:
+            if item["upload_index"]==uploads.index(u):
+                item.update({"compression_method":method,"stream_capacity_bytes":len(original),
+                             "new_packed_bytes":len(packed)})
         output[u.start:stop]=packed+bytes(len(original)-len(packed))
         verified=decode_stream(bytes(output[u.start:stop]),expected_bytes=expected,max_padding=len(original))
         if verified!=changed:
