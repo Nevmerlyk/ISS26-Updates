@@ -1,0 +1,120 @@
+#!/usr/bin/env python3
+"""Synthetic test of actual resource rewriting and independent sector composition."""
+import io
+import struct
+import sys
+import unittest
+from pathlib import Path
+sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
+import test27_gpu_stream_edit as stream
+import test27_build_standalone_atlas_candidate as build
+from test27_flag_art_4bpp import bgr555,COLORS
+from v095_name_lz_codec import encode_stream,decode_stream
+from build_v095_test12_gdc_descriptor_repair import valid_parity
+
+def palette():
+    values=[0]+list(dict.fromkeys(bgr555(x) for flag in ("cape_verde","bosnia") for x in COLORS[flag][1:]))
+    return struct.pack("<16H",*(values+[0]*(16-len(values))))
+
+def resource(capacity=32768):
+    base=0x800F0000
+    w,h=64,140
+    raw=bytes([0x97])*(w*h*2)
+    packed=encode_stream(raw,expected_bytes=len(raw))
+    start=32
+    table=start+capacity
+    if len(packed)>capacity: raise ValueError("Fixture capacity")
+    blob=bytearray(table+32)
+    struct.pack_into("<I",blob,0,base+table)
+    blob[start:start+len(packed)]=packed
+    struct.pack_into("<HHHHHHI",blob,table,10,800,256,w,h,0,base+start)
+    struct.pack_into("<H",blob,table+16,255)
+    return bytes(blob),raw,table
+
+class Standalone(unittest.TestCase):
+    def test_rewrite_two_nations_roundtrip_preserves_neighbor_pixels(self):
+        blob,raw,table=resource()
+        routes=build.find_routes(blob)
+        self.assertEqual(len(routes),2)
+        result,changes=stream.rewrite_resource(blob,routes,palette(),require_clut_sha=False)
+        self.assertEqual(len(changes),2)
+        self.assertEqual(result[table:],blob[table:])
+        self.assertEqual(result[:32],blob[:32])
+        decoded=decode_stream(result[32:table],expected_bytes=len(raw),max_padding=table-32)
+        expected=raw
+        _,uploads=stream.parse_uploads(blob,0x800F0000,0)
+        for name,(x,y) in stream.TARGETS.items():
+            art,_=stream.mapped_art(name,palette())
+            expected=stream.change_tile(expected,uploads[0],x-800,y-256,art)
+        self.assertEqual(decoded,expected)
+        self.assertNotEqual(result,blob)
+    def test_wrong_hash_blocks_source_write(self):
+        blob,_,_=resource()
+        routes=build.find_routes(blob)
+        routes[0]["old_tile_sha256"]="0"*64
+        with self.assertRaisesRegex(ValueError,"pre-edit tile"):
+            stream.rewrite_resource(blob,routes,palette(),require_clut_sha=False)
+    def test_no_usable_palette_refuses_edit(self):
+        with self.assertRaisesRegex(ValueError,"No safe opaque"):
+            stream.mapped_art("bosnia",bytes(32))
+    def test_ambiguous_or_missing_gpu_upload_rejected(self):
+        blob,_,table=resource()
+        dup=bytearray(blob)
+        struct.pack_into("<H",dup,table+2,850)
+        with self.assertRaises(ValueError):
+            build.find_routes(bytes(dup))
+    def test_insufficient_stream_size_never_relocates_resource(self):
+        big,raw,_=resource()
+        capacity=len(encode_stream(raw,expected_bytes=len(raw)))
+        blob,_,_=resource(capacity)
+        routes=build.find_routes(blob)
+        with self.assertRaisesRegex(ValueError,"capacity"):
+            stream.rewrite_resource(blob,routes,palette(),require_clut_sha=False)
+    def test_style_collision_guard(self):
+        # Five real tables are checked by build(); unit check one complete map.
+        table=bytearray([20]*78)
+        table[0]=1
+        table[30]=55
+        table[54]=10
+        self.assertTrue(build.check_style_table(bytes(table))["bosnia_unique"])
+        table[55]=55
+        with self.assertRaisesRegex(ValueError,"collision"):
+            build.check_style_table(bytes(table))
+    def test_independent_xor_sector_add_and_preserve_tail(self):
+        original=bytearray(2352)
+        original[:12]=bytes.fromhex("00FFFFFFFFFFFFFFFFFFFF00")
+        original[15]=2
+        original[24:2072]=bytes([19])*2048
+        old=bytes([19])*80
+        new=bytes([21])*80
+        source=io.BytesIO(original)
+        records={}
+        changed=build.compose_resource(source,records,0,old,new)
+        self.assertEqual(changed,[0])
+        guard,mask=records[0]
+        self.assertEqual(guard.hex().upper(),stream.sha(original))
+        self.assertTrue(valid_parity(mask))
+        reconstructed=bytes(x^y for x,y in zip(original,mask))
+        self.assertEqual(reconstructed[24:104],new)
+        self.assertEqual(reconstructed[104:2072],original[104:2072])
+        self.assertEqual(reconstructed[:24],original[:24])
+        data=build.serialize(records)
+        self.assertEqual(build.records_from_patch(data,stream.sha(data),1),records)
+    def test_audio_and_non_target_records_unchanged_in_composition(self):
+        a=bytearray(2352)
+        a[:12]=bytes.fromhex("00FFFFFFFFFFFFFFFFFFFF00")
+        a[15]=2
+        a[24:2072]=bytes([21])*2048
+        # Second record stands in for a wholly unrelated previous patch sector.
+        source=io.BytesIO(a+a)
+        records={1:(b"q"*32,b"\x00"*2352)}
+        unchanged=records[1]
+        build.compose_resource(source,records,0,bytes([21])*80,bytes([4])*80)
+        self.assertEqual(records[1],unchanged)
+    def test_variable_size_lz_round_trip(self):
+        data=b"XYZ123"*183
+        self.assertEqual(decode_stream(encode_stream(data,expected_bytes=len(data)),
+                                       expected_bytes=len(data)),data)
+
+if __name__=="__main__":
+    unittest.main()
