@@ -58,3 +58,14 @@ An existing operator capture helper tools/Capture-ISS26-Test12.ps1 supports requ
 5. Generate a standalone clean-original ISS26X01 patch with Mode2 parity, preserving the 54 regular + 4 bonus national slots, 24 clubs, and untouched audio Tracks02–12. Validate the four surfaces and stadium/control-team variants before promoting game v0.9.5.
 
 No claims of a fully fixed flag or a completed gameplay regression are made by this research commit.
+
+## Incremental Test26 GP0 source-attribution implementation
+
+- tools/parse_v095_gpudump.py retains all observed live textured draw-group candidates whose UV bounding rectangle overlaps 16x56-word staging at (560,0), even if not in the top-200 frequency groups. Report fields: draw_groups_touching_560_0_16_56 and stage_touch_draw_count.
+- tools/analyze_flag_test26_unified.py joins a GPD to a scene only when its encoded emulator frame exactly equals an explicitly operator-labelled VRAM capture. Automated flag_auto_crowd_flags labels do not qualify.
+- Per-phase summary reports same_frame_operator_tagged_gpu_dump_count and stage_flag_draw_candidate_count; verified_gpu_draw_ownership remains false until actual screenshot context is confirmed.
+- Synthetic regression cases cover positive and negative frame matching, and a GP0(3Ch) textured quad whose 4bpp 560,0 source rectangle and (0,505) CLUT are identifiable.
+
+**Verification gate:** tests have been committed but have not been executed: the code execution container returns ClientError. The owner-provided Test25 archive has been materialized but has not been read. GitHub Actions has deliberately not been invoked to avoid unnecessary CI usage. PR stays draft.
+
+Stage draw overlap by itself does NOT prove that a visible flag was carried on the pitch or waved in the crowd. Genuine spectator-flag draw provenance requires an operator-verified crowd screenshot and animation-frame evidence.
