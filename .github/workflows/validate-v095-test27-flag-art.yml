@@ -2,10 +2,14 @@ name: Test27 - PS1 national flag 4bpp artwork research (no game patch)
 
 on:
   push:
-    branches: [feature/v095-test27-flag-artwork, feature/v095-test27-ram-stage-profiles, feature/v095-test27-real-art-visual-evidence]
+    branches: [feature/v095-test27-flag-artwork, feature/v095-test27-ram-stage-profiles, feature/v095-test27-real-art-visual-evidence, feature/v095-test27-live-flag-replacement]
     paths:
       - '.github/workflows/validate-v095-test27-flag-art.yml'
       - 'tools/test27_flag_art_4bpp.py'
+      - 'tools/test27_live_flag_replacement.py'
+      - 'tools/tests/test_test27_live_flag_replacement.py'
+      - 'tools/Run-ISS26-Test27-LiveFlagPreview.cmd'
+      - 'diagnostics/v095-test27-live-flag-replacement.md'
       - 'tools/test27_stage_writer_guard.py'
       - 'tools/test27_extract_real_flag_pixels.py'
       - 'tools/tests/test_test27_flag_art_4bpp.py'
@@ -94,6 +98,8 @@ jobs:
             throw 'Input verification and contact sheet report missing'
           }
           Write-Host 'PASS: Windows one-file private ZIP preview source syntax, sha pin, no stale helper'
+      - name: Test temporary VRAM replacement transaction and rollback
+        run: python -m unittest discover -s tools/tests -p 'test_test27_live_flag_replacement.py' -v
       - name: Build isolated 64x28 flag-art research bundle
         run: python tools/test27_flag_art_4bpp.py --output-dir build/Test27_FlagArt
       - name: Inspect art manifest and secure source separation

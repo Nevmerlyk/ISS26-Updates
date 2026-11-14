@@ -48,11 +48,13 @@ establish transparency or the national-flag design.
 
 ## Human visual review of the owner's actual images
 
-- **Cape Verde `cape_verde_source_clut.png`:** observed broad green
-  area with red vertical stripes in the bottom portion. It is
-  visually **not** Cabo Verde's blue field with white/red horizontal
-  bars and ten yellow stars. Since the stage is a pixel-perfect copy,
-  fixing a copy-height argument **cannot** correct the Cape art.
+- **Cape Verde `cape_verde_source_clut.png`:** observed a very dark field, white/light horizontal bars, a dark
+  middle bar and a ring of small red/dark points. The green/red panel is
+  the **index-difference visualization**, not the rendered artwork. The
+  source has some intended Cape Verde flag geometry but wrong displayed
+  colors; a palette/index assignment defect is plausible. Since the stage
+  is a pixel-perfect copy, changing copy height cannot repair that image.
+  The exact CLUT remapping has not been validated.
 - **Bosnia `bosnia_source_clut.png`:** observed red heraldic/crest
   graphics with decorative shapes, **not** Bosnia & Herzegovina's
   blue field, yellow triangle and diagonal white stars. This defect
@@ -68,7 +70,7 @@ establish transparency or the national-flag design.
   sampled CLUT; 4bpp silhouette/geometry is not repairable by color
   remapping alone.
 
-**Conclusion:** There are **two independent categories of defect**:
+**Conclusion (corrected review):** There are **two independent categories of defect**:
 (1) incorrect or misassigned national artwork/CLUT and
 (2) a Bosnia-only 12-row staging loss. Previous theories that copying
 the missing bottom 12 rows from unused style55 would fully fix the game
