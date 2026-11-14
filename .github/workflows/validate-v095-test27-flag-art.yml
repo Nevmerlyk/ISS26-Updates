@@ -2,10 +2,17 @@ name: Test27 - PS1 national flag 4bpp artwork research (no game patch)
 
 on:
   push:
-    branches: [feature/v095-test27-flag-artwork, feature/v095-test27-ram-stage-profiles, feature/v095-test27-real-art-visual-evidence, feature/v095-test27-live-flag-replacement]
+    branches: [feature/v095-test27-flag-artwork, feature/v095-test27-ram-stage-profiles, feature/v095-test27-real-art-visual-evidence, feature/v095-test27-live-flag-replacement, feature/v095-test27-standalone-patch-builder]
     paths:
       - '.github/workflows/validate-v095-test27-flag-art.yml'
       - 'tools/test27_flag_art_4bpp.py'
+      - 'tools/test27_gpu_stream_edit.py'
+      - 'tools/test27_build_standalone_atlas_candidate.py'
+      - 'tools/v095_name_lz_codec.py'
+      - 'tools/tests/test_test27_standalone_atlas_candidate.py'
+      - 'tools/Build-ISS26-Test27-StandaloneArt.cmd'
+      - 'tools/Build-ISS26-Test27-StandaloneArt.ps1'
+      - 'diagnostics/v095-test27-standalone-atlas-builder.md'
       - 'tools/test27_live_flag_replacement.py'
       - 'tools/tests/test_test27_live_flag_replacement.py'
       - 'tools/Run-ISS26-Test27-LiveFlagPreview.cmd'
@@ -100,6 +107,8 @@ jobs:
           Write-Host 'PASS: Windows one-file private ZIP preview source syntax, sha pin, no stale helper'
       - name: Test temporary VRAM replacement transaction and rollback
         run: python -m unittest discover -s tools/tests -p 'test_test27_live_flag_replacement.py' -v
+      - name: Verify real source-art editing and independent sector composition on synthetic inputs
+        run: python -m unittest discover -s tools/tests -p 'test_test27_standalone_atlas_candidate.py' -v
       - name: Build isolated 64x28 flag-art research bundle
         run: python tools/test27_flag_art_4bpp.py --output-dir build/Test27_FlagArt
       - name: Inspect art manifest and secure source separation
