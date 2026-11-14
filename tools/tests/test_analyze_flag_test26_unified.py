@@ -95,6 +95,24 @@ class Test26UnifiedFlagProvenance(unittest.TestCase):
             self.assertFalse(result["operator_phase_coverage"]["carried_banner"]
                              ["verified_gpu_draw_ownership"])
 
+    def test_compact_summary_preserves_provenance_limits(self):
+        with tempfile.TemporaryDirectory() as td:
+            path = Path(td) / "synthetic.zip"
+            make_two_phase_archive(path)
+            whole = tool.analyze_archive(path)
+            brief = tool.compact_summary(whole)
+            self.assertEqual(brief["capture_count"], 2)
+            self.assertEqual(brief["gpu_trace_decoded_count"], 1)
+            self.assertEqual(brief["gpu_traces"][0]["textured_draw_count"], 1)
+            self.assertIn("0,505", brief["gpu_traces"][0]
+                          ["staging_candidate_clut_counts"])
+            self.assertEqual(brief["phases_operator_verified"]["carried_banner"], 1)
+            self.assertTrue(brief["atlas_transitions"][0]["changed_style55"])
+            self.assertEqual(brief["captures"][0]["home_exact_style_ids"], [1])
+            self.assertEqual(brief["captures"][0]["away_exact_style_ids"], [55])
+            self.assertNotIn("style_sha256", brief["captures"][0])
+            self.assertIn("not proof", brief["warning"])
+
     def test_crowd_phase_requires_human_label_and_does_not_claim_gpu_source(self):
         with tempfile.TemporaryDirectory() as td:
             root = Path(td)
