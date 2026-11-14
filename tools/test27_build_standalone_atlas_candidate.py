@@ -14,6 +14,7 @@ or full-game visual acceptance. Do not promote the result to stable.
 from __future__ import annotations
 import argparse
 import hashlib
+import math
 import json
 from pathlib import Path
 import re
@@ -87,6 +88,67 @@ def check_tables(source,records):
         out.append(check_style_table(patched[pos:pos+78]))
     return out
 
+class PatchedDiscView:
+    """Read-only virtual raw-sector view for ISO9660 directory traversal."""
+    def __init__(self,source,records):
+        self.source=source
+        self.records=records
+    def seek(self,offset,whence=0):
+        return self.source.seek(offset,whence)
+    def read(self,n):
+        at=self.source.tell()
+        if n!=SECTOR or at%SECTOR:
+            raise ValueError("Unexpected non-sector catalog read")
+        return patched_sector(self.source,at//SECTOR,self.records)[1]
+
+
+def physical_resource_size(clean_catalog,patched_catalog,name,records):
+    """Never cross a different ISO extent. Recover sector padding only where
+    an existing authentic patch explicitly modifies it. No new allocation."""
+    lba,size=patched_catalog[name]
+    clean_lba,clean_size=clean_catalog[name]
+    if lba!=clean_lba:
+        raise ValueError("Resource extent moved; no verified relocation model")
+    following=min((at for at,_ in clean_catalog.values() if at>lba),default=lba+math.ceil(size/2048))
+    following=min(following,min((at for at,_ in patched_catalog.values() if at>lba),default=following))
+    limit=(following-lba)*2048
+    if max(size,clean_size)>limit:
+        raise ValueError("Directory resource overlaps following extent")
+    # The game can read sector-rounded data. Old repacks can occupy an
+    # already patched tail beyond the logical ISO length. Include it
+    # only up to the next known file and only through actual patch records.
+    highest=max((i for i in records if lba<=i<following),default=lba-1)
+    physical=max(math.ceil(size/2048)*2048,(highest-lba+1)*2048)
+    if not 0<physical<=min(limit,1024*1024):
+        raise ValueError("Unsafe physical resource allocation")
+    return lba,size,physical
+
+
+def canonical_lists(blob,base):
+    from test27_gpu_stream_edit import parse_uploads
+    found={}
+    for slot in range(0,min(32,len(blob)-3),4):
+        try:
+            table,rows=parse_uploads(blob,base,slot)
+        except ValueError:
+            continue
+        found.setdefault((base,table),(slot,rows))
+    return found
+
+
+def target_signature(blob,base):
+    """List of logical block geometry per target, ignoring stream/table offsets."""
+    result={}
+    for flag,(x,y) in TARGETS.items():
+        matches={}
+        for (b,table),(slot,rows) in canonical_lists(blob,base).items():
+            for i,u in enumerate(rows):
+                if u.x<x+16 and u.x+u.w>x and u.y<y+28 and u.y+u.h>y:
+                    matches[u.offset]=(u.kind&255,u.x,u.y,u.w,u.h)
+        result[flag]=sorted(matches.values())
+    return result
+
+
 def original_resources(catalog):
     names=["BIN/DATSEL.BIN","BIN/DATSEL3.BIN"]
     gdc=sorted(k for k in catalog if re.fullmatch(r"BIN/GDC_[A-Z0-9]+\.BIN",k))
@@ -104,8 +166,8 @@ def read_resource(source,records,lba,size):
         rows.append(patched)
     return b"".join(r[24:2072] for r in rows)[:size]
 
-def find_routes(blob):
-    possible=discover_upload_lists(blob)
+def find_routes(blob,base_hint=None):
+    possible=canonical_lists(blob,base_hint) if base_hint is not None else discover_upload_lists(blob)
     if not possible:
         raise ValueError("No structurally valid GPU list (header words: "+
                          " ".join(f"{v:08X}" for v in struct.unpack_from("<8I",blob)) + ")")
@@ -197,21 +259,27 @@ def build(track:Path,base:Path,archive:Path):
         tables=check_tables(source,records)
         print("PASS: five national/club style tables",flush=True)
         catalog=directory_files(source)
+        patched_catalog=directory_files(PatchedDiscView(source,records))
         names=original_resources(catalog)
+        if original_resources(patched_catalog)!=names:
+            raise ValueError("Patched catalog missing a graphics resource")
         for name in names:
-            lba,size=catalog[name]
-            old=read_resource(source,records,lba,size)
             try:
-                # Exact clean/patched table comparison; never infer a new
-                # layout from corrupt patched bytes alone.
-                original=read_resource(source,{},lba,size)
-                clean_lists=discover_upload_lists(original)
-                patched_lists=discover_upload_lists(old)
-                print("GPU LISTS:",name,"clean",[(hex(b),t,len(rows)) for (b,t),(_,rows) in clean_lists.items()],
+                lba,size,physical=physical_resource_size(catalog,patched_catalog,name,records)
+                original=read_resource(source,{},lba,catalog[name][1])
+                old=read_resource(source,records,lba,physical)
+                base_hint=0x800C8000 if "/GDC_" in name else 0x800F0000
+                clean_lists=canonical_lists(original,base_hint)
+                patched_lists=canonical_lists(old,base_hint)
+                print("GPU LISTS:",name,"logical",catalog[name][1],size,"physical",physical,
+                      "clean",[(hex(b),t,len(rows)) for (b,t),(_,rows) in clean_lists.items()],
                       "patched",[(hex(b),t,len(rows)) for (b,t),(_,rows) in patched_lists.items()],flush=True)
-                if clean_lists!=patched_lists:
-                    raise ValueError("Clean vs Test25 GPU descriptors differ; refusing unverified resource")
-                routes=find_routes(old)
+                clean_sig=target_signature(original,base_hint)
+                new_sig=target_signature(old,base_hint)
+                print("TARGET GEOMETRY:",name,"clean",clean_sig,"patched",new_sig,flush=True)
+                if clean_sig!=new_sig or not all(clean_sig.values()):
+                    raise ValueError("Logical target GPU geometry differs or is absent")
+                routes=find_routes(old,base_hint)
                 print("ROUTE PASS:",name,json.dumps(routes),flush=True)
                 if len(palette_mapping)!=len(TARGETS):
                     continue
@@ -244,6 +312,8 @@ def build(track:Path,base:Path,archive:Path):
             raise AssertionError("Unrelated baseline patch record changed")
         if check_tables(source,records)!=tables:
             raise AssertionError("Style tables mutated during graphics edit")
+        if directory_files(PatchedDiscView(source,records))!=patched_catalog:
+            raise AssertionError("ISO catalog changed during composition")
     blob=serialize(records)
     return blob,{"schemaVersion":1,"kind":"EXPERIMENTAL standalone Test27 SOURCE ART candidate ONLY",
         "clean_track_sha256":CLEAN_SHA,"base_test25_sha256":TEST25_SHA,
