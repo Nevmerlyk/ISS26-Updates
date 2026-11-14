@@ -18,8 +18,8 @@ param(
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
 
-# Pinned source commit: successful Test26 GitHub Actions run 43609346940.
-$Ref = '874adfafde2f47433e379937355efcfefb8defe9'
+# Pinned source commit: successful Test26 GitHub Actions run 43613107317.
+$Ref = 'd0187df9ffaf161bee3d9c2ed2627a9b37c39ba8'
 $ApiRoot = 'https://raw.githubusercontent.com/Nevmerlyk/ISS26-Updates/'
 $Scripts = @(
   'analyze_flag_test12_phases.py',
@@ -86,12 +86,14 @@ try {
 
     $stem = [IO.Path]::GetFileNameWithoutExtension($Archive)
     $output = Join-Path $OutputDir ($stem + '_Test26_Unified.json')
+    $summary = Join-Path $OutputDir ($stem + '_Test26_Compact.json')
     Write-Host 'ISS26 Test26: read-only unified national flag research' -ForegroundColor Cyan
     Write-Host ('ZIP SHA256: ' + $ArchiveHash)
     Write-Host 'Decoding 72 flag styles, candidate draw CLUT/UV and operator-tagged scenes...'
-    & $pythonExe @pythonPrefix (Join-Path $scratch 'analyze_flag_test26_unified.py') $Archive --output $output
+    & $pythonExe @pythonPrefix (Join-Path $scratch 'analyze_flag_test26_unified.py') $Archive --output $output --summary-output $summary
     Check ($LASTEXITCODE -eq 0) 'Test26 analyzer failed. The ZIP remains unchanged.'
-    Check (Test-Path -LiteralPath $output -PathType Leaf) 'Analyzer did not create JSON'
+    Check (Test-Path -LiteralPath $output -PathType Leaf) 'Analyzer did not create full JSON'
+    Check (Test-Path -LiteralPath $summary -PathType Leaf) 'Analyzer did not create compact JSON'
     $data = Get-Content -LiteralPath $output -Raw -Encoding UTF8 | ConvertFrom-Json
     $meta = [PSCustomObject]@{
         SchemaVersion = 1
@@ -103,15 +105,17 @@ try {
         GPUTraces = [int]$data.gpu_trace_count
         DecodedGPUTraces = [int]$data.gpu_trace_decoded_count
         Report = [IO.Path]::GetFileName($output)
+        CompactReport = [IO.Path]::GetFileName($summary)
         GamePatchChanged = $false
         OriginalBinCueChanged = $false
     }
     $manifest = Join-Path $OutputDir ($stem + '_Test26_AuditManifest.json')
     $meta | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath $manifest -Encoding UTF8
     Write-Host 'PASS: static research report generated' -ForegroundColor Green
-    Write-Host ('JSON: ' + $output)
+    Write-Host ('Full JSON: ' + $output)
+    Write-Host ('Compact JSON: ' + $summary)
     Write-Host ('Manifest: ' + $manifest)
-    Write-Host 'No game patches were modified. For source attribution, share both JSON files.'
+    Write-Host 'No game patches were modified. For quick triage, share the Compact JSON and AuditManifest.'
 }
 catch {
     Write-Host ('ERROR: ' + $_.Exception.Message) -ForegroundColor Red
