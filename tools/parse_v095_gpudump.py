@@ -123,6 +123,7 @@ class GP0Inspector:
         self.moves = 0
         self.unparsed = Counter()
         self.draw_groups: Counter[tuple] = Counter()
+        self.stage_draw_groups: Counter[tuple] = Counter()
         self.transfer_groups: Counter[tuple] = Counter()
 
     def feed(self, words):
@@ -178,8 +179,17 @@ class GP0Inspector:
             depth = page["depth"]
         else:
             src, page_xy, depth = (-1, -1), (-1, -1), -1
-        self.draw_groups[(kind, opcode, page_xy[0], page_xy[1], depth,
-                          *clut_xy(raw_clut), *src, *bounds, self.frame)] += 1
+        key = (kind, opcode, page_xy[0], page_xy[1], depth,
+               *clut_xy(raw_clut), *src, *bounds, self.frame)
+        self.draw_groups[key] += 1
+        # A 4bpp draw's UV bounding rectangle is a conservative candidate,
+        # not proof of a visible flag. Keep these even if they miss top 200.
+        if depth == 0:
+            x0 = page_xy[0] + bounds[0] // 4
+            x1 = page_xy[0] + bounds[2] // 4
+            y0, y1 = page_xy[1] + bounds[1], page_xy[1] + bounds[3]
+            if x0 <= 575 and x1 >= 560 and y0 <= 55 and y1 >= 0:
+                self.stage_draw_groups[key] += 1
         self.draw_count += 1
         if len(self.draw_groups) > MAX_GROUPS:
             raise ValueError("Excessive textured GPU primitive groups")
@@ -220,8 +230,19 @@ class GP0Inspector:
                 "clut_xy_words": [cx,cy], "source_min_xy_words": [sx,sy],
                 "uv_bounds_pixels": [u0,v0,u1,v1], "count": count,
             })
+        stage_draws = []
+        for fields, count in self.stage_draw_groups.most_common(100):
+            kind, opcode, page_x, page_y, depth, cx, cy, sx, sy, u0,v0,u1,v1,frame = fields
+            stage_draws.append({
+                "primitive": kind, "opcode": f"0x{opcode:02X}", "relative_frame": frame,
+                "tpage_xy_words": [page_x,page_y], "clut_xy_words":[cx,cy],
+                "source_min_xy_words":[sx,sy], "uv_bounds_pixels":[u0,v0,u1,v1],
+                "count":count,
+            })
         return {
             "textured_primitive_count": self.draw_count,
+            "draw_groups_touching_560_0_16_56": stage_draws,
+            "stage_touch_draw_count": sum(self.stage_draw_groups.values()),
             "cpu_to_vram_uploads": self.images, "vram_to_vram_moves": self.moves,
             "unrecognized_command_counts": dict(self.unparsed),
             "incomplete_gp0_words": len(self.pending),
