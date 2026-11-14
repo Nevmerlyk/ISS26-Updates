@@ -26,7 +26,10 @@ ISS_ATTRIBUTES = (
 )
 EXTRA_FIELDS = (
     "iss_aggressive_experimental", "iss_outside_foot",
-    "fm26_unique_id", "fm26_age", "fm26_height_cm", "fm26_preferred_foot",
+    "fm26_unique_id", "fm26_age", "fm26_height_cm", "fm26_weight_kg",
+    "fm26_left_foot", "fm26_right_foot", "fm26_preferred_foot",
+    "fm26_current_ability", "fm26_potential_ability",
+    "fm26_natural_positions", "fm26_nationality", "fm26_club_at_export",
     "fm26_match_name", "fm26_match_status", "fm26_converted_count",
     "fm26_origin", "fm26_database_version",
 )
@@ -240,7 +243,21 @@ def merge(roster_path: Path, output_path: Path,
         row["fm26_unique_id"] = named_value(fm, *ID_KEYS)
         row["fm26_age"] = named_value(fm, "age")
         row["fm26_height_cm"] = named_value(fm, "height_cm", "height", "height cm")
+        row["fm26_weight_kg"] = named_value(fm, "weight_kg", "weight", "weight kg")
+        row["fm26_left_foot"] = named_value(fm, "left_foot", "left foot")
+        row["fm26_right_foot"] = named_value(fm, "right_foot", "right foot")
         row["fm26_preferred_foot"] = named_value(fm, "preferred foot", "preferred_foot")
+        if not row["fm26_preferred_foot"]:
+            try:
+                left, right = float(row["fm26_left_foot"]), float(row["fm26_right_foot"])
+                row["fm26_preferred_foot"] = "L" if left > right else ("R" if right > left else "Either")
+            except ValueError:
+                pass
+        row["fm26_current_ability"] = named_value(fm, "ability_current", "ca", "current ability")
+        row["fm26_potential_ability"] = named_value(fm, "ability_potential", "pa", "potential ability")
+        row["fm26_natural_positions"] = named_value(fm, "natural_positions", "positions")
+        row["fm26_nationality"] = named_value(fm, "nation_id", "nationality", "nation")
+        row["fm26_club_at_export"] = named_value(fm, "club_name", "club")
         row["fm26_match_name"] = named_value(fm, *NAME_KEYS)
         row["fm26_origin"] = "REAL_FM26_CSV_EXPORT"
         number_done = sum(bool(row[a]) for a in ISS_ATTRIBUTES)
