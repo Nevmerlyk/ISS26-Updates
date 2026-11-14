@@ -1,0 +1,85 @@
+name: Test27 - PS1 national flag 4bpp artwork research (no game patch)
+
+on:
+  push:
+    branches: [feature/v095-test27-flag-artwork]
+    paths:
+      - '.github/workflows/validate-v095-test27-flag-art.yml'
+      - 'tools/test27_flag_art_4bpp.py'
+      - 'tools/test27_stage_writer_guard.py'
+      - 'tools/test27_extract_real_flag_pixels.py'
+      - 'tools/tests/test_test27_flag_art_4bpp.py'
+      - 'tools/tests/test_test27_stage_writer_guard.py'
+      - 'tools/tests/test_test27_extract_real_flag_pixels.py'
+      - 'tools/test27_analyze_stage_writer.py'
+      - 'tools/tests/test_test27_analyze_stage_writer.py'
+      - 'diagnostics/v095-test27-stage3-source-art-and-staging-plan-20261114.md'
+      - 'tools/Build-ISS26-Academy-Test27-MIPS-Preview-Local.ps1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-flag-art-research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile all new Test27 Python modules
+        run: |
+          python -m py_compile tools/test27_flag_art_4bpp.py tools/test27_stage_writer_guard.py tools/test27_extract_real_flag_pixels.py
+          python -m py_compile tools/tests/test_test27_flag_art_4bpp.py tools/tests/test_test27_stage_writer_guard.py tools/tests/test_test27_extract_real_flag_pixels.py
+          python -m py_compile tools/test27_analyze_stage_writer.py tools/tests/test_test27_analyze_stage_writer.py
+      - name: Validate PS1 4bpp flags and 12-row-mask regression
+        run: python -m unittest discover -s tools/tests -p 'test_test27_flag_art_4bpp.py' -v
+      - name: Validate four MIPS wrappers and five original style-map guards
+        run: python -m unittest discover -s tools/tests -p 'test_test27_stage_writer_guard.py' -v
+      - name: Validate existing owner ZIP pixel/CLUT extractor with synthetic VRAM
+        run: python -m unittest discover -s tools/tests -p 'test_test27_extract_real_flag_pixels.py' -v
+      - name: Validate MIPS staged 16-row copy anomaly forensic classifier
+        run: python -m unittest discover -s tools/tests -p 'test_test27_analyze_stage_writer.py' -v
+      - name: Parse and policy-check Test27 private Academy local preview builder
+        shell: pwsh
+        run: |
+          $path = (Resolve-Path 'tools/Build-ISS26-Academy-Test27-MIPS-Preview-Local.ps1').Path
+          $tokens = $null
+          $errors = $null
+          [System.Management.Automation.Language.Parser]::ParseFile($path,[ref]$tokens,[ref]$errors) | Out-Null
+          if ($errors.Count -ne 0) { throw "Test27 PowerShell syntax errors: $($errors -join '; ')" }
+          $src = Get-Content -LiteralPath $path -Raw
+          if (-not $src.Contains('c157c8d91bf7ed5678d913c4bc0014c709e8da95')) {
+            throw "Academy preview source pin changed"
+          }
+          if (-not $src.Contains('previewNotStable = $true')) { throw "Preview-only gate missing" }
+          if ($src -match 'gh release create|Invoke-RestMethod.*PATCH') { throw "Unsafe publish action in local builder" }
+          Write-Host 'PASS: syntax and source/preview safety gate'
+
+      - name: Build isolated 64x28 flag-art research bundle
+        run: python tools/test27_flag_art_4bpp.py --output-dir build/Test27_FlagArt
+      - name: Inspect art manifest and secure source separation
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          data=json.loads(Path('build/Test27_FlagArt/test27_manifest.json').read_text())
+          assert data['can_install_into_game'] is False
+          assert data['source_disc_modified'] is False
+          assert data['game_update_feed_modified'] is False
+          assert len(data['flags'])==2 and data['tile_bytes']==896
+          stable=json.loads(Path('stable/latest.json').read_text())
+          test=json.loads(Path('test/latest.json').read_text())
+          assert stable['latest']['version']=='0.9.4'
+          assert test['latest']['version']=='0.9.5-largeflag-source-test13'
+          print('PASS: research flag assets only, feeds unchanged')
+          PY
+      - name: Upload Test27 candidate art and CLUT for visual review only
+        uses: actions/upload-artifact@v4
+        with:
+          name: ISS26-Test27-FlagArt-Research
+          path: build/Test27_FlagArt/
+          if-no-files-found: error
+          retention-days: 7
