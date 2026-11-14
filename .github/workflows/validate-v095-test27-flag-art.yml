@@ -10,6 +10,10 @@ on:
       - 'tools/test27_build_standalone_atlas_candidate.py'
       - 'tools/test27_build_clean_graphics_recovery.py'
       - 'tools/test28_restore_selection_assets.py'
+      - 'tools/test28_stage3_resources.py'
+      - 'tools/tests/test_test28_stage3_resources.py'
+      - 'tools/Build-ISS26-Test28-Stage3.ps1'
+      - 'tools/Build-ISS26-Test28-Stage3.cmd'
       - 'tools/tests/test_test28_restore_selection_assets.py'
       - 'tools/Build-ISS26-Test28-Selection.ps1'
       - 'tools/Build-ISS26-Test28-Selection.cmd'
@@ -164,6 +168,18 @@ jobs:
           $script=Get-Content -Raw 'tools/Build-ISS26-Test28-Selection.ps1'
           $cmd=Get-Content -Raw 'tools/Build-ISS26-Test28-Selection.cmd'
           if (-not $script.Contains('3cabb8baad9806c4e782fa8310ad6e7db38a2221') -or -not $cmd.Contains('32520b64b3101df8f8cda3a007febbec3cb129c5')) { throw 'Wrong Test28 source pin' }
+      - name: Validate identical overlapping writers in combined stage3
+        run: python -m unittest discover -s tools/tests -p 'test_test28_stage3_resources.py' -v
+      - name: Validate combined stage3 runner
+        shell: pwsh
+        run: |
+          $tokens=$null
+          $errors=$null
+          [System.Management.Automation.Language.Parser]::ParseFile((Resolve-Path 'tools/Build-ISS26-Test28-Stage3.ps1').Path,[ref]$tokens,[ref]$errors) | Out-Null
+          if ($errors.Count) { throw ($errors -join '; ') }
+          $ps=Get-Content -Raw 'tools/Build-ISS26-Test28-Stage3.ps1'
+          $cmd=Get-Content -Raw 'tools/Build-ISS26-Test28-Stage3.cmd'
+          if (-not $ps.Contains('7a0d234e3dd3392ee3132e348b7b5c78865ff00d') -or -not $cmd.Contains('98d38eefd2e6aded9b89a546d25807d0ecd64da6')) { throw 'Wrong stage3 pin' }
       - name: Build isolated 64x28 flag-art research bundle
         run: python tools/test27_flag_art_4bpp.py --output-dir build/Test27_FlagArt
       - name: Inspect art manifest and secure source separation
