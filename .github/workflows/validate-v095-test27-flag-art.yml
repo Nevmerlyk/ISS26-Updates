@@ -8,6 +8,8 @@ on:
       - 'tools/test27_flag_art_4bpp.py'
       - 'tools/test27_gpu_stream_edit.py'
       - 'tools/test27_build_standalone_atlas_candidate.py'
+      - 'tools/test27_build_clean_graphics_recovery.py'
+      - 'tools/tests/test_test27_clean_graphics_recovery.py'
       - 'tools/v095_name_lz_codec.py'
       - 'tools/tests/test_test27_standalone_atlas_candidate.py'
       - 'tools/Build-ISS26-Test27-StandaloneArt.cmd'
@@ -111,6 +113,8 @@ jobs:
         run: python -m unittest discover -s tools/tests -p 'test_test27_live_flag_replacement.py' -v
       - name: Verify real source-art editing and independent sector composition on synthetic inputs
         run: python -m unittest discover -s tools/tests -p 'test_test27_standalone_atlas_candidate.py' -v
+      - name: Validate clean Form1 graphics recovery and donor retention
+        run: python -m unittest discover -s tools/tests -p 'test_test27_clean_graphics_recovery.py' -v
       - name: Verify static MIPS stage-code context and exact overlay guards
         run: python -m unittest discover -s tools/tests -p 'test_test27_stage_code_audit.py' -v
       - name: Verify local standalone-art builder launch scripts and pinned source
