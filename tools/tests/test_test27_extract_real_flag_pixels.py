@@ -2,6 +2,7 @@
 """Test27 screenshot/CLUT extractor tests on synthetic VRAM only."""
 from __future__ import annotations
 import struct
+import zlib
 import sys
 import tempfile
 import unittest
@@ -52,12 +53,47 @@ class RealFlagPixelsTests(unittest.TestCase):
                              ["pixel_index_differences"]["source_nonzero_stage_zero"],0)
             self.assertFalse(result["flags"]["cape_verde"]["diff"]
                              ["is_contiguous_bottom_12_row_mask"])
-            self.assertEqual(len(list(output.glob("*.png"))),10)
+            self.assertEqual(len(list(output.glob("*.png"))),11)
             self.assertEqual(len(list(output.glob("*.json"))),1)
             self.assertTrue((output/"bosnia_source_stage_diff.png").read_bytes()
                             .startswith(b"\x89PNG\r\n\x1a\n"))
             self.assertFalse(result["source_disc_modified"])
             self.assertFalse(result["update_feed_changed"])
+
+    def test_single_sheet_has_real_png_and_accurate_bosnia_mask_colors(self):
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            source = root / "source.zip"
+            self.make_zip(source)
+            output = root / "out"
+            report = real.inspect_archive(source, output, required_sha=None)
+            sheet = (output / report["comparison_sheet_file"]).read_bytes()
+            self.assertTrue(sheet.startswith(b"\x89PNG\r\n\x1a\n"))
+            self.assertEqual(struct.unpack_from(">II", sheet, 16), (1536, 448))
+            chunks = []
+            at = 8
+            while at < len(sheet):
+                length = struct.unpack_from(">I", sheet, at)[0]
+                kind = sheet[at+4:at+8]
+                body = sheet[at+8:at+8+length]
+                if kind == b"IDAT":
+                    chunks.append(body)
+                at += 12 + length
+                if kind == b"IEND":
+                    break
+            pixels = zlib.decompress(b"".join(chunks))
+            stride = 1536*3 + 1
+            # Bosnia row 16 starts in the second 28-row panel. Its stage
+            # zero value is rendered as magenta and the delta as red.
+            y = (28+16)*8
+            self.assertEqual(pixels[y*stride], 0)
+            def rgb(x):
+                at = y*stride + 1 + x*3
+                return tuple(pixels[at:at+3])
+            self.assertEqual(rgb(64*8), (255, 0, 255))
+            self.assertEqual(rgb(128*8), (244, 63, 67))
+            self.assertEqual(report["comparison_sheet_rows"], ["cape_verde", "bosnia"])
+            self.assertFalse(report["game_patch_built"])
 
     def test_clut_decodes_actual_little_endian_bgr555(self):
         # 0x7c00 = blue 255; 0x001f = red 255; 0x03e0 = green 255.

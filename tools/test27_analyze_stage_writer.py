@@ -86,6 +86,34 @@ def _parse_line(row: str) -> tuple[str, dict] | None:
                       "height_rows": _integer(kv["h"], "height", 1, 512),
                       "ram_ptr": kv["RAM"],
                       "pc": kv["PC"], "ra": kv["RA"]}
+    if kind == "STAGE_RAM_PROFILE":
+        if len(fields) != 9 or fields[2] not in (
+            "before-StoreImage", "after-StoreImage",
+            "before-LoadImage", "after-LoadImage"
+        ):
+            raise TraceError("Malformed stage RAM profile")
+        kv = _kv(fields[3:])
+        required = {"home_top", "home_bottom", "away_top", "away_bottom", "PC", "RA"}
+        if set(kv) != required:
+            raise TraceError("Stage RAM profile missing or unknown fields")
+        counts = {
+            key: _integer(kv[key], key, 0, 256 if key.endswith("_top") else 192)
+            for key in ("home_top", "home_bottom", "away_top", "away_bottom")
+        }
+        for label in ("PC", "RA"):
+            if len(kv[label]) != 8 or any(x not in "0123456789abcdefABCDEF" for x in kv[label]):
+                raise TraceError("Bad hexadecimal CPU context")
+        return kind, {"frame": frame, "event": fields[2], **counts,
+                      "pc": kv["PC"], "ra": kv["RA"]}
+    if kind == "STAGE_RAM_PROFILE_FINAL":
+        if len(fields) != 4:
+            raise TraceError("Malformed RAM profile summary")
+        kv = _kv(fields[2:])
+        if set(kv) != {"profiles", "errors"}:
+            raise TraceError("RAM summary missing or extra fields")
+        return kind, {"frame": frame,
+                      "profiles": _integer(kv["profiles"], "profile count", 0, 32),
+                      "errors": _integer(kv["errors"], "error count", 0, 1_000_000)}
     if kind == "STAGE_RECT_FINAL":
         if len(fields) != 4:
             raise TraceError("Bad final stage telemetry")
@@ -104,6 +132,7 @@ def analyze_text(text: str) -> dict:
     if len(lines) > MAX_ROWS:
         raise TraceError("Too many provenance rows")
     moves, anomalies, transfers, finals = [], [], [], []
+    profiles, profile_finals = [], []
     for row in lines:
         parsed = _parse_line(row)
         if parsed is None:
@@ -117,6 +146,10 @@ def analyze_text(text: str) -> dict:
             transfers.append(data)
         elif kind == "STAGE_RECT_FINAL":
             finals.append(data)
+        elif kind == "STAGE_RAM_PROFILE":
+            profiles.append(data)
+        elif kind == "STAGE_RAM_PROFILE_FINAL":
+            profile_finals.append(data)
     away55 = [m for m in moves if m["side"] == "away" and m["style"] == 55]
     short55 = [m for m in away55 if m["width_words"] == 16
                and m["height_rows"] < 28]
@@ -124,6 +157,41 @@ def analyze_text(text: str) -> dict:
     off55 = [m for m in away55 if not m["expected_geometry"]]
     store_load_short = [t for t in transfers if t["width_words"] == 16
                         and t["height_rows"] < 28]
+    # Each after-return sample is paired only with the preceding before-call
+    # profile of the *same* GPU operation, in the order they were logged.
+    # This is temporal evidence, never proof DMA completion or CPU writer.
+    pending: dict[str, dict | None] = {"StoreImage": None, "LoadImage": None}
+    pairs = []
+    for item in profiles:
+        event = item["event"]
+        phase, op = event.split("-", 1)
+        if phase == "before":
+            pending[op] = item
+        else:
+            old = pending[op]
+            pending[op] = None
+            if old is None:
+                continue
+            differences = {
+                key: item[key] - old[key]
+                for key in ("home_top", "home_bottom", "away_top", "away_bottom")
+            }
+            pairs.append({
+                "operation": op,
+                "before_frame": old["frame"],
+                "after_frame": item["frame"],
+                "nonzero_word_deltas": differences,
+                "away_bottom_dropped_to_zero": (
+                    old["away_bottom"] > 0 and item["away_bottom"] == 0
+                ),
+                "away_16_row_mask_present_after": (
+                    item["away_top"] > 0 and item["away_bottom"] == 0
+                ),
+            })
+    profiles_with_blank_bottom = [
+        item for item in profiles
+        if item["away_top"] > 0 and item["away_bottom"] == 0
+    ]
     if short55:
         verdict = "Observed sub-28-row MoveImage for away style55 (not yet causal proof)"
     elif full55:
@@ -146,8 +214,22 @@ def analyze_text(text: str) -> dict:
         "away_style55_full_count": len(full55),
         "away_style55_other_shape_count": len(off55),
         "store_load_short_rect_count": len(store_load_short),
+        "stage_ram_profile_count": len(profiles),
+        "stage_ram_16_row_mask_observations": len(profiles_with_blank_bottom),
+        "stage_ram_paired_call_count": len(pairs),
+        "stage_ram_bottom_loss_pairs": sum(
+            bool(p["away_bottom_dropped_to_zero"]) for p in pairs
+        ),
+        "stage_ram_profile_pairs": pairs[:16],
+        "stage_ram_profiles": profiles[:32],
+        "stage_ram_profile_final": profile_finals[-1] if profile_finals else None,
         "verdict": verdict,
         "writer_causality_proven": False,
+        "ram_profile_interpretation": (
+            "RAM top/bottom counts are observations at hooks, not a guarantee "
+            "that an asynchronous GPU transfer completed before the hook. "
+            "Only VRAM+GP0 timeline can prove the final texture writer."
+        ),
         "observed_moves_style55_away": away55[:24],
         "observed_dimension_anomalies": anomalies[:16],
         "observed_store_load_rectangles": transfers[:32],

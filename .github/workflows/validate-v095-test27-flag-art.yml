@@ -2,7 +2,7 @@ name: Test27 - PS1 national flag 4bpp artwork research (no game patch)
 
 on:
   push:
-    branches: [feature/v095-test27-flag-artwork]
+    branches: [feature/v095-test27-flag-artwork, feature/v095-test27-ram-stage-profiles]
     paths:
       - '.github/workflows/validate-v095-test27-flag-art.yml'
       - 'tools/test27_flag_art_4bpp.py'
@@ -15,6 +15,9 @@ on:
       - 'tools/tests/test_test27_analyze_stage_writer.py'
       - 'diagnostics/v095-test27-stage3-source-art-and-staging-plan-20261114.md'
       - 'tools/Build-ISS26-Academy-Test27-MIPS-Preview-Local.ps1'
+      - 'tools/Run-ISS26-Test27-RealFlagPreview.ps1'
+      - 'tools/Run-ISS26-Test27-RealFlagPreview.cmd'
+      - 'diagnostics/v095-test27-ram-transfer-paired-profile-20261114.md'
   workflow_dispatch:
 
 permissions:
@@ -51,13 +54,40 @@ jobs:
           [System.Management.Automation.Language.Parser]::ParseFile($path,[ref]$tokens,[ref]$errors) | Out-Null
           if ($errors.Count -ne 0) { throw "Test27 PowerShell syntax errors: $($errors -join '; ')" }
           $src = Get-Content -LiteralPath $path -Raw
-          if (-not $src.Contains('c157c8d91bf7ed5678d913c4bc0014c709e8da95')) {
+          if (-not $src.Contains('92aef5a8d600d02ff68205d80031e122ea8300b2')) {
             throw "Academy preview source pin changed"
           }
           if (-not $src.Contains('previewNotStable = $true')) { throw "Preview-only gate missing" }
+          if (-not $src.Contains('test27RamTopBottomPostReturnProfiles = $true')) { throw "Missing RAM profile preview report gate" }
           if ($src -match 'gh release create|Invoke-RestMethod.*PATCH') { throw "Unsafe publish action in local builder" }
           Write-Host 'PASS: syntax and source/preview safety gate'
 
+      - name: Validate standalone Test27 Windows source+CLUT preview runner
+        shell: pwsh
+        run: |
+          $ps1 = 'tools/Run-ISS26-Test27-RealFlagPreview.ps1'
+          $tokens = $null
+          $errors = $null
+          [System.Management.Automation.Language.Parser]::ParseFile(
+            (Resolve-Path $ps1).Path,[ref]$tokens,[ref]$errors) | Out-Null
+          if ($errors.Count -gt 0) { throw "Preview PowerShell syntax: $($errors -join '; ')" }
+          $src = Get-Content -Raw -LiteralPath $ps1
+          $cmd = Get-Content -Raw -LiteralPath 'tools/Run-ISS26-Test27-RealFlagPreview.cmd'
+          if (-not $src.Contains('7995a5c263ec8641ab5989af5a686cf37ca5de6d')) {
+            throw 'Unverified Test27 extractor source pin'
+          }
+          if (-not $cmd.Contains('38b69fc4e0b799f0aa23a64a60b4c1d485d3d5d5') -or
+              -not $cmd.Contains('7995a5c263ec8641ab5989af5a686cf37ca5de6d')) {
+            throw 'Unpinned CMD source helper'
+          }
+          if ($cmd.Contains('%~dp0Run-ISS26-Test27-RealFlagPreview.ps1')) {
+            throw 'CMD must not silently use a stale adjacent PowerShell'
+          }
+          if (-not $src.Contains('ExpectedArchiveHash') -or
+              -not $src.Contains('comparison_sheet_file')) {
+            throw 'Input verification and contact sheet report missing'
+          }
+          Write-Host 'PASS: Windows one-file private ZIP preview source syntax, sha pin, no stale helper'
       - name: Build isolated 64x28 flag-art research bundle
         run: python tools/test27_flag_art_4bpp.py --output-dir build/Test27_FlagArt
       - name: Inspect art manifest and secure source separation
