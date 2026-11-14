@@ -1,0 +1,40 @@
+name: ISS26 Test25 verify official Test13 XOR sector metadata
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/iss26-test25-official-patch-metadata.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: iss26-test25-official-patch-metadata
+  cancel-in-progress: false
+
+jobs:
+  verify-official-test13:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout pinned code
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Verify SHA-256 and extract public XOR metadata
+        run: python3 tools/audit_v095_test25_public_patch_metadata.py
+      - name: Commit metadata only; never update any release feed
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add diagnostics/v095-test25-official-test13-xor-metadata.json
+          if git diff --cached --quiet; then
+            echo "No metadata differences; nothing to commit."
+            exit 0
+          fi
+          git commit -m "research(Test25): verified public Test13 style and resource XOR metadata"
+          git pull --rebase origin main
+          git push origin HEAD:main
