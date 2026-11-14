@@ -11,6 +11,8 @@ on:
       - 'tools/analyze_flag_test12_phases.py'
       - 'tools/tests/test_parse_v095_gpudump.py'
       - 'tools/tests/test_analyze_flag_test26_unified.py'
+      - 'tools/Run-ISS26-Test26-ArchiveAudit.ps1'
+      - 'tools/Run-ISS26-Test26-ArchiveAudit.cmd'
   workflow_dispatch:
 
 permissions:
@@ -32,6 +34,18 @@ jobs:
         run: python -m unittest discover -s tools/tests -p 'test_parse_v095_gpudump.py' -v
       - name: Test all 72 styles, operator phases and safe ZIP processing
         run: python -m unittest discover -s tools/tests -p 'test_analyze_flag_test26_unified.py' -v
+      - name: Parse Windows Test26 archive runner without executing it
+        shell: pwsh
+        run: |
+          $tokens = $null
+          $errors = $null
+          [System.Management.Automation.Language.Parser]::ParseFile(
+            (Resolve-Path 'tools/Run-ISS26-Test26-ArchiveAudit.ps1').Path,
+            [ref]$tokens, [ref]$errors) | Out-Null
+          if ($errors.Count -gt 0) {
+            throw "Test26 PowerShell syntax errors: $($errors -join '; ')"
+          }
+          Write-Host 'PASS: Test26 Windows archive runner parses'
       - name: Check Test26 did not promote game to stable
         run: |
           python - <<'PY'
