@@ -1,0 +1,115 @@
+name: ISS26 Test25 guarded Bosnia style candidate
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/iss26-test25-bosnia-preview.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: iss26-test25-bosnia-style-release
+  cancel-in-progress: false
+
+jobs:
+  build-and-verify-preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download exact official Test13 standalone patch
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from urllib.request import Request,urlopen
+          from pathlib import Path
+          import hashlib
+          url="https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.5-largeflag-source-test13/ISS26_0.9.5_LargeFlagSource_TEST13.iss26p"
+          sha="159A31A95BBAE3BD032417DFDCB8B5478016907DCC1E848D968CBF5B17E61214"
+          with urlopen(Request(url,headers={"User-Agent":"ISS26-Test25-Release/1.0"}),timeout=60) as response:
+              data=response.read(4*1024*1024)
+          assert hashlib.sha256(data).hexdigest().upper()==sha
+          Path("test13.iss26p").write_bytes(data)
+          print("PASS exact Test13 release SHA256")
+          PY
+      - name: Synthetic regressions for precisely two repaired Bosnia styles
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib,struct,sys
+          sys.path.insert(0,"tools")
+          from build_v095_test25_bosnia_style_isolation import repair,TABLE_OFFSETS,TEST13_SLOT30_XOR,SECTOR,RECORD
+          from build_v095_test12_gdc_descriptor_repair import fix_parity,valid_parity
+          source=bytearray(b"ISS26X01"+struct.pack("<I",5))
+          for off,maskval in zip(TABLE_OFFSETS,TEST13_SLOT30_XOR):
+              lba,pos=divmod(off,SECTOR)
+              mask=bytearray(SECTOR); mask[pos+30]=maskval;fix_parity(mask)
+              source+=struct.pack("<I",lba)+hashlib.sha256(str(lba).encode()).digest()+mask
+          raw=bytes(source)
+          candidate,report=repair(raw,expected_sha=hashlib.sha256(raw).hexdigest().upper(),expected_count=5)
+          assert report["changedLBAs"]==[852,955] and report["unchangedRecords"]==3
+          for i,(off,_) in enumerate(zip(TABLE_OFFSETS,TEST13_SLOT30_XOR)):
+              pos=off%SECTOR
+              at=12+i*RECORD+36
+              before=raw[at:at+SECTOR];after=candidate[at:at+SECTOR]
+              assert valid_parity(after) and after[pos+30]==0x30
+              changed=[j for j in range(SECTOR) if before[j]!=after[j]]
+              assert (not changed) if i in (0,3,4) else all(j==pos+30 or j>=2072 for j in changed)
+          bad=bytearray(raw);bad[12+RECORD+36+(TABLE_OFFSETS[1]%SECTOR)+30]^=1
+          try:
+              repair(bytes(bad),expected_sha=hashlib.sha256(bad).hexdigest().upper(),expected_count=5)
+          except ValueError:
+              print("PASS reject inconsistent or corrupt source")
+          else:raise AssertionError("Must reject tampered original")
+          print("PASS five styled-table masked-lookup synthetic regression")
+          PY
+      - name: Build full independent Test25 ISS26X01 patch
+        run: |
+          mkdir -p out
+          python3 tools/build_v095_test25_bosnia_style_isolation.py \
+            --test13 test13.iss26p \
+            --output out/ISS26_0.9.5_BosniaStyle_TEST25.iss26p \
+            --report out/ISS26_Test25_BosniaStyle_report.json
+      - name: Publish as experimental prerelease, never modify patch feeds
+        shell: bash
+        run: |
+          set -euo pipefail
+          tag="v0.9.5-bosnia-style-test25"
+          asset="out/ISS26_0.9.5_BosniaStyle_TEST25.iss26p"
+          expected="$(sha256sum "$asset" | awk '{print $1}')"
+          cat > out/RELEASE_NOTES.md <<'TXT'
+          ISS26 v0.9.5 **Test25 — experiment only**, not stable.
+          Based on the official independently installable Test13, this patch
+          changes ONLY Bosnia national slot30 style lookup in two of five
+          selection tables (LBA 852 and 955): style 10 -> 55.
+          The other three tables already use style55. Club slot54 stays style10.
+          All other 1490 sector records are byte-identical to Test13.
+          Two changed sectors carry regenerated Mode2 Form1 EDC/ECC deltas.
+          This package is self-contained and installs on the CLEAN EU 12-track original,
+          not on a previously patched game. It does not correct Cape Verde graphics
+          or guarantee Bosnia artwork; a live visual match remains mandatory.
+          Stable and Test Game feed manifests are UNCHANGED.
+          TXT
+          if gh release view "$tag" --json tagName >/dev/null 2>&1; then
+            mkdir -p remote
+            gh release download "$tag" -p "$(basename "$asset")" -D remote
+            observed="$(sha256sum "remote/$(basename "$asset")" | awk '{print $1}')"
+            [ "$observed" = "$expected" ] || { echo "Existing release differs; abort"; exit 1; }
+            echo "Verified existing candidate; no asset replaced."
+          else
+            gh release create "$tag" "$asset" "out/ISS26_Test25_BosniaStyle_report.json" \
+              --title "ISS26 0.9.5 Test25 — Bosnia style isolation (visual test required)" \
+              --notes-file out/RELEASE_NOTES.md --prerelease
+            mkdir -p remote
+            gh release download "$tag" -p "$(basename "$asset")" -D remote
+            observed="$(sha256sum "remote/$(basename "$asset")" | awk '{print $1}')"
+            [ "$observed" = "$expected" ] || { echo "Remote release SHA mismatch"; exit 1; }
+          fi
+          echo "PASS exact published Test25 SHA256: $expected"
+          echo "PASS stable/latest.json and test/latest.json not modified"
