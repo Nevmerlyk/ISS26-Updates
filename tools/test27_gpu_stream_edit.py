@@ -124,13 +124,45 @@ def stream_span(blob,base,table,rows,u):
         raise ValueError("Target packet overlaps resource header")
     stop=min(v for v in barriers if v>u.start)
     from v095_name_lz_codec import decode_stream_prefix
-    decoded,used=decode_stream_prefix(blob[u.start:stop],expected_bytes=2*u.w*u.h)
+    decoded,used=decode_stream_prefix(blob[u.start:stop],expected_bytes=2*u.w*u.h,allow_short=True)
     # Use only the bytes consumed by the decoder; permit 0..3 alignment
     # zeros if no known data pointer starts there. Never clobber a gap.
     end=u.start+used
     aligned=min(stop,(end+3)&~3)
     if all(b==0 for b in blob[end:aligned]): end=aligned
     return decoded,end
+
+
+def intersection(u:Upload,flag:str):
+    x,y=TARGETS[flag]
+    gx,gy=max(x,u.x),max(y,u.y)
+    w,h=min(x+16,u.x+u.w)-gx,min(y+28,u.y+u.h)-gy
+    return (gx,gy,w,h) if w>0 and h>0 else None
+
+
+def fragment_read(decoded:bytes,u:Upload,box):
+    x,y,w,h=box
+    if not (u.x<=x and u.y<=y and w>0 and h>0 and
+            x+w<=u.x+u.w and y+h<=u.y+u.h):
+        raise ValueError("Fragment outside GPU upload")
+    offsets=[2*((yy-u.y)*u.w+x-u.x) for yy in range(y,y+h)]
+    if any(at+2*w>len(decoded) for at in offsets):
+        raise ValueError(f"GPU fragment extends beyond actual decoded prefix ({len(decoded)} of {2*u.w*u.h} bytes); cannot assume missing pixels")
+    return b"".join(decoded[at:at+2*w] for at in offsets)
+
+
+def fragment_replace(decoded,u,box,art,flag):
+    fragment_read(decoded,u,box)
+    if len(art)!=896 or tuple(box)!=intersection(u,flag):
+        raise ValueError("Unexpected national fragment")
+    x,y,w,h=box
+    tx,ty=TARGETS[flag]
+    output=bytearray(decoded)
+    for yy in range(y,y+h):
+        start=2*((yy-u.y)*u.w+x-u.x)
+        src=2*((yy-ty)*16+x-tx)
+        output[start:start+2*w]=art[src:src+2*w]
+    return bytes(output)
 
 
 def _box(upload:Upload,flag:str):
@@ -224,14 +256,15 @@ def mapped_art(flag:str,live_clut:bytes,max_channel_error:int=5)->tuple[bytes,di
 def rewrite_resource(blob:bytes,routes:list[dict],live_clut:bytes,*,require_clut_sha=True)->tuple[bytes,list[dict]]:
     if require_clut_sha and sha(live_clut)!=CLUT_SHA:
         raise ValueError("CLUT does not match captured owner Test27 palette")
-    if not routes or len(routes)>2:
-        raise ValueError("Expected one or two approved flag targets per resource")
-    if len({r["flag"] for r in routes})!=len(routes):
-        raise ValueError("Duplicate flag route")
+    if not routes or len(routes)>16:
+        raise ValueError("Expected bounded national flag fragments")
+    if len({(r["flag"],r["upload_offset"]) for r in routes})!=len(routes):
+        raise ValueError("Duplicate flag fragment")
     output=bytearray(blob)
     changes=[]
     by_upload={}
     regions={}
+    covered={flag:set() for flag in TARGETS}
     for r in routes:
         flag=r["flag"]
         if flag not in TARGETS:
@@ -242,9 +275,18 @@ def rewrite_resource(blob:bytes,routes:list[dict],live_clut:bytes,*,require_clut
         if type(i) is not int or not 0<=i<len(uploads):
             raise ValueError("Invalid upload index")
         u=uploads[i]
-        x,y=_box(u,flag)
-        by_upload.setdefault((base,table,u),[]).append((flag,x,y,r["old_tile_sha256"],i))
+        box=intersection(u,flag)
+        if box is None or tuple(r["fragment"])!=box:
+            raise ValueError("Unexpected fragment coordinates")
+        x,y,w,h=box
+        cells={(xx,yy) for yy in range(y,y+h) for xx in range(x,x+w)}
+        if covered[flag]&cells:
+            raise ValueError("Overlapping national fragments")
+        covered[flag].update(cells)
+        by_upload.setdefault((base,table,u),[]).append((flag,box,r["old_tile_sha256"],i,r["decoded_bytes"]))
         regions[(base,table,u)]=uploads
+    if any(len(cells)!=448 for cells in covered.values()):
+        raise ValueError("Incomplete national fragment coverage")
     protected=[]
     for key,targets in by_upload.items():
         base,table,u=key
@@ -254,15 +296,18 @@ def rewrite_resource(blob:bytes,routes:list[dict],live_clut:bytes,*,require_clut
         protected.append((u.start,stop))
         expected=len(decoded)
         changed=decoded
-        for flag,x,y,guard,i in targets:
-            actual=take_tile(decoded,u,x,y)
+        for flag,box,guard,i,decoded_bytes in targets:
+            if len(decoded)!=decoded_bytes:
+                raise ValueError("Decoded prefix changed")
+            actual=fragment_read(decoded,u,box)
             if sha(actual)!=guard:
                 raise ValueError("Actual pre-edit tile does not match reviewed source hash")
             art,colors=mapped_art(flag,live_clut)
-            changed=change_tile(changed,u,x,y,art)
+            changed=fragment_replace(changed,u,box,art,flag)
+            new_fragment=fragment_read(changed,u,box)
             changes.append({"flag":flag,"upload_index":i,"upload_offset":u.offset,
-                "old_tile_sha256":sha(actual),"new_tile_sha256":sha(art),
-                "vram_words":[*TARGETS[flag],16,28],"palette_mapping":colors})
+                "old_tile_sha256":sha(actual),"new_tile_sha256":sha(new_fragment),
+                "vram_words":list(box),"decoded_bytes":expected,"gpu_rect_bytes":2*u.w*u.h,"palette_mapping":colors})
         capacity=stop-u.start
         packed,method=encode_with_budget(changed,expected_bytes=expected,capacity=capacity)
         for item in changes:
