@@ -7,6 +7,88 @@ produced by local analyzer commit `874adfafde2f47433e379937355efcfefb8defe9`.
 The manifest records ZIP SHA-256 `611C5EF4FF093284EA8F35FBAD608D7387776E621AC471967FAC856807B8A690`.
 **The original ZIP bytes were not independently inspected here**: local Python/container access was unavailable. Results below are derived from the supplied report only.
 
+## CONFIRMED: Test26 zero-mask audit, owner report 2026-11-14 16:57:35 UTC
+
+Owner supplied fresh Compact, Unified and AuditManifest from `analyzer commit
+60b22eaae21d8a738455e4a4695c1447ed981ef6` with feature
+`zero-mask-audit-v1`. Same input original Academy session
+`20261114_154539_315b0c.zip` SHA256
+`611C5EF4FF093284EA8F35FBAD608D7387776E621AC471967FAC856807B8A690`.
+14 VRAM snapshots, 8 decoded GPDs; report says no BIN/CUE or patch changed.
+The owner's *original ZIP bytes were not opened in this environment*; the
+numbers below are from their newly generated report, not independently
+reconstructed pixel analysis.
+
+**Bosnia away stage `(560,28)` against atlas style55 `(816,368)` at
+captured frames 5468..7748:**
+
+| Metric | Value |
+| --- | ---: |
+| Block size | 16 VRAM words x 28 rows = 64 x 28 pixels, 448 words |
+| Equal nonzero 16-bit words | **256** (all stage-nonzero words) |
+| Nonzero atlas words absent from stage | **192** |
+| Introduced/mutated nonzero words | **0 / 0** |
+| Palette indices 1..15 erased (nibble samples) | **384** |
+| Suppressed pixel-index bounding box x0..62, y16..27 | **[0,16,62,27]** |
+| All suppressed word counts in rows 0..15 | **0** |
+| All suppressed word counts in each row 16..27 | **16** |
+| Stage is zero-masked source / stage equals source | **true / false** |
+
+**This is a full-width 12-row rectangular blanking**, not sporadic noise or
+a style offset. Every one of the bottom twelve 64-pixel rows is zero in
+the stage; the atlas has 384 nonzero 4bpp index values in that rectangle,
+out of 768 pixel-index positions. A zero palette **index** can be transparent,
+but the report does not decode the exact selected CLUT. "384 missing
+nonzero indices" is NOT automatically equal to 384 visible-color pixels.
+
+- **Cape Verde home** `(560,0)` equals atlas style1 exactly:
+  128 stage and source nonzero words, retained 128, suppressed/introduced/
+  mutated 0; zero-mask is false and stage_equals_source true.
+  **The Cape Verde art can still be graphically wrong in the atlas**;
+  transfer equality does not verify national flag design.
+- The earlier frames 3464..4534 show a **different phase**: away stage
+  vs style22 has 409 equal nonzero words, 39 changed, 0 suppressed.
+- Source55 attribution is established by byte-level content but **neither
+  its artwork correctness nor its suitability as a newly allocated
+  national style is proven**. Style55 was previously unreferenced; using
+  unreferenced atlas cells is not equivalent to empty/safe artwork.
+
+**Draw-time correlation**: live GPU traces use home CLUT (0,505), away CLUT
+(224,506). An away flag 64x28 sprite explicitly samples UV y28..55, which
+covers the 12 blank bottom rows in stage y44..55. 0x2C strip polygons sample
+that same vertical range, and in later captures 40 quads per team use the
+home/away stage buffers. These are verified **texture read dependencies**,
+not operator-verified spectator/carrying scene labels. It makes the crop
+a plausible rendered defect. Restoring bottom rows globally without knowing
+the source art, alpha index, MIPS copy dimensions or CLUT is unsafe.
+
+### Engineering decision: no further reruns of the same Test26 JSON
+
+The read-only Test26 investigation of the mask **is complete**. The next
+operation must shift to resolving the **final staging writer / actual graphic
+resources / palette**, not making the owner rerun identical Academy ZIP
+audits. Capture or instrument the data loading transition **4534→5468**
+for final-writer GP0 and MIPS parameters; no existing GPD spans that transition.
+
+**Test27 acceptance gates**:
+
+1. Verify that style55 (and style1) atlas art and CLUT decode to the
+   *correct* 64x28 Bosnia and Cape Verde flags. If not, replace a safe
+   national-specific resource and mapping; do not change club slot54/style10.
+2. Find the effective `(560,28)` texture-stage transfer (who and why only
+   top 16 rows, and whether bottom 12 are intentionally clipped).
+3. Determine whether spectator waving flags use the same texture input or
+   a distinct stadium resource, with visually authenticated screen phase.
+4. Build and test a **standalone clean-original multi-track-EU** patch,
+   preserving 54+4 national slots and 24 clubs; test selection, stadium,
+   carried cloth, crowd, club badges and names before stable promotion.
+
+Do **not** claim that copying the atlas's missing lower 12 rows alone fixes
+Bosnia, since the atlas cell itself may contain unrelated pixels.
+Stable game channel remains v0.9.4, not promoted.
+
+---
+
 ## UPDATED after owner reran Test26 on the SAME archived session (2026-11-14)
 
 The owner uploaded the new `20261114_154539_315b0c_Test26_Compact.json`,
