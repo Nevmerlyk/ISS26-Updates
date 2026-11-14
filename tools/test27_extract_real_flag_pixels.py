@@ -112,7 +112,7 @@ def make_comparison_sheet(panels: list[list[tuple[list[int], tuple[tuple[int,int
         return (struct.pack(">I", len(body)) + kind + body +
                 struct.pack(">I", zlib.crc32(kind + body) & 0xffffffff))
     header = struct.pack(">IIBBBBB", width, height, 8, 2, 0, 0, 0)
-    return (b"\\x89PNG\\r\\n\\x1a\\n" +
+    return (b"\x89PNG\r\n\x1a\n" +
             chunk(b"IHDR", header) +
             chunk(b"IDAT", zlib.compress(rows, 9)) +
             chunk(b"IEND", b""))
