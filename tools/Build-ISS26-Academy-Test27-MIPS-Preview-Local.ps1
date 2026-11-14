@@ -12,7 +12,7 @@ $ErrorActionPreference = "Stop"
 $repo = "Nevmerlyk/ISS26-Android"
 $branch = "feature/academy-test23-ram-stage-transition"
 $version = "0.9.5"
-$expectedSha = "c157c8d91bf7ed5678d913c4bc0014c709e8da95"
+$expectedSha = "92aef5a8d600d02ff68205d80031e122ea8300b2"
 function CheckLastExit([string]$step) {
     if ($LASTEXITCODE -ne 0) { throw "$step failed (exit $LASTEXITCODE)" }
 }
@@ -75,7 +75,9 @@ try {
         }
         $traceSrc = Get-Content -LiteralPath "windows/ISS26.Launcher/AcademyPrematchProvenanceLua.cs" -Raw
         foreach ($required in @("STAGE_COPY_DIMENSION_ANOMALY","STAGE_TRANSFER_RECT","STAGE_RECT_FINAL",
-            "install(0x800387EC","install(0x8003878C")) {
+            "install(0x800387EC","install(0x8003878C",
+            "STAGE_RAM_PROFILE","STAGE_RAM_PROFILE_FINAL",
+            "install(0x80092F60","install(0x80093134")) {
             if (-not $traceSrc.Contains($required)) { throw "Missing Test27 source probe: $required" }
         }
         if ($traceSrc.Contains("if not x or w~=16 or h~=28 then return end")) {
@@ -139,6 +141,7 @@ try {
             tests = "Python triage and .NET portable: PASS"
             gamePatched = $false
             test27StageWriterCaptures16RowTransfers = $true
+            test27RamTopBottomPostReturnProfiles = $true
             previewNotStable = $true
             runtimePCSXVerificationPassed = $false
             stableFeedChanged = $false
