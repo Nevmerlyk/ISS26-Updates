@@ -87,3 +87,63 @@ now checks all five maps for truly unreferenced and national/club-conflicting ID
 Academy Test24 diagnostic PR #46 is also source-only:
 https://github.com/Nevmerlyk/ISS26-Android/pull/46
 No additional match test is necessary until the next *actual* patch candidate.
+
+## Verified official Test13 style table defect and independently built Test25 candidate
+
+GitHub Actions successfully downloaded the authentic official Test13 patch
+(SHA-256 `159A31A95BBAE3BD032417DFDCB8B5478016907DCC1E848D968CBF5B17E61214`)
+and exported its five actual XOR style-table masks, **without any original
+commercial disc bytes**. CI run:
+https://github.com/Nevmerlyk/ISS26-Updates/actions/runs/43534174287
+Mask metadata:
+https://github.com/Nevmerlyk/ISS26-Updates/blob/main/diagnostics/v095-test25-official-test13-xor-metadata.json
+
+Applying those verified masks in memory to the user's verified clean
+Track01 produced **this exact patched style assignment**:
+
+| Table raw LBA | Bosnia national slot30 | Club slot54 | Cape Verde national slot0 |
+| --- | --- | --- | --- |
+| 820 | 55 | 10 | 1 |
+| **852** | **10 (collision)** | 10 | 1 |
+| **955** | **10 (collision)** | 10 | 1 |
+| 2085 | 55 | 10 | 1 |
+| 2433 | 55 | 10 | 1 |
+
+Thus two of the five Test13 tables incorrectly send Bosnia to the **same
+style 10 as club slot54**, explaining the observed circular club-style
+emblem. The other three tables already route Bosnia to **exclusive
+style 55**, which is unreferenced by every other national or club in
+these five tables. There is no need to globally overwrite club style 10
+to solve this *routing* defect.
+
+### Test25 experimental independent release
+
+Built **only** these two byte fixes by changing the published Test13
+sector XOR masks at LBA 852 and 955, national slot index 30,
+from `7 XOR 10 = 0x0D` to `7 XOR 55 = 0x30`.
+Recalculated Mode2 Form1 EDC/ECC deltas. Preserved all 1492
+clean-original-independent sector SHA guards and every other 1490
+sector record byte-for-byte.
+
+- Public **prerelease**: https://github.com/Nevmerlyk/ISS26-Updates/releases/tag/v0.9.5-bosnia-style-test25
+- Asset: `ISS26_0.9.5_BosniaStyle_TEST25.iss26p`
+- Size **3,562,908 bytes**
+- SHA-256 **`85014C8222A408344704CCD8FC192379645E18770876CF4501324D504D55BA67`**
+- GitHub validated build, remote redownload and SHA:
+  https://github.com/Nevmerlyk/ISS26-Updates/actions/runs/43534760234
+- Builder: https://github.com/Nevmerlyk/ISS26-Updates/blob/main/tools/build_v095_test25_bosnia_style_isolation.py
+
+**Do not call this a fully fixed Bosnia flag yet.** Actual style-55
+compressed bitmap/CLUT and in-game visual result remain unverified.
+Cape Verde's incorrect artwork and names were NOT changed by Test25.
+Stable game `stable/latest.json` remains **0.9.4**; the ordinary
+Test Game feed remains **Test13**; no existing installs were modified.
+The next useful runtime test is a single user-controlled Test Game of
+this separately selected prerelease (Cape Verde home vs Bosnia away),
+not another Rookie exam. Check both national flags and club slot54
+for regressions.
+
+Original local offline validation: 9 Test25 clean original + session
+integration cases and 4 synthetic LBA852/955 parity/guard cases passed.
+CI verified the full published 1492-record patch and redownloaded asset.
+
