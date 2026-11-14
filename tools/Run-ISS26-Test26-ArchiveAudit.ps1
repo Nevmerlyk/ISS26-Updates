@@ -18,8 +18,8 @@ param(
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
 
-# Pinned source commit: successful Test26 GitHub Actions run 43613107317.
-$Ref = 'd0187df9ffaf161bee3d9c2ed2627a9b37c39ba8'
+# Pinned source commit: successful Test26 GitHub Actions run 43616399481.
+$Ref = '60b22eaae21d8a738455e4a4695c1447ed981ef6'
 $ApiRoot = 'https://raw.githubusercontent.com/Nevmerlyk/ISS26-Updates/'
 $Scripts = @(
   'analyze_flag_test12_phases.py',
