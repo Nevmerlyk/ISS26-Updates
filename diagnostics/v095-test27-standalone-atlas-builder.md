@@ -75,3 +75,34 @@ precondition, not a fabricated result.
 
 Game stable v0.9.4 and ordinary Test13 channel remain unchanged.
 No test-feed or stable-feed publication is authorized.
+
+## Compiler revision: avoid false palette and compression failures
+
+The existing nearest-color assignment could reject a palette that had
+a valid non-greedy one-to-one assignment. The revised compiler considers
+all admissible opaque BGR555 colors together; it rejects duplicate
+color values as well as duplicate palette slots and minimizes the summed
+channel error within the existing maximum tolerance. It still **never
+overwrites a shared CLUT**.
+
+A second LZ token-cost search is available if the fast greedy compressed
+stream is larger than the existing allocation. Both encoders use the
+same game-format decoder for exact round-trip validation. The alternate
+search is not claimed to be mathematically optimal, but can fit data
+that the greedy encoder would reject. If neither fits, no relocation or
+patch is emitted.
+
+The local build log now reports both color mappings or failures, the
+16 sampled BGR555 palette words, each supported GPU resource route and
+compressed stream sizes/methods, and collects resource-level blockers
+before sector composition. This is intended to replace repeated
+one-error-at-a-time runs of the owner-local builder. It remains a real
+source-art compiler when all inputs pass.
+
+Four additional regression cases cover non-greedy distinct colors,
+duplicate palette values, compact LZ boundaries/random input, and
+capacity fallback. No actual original-disc build or in-game verification
+has taken place: the execution environment still cannot read the
+mounted clean BIN (ClientError). The same existing ZIP suffices; no
+new test match is needed at this stage. Bosnia's runtime twelve-row
+mask, actual final writer and all scene acceptance remain open.
