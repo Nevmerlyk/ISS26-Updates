@@ -1,7 +1,7 @@
 #requires -Version 5.1
 param([string]$Preview,[string]$GameRoot='D:\ISS 26')
 $ErrorActionPreference='Stop'
-$Pin='fe6f214c5c86748b5224343a9596787844015b4d'
+$Pin='7d4acb197e8cd4067c960683d7fa98e266cfdb1e'
 $Work=Join-Path $env:LOCALAPPDATA ('ISS26\Test29_'+$Pin.Substring(0,12))
 $Names=@('test29_bosnia_single_block.py','test28_stage3_resources.py','test28_restore_selection_assets.py','test27_build_clean_graphics_recovery.py','test27_build_standalone_atlas_candidate.py','test27_stage_code_audit.py','test27_stage_writer_guard.py','test27_gpu_stream_edit.py','v095_name_lz_codec.py','test27_flag_art_4bpp.py','build_v095_test12_gdc_descriptor_repair.py','build_v094_pointer_repair.py','audit_v095_test10_test11_release_sectors.py','probe_v095_name_gpu_atlas.py','v095_static_prematch_ram_trace.py','build_v095_test25_bosnia_style_isolation.py','test27_extract_real_flag_pixels.py','analyze_flag_test26_unified.py','analyze_flag_test12_phases.py','parse_v095_gpudump.py')
 try {
