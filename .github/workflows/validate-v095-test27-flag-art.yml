@@ -144,9 +144,9 @@ jobs:
           if ($errors.Count) { throw "Recovery PowerShell parser errors: $($errors -join '; ')" }
           $ps1 = Get-Content -Raw -LiteralPath $path
           $cmd = Get-Content -Raw -LiteralPath 'tools/Build-ISS26-Test27-Recovery.cmd'
-          if (-not $ps1.Contains('1f9a00a2d113db746993fcabe09dcc27a6bcdc5e')) { throw 'Recovery sources not pinned' }
-          if (-not $cmd.Contains('73b5bfe46b7e1ba912c3ce4200725c83a3e9ee8d')) { throw 'Recovery helper not pinned' }
-          if (-not $ps1.Contains('TEST27_Recovery.iss26p') -or -not $ps1.Contains('test27_build_clean_graphics_recovery.py') -or -not $ps1.Contains('--experimental')) { throw 'Separate recovery artifact/entrypoint missing' }
+          if (-not $ps1.Contains('3371b46bc8cd649139b2aab1f4a02f607ae63bc5')) { throw 'Recovery sources not pinned' }
+          if (-not $cmd.Contains('a3d972fd78c64756c650f4c8bc13d2ffbf6fbec6')) { throw 'Recovery helper not pinned' }
+          if (-not $ps1.Contains('TEST27_RecoveryPreview.iss26p') -or -not $ps1.Contains('test27_build_clean_graphics_recovery.py') -or -not $ps1.Contains('--experimental')) { throw 'Separate recovery artifact/entrypoint missing' }
           if ($ps1 -match 'gh release create|gh release upload|Invoke-RestMethod.*PATCH') { throw 'Unexpected publication operation' }
       - name: Build isolated 64x28 flag-art research bundle
         run: python tools/test27_flag_art_4bpp.py --output-dir build/Test27_FlagArt
