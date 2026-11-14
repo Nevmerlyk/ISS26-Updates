@@ -99,8 +99,15 @@ def inspect_clean_disc(path: Path) -> dict:
         raise ValueError("Track01 SHA256 mismatch; expected CLEAN EU original")
     with path.open("rb") as f:
         select=resource(f,SELECT_LBA,SELECT_BYTES)
-        f.seek(0)
-        raw=f.read()
+        # Read only five 78-byte table records, not a 550+ MB disc image.
+        tiny=bytearray(max(STYLE_MAP_RAW_OFFSETS)+STYLE_MAP_LENGTH)
+        for offset in STYLE_MAP_RAW_OFFSETS:
+            f.seek(offset)
+            record=f.read(STYLE_MAP_LENGTH)
+            if len(record)!=STYLE_MAP_LENGTH:
+                raise ValueError("Truncated original style table")
+            tiny[offset:offset+STYLE_MAP_LENGTH]=record
+        raw=bytes(tiny)
     if sha(select)!=SELECT_SHA:
         raise ValueError("SELECT overlay SHA256 mismatch")
     calls=verify_select_calls(select)
@@ -116,7 +123,7 @@ def inspect_clean_disc(path: Path) -> dict:
         "expected_home_stage_words":[*DEFAULT_HOME_STAGE,STAGE_WORD_WIDTH,STAGE_WORD_HEIGHT],
         "expected_away_stage_words":[*DEFAULT_AWAY_STAGE,STAGE_WORD_WIDTH,STAGE_WORD_HEIGHT],
         "expected_RAM_buffer_start":"0x800CC600",
-        "expected_RAM_buffer_end":"0x800CCEFF",
+        "expected_RAM_buffer_end":"0x800CCCFF",
         "stage_last_writer_proven":False,
         "cause_of_Bosnia_lower_12_row_zero_mask_proven":False,
         "game_patch_built":False,
