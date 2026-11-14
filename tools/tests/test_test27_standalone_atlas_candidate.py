@@ -141,13 +141,13 @@ class Standalone(unittest.TestCase):
         result,_=stream.rewrite_resource(bytes(moved),routes,palette(),require_clut_sha=False)
         self.assertEqual(result[table+780:],moved[table+780:])
 
-    def test_physical_extent_recovers_existing_patched_tail_only(self):
+    def test_physical_extent_excludes_unattributed_gap_records(self):
         clean={"BIN/DATSEL3.BIN":(100,54948),"BIN/NEXT.BIN":(150,2048)}
         same=dict(clean)
         self.assertEqual(build.physical_resource_size(clean,same,"BIN/DATSEL3.BIN",{}),
                          (100,54948,55296))
         self.assertEqual(build.physical_resource_size(clean,same,"BIN/DATSEL3.BIN",{128:None,150:None}),
-                         (100,54948,59392))
+                         (100,54948,55296))
         changed=dict(clean)
         changed["BIN/DATSEL3.BIN"]=(100,58000)
         self.assertEqual(build.physical_resource_size(clean,changed,"BIN/DATSEL3.BIN",{}),
@@ -169,6 +169,50 @@ class Standalone(unittest.TestCase):
         view.seek(0)
         with self.assertRaisesRegex(ValueError,"non-sector"):
             view.read(10)
+
+    def test_real_cross_boundary_fragments_and_short_cape_packet(self):
+        import random
+        rng=random.Random(27)
+        base=0x800F0000
+        rects=[(832,256,32,128,6306),(800,256,32,128,8192),(800,384,32,128,8192)]
+        blob=bytearray(32)
+        packets=[]
+        for x,y,w,h,n in rects:
+            raw=bytes(rng.randrange(256) for _ in range(n))
+            packet=encode_stream(raw,expected_bytes=n)
+            at=len(blob)
+            blob.extend(packet)
+            blob.extend(bytes((-len(blob))%4))
+            packets.append((at,raw))
+        table=len(blob)
+        struct.pack_into("<I",blob,0,base+table)
+        for (x,y,w,h,n),(at,raw) in zip(rects,packets):
+            blob.extend(struct.pack("<HHHHHHI",10,x,y,w,h,0,base+at))
+        blob.extend(struct.pack("<H",255)+bytes(14))
+        routes=build.find_routes(bytes(blob),base)
+        self.assertEqual([r["fragment"] for r in routes],
+                         [[848,256,16,28],[816,368,16,16],[816,384,16,12]])
+        self.assertEqual(routes[0]["decoded_bytes"],6306)
+        edited,info=stream.rewrite_resource(bytes(blob),routes,palette(),require_clut_sha=False)
+        self.assertEqual(len(info),3)
+        self.assertEqual(edited[table:],blob[table:])
+        t,rows=stream.parse_uploads(edited,base,0)
+        reconstructed={}
+        for route in routes:
+            u=rows[route["upload_index"]]
+            raw,_=stream.stream_span(edited,base,t,rows,u)
+            old=packets[route["upload_index"]][1]
+            self.assertEqual(len(raw),len(old))
+            art,_=stream.mapped_art(route["flag"],palette())
+            self.assertEqual(raw,stream.fragment_replace(old,u,route["fragment"],art,route["flag"]))
+            reconstructed.setdefault(route["flag"],bytearray()).extend(stream.fragment_read(raw,u,route["fragment"]))
+        for name,data in reconstructed.items():
+            self.assertEqual(bytes(data),stream.mapped_art(name,palette())[0])
+
+    def test_short_packet_cannot_supply_missing_fragment(self):
+        u=stream.Upload(100,10,800,256,32,128,32)
+        with self.assertRaisesRegex(ValueError,"beyond actual decoded prefix"):
+            stream.fragment_read(bytes(6306),u,(816,368,16,16))
 
     def test_wrong_hash_blocks_source_write(self):
         blob,_,_=resource()
