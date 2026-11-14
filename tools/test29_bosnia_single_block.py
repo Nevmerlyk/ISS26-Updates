@@ -13,14 +13,16 @@ from test27_gpu_stream_edit import sha, fragment_read
 from test28_stage3_resources import packet_map,exact_packet,apply_packets
 from build_v095_test25_bosnia_style_isolation import TABLE_OFFSETS
 
-CANDIDATES=(40,41,42)
+PREFERRED=(40,41,42)
+STYLE_COUNT=72
+SELECT_TABLE=0x1E94CC
 BOSNIA_SLOT=30
 OLD_STYLE=55
 FIXED_TOP="C6D3053CA3F8C8348D52B071A8822B7F812082CCE5B3717956A2579396649ADA"
 FIXED_BOTTOM="80DE037E29C7C8A9476E43B5C0AF79F6F6E53F0E2FBF9619F61D504791FDEAF7"
 
 def xy(style):
-    if style not in range(72): raise ValueError("Invalid style")
+    if style not in range(STYLE_COUNT): raise ValueError("Invalid style")
     return (832 if style<36 else 768)+16*(style%4),256+28*((style%36)//4)
 
 def rect(style):
@@ -37,11 +39,47 @@ def get_maps(source,records):
         tables.append(table)
     return tables
 
-def free_style(tables,style):
-    return len(tables)==5 and style in CANDIDATES and all(
-        len(t)==78 and t[BOSNIA_SLOT]==OLD_STYLE and
-        [i for i,v in enumerate(t) if v==OLD_STYLE]==[BOSNIA_SLOT]
-        and style not in t for t in tables)
+def eligible_geometry(style):
+    if not 0<=style<STYLE_COUNT or style==OLD_STYLE:
+        return False
+    _,y=xy(style)
+    # Avoid the observed boundary. Actual descriptor coverage is still
+    # validated in each resource, not inferred from this geometry.
+    return not (y<384<y+28)
+
+def candidates():
+    return [s for s in (*PREFERRED,*(i for i in range(STYLE_COUNT) if i not in PREFERRED))
+            if eligible_geometry(s)]
+
+def baseline_guard(tables):
+    if len(tables)!=5 or any(len(t)!=78 for t in tables):
+        raise ValueError("Expected five complete regular-team maps")
+    for i,t in enumerate(tables):
+        if t[BOSNIA_SLOT]!=OLD_STYLE:
+            raise ValueError(f"Table {i+1}: Bosnia style {t[BOSNIA_SLOT]}, expected 55")
+        if [j for j,v in enumerate(t) if v==OLD_STYLE]!=[BOSNIA_SLOT]:
+            raise ValueError(f"Table {i+1}: Bosnia source style shared by other teams")
+
+def select_extra_guard(source,records):
+    # SELECT's selector was observed indexing up to 82 entries. Treat
+    # four immediately following bytes as occupied if they match a style;
+    # their semantic ownership is not proved. Do not edit them.
+    lba,pos=divmod(SELECT_TABLE,base.SECTOR)
+    _,raw=base.patched_sector(source,lba,records)
+    if not 24<=pos or pos+82>2072:
+        raise ValueError("Unexpected SELECT table/guard extent")
+    return tuple(raw[pos+78:pos+82])
+
+def owners(tables,style,extra=()):
+    found=[{"table":i+1,"slot":j,"class":"national" if j<54 else "club"}
+           for i,t in enumerate(tables) for j,v in enumerate(t) if v==style]
+    found.extend({"table":"SELECT adjacent","slot":78+j,"class":"reserved guard"}
+                 for j,v in enumerate(extra) if v==style)
+    return found
+
+def free_style(tables,style,extra=()):
+    baseline_guard(tables)
+    return eligible_geometry(style) and not owners(tables,style,extra)
 
 def intersect(u,box):
     x,y,w,h=box
@@ -113,8 +151,8 @@ def relocate_resource(clean,current,address,style,art):
     return result,{"writers":len(jobs),"clean_tile_sha256":next(iter(hashes)),
                    "output_art_sha256":sha(art),"edits":edits}
 
-def reroute(source,records,style,before):
-    if not free_style(before,style): raise ValueError("Unsafe style allocation")
+def reroute(source,records,style,before,extra=()):
+    if not free_style(before,style,extra): raise ValueError("Unsafe style allocation")
     changed=[]
     for offset in TABLE_OFFSETS:
         lba,pos=divmod(offset,base.SECTOR)
@@ -129,6 +167,8 @@ def reroute(source,records,style,before):
     expected=[t[:BOSNIA_SLOT]+bytes([style])+t[BOSNIA_SLOT+1:] for t in before]
     if get_maps(source,records)!=expected:
         raise AssertionError("Unexpected style-table mutation")
+    if select_extra_guard(source,records)!=tuple(extra):
+        raise AssertionError("Adjacent SELECT guard changed")
     return changed
 
 def build(track,patch,report):
@@ -144,6 +184,15 @@ def build(track,patch,report):
     with track.open("rb") as f:
         for lba in records: base.patched_sector(f,lba,records)
         maps=get_maps(f,records)
+        baseline_guard(maps)
+        extra=select_extra_guard(f,records)
+        occupancy={s:owners(maps,s,extra) for s in range(STYLE_COUNT)}
+        free=[s for s in candidates() if not occupancy[s]]
+        print("STYLE OCCUPANCY:",json.dumps(occupancy),flush=True)
+        print("SELECT ADJACENT GUARD:",list(extra),flush=True)
+        print("FREE SINGLE-BLOCK CANDIDATES:",free,flush=True)
+        if not free:
+            raise ValueError("No unreferenced single-block style in actual Test28 maps; no texture or map written")
         cat=base.directory_files(f)
         pc=base.directory_files(base.PatchedDiscView(f,records))
         names=base.original_resources(cat)
@@ -156,10 +205,7 @@ def build(track,patch,report):
         if known_art(data["BIN/DATSEL3.BIN"][1])!=art:
             raise ValueError("Selection artwork copies differ")
         chosen=None
-        for style in CANDIDATES:
-            if not free_style(maps,style):
-                trials[style]={"blocked":"Referenced in at least one of five team maps"}
-                continue
+        for style in free:
             print("TRY STYLE",style,rect(style),flush=True)
             jobs={}; blocked={}
             for name,(clean,current) in data.items():
@@ -185,7 +231,7 @@ def build(track,patch,report):
             if base.read_resource(f,records,lba,size)!=result:
                 raise AssertionError("Resource readback mismatch")
             reports[name]={**r,"changed_lbas":touched}
-        map_lbas=reroute(f,records,chosen,maps)
+        map_lbas=reroute(f,records,chosen,maps,extra)
         if changed.intersection(map_lbas): raise AssertionError("Resource/map overlap")
         changed.update(map_lbas)
         if base.directory_files(base.PatchedDiscView(f,records))!=pc:
@@ -197,7 +243,7 @@ def build(track,patch,report):
     return out,{"kind":"EXPERIMENTAL Test29 Bosnia single-block relocation",
         "output_patch_sha256":sha(out),"input_test28_sha256":sha(p),"records":len(records),
         "old_style":OLD_STYLE,"new_style":chosen,"new_vram_words":list(rect(chosen)),
-        "candidate_trials":trials,"resources":reports,"mapping_lbas":map_lbas,
+        "candidate_trials":trials,"actual_style_occupancy":occupancy,"select_adjacent_guard":list(extra),"resources":reports,"mapping_lbas":map_lbas,
         "changed_lbas":sorted(changed),"regular_54_and_24_maps_checked":True,
         "bonus_and_other_texture_consumers_verified":False,
         "original_bosnia_tile_retained":True,"cape_verde_source_preserved":True,
