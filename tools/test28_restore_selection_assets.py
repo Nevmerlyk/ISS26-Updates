@@ -112,7 +112,7 @@ def restore_packets(clean,current,donors,address=ADDRESS):
         raise AssertionError("Large flag source changed")
     return bytes(output),report
 
-def build(track,preview,report_path,donor_paths):
+def build(track,preview,report_path,donor_paths,*,allow_no_changes=False):
     if base.file_sha(track)!=base.CLEAN_SHA:
         raise ValueError("Requires exact original Europe Track01")
     metadata=json.loads(report_path.read_text(encoding="utf-8-sig"))
@@ -166,7 +166,7 @@ def build(track,preview,report_path,donor_paths):
         if any(records.get(i)!=previous.get(i) for i in set(records)|set(previous) if i not in touched):
             raise AssertionError("Non-selection sector changed")
         for lba in records: base.patched_sector(source,lba,records)
-    if not touched:
+    if not touched and not allow_no_changes:
         raise ValueError("No valid additional graphics recovered; Test27 remains unchanged")
     data=base.serialize(records)
     return data,{"kind":"EXPERIMENTAL Test28 selection asset restoration","output_patch_sha256":sha(data),
