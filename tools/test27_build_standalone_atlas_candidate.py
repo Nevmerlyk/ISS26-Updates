@@ -136,6 +136,25 @@ def canonical_lists(blob,base):
     return found
 
 
+def root_audit(original,patched,base):
+    result=[]
+    for (_,old_table),(slot,old_rows) in canonical_lists(original,base).items():
+        pointer=struct.unpack_from("<I",patched,slot)[0]
+        row={"header_slot":slot,"original_table":old_table,
+             "patched_pointer":f"{pointer:08X}","patched_table":pointer-base,
+             "original_count":len(old_rows)}
+        try:
+            table,rows=parse_uploads(patched,base,slot)
+            row["patched_count"]=len(rows)
+            old_geo=[(u.kind,u.x,u.y,u.w,u.h,u.padding_field) for u in old_rows]
+            new_geo=[(u.kind,u.x,u.y,u.w,u.h,u.padding_field) for u in rows]
+            row["logical_geometry_equal"]=old_geo==new_geo
+        except ValueError as exc:
+            row["blocked"]=str(exc)
+        result.append(row)
+    return result
+
+
 def target_signature(blob,base):
     """List of logical block geometry per target, ignoring stream/table offsets."""
     result={}
@@ -254,7 +273,7 @@ def build(track:Path,base:Path,archive:Path):
         stage_code=audit_stage_code(resource(source,SELECT_LBA,SELECT_BYTES),
                                    read_resource(source,records,SELECT_LBA,SELECT_BYTES))
         print("STAGE_CODE_BEGIN",flush=True)
-        print(json.dumps(stage_code,indent=2),flush=True)
+        print(json.dumps({k:v for k,v in stage_code.items() if k not in ("all_instructions","call_contexts","candidate_explicit_zero_stores","candidate_rectangle_constants")}),flush=True)
         print("STAGE_CODE_END",flush=True)
         tables=check_tables(source,records)
         print("PASS: five national/club style tables",flush=True)
@@ -274,6 +293,7 @@ def build(track:Path,base:Path,archive:Path):
                 print("GPU LISTS:",name,"logical",catalog[name][1],size,"physical",physical,
                       "clean",[(hex(b),t,len(rows)) for (b,t),(_,rows) in clean_lists.items()],
                       "patched",[(hex(b),t,len(rows)) for (b,t),(_,rows) in patched_lists.items()],flush=True)
+                print("GPU ROOTS:",name,json.dumps(root_audit(original,old,base_hint)),flush=True)
                 clean_sig=target_signature(original,base_hint)
                 new_sig=target_signature(old,base_hint)
                 print("TARGET GEOMETRY:",name,"clean",clean_sig,"patched",new_sig,flush=True)
@@ -288,8 +308,12 @@ def build(track:Path,base:Path,archive:Path):
                 issues.append(f"{name}: {exc}")
                 print("RESOURCE BLOCKED:",name,str(exc),flush=True)
                 continue
+            # Do not create new out-of-file writes in the extended physical tail.
+            for offset in range(0,len(old),2048):
+                if offset>=((size+2047)//2048)*2048 and old[offset:offset+2048]!=new[offset:offset+2048] and lba+offset//2048 not in baseline:
+                    raise ValueError("New write beyond logical ISO allocation")
             updated[name]=(lba,old,new)
-            resource_results.append({"resource":name,"source_sha256":sha(old),
+            resource_results.append({"resource":name,"original_logical_bytes":catalog[name][1],"patched_logical_bytes":size,"verified_physical_bytes":physical,"source_sha256":sha(old),
                                      "candidate_sha256":sha(new),"edits":changes})
             print("RESOURCE PASS:",name,
                   json.dumps([{"flag":c["flag"],"stream_capacity_bytes":c["stream_capacity_bytes"],
