@@ -21,6 +21,7 @@ import json
 import math
 from pathlib import Path
 import struct
+import zlib
 
 W, H, BPP = 64, 28, 4
 FLAG_BYTES = W * H // 2
@@ -192,6 +193,29 @@ def ppm(pixels: list[int], colors: tuple[tuple[int,int,int],...],
                 data.extend(color * scale)
     return bytes(data)
 
+def png(pixels: list[int], colors: tuple[tuple[int,int,int],...],
+        scale: int = 8) -> bytes:
+    """Make a real viewable RGB PNG without Pillow or other dependencies."""
+    if len(pixels) != W*H or scale not in (1,2,4,8,16):
+        raise ValueError("Invalid PNG preview source")
+    rows = bytearray()
+    for y in range(H):
+        row = bytearray()
+        for x in range(W):
+            row.extend(bytes(colors[pixels[y*W+x]]) * scale)
+        for _ in range(scale):
+            rows.append(0)  # PNG per-row filter: None
+            rows.extend(row)
+    def chunk(kind: bytes, data: bytes) -> bytes:
+        return (struct.pack(">I",len(data)) + kind + data +
+                struct.pack(">I",zlib.crc32(kind+data)&0xffffffff))
+    head=struct.pack(">IIBBBBB",W*scale,H*scale,8,2,0,0,0)
+    return (b"\x89PNG\r\n\x1a\n" +
+            chunk(b"IHDR",head) +
+            chunk(b"IDAT",zlib.compress(bytes(rows),9)) +
+            chunk(b"IEND",b""))
+
+
 def generate(output: Path) -> dict:
     output.mkdir(parents=True, exist_ok=True)
     manifest = {
@@ -221,10 +245,12 @@ def generate(output: Path) -> dict:
         (output / f"{name}_64x28_4bpp.bin").write_bytes(bitmap)
         (output / f"{name}_clut_bgr555.bin").write_bytes(palette)
         (output / f"{name}_8x_preview.ppm").write_bytes(ppm(pixels, COLORS[name]))
+        (output / f"{name}_8x_preview.png").write_bytes(png(pixels, COLORS[name]))
         manifest["flags"][name] = {
             "bitmap_sha256": hash_bytes(bitmap),
             "clut_sha256": hash_bytes(palette),
             "preview_sha256": hash_bytes(ppm(pixels, COLORS[name])),
+            "png_preview_sha256": hash_bytes(png(pixels, COLORS[name])),
             "palette_used_indices": sorted(set(pixels)),
             "palette": COLORS[name],
             "geometry": geom,
