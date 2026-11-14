@@ -2,7 +2,7 @@ name: Test27 - PS1 national flag 4bpp artwork research (no game patch)
 
 on:
   push:
-    branches: [feature/v095-test27-flag-artwork, feature/v095-test27-ram-stage-profiles, feature/v095-test27-real-art-visual-evidence, feature/v095-test27-live-flag-replacement, feature/v095-test27-standalone-patch-builder]
+    branches: [feature/v095-test27-flag-artwork, feature/v095-test27-ram-stage-profiles, feature/v095-test27-real-art-visual-evidence, feature/v095-test27-live-flag-replacement, feature/v095-test27-standalone-patch-builder, feature/v095-test27-static-stage-code-audit]
     paths:
       - '.github/workflows/validate-v095-test27-flag-art.yml'
       - 'tools/test27_flag_art_4bpp.py'
@@ -18,6 +18,8 @@ on:
       - 'tools/Run-ISS26-Test27-LiveFlagPreview.cmd'
       - 'diagnostics/v095-test27-live-flag-replacement.md'
       - 'tools/test27_stage_writer_guard.py'
+      - 'tools/test27_stage_code_audit.py'
+      - 'tools/tests/test_test27_stage_code_audit.py'
       - 'tools/test27_extract_real_flag_pixels.py'
       - 'tools/tests/test_test27_flag_art_4bpp.py'
       - 'tools/tests/test_test27_stage_writer_guard.py'
@@ -109,6 +111,8 @@ jobs:
         run: python -m unittest discover -s tools/tests -p 'test_test27_live_flag_replacement.py' -v
       - name: Verify real source-art editing and independent sector composition on synthetic inputs
         run: python -m unittest discover -s tools/tests -p 'test_test27_standalone_atlas_candidate.py' -v
+      - name: Verify static MIPS stage-code context and exact overlay guards
+        run: python -m unittest discover -s tools/tests -p 'test_test27_stage_code_audit.py' -v
       - name: Verify local standalone-art builder launch scripts and pinned source
         shell: pwsh
         run: |
@@ -119,8 +123,8 @@ jobs:
           if ($errors.Count) { throw "PowerShell parser errors: $($errors -join '; ')" }
           $ps1 = Get-Content -Raw -LiteralPath $path
           $cmd = Get-Content -Raw -LiteralPath 'tools/Build-ISS26-Test27-StandaloneArt.cmd'
-          if (-not $ps1.Contains('e2217f7c7d325baae437d9abf408ffdc71ad9a6c')) { throw 'Unpinned Python sources' }
-          if (-not $cmd.Contains('f8d5b21d3d813805bcba7de814fd3c41eeadaa39')) { throw 'Unpinned PowerShell source' }
+          if (-not $ps1.Contains('fabc23fcc601d38450979f70436a778895336867')) { throw 'Unpinned Python sources' }
+          if (-not $cmd.Contains('2a8267fcf140e0e2bbe9330cb19808926a051685')) { throw 'Unpinned PowerShell source' }
           if (-not $ps1.Contains('--experimental') -or -not $ps1.Contains('release_authorized')) { throw 'Missing safety gate' }
           if ($ps1 -match 'gh release create|gh release upload|Invoke-RestMethod.*PATCH') { throw 'Unexpected publication operation' }
           Write-Host 'PASS: local-only pinned builder launch syntax and source guards'

@@ -14,10 +14,12 @@ param(
 )
 Set-StrictMode -Version Latest
 $ErrorActionPreference='Stop'
-$Pin='e2217f7c7d325baae437d9abf408ffdc71ad9a6c'
+$Pin='fabc23fcc601d38450979f70436a778895336867'
 $Work=Join-Path $env:LOCALAPPDATA ('ISS26\Test27StandaloneArt_'+$Pin.Substring(0,12))
 $Names=@(
  'test27_build_standalone_atlas_candidate.py',
+ 'test27_stage_code_audit.py',
+ 'test27_stage_writer_guard.py',
  'test27_gpu_stream_edit.py',
  'v095_name_lz_codec.py',
  'test27_flag_art_4bpp.py',
