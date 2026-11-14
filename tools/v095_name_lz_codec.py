@@ -20,8 +20,7 @@ class FormatError(ValueError):
     pass
 
 
-def decode_stream(data: bytes, *, expected_bytes: int = TILE_BYTES,
-                  max_padding: int = 3) -> bytes:
+def decode_stream_prefix(data: bytes, *, expected_bytes: int = TILE_BYTES) -> tuple[bytes,int]:
     """LSB-first flags, single-byte literals and three MIPS command families."""
     src = 0
     flags = 0
@@ -71,9 +70,15 @@ def decode_stream(data: bytes, *, expected_bytes: int = TILE_BYTES,
             raise FormatError("GPU rectangle overrun")
     if len(out) != expected_bytes:
         raise FormatError(f"wrong output length: {len(out)}")
+    return bytes(out),src
+
+
+def decode_stream(data: bytes, *, expected_bytes: int = TILE_BYTES,
+                  max_padding: int = 3) -> bytes:
+    out,src=decode_stream_prefix(data,expected_bytes=expected_bytes)
     if max_padding < 0 or len(data) - src > max_padding or any(data[src:]):
         raise FormatError("unexpected trailing bytes")
-    return bytes(out)
+    return out
 
 
 def _pack_tokens(tokens: list[tuple[int, bytes]]) -> bytes:
