@@ -314,15 +314,95 @@ def analyze_archive(report: Path, labels: Path | None = None) -> dict:
     }
 
 
+
+def compact_summary(result: dict) -> dict:
+    """Short evidence matrix for sharing, without exposing VRAM pixel arrays."""
+    zero_tile_sha = sha(bytes(STYLE_BYTES))
+    compact_captures = []
+    for item in result["captures"]:
+        present = sum(t != zero_tile_sha for t in item["style_sha256"])
+        compact_captures.append({
+            "frame": item["frame_if_encoded"],
+            "snapshot": item["name"],
+            "operator_phase": item["operator_phase"],
+            "populated_style_cells": present,
+            "home_exact_style_ids": item["staging"]["home"]["matching_style_ids"],
+            "away_exact_style_ids": item["staging"]["away"]["matching_style_ids"],
+            "home_partial_candidates": item["staging"]["home"].get(
+                "ranked_partial_style_candidates", []
+            )[:3],
+            "away_partial_candidates": item["staging"]["away"].get(
+                "ranked_partial_style_candidates", []
+            )[:3],
+        })
+    compact_traces = []
+    for item in result["gpu_dumps_inventory_only"]:
+        gpu = item.get("decoded_gp0", {})
+        candidate_clut_counts: dict[str, int] = {}
+        for draw in gpu.get("draw_groups_touching_560_0_16_56", []):
+            clut_key = ",".join(str(x) for x in draw["clut_xy_words"])
+            candidate_clut_counts[clut_key] = (
+                candidate_clut_counts.get(clut_key, 0) + draw["count"]
+            )
+        compact_traces.append({
+            "frame": item.get("frame_if_encoded", -1),
+            "capture": item["zip_member"],
+            "operator_phase": item.get("operator_phase", "unknown"),
+            "gpu_trace_decoded": bool(gpu.get("trace_begin_found", False)),
+            "textured_draw_count": gpu.get("textured_primitive_count", 0),
+            "staging_candidate_draw_count": gpu.get("stage_touch_draw_count", 0),
+            "staging_candidate_clut_counts": candidate_clut_counts,
+            "cpu_to_vram_uploads": gpu.get("cpu_to_vram_uploads", 0),
+            "vram_to_vram_moves": gpu.get("vram_to_vram_moves", 0),
+        })
+    return {
+        "schemaVersion": 1,
+        "kind": "Test26 compact findings; source hypotheses, not verified flags",
+        "input_report": result["input_report"],
+        "style_count": result["style_count"],
+        "capture_count": result["capture_count"],
+        "gpu_trace_count": result["gpu_trace_count"],
+        "gpu_trace_decoded_count": result["gpu_trace_decoded_count"],
+        "phases_operator_verified": {
+            k: v["operator_tagged_vram_captures"]
+            for k, v in result["operator_phase_coverage"].items()
+        },
+        "captures": compact_captures,
+        "gpu_traces": compact_traces,
+        "atlas_transitions": [
+            {
+                "from": t["from"], "to": t["to"],
+                "changed_style_count": len(t["changed_atlas_style_ids"]),
+                "changed_style55": 55 in t["changed_atlas_style_ids"],
+                "changed_palette_count": len(t["changed_national_palette_ids"]),
+                "changed_staging": t["changed_staging"],
+            }
+            for t in result["transitions"]
+        ],
+        "warning": (
+            "Staging hash matches and nearby source candidates are not proof of "
+            "which file uploaded the flag. AutoCapture filenames are not operator-"
+            "verified images or spectator flag ownership."
+        ),
+    }
+
+
 def main() -> None:
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("report", type=Path, help="Test25/26 Academy report ZIP")
     p.add_argument("--labels", type=Path, help="Optional operator-provided phase manifest")
     p.add_argument("--output", type=Path, default=Path("ISS26_Test26_flag_surfaces.json"))
+    p.add_argument("--summary-output", type=Path, help="Optional compact source-evidence JSON")
     args = p.parse_args()
     result = analyze_archive(args.report, args.labels)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    if args.summary_output:
+        args.summary_output.parent.mkdir(parents=True, exist_ok=True)
+        args.summary_output.write_text(
+            json.dumps(compact_summary(result), indent=2, ensure_ascii=False) + "\n",
+            encoding="utf-8",
+        )
     print("Processed", result["capture_count"], "VRAM captures; all", STYLE_COUNT,
           "atlas styles; GPD files", result["gpu_trace_count"],
           "decoded live traces", result["gpu_trace_decoded_count"])
