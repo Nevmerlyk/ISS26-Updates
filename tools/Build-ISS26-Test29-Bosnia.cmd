@@ -1,9 +1,9 @@
 @echo off
 setlocal EnableExtensions DisableDelayedExpansion
-set "PIN=afabfef4484207856046d838a59f186d0116ccd1"
+set "PIN=1c1f04a582a3e8bf3ac692240e17194df74cdd7a"
 set "DEST=%TEMP%\ISS26_Test29_Bosnia_%PIN%.ps1"
 set "URL=https://raw.githubusercontent.com/Nevmerlyk/ISS26-Updates/%PIN%/tools/Build-ISS26-Test29-Bosnia.ps1"
-powershell.exe -NoProfile -Command "$ErrorActionPreference='Stop'; Invoke-WebRequest -UseBasicParsing -Uri $env:URL -OutFile $env:DEST; if(-not ([IO.File]::ReadAllText($env:DEST).Contains('fe6f214c5c86748b5224343a9596787844015b4d'))){throw 'Wrong source pin'}"
+powershell.exe -NoProfile -Command "$ErrorActionPreference='Stop'; Invoke-WebRequest -UseBasicParsing -Uri $env:URL -OutFile $env:DEST; if(-not ([IO.File]::ReadAllText($env:DEST).Contains('7d4acb197e8cd4067c960683d7fa98e266cfdb1e'))){throw 'Wrong source pin'}"
 if errorlevel 1 goto failed
 if "%~1"=="" (
  powershell.exe -NoProfile -ExecutionPolicy Bypass -File "%DEST%"
