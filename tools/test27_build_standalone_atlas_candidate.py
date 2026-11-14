@@ -166,8 +166,19 @@ def build(track:Path,base:Path,archive:Path):
     palette=clut(raw,0,505)
     if sha(palette)!=CLUT_SHA or palette!=clut(raw,224,506):
         raise ValueError("Actual captured CLUT not verified")
-    # A shared CLUT is never written. Stop immediately on poor color mapping.
-    palette_mapping={name:mapped_art(name,palette)[1] for name in TARGETS}
+    # Validate both palettes and every resource before producing any sector
+    # edits. A failure in one flag does not hide the other resource blockers.
+    palette_mapping={}
+    issues=[]
+    print("Verified captured 16-entry CLUT (BGR555 words):",
+          " ".join(f"{w:04X}" for w in struct.unpack("<16H",palette)),flush=True)
+    for name in TARGETS:
+        try:
+            palette_mapping[name]=mapped_art(name,palette)[1]
+            print("Palette PASS:",name,palette_mapping[name],flush=True)
+        except ValueError as exc:
+            issues.append(f"Palette {name}: {exc}")
+            print("Palette BLOCKED:",name,str(exc),flush=True)
     records=records_from_patch(read_patch(base))
     baseline=dict(records)
     updated={}
@@ -176,6 +187,7 @@ def build(track:Path,base:Path,archive:Path):
     with track.open("rb") as source:
         for lba in records: patched_sector(source,lba,records)
         tables=check_tables(source,records)
+        print("PASS: five national/club style tables",flush=True)
         catalog=directory_files(source)
         names=original_resources(catalog)
         for name in names:
@@ -183,12 +195,26 @@ def build(track:Path,base:Path,archive:Path):
             old=read_resource(source,records,lba,size)
             try:
                 routes=find_routes(old)
+                print("ROUTE PASS:",name,json.dumps(routes),flush=True)
+                if len(palette_mapping)!=len(TARGETS):
+                    continue
                 new,changes=rewrite_resource(old,routes,palette)
             except (ValueError,AssertionError) as exc:
-                raise ValueError(f"{name}: {exc}") from exc
+                issues.append(f"{name}: {exc}")
+                print("RESOURCE BLOCKED:",name,str(exc),flush=True)
+                continue
             updated[name]=(lba,old,new)
             resource_results.append({"resource":name,"source_sha256":sha(old),
                                      "candidate_sha256":sha(new),"edits":changes})
+            print("RESOURCE PASS:",name,
+                  json.dumps([{"flag":c["flag"],"stream_capacity_bytes":c["stream_capacity_bytes"],
+                              "new_packed_bytes":c["new_packed_bytes"],
+                              "compression_method":c["compression_method"]} for c in changes]),
+                  flush=True)
+        if issues:
+            raise ValueError("No candidate emitted; complete palette/resource blockers:\n - "+"\n - ".join(issues))
+        if set(updated)!=set(names):
+            raise ValueError("Not all expected resources were rewritten; no candidate emitted")
         # Complete every resource preflight before committing any sector delta.
         for name,(lba,old,new) in updated.items():
             touched=compose_resource(source,records,lba,old,new)
