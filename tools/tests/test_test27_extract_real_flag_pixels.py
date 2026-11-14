@@ -68,7 +68,7 @@ class RealFlagPixelsTests(unittest.TestCase):
             output = root / "out"
             report = real.inspect_archive(source, output, required_sha=None)
             sheet = (output / report["comparison_sheet_file"]).read_bytes()
-            self.assertTrue(sheet.startswith(b"\\x89PNG\\r\\n\\x1a\\n"))
+            self.assertTrue(sheet.startswith(b"\x89PNG\r\n\x1a\n"))
             self.assertEqual(struct.unpack_from(">II", sheet, 16), (1536, 448))
             chunks = []
             at = 8
