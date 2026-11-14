@@ -69,3 +69,41 @@ No claims of a fully fixed flag or a completed gameplay regression are made by t
 **Verification gate:** tests have been committed but have not been executed: the code execution container returns ClientError. The owner-provided Test25 archive has been materialized but has not been read. GitHub Actions has deliberately not been invoked to avoid unnecessary CI usage. PR stays draft.
 
 Stage draw overlap by itself does NOT prove that a visible flag was carried on the pitch or waved in the crowd. Genuine spectator-flag draw provenance requires an operator-verified crowd screenshot and animation-frame evidence.
+
+## 2026-11-14 — CI verification and read-only local session runner
+
+Test26 GP0 parser was corrected to carry texture-page state from a textured
+polygon into subsequent textured rectangles and use full sprite dimensions
+when calculating a VRAM overlap. GP1(00/01) resets/clears pending state.
+The erroneous synthetic test expectation for a scene-linked GPU dump was
+also corrected; a matching operator frame is properly labelled prematch.
+
+Actual GitHub Actions verification:
+
+- [Test26 16/16 synthetic tests and unchanged-feed gate PASS](https://github.com/Nevmerlyk/ISS26-Updates/actions/runs/43609346940).
+- [Repeat verification + PowerShell syntax check PASS](https://github.com/Nevmerlyk/ISS26-Updates/actions/runs/43609768504).
+- 9 GPU parser and 7 unified archive tests; Python py_compile PASS;
+  Windows script PowerShell parser PASS; stable game 0.9.4 / Test13 feed unchanged.
+
+New **read-only owner-local** runner:
+
+1. Save tools/Run-ISS26-Test26-ArchiveAudit.ps1 and
+   tools/Run-ISS26-Test26-ArchiveAudit.cmd together.
+2. Drag the existing Academy session ZIP onto the CMD file; without an
+   argument it selects the most recent ZIP under
+   D:\ISS 26\ISS26_Data\explorer\reports.
+3. The script downloads exactly three Python tools pinned to the successful
+   source commit 874adfafde2f47433e379937355efcfefb8defe9,
+   validates Python 3.10+, analyzes local VRAM/GPD captures and produces
+   two non-game JSON reports under
+   D:\ISS 26\ISS26_Data\diagnostics\Test26.
+4. It does NOT upload the report, distribute game data, modify the game,
+   alter saves or change update feeds. The report includes frame hashes,
+   GPU primitive metadata and scene tags, not raw art.
+
+**This still is not evidence that the Nov 14 archive was processed in
+ChatGPT:** the working Python/container runtime failed with ClientError
+even after file materialization. To close the evidence gap, process that
+exact owner's ZIP with this runner, or restore the model-side container,
+then inspect the phase-labelled output before authoring the first actual
+flag replacement. No speculative claim of fixed supporter flags is made.
