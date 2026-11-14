@@ -74,7 +74,7 @@ class Test26UnifiedFlagProvenance(unittest.TestCase):
             self.assertEqual(result["style_count"], 72)
             self.assertEqual(result["capture_count"], 2)
             self.assertEqual(result["gpu_trace_count"], 1)
-            self.assertEqual(result["gpu_dumps_inventory_only"][0]["operator_phase"], "unknown")
+            self.assertEqual(result["gpu_dumps_inventory_only"][0]["operator_phase"], "prematch_banner")
             self.assertEqual(result["gpu_trace_decoded_count"], 1)
             self.assertEqual(result["gpu_dumps_inventory_only"][0]["decoded_gp0"]
                              ["top_draw_groups"][0]["source_min_xy_words"], [560, 0])
