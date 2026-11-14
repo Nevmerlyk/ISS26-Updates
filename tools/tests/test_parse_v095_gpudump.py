@@ -72,6 +72,32 @@ class TestGPUDumpParser(unittest.TestCase):
         self.assertEqual(out["vram_to_vram_moves"], 1)
         self.assertEqual(len(out["transfers"]), 2)
 
+    def test_polygon_texture_page_persists_into_following_sprite(self):
+        # GP0 3Ch sets the active texture page. A later sprite (GP0 64h)
+        # may omit E1h; texture ownership must retain page 8 (x=512 words).
+        rect = (0x64FFFFFF, 0, (505 << 22) | 185, (28 << 16) | 16)
+        data = gp.MAGIC + pack(gp.TRACE_BEGIN) + pack(gp.GP0, *textured_quad(), *rect)
+        report = gp.inspect(data)
+        self.assertEqual(report["textured_primitive_count"], 2)
+        sprites = [row for row in report["top_draw_groups"]
+                   if row["primitive"] == "textured_rectangle"]
+        self.assertEqual(len(sprites), 1)
+        self.assertEqual(sprites[0]["tpage_xy_words"], [512, 0])
+        self.assertEqual(sprites[0]["uv_bounds_pixels"], [185, 0, 200, 27])
+        self.assertEqual(report["stage_touch_draw_count"], 2)
+
+    def test_gp1_reset_clears_incomplete_command(self):
+        # Reset command FIFO between GPU packets: discard partial polygon.
+        rect = (0x64FFFFFF, 0, (505 << 22) | 192, (28 << 16) | 64)
+        data = gp.MAGIC + pack(gp.TRACE_BEGIN)
+        data += pack(gp.GP0, *textured_quad()[:3])
+        data += pack(1, 0x01000000)
+        data += pack(gp.GP0, 0xE1000008, *rect)
+        report = gp.inspect(data)
+        self.assertEqual(report["textured_primitive_count"], 1)
+        self.assertEqual(report["top_draw_groups"][0]["tpage_xy_words"], [512, 0])
+        self.assertEqual(report["incomplete_gp0_words"], 0)
+
     def test_pre_trace_restoration_does_not_count(self):
         data = gp.MAGIC + pack(gp.GP0, *textured_quad())
         result = gp.inspect(data)
