@@ -14,7 +14,7 @@ param(
 )
 Set-StrictMode -Version Latest
 $ErrorActionPreference='Stop'
-$Pin='1f9a00a2d113db746993fcabe09dcc27a6bcdc5e'
+$Pin='3371b46bc8cd649139b2aab1f4a02f607ae63bc5'
 $Work=Join-Path $env:LOCALAPPDATA ('ISS26\Test27Recovery_'+$Pin.Substring(0,12))
 $Names=@(
  'test27_build_clean_graphics_recovery.py',
@@ -88,9 +88,9 @@ try {
     }
     $Dest=Join-Path $GameRoot ('ISS26_Data\diagnostics\Test27_Recovery_'+(Get-Date -Format 'yyyyMMdd_HHmmss_fff'))
     New-Item -ItemType Directory -Path $Dest | Out-Null
-    $Patch=Join-Path $Dest 'ISS26_Test_0.9.5_TEST27_Recovery.iss26p'
+    $Patch=Join-Path $Dest 'ISS26_Test_0.9.5_TEST27_RecoveryPreview.iss26p'
     $Report=Join-Path $Dest 'Test27_Recovery_Build.json'
-    Write-Host 'Recovering clean graphics extents and inserting the two flags. Unverified previous graphics will revert to original.' -ForegroundColor Cyan
+    Write-Host 'RECOVERY PREVIEW: restores clean extents. 11 known stadium exceptions may retain original Bosnia graphics.' -ForegroundColor Cyan
     Write-Host 'No game installation, no update promotion, no original-disc changes.'
     $Log=Join-Path $Dest 'Test27_Build.log'
     $exe=Join-Path $Work 'test27_build_clean_graphics_recovery.py'
@@ -110,7 +110,7 @@ try {
     }
     Write-Host "EXPERIMENTAL standalone graphics recovery patch built: $Patch" -ForegroundColor Green
     Write-Host "Report: $Report"
-    Write-Host 'WARNING: Some previous graphics may be restored to original. Bosnia staging clipping and visual acceptance remain unverified.'
+    Write-Host 'WARNING: limited stadium support, old graphics may revert, no runtime staging fix. See report for exact coverage.'
     Write-Host 'No patch installed. Do not publish as stable.'
 } catch {
     Write-Host ("ERROR: "+$_.Exception.Message) -ForegroundColor Red
