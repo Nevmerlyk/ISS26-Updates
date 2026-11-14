@@ -179,7 +179,7 @@ def read_resource(source,records,lba,size):
     rows=[]
     for offset in range(0,size,2048):
         clean,patched=patched_sector(source,lba+offset//2048,records)
-        if clean[18]&0x20: raise ValueError("Expected Mode2 Form1 graphics resource")
+        if clean[18]&0x20: raise ValueError(f"Expected Mode2 Form1 graphics resource at LBA {lba+offset//2048} (file LBA {lba}, length {size}, offset {offset})")
         rows.append(patched)
     return b"".join(r[24:2072] for r in rows)[:size]
 
@@ -282,6 +282,7 @@ def build(track:Path,base:Path,archive:Path):
         for name in names:
             try:
                 lba,size,physical=physical_resource_size(catalog,patched_catalog,name,records)
+                print("RESOURCE ALLOCATION:",name,"LBA",lba,"clean bytes",catalog[name][1],"patched bytes",size,"sector-rounded bytes",physical,flush=True)
                 original=read_resource(source,{},lba,catalog[name][1])
                 old=read_resource(source,records,lba,size)
                 base_hint=0x800C8000 if "/GDC_" in name else 0x800F0000
