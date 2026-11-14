@@ -42,8 +42,10 @@ def iso_record_positions(source,records):
     result={}
     visited=set()
     def walk(lba,size,prefix,depth):
-        if depth>8 or (lba,size) in visited or not 0<size<=4*1024*1024:
+        if depth>8 or not 0<size<=4*1024*1024:
             raise ValueError("Invalid or cyclic ISO directory")
+        if (lba,size) in visited:
+            return
         visited.add((lba,size))
         for i in range(math.ceil(size/2048)):
             _,raw=base.patched_sector(source,lba+i,records)
@@ -67,7 +69,7 @@ def iso_record_positions(source,records):
                 if path in result: raise ValueError("Duplicate ISO path")
                 result[path]={"lba":lba+i,"offset":at0+10,"extent":extent,
                               "size":length,"flags":r[25]}
-                if r[25]&2:
+                if r[25]&2 and (path=="BIN" or path.startswith("BIN/")):
                     walk(extent,length,path+"/",depth+1)
     walk(both32(root,2),both32(root,10),"",0)
     return result
@@ -118,10 +120,11 @@ def clean_art(blob,palette):
     for address in (0x800F0000,0x800C8000):
         try:
             routes=base.find_routes(blob,address)
-            if any(r["decoded_bytes"]!=8192 for r in routes):
-                # Actual known target uploads are 32x128 words. Do not
-                # manufacture data for a genuinely short clean packet.
-                raise ValueError("Original target packet is not complete 8192-byte upload")
+            for route in routes:
+                _,rows=parse_uploads(blob,address,route["list_pointer_slot"])
+                u=rows[route["upload_index"]]
+                if route["decoded_bytes"]!=2*u.w*u.h:
+                    raise ValueError("Original target packet is not a complete upload")
             options.append((address,routes))
         except ValueError as exc:
             failures.append(hex(address)+": "+str(exc))
@@ -288,7 +291,9 @@ def build(track,patch,archive):
         "resources":reports,"directory_lbas":sorted(directory_changes),
         "prior_graphics_in_36_files_rolled_back_or_selectively_retained":True,
         "all_prior_graphics_preserved":False,
-        "other_base_records_preserved":True,"original_disc_modified":False,
+        "other_base_records_preserved":True,
+        "clut_source_in_recovered_game_verified":False,
+        "four_bonus_team_ownership_verified":False,"original_disc_modified":False,
         "tracks02_12_modified":False,"test25_required_at_install":False,
         "runtime_stage_writer_fixed":False,"release_authorized":False,
         "actual_game_visual_acceptance":False,"game_update_feed_changed":False}
