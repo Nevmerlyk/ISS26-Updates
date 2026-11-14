@@ -13,6 +13,7 @@ on:
       - 'tools/tests/test_test27_extract_real_flag_pixels.py'
       - 'tools/test27_analyze_stage_writer.py'
       - 'tools/tests/test_test27_analyze_stage_writer.py'
+      - 'diagnostics/v095-test27-stage3-source-art-and-staging-plan-20261114.md'
   workflow_dispatch:
 
 permissions:
