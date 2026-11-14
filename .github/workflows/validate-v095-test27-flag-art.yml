@@ -9,6 +9,8 @@ on:
       - 'tools/test27_gpu_stream_edit.py'
       - 'tools/test27_build_standalone_atlas_candidate.py'
       - 'tools/test27_build_clean_graphics_recovery.py'
+      - 'tools/Build-ISS26-Test27-Recovery.ps1'
+      - 'tools/Build-ISS26-Test27-Recovery.cmd'
       - 'tools/tests/test_test27_clean_graphics_recovery.py'
       - 'tools/v095_name_lz_codec.py'
       - 'tools/tests/test_test27_standalone_atlas_candidate.py'
@@ -132,6 +134,20 @@ jobs:
           if (-not $ps1.Contains('--experimental') -or -not $ps1.Contains('release_authorized')) { throw 'Missing safety gate' }
           if ($ps1 -match 'gh release create|gh release upload|Invoke-RestMethod.*PATCH') { throw 'Unexpected publication operation' }
           Write-Host 'PASS: local-only pinned builder launch syntax and source guards'
+      - name: Validate pinned separate recovery runner
+        shell: pwsh
+        run: |
+          $path = (Resolve-Path 'tools/Build-ISS26-Test27-Recovery.ps1').Path
+          $tokens = $null
+          $errors = $null
+          [System.Management.Automation.Language.Parser]::ParseFile($path,[ref]$tokens,[ref]$errors) | Out-Null
+          if ($errors.Count) { throw "Recovery PowerShell parser errors: $($errors -join '; ')" }
+          $ps1 = Get-Content -Raw -LiteralPath $path
+          $cmd = Get-Content -Raw -LiteralPath 'tools/Build-ISS26-Test27-Recovery.cmd'
+          if (-not $ps1.Contains('1f9a00a2d113db746993fcabe09dcc27a6bcdc5e')) { throw 'Recovery sources not pinned' }
+          if (-not $cmd.Contains('73b5bfe46b7e1ba912c3ce4200725c83a3e9ee8d')) { throw 'Recovery helper not pinned' }
+          if (-not $ps1.Contains('TEST27_Recovery.iss26p') -or -not $ps1.Contains('test27_build_clean_graphics_recovery.py') -or -not $ps1.Contains('--experimental')) { throw 'Separate recovery artifact/entrypoint missing' }
+          if ($ps1 -match 'gh release create|gh release upload|Invoke-RestMethod.*PATCH') { throw 'Unexpected publication operation' }
       - name: Build isolated 64x28 flag-art research bundle
         run: python tools/test27_flag_art_4bpp.py --output-dir build/Test27_FlagArt
       - name: Inspect art manifest and secure source separation
