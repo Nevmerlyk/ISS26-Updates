@@ -2,7 +2,7 @@ name: Test27 - PS1 national flag 4bpp artwork research (no game patch)
 
 on:
   push:
-    branches: [feature/v095-test27-flag-artwork, feature/v095-test27-ram-stage-profiles, feature/v095-test27-real-art-visual-evidence, feature/v095-test27-live-flag-replacement, feature/v095-test27-standalone-patch-builder, feature/v095-test27-static-stage-code-audit]
+    branches: [feature/v095-test27-flag-artwork, feature/v095-test27-ram-stage-profiles, feature/v095-test27-real-art-visual-evidence, feature/v095-test27-live-flag-replacement, feature/v095-test27-standalone-patch-builder, feature/v095-test27-static-stage-code-audit, fix/test27-real-resource-parser]
     paths:
       - '.github/workflows/validate-v095-test27-flag-art.yml'
       - 'tools/test27_flag_art_4bpp.py'
