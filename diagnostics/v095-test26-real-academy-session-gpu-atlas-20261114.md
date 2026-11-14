@@ -7,6 +7,57 @@ produced by local analyzer commit `874adfafde2f47433e379937355efcfefb8defe9`.
 The manifest records ZIP SHA-256 `611C5EF4FF093284EA8F35FBAD608D7387776E621AC471967FAC856807B8A690`.
 **The original ZIP bytes were not independently inspected here**: local Python/container access was unavailable. Results below are derived from the supplied report only.
 
+## UPDATED after owner reran Test26 on the SAME archived session (2026-11-14)
+
+The owner uploaded the new `20261114_154539_315b0c_Test26_Compact.json`,
+`20261114_154539_315b0c_Test26_Unified.json` and audit manifest,
+now generated using **analyzer commit `d0187df9ffaf161bee3d9c2ed2627a9b37c39ba8`**.
+Manifest confirms same source ZIP hash `611C5EF4FF093284EA8F35FBAD608D7387776E621AC471967FAC856807B8A690`,
+14/14 VRAM and 8/8 live GPU traces, and **no BIN/CUE/patch modifications**.
+
+**CORRECTION TO EARLIER SHA-ONLY INTERPRETATION: Bosnia style55 IS a close
+match to the away stage content.** From frame **5468** onward, **all 256/256
+nonzero 16-bit words** in away stage `(560,28)` are exactly equal to style55
+at `(816,368)` at offset **(0,0)**. Source stage block is 16×28 = **448
+words**. Another **192 words are zero in staging**. The full 896-byte
+stage/style55 SHA hashes differ, so at least one position which is zero in
+staging differs from the source. The number of suppressed source words may be
+1 to 192; **this report does not yet count them**. This evidence supports a
+**zero-masked/cleared subset of style55** over a changed or unrelated source,
+but cannot prove which GPU transfer or game file is responsible for zeroing,
+nor whether those zeros are incorrect in the rendered design.
+
+- Cape Verde home stage exactly equals style1 SHA; also its 128/128 nonzero
+  words match at offset (0,0).
+- Frames **3464–4534**: home equals style23, all 448/448 stage nonzero
+  words match; away compares **409/448 nonzero words** to style22 at offset
+  (0,0), or **91.29%**, with 39 source differences in stage-active words.
+  This is a separate earlier staging phase, not Bosnia source55 evidence.
+- From frames **5468–7748**, near-matches and exact mismatches stay unchanged
+  across all later capture points. All operator visual phases remain **unknown**.
+
+### Updated research gate — stage zeros rather than alternate art
+
+A newer read-only Test26 analyzer in this same branch computes an
+`aligned_mask_audit` for home style1, away style22 and away style55,
+including nonzero words *suppressed to zero* in final stage, affected rows,
+4bpp nonzero-pixel count and bounding box. The compact JSON reports these
+without raw pixel artwork. **The new diagnostic does not identify a writer**.
+
+Reanalyze the owner's *existing* Test26 ZIP with the newly pinned Windows
+runner; do **not** run another gameplay match. Use the resulting
+`reference_mask_audits.away_style55` to determine whether the zeros are
+localized at the edges (possible intentional clipping/transparency) or erase
+flag-colored pixels inside the graphic. Then test the CLUT and draw geometry
+before modifying style55 on disc. The original ZIP was not available in this
+investigation, so new pixel-loss metrics cannot be derived from the uploaded
+JSON alone.
+
+The pre-update SHA-only notes further below are historic. Their claim of
+"no matching style" refers strictly to **whole-tile hash equality** and
+must not be read as evidence that Bosnia came from a different image.
+No corrected game patch was built or promoted; stable game v0.9.4 is unchanged.
+
 ## Sample integrity and evidence limits
 
 - 14 × 2,097,152-byte VRAM snapshots, 14 screenshot file *names* inventoried, 8 GPU dumps with `TraceBegin=true` decoded.
@@ -27,8 +78,8 @@ Key observations from the uploaded hashes:
 
 - Styles 0..71 were byte-zero in frames 2394/2574/3037 and populated by frame 3464. This is a **scene/load transition**, not evidence all flags were blank on screen.
 - From frame 3464 to frame 4534, home staging `(560,0)` exactly matches style23. Away staging `(560,28)` **matches no style 0..71**.
-- At frame 5468 and throughout subsequent captures, home staging exactly matches **Cape Verde style1**, whose atlas cell is at VRAM word `(848,256)`. The away staging still **matches no style**, even though style55 at `(816,368)` is populated and has changed.
-- The away staging mismatch is one of the strongest Test25 clues. It can mean shifted, assembled, repainted or overwritten pixels, or a different upload source. An exact SHA mismatch alone does **not** distinguish them.
+- At frame 5468 and throughout subsequent captures, home staging exactly matches **Cape Verde style1**, whose atlas cell is at VRAM word `(848,256)`. The away staging **has no whole-tile SHA equality** (but its 256 nonzero words all match style55; see correction above), even though style55 at `(816,368)` is populated and has changed.
+- The away staging whole-tile SHA mismatch is now narrowed by nonzero-word comparison: it is consistent with zero-mask/clearing of style55, without a shift. An exact SHA mismatch alone did **not** distinguish these cases.
 
 ## What the GPU actually sampled (after TraceBegin)
 
