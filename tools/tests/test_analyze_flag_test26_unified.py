@@ -54,6 +54,22 @@ def make_two_phase_archive(path: Path) -> None:
 
 
 class Test26UnifiedFlagProvenance(unittest.TestCase):
+    def test_one_file_windows_runner_rejects_stale_analyzer(self):
+        cmd = (ROOT / "Run-ISS26-Test26-ArchiveAudit.cmd").read_text(
+            encoding="utf-8")
+        ps1 = (ROOT / "Run-ISS26-Test26-ArchiveAudit.ps1").read_text(
+            encoding="utf-8")
+        self.assertIn("RUNNER_COMMIT=5eb998343617e4dc413330a759d157490e6cb95c", cmd)
+        self.assertIn("ANALYZER_COMMIT=60b22eaae21d8a738455e4a4695c1447ed981ef6", cmd)
+        self.assertIn("Invoke-WebRequest", cmd)
+        self.assertIn("if errorlevel 1 goto download_failed", cmd)
+        self.assertNotIn('%~dp0Run-ISS26-Test26-ArchiveAudit.ps1', cmd)
+        self.assertIn("$Ref = '60b22eaae21d8a738455e4a4695c1447ed981ef6'", ps1)
+        self.assertIn("STALE ANALYZER", ps1)
+        self.assertIn("aligned_mask_audits", ps1)
+        self.assertIn("reference_mask_audits", ps1)
+        self.assertIn("AnalyzerFeature = 'zero-mask-audit-v1'", ps1)
+
     def test_verified_style_bank_coordinates(self):
         self.assertEqual(tool.atlas_xy(0), (832, 256))
         self.assertEqual(tool.atlas_xy(1), (848, 256))
