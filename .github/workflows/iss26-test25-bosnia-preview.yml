@@ -37,6 +37,13 @@ jobs:
           Path("test13.iss26p").write_bytes(data)
           print("PASS exact Test13 release SHA256")
           PY
+      - name: Preserve exact public Test13 input as short-lived read-only artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: iss26-test25-public-input
+          path: test13.iss26p
+          retention-days: 2
+          if-no-files-found: error
       - name: Synthetic regressions for precisely two repaired Bosnia styles
         shell: bash
         run: |
