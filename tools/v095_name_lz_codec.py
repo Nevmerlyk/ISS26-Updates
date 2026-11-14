@@ -20,7 +20,8 @@ class FormatError(ValueError):
     pass
 
 
-def decode_stream_prefix(data: bytes, *, expected_bytes: int = TILE_BYTES) -> tuple[bytes,int]:
+def decode_stream_prefix(data: bytes, *, expected_bytes: int = TILE_BYTES,
+                         allow_short: bool = False) -> tuple[bytes,int]:
     """LSB-first flags, single-byte literals and three MIPS command families."""
     src = 0
     flags = 0
@@ -68,7 +69,7 @@ def decode_stream_prefix(data: bytes, *, expected_bytes: int = TILE_BYTES) -> tu
             src += count
         if len(out) > expected_bytes:
             raise FormatError("GPU rectangle overrun")
-    if len(out) != expected_bytes:
+    if len(out) != expected_bytes and not (allow_short and 0<len(out)<expected_bytes):
         raise FormatError(f"wrong output length: {len(out)}")
     return bytes(out),src
 
