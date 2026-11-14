@@ -158,3 +158,26 @@ later wrapper transfer clears rows 16..27. Independently decode source
 art + actual CLUT on the owner's existing Test26 ZIP. Only then author
 and validate the standalone clean-original 12-track patch. The current
 research artifacts remain outside the game feeds; stable is v0.9.4.
+
+### Pinned owner-local Academy MIPS preview builder
+
+An additional **safe, build-only** Windows entrypoint is now tracked:
+[`tools/Build-ISS26-Academy-Test27-MIPS-Preview-Local.ps1`](../tools/Build-ISS26-Academy-Test27-MIPS-Preview-Local.ps1).
+It authenticates to the owner's **private** Academy repository via `gh`,
+clones exactly commit `c157c8d91bf7ed5678d913c4bc0014c709e8da95`,
+refuses old 28-row-only instrumentation, runs private portable tests and
+compiles a separate preview ZIP using .NET SDK 8; it never installs the
+EXE, updates channels or modifies the original game. The current CI only
+syntax/policy-checked the PowerShell, because the private repository's
+GitHub Actions job runners are unavailable.
+
+Run on a Windows machine *only if that preview is needed later*:
+
+```powershell
+pwsh -NoProfile -File .\tools\Build-ISS26-Academy-Test27-MIPS-Preview-Local.ps1
+```
+
+**Latest source-only green pipeline:**
+https://github.com/Nevmerlyk/ISS26-Updates/actions/runs/43625000375
+(26 Python synthetic unit tests, preview PowerShell syntax/policy,
+generated artwork research bundle; NOT live emulator/ISO validation).
