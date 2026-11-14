@@ -129,6 +129,47 @@ class Standalone(unittest.TestCase):
         struct.pack_into("<I",mod,table+12,base+32)
         self.assertEqual(build.find_routes(bytes(mod))[0]["gpu_base"],base)
 
+    def test_repacked_table_offsets_are_not_geometry_changes(self):
+        blob,raw,table=resource()
+        base=0x800F0000
+        moved=bytearray(blob[:table]+bytes(780)+blob[table:])
+        struct.pack_into("<I",moved,0,base+table+780)
+        self.assertNotEqual(build.canonical_lists(blob,base),build.canonical_lists(moved,base))
+        self.assertEqual(build.target_signature(blob,base),build.target_signature(moved,base))
+        routes=build.find_routes(moved,base)
+        self.assertTrue(all(r["upload_offset"]==table+780 for r in routes))
+        result,_=stream.rewrite_resource(bytes(moved),routes,palette(),require_clut_sha=False)
+        self.assertEqual(result[table+780:],moved[table+780:])
+
+    def test_physical_extent_recovers_existing_patched_tail_only(self):
+        clean={"BIN/DATSEL3.BIN":(100,54948),"BIN/NEXT.BIN":(150,2048)}
+        same=dict(clean)
+        self.assertEqual(build.physical_resource_size(clean,same,"BIN/DATSEL3.BIN",{}),
+                         (100,54948,55296))
+        self.assertEqual(build.physical_resource_size(clean,same,"BIN/DATSEL3.BIN",{128:None,150:None}),
+                         (100,54948,59392))
+        changed=dict(clean)
+        changed["BIN/DATSEL3.BIN"]=(100,58000)
+        self.assertEqual(build.physical_resource_size(clean,changed,"BIN/DATSEL3.BIN",{}),
+                         (100,58000,59392))
+        changed["BIN/DATSEL3.BIN"]=(101,58000)
+        with self.assertRaisesRegex(ValueError,"extent moved"):
+            build.physical_resource_size(clean,changed,"BIN/DATSEL3.BIN",{})
+
+    def test_patched_disc_view_reads_verified_sector_not_raw_original(self):
+        a=bytearray(2352)
+        a[:12]=bytes.fromhex("00FFFFFFFFFFFFFFFFFFFF00")
+        a[15]=2
+        source=io.BytesIO(a)
+        records={}
+        build.compose_resource(source,records,0,bytes(12),b"T"*12)
+        view=build.PatchedDiscView(source,records)
+        view.seek(0)
+        self.assertEqual(view.read(2352)[24:36],b"T"*12)
+        view.seek(0)
+        with self.assertRaisesRegex(ValueError,"non-sector"):
+            view.read(10)
+
     def test_wrong_hash_blocks_source_write(self):
         blob,_,_=resource()
         routes=build.find_routes(blob)
