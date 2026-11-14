@@ -60,7 +60,7 @@ def parse_uploads(blob:bytes,base:int,slot:int)->tuple[int,list[Upload]]:
     raise ValueError("Unterminated GPU upload table")
 
 
-def discover_upload_lists(blob:bytes):
+def discover_upload_lists(blob:bytes,base_hint=None):
     """Enumerate roots before selecting the actual target rectangle writer.
 
     Known name/overlay bases first; hypotheses can be inferred from a
@@ -74,10 +74,10 @@ def discover_upload_lists(blob:bytes):
         try: table,rows=parse_uploads(blob,base,slot)
         except ValueError: return
         found.setdefault((base,table),(slot,rows))
-    for base in bases:
+    for base in ((base_hint,) if base_hint is not None else bases):
         for slot in range(0,32,4):
             if slot+4<=len(blob): add(base,slot)
-    if not found:
+    if not found and base_hint is None:
         # Bounded search for a real table terminator, then plausible list
         # roots. Accept only bases aligned to a 2 KiB PS1 loading boundary.
         for slot in range(0,min(32,len(blob)-3),4):
@@ -101,7 +101,7 @@ def stream_span(blob,base,table,rows,u):
     barriers=starts|{table, len(blob)}
     # Protect every recognized root and descriptor region, plus payload
     # pointers from those lists. Refuse multiple distinct bases.
-    for (other_base,other_table),(_,other_rows) in discover_upload_lists(blob).items():
+    for (other_base,other_table),(_,other_rows) in discover_upload_lists(blob,base).items():
         if other_base!=base:
             raise ValueError("Inconsistent GPU pointer bases")
         barriers.add(other_table)
@@ -112,6 +112,16 @@ def stream_span(blob,base,table,rows,u):
         aliases={r.offset for r in other_rows if r.start==u.start}
         if aliases-{u.offset}:
             raise ValueError("GPU stream aliased by another upload")
+    # Protect header pointer targets even when an unrelated malformed
+    # list was not recognized. They cannot be used as writable slack.
+    for slot in range(0,min(32,len(blob)-3),4):
+        ptr=struct.unpack_from("<I",blob,slot)[0]-base
+        if 0<=ptr<len(blob):
+            if ptr==u.start:
+                raise ValueError("Target packet also referenced by resource header")
+            barriers.add(ptr)
+    if u.start<32:
+        raise ValueError("Target packet overlaps resource header")
     stop=min(v for v in barriers if v>u.start)
     from v095_name_lz_codec import decode_stream_prefix
     decoded,used=decode_stream_prefix(blob[u.start:stop],expected_bytes=2*u.w*u.h)
@@ -264,7 +274,8 @@ def rewrite_resource(blob:bytes,routes:list[dict],live_clut:bytes,*,require_clut
         if verified!=changed:
             raise AssertionError("Rewritten GPU stream does not round-trip")
     # Compare all descriptor fields (including unknown pad/flag bits).
-    if discover_upload_lists(bytes(output))!=discover_upload_lists(blob) or len(output)!=len(blob):
+    bases={key[0] for key in by_upload}
+    if len(bases)!=1 or any(discover_upload_lists(bytes(output),b)!=discover_upload_lists(blob,b) for b in bases) or len(output)!=len(blob):
         raise AssertionError("GPU descriptor list or resource allocation changed")
     cursor=0
     for a,b in sorted(protected):
