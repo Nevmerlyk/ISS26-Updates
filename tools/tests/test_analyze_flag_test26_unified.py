@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import importlib.util
 import json
+import struct
 from pathlib import Path
 import sys
 import tempfile
@@ -13,6 +14,7 @@ import zipfile
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 import analyze_flag_test26_unified as tool
+import parse_v095_gpudump as gpu
 
 
 def overwrite(raw: bytearray, x: int, y: int, val: int) -> None:
@@ -39,7 +41,16 @@ def make_two_phase_archive(path: Path) -> None:
         z.writestr("cal_test12_prematch_banner_abcdef_00000100.vram", a)
         z.writestr("cal_test12_carried_banner_abcdef_00000200.vram", b)
         z.writestr("frame_00000200.screen.raw", b"screen pixels (opaque metadata)")
-        z.writestr("flag_00000100.gpd", b"not a GPU parser fixture")
+        def pkt(kind, *values):
+            return struct.pack("<I", (kind << 24) | len(values)) + (
+                struct.pack("<" + str(len(values)) + "I", *values) if values else b""
+            )
+        quad = (0x3CFFFFFF, 0, (505 << 22) | 192,
+                0xFFFFFF, 1, (8 << 16) | 255,
+                0xFFFFFF, 0x00010001, (27 << 8) | 255,
+                0xFFFFFF, 0x00010000, (27 << 8) | 192)
+        dump = gpu.MAGIC + pkt(gpu.TRACE_BEGIN) + pkt(gpu.GP0, *quad)
+        z.writestr("flag_00000100.gpd", dump)
 
 
 class Test26UnifiedFlagProvenance(unittest.TestCase):
@@ -63,6 +74,9 @@ class Test26UnifiedFlagProvenance(unittest.TestCase):
             self.assertEqual(result["style_count"], 72)
             self.assertEqual(result["capture_count"], 2)
             self.assertEqual(result["gpu_trace_count"], 1)
+            self.assertEqual(result["gpu_trace_decoded_count"], 1)
+            self.assertEqual(result["gpu_dumps_inventory_only"][0]["decoded_gp0"]
+                             ["top_draw_groups"][0]["source_min_xy_words"], [560, 0])
             self.assertEqual(result["screenshot_file_count"], 1)
             first, second = result["captures"]
             self.assertEqual(first["staging"]["home"]["matching_style_ids"], [1])
