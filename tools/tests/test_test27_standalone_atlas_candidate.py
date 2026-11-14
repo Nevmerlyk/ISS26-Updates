@@ -4,12 +4,13 @@ import io
 import struct
 import sys
 import unittest
+from unittest.mock import patch
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 import test27_gpu_stream_edit as stream
 import test27_build_standalone_atlas_candidate as build
 from test27_flag_art_4bpp import bgr555,COLORS
-from v095_name_lz_codec import encode_stream,decode_stream
+from v095_name_lz_codec import encode_stream,decode_stream,encode_stream_compact,encode_with_budget
 from build_v095_test12_gdc_descriptor_repair import valid_parity
 
 def palette():
@@ -48,6 +49,42 @@ class Standalone(unittest.TestCase):
             expected=stream.change_tile(expected,uploads[0],x-800,y-256,art)
         self.assertEqual(decoded,expected)
         self.assertNotEqual(result,blob)
+    def test_palette_matching_finds_distinct_non_greedy_solution(self):
+        # Intended BGR red levels ~10 and 12 both prefer the same slot 11.
+        # Only the first can use level 6 within the stated tolerance.
+        colors=((0,0,0),(82,0,0),(99,0,0),(255,255,255))
+        pal=struct.pack("<16H",0,11,6,0x7fff,*([0]*12))
+        with patch.dict(stream.COLORS,{"bosnia":colors}):
+            _,meta=stream.mapped_art("bosnia",pal)
+        self.assertEqual(meta["index_map"],{1:2,2:1,3:3})
+
+    def test_duplicate_palette_values_do_not_count_as_distinct_colors(self):
+        colors=((0,0,0),(82,0,0),(99,0,0),(255,255,255))
+        pal=struct.pack("<16H",0,11,11,0x7fff,*([0]*12))
+        with patch.dict(stream.COLORS,{"bosnia":colors}):
+            with self.assertRaisesRegex(ValueError,"merges distinct"):
+                stream.mapped_art("bosnia",pal)
+
+    def test_compact_codec_varied_and_boundary_inputs(self):
+        import random
+        rng=random.Random(27)
+        for raw in (b"Z",b"AB"*40,bytes(range(256))*3,
+                    bytes(rng.randrange(256) for _ in range(1100)),
+                    b"Hello"*43+bytes(range(70))+b"Hello"*9):
+            with self.subTest(n=len(raw)):
+                encoded=encode_stream_compact(raw,expected_bytes=len(raw))
+                self.assertEqual(decode_stream(encoded,expected_bytes=len(raw)),raw)
+
+    def test_budget_fallback_selects_compact_packet(self):
+        raw=b"XYZ"*500
+        compact=encode_stream_compact(raw,expected_bytes=len(raw))
+        # Unit-level test of fallback routing: simulate a valid but longer
+        # initial attempt; the compact output must still round-trip.
+        with patch("v095_name_lz_codec.encode_stream",return_value=compact+bytes(1)):
+            packet,method=encode_with_budget(raw,expected_bytes=len(raw),capacity=len(compact))
+        self.assertEqual(method,"compact_search")
+        self.assertEqual(decode_stream(packet,expected_bytes=len(raw)),raw)
+
     def test_wrong_hash_blocks_source_write(self):
         blob,_,_=resource()
         routes=build.find_routes(blob)
