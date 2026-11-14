@@ -28,7 +28,7 @@ from test27_extract_real_flag_pixels import read_snapshot, sha_path, EXPECTED_ZI
 from analyze_flag_test26_unified import clut
 from test27_gpu_stream_edit import (
     sha, TARGETS, CLUT_SHA, parse_uploads, take_tile, rewrite_resource,
-    decode_stream, mapped_art, discover_upload_lists, stream_span,
+    decode_stream, mapped_art, discover_upload_lists, stream_span, fragment_read, intersection,
 )
 
 TEST25_SHA="85014C8222A408344704CCD8FC192379645E18770876CF4501324D504D55BA67"
@@ -114,11 +114,9 @@ def physical_resource_size(clean_catalog,patched_catalog,name,records):
     limit=(following-lba)*2048
     if max(size,clean_size)>limit:
         raise ValueError("Directory resource overlaps following extent")
-    # The game can read sector-rounded data. Old repacks can occupy an
-    # already patched tail beyond the logical ISO length. Include it
-    # only up to the next known file and only through actual patch records.
-    highest=max((i for i in records if lba<=i<following),default=lba-1)
-    physical=max(math.ceil(size/2048)*2048,(highest-lba+1)*2048)
+    # A patch record in the inter-file gap is not proof of file ownership.
+    # Read only the exact patched ISO allocation; no speculative gap reads.
+    physical=math.ceil(size/2048)*2048
     if not 0<physical<=min(limit,1024*1024):
         raise ValueError("Unsafe physical resource allocation")
     return lba,size,physical
@@ -187,32 +185,31 @@ def read_resource(source,records,lba,size):
 
 def find_routes(blob,base_hint=None):
     possible=canonical_lists(blob,base_hint) if base_hint is not None else discover_upload_lists(blob)
-    if not possible:
-        raise ValueError("No structurally valid GPU list (header words: "+
-                         " ".join(f"{v:08X}" for v in struct.unpack_from("<8I",blob)) + ")")
-    if len({base for (base,table) in possible})!=1:
-        raise ValueError("Ambiguous GPU RAM base: "+str(list(possible)))
+    if not possible or len({base for base,table in possible})!=1:
+        raise ValueError("No unique supported GPU RAM base/list")
     routes=[]
     for flag,(x,y) in TARGETS.items():
-        overlapping=[]
+        coverage=set()
+        unique={}
         for (base,table),(slot,rows) in possible.items():
-            overlapping.extend((base,table,slot,rows,i,r) for i,r in enumerate(rows)
-                               if r.x<x+16 and r.x+r.w>x and r.y<y+28 and r.y+r.h>y)
-        # Different header roots may reference the same descriptor suffix.
-        unique={ (base,r.offset):(base,table,slot,rows,i,r)
-                 for base,table,slot,rows,i,r in overlapping }
-        if len(unique)!=1:
-            raise ValueError("Ambiguous or absent target coverage: "+flag+"; "+
-                 str([(hex(base),hex(table),i,r.kind,r.x,r.y,r.w,r.h)
-                      for base,table,slot,rows,i,r in unique.values()]))
-        base,table,slot,rows,i,r=next(iter(unique.values()))
-        if not(r.x<=x and x+16<=r.x+r.w and r.y<=y and y+28<=r.y+r.h):
-            raise ValueError("Target crosses GPU upload boundary: "+flag)
-        decoded,end=stream_span(blob,base,table,rows,r)
-        routes.append({"flag":flag,"gpu_base":base,"list_pointer_slot":slot,
-                       "upload_index":i,"upload_offset":r.offset,"stream_offset":r.start,
-                       "stream_capacity_bytes":end-r.start,
-                       "old_tile_sha256":sha(take_tile(decoded,r,x-r.x,y-r.y))})
+            for i,u in enumerate(rows):
+                box=intersection(u,flag)
+                if box:
+                    unique.setdefault((base,u.offset),(base,table,slot,rows,i,u,box))
+        for base,table,slot,rows,i,u,box in unique.values():
+            gx,gy,w,h=box
+            coords={(xx,yy) for yy in range(gy,gy+h) for xx in range(gx,gx+w)}
+            if coverage & coords:
+                raise ValueError("Overlapping GPU target fragments: "+flag)
+            coverage.update(coords)
+            decoded,end=stream_span(blob,base,table,rows,u)
+            old=fragment_read(decoded,u,box)
+            routes.append({"flag":flag,"gpu_base":base,"list_pointer_slot":slot,
+                "upload_index":i,"upload_offset":u.offset,"stream_offset":u.start,
+                "stream_capacity_bytes":end-u.start,"decoded_bytes":len(decoded),
+                "fragment":list(box),"old_tile_sha256":sha(old)})
+        if len(coverage)!=16*28:
+            raise ValueError("Incomplete GPU target coverage: "+flag)
     return routes
 
 def compose_resource(source,records,lba,old,new):
@@ -286,7 +283,7 @@ def build(track:Path,base:Path,archive:Path):
             try:
                 lba,size,physical=physical_resource_size(catalog,patched_catalog,name,records)
                 original=read_resource(source,{},lba,catalog[name][1])
-                old=read_resource(source,records,lba,physical)
+                old=read_resource(source,records,lba,size)
                 base_hint=0x800C8000 if "/GDC_" in name else 0x800F0000
                 clean_lists=canonical_lists(original,base_hint)
                 patched_lists=canonical_lists(old,base_hint)
@@ -310,7 +307,7 @@ def build(track:Path,base:Path,archive:Path):
                 continue
             # Do not create new out-of-file writes in the extended physical tail.
             for offset in range(0,len(old),2048):
-                if offset>=((size+2047)//2048)*2048 and old[offset:offset+2048]!=new[offset:offset+2048] and lba+offset//2048 not in baseline:
+                if offset>=size and old[offset:offset+2048]!=new[offset:offset+2048]:
                     raise ValueError("New write beyond logical ISO allocation")
             updated[name]=(lba,old,new)
             resource_results.append({"resource":name,"original_logical_bytes":catalog[name][1],"patched_logical_bytes":size,"verified_physical_bytes":physical,"source_sha256":sha(old),
