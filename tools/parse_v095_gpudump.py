@@ -212,11 +212,30 @@ class GP0Inspector:
             elif i == 1:
                 raw_tpage = uv >> 16
             pos += 1
-        self.record("textured_polygon", op, uvs, raw_tpage, raw_clut)
+        # GP0 textured polygons update the GPU's active texture-page bits.
+        # Subsequent GP0 textured rectangles can reuse these bits without E1.
+        if raw_tpage is not None:
+            self.last_texpage = ((self.last_texpage or 0) & ~0x9FF) | (raw_tpage & 0x9FF)
+        self.record("textured_polygon", op, uvs, self.last_texpage, raw_clut)
 
     def rectangle(self, op: int, w: list[int]):
         uv = w[2]
-        self.record("textured_rectangle", op, [(uv & 255, (uv >> 8) & 255)],
+        u, v = uv & 255, (uv >> 8) & 255
+        # GP0 rectangle opcodes carry dimensions separately from their UV.
+        # Without extending these bounds, a stage flag drawn as a sprite
+        # would be missed if only its first texel falls outside staging.
+        size = op & 0x18
+        if size == 0:
+            extent = w[3]
+            width, height = extent & 0x3FF, (extent >> 16) & 0x1FF
+        else:
+            width = height = {0x08: 1, 0x10: 8, 0x18: 16}[size]
+        # UVs wrap at 256. For wrapped sprites, keep start UV only rather
+        # than inventing one continuous rectangle over the wrapping edge.
+        x_end = u + max(0, width-1)
+        y_end = v + max(0, height-1)
+        uvs = [(u, v)] if x_end > 255 or y_end > 255 else [(u, v), (x_end, y_end)]
+        self.record("textured_rectangle", op, uvs,
                     self.last_texpage, uv >> 16)
 
     def summary(self):
@@ -268,6 +287,12 @@ def inspect(data: bytes) -> dict:
             continue
         if kind == GP0:
             source.feed(payload)
+        elif kind == 1:  # GP1: GPU reset / command FIFO clear
+            for word in payload:
+                if word >> 24 in (0, 1):
+                    source.pending.clear()
+                    if word >> 24 == 0:
+                        source.last_texpage = None
         elif kind == VSYNC:
             source.frame += 1
     result = source.summary()
