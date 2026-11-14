@@ -177,6 +177,64 @@ class Test26UnifiedFlagProvenance(unittest.TestCase):
                 result["operator_phase_coverage"]["carried_banner"]["verified_gpu_draw_ownership"]
             )
 
+    def test_zero_masked_style55_explains_exact_hash_mismatch(self):
+        # Stage contains the precise nonzero content from the source, but two
+        # source words are zeroed. Previous SHA-only analysis called it an
+        # unmatched source; the mask audit must diagnose it without guessing.
+        source = bytes([0x21, 0x43]) * (tool.STYLE_WORDS * tool.STYLE_ROWS)
+        stage = bytearray(source)
+        stage[2 * 17:2 * 19] = bytes(4)
+        self.assertNotEqual(tool.sha(bytes(stage)), tool.sha(source))
+        metrics = tool.aligned_stage_mask_audit(bytes(stage), source)
+        self.assertEqual(metrics["total_16bit_words"], 448)
+        self.assertEqual(metrics["stage_nonzero_words"], 446)
+        self.assertEqual(metrics["source_nonzero_words"], 448)
+        self.assertEqual(metrics["retained_equal_nonzero_words"], 446)
+        self.assertEqual(metrics["suppressed_source_nonzero_words"], 2)
+        self.assertEqual(metrics["source_nonzero_4bpp_pixels_suppressed"], 8)
+        self.assertEqual(metrics["suppressed_bbox_4bpp_pixels_xyxy"], [4, 1, 11, 1])
+        self.assertEqual(metrics["suppressed_word_counts_by_row"][1], 2)
+        self.assertEqual(metrics["mutated_nonzero_words"], 0)
+        self.assertEqual(metrics["introduced_nonzero_words"], 0)
+        self.assertTrue(metrics["stage_is_zero_masked_source"])
+        self.assertFalse(metrics["stage_equals_source"])
+        self.assertEqual(tool.aligned_stage_mask_audit(source, source)
+                         ["stage_equals_source"], True)
+        stage[0:2] = bytes([0x22, 0x43])
+        self.assertFalse(tool.aligned_stage_mask_audit(bytes(stage), source)
+                         ["stage_is_zero_masked_source"])
+        with self.assertRaises(ValueError):
+            tool.aligned_stage_mask_audit(bytes(4), source)
+
+    def test_compact_exposes_style55_mask_loss_without_raw_pixels(self):
+        raw = bytearray(tool.VRAM_BYTES)
+        put_style(raw, 1, 0x11)
+        put_style(raw, 55, 0x55)
+        overwrite(raw, 560, 0, 0x11)
+        overwrite(raw, 560, 28, 0x55)
+        # 4bpp pixels in the top away-stage source row were zeroed.
+        at = (28 * 1024 + 560) * 2
+        raw[at:at + 4] = bytes(4)
+        with tempfile.TemporaryDirectory() as td:
+            path = Path(td) / "masked.zip"
+            with zipfile.ZipFile(path, "w", zipfile.ZIP_DEFLATED) as z:
+                z.writestr("flag_auto_crowd_flags_00005468.vram", raw)
+            whole = tool.analyze_archive(path)
+            item = whole["captures"][0]
+            self.assertEqual(item["staging"]["away"]["matching_style_ids"], [])
+            self.assertEqual(item["staging"]["away"]
+                             ["ranked_partial_style_candidates"][0]["style_id"], 55)
+            metrics = item["aligned_mask_audits"]["away_style55"]
+            self.assertTrue(metrics["stage_is_zero_masked_source"])
+            self.assertEqual(metrics["suppressed_source_nonzero_words"], 2)
+            self.assertEqual(metrics["source_nonzero_4bpp_pixels_suppressed"], 8)
+            brief = tool.compact_summary(whole)
+            self.assertEqual(brief["captures"][0]["reference_mask_audits"]
+                             ["away_style55"]["suppressed_bbox_4bpp_pixels_xyxy"],
+                             [0, 0, 7, 0])
+            self.assertNotIn("style_sha256", brief["captures"][0])
+            self.assertNotIn("vram_sha256", brief["captures"][0])
+
     def test_partial_and_shifted_bosnia_style_source_ranking(self):
         # Synthetic unique texels: away stage is copied one VRAM word to the
         # right inside source style55. Exact SHA equality must fail, but a
