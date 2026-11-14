@@ -16,7 +16,10 @@ import math
 import struct
 from pathlib import Path
 import test27_build_standalone_atlas_candidate as base
-from test27_gpu_stream_edit import (sha, TARGETS, CLUT_SHA, mapped_art, rewrite_resource)
+from test27_gpu_stream_edit import (sha, TARGETS, CLUT_SHA, mapped_art, rewrite_resource,
+    stream_span, intersection, parse_uploads, discover_upload_lists)
+from v095_name_lz_codec import decode_stream_prefix
+from build_v094_pointer_repair import edc
 from test27_extract_real_flag_pixels import read_snapshot,sha_path,EXPECTED_ZIP_SHA
 from analyze_flag_test26_unified import clut
 from probe_v095_name_gpu_atlas import directory_files,raw_sector,SECTOR,CLEAN_SHA,file_sha
@@ -129,7 +132,76 @@ def clean_art(blob,palette):
     new,changes=rewrite_resource(blob,routes,palette)
     if len(new)!=len(blob):
         raise AssertionError("Recovery expanded clean resource")
-    return new,changes
+    return new,changes,address
+
+def donor_projection(source,records,lba,size):
+    """Read old compiler's 2048-byte slices for RECOVERY ONLY.
+    This is NOT a claim that a real PS1 accepts Form2 graphics.
+    No bytes from a Form2 sector are written by the new recovery patch.
+    """
+    out=bytearray()
+    for i in range(math.ceil(size/2048)):
+        _,raw=base.patched_sector(source,lba+i,records)
+        if raw[16:20]!=raw[20:24]:
+            raise ValueError("Old donor sector subheaders disagree")
+        if raw[18]&0x20 and raw[2348:2352]!=edc(raw[16:2348]):
+            raise ValueError("Old donor Form2 EDC not verified")
+        out.extend(raw[24:2072])
+    return bytes(out[:size])
+
+
+def retain_valid_donors(original,result,prior,address):
+    """Restore only fully decoded non-target old GPU packets that fit their
+    clean slots, with identical full descriptor geometry and no aliases.
+    Opaque auxiliary data and damaged/oversized packets stay original.
+    """
+    out=bytearray(result)
+    stats={"retained_changed_packets":[],"unchanged_packets":0,
+           "original_fallback_packets":[],"target_packets_not_imported":[]}
+    seen=set()
+    authorized=[]
+    for (_,table),(slot,rows) in base.canonical_lists(original,address).items():
+        try:
+            ot,oldrows=parse_uploads(prior,address,slot)
+            geo=lambda u:(u.kind,u.x,u.y,u.w,u.h,u.padding_field)
+            if [geo(u) for u in rows]!=[geo(u) for u in oldrows]:
+                raise ValueError("GPU list geometry differs")
+        except ValueError as exc:
+            stats["original_fallback_packets"].append({"slot":slot,"reason":str(exc)})
+            continue
+        for u,v in zip(rows,oldrows):
+            if u.offset in seen or u.kind&255!=10:
+                continue
+            seen.add(u.offset)
+            if any(intersection(u,f) for f in TARGETS):
+                stats["target_packets_not_imported"].append(u.offset)
+                continue
+            try:
+                expected=2*u.w*u.h
+                clean,stop=stream_span(original,address,table,rows,u)
+                old,end=stream_span(prior,address,ot,oldrows,v)
+                if len(clean)!=expected or len(old)!=expected:
+                    raise ValueError("Donor/clean packet is incomplete")
+                if old==clean:
+                    stats["unchanged_packets"]+=1
+                    continue
+                raw,used=decode_stream_prefix(prior[v.start:end],expected_bytes=expected)
+                if raw!=old or used>stop-u.start:
+                    raise ValueError("Valid donor packet does not fit clean slot")
+                if result[u.start:stop]!=original[u.start:stop] or any(u.start<b and a<stop for a,b in authorized):
+                    raise ValueError("Donor intersects new flag or already used stream")
+                payload=prior[v.start:v.start+used]+bytes(stop-u.start-used)
+                if decode_stream_prefix(payload,expected_bytes=expected)[0]!=old:
+                    raise AssertionError("Donor round-trip failed")
+                out[u.start:stop]=payload
+                authorized.append((u.start,stop))
+                stats["retained_changed_packets"].append(u.offset)
+            except (ValueError,AssertionError) as exc:
+                stats["original_fallback_packets"].append({"upload_offset":u.offset,"reason":str(exc)})
+    if discover_upload_lists(bytes(out),address)!=discover_upload_lists(original,address):
+        raise AssertionError("Donor recovery changed descriptors")
+    return bytes(out),stats
+
 
 def build(track,patch,archive):
     if file_sha(track)!=CLEAN_SHA:
@@ -167,8 +239,15 @@ def build(track,patch,archive):
                 # Source is strictly clean Form1 extent. No reading Form2
                 # tail as graphics and no change to original sector headers.
                 original=base.read_resource(source,{},lba,clean[name][1])
-                result,edits=clean_art(original,palette)
-                jobs.append((name,lba,owned,original,result,edits))
+                result,edits,address=clean_art(original,palette)
+                try:
+                    prior=donor_projection(source,records,lba,patched[name][1])
+                    result,donors=retain_valid_donors(original,result,prior,address)
+                except (ValueError,AssertionError) as exc:
+                    donors={"retained_changed_packets":[],"original_fallback_packets":[],
+                            "all_prior_donor_packets_skipped":str(exc)}
+                jobs.append((name,lba,owned,original,result,edits,donors))
+                print("DONOR RETENTION:",name,json.dumps(donors),flush=True)
                 touched.update(owned)
                 print("RECOVERY PASS:",name,json.dumps(edits),flush=True)
             except (ValueError,AssertionError) as exc:
@@ -177,7 +256,7 @@ def build(track,patch,archive):
         if blockers or len(jobs)!=len(names):
             raise ValueError("Recovery refused before composition:\n - "+"\n - ".join(blockers))
         reports=[]
-        for name,lba,owned,original,result,edits in jobs:
+        for name,lba,owned,original,result,edits,donors in jobs:
             removed=sorted(owned&previous.keys())
             for i in owned:
                 records.pop(i,None)
@@ -188,7 +267,7 @@ def build(track,patch,archive):
                 raise AssertionError("Recovered resource readback failed")
             reports.append({"resource":name,"clean_bytes":len(original),
                 "prior_bytes":patched[name][1],"prior_records_replaced_or_removed":removed,
-                "new_graphics_lbas":actual,"candidate_sha256":sha(result),"edits":edits})
+                "new_graphics_lbas":actual,"candidate_sha256":sha(result),"edits":edits,"donor_retention":donors})
         directory_changes=restore_lengths(source,records,cleanpos,patchedpos,names)
         if directory_changes&touched:
             raise AssertionError("Directory and graphics overlap")
@@ -207,7 +286,8 @@ def build(track,patch,archive):
     return output,{"schemaVersion":1,"kind":"EXPERIMENTAL Test27 clean graphics extent recovery",
         "output_patch_sha256":sha(output),"records":len(records),
         "resources":reports,"directory_lbas":sorted(directory_changes),
-        "prior_graphics_in_36_files_rolled_back":True,
+        "prior_graphics_in_36_files_rolled_back_or_selectively_retained":True,
+        "all_prior_graphics_preserved":False,
         "other_base_records_preserved":True,"original_disc_modified":False,
         "tracks02_12_modified":False,"test25_required_at_install":False,
         "runtime_stage_writer_fixed":False,"release_authorized":False,
@@ -231,6 +311,6 @@ def main():
     with args.report.open("x",encoding="utf-8") as f: json.dump(report,f,indent=2)
     print("EXPERIMENTAL recovery patch:",args.output)
     print("SHA256:",report["output_patch_sha256"])
-    print("WARNING: old graphics within 36 files rolled back. No runtime fix claimed.")
+    print("WARNING: prior graphics selectively retained; damaged, oversized and unverified edits reverted. No runtime fix claimed.")
 if __name__=="__main__":
     main()
