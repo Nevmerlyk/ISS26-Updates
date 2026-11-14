@@ -253,9 +253,12 @@ def mapped_art(flag:str,live_clut:bytes,max_channel_error:int=5)->tuple[bytes,di
     _,indices,errors=best
     return pack_4bpp([indices[i] for i in pixels]),{"index_map":indices,"max_channel_error_5bit":errors}
 
-def rewrite_resource(blob:bytes,routes:list[dict],live_clut:bytes,*,require_clut_sha=True)->tuple[bytes,list[dict]]:
+def rewrite_resource(blob:bytes,routes:list[dict],live_clut:bytes,*,require_clut_sha=True, required_flags=None)->tuple[bytes,list[dict]]:
     if require_clut_sha and sha(live_clut)!=CLUT_SHA:
         raise ValueError("CLUT does not match captured owner Test27 palette")
+    required=set(TARGETS) if required_flags is None else set(required_flags)
+    if not required or not required<=set(TARGETS) or {r["flag"] for r in routes}!=required:
+        raise ValueError("Explicit complete flags required; no implicit partial writes")
     if not routes or len(routes)>16:
         raise ValueError("Expected bounded national flag fragments")
     if len({(r["flag"],r["upload_offset"]) for r in routes})!=len(routes):
@@ -285,7 +288,7 @@ def rewrite_resource(blob:bytes,routes:list[dict],live_clut:bytes,*,require_clut
         covered[flag].update(cells)
         by_upload.setdefault((base,table,u),[]).append((flag,box,r["old_tile_sha256"],i,r["decoded_bytes"]))
         regions[(base,table,u)]=uploads
-    if any(len(cells)!=448 for cells in covered.values()):
+    if any(len(covered[flag])!=448 for flag in required):
         raise ValueError("Incomplete national fragment coverage")
     protected=[]
     for key,targets in by_upload.items():
