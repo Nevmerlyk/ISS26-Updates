@@ -141,6 +141,65 @@ def ranked_partial_style_sources(stage: bytes, styles: list[bytes], max_shift: i
     return candidates[:5]
 
 
+
+def aligned_stage_mask_audit(stage: bytes, source: bytes) -> dict:
+    """Compare a stage buffer to a style at offset (0,0), without masking zeros.
+
+    All positions are counted. Existing partial ranker deliberately ignores
+    zero-valued stage words; this companion makes source pixels suppressed by
+    those zeros visible in an evidence report. PS1 4bpp has four palette
+    indices (nibbles) per 16-bit VRAM word. Indices and artwork are never
+    exported.
+    """
+    if len(stage) != STYLE_BYTES or len(source) != STYLE_BYTES:
+        raise ValueError("Expected two complete 16x28-word flag textures")
+    stage_words = struct.unpack("<" + "H" * (STYLE_WORDS * STYLE_ROWS), stage)
+    source_words = struct.unpack("<" + "H" * (STYLE_WORDS * STYLE_ROWS), source)
+    kept = suppressed = changed = introduced = 0
+    source_nonzero = stage_nonzero = 0
+    suppressed_colored_nibbles = 0
+    suppressed_row_counts = [0] * STYLE_ROWS
+    bbox: list[int] | None = None
+    for i, (a, b) in enumerate(zip(stage_words, source_words)):
+        stage_nonzero += int(a != 0)
+        source_nonzero += int(b != 0)
+        if a == b:
+            kept += int(a != 0)
+        elif a == 0 and b != 0:
+            suppressed += 1
+            y, x_word = divmod(i, STYLE_WORDS)
+            suppressed_row_counts[y] += 1
+            for nibble in range(4):
+                if ((b >> (4 * nibble)) & 15) != 0:
+                    suppressed_colored_nibbles += 1
+                    x = x_word * 4 + nibble
+                    if bbox is None:
+                        bbox = [x, y, x, y]
+                    else:
+                        bbox = [min(bbox[0], x), min(bbox[1], y),
+                                max(bbox[2], x), max(bbox[3], y)]
+        elif a != 0 and b == 0:
+            introduced += 1
+        else:
+            changed += 1
+    return {
+        "total_16bit_words": STYLE_WORDS * STYLE_ROWS,
+        "stage_nonzero_words": stage_nonzero,
+        "source_nonzero_words": source_nonzero,
+        "retained_equal_nonzero_words": kept,
+        "suppressed_source_nonzero_words": suppressed,
+        "introduced_nonzero_words": introduced,
+        "mutated_nonzero_words": changed,
+        "source_nonzero_4bpp_pixels_suppressed": suppressed_colored_nibbles,
+        "suppressed_bbox_4bpp_pixels_xyxy": bbox,
+        "suppressed_word_counts_by_row": suppressed_row_counts,
+        "stage_is_zero_masked_source": (
+            introduced == 0 and changed == 0 and suppressed > 0
+        ),
+        "stage_equals_source": (introduced == 0 and changed == 0 and suppressed == 0),
+    }
+
+
 def fingerprint(raw: bytes) -> dict:
     styles = [tile(raw, *atlas_xy(i)) for i in range(STYLE_COUNT)]
     homes = {side: tile(raw, *coords) for side, coords in TEAM_STAGING.items()}
@@ -162,6 +221,11 @@ def fingerprint(raw: bytes) -> dict:
             name: {"style": index, "atlas_xy_words": list(atlas_xy(index)),
                    "tile_sha256": sha(styles[index])}
             for name, index in REFERENCE_STYLES.items()
+        },
+        "aligned_mask_audits": {
+            "home_style1": aligned_stage_mask_audit(homes["home"], styles[1]),
+            "away_style22": aligned_stage_mask_audit(homes["away"], styles[22]),
+            "away_style55": aligned_stage_mask_audit(homes["away"], styles[55]),
         },
         "national_palette_hashes": [
             sha(clut(raw, 16 * n, 505)) for n in range(54)
@@ -334,6 +398,10 @@ def compact_summary(result: dict) -> dict:
             "away_partial_candidates": item["staging"]["away"].get(
                 "ranked_partial_style_candidates", []
             )[:3],
+            "reference_mask_audits": {
+                name: item.get("aligned_mask_audits", {}).get(name)
+                for name in ("home_style1", "away_style22", "away_style55")
+            },
         })
     compact_traces = []
     for item in result["gpu_dumps_inventory_only"]:
