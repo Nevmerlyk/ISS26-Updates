@@ -17,6 +17,7 @@ import json
 from pathlib import Path, PurePosixPath
 import struct
 import zipfile
+import zlib
 from analyze_flag_test12_phases import VRAM_BYTES, safe_archive_files
 from analyze_flag_test26_unified import (
     atlas_xy, tile, clut, sha, STYLE_WORDS, STYLE_ROWS,
@@ -81,6 +82,42 @@ def diff_indices(stage: list[int], atlas: list[int]) -> tuple[list[int],dict]:
                   and counts["new_nonzero"]==0
                   and counts["changed_nonzero"]==0}
 
+def make_comparison_sheet(panels: list[list[tuple[list[int], tuple[tuple[int,int,int],...]]]],
+                          scale: int = 8) -> bytes:
+    """Single read-only side-by-side preview; no external fonts/libraries.
+
+    Exactly two flag rows and three image columns: original atlas artwork
+    with its live CLUT, final staging with zero indices marked magenta,
+    and source-vs-staging difference in diagnostic colors.
+    """
+    if len(panels) != 2 or any(len(row) != 3 for row in panels) or scale not in (4, 8, 16):
+        raise ValueError("Expected two flags and three preview panels")
+    width, height = W * 3 * scale, H * 2 * scale
+    rows = bytearray()
+    for triplet in panels:
+        for y in range(H):
+            pixel_row = bytearray()
+            for pixels, colors in triplet:
+                if len(pixels) != W * H or not 2 <= len(colors) <= 16:
+                    raise ValueError("Incorrect 4bpp panel dimensions or palette")
+                for x in range(W):
+                    index = pixels[y * W + x]
+                    if not 0 <= index < len(colors):
+                        raise ValueError("Pixel color index exceeds palette")
+                    pixel_row.extend(bytes(colors[index]) * scale)
+            for _ in range(scale):
+                rows.append(0)
+                rows.extend(pixel_row)
+    def chunk(kind: bytes, body: bytes) -> bytes:
+        return (struct.pack(">I", len(body)) + kind + body +
+                struct.pack(">I", zlib.crc32(kind + body) & 0xffffffff))
+    header = struct.pack(">IIBBBBB", width, height, 8, 2, 0, 0, 0)
+    return (b"\\x89PNG\\r\\n\\x1a\\n" +
+            chunk(b"IHDR", header) +
+            chunk(b"IDAT", zlib.compress(rows, 9)) +
+            chunk(b"IEND", b""))
+
+
 def inspect_archive(archive: Path, output: Path,
                     required_sha: str | None = EXPECTED_ZIP_SHA) -> dict:
     digest=sha_path(archive)
@@ -89,6 +126,7 @@ def inspect_archive(archive: Path, output: Path,
     raw=read_snapshot(archive)
     output.mkdir(parents=True,exist_ok=True)
     results={}
+    comparison_panels=[]
     for name,style,stage_xy,clut_xy in PAIRS:
         source=tile(raw,*atlas_xy(style))
         stage=tile(raw,*stage_xy)
@@ -98,6 +136,11 @@ def inspect_archive(archive: Path, output: Path,
         delta,analysis=diff_indices(stage_pixels,source_pixels)
         marked=((255,0,255),)+palette[1:]
         diff_colours=((0,0,0),(49,150,93),(244,63,67),(239,178,58),(93,104,225))
+        comparison_panels.append([
+            (source_pixels, palette),
+            (stage_pixels, marked),
+            (delta, diff_colours),
+        ])
         for label,pixels,colours in (
             ("source_clut",source_pixels,palette),
             ("stage_clut",stage_pixels,palette),
@@ -117,11 +160,21 @@ def inspect_archive(archive: Path, output: Path,
             "diff":analysis,
             "images_written":5,
         }
+    comparison_name = "Test27_Flag_Source_vs_Stage_Comparison.png"
+    (output/comparison_name).write_bytes(make_comparison_sheet(comparison_panels))
     report={
         "schemaVersion":1,
         "kind":"Test27 actual owner ZIP CLUT + flag pixel comparison (read-only)",
         "input_zip_sha256":digest,
         "snapshot":EXACT_VRAM_NAME,
+        "comparison_sheet_file": comparison_name,
+        "comparison_sheet_size_pixels": [W*3*8, H*2*8],
+        "comparison_sheet_rows": ["cape_verde", "bosnia"],
+        "comparison_sheet_columns": [
+            "atlas_with_actual_clut",
+            "staging_zero_index_marked_magenta",
+            "source_staging_index_difference",
+        ],
         "input_vram_sha256":sha(raw),
         "source_disc_modified":False,
         "game_patch_built":False,
