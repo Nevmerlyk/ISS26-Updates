@@ -10,7 +10,7 @@ BASE=0x800C8000
 class Test29(unittest.TestCase):
     def test_candidate_coordinates(self):
         self.assertEqual(t.xy(55),(816,368))
-        self.assertEqual([t.xy(x) for x in t.CANDIDATES],[(768,284),(784,284),(800,284)])
+        self.assertEqual([t.xy(x) for x in t.PREFERRED],[(768,284),(784,284),(800,284)])
     def test_five_maps_and_club_collision(self):
         table=bytearray([2]*78)
         table[0]=1;table[30]=55;table[54]=10
@@ -18,6 +18,23 @@ class Test29(unittest.TestCase):
         self.assertTrue(t.free_style(maps,40))
         table[75]=40
         self.assertFalse(t.free_style(maps[:4]+[bytes(table)],40))
+    def test_full_search_excludes_boundary_and_reserved_entries(self):
+        table=bytearray([2]*78)
+        table[0]=1;table[30]=55;table[54]=10
+        table[60:63]=bytes([40,41,42])
+        maps=[bytes(table)]*5
+        free=[i for i in t.candidates() if t.free_style(maps,i,(3,4,5,6))]
+        self.assertIn(39,free)
+        self.assertNotIn(40,free)
+        self.assertNotIn(3,free)
+        self.assertNotIn(16,free) # y=368 crosses y=384
+        self.assertEqual(t.owners(maps,40)[0]["slot"],60)
+        self.assertEqual(t.owners(maps,3,(3,))[0]["class"],"reserved guard")
+    def test_baseline_failure_not_mislabeled_as_occupied(self):
+        table=bytearray([2]*78)
+        table[0]=1;table[30]=7;table[54]=10
+        with self.assertRaisesRegex(ValueError,"Bosnia style"):
+            t.free_style([bytes(table)]*5,40)
     def test_actual_packet_relocation(self):
         raw=resource([(768,256,32,128,None,None,None)])
         art=bytes([0x41])*896
