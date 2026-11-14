@@ -91,27 +91,54 @@ def mapped_art(flag:str,live_clut:bytes,max_channel_error:int=5)->tuple[bytes,di
     values=struct.unpack("<16H",live_clut)
     def rgb5(n): return (n&31,(n>>5)&31,(n>>10)&31)
     _,_,pixels,_=candidate(flag)
-    indices={}
-    errors={}
-    for i in sorted(set(pixels)):
+    # A greedy nearest-entry choice can reject a feasible palette if two
+    # intended colors prefer the same entry. Find a minimum-error injective
+    # assignment over the actual available opaque colors instead.
+    wanted=sorted(set(pixels))
+    candidates={}
+    for i in wanted:
         intended=rgb5(bgr555(COLORS[flag][i]))
         choices=[]
         for j in range(1,16):
             v=values[j]
-            # Skip entire transparent-black entry and STP colors (semi-transparency).
-            if not v or v&0x8000: continue
+            if not v or v&0x8000:
+                continue
             actual=rgb5(v)
             d=tuple(abs(a-b) for a,b in zip(actual,intended))
-            choices.append((sum(x*x for x in d),max(d),j))
+            error=max(d)
+            if error<=max_channel_error:
+                choices.append((sum(x*x for x in d),error,j))
+        candidates[i]=sorted(choices)
         if not choices:
-            raise ValueError("No safe opaque nonzero CLUT entries")
-        distance,error,j=min(choices)
-        if error>max_channel_error:
+            if not any(v and not v&0x8000 for v in values[1:]):
+                raise ValueError("No safe opaque nonzero CLUT entries")
             raise ValueError(f"{flag}: existing CLUT cannot safely represent color {i}; explicit palette allocation required")
-        indices[i]=j
-        errors[i]=error
-    if len(set(indices.values()))!=len(indices):
+    order=sorted(wanted,key=lambda i:(len(candidates[i]),i))
+    best=None
+    def assign(depth,used,score,peak,indices,errors):
+        nonlocal best
+        if best is not None and score>best[0][0]:
+            return
+        if depth==len(order):
+            rank=(score,peak,tuple(indices[i] for i in wanted))
+            if best is None or rank<best[0]:
+                best=(rank,dict(indices),dict(errors))
+            return
+        i=order[depth]
+        for distance,error,j in candidates[i]:
+            # Distinct slots alone are not enough: several CLUT entries
+            # can encode the SAME color. Require distinct BGR555 values.
+            v=values[j]
+            if v in used:
+                continue
+            indices[i]=j
+            errors[i]=error
+            assign(depth+1,used|{v},score+distance,max(peak,error),indices,errors)
+            del indices[i],errors[i]
+    assign(0,set(),0,0,{}, {})
+    if best is None:
         raise ValueError("Existing CLUT merges distinct flag colors")
+    _,indices,errors=best
     return pack_4bpp([indices[i] for i in pixels]),{"index_map":indices,"max_channel_error_5bit":errors}
 
 def rewrite_resource(blob:bytes,routes:list[dict],live_clut:bytes,*,require_clut_sha=True)->tuple[bytes,list[dict]]:
