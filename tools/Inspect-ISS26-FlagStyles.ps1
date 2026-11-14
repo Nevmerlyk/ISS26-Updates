@@ -98,6 +98,37 @@ try {
     Write-Host ('  Style {0}: slots {1}' -f $g.Name,
       (($g.Group | ForEach-Object {$_.Slot}) -join ', '))
   }
+
+  # Test25: Never infer an available graphics slot from only one of the
+  # five 78-byte maps. The original EU disc uses style 44 in first-table
+  # club slots 54-57 despite appearing free in the other tables.
+  $allUsed=New-Object 'System.Collections.Generic.HashSet[int]'
+  $secondUsed=New-Object 'System.Collections.Generic.HashSet[int]'
+  foreach($idx in 0..77) {
+    [void]$secondUsed.Add([int]$tables[1][$idx])
+    foreach($table in $tables) {
+      [void]$allUsed.Add([int]$table[$idx])
+    }
+  }
+  $freeSecond=@(0..71 | Where-Object {-not $secondUsed.Contains($_)})
+  $freeAll=@(0..71 | Where-Object {-not $allUsed.Contains($_)})
+  $falseFree=@($freeSecond | Where-Object {$allUsed.Contains($_)})
+  Write-Host ''
+  Write-Host ('Test25: styles unused in ALL five maps: {0}' -f ($freeAll -join ', '))
+  Write-Host ('Test25: falsely free in table2 only: {0}' -f ($falseFree -join ', '))
+  Write-Host 'Unused style ID is NOT proof that VRAM tile is empty or safe to overwrite.'
+  $usedByBoth=New-Object 'System.Collections.Generic.HashSet[int]'
+  foreach($table in $tables) {
+    $nStyles=New-Object 'System.Collections.Generic.HashSet[int]'
+    $cStyles=New-Object 'System.Collections.Generic.HashSet[int]'
+    foreach($i in 0..53) { [void]$nStyles.Add([int]$table[$i]) }
+    foreach($i in 54..77) { [void]$cStyles.Add([int]$table[$i]) }
+    foreach($styleId in $nStyles) {
+      if($cStyles.Contains($styleId)) { [void]$usedByBoth.Add($styleId) }
+    }
+  }
+  Write-Host ('Test25: national/club shared styles across ANY map: {0}' -f
+    ((@($usedByBoth) | Sort-Object) -join ', '))
   if($OutputCsv){
     $OutputCsv=[IO.Path]::GetFullPath($OutputCsv)
     $parent=Split-Path -Parent $OutputCsv
