@@ -102,6 +102,12 @@ class FlagResearchTests(unittest.TestCase):
                 ppm=(base/f"{name}_8x_preview.ppm").read_bytes()
                 self.assertTrue(ppm.startswith(b"P6\n512 224\n255\n"))
                 self.assertEqual(len(ppm),len(b"P6\n512 224\n255\n")+512*224*3)
+                png=(base/f"{name}_8x_preview.png").read_bytes()
+                self.assertTrue(png.startswith(b"\x89PNG\r\n\x1a\n"))
+                self.assertEqual(int.from_bytes(png[16:20],"big"),512)
+                self.assertEqual(int.from_bytes(png[20:24],"big"),224)
+                self.assertEqual(art.hash_bytes(png),
+                                 m["flags"][name]["png_preview_sha256"])
 
 if __name__=="__main__":
     unittest.main()
