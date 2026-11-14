@@ -111,3 +111,50 @@ python tools/test27_extract_real_flag_pixels.py --academy-zip 20261114_154539_31
 This stage produced **usable candidate PS1 art and validated tools**. It
 did **not** fix the in-game resources, prove the last writer or publish a
 playable Test27/0.9.5 patch.
+
+## Test27 engineering follow-up — runtime copy-height gate (14 Nov 2026)
+
+**Now implemented in source, not yet available in a playable game release:**
+
+- [Test27 MIPS stage-writer log analyzer](../tools/test27_analyze_stage_writer.py)
+  parses actual Academy `STYLE_MOVE`, `STAGE_COPY_DIMENSION_ANOMALY`
+  and `STAGE_TRANSFER_RECT` events. It distinguishes short (16-row)
+  style55-to-away moves from complete 28-row moves and separately
+  inventories `StoreImage` / `LoadImage` rectangle dimensions.
+  It explicitly leaves `writer_causality_proven=false`; short call
+  **arguments** do not alone establish the cause of missing pixels.
+- The *private* Academy source [PR #46](https://github.com/Nevmerlyk/ISS26-Android/pull/46)
+  was enhanced: previous `if w~=16 or h~=28 then return` silently
+  discarded the most important possible failure. The diagnostic now logs
+  unexpected `w/h` for `MoveImage` (max 16 anomaly events) and
+  stage-overlapping actual wrapper-entry `StoreImage` / `LoadImage`
+  rectangles (max 32), read-only. Its test source asserts the new calls.
+  **This code has NOT been Windows-compiled or live-emulator-tested.**
+  The private repository's GitHub Actions attempts terminate with no
+  executed job steps; do not treat them as green.
+- [Verified public CI run](https://github.com/Nevmerlyk/ISS26-Updates/actions/runs/43624603905):
+  26/26 Python synthetic tests (8 art, 7 clean MIPS style guards,
+  4 visual ZIP extraction, 7 MIPS log interpretation), Python syntax,
+  candidate 4bpp tile/CLUT build and feed non-promotion checks passed.
+  This test suite does **not** validate a playable patch or a PCSX-Redux
+  runtime scene.
+
+**Blocking evidence to finish the actual game patch:**
+The owner's original game BIN (provided as the 12-track EU disc) is not
+currently readable through the execution container (ClientError);
+the existing archived reports contain no source CLUT or actual bitmap
+pixels and cannot prove whether style55's bottom rows are intended
+national flag art. The available Test26 GPU dumps start *after* the
+critical source/warp transition frames 4534..5468. Also, no owner-local
+real Test27 PNG outputs or runtime Store/Load/Move register observations
+have been provided to this workspace. Therefore it would be incorrect
+to modify a shared DATSEL/DATSEL3/GDC atlas globally or to publish a
+misleading v0.9.5 game patch.
+
+**Next actionable prerequisite is NOT more Test26 hashing.**
+Once the Academy code has compiled for the owner's Test Game, one
+instrumented match load can identify `MoveImage` height and whether a
+later wrapper transfer clears rows 16..27. Independently decode source
+art + actual CLUT on the owner's existing Test26 ZIP. Only then author
+and validate the standalone clean-original 12-track patch. The current
+research artifacts remain outside the game feeds; stable is v0.9.4.
