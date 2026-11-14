@@ -9,6 +9,10 @@ on:
       - 'tools/test27_gpu_stream_edit.py'
       - 'tools/test27_build_standalone_atlas_candidate.py'
       - 'tools/test27_build_clean_graphics_recovery.py'
+      - 'tools/test28_restore_selection_assets.py'
+      - 'tools/tests/test_test28_restore_selection_assets.py'
+      - 'tools/Build-ISS26-Test28-Selection.ps1'
+      - 'tools/Build-ISS26-Test28-Selection.cmd'
       - 'tools/Build-ISS26-Test27-Recovery.ps1'
       - 'tools/Build-ISS26-Test27-Recovery.cmd'
       - 'tools/tests/test_test27_clean_graphics_recovery.py'
@@ -148,6 +152,18 @@ jobs:
           if (-not $cmd.Contains('a3d972fd78c64756c650f4c8bc13d2ffbf6fbec6')) { throw 'Recovery helper not pinned' }
           if (-not $ps1.Contains('TEST27_RecoveryPreview.iss26p') -or -not $ps1.Contains('test27_build_clean_graphics_recovery.py') -or -not $ps1.Contains('--experimental')) { throw 'Separate recovery artifact/entrypoint missing' }
           if ($ps1 -match 'gh release create|gh release upload|Invoke-RestMethod.*PATCH') { throw 'Unexpected publication operation' }
+      - name: Validate Test28 protected selection merge
+        run: python -m unittest discover -s tools/tests -p 'test_test28_restore_selection_assets.py' -v
+      - name: Validate Test28 PowerShell source
+        shell: pwsh
+        run: |
+          $tokens=$null
+          $errors=$null
+          [System.Management.Automation.Language.Parser]::ParseFile((Resolve-Path 'tools/Build-ISS26-Test28-Selection.ps1').Path,[ref]$tokens,[ref]$errors) | Out-Null
+          if ($errors.Count) { throw ($errors -join '; ') }
+          $script=Get-Content -Raw 'tools/Build-ISS26-Test28-Selection.ps1'
+          $cmd=Get-Content -Raw 'tools/Build-ISS26-Test28-Selection.cmd'
+          if (-not $script.Contains('3cabb8baad9806c4e782fa8310ad6e7db38a2221') -or -not $cmd.Contains('32520b64b3101df8f8cda3a007febbec3cb129c5')) { throw 'Wrong Test28 source pin' }
       - name: Build isolated 64x28 flag-art research bundle
         run: python tools/test27_flag_art_4bpp.py --output-dir build/Test27_FlagArt
       - name: Inspect art manifest and secure source separation
