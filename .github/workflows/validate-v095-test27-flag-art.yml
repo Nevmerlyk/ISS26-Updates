@@ -14,6 +14,7 @@ on:
       - 'tools/test27_analyze_stage_writer.py'
       - 'tools/tests/test_test27_analyze_stage_writer.py'
       - 'diagnostics/v095-test27-stage3-source-art-and-staging-plan-20261114.md'
+      - 'tools/Build-ISS26-Academy-Test27-MIPS-Preview-Local.ps1'
   workflow_dispatch:
 
 permissions:
@@ -41,6 +42,22 @@ jobs:
         run: python -m unittest discover -s tools/tests -p 'test_test27_extract_real_flag_pixels.py' -v
       - name: Validate MIPS staged 16-row copy anomaly forensic classifier
         run: python -m unittest discover -s tools/tests -p 'test_test27_analyze_stage_writer.py' -v
+      - name: Parse and policy-check Test27 private Academy local preview builder
+        shell: pwsh
+        run: |
+          $path = (Resolve-Path 'tools/Build-ISS26-Academy-Test27-MIPS-Preview-Local.ps1').Path
+          $tokens = $null
+          $errors = $null
+          [System.Management.Automation.Language.Parser]::ParseFile($path,[ref]$tokens,[ref]$errors) | Out-Null
+          if ($errors.Count -ne 0) { throw "Test27 PowerShell syntax errors: $($errors -join '; ')" }
+          $src = Get-Content -LiteralPath $path -Raw
+          if (-not $src.Contains('c157c8d91bf7ed5678d913c4bc0014c709e8da95')) {
+            throw "Academy preview source pin changed"
+          }
+          if (-not $src.Contains('previewNotStable = $true')) { throw "Preview-only gate missing" }
+          if ($src -match 'gh release create|Invoke-RestMethod.*PATCH') { throw "Unsafe publish action in local builder" }
+          Write-Host 'PASS: syntax and source/preview safety gate'
+
       - name: Build isolated 64x28 flag-art research bundle
         run: python tools/test27_flag_art_4bpp.py --output-dir build/Test27_FlagArt
       - name: Inspect art manifest and secure source separation
