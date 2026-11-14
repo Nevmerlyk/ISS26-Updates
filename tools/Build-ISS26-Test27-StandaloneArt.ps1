@@ -14,7 +14,7 @@ param(
 )
 Set-StrictMode -Version Latest
 $ErrorActionPreference='Stop'
-$Pin='193d24fc33ce818128b2253fb7b0248e593733d0'
+$Pin='33a6c27ad794889b6adfac72dcb1d8852f634210'
 $Work=Join-Path $env:LOCALAPPDATA ('ISS26\Test27StandaloneArt_'+$Pin.Substring(0,12))
 $Names=@(
  'test27_build_standalone_atlas_candidate.py',
