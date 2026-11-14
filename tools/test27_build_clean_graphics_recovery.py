@@ -137,6 +137,72 @@ def clean_art(blob,palette):
         raise AssertionError("Recovery expanded clean resource")
     return new,changes,address
 
+# Exact exceptional files and reasons observed on the owner's clean disc in
+# Test27_Build(4).log. No blanket bypass of other validation failures.
+EXCEPTIONS={
+    "BIN/GDC_BD.BIN":"Incomplete GPU target coverage: bosnia",
+    **{f"BIN/GDC_{suffix}.BIN":"Overlapping GPU target fragments: bosnia"
+       for suffix in ("FD","FN","ID","IN","JD","JN","MDJ","MNJ","RDJ","RNJ")},
+}
+CAPE_SOURCE_SHA="5CAB263C7BCD17E0D8B0D7D25A4F6C5276092D8CBA8C4EF428428DAFE10E255F"
+
+def exceptional_art(blob,palette,name,reason):
+    """For this precisely observed incomplete/overlapping stadium route,
+    do not guess which Bosnia writer belongs to the flag. Recover the
+    original stadium graphics; optionally edit the complete, uniquely
+    routed Cape Verde tile only if it exactly matches its known source.
+    """
+    if name not in EXCEPTIONS or EXCEPTIONS[name] not in reason:
+        raise ValueError(reason)
+    address=0x800C8000
+    lists=base.canonical_lists(blob,address)
+    if not lists:
+        raise ValueError("Exceptional stadium has no verified GPU list")
+    stats={"reason":reason,"bosnia_not_replaced":True,
+           "cape_verde_replaced":False,"candidate_bosnia_writers":[]}
+    cape={}
+    for (_,table),(slot,rows) in lists.items():
+        for i,u in enumerate(rows):
+            b=intersection(u,"bosnia")
+            if b:
+                stats["candidate_bosnia_writers"].append({"header_slot":slot,
+                    "upload_index":i,"upload_offset":u.offset,
+                    "rectangle":[u.x,u.y,u.w,u.h],"fragment":list(b),
+                    "kind":u.kind,"stream_offset":u.start})
+            c=intersection(u,"cape_verde")
+            if c:
+                cape.setdefault(u.offset,(table,slot,rows,i,u,c))
+    # No ambiguity, no guessed packet ownership, no partly replaced flag.
+    if len(cape)!=1:
+        stats["cape_skip_reason"]="Cape writer not unique"
+        return blob,[],address,stats
+    table,slot,rows,i,u,box=next(iter(cape.values()))
+    try:
+        if tuple(box)!=(848,256,16,28):
+            raise ValueError("Cape writer does not cover entire tile")
+        decoded,stop=stream_span(blob,address,table,rows,u)
+        if len(decoded)!=2*u.w*u.h:
+            raise ValueError("Cape writer incomplete")
+        from test27_gpu_stream_edit import fragment_read
+        h=sha(fragment_read(decoded,u,box))
+        if h!=CAPE_SOURCE_SHA:
+            raise ValueError("Cape source differs from confirmed common donor")
+        # A packet which also covers part of the ambiguous Bosnia region is
+        # deliberately left clean rather than import/edit an unknown writer.
+        if intersection(u,"bosnia"):
+            raise ValueError("Cape packet also intersects ambiguous Bosnia")
+        route={"flag":"cape_verde","gpu_base":address,"list_pointer_slot":slot,
+               "upload_index":i,"upload_offset":u.offset,"stream_offset":u.start,
+               "fragment":list(box),"decoded_bytes":len(decoded),
+               "stream_capacity_bytes":stop-u.start,"old_tile_sha256":h}
+        result,edits=rewrite_resource(blob,[route],palette,required_flags={"cape_verde"})
+        stats["cape_verde_replaced"]=True
+        return result,edits,address,stats
+    except ValueError as exc:
+        stats["cape_skip_reason"]=str(exc)
+        return blob,[],address,stats
+
+
 def donor_projection(source,records,lba,size):
     """Read old compiler's 2048-byte slices for RECOVERY ONLY.
     This is NOT a claim that a real PS1 accepts Form2 graphics.
@@ -242,24 +308,29 @@ def build(track,patch,archive):
                 # Source is strictly clean Form1 extent. No reading Form2
                 # tail as graphics and no change to original sector headers.
                 original=base.read_resource(source,{},lba,clean[name][1])
-                result,edits,address=clean_art(original,palette)
+                exception=None
+                try:
+                    result,edits,address=clean_art(original,palette)
+                except ValueError as exc:
+                    result,edits,address,exception=exceptional_art(original,palette,name,str(exc))
+                    print("LIMITED STADIUM RECOVERY:",name,json.dumps(exception),flush=True)
                 try:
                     prior=donor_projection(source,records,lba,patched[name][1])
                     result,donors=retain_valid_donors(original,result,prior,address)
                 except (ValueError,AssertionError) as exc:
                     donors={"retained_changed_packets":[],"original_fallback_packets":[],
                             "all_prior_donor_packets_skipped":str(exc)}
-                jobs.append((name,lba,owned,original,result,edits,donors))
+                jobs.append((name,lba,owned,original,result,edits,donors,exception))
                 print("DONOR RETENTION:",name,json.dumps(donors),flush=True)
                 touched.update(owned)
-                print("RECOVERY PASS:",name,json.dumps(edits),flush=True)
+                print("RECOVERY PASS:" if exception is None else "RECOVERY LIMITED:",name,json.dumps(edits),flush=True)
             except (ValueError,AssertionError) as exc:
                 blockers.append(name+": "+str(exc))
                 print("RECOVERY BLOCKED:",blockers[-1],flush=True)
         if blockers or len(jobs)!=len(names):
             raise ValueError("Recovery refused before composition:\n - "+"\n - ".join(blockers))
         reports=[]
-        for name,lba,owned,original,result,edits,donors in jobs:
+        for name,lba,owned,original,result,edits,donors,exception in jobs:
             removed=sorted(owned&previous.keys())
             for i in owned:
                 records.pop(i,None)
@@ -270,7 +341,8 @@ def build(track,patch,archive):
                 raise AssertionError("Recovered resource readback failed")
             reports.append({"resource":name,"clean_bytes":len(original),
                 "prior_bytes":patched[name][1],"prior_records_replaced_or_removed":removed,
-                "new_graphics_lbas":actual,"candidate_sha256":sha(result),"edits":edits,"donor_retention":donors})
+                "new_graphics_lbas":actual,"candidate_sha256":sha(result),"edits":edits,"donor_retention":donors,
+                "limited_stadium_recovery":exception})
         directory_changes=restore_lengths(source,records,cleanpos,patchedpos,names)
         if directory_changes&touched:
             raise AssertionError("Directory and graphics overlap")
@@ -289,6 +361,9 @@ def build(track,patch,archive):
     return output,{"schemaVersion":1,"kind":"EXPERIMENTAL Test27 clean graphics extent recovery",
         "output_patch_sha256":sha(output),"records":len(records),
         "resources":reports,"directory_lbas":sorted(directory_changes),
+        "both_flags_replaced_resources":[r["resource"] for r in reports if {e["flag"] for e in r["edits"]}==set(TARGETS)],
+        "limited_resources":[r["resource"] for r in reports if r["limited_stadium_recovery"] is not None],
+        "all_stadiums_bosnia_art_verified":False,
         "prior_graphics_in_36_files_rolled_back_or_selectively_retained":True,
         "all_prior_graphics_preserved":False,
         "other_base_records_preserved":True,
@@ -316,6 +391,8 @@ def main():
     with args.report.open("x",encoding="utf-8") as f: json.dump(report,f,indent=2)
     print("EXPERIMENTAL recovery patch:",args.output)
     print("SHA256:",report["output_patch_sha256"])
+    print("Both flags inserted in",len(report["both_flags_replaced_resources"]),"resources.")
+    print("Limited stadium resources:",report["limited_resources"])
     print("WARNING: prior graphics selectively retained; damaged, oversized and unverified edits reverted. No runtime fix claimed.")
 if __name__=="__main__":
     main()
