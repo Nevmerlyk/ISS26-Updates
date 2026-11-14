@@ -2,7 +2,7 @@ name: Test27 - PS1 national flag 4bpp artwork research (no game patch)
 
 on:
   push:
-    branches: [feature/v095-test27-flag-artwork, feature/v095-test27-ram-stage-profiles, feature/v095-test27-real-art-visual-evidence, feature/v095-test27-live-flag-replacement, feature/v095-test27-standalone-patch-builder]
+    branches: [feature/v095-test27-flag-artwork, feature/v095-test27-ram-stage-profiles, feature/v095-test27-real-art-visual-evidence, feature/v095-test27-live-flag-replacement, feature/v095-test27-standalone-patch-builder, feature/v095-test27-static-stage-code-audit]
     paths:
       - '.github/workflows/validate-v095-test27-flag-art.yml'
       - 'tools/test27_flag_art_4bpp.py'
@@ -18,6 +18,8 @@ on:
       - 'tools/Run-ISS26-Test27-LiveFlagPreview.cmd'
       - 'diagnostics/v095-test27-live-flag-replacement.md'
       - 'tools/test27_stage_writer_guard.py'
+      - 'tools/test27_stage_code_audit.py'
+      - 'tools/tests/test_test27_stage_code_audit.py'
       - 'tools/test27_extract_real_flag_pixels.py'
       - 'tools/tests/test_test27_flag_art_4bpp.py'
       - 'tools/tests/test_test27_stage_writer_guard.py'
@@ -109,6 +111,8 @@ jobs:
         run: python -m unittest discover -s tools/tests -p 'test_test27_live_flag_replacement.py' -v
       - name: Verify real source-art editing and independent sector composition on synthetic inputs
         run: python -m unittest discover -s tools/tests -p 'test_test27_standalone_atlas_candidate.py' -v
+      - name: Verify static MIPS stage-code context and exact overlay guards
+        run: python -m unittest discover -s tools/tests -p 'test_test27_stage_code_audit.py' -v
       - name: Verify local standalone-art builder launch scripts and pinned source
         shell: pwsh
         run: |
