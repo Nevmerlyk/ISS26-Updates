@@ -27,7 +27,7 @@ from test27_extract_real_flag_pixels import read_snapshot, sha_path, EXPECTED_ZI
 from analyze_flag_test26_unified import clut
 from test27_gpu_stream_edit import (
     sha, TARGETS, CLUT_SHA, parse_uploads, take_tile, rewrite_resource,
-    decode_stream, mapped_art,
+    decode_stream, mapped_art, discover_upload_lists, stream_span,
 )
 
 TEST25_SHA="85014C8222A408344704CCD8FC192379645E18770876CF4501324D504D55BA67"
@@ -105,32 +105,32 @@ def read_resource(source,records,lba,size):
     return b"".join(r[24:2072] for r in rows)[:size]
 
 def find_routes(blob):
-    possible={}
-    for base in (0x800F0000,0x800C8000):
-        for slot in range(0,32,4):
-            try: table,rows=parse_uploads(blob,base,slot)
-            except ValueError: continue
-            possible.setdefault((base,table),(slot,rows))
-    if len(possible)!=1: raise ValueError("No unique supported GPU table")
-    (base,table),(slot,rows)=next(iter(possible.items()))
-    starts=sorted(set(r.start for r in rows))
+    possible=discover_upload_lists(blob)
+    if not possible:
+        raise ValueError("No structurally valid GPU list (header words: "+
+                         " ".join(f"{v:08X}" for v in struct.unpack_from("<8I",blob)) + ")")
+    if len({base for (base,table) in possible})!=1:
+        raise ValueError("Ambiguous GPU RAM base: "+str(list(possible)))
     routes=[]
     for flag,(x,y) in TARGETS.items():
-        # Reject partial overlaps, repeated uploads, or another writer of any
-        # part of the selected atlas cell in this particular file.
-        overlapping=[(i,r) for i,r in enumerate(rows) if
-                     r.x<x+16 and r.x+r.w>x and r.y<y+28 and r.y+r.h>y]
-        if len(overlapping)!=1:
-            raise ValueError("Ambiguous or absent target coverage: "+flag)
-        i,r=overlapping[0]
-        if r.kind!=10 or sum(v.start==r.start for v in rows)!=1 or not(
-                r.x<=x and x+16<=r.x+r.w and r.y<=y and y+28<=r.y+r.h):
-            raise ValueError("Unverified full compressed target: "+flag)
-        end=next((s for s in starts if s>r.start),table)
-        decoded=decode_stream(blob[r.start:end],expected_bytes=r.w*r.h*2,
-                              max_padding=end-r.start)
+        overlapping=[]
+        for (base,table),(slot,rows) in possible.items():
+            overlapping.extend((base,table,slot,rows,i,r) for i,r in enumerate(rows)
+                               if r.x<x+16 and r.x+r.w>x and r.y<y+28 and r.y+r.h>y)
+        # Different header roots may reference the same descriptor suffix.
+        unique={ (base,r.offset):(base,table,slot,rows,i,r)
+                 for base,table,slot,rows,i,r in overlapping }
+        if len(unique)!=1:
+            raise ValueError("Ambiguous or absent target coverage: "+flag+"; "+
+                 str([(hex(base),hex(table),i,r.kind,r.x,r.y,r.w,r.h)
+                      for base,table,slot,rows,i,r in unique.values()]))
+        base,table,slot,rows,i,r=next(iter(unique.values()))
+        if not(r.x<=x and x+16<=r.x+r.w and r.y<=y and y+28<=r.y+r.h):
+            raise ValueError("Target crosses GPU upload boundary: "+flag)
+        decoded,end=stream_span(blob,base,table,rows,r)
         routes.append({"flag":flag,"gpu_base":base,"list_pointer_slot":slot,
-                       "upload_index":i,
+                       "upload_index":i,"upload_offset":r.offset,"stream_offset":r.start,
+                       "stream_capacity_bytes":end-r.start,
                        "old_tile_sha256":sha(take_tile(decoded,r,x-r.x,y-r.y))})
     return routes
 
@@ -202,6 +202,15 @@ def build(track:Path,base:Path,archive:Path):
             lba,size=catalog[name]
             old=read_resource(source,records,lba,size)
             try:
+                # Exact clean/patched table comparison; never infer a new
+                # layout from corrupt patched bytes alone.
+                original=read_resource(source,{},lba,size)
+                clean_lists=discover_upload_lists(original)
+                patched_lists=discover_upload_lists(old)
+                print("GPU LISTS:",name,"clean",[(hex(b),t,len(rows)) for (b,t),(_,rows) in clean_lists.items()],
+                      "patched",[(hex(b),t,len(rows)) for (b,t),(_,rows) in patched_lists.items()],flush=True)
+                if clean_lists!=patched_lists:
+                    raise ValueError("Clean vs Test25 GPU descriptors differ; refusing unverified resource")
                 routes=find_routes(old)
                 print("ROUTE PASS:",name,json.dumps(routes),flush=True)
                 if len(palette_mapping)!=len(TARGETS):
