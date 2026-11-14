@@ -195,7 +195,7 @@ jobs:
           if ($errors.Count) { throw ($errors -join '; ') }
           $ps=Get-Content -Raw 'tools/Build-ISS26-Test29-Bosnia.ps1'
           $cmd=Get-Content -Raw 'tools/Build-ISS26-Test29-Bosnia.cmd'
-          if (-not $ps.Contains('fe6f214c5c86748b5224343a9596787844015b4d') -or -not $cmd.Contains('afabfef4484207856046d838a59f186d0116ccd1')) { throw 'Wrong Test29 pin' }
+          if (-not $ps.Contains('7d4acb197e8cd4067c960683d7fa98e266cfdb1e') -or -not $cmd.Contains('1c1f04a582a3e8bf3ac692240e17194df74cdd7a')) { throw 'Wrong Test29 pin' }
       - name: Build isolated 64x28 flag-art research bundle
         run: python tools/test27_flag_art_4bpp.py --output-dir build/Test27_FlagArt
       - name: Inspect art manifest and secure source separation
