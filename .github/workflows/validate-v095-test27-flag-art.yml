@@ -119,8 +119,8 @@ jobs:
           if ($errors.Count) { throw "PowerShell parser errors: $($errors -join '; ')" }
           $ps1 = Get-Content -Raw -LiteralPath $path
           $cmd = Get-Content -Raw -LiteralPath 'tools/Build-ISS26-Test27-StandaloneArt.cmd'
-          if (-not $ps1.Contains('ef35a46e0d4d1808976c4ddc0427569c3c2c6781')) { throw 'Unpinned Python sources' }
-          if (-not $cmd.Contains('16a4499ef27b407f7794bd065aef4d4f112d8be3')) { throw 'Unpinned PowerShell source' }
+          if (-not $ps1.Contains('e2217f7c7d325baae437d9abf408ffdc71ad9a6c')) { throw 'Unpinned Python sources' }
+          if (-not $cmd.Contains('f8d5b21d3d813805bcba7de814fd3c41eeadaa39')) { throw 'Unpinned PowerShell source' }
           if (-not $ps1.Contains('--experimental') -or -not $ps1.Contains('release_authorized')) { throw 'Missing safety gate' }
           if ($ps1 -match 'gh release create|gh release upload|Invoke-RestMethod.*PATCH') { throw 'Unexpected publication operation' }
           Write-Host 'PASS: local-only pinned builder launch syntax and source guards'
