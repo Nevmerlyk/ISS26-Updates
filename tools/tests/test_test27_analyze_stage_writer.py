@@ -58,6 +58,52 @@ class StageWriterTests(unittest.TestCase):
             test27.analyze_text(
                 ANOMALY.replace("expected=16x28", "expected=16x16"))
 
+    def test_post_store_ram_mask_is_timed_not_causally_proven(self):
+        before = (
+            "5459\tSTAGE_RAM_PROFILE\tbefore-StoreImage\t"
+            "home_top=128\thome_bottom=0\taway_top=256\taway_bottom=192\t"
+            "PC=80092F58\tRA=80099999\n"
+        )
+        after = (
+            "5460\tSTAGE_RAM_PROFILE\tafter-StoreImage\t"
+            "home_top=128\thome_bottom=0\taway_top=256\taway_bottom=0\t"
+            "PC=80092F60\tRA=80099999\n"
+        )
+        final = ("5461\tSTAGE_RAM_PROFILE_FINAL\tprofiles=2\terrors=0\n")
+        result = test27.analyze_text(before + after + final)
+        self.assertEqual(result["stage_ram_profile_count"], 2)
+        self.assertEqual(result["stage_ram_paired_call_count"], 1)
+        self.assertEqual(result["stage_ram_bottom_loss_pairs"], 1)
+        self.assertEqual(result["stage_ram_16_row_mask_observations"], 1)
+        self.assertEqual(result["stage_ram_profile_pairs"][0]
+                         ["nonzero_word_deltas"]["away_bottom"], -192)
+        self.assertFalse(result["writer_causality_proven"])
+        self.assertIn("asynchronous GPU", result["ram_profile_interpretation"])
+
+    def test_profile_before_without_after_is_not_a_proven_transfer(self):
+        raw = ("5459\tSTAGE_RAM_PROFILE\tbefore-LoadImage\t"
+               "home_top=128\thome_bottom=0\taway_top=256\taway_bottom=0\t"
+               "PC=8009312C\tRA=800933CC\n")
+        result = test27.analyze_text(raw)
+        self.assertEqual(result["stage_ram_profile_count"], 1)
+        self.assertEqual(result["stage_ram_paired_call_count"], 0)
+        self.assertEqual(result["stage_ram_bottom_loss_pairs"], 0)
+        self.assertEqual(result["stage_ram_16_row_mask_observations"], 1)
+
+    def test_ram_profile_rejects_invalid_counts_and_cpu_context(self):
+        baseline = ("5460\tSTAGE_RAM_PROFILE\tafter-StoreImage\t"
+                    "home_top=128\thome_bottom=0\taway_top=256\taway_bottom=0\t"
+                    "PC=80092F60\tRA=80099999\n")
+        for bad in (
+            baseline.replace("away_top=256", "away_top=257"),
+            baseline.replace("away_bottom=0", "away_bottom=193"),
+            baseline.replace("PC=80092F60", "PC=not_a_pc"),
+            baseline.replace("after-StoreImage", "after-MoveImage"),
+            baseline.replace("RA=80099999", "wrong=80099999"),
+        ):
+            with self.assertRaises(test27.TraceError):
+                test27.analyze_text(bad)
+
     def test_reject_oversize_and_bad_log_encoding(self):
         with self.assertRaises(test27.TraceError):
             test27.analyze_text("a" * (test27.MAX_BYTES + 1))
