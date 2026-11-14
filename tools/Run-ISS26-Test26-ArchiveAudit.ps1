@@ -95,9 +95,22 @@ try {
     Check (Test-Path -LiteralPath $output -PathType Leaf) 'Analyzer did not create full JSON'
     Check (Test-Path -LiteralPath $summary -PathType Leaf) 'Analyzer did not create compact JSON'
     $data = Get-Content -LiteralPath $output -Raw -Encoding UTF8 | ConvertFrom-Json
+    # Fail closed if someone accidentally runs a stale analyzer or a broken cached
+    # companion: only a report containing the zero-mask diagnostics is acceptable.
+    Check ($data.capture_count -gt 0) 'The Academy ZIP contains no VRAM captures'
+    Check ($null -ne $data.captures[0].PSObject.Properties['aligned_mask_audits']) (
+        'STALE ANALYZER: aligned_mask_audits missing from Unified JSON'
+    )
+    $compactData = Get-Content -LiteralPath $summary -Raw -Encoding UTF8 | ConvertFrom-Json
+    Check ($compactData.capture_count -gt 0) 'Compact report contains no captures'
+    Check ($null -ne $compactData.captures[0].PSObject.Properties['reference_mask_audits']) (
+        'STALE ANALYZER: reference_mask_audits missing from Compact JSON'
+    )
+
     $meta = [PSCustomObject]@{
         SchemaVersion = 1
         AnalyzerCommit = $Ref
+        AnalyzerFeature = 'zero-mask-audit-v1'
         InputArchiveFile = [IO.Path]::GetFileName($Archive)
         InputArchiveSHA256 = $ArchiveHash
         CreatedUTC = [DateTime]::UtcNow.ToString('o')
@@ -112,6 +125,8 @@ try {
     $manifest = Join-Path $OutputDir ($stem + '_Test26_AuditManifest.json')
     $meta | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath $manifest -Encoding UTF8
     Write-Host 'PASS: static research report generated' -ForegroundColor Green
+    Write-Host ('Verified analyzer commit: ' + $Ref)
+    Write-Host 'Verified compact feature: reference_mask_audits' -ForegroundColor Green
     Write-Host ('Full JSON: ' + $output)
     Write-Host ('Compact JSON: ' + $summary)
     Write-Host ('Manifest: ' + $manifest)
