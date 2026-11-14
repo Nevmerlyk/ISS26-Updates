@@ -11,6 +11,8 @@ on:
       - 'tools/tests/test_test27_flag_art_4bpp.py'
       - 'tools/tests/test_test27_stage_writer_guard.py'
       - 'tools/tests/test_test27_extract_real_flag_pixels.py'
+      - 'tools/test27_analyze_stage_writer.py'
+      - 'tools/tests/test_test27_analyze_stage_writer.py'
   workflow_dispatch:
 
 permissions:
@@ -29,12 +31,15 @@ jobs:
         run: |
           python -m py_compile tools/test27_flag_art_4bpp.py tools/test27_stage_writer_guard.py tools/test27_extract_real_flag_pixels.py
           python -m py_compile tools/tests/test_test27_flag_art_4bpp.py tools/tests/test_test27_stage_writer_guard.py tools/tests/test_test27_extract_real_flag_pixels.py
+          python -m py_compile tools/test27_analyze_stage_writer.py tools/tests/test_test27_analyze_stage_writer.py
       - name: Validate PS1 4bpp flags and 12-row-mask regression
         run: python -m unittest discover -s tools/tests -p 'test_test27_flag_art_4bpp.py' -v
       - name: Validate four MIPS wrappers and five original style-map guards
         run: python -m unittest discover -s tools/tests -p 'test_test27_stage_writer_guard.py' -v
       - name: Validate existing owner ZIP pixel/CLUT extractor with synthetic VRAM
         run: python -m unittest discover -s tools/tests -p 'test_test27_extract_real_flag_pixels.py' -v
+      - name: Validate MIPS staged 16-row copy anomaly forensic classifier
+        run: python -m unittest discover -s tools/tests -p 'test_test27_analyze_stage_writer.py' -v
       - name: Build isolated 64x28 flag-art research bundle
         run: python tools/test27_flag_art_4bpp.py --output-dir build/Test27_FlagArt
       - name: Inspect art manifest and secure source separation
