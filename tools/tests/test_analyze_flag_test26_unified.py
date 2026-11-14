@@ -1,0 +1,329 @@
+#!/usr/bin/env python3
+"""Synthetic Test26 regressions. No original PS1 graphics or BIOS."""
+from __future__ import annotations
+
+import importlib.util
+import json
+import struct
+from pathlib import Path
+import sys
+import tempfile
+import unittest
+import zipfile
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+import analyze_flag_test26_unified as tool
+import parse_v095_gpudump as gpu
+
+
+def overwrite(raw: bytearray, x: int, y: int, val: int) -> None:
+    for j in range(tool.STYLE_ROWS):
+        at = ((y + j) * 1024 + x) * 2
+        raw[at:at+32] = bytes([val]) * 32
+
+
+def put_style(raw: bytearray, style: int, val: int) -> None:
+    overwrite(raw, *tool.atlas_xy(style), val)
+
+
+def make_two_phase_archive(path: Path) -> None:
+    a = bytearray(tool.VRAM_BYTES)
+    put_style(a, 1, 0x11)
+    put_style(a, 10, 0x10)
+    put_style(a, 55, 0x55)
+    overwrite(a, 560, 0, 0x11)
+    overwrite(a, 560, 28, 0x55)
+    b = bytearray(a)
+    put_style(b, 55, 0x66)
+    overwrite(b, 560, 28, 0x66)
+    with zipfile.ZipFile(path, "w", compression=zipfile.ZIP_DEFLATED) as z:
+        z.writestr("cal_test12_prematch_banner_abcdef_00000100.vram", a)
+        z.writestr("cal_test12_carried_banner_abcdef_00000200.vram", b)
+        z.writestr("frame_00000200.screen.raw", b"screen pixels (opaque metadata)")
+        def pkt(kind, *values):
+            return struct.pack("<I", (kind << 24) | len(values)) + (
+                struct.pack("<" + str(len(values)) + "I", *values) if values else b""
+            )
+        quad = (0x3CFFFFFF, 0, (505 << 22) | 192,
+                0xFFFFFF, 1, (8 << 16) | 255,
+                0xFFFFFF, 0x00010001, (27 << 8) | 255,
+                0xFFFFFF, 0x00010000, (27 << 8) | 192)
+        dump = gpu.MAGIC + pkt(gpu.TRACE_BEGIN) + pkt(gpu.GP0, *quad)
+        z.writestr("flag_00000100.gpd", dump)
+
+
+class Test26UnifiedFlagProvenance(unittest.TestCase):
+    def test_one_file_windows_runner_rejects_stale_analyzer(self):
+        cmd = (ROOT / "Run-ISS26-Test26-ArchiveAudit.cmd").read_text(
+            encoding="utf-8")
+        ps1 = (ROOT / "Run-ISS26-Test26-ArchiveAudit.ps1").read_text(
+            encoding="utf-8")
+        self.assertIn("RUNNER_COMMIT=5eb998343617e4dc413330a759d157490e6cb95c", cmd)
+        self.assertIn("ANALYZER_COMMIT=60b22eaae21d8a738455e4a4695c1447ed981ef6", cmd)
+        self.assertIn("Invoke-WebRequest", cmd)
+        self.assertIn("if errorlevel 1 goto download_failed", cmd)
+        self.assertNotIn('%~dp0Run-ISS26-Test26-ArchiveAudit.ps1', cmd)
+        self.assertIn("$Ref = '60b22eaae21d8a738455e4a4695c1447ed981ef6'", ps1)
+        self.assertIn("STALE ANALYZER", ps1)
+        self.assertIn("aligned_mask_audits", ps1)
+        self.assertIn("reference_mask_audits", ps1)
+        self.assertIn("AnalyzerFeature = 'zero-mask-audit-v1'", ps1)
+
+    def test_verified_style_bank_coordinates(self):
+        self.assertEqual(tool.atlas_xy(0), (832, 256))
+        self.assertEqual(tool.atlas_xy(1), (848, 256))
+        self.assertEqual(tool.atlas_xy(10), (864, 312))
+        self.assertEqual(tool.atlas_xy(35), (880, 480))
+        self.assertEqual(tool.atlas_xy(36), (768, 256))
+        self.assertEqual(tool.atlas_xy(55), (816, 368))
+        self.assertEqual(tool.atlas_xy(71), (816, 480))
+        for val in (-1, 72, 80):
+            with self.assertRaises(ValueError):
+                tool.atlas_xy(val)
+
+    def test_realistic_test25_stage_and_phase_handoff(self):
+        with tempfile.TemporaryDirectory() as td:
+            path = Path(td) / "synthetic.zip"
+            make_two_phase_archive(path)
+            result = tool.analyze_archive(path)
+            self.assertEqual(result["style_count"], 72)
+            self.assertEqual(result["capture_count"], 2)
+            self.assertEqual(result["gpu_trace_count"], 1)
+            self.assertEqual(result["gpu_dumps_inventory_only"][0]["operator_phase"], "prematch_banner")
+            self.assertEqual(result["gpu_trace_decoded_count"], 1)
+            self.assertEqual(result["gpu_dumps_inventory_only"][0]["decoded_gp0"]
+                             ["top_draw_groups"][0]["source_min_xy_words"], [560, 0])
+            self.assertEqual(result["screenshot_file_count"], 1)
+            first, second = result["captures"]
+            self.assertEqual(first["staging"]["home"]["matching_style_ids"], [1])
+            self.assertEqual(first["staging"]["away"]["matching_style_ids"], [55])
+            self.assertEqual(second["staging"]["away"]["matching_style_ids"], [55])
+            self.assertEqual(first["reference_styles"]["bosnia_test25"]["atlas_xy_words"],
+                             [816, 368])
+            self.assertEqual(result["transitions"][0]["changed_atlas_style_ids"], [55])
+            self.assertEqual(result["transitions"][0]["changed_staging"]["away"], True)
+            self.assertEqual(result["transitions"][0]["changed_staging"]["home"], False)
+            self.assertEqual(result["operator_phase_coverage"]["prematch_banner"]
+                             ["operator_tagged_vram_captures"], 1)
+            self.assertEqual(result["operator_phase_coverage"]["carried_banner"]
+                             ["operator_tagged_vram_captures"], 1)
+            self.assertFalse(result["operator_phase_coverage"]["carried_banner"]
+                             ["verified_gpu_draw_ownership"])
+
+    def test_compact_summary_preserves_provenance_limits(self):
+        with tempfile.TemporaryDirectory() as td:
+            path = Path(td) / "synthetic.zip"
+            make_two_phase_archive(path)
+            whole = tool.analyze_archive(path)
+            brief = tool.compact_summary(whole)
+            self.assertEqual(brief["capture_count"], 2)
+            self.assertEqual(brief["gpu_trace_decoded_count"], 1)
+            self.assertEqual(brief["gpu_traces"][0]["textured_draw_count"], 1)
+            self.assertIn("0,505", brief["gpu_traces"][0]
+                          ["staging_candidate_clut_counts"])
+            self.assertEqual(brief["phases_operator_verified"]["carried_banner"], 1)
+            self.assertTrue(brief["atlas_transitions"][0]["changed_style55"])
+            self.assertEqual(brief["captures"][0]["home_exact_style_ids"], [1])
+            self.assertEqual(brief["captures"][0]["away_exact_style_ids"], [55])
+            self.assertNotIn("style_sha256", brief["captures"][0])
+            self.assertIn("not proof", brief["warning"])
+
+    def test_crowd_phase_requires_human_label_and_does_not_claim_gpu_source(self):
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            zip_path = root / "unknown.zip"
+            with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as z:
+                z.writestr("guess_crowd_00000100.vram", bytes(tool.LEGACY_VRAM_BYTES))
+            result = tool.analyze_archive(zip_path)
+            self.assertEqual(result["captures"][0]["operator_phase"], "unknown")
+            self.assertEqual(result["operator_phase_coverage"]["crowd_flags"]
+                             ["operator_tagged_vram_captures"], 0)
+            labels = root / "phases.json"
+            labels.write_text(json.dumps({
+                "schemaVersion": 1,
+                "captures": [{"snapshot":"guess_crowd_00000100.vram",
+                              "phase":"crowd_flags","team":"Bosnia"}]
+            }), encoding="utf-8")
+            result = tool.analyze_archive(zip_path, labels)
+            self.assertEqual(result["capture_count"], 1)
+            self.assertEqual(result["captures"][0]["operator_phase"], "crowd_flags")
+            self.assertFalse(result["operator_phase_coverage"]["crowd_flags"]
+                             ["verified_gpu_draw_ownership"])
+            self.assertEqual(result["transitions"], [])
+
+    def test_live_gpu_trace_links_only_to_same_frame_operator_scene(self):
+        # One real-formatted synthetic GPD packet, *no* copyrighted graphics.
+        from parse_v095_gpudump import MAGIC
+        import struct
+        def packet(kind, *data):
+            return struct.pack("<I", (kind << 24) | len(data)) + (
+                struct.pack("<" + str(len(data)) + "I", *data) if data else b""
+            )
+        clut = 505 << 6
+        quad = (
+            0x3CFFFFFF, 0, (clut << 16) | 192,
+            0x00FFFFFF, 1, (8 << 16) | 255,
+            0x00FFFFFF, 0x00010001, (27 << 8) | 255,
+            0x00FFFFFF, 0x00010000, (27 << 8) | 192,
+        )
+        gpudump = MAGIC + packet(5) + packet(0, *quad)
+        with tempfile.TemporaryDirectory() as td:
+            source = Path(td) / "synth.zip"
+            with zipfile.ZipFile(source, "w", zipfile.ZIP_DEFLATED) as z:
+                z.writestr("cal_test12_carried_banner_abcdef_00000200.vram",
+                           bytes(tool.LEGACY_VRAM_BYTES))
+                z.writestr("flag_auto_crowd_flags_00000200.gpd", gpudump)
+                z.writestr("flag_auto_crowd_flags_00000199.gpd", gpudump)
+            result = tool.analyze_archive(source)
+            by_frame = {g["frame_if_encoded"]:g for g in result["gpu_dumps_inventory_only"]}
+            self.assertEqual(by_frame[200]["operator_phase"], "carried_banner")
+            self.assertEqual(by_frame[199]["operator_phase"], "unknown")
+            self.assertTrue(by_frame[200]["decoded_gp0"]["trace_begin_found"])
+            self.assertEqual(by_frame[200]["decoded_gp0"]["stage_touch_draw_count"], 1)
+            self.assertEqual(
+                result["operator_phase_coverage"]["carried_banner"]["stage_flag_draw_candidate_count"],
+                1,
+            )
+            self.assertEqual(
+                result["operator_phase_coverage"]["crowd_flags"]["same_frame_operator_tagged_gpu_dump_count"],
+                0,
+            )
+            self.assertFalse(
+                result["operator_phase_coverage"]["carried_banner"]["verified_gpu_draw_ownership"]
+            )
+
+    def test_zero_masked_style55_explains_exact_hash_mismatch(self):
+        # Stage contains the precise nonzero content from the source, but two
+        # source words are zeroed. Previous SHA-only analysis called it an
+        # unmatched source; the mask audit must diagnose it without guessing.
+        source = bytes([0x21, 0x43]) * (tool.STYLE_WORDS * tool.STYLE_ROWS)
+        stage = bytearray(source)
+        stage[2 * 17:2 * 19] = bytes(4)
+        self.assertNotEqual(tool.sha(bytes(stage)), tool.sha(source))
+        metrics = tool.aligned_stage_mask_audit(bytes(stage), source)
+        self.assertEqual(metrics["total_16bit_words"], 448)
+        self.assertEqual(metrics["stage_nonzero_words"], 446)
+        self.assertEqual(metrics["source_nonzero_words"], 448)
+        self.assertEqual(metrics["retained_equal_nonzero_words"], 446)
+        self.assertEqual(metrics["suppressed_source_nonzero_words"], 2)
+        self.assertEqual(metrics["source_nonzero_4bpp_pixels_suppressed"], 8)
+        self.assertEqual(metrics["suppressed_bbox_4bpp_pixels_xyxy"], [4, 1, 11, 1])
+        self.assertEqual(metrics["suppressed_word_counts_by_row"][1], 2)
+        self.assertEqual(metrics["mutated_nonzero_words"], 0)
+        self.assertEqual(metrics["introduced_nonzero_words"], 0)
+        self.assertTrue(metrics["stage_is_zero_masked_source"])
+        self.assertFalse(metrics["stage_equals_source"])
+        self.assertEqual(tool.aligned_stage_mask_audit(source, source)
+                         ["stage_equals_source"], True)
+        stage[0:2] = bytes([0x22, 0x43])
+        self.assertFalse(tool.aligned_stage_mask_audit(bytes(stage), source)
+                         ["stage_is_zero_masked_source"])
+        with self.assertRaises(ValueError):
+            tool.aligned_stage_mask_audit(bytes(4), source)
+
+    def test_compact_exposes_style55_mask_loss_without_raw_pixels(self):
+        raw = bytearray(tool.VRAM_BYTES)
+        put_style(raw, 1, 0x11)
+        put_style(raw, 55, 0x55)
+        overwrite(raw, 560, 0, 0x11)
+        overwrite(raw, 560, 28, 0x55)
+        # 4bpp pixels in the top away-stage source row were zeroed.
+        at = (28 * 1024 + 560) * 2
+        raw[at:at + 4] = bytes(4)
+        with tempfile.TemporaryDirectory() as td:
+            path = Path(td) / "masked.zip"
+            with zipfile.ZipFile(path, "w", zipfile.ZIP_DEFLATED) as z:
+                z.writestr("flag_auto_crowd_flags_00005468.vram", raw)
+            whole = tool.analyze_archive(path)
+            item = whole["captures"][0]
+            self.assertEqual(item["staging"]["away"]["matching_style_ids"], [])
+            self.assertEqual(item["staging"]["away"]
+                             ["ranked_partial_style_candidates"][0]["style_id"], 55)
+            metrics = item["aligned_mask_audits"]["away_style55"]
+            self.assertTrue(metrics["stage_is_zero_masked_source"])
+            self.assertEqual(metrics["suppressed_source_nonzero_words"], 2)
+            self.assertEqual(metrics["source_nonzero_4bpp_pixels_suppressed"], 8)
+            brief = tool.compact_summary(whole)
+            self.assertEqual(brief["captures"][0]["reference_mask_audits"]
+                             ["away_style55"]["suppressed_bbox_4bpp_pixels_xyxy"],
+                             [0, 0, 7, 0])
+            self.assertNotIn("style_sha256", brief["captures"][0])
+            self.assertNotIn("vram_sha256", brief["captures"][0])
+
+    def test_partial_and_shifted_bosnia_style_source_ranking(self):
+        # Synthetic unique texels: away stage is copied one VRAM word to the
+        # right inside source style55. Exact SHA equality must fail, but a
+        # conservative nonzero-word offset match should recover the candidate.
+        width, height = tool.STYLE_WORDS, tool.STYLE_ROWS
+        source = bytearray(tool.STYLE_BYTES)
+        for y in range(height):
+            for x in range(width):
+                struct.pack_into("<H", source, 2 * (y * width + x),
+                                 (y * width + x + 1) * 37 & 0xffff)
+        stage = bytearray(tool.STYLE_BYTES)
+        for y in range(height):
+            for x in range(width - 1):
+                stage[2 * (y * width + x):2 * (y * width + x + 1)] = (
+                    source[2 * (y * width + x + 1):2 * (y * width + x + 2)]
+                )
+        styles = [bytes(tool.STYLE_BYTES) for _ in range(tool.STYLE_COUNT)]
+        styles[55] = bytes(source)
+        self.assertEqual(tool._matches(bytes(stage), styles), [])
+        matches = tool.ranked_partial_style_sources(bytes(stage), styles)
+        self.assertEqual(matches[0]["style_id"], 55)
+        self.assertEqual(matches[0]["source_offset_words_xy"], [1, 0])
+        self.assertEqual(matches[0]["matching_nonzero_stage_words"], 420)
+        self.assertAlmostEqual(matches[0]["fraction_of_nonzero_stage_words"], 1.0)
+
+    def test_blank_staging_does_not_invent_partial_source(self):
+        styles = [bytes(tool.STYLE_BYTES) for _ in range(tool.STYLE_COUNT)]
+        self.assertEqual(
+            tool.ranked_partial_style_sources(bytes(tool.STYLE_BYTES), styles), []
+        )
+        with self.assertRaises(ValueError):
+            tool.ranked_partial_style_sources(bytes(32), styles)
+
+    def test_reject_unsafe_archive_and_duplicate_snapshot_name(self):
+        with tempfile.TemporaryDirectory() as td:
+            p = Path(td) / "bad.zip"
+            with zipfile.ZipFile(p, "w") as z:
+                z.writestr("../escape.vram", bytes(tool.LEGACY_VRAM_BYTES))
+            with self.assertRaisesRegex(ValueError, "Unsafe"):
+                tool.analyze_archive(p)
+            with zipfile.ZipFile(p, "w") as z:
+                z.writestr("a/double_00000100.vram", bytes(tool.LEGACY_VRAM_BYTES))
+                z.writestr("b/double_00000100.vram", bytes(tool.LEGACY_VRAM_BYTES))
+            with self.assertRaisesRegex(ValueError, "duplicate"):
+                tool.analyze_archive(p)
+
+    def test_reject_missing_operator_label(self):
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            archive = root / "capture.zip"
+            with zipfile.ZipFile(archive, "w") as z:
+                z.writestr("snap_00000100.vram", bytes(tool.LEGACY_VRAM_BYTES))
+            labels = root / "labels.json"
+            labels.write_text(json.dumps({
+                "schemaVersion": 1,
+                "captures": [{"snapshot":"absent_00000100.vram",
+                              "phase":"crowd_flags"}]
+            }))
+            with self.assertRaisesRegex(ValueError, "not in ZIP"):
+                tool.analyze_archive(archive, labels)
+
+    def test_invalid_vram_size_and_coordinate_bounds(self):
+        with tempfile.TemporaryDirectory() as td:
+            archive = Path(td) / "invalid.zip"
+            with zipfile.ZipFile(archive, "w") as z:
+                z.writestr("small_00000100.vram", bytes(400))
+            with self.assertRaisesRegex(ValueError, "Invalid VRAM"):
+                tool.analyze_archive(archive)
+            with self.assertRaises(ValueError):
+                tool.tile(bytes(tool.LEGACY_VRAM_BYTES), 1020, 480)
+            with self.assertRaises(ValueError):
+                tool.clut(bytes(tool.LEGACY_VRAM_BYTES), 1010, 505)
+
+
+if __name__ == "__main__":
+    unittest.main()

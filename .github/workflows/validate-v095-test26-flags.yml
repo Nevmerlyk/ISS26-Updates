@@ -1,0 +1,60 @@
+name: Validate ISS26 Test26 flag forensic tools
+
+on:
+  push:
+    branches:
+      - feature/v095-test26-unified-flag-provenance
+    paths:
+      - '.github/workflows/validate-v095-test26-flags.yml'
+      - 'tools/parse_v095_gpudump.py'
+      - 'tools/analyze_flag_test26_unified.py'
+      - 'tools/analyze_flag_test12_phases.py'
+      - 'tools/tests/test_parse_v095_gpudump.py'
+      - 'tools/tests/test_analyze_flag_test26_unified.py'
+      - 'tools/Run-ISS26-Test26-ArchiveAudit.ps1'
+      - 'tools/Run-ISS26-Test26-ArchiveAudit.cmd'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-forensics:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Syntax-check all Test26 forensic Python
+        run: |
+          python -m py_compile tools/parse_v095_gpudump.py tools/analyze_flag_test26_unified.py tools/analyze_flag_test12_phases.py
+      - name: Test GPUDUMP v1r1 state, polygon, sprite and transfer decoding
+        run: python -m unittest discover -s tools/tests -p 'test_parse_v095_gpudump.py' -v
+      - name: Test all 72 styles, operator phases and safe ZIP processing
+        run: python -m unittest discover -s tools/tests -p 'test_analyze_flag_test26_unified.py' -v
+      - name: Parse Windows Test26 archive runner without executing it
+        shell: pwsh
+        run: |
+          $tokens = $null
+          $errors = $null
+          [System.Management.Automation.Language.Parser]::ParseFile(
+            (Resolve-Path 'tools/Run-ISS26-Test26-ArchiveAudit.ps1').Path,
+            [ref]$tokens, [ref]$errors) | Out-Null
+          if ($errors.Count -gt 0) {
+            throw "Test26 PowerShell syntax errors: $($errors -join '; ')"
+          }
+          Write-Host 'PASS: Test26 Windows archive runner parses'
+      - name: Check Test26 did not promote game to stable
+        run: |
+          python - <<'PY'
+          import json
+          with open('stable/latest.json', encoding='utf-8') as f:
+              stable = json.load(f)
+          with open('test/latest.json', encoding='utf-8') as f:
+              test = json.load(f)
+          assert stable['latest']['version'] == '0.9.4'
+          assert test['latest']['version'] == '0.9.5-largeflag-source-test13'
+          print('PASS: stable and game test feeds not changed by Test26')
+          PY
