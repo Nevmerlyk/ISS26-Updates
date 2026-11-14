@@ -17,6 +17,7 @@ on:
       - 'tools/Build-ISS26-Academy-Test27-MIPS-Preview-Local.ps1'
       - 'tools/Run-ISS26-Test27-RealFlagPreview.ps1'
       - 'tools/Run-ISS26-Test27-RealFlagPreview.cmd'
+      - 'diagnostics/v095-test27-ram-transfer-paired-profile-20261114.md'
   workflow_dispatch:
 
 permissions:
