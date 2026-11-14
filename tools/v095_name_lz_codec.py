@@ -158,6 +158,120 @@ def encode_stream(pixels: bytes, *, candidate_limit: int = 64,
     return packet
 
 
+
+def encode_stream_compact(pixels: bytes, *, expected_bytes: int = TILE_BYTES,
+                          candidate_limit: int = 96) -> bytes:
+    """Alternate bounded LZ encoder using a backward token-cost search.
+
+    The cost models each payload byte plus amortized flag-bit overhead.
+    It is NOT claimed to produce the globally minimum exact packed size.
+    Used only when the standard encoder exceeds an existing stream budget.
+    Supports overlapping copies; the same real decoder validates the result.
+    """
+    from array import array
+    from collections import deque
+    n = len(pixels)
+    if n != expected_bytes or not 1 <= n <= 1024*512*2:
+        raise FormatError("unexpected or unsafe decoded rectangle size")
+    if not 1 <= candidate_limit <= 1023:
+        raise ValueError("invalid compact encoder candidate limit")
+    by_triple = defaultdict(list)
+    for i in range(n-2):
+        by_triple[pixels[i:i+3]].append(i)
+    costs = array("I", [0]) * (n+1)
+    lengths = bytearray(n)
+    families = bytearray(n)
+    distances = array("H", [0]) * n
+    # Raw-block candidates cost 9 + 8*(end-i) + costs[end].
+    # Maintain min(costs[end] + 8*end) for ends i+8 ... i+70.
+    raw_window = deque()
+    for i in range(n-1,-1,-1):
+        end = i+8
+        while raw_window and raw_window[0] > i+70:
+            raw_window.popleft()
+        if end <= n:
+            value = costs[end] + 8*end
+            while raw_window and costs[raw_window[-1]]+8*raw_window[-1] >= value:
+                raw_window.pop()
+            raw_window.append(end)
+        best = (9 + costs[i+1], 1, 0, 0)
+        if raw_window:
+            end = raw_window[0]
+            proposal = (9+8*(end-i)+costs[end],end-i,3,0)
+            if proposal[0] < best[0]:
+                best = proposal
+        short_len=0
+        short_dist=0
+        for d in range(1,min(i,16)+1):
+            k=0
+            while k<5 and i+k<n and pixels[i+k]==pixels[i+k-d]:
+                k+=1
+            if k>short_len:
+                short_len,short_dist=k,d
+            if k==5:
+                break
+        for k in range(2,short_len+1):
+            proposal=(9+costs[i+k],k,1,short_dist)
+            if proposal[0] < best[0]:
+                best=proposal
+        long_len=0
+        long_dist=0
+        if i+3 <= n:
+            positions=by_triple[pixels[i:i+3]]
+            last=bisect_left(positions,i)
+            for p in reversed(positions[max(0,last-candidate_limit):last]):
+                d=i-p
+                if d>1023:
+                    break
+                k=3
+                while k<34 and i+k<n and pixels[i+k]==pixels[i+k-d]:
+                    k+=1
+                if k>long_len:
+                    long_len,long_dist=k,d
+                if k==34:
+                    break
+        for k in range(3,long_len+1):
+            proposal=(17+costs[i+k],k,2,long_dist)
+            if proposal[0] < best[0]:
+                best=proposal
+        costs[i],lengths[i],families[i],distances[i]=best
+    tokens=[]
+    i=0
+    while i<n:
+        k,f,d=lengths[i],families[i],distances[i]
+        if f==0:
+            tokens.append((0,pixels[i:i+1]))
+        elif f==1:
+            tokens.append((1,bytes([((k+6)<<4)|(d-1)])))
+        elif f==2:
+            tokens.append((1,bytes([((k-3)<<2)|(d>>8),d&255])))
+        elif f==3:
+            tokens.append((1,bytes([0xB8+k])+pixels[i:i+k]))
+        else:
+            raise AssertionError("Unrecognized compact token")
+        i+=k
+    packet=_pack_tokens(tokens)
+    if decode_stream(packet,expected_bytes=n)!=pixels:
+        raise AssertionError("compact codec round-trip failed")
+    return packet
+
+
+def encode_with_budget(pixels: bytes, *, expected_bytes: int, capacity: int) -> tuple[bytes,str]:
+    """Try the fast encoder first, then compact search, never relocate data."""
+    if capacity < 1:
+        raise FormatError("Invalid existing stream capacity")
+    fast=encode_stream(pixels,expected_bytes=expected_bytes)
+    if len(fast)<=capacity:
+        return fast,"greedy"
+    compact=encode_stream_compact(pixels,expected_bytes=expected_bytes)
+    if len(compact)<=capacity:
+        return compact,"compact_search"
+    raise FormatError(
+        f"Flag insertion exceeds existing GPU stream capacity "
+        f"({capacity} bytes; greedy {len(fast)}, compact {len(compact)}); no relocation"
+    )
+
+
 def atlas_records(resource: bytes) -> list[dict]:
     """Parse and strictly check all the original GPU table geometry."""
     if len(resource) != RESOURCE_BYTES:
