@@ -2,7 +2,7 @@ name: Test27 - PS1 national flag 4bpp artwork research (no game patch)
 
 on:
   push:
-    branches: [feature/v095-test27-flag-artwork]
+    branches: [feature/v095-test27-flag-artwork, feature/v095-test27-ram-stage-profiles]
     paths:
       - '.github/workflows/validate-v095-test27-flag-art.yml'
       - 'tools/test27_flag_art_4bpp.py'
@@ -51,10 +51,11 @@ jobs:
           [System.Management.Automation.Language.Parser]::ParseFile($path,[ref]$tokens,[ref]$errors) | Out-Null
           if ($errors.Count -ne 0) { throw "Test27 PowerShell syntax errors: $($errors -join '; ')" }
           $src = Get-Content -LiteralPath $path -Raw
-          if (-not $src.Contains('c157c8d91bf7ed5678d913c4bc0014c709e8da95')) {
+          if (-not $src.Contains('92aef5a8d600d02ff68205d80031e122ea8300b2')) {
             throw "Academy preview source pin changed"
           }
           if (-not $src.Contains('previewNotStable = $true')) { throw "Preview-only gate missing" }
+          if (-not $src.Contains('test27RamTopBottomPostReturnProfiles = $true')) { throw "Missing RAM profile preview report gate" }
           if ($src -match 'gh release create|Invoke-RestMethod.*PATCH') { throw "Unsafe publish action in local builder" }
           Write-Host 'PASS: syntax and source/preview safety gate'
 
