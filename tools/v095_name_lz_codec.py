@@ -87,10 +87,15 @@ def _pack_tokens(tokens: list[tuple[int, bytes]]) -> bytes:
     return bytes(out)
 
 
-def encode_stream(pixels: bytes, *, candidate_limit: int = 64) -> bytes:
-    """Greedy encoder verified against all 26 original textures (round trips)."""
-    if len(pixels) != TILE_BYTES:
-        raise FormatError("expected 8192 decoded bytes")
+def encode_stream(pixels: bytes, *, candidate_limit: int = 64,
+                  expected_bytes: int = TILE_BYTES) -> bytes:
+    """Greedy encoder; default remains the verified 8192-byte name tile.
+
+    Flag resources can use other bounded GPU rectangle sizes. Every encoded
+    result is checked against the original decoder at that exact size.
+    """
+    if not 1 <= expected_bytes <= 1024*512*2 or len(pixels) != expected_bytes:
+        raise FormatError("unexpected or unsafe decoded rectangle size")
     if candidate_limit < 1:
         raise ValueError("candidate_limit must be >=1")
     pos_by_triple = defaultdict(list)
@@ -148,7 +153,7 @@ def encode_stream(pixels: bytes, *, candidate_limit: int = 64) -> bytes:
         compact.append(tokens[i])
         i += 1
     packet = _pack_tokens(compact)
-    if decode_stream(packet) != pixels:
+    if decode_stream(packet, expected_bytes=expected_bytes) != pixels:
         raise AssertionError("codec round-trip is not bit-identical")
     return packet
 
