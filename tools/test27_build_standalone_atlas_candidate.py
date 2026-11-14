@@ -20,7 +20,8 @@ import re
 import struct
 from build_v095_test12_gdc_descriptor_repair import fix_parity, valid_parity
 from probe_v095_name_gpu_atlas import CLEAN_SHA, directory_files, raw_sector, apply_sector, file_sha, SECTOR, RECORD
-from v095_static_prematch_ram_trace import read_patch
+from v095_static_prematch_ram_trace import read_patch, resource, SELECT_LBA, SELECT_BYTES
+from test27_stage_code_audit import audit as audit_stage_code
 from build_v095_test25_bosnia_style_isolation import TABLE_OFFSETS
 from test27_extract_real_flag_pixels import read_snapshot, sha_path, EXPECTED_ZIP_SHA
 from analyze_flag_test26_unified import clut
@@ -186,6 +187,13 @@ def build(track:Path,base:Path,archive:Path):
     changed_lbas=set()
     with track.open("rb") as source:
         for lba in records: patched_sector(source,lba,records)
+        # Collect actual MIPS instructions even if subsequent art preflight fails.
+        # This compares the original code against Test25, without patching it.
+        stage_code=audit_stage_code(resource(source,SELECT_LBA,SELECT_BYTES),
+                                   read_resource(source,records,SELECT_LBA,SELECT_BYTES))
+        print("STAGE_CODE_BEGIN",flush=True)
+        print(json.dumps(stage_code,indent=2),flush=True)
+        print("STAGE_CODE_END",flush=True)
         tables=check_tables(source,records)
         print("PASS: five national/club style tables",flush=True)
         catalog=directory_files(source)
@@ -232,7 +240,7 @@ def build(track:Path,base:Path,archive:Path):
         "clean_track_sha256":CLEAN_SHA,"base_test25_sha256":TEST25_SHA,
         "output_patch_sha256":sha(blob),"records":len(records),
         "changed_lbas":sorted(changed_lbas),"previous_records_preserved_outside_targets":True,
-        "style_tables_checked":len(tables),"regular_national_and_club_style_exclusivity_checked":True,
+        "style_tables_checked":len(tables),"stage_code_audit":stage_code,"regular_national_and_club_style_exclusivity_checked":True,
         "four_bonus_team_ownership_verified":False,
         "clut_unchanged":True,"palette_mapping":palette_mapping,
         "resources":resource_results,"original_disc_modified":False,
