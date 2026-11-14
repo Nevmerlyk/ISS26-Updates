@@ -80,6 +80,51 @@ class RecoveryTests(unittest.TestCase):
         self.assertEqual(len(output),len(original))
         self.assertEqual(output[table:],original[table:])
 
+    def test_expected_stadium_exception_edits_only_verified_complete_cape_tile(self):
+        from unittest.mock import patch
+        from test27_gpu_stream_edit import fragment_read, mapped_art
+        from test_test27_standalone_atlas_candidate import palette
+        import random
+        rng=random.Random(41)
+        raw=bytes(rng.randrange(256) for _ in range(8192))
+        b=bytearray(resource(raw))
+        table=struct.unpack_from("<I",b,0)[0]-0x800F0000
+        struct.pack_into("<I",b,0,0x800C8000+table)
+        struct.pack_into("<HHHHHHI",b,table,10,832,256,32,128,0,0x800C8000+32)
+        _,rows=recovery.parse_uploads(b,0x800C8000,0)
+        h=recovery.sha(fragment_read(raw,rows[0],(848,256,16,28)))
+        pal=palette()
+        with patch.object(recovery,"CAPE_SOURCE_SHA",h), patch.object(recovery,"rewrite_resource", wraps=recovery.rewrite_resource) as write:
+            # Synthetic palette has different SHA from owner capture; retain all
+            # normal edit guards other than the fixed real-capture hash.
+            with patch("test27_gpu_stream_edit.CLUT_SHA",recovery.sha(pal)):
+                out,edits,address,stats=recovery.exceptional_art(bytes(b),pal,"BIN/GDC_BD.BIN","Incomplete GPU target coverage: bosnia")
+        self.assertTrue(stats["bosnia_not_replaced"])
+        self.assertTrue(stats["cape_verde_replaced"])
+        self.assertEqual([e["flag"] for e in edits],["cape_verde"])
+        self.assertEqual(out[table:],b[table:])
+        self.assertEqual(write.call_args.kwargs["required_flags"],{"cape_verde"})
+
+    def test_unexpected_exception_never_bypasses_recovery_guards(self):
+        with self.assertRaisesRegex(ValueError,"unexpected"):
+            recovery.exceptional_art(b"",bytes(32),"BIN/GDC_BD.BIN","unexpected")
+        with self.assertRaisesRegex(ValueError,"Overlapping"):
+            recovery.exceptional_art(b"",bytes(32),"BIN/GDC_DD.BIN","Overlapping GPU target fragments: bosnia")
+
+    def test_known_exception_cannot_edit_unverified_cape_source(self):
+        from test_test27_standalone_atlas_candidate import palette
+        import random
+        rnd=random.Random(42)
+        b=bytearray(resource(bytes(rnd.randrange(256) for _ in range(8192))))
+        table=struct.unpack_from("<I",b,0)[0]-0x800F0000
+        struct.pack_into("<I",b,0,0x800C8000+table)
+        struct.pack_into("<HHHHHHI",b,table,10,832,256,32,128,0,0x800C8000+32)
+        out,edits,address,stats=recovery.exceptional_art(bytes(b),palette(),"BIN/GDC_FD.BIN","Overlapping GPU target fragments: bosnia")
+        self.assertEqual(out,b)
+        self.assertEqual(edits,[])
+        self.assertFalse(stats["cape_verde_replaced"])
+        self.assertIn("source differs",stats["cape_skip_reason"])
+
     def test_bad_or_oversized_donor_stays_clean(self):
         original=resource(bytes([0x21])*8192)
         import random
