@@ -159,6 +159,39 @@ class Test26UnifiedFlagProvenance(unittest.TestCase):
                 result["operator_phase_coverage"]["carried_banner"]["verified_gpu_draw_ownership"]
             )
 
+    def test_partial_and_shifted_bosnia_style_source_ranking(self):
+        # Synthetic unique texels: away stage is copied one VRAM word to the
+        # right inside source style55. Exact SHA equality must fail, but a
+        # conservative nonzero-word offset match should recover the candidate.
+        width, height = tool.STYLE_WORDS, tool.STYLE_ROWS
+        source = bytearray(tool.STYLE_BYTES)
+        for y in range(height):
+            for x in range(width):
+                struct.pack_into("<H", source, 2 * (y * width + x),
+                                 (y * width + x + 1) * 37 & 0xffff)
+        stage = bytearray(tool.STYLE_BYTES)
+        for y in range(height):
+            for x in range(width - 1):
+                stage[2 * (y * width + x):2 * (y * width + x + 1)] = (
+                    source[2 * (y * width + x + 1):2 * (y * width + x + 2)]
+                )
+        styles = [bytes(tool.STYLE_BYTES) for _ in range(tool.STYLE_COUNT)]
+        styles[55] = bytes(source)
+        self.assertEqual(tool._matches(bytes(stage), styles), [])
+        matches = tool.ranked_partial_style_sources(bytes(stage), styles)
+        self.assertEqual(matches[0]["style_id"], 55)
+        self.assertEqual(matches[0]["source_offset_words_xy"], [1, 0])
+        self.assertEqual(matches[0]["matching_nonzero_stage_words"], 420)
+        self.assertAlmostEqual(matches[0]["fraction_of_nonzero_stage_words"], 1.0)
+
+    def test_blank_staging_does_not_invent_partial_source(self):
+        styles = [bytes(tool.STYLE_BYTES) for _ in range(tool.STYLE_COUNT)]
+        self.assertEqual(
+            tool.ranked_partial_style_sources(bytes(tool.STYLE_BYTES), styles), []
+        )
+        with self.assertRaises(ValueError):
+            tool.ranked_partial_style_sources(bytes(32), styles)
+
     def test_reject_unsafe_archive_and_duplicate_snapshot_name(self):
         with tempfile.TemporaryDirectory() as td:
             p = Path(td) / "bad.zip"
