@@ -21,6 +21,8 @@ from pathlib import Path, PurePosixPath
 import struct
 import zipfile
 
+from parse_v095_gpudump import inspect as inspect_gpudump
+
 from analyze_flag_test12_phases import (
     LEGACY_VRAM_BYTES,
     VRAM_BYTES,
@@ -124,7 +126,12 @@ def analyze_archive(report: Path, labels: Path | None = None) -> dict:
             name = PurePosixPath(entry.filename.replace("\\", "/")).name
             lower = name.lower()
             if lower.endswith(".gpd"):
-                gpds.append({"zip_member": entry.filename, "bytes": entry.file_size})
+                row = {"zip_member": entry.filename, "bytes": entry.file_size}
+                try:
+                    row["decoded_gp0"] = inspect_gpudump(z.read(entry))
+                except (ValueError, struct.error) as exc:
+                    row["parse_error"] = str(exc)[:240]
+                gpds.append(row)
                 continue
             if lower.endswith(".png") or lower.endswith(".screen.raw"):
                 screens.append(entry.filename)
@@ -198,6 +205,9 @@ def analyze_archive(report: Path, labels: Path | None = None) -> dict:
         "club_slots_to_preserve": 24,
         "capture_count": len(captures),
         "gpu_trace_count": len(gpds),
+        "gpu_trace_decoded_count": sum(
+            bool(row.get("decoded_gp0", {}).get("trace_begin_found")) for row in gpds
+        ),
         "screenshot_file_count": len(screens),
         "screenshots_inventory_only": screens,
         "gpu_dumps_inventory_only": gpds,
@@ -206,7 +216,8 @@ def analyze_archive(report: Path, labels: Path | None = None) -> dict:
         "transitions": transitions,
         "limitations": [
             "A phase is accepted only from an operator label, not inferred from a task filename.",
-            "GPUDUMP packets are inventoried, NOT decoded to GPU primitives by this script.",
+            "GPUDUMP textured primitives and transfers are decoded after TraceBegin when supported.",
+            "Decoded GP0 polygons do not automatically identify a crowd, ceremony, or selection scene.",
             "Style pixels matching staging only proves byte equality at capture time; no last uploader is identified.",
             "A crowd_flags phase label does not prove its VRAM styles are crowd artwork.",
             "Crowd animation frame-to-frame attribution needs additional GP0 draw evidence.",
@@ -226,7 +237,8 @@ def main() -> None:
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print("Processed", result["capture_count"], "VRAM captures; all", STYLE_COUNT,
-          "atlas styles; GPD files", result["gpu_trace_count"])
+          "atlas styles; GPD files", result["gpu_trace_count"],
+          "decoded live traces", result["gpu_trace_decoded_count"])
     print("Operator-tagged phase counts:", {
         name: count["operator_tagged_vram_captures"]
         for name, count in result["operator_phase_coverage"].items()
