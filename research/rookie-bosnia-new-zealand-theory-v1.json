@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "kind": "rookie_navigation_theory",
+  "game": "ISS Pro Evolution 2 Europe SLES-03321",
+  "patch": "0.9.5-allflags-test35",
+  "patchSha256": "53E19548558691AAEE0DC616850026EF58C01B8864746D4CDA1BF63886D81B78",
+  "assignment": "rookie_bosnia_new_zealand_full_intro",
+  "status": "theory_only_requires_runtime_semantic_verification",
+  "target": {
+    "mode": "Exhibition",
+    "home": {
+      "name": "Bosnia",
+      "gameLabel": "BOSNIA",
+      "slot": 30,
+      "legacySlotIdentity": "Russia",
+      "style": 61
+    },
+    "away": {
+      "name": "New Zealand",
+      "gameLabel": "N.ZEAL",
+      "slot": 27,
+      "style": 54
+    },
+    "stadium": "Key Square Stadium",
+    "dayNight": "Day (preferred for comparable evidence)",
+    "examSeconds": 300,
+    "perScreenTrials": 10
+  },
+  "knowledge": [
+    {
+      "stage": "boot",
+      "observe": "Intro movie, Press START, possible Memory Card prompt",
+      "action": "CROSS may skip ONLY initial boot movie; START on title; CIRCLE dismisses Memory Card prompt when identified.",
+      "guard": "Never treat the stadium intro as the boot movie."
+    },
+    {
+      "stage": "mode_select",
+      "observe": "MODE SELECT > Match Mode",
+      "action": "UP/DOWN moves visible highlight; CROSS confirms Match Mode, then Exhibition.",
+      "guard": "Avoid Start game with default setting shortcuts and All Star/PK/Master League branches."
+    },
+    {
+      "stage": "side_select",
+      "observe": "Controller side selection if shown",
+      "action": "LEFT/RIGHT chooses first player side versus CPU; CROSS only after visible verification.",
+      "guard": "Do not assume this stage is always presented."
+    },
+    {
+      "stage": "home_team",
+      "observe": "Active home-team selection, country name, category/map",
+      "action": "Navigate with D-pad in single steps; inspect highlighted name each time. Use national category/window controls only if verified. Confirm BOSNIA.",
+      "guard": "Slot 30 is not a cursor index or a known count of presses. Flags/map may be stale; use rendered name or independently verified RAM team identity, never just colors."
+    },
+    {
+      "stage": "away_team",
+      "observe": "Active away-team selection",
+      "action": "Find N.ZEAL / New Zealand (slot 27). Confirm after observing the name. Retain both selections.",
+      "guard": "Do not accept Cape Verde or another country merely because a default team is displayed. Backtrack only on a verified menu."
+    },
+    {
+      "stage": "match_settings",
+      "observe": "Day/Night, Season/Weather, Game length, CPU level, Match settings, Uniforms, Stadium",
+      "action": "Keep defaults where possible; choose Key Square Stadium. Day preferred. Verify both team names in available selection or confirmation views. Confirm the final Start Match/continue once.",
+      "guard": "If names cannot be verified, mark target identity unverified. Do not fabricate success from a flag or a screen change."
+    },
+    {
+      "stage": "prematch",
+      "observe": "Loading, stadium establishing shot, team names/large flags, players entering, carried ceremonial cloth, waving crowd flags, lineup",
+      "action": "Release all controller overrides immediately after final menu confirmation. WAIT with no pad inputs through loading and every prematch scene.",
+      "guard": "Do not press CROSS, START, CIRCLE, directional buttons or any other input to skip the intro; do not reuse navigation actions on the pitch. Do not assume scene order or duration."
+    },
+    {
+      "stage": "kickoff",
+      "observe": "Field, players at kickoff, score/clock HUD, moving gameplay",
+      "action": "Observe and allow Academy to save evidence. Stop navigation. Never skip a missing ceremony to manufacture completion.",
+      "guard": "Two independent moving pitch witnesses are needed for kickoff; they do not prove the intended teams or capture of ceremonial cloth."
+    }
+  ],
+  "captureRequirements": [
+    {
+      "phase": "prematch_banner",
+      "evidence": "Team names plus two large flags against stadium view"
+    },
+    {
+      "phase": "carried_banner",
+      "evidence": "Actual large cloth being carried by players on the field, not player lineup or static team-name panel"
+    },
+    {
+      "phase": "crowd_flags",
+      "evidence": "Small flags waved by spectators in stands, separate from carried cloth and HUD"
+    },
+    {
+      "phase": "hud",
+      "evidence": "Scoreboard flags and match clock at kickoff and in moving gameplay"
+    }
+  ],
+  "acceptance": "Verify home Bosnia and away New Zealand; no controller input between final match confirmation and first proven playable pitch; actual ceremonial cloth and waving crowd flags captured; retain screenshot/VRAM/RAM/GPU evidence; incomplete if any target is missing. Never auto-pass merely from generic kickoff.",
+  "provenance": [
+    {
+      "source": "Test35_Report.json in ISS26_Test35_AllFlags.zip",
+      "facts": "BOSNIA slot 30 style 61; N.ZEAL slot 27 style 54; slot IDs are internal only."
+    },
+    {
+      "source": "20261115_175030_d074c0.zip: rookie-exam-autopilot.tsv, screen witnesses, session.json",
+      "facts": "Previous match Cape Verde-New Zealand; frame 5353 match settings, 6025 prematch names/flags, CROSS at 6145 and 6457, 6577 playable pitch; these presses may have skipped scenes but exact skip causality is unproven."
+    },
+    {
+      "source": "MenuBootstrapKnowledge.cs at 03bba11a2de9327b7c568e52fb6d0904198c7339",
+      "facts": "European control priors and menu path; cancel semantics outside Memory Card remain conditional."
+    }
+  ],
+  "limitations": [
+    "Current 0.9.6.3 reads task feedback for display but not as executable natural-language policy. This document is a data-only curriculum, not a trained route or live command.",
+    "No confirmed team-select cursor sequence or semantic screen classifier. Exact navigation and intro lock still require runtime implementation and real game verification."
+  ]
+}
