@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "revision": 2,
+  "revision": 3,
   "tasks": [
     {
       "id": "academy_prematch_source",
@@ -50,7 +50,7 @@
       "priority": 100,
       "researchGoalId": "",
       "researchRevision": 0,
-      "feedback": "Select Bosnia as home and New Zealand as away in Exhibition on Test35. Use Key Square Stadium if available. Confirm both team names before kickoff. Once prematch starts, do not press any buttons or skip any cutscene until the carried banner and waving stadium flags have been shown and play begins. Allow Academy to collect screen, RAM, VRAM and GPU evidence. Report wrong teams, skips, missing scenes and timeouts honestly.",
+      "feedback": "Theory: MODE SELECT > Match Mode > Exhibition; avoid default-game shortcut. D-pad: move; CROSS: confirm. Verify BOSNIA home (ID 30, style 61) and N.ZEAL away (ID 27, style 54) by name, not flag or fixed press count. Key Square Stadium, Day. Confirm Start Match once; release all buttons through loading, stadium, carried banner, crowd and kickoff. Never skip. Wrong/missing evidence=incomplete. Full theory: research/rookie-bosnia-new-zealand-theory-v1.json",
       "navigationProfile": "balanced"
     }
   ]
