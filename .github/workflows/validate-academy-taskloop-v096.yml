@@ -6,12 +6,16 @@ on:
       - 'tasks/latest.json'
       - 'research/latest.json'
       - 'tools/Build-ISS26-Academy-v096-TaskLoop-Local.ps1'
+      - 'tools/Release-ISS26-Academy-v096-TaskLoop-Local.ps1'
+      - 'tools/ISS26-Academy-v096-TaskLoop-OneClick.ps1'
       - '.github/workflows/validate-academy-taskloop-v096.yml'
   pull_request:
     paths:
       - 'tasks/latest.json'
       - 'research/latest.json'
       - 'tools/Build-ISS26-Academy-v096-TaskLoop-Local.ps1'
+      - 'tools/Release-ISS26-Academy-v096-TaskLoop-Local.ps1'
+      - 'tools/ISS26-Academy-v096-TaskLoop-OneClick.ps1'
   workflow_dispatch:
 
 permissions:
@@ -67,3 +71,32 @@ jobs:
               throw 'Build must be pinned, tested, and not publish'
           }
           Write-Host 'PASS: pinned build-only script'
+
+      - name: Parse and verify release tooling without publication
+        shell: pwsh
+        run: |
+          $ErrorActionPreference='Stop'
+          $paths=@(
+            'tools/Release-ISS26-Academy-v096-TaskLoop-Local.ps1',
+            'tools/ISS26-Academy-v096-TaskLoop-OneClick.ps1'
+          )
+          foreach($file in $paths) {
+            $tokens=$null
+            $errors=$null
+            [System.Management.Automation.Language.Parser]::ParseFile(
+              (Resolve-Path $file).Path,[ref]$tokens,[ref]$errors) | Out-Null
+            if($errors.Count -gt 0) { throw ($errors | Out-String) }
+            $src=Get-Content $file -Raw
+            if(!$src.Contains('c80d2a35328ff67e5a663c3653ba38235fefc530')) {
+              throw "Wrong source pin: $file"
+            }
+          }
+          $publisher=Get-Content $paths[0] -Raw
+          if(!$publisher.Contains('launcher-v0.9.6-taskloop') -or
+             !$publisher.Contains('0.9.6.2') -or
+             !$publisher.Contains('stable/latest.json') -or
+             !$publisher.Contains('git add -- launcher/latest.json') -or
+             !$publisher.Contains('Remote ZIP differs')) {
+            throw 'Missing release gate'
+          }
+          Write-Host 'PASS: publisher syntax, pinned source, channel safety'
