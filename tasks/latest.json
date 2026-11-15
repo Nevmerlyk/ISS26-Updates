@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "revision": 1,
+  "tasks": [
+    {
+      "id": "academy_prematch_source",
+      "agent": "Academy",
+      "kind": "capture_scene",
+      "title": "Find prematch flag texture source",
+      "priority": 100,
+      "researchGoalId": "research_prematch_flag_source",
+      "researchRevision": 2,
+      "feedback": "Correlate the last RAM writer before the known SELECT GPU upload; screen/VRAM counts alone are not source proof."
+    },
+    {
+      "id": "academy_carried_banner",
+      "agent": "Academy",
+      "kind": "capture_scene",
+      "title": "Trace the carried ceremonial banner",
+      "priority": 90,
+      "researchGoalId": "research_carried_banner_source",
+      "researchRevision": 2,
+      "feedback": "Capture the actual banner carried by players and distinguish it from the lineup."
+    },
+    {
+      "id": "academy_crowd_reload",
+      "agent": "Academy",
+      "kind": "capture_scene",
+      "title": "Track crowd flag reloads",
+      "priority": 80,
+      "researchGoalId": "research_crowd_flags_reload",
+      "researchRevision": 2,
+      "feedback": "Compare crowd sprite and CLUT reloads across phases; preserve candidate evidence."
+    },
+    {
+      "id": "academy_hud_flags",
+      "agent": "Academy",
+      "kind": "capture_scene",
+      "title": "Locate small scoreboard flags",
+      "priority": 70,
+      "researchGoalId": "research_hud_small_flags",
+      "researchRevision": 2,
+      "feedback": "Locate small HUD flag candidates and compare palette behavior; leave source unverified."
+    },
+    {
+      "id": "rookie_autonomous_kickoff",
+      "agent": "Rookie",
+      "kind": "navigate_kickoff",
+      "title": "Reach Exhibition kickoff autonomously in five minutes",
+      "priority": 100,
+      "researchGoalId": "",
+      "researchRevision": 0,
+      "feedback": "Use the learned visual menu graph, documented controls, and observed recovery routes. Ten trials per distinct visual screen; preserve two for cancel/back. Report all outcomes, including timeouts. Do not claim a pass without the independent pitch audit."
+    }
+  ]
+}
