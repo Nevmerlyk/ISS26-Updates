@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "latest": {
-    "version": "0.9.6.2",
-    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.9.6-taskloop/ISS26-LauncherUpdate.zip",
-    "zipSha256": "B66A55BB1BECA3A5EEAA89E03CB76873C9C68381594F64FCF4873FEBB2E89815",
-    "launcherSha256": "154351EAAFF00F125DD41729B2F0D6167F384FE6E6BB6B7002129CC839C547B1",
-    "updaterSha256": "8607FEFCDF7FAF6F3C0F482871C96691E75861FBABA58F10870BA1D39D3FCD1E",
-    "notes": "Product 0.9.6 Autonomous Research: Task Manager, Academy Work, task-linked reports and feedback. Transport 0.9.6.2 upgrades prior 0.9.6.1. Game patch unchanged."
+    "version": "0.9.6.3",
+    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.9.6-livedashboard-a2b98c86141740cb/ISS26-LauncherUpdate.zip",
+    "zipSha256": "A2B98C86141740CB8D23E772040148A579EBAF05AE964D9E39381550AD83AC7E",
+    "launcherSha256": "2CA02E21F1A00D756FBB0059C7E6DC84AE4871BF4E578B06BDD7A07201056235",
+    "updaterSha256": "1AA7CE525D9031D588017251E91BBEBE455F0C46161D79786B7C226F013D3DD2",
+    "notes": "Product 0.9.6 Live Dashboard: live frame, session journals, restored skill imports and concurrent Academy capture. Transport 0.9.6.3 upgrades prior 0.9.6.2. Game patch unchanged."
   }
 }
