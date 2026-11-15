@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "revision": 1,
+  "revision": 2,
   "tasks": [
     {
       "id": "academy_prematch_source",
@@ -10,7 +10,7 @@
       "priority": 100,
       "researchGoalId": "research_prematch_flag_source",
       "researchRevision": 2,
-      "feedback": "Correlate the last RAM writer before the known SELECT GPU upload; screen/VRAM counts alone are not source proof."
+      "feedback": "Target Bosnia vs New Zealand on Test35. Preserve the full prematch intro; retain screenshot, RAM, VRAM and GPU trace candidates when the two large team flags appear. A stadium image alone is not proof."
     },
     {
       "id": "academy_carried_banner",
@@ -20,7 +20,7 @@
       "priority": 90,
       "researchGoalId": "research_carried_banner_source",
       "researchRevision": 2,
-      "feedback": "Capture the actual banner carried by players and distinguish it from the lineup."
+      "feedback": "Target Bosnia vs New Zealand. Capture the actual large ceremonial cloth carried onto the pitch by players before kickoff; do not mistake player lineup for the banner. Retain screenshot, RAM, VRAM and GPU evidence."
     },
     {
       "id": "academy_crowd_reload",
@@ -30,7 +30,7 @@
       "priority": 80,
       "researchGoalId": "research_crowd_flags_reload",
       "researchRevision": 2,
-      "feedback": "Compare crowd sprite and CLUT reloads across phases; preserve candidate evidence."
+      "feedback": "Target Bosnia vs New Zealand. Capture the small waving flags held by spectators during the full prematch and early match; distinguish them from big carried banners and retain GPU texture coordinates and CLUT evidence."
     },
     {
       "id": "academy_hud_flags",
@@ -40,17 +40,18 @@
       "priority": 70,
       "researchGoalId": "research_hud_small_flags",
       "researchRevision": 2,
-      "feedback": "Locate small HUD flag candidates and compare palette behavior; leave source unverified."
+      "feedback": "Capture Bosnia and New Zealand HUD and scoreboard flags after kickoff. Retain evidence; do not claim correct team identity or texture ownership from scene labels alone."
     },
     {
-      "id": "rookie_autonomous_kickoff",
+      "id": "rookie_bosnia_new_zealand_full_intro",
       "agent": "Rookie",
       "kind": "navigate_kickoff",
-      "title": "Reach Exhibition kickoff autonomously in five minutes",
+      "title": "Start Bosnia vs New Zealand; preserve full prematch",
       "priority": 100,
       "researchGoalId": "",
       "researchRevision": 0,
-      "feedback": "Use the learned visual menu graph, documented controls, and observed recovery routes. Ten trials per distinct visual screen; preserve two for cancel/back. Report all outcomes, including timeouts. Do not claim a pass without the independent pitch audit."
+      "feedback": "Select Bosnia as home and New Zealand as away in Exhibition on Test35. Use Key Square Stadium if available. Confirm both team names before kickoff. Once prematch starts, do not press any buttons or skip any cutscene until the carried banner and waving stadium flags have been shown and play begins. Allow Academy to collect screen, RAM, VRAM and GPU evidence. Report wrong teams, skips, missing scenes and timeouts honestly.",
+      "navigationProfile": "balanced"
     }
   ]
 }
