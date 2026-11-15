@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "channel": "test",
   "latest": {
-    "version": "0.9.5-flagsync-test37",
-    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.5-flagsync-test37/ISS26_Test37_FlagSync.iss26p",
-    "patchSha256": "84C9F4542DB7F57DCE66D22625156F63A8E2EA205A8556917DD8DCF98E2113AB",
+    "version": "0.9.5-rc1",
+    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.5-rc1/ISS26_0.9.5_RC1.iss26p",
+    "patchSha256": "2561F1F03745C4E1520E1902E486EF3699DC2B5F190E88A6A0056399F31BE72E",
     "baseSha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
-    "resultSha256": "F68771B39369CF6652ACA8D06997C8888BB284AF37CB841D738DD9A708CED510"
+    "resultSha256": "A5C01CA8B2C665279F1E0CA8A9C3CF5C38C592B12DE65A70766DEC3F0BCD6312"
   },
-  "notes": "EXPERIMENTAL Test37: independent clean-EU patch; 689 sectors, 528 mini-flag cells synchronized across 33 stadium atlases, Test36 crowd animations and Test35 prematch repairs retained. GDC_BN layout and full emulator visual acceptance remain unverified. Stable unchanged."
+  "notes": "ISS26 0.9.5 RC1: independent clean-EU patch, 689 sectors; 32 menu-flag cells corrected, Cape Verde and New Zealand name art compacted in three language atlases, two HUD flags improved. Test37 retained. Emulator acceptance and GDC_BN pending. Stable unchanged."
 }
