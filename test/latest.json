@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "channel": "test",
   "latest": {
-    "version": "0.9.5-allflags-test35",
-    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.5-allflags-test35/ISS26_Test35_AllFlags.iss26p",
-    "patchSha256": "53E19548558691AAEE0DC616850026EF58C01B8864746D4CDA1BF63886D81B78",
+    "version": "0.9.5-flagsync-test37",
+    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.5-flagsync-test37/ISS26_Test37_FlagSync.iss26p",
+    "patchSha256": "84C9F4542DB7F57DCE66D22625156F63A8E2EA205A8556917DD8DCF98E2113AB",
     "baseSha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
-    "resultSha256": "B7EDEE1F4B84F20D605790775BC559E5A463B0C7797010AFC989A70A40B11EC6"
+    "resultSha256": "F68771B39369CF6652ACA8D06997C8888BB284AF37CB841D738DD9A708CED510"
   },
-  "notes": "EXPERIMENTAL Test35: independent clean-EU patch; 589 sectors; 58 national-team prematch staging routes, 20 direct mini routes, all 24 club mappings preserved. Offline verification only. Ceremony/crowd/HUD and emulator visual acceptance are still pending. Stable remains unchanged."
+  "notes": "EXPERIMENTAL Test37: independent clean-EU patch; 689 sectors, 528 mini-flag cells synchronized across 33 stadium atlases, Test36 crowd animations and Test35 prematch repairs retained. GDC_BN layout and full emulator visual acceptance remain unverified. Stable unchanged."
 }
