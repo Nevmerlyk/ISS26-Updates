@@ -1,0 +1,62 @@
+name: Verify published Academy 0.9.6 Task Loop ZIP
+
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/verify-academy-taskloop-release.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Compute independent executable hashes from published ZIP
+        shell: bash
+        run: |
+          python - <<'PY'
+          import hashlib, json, pathlib, tempfile, urllib.request, zipfile
+          root = 'https://api.github.com/repos/Nevmerlyk/ISS26-Updates'
+          tag = 'launcher-v0.9.6-taskloop'
+          expected = 'b66a55bb1beca3a5eeaa89e03cb76873c9c68381594f64fcf4873febb2e89815'
+          expected_size = 95930275
+          with urllib.request.urlopen(root+'/releases/tags/'+tag, timeout=25) as response:
+              release=json.load(response)
+          assert release['tag_name']==tag and not release['draft'] and not release['prerelease']
+          assets=release['assets']
+          assert len(assets)==1
+          asset=assets[0]
+          url='https://github.com/Nevmerlyk/ISS26-Updates/releases/download/'+tag+'/ISS26-LauncherUpdate.zip'
+          assert asset['browser_download_url']==url and asset['name']=='ISS26-LauncherUpdate.zip'
+          assert asset['digest']=='sha256:'+expected and asset['size']==expected_size
+          with tempfile.TemporaryDirectory() as work:
+              path=pathlib.Path(work)/'release.zip'
+              h=hashlib.sha256()
+              total=0
+              with urllib.request.urlopen(url, timeout=60) as response, path.open('wb') as stream:
+                  while chunk:=response.read(1024*1024):
+                      total+=len(chunk)
+                      if total>expected_size:
+                          raise ValueError('Unexpected download size')
+                      h.update(chunk)
+                      stream.write(chunk)
+              assert total==expected_size and h.hexdigest()==expected
+              result={'zipSha256':h.hexdigest().upper()}
+              with zipfile.ZipFile(path) as archive:
+                  members=archive.infolist()
+                  assert len(members)==2 and {m.filename for m in members}=={'ISS26.exe','ISS26.Updater.exe'}
+                  for member in members:
+                      assert 1_000_000<=member.file_size<=200_000_000
+                      with archive.open(member) as stream:
+                          first=stream.read(2)
+                          assert first==b'MZ'
+                          digest=hashlib.sha256(first)
+                          while chunk:=stream.read(1024*1024):
+                              digest.update(chunk)
+                      key='launcherSha256' if member.filename=='ISS26.exe' else 'updaterSha256'
+                      result[key]=digest.hexdigest().upper()
+              print('VERIFIED_RELEASE_HASHES '+json.dumps(result,sort_keys=True),flush=True)
+          PY
