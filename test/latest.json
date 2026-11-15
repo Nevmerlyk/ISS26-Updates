@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "channel": "test",
   "latest": {
-    "version": "0.9.5-largeflag-source-test13",
-    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.5-largeflag-source-test13/ISS26_0.9.5_LargeFlagSource_TEST13.iss26p",
-    "patchSha256": "159A31A95BBAE3BD032417DFDCB8B5478016907DCC1E848D968CBF5B17E61214",
+    "version": "0.9.5-allflags-test35",
+    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.5-allflags-test35/ISS26_Test35_AllFlags.iss26p",
+    "patchSha256": "53E19548558691AAEE0DC616850026EF58C01B8864746D4CDA1BF63886D81B78",
     "baseSha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
-    "resultSha256": "507F6957F6CE3C89178D0504409BDB1BB47D8DFF010C49325B3096D0171F0EE1"
+    "resultSha256": "B7EDEE1F4B84F20D605790775BC559E5A463B0C7797010AFC989A70A40B11EC6"
   },
-  "notes": "EXPERIMENTAL Test13: isolate DATSEL/DATSEL3 four-sector large flag source modifications. 1492 modified sectors; independent clean-original EU Track01 patch. Result SHA-256 verified locally against the exact clean European Track01 and every source-sector SHA-256. All 17 prematch bitmap names, small flags, player names and five GDC descriptor repairs from Test12 preserved. Large flags may revert to legacy art; visual A/B check required. Cape Verde name and spacing NOT fixed. Stable Play Game stays on v0.9.4."
+  "notes": "EXPERIMENTAL Test35: independent clean-EU patch; 589 sectors; 58 national-team prematch staging routes, 20 direct mini routes, all 24 club mappings preserved. Offline verification only. Ceremony/crowd/HUD and emulator visual acceptance are still pending. Stable remains unchanged."
 }
