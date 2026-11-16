@@ -30,7 +30,7 @@ def parse_patch(path,size):
 def baseline_exe(track,patch,reg):
     size=reg["original_track_size"]
     if track.stat().st_size!=size or sha(track)!=reg["original_track_sha256"]: raise ValueError("Wrong original EU Track 01")
-    if sha(patch)!=reg["baseline"]["patch_sha256"]: raise ValueError("Wrong RC1 patch")
+    if sha(patch)!=reg["baseline"]["patch_sha256"]: raise ValueError("Wrong pinned baseline patch")
     records=parse_patch(patch,size)
     full=hashlib.sha256();exe=bytearray()
     start=reg["national_exe_lba"];count=(339968+2047)//2048
@@ -46,7 +46,7 @@ def baseline_exe(track,patch,reg):
             if start<=lba<start+count:
                 if raw[15]!=2 or raw[18]&32 or raw[16:20]!=raw[20:24]: raise ValueError("Executable sector not mode2 form1")
                 exe.extend(raw[24:2072])
-    if full.hexdigest().upper()!=reg["baseline"]["result_sha256"]: raise ValueError("RC1 image digest mismatch")
+    if full.hexdigest().upper()!=reg["baseline"]["result_sha256"]: raise ValueError("Pinned baseline image digest mismatch")
     if exe[:8]!=b"PS-X EXE": raise ValueError("Executable signature mismatch")
     return bytes(exe[:339968]),len(records)
 
