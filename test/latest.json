@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "channel": "test",
   "latest": {
-    "version": "0.9.5-rc1",
-    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.5-rc1/ISS26_0.9.5_RC1.iss26p",
-    "patchSha256": "2561F1F03745C4E1520E1902E486EF3699DC2B5F190E88A6A0056399F31BE72E",
+    "version": "0.9.6",
+    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.6-test1/ISS26_Test_0.9.6.iss26p",
+    "patchSha256": "5EC84C0C6B31F503DECD9FF2AD37B40A65EFEF3CF5CD593A1A98992368326D11",
     "baseSha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
-    "resultSha256": "A5C01CA8B2C665279F1E0CA8A9C3CF5C38C592B12DE65A70766DEC3F0BCD6312"
+    "resultSha256": "7C503B7F214C7414F7B41C01553DB1F06387EEC290835164CAB00505EE7B9DAE"
   },
-  "notes": "ISS26 0.9.5 RC1: independent clean-EU patch, 689 sectors; 32 menu-flag cells corrected, Cape Verde and New Zealand name art compacted in three language atlases, two HUD flags improved. Test37 retained. Emulator acceptance and GDC_BN pending. Stable unchanged."
+  "notes": "ISS26 0.9.6 Test 1: national player names only, 1188 slots. Clean-original standalone patch. Full Track01 hash and all 689 original sector guards verified; emulator acceptance pending. No attributes or club roster integration. Stable remains 0.9.5."
 }
