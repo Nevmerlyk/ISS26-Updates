@@ -1,0 +1,20 @@
+name: v096 launcher hash input
+on:
+  push:
+    branches: [feature/v096-player-database-integration]
+    paths: ['.github/workflows/v096-launcher-hash-input.yml']
+permissions:
+  contents: read
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch exact published patch
+        run: |
+          curl -fL --retry 3 'https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.6-test1/ISS26_Test_0.9.6.iss26p' -o ISS26_Test_0.9.6.iss26p
+          echo '5ec84c0c6b31f503decd9ff2ad37b40a65efef3cf5cd593a1a98992368326d11  ISS26_Test_0.9.6.iss26p' | sha256sum -c -
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ISS26-v096-verified-patch
+          path: ISS26_Test_0.9.6.iss26p
+          if-no-files-found: error
