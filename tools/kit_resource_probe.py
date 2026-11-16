@@ -319,6 +319,7 @@ def decode_stream(data: bytes, *, expected_bytes: int = TILE_BYTES,
 
 # Kit Research v1.1. Read-only correlation, NOT kit ownership proof.
 import zipfile
+import struct
 
 RAM_SIZE=0x200000
 VRAM_SIZE=1024*512*2
@@ -334,7 +335,10 @@ def sha(data):
     return hashlib.sha256(data).hexdigest().upper()
 
 def informative(data):
-    return len(data)>=64 and len(set(data))>=16 and max(data.count(i) for i in set(data))<len(data)//2
+    if len(data)<64:return False
+    sample=data[::max(1,(len(data)+2047)//2048)]
+    colors=set(sample)
+    return len(colors)>=16 and max(sample.count(i) for i in colors)<len(sample)//2
 
 def anchors(data):
     if len(data)<128:return []
@@ -416,7 +420,7 @@ def gpu_payload(data,row,all_rows):
         return None
 
 def vram_match(row,decoded,vram):
-    if decoded is None or not informative(decoded):return None
+    if decoded is None:return None
     x,y,w,h=row["rectWords"]
     if len(decoded)!=2*w*h:return None
     observed=vram_rect(vram,x,y,w,h)
@@ -486,7 +490,8 @@ def audit_kits(track,paths):
                 for base in sorted(bases):
                     if base not in gpu_cache:
                         records=gpu_records(data,base)
-                        gpu_cache[base]=[(r,gpu_payload(data,r,records)) for r in records]
+                        decoded=[(r,gpu_payload(data,r,records)) for r in records]
+                        gpu_cache[base]=[(r,p) for r,p in decoded if p is not None and informative(p)]
                     for r,payload in gpu_cache[base]:
                         e=vram_match(r,payload,vram)
                         if e:
