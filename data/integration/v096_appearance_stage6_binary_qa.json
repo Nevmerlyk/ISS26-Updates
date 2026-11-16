@@ -1,0 +1,42 @@
+{
+  "version": "0.9.6",
+  "stage": 6,
+  "status": "STATIC_CLEAN_DISC_VERIFIED_RUNTIME_PENDING",
+  "previous_profiles_preserved": 1134,
+  "new_native_profiles": 48,
+  "new_historical_partial_profiles": 0,
+  "unique_modern_records": 1489,
+  "source_memberships": 1716,
+  "appearance_profiles_applied": 1182,
+  "changed_unique_records": 1127,
+  "changed_membership_slots": 1350,
+  "covered_membership_slots": 1409,
+  "unreviewed_unique_records": 307,
+  "nonvisual_bits_preserved_all_records": true,
+  "bonus_88_preserved": true,
+  "rosters_unchanged": true,
+  "exe_unchanged": true,
+  "goalkeepers_each_team": 2,
+  "sector_guards": 699,
+  "edited_sector_ecc_rechecked": 10,
+  "all_applied_selectors_observed_in_clean_EU_records": true,
+  "original_records_for_selector_check": 1591,
+  "patch_sha256": "CA117100AF18AF40BF126EB48E5D01694375C7387A4915FE245B3812FAB3CDCB",
+  "original_sha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
+  "result_sha256": "9DE841B46E33DBF05E1EC879DDA45334760FB09621C41481A242C6CD00784131",
+  "previous_patch_sha256": "385A575E95CBD9E0D8878A6152EB2182DD8D75373BC634A95000BDAF63294761",
+  "archive_sha256": "E32D470C174052040D9A33D82F2B5A5B60BCBA3962F9548DF5FCA009DA9CC6B1",
+  "method": "Reviewed abbreviated names with exact DOB and association; individually reviewed official club/federation profile to resolve historical DOB discrepancies or missing roster DOB. No changes to bio fields.",
+  "blocked": [
+    "Ali Ahmed",
+    "Mohammed Abu Alshamat"
+  ],
+  "runtime_verified": false,
+  "release_published": false,
+  "feed_changed": false,
+  "archive": "ISS26_0.9.6_APPEARANCE_STAGE6_INTERNAL.zip (local conversation artifact)",
+  "limitations": [
+    "Community WE2002 presets are source approximations; current individual photo and PAL runtime verification pending.",
+    "307 modern records remain without applied profiles. Stable/Test Game unchanged."
+  ]
+}
