@@ -1,0 +1,205 @@
+{
+  "status": "SOURCE_BUNDLE_STATIC_CHECKS_ONLY_NO_BINARY_VERIFICATION",
+  "version": "0.9.6",
+  "source_bundle_expected_patch_sha256": "F3A211300AF201BE709498872E1E2572A7D1C362B3AA6E1ABCF90EC6C0969A97",
+  "goalkeeper_replacements": {
+    "count": 60,
+    "by_team_type": {
+      "NAT": 54,
+      "CLB": 6
+    },
+    "unique_team_slots": 60,
+    "non_goalkeeper_replacements": 60
+  },
+  "nationality": {
+    "candidate_slots": 1716,
+    "additional_country_slots": 42,
+    "additional_countries": 23,
+    "existing_extra_ids": {
+      "106": "GEO",
+      "108": "MLI",
+      "109": "GUI"
+    },
+    "unmapped": [
+      "BOL",
+      "CMR",
+      "VEN",
+      "ISR",
+      "BFA",
+      "IDN",
+      "GRE",
+      "MOZ",
+      "LUX",
+      "SRB",
+      "IRL",
+      "KVX",
+      "ARM",
+      "SVN",
+      "SVK",
+      "MKD",
+      "RUS",
+      "ROU",
+      "WAL",
+      "NIR"
+    ],
+    "other_native_extra_ids": {
+      "104": "BIH",
+      "105": "BLR",
+      "107": "SEN",
+      "110": "LBR",
+      "111": "CIV",
+      "112": "GHA",
+      "113": "ZAM",
+      "114": "CAN",
+      "115": "CRC",
+      "116": "TTO",
+      "117": "NZL"
+    },
+    "duplicates_of_playable": {
+      "104": "BIH",
+      "107": "SEN",
+      "111": "CIV",
+      "112": "GHA",
+      "114": "CAN",
+      "117": "NZL"
+    },
+    "other_original_countries": {
+      "105": "BLR",
+      "110": "LBR",
+      "113": "ZAM",
+      "115": "CRC",
+      "116": "TTO"
+    },
+    "conditional_minimum_new_ids_if_all_other_existing_slots_reusable": 9,
+    "no_id_reallocation_authorized": true
+  },
+  "flag_source": {
+    "present": 23,
+    "missing": [],
+    "unexpected": [],
+    "duplicates": [],
+    "svg_structural_presence_only": 23,
+    "art": {
+      "SRB": {
+        "code": "rs",
+        "blob": "6d4f74d7671194c6bcc9ef761f203b23805cace2",
+        "svg_present": true
+      },
+      "CMR": {
+        "code": "cm",
+        "blob": "70adc8b6818f844e2015f0b76953d4519de585fa",
+        "svg_present": true
+      },
+      "VEN": {
+        "code": "ve",
+        "blob": "314e7f5f7f53c3f069830afd15ec278b820f00b9",
+        "svg_present": true
+      },
+      "GRE": {
+        "code": "gr",
+        "blob": "599741eec82f5c8729cfa503f552c9f781f5625b",
+        "svg_present": true
+      },
+      "GEO": {
+        "code": "ge",
+        "blob": "ab08a9ab4234ea1fb156a10c495984d4d5022ae2",
+        "svg_present": true
+      },
+      "ISR": {
+        "code": "il",
+        "blob": "f43be7e8ed7ae29d324f7f1aa0d46528e2a5c3af",
+        "svg_present": true
+      },
+      "KVX": {
+        "code": "xk",
+        "blob": "0e8958d884b08c3994d41e2d7c97d9691ceb37a3",
+        "svg_present": true
+      },
+      "SVN": {
+        "code": "si",
+        "blob": "1bbdd94fd25406e21c452a2a905343f3298672cf",
+        "svg_present": true
+      },
+      "SVK": {
+        "code": "sk",
+        "blob": "676018e6284fcfed6c878552ef1e662fac4395dd",
+        "svg_present": true
+      },
+      "BFA": {
+        "code": "bf",
+        "blob": "09e53a8d5e83a6004c374f099e552ec938755ff6",
+        "svg_present": true
+      },
+      "IDN": {
+        "code": "id",
+        "blob": "3b7c8fcfd96578480474bf942e1a0adb604dde0f",
+        "svg_present": true
+      },
+      "MOZ": {
+        "code": "mz",
+        "blob": "0f94c3a1aaa2320e891aa5e92b2c11362c770f47",
+        "svg_present": true
+      },
+      "LUX": {
+        "code": "lu",
+        "blob": "cc122068125c02693dee300ebec3909459ac50f7",
+        "svg_present": true
+      },
+      "IRL": {
+        "code": "ie",
+        "blob": "049be14de14f4f67419f3c5e2f0c5d022b74ca39",
+        "svg_present": true
+      },
+      "ARM": {
+        "code": "am",
+        "blob": "99fa4dc5979a45b249ca805c2a43d3a8c74841d2",
+        "svg_present": true
+      },
+      "GUI": {
+        "code": "gn",
+        "blob": "40d6ad4f03dbd66bd713bad8595fb88dc0d55d73",
+        "svg_present": true
+      },
+      "MKD": {
+        "code": "mk",
+        "blob": "4f5cae77ed60b6128d062ab55055290295359b77",
+        "svg_present": true
+      },
+      "RUS": {
+        "code": "ru",
+        "blob": "cf243011ae99e45cb43edf4ca6b7c51e08419c4c",
+        "svg_present": true
+      },
+      "ROU": {
+        "code": "ro",
+        "blob": "fda0f7bec91d8e31052993b16b794edea4de2f95",
+        "svg_present": true
+      },
+      "WAL": {
+        "code": "gb-wls",
+        "blob": "d7f57912db1652dc9e96b529c9874cf3840304cc",
+        "svg_present": true
+      },
+      "MLI": {
+        "code": "ml",
+        "blob": "6f6b71695cbb3cb3f00e74d825faf95999fe768e",
+        "svg_present": true
+      },
+      "NIR": {
+        "code": "gb-nir",
+        "blob": "e22190aae10ab74af93dffe9f4b2b6a1af6094a1",
+        "svg_present": true
+      },
+      "BOL": {
+        "code": "bo",
+        "blob": "7658e3f6c26dcb342aa0b8dc6664ebab386fb30e",
+        "svg_present": true
+      }
+    }
+  },
+  "limitations": [
+    "Source candidate identity and sporting country are not guaranteed official/verified.",
+    "No original binary accessible this session; read-only audit tool committed, not executed on disc.",
+    "No flag rendering, new nationality IDs, appearance changes, or patch promotion performed in this session."
+  ]
+}
