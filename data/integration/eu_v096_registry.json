@@ -1,0 +1,369 @@
+{
+  "status": "NATIONAL_NAME_BANK_VERIFIED_ON_PRIOR_EU_BASELINE_ONLY",
+  "original_track_size": 496156752,
+  "original_track_sha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
+  "baseline": {
+    "version": "0.9.5-rc1",
+    "url": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.5-rc1/ISS26_0.9.5_RC1.iss26p",
+    "patch_sha256": "2561F1F03745C4E1520E1902E486EF3699DC2B5F190E88A6A0056399F31BE72E",
+    "result_sha256": "A5C01CA8B2C665279F1E0CA8A9C3CF5C38C592B12DE65A70766DEC3F0BCD6312"
+  },
+  "national_exe_lba": 24,
+  "national_record_size": 10,
+  "national_slots": [
+    {
+      "team_id": "NAT_AUS",
+      "disc_slot": 0,
+      "display_name": "AUSTRALIA",
+      "exe_name_offset": 304864
+    },
+    {
+      "team_id": "NAT_KSA",
+      "disc_slot": 1,
+      "display_name": "SAUDI ARABIA",
+      "exe_name_offset": 304644
+    },
+    {
+      "team_id": "NAT_QAT",
+      "disc_slot": 2,
+      "display_name": "QATAR",
+      "exe_name_offset": 304424
+    },
+    {
+      "team_id": "NAT_IRN",
+      "disc_slot": 3,
+      "display_name": "IRAN",
+      "exe_name_offset": 304204
+    },
+    {
+      "team_id": "NAT_UZB",
+      "disc_slot": 4,
+      "display_name": "UZBEK",
+      "exe_name_offset": 303984
+    },
+    {
+      "team_id": "NAT_KOR",
+      "disc_slot": 5,
+      "display_name": "KOREA",
+      "exe_name_offset": 303764
+    },
+    {
+      "team_id": "NAT_JPN",
+      "disc_slot": 6,
+      "display_name": "JAPAN",
+      "exe_name_offset": 303544
+    },
+    {
+      "team_id": "NAT_ARG",
+      "disc_slot": 7,
+      "display_name": "ARGENTINA",
+      "exe_name_offset": 303324
+    },
+    {
+      "team_id": "NAT_URU",
+      "disc_slot": 8,
+      "display_name": "URUGUAY",
+      "exe_name_offset": 303104
+    },
+    {
+      "team_id": "NAT_PAR",
+      "disc_slot": 9,
+      "display_name": "PARAGUAY",
+      "exe_name_offset": 302884
+    },
+    {
+      "team_id": "NAT_PAN",
+      "disc_slot": 10,
+      "display_name": "PANAMA",
+      "exe_name_offset": 302664
+    },
+    {
+      "team_id": "NAT_ECU",
+      "disc_slot": 11,
+      "display_name": "ECUADOR",
+      "exe_name_offset": 302444
+    },
+    {
+      "team_id": "NAT_BRA",
+      "disc_slot": 12,
+      "display_name": "BRAZIL",
+      "exe_name_offset": 302224
+    },
+    {
+      "team_id": "NAT_COL",
+      "disc_slot": 13,
+      "display_name": "COLOMBIA",
+      "exe_name_offset": 302004
+    },
+    {
+      "team_id": "NAT_CAN",
+      "disc_slot": 14,
+      "display_name": "CANADA",
+      "exe_name_offset": 301784
+    },
+    {
+      "team_id": "NAT_MEX",
+      "disc_slot": 15,
+      "display_name": "MEXICO",
+      "exe_name_offset": 301564
+    },
+    {
+      "team_id": "NAT_USA",
+      "disc_slot": 16,
+      "display_name": "UNITED STATES",
+      "exe_name_offset": 301344
+    },
+    {
+      "team_id": "NAT_RSA",
+      "disc_slot": 17,
+      "display_name": "SOUTH AFRICA",
+      "exe_name_offset": 301124
+    },
+    {
+      "team_id": "NAT_SEN",
+      "disc_slot": 18,
+      "display_name": "SENEGAL",
+      "exe_name_offset": 300904
+    },
+    {
+      "team_id": "NAT_NGA",
+      "disc_slot": 19,
+      "display_name": "NIGERIA",
+      "exe_name_offset": 300684
+    },
+    {
+      "team_id": "NAT_EGY",
+      "disc_slot": 20,
+      "display_name": "EGYPT",
+      "exe_name_offset": 300464
+    },
+    {
+      "team_id": "NAT_TUN",
+      "disc_slot": 21,
+      "display_name": "TUNISIA",
+      "exe_name_offset": 300244
+    },
+    {
+      "team_id": "NAT_MAR",
+      "disc_slot": 22,
+      "display_name": "MOROCCO",
+      "exe_name_offset": 300024
+    },
+    {
+      "team_id": "NAT_BIH",
+      "disc_slot": 23,
+      "display_name": "BOSNIA",
+      "exe_name_offset": 299804
+    },
+    {
+      "team_id": "NAT_UKR",
+      "disc_slot": 24,
+      "display_name": "UKRAINE",
+      "exe_name_offset": 299584
+    },
+    {
+      "team_id": "NAT_TUR",
+      "disc_slot": 25,
+      "display_name": "TURKEY",
+      "exe_name_offset": 299364
+    },
+    {
+      "team_id": "NAT_NZL",
+      "disc_slot": 26,
+      "display_name": "N.ZEAL",
+      "exe_name_offset": 299144
+    },
+    {
+      "team_id": "NAT_IRQ",
+      "disc_slot": 27,
+      "display_name": "IRAQ",
+      "exe_name_offset": 298924
+    },
+    {
+      "team_id": "NAT_JOR",
+      "disc_slot": 28,
+      "display_name": "JORDAN",
+      "exe_name_offset": 298704
+    },
+    {
+      "team_id": "NAT_CUW",
+      "disc_slot": 29,
+      "display_name": "CURACAO",
+      "exe_name_offset": 298484
+    },
+    {
+      "team_id": "NAT_CRO",
+      "disc_slot": 30,
+      "display_name": "CROATIA",
+      "exe_name_offset": 298264
+    },
+    {
+      "team_id": "NAT_HAI",
+      "disc_slot": 31,
+      "display_name": "HAITI",
+      "exe_name_offset": 298044
+    },
+    {
+      "team_id": "NAT_HUN",
+      "disc_slot": 32,
+      "display_name": "HUNGARY",
+      "exe_name_offset": 297824
+    },
+    {
+      "team_id": "NAT_AUT",
+      "disc_slot": 33,
+      "display_name": "AUSTRIA",
+      "exe_name_offset": 297604
+    },
+    {
+      "team_id": "NAT_COD",
+      "disc_slot": 34,
+      "display_name": "DR CONGO",
+      "exe_name_offset": 297384
+    },
+    {
+      "team_id": "NAT_POL",
+      "disc_slot": 35,
+      "display_name": "POLAND",
+      "exe_name_offset": 297164
+    },
+    {
+      "team_id": "NAT_GHA",
+      "disc_slot": 36,
+      "display_name": "GHANA",
+      "exe_name_offset": 296944
+    },
+    {
+      "team_id": "NAT_SWE",
+      "disc_slot": 37,
+      "display_name": "SWEDEN",
+      "exe_name_offset": 296724
+    },
+    {
+      "team_id": "NAT_NOR",
+      "disc_slot": 38,
+      "display_name": "NORWAY",
+      "exe_name_offset": 296504
+    },
+    {
+      "team_id": "NAT_DEN",
+      "disc_slot": 39,
+      "display_name": "DENMARK",
+      "exe_name_offset": 296284
+    },
+    {
+      "team_id": "NAT_GER",
+      "disc_slot": 40,
+      "display_name": "GERMANY",
+      "exe_name_offset": 296064
+    },
+    {
+      "team_id": "NAT_CZE",
+      "disc_slot": 41,
+      "display_name": "CZECH",
+      "exe_name_offset": 295844
+    },
+    {
+      "team_id": "NAT_ITA",
+      "disc_slot": 42,
+      "display_name": "ITALY",
+      "exe_name_offset": 295624
+    },
+    {
+      "team_id": "NAT_SUI",
+      "disc_slot": 43,
+      "display_name": "SWITZERLAND",
+      "exe_name_offset": 295404
+    },
+    {
+      "team_id": "NAT_NED",
+      "disc_slot": 44,
+      "display_name": "NETHERLANDS",
+      "exe_name_offset": 295184
+    },
+    {
+      "team_id": "NAT_BEL",
+      "disc_slot": 45,
+      "display_name": "BELGIUM",
+      "exe_name_offset": 294964
+    },
+    {
+      "team_id": "NAT_FRA",
+      "disc_slot": 46,
+      "display_name": "FRANCE",
+      "exe_name_offset": 294744
+    },
+    {
+      "team_id": "NAT_ESP",
+      "disc_slot": 47,
+      "display_name": "SPAIN",
+      "exe_name_offset": 294524
+    },
+    {
+      "team_id": "NAT_POR",
+      "disc_slot": 48,
+      "display_name": "PORTUGAL",
+      "exe_name_offset": 294304
+    },
+    {
+      "team_id": "NAT_ENG",
+      "disc_slot": 49,
+      "display_name": "ENGLAND",
+      "exe_name_offset": 294084
+    },
+    {
+      "team_id": "NAT_CIV",
+      "disc_slot": 50,
+      "display_name": "I.COAST",
+      "exe_name_offset": 293864
+    },
+    {
+      "team_id": "NAT_SCO",
+      "disc_slot": 51,
+      "display_name": "SCOTLAND",
+      "exe_name_offset": 293644
+    },
+    {
+      "team_id": "NAT_ALG",
+      "disc_slot": 52,
+      "display_name": "ALGERIA",
+      "exe_name_offset": 293424
+    },
+    {
+      "team_id": "NAT_CPV",
+      "disc_slot": 53,
+      "display_name": "C.VERDE",
+      "exe_name_offset": 293204
+    }
+  ],
+  "unresolved_club_team_ids": [
+    "CLB_BAY",
+    "CLB_ARS",
+    "CLB_RMA",
+    "CLB_PSG",
+    "CLB_INT",
+    "CLB_LIV",
+    "CLB_MCI",
+    "CLB_BVB",
+    "CLB_LEV",
+    "CLB_AVL",
+    "CLB_TOT",
+    "CLB_BRU",
+    "CLB_BAR",
+    "CLB_ATM",
+    "CLB_ROM",
+    "CLB_SCP",
+    "CLB_POR",
+    "CLB_FIO",
+    "CLB_BEN",
+    "CLB_BET",
+    "CLB_CHE",
+    "CLB_ATA",
+    "CLB_MUN",
+    "CLB_KRY"
+  ],
+  "source_identity_blob": "e9a2e6ede2ad3612069fe75dcc53ef0cc74a13bb",
+  "source_database_blob": "efb332c7a672f4606eb3578c9255161863af6bcc",
+  "bonus_policy": "preserve original; no writes",
+  "notes": "Name bank based on Stage2/3 verified audit; revalidate on RC1. Club name ownership, player skill bits, roster-index linkage, bio and formation encodings not verified."
+}
