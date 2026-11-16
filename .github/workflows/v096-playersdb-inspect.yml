@@ -1,0 +1,30 @@
+name: ISS26 PlayersDB identity source inspection
+on:
+  push:
+    branches: [feature/v096-player-database-integration]
+    paths: ['.github/workflows/v096-playersdb-inspect.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Inspect public November 2026 cross-reference dataset without redistributing it
+        run: |
+          set -eu
+          curl -fL --retry 1 --max-time 45 'https://playersdb.app/download/csv' -o /tmp/playersdb.csv
+          sha256sum /tmp/playersdb.csv
+          python - <<'PY'
+          import csv,json
+          with open('/tmp/playersdb.csv',encoding='utf-8-sig',newline='') as f:
+            first=f.read(8192);f.seek(0)
+            dialect=csv.Sniffer().sniff(first,delimiters=',;\t')
+            r=csv.DictReader(f,dialect=dialect)
+            print('PLAYERSDB_SCHEMA',json.dumps(r.fieldnames,ensure_ascii=False))
+            count=0
+            for x in r:
+              count+=1
+              if count<=2:print('PLAYERSDB_SAMPLE',json.dumps(x,ensure_ascii=False)[:4000])
+            print('PLAYERSDB_ROWS',count)
+          PY
