@@ -1,0 +1,61 @@
+{
+  "version": "0.9.6",
+  "stage": "KITS_TEST4",
+  "status": "STATIC_CLEAN_DISC_VERIFIED_RUNTIME_PENDING",
+  "reviewed_teams": 22,
+  "outfield_kits_corrected": 18,
+  "source_review_unchanged": 3,
+  "goalkeeper_kits_corrected": 5,
+  "menu_palettes_resynced": 18,
+  "goalkeeper_chest_texel_change": [
+    {
+      "team": "NAT_ITA",
+      "side": "home",
+      "fraction": 1
+    },
+    {
+      "team": "NAT_ITA",
+      "side": "away",
+      "fraction": 1
+    },
+    {
+      "team": "CLB_TOT",
+      "side": "home",
+      "fraction": 1
+    },
+    {
+      "team": "CLB_TOT",
+      "side": "away",
+      "fraction": 1
+    },
+    {
+      "team": "CLB_ROM",
+      "side": "home",
+      "fraction": 0.9688
+    }
+  ],
+  "minimalist": true,
+  "logos_sponsors_added": false,
+  "baseline_patch_sha256": "14EEF2E57BC4AB3764D777DE8084087EA990E34BC1C258F72D8E9076FA1DED11",
+  "original_sha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
+  "patch_sha256": "FF63EB21800AF3FDF2F1F2D4B297EAAA40B09764FED6E00445A004B661F09B4A",
+  "result_sha256": "7973144260CFEFD0B000DD495E36E705E723EAEF01ED6488ECF0381D0E82CDD0",
+  "archive_sha256": "F5891497C93D7E94D86C68EFC51F581A93E2A4A00F9510498A4CF87BC69B4D2B",
+  "baseline_sectors": 1924,
+  "merged_sectors": 1924,
+  "edited_sectors": 271,
+  "original_tex_files_decoded": 105,
+  "original_file_extents_preserved": true,
+  "rosters_exe_flags_preserved": true,
+  "all_unedited_sectors_preserved": true,
+  "edited_ecc_verified": true,
+  "goalkeeper_method": "Lossless alternate compression and unused palette index clones; outfield interpreted texel colors unchanged for GK edits, GK pixels outside region unchanged.",
+  "runtime_verified": false,
+  "feed_changed": false,
+  "release_published": false,
+  "limitations": [
+    "Only corroborated shirt color designs approximated; shorts and socks remain approximations unless specifically sourced. Three of five GK targets provisional.",
+    "2D menu static palette synchronization remains unverified in emulator; original sprite shapes retained.",
+    "No player appearance or attributes modified. Internal downloadable archive, not release."
+  ]
+}
