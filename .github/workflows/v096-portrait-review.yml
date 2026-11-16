@@ -1,0 +1,51 @@
+name: ISS26 public portrait reference review
+on:
+  push:
+    branches: [feature/v096-player-database-integration]
+    paths: ['.github/workflows/v096-portrait-review.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  reference:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - name: Download publicly linked historical player portrait images
+        run: |
+          python -m pip -q install Pillow
+          mkdir -p output
+          python - <<'PY'
+          import urllib.request,io,json,concurrent.futures
+          from PIL import Image,ImageDraw
+          q='0003:202014 0006:210212:25 000e:076537 0011:244193 0013:257194 010d:248477 0110:073348 0213:244319 0314:231691 0908:251806 0b46:079687 0b47:070289 0e13:246459 1012:260972 1014:192129 1102:257946 1103:209620 1304:210897 1307:242217 130b:239814 130d:222875 1311:251532 1407:240916 1503:231254 1509:236510 150a:276232 150e:078801 1602:237440 1603:229705 1604:078651 1608:260943 1609:262652 160a:252416 160c:078421 1712:262740 1805:264221 1809:228666 180b:233098 180c:260099 180d:081346 180f:275206 1810:233510 1813:079032 1815:254752 1a05:253010 1a08:243539 1a09:261031 1a0b:076603 1a0f:265788 1e03:251168 1f09:243586 1f0e:070017 1f13:078474 1f14:223573 2001:081410 200d:279056 2010:256383 2014:236316 2201:070781 220f:078424 2402:079280 2506:226807 250c:237255 2512:238743 260c:078784 270b:279008 270f:260398 2804:273827 2b02:252873 2b06:217047 2b09:077423 2c04:253238 2e23:077760 2f04:233225 2f16:240020 3105:080304 3202:194354:25 330a:228352 330e:268778 3506:246006 3509:237647 350e:241552 3510:080236'.split()
+          def fetch(s):
+              ref,id,*year=s.split(':')
+              url=f'https://cdn.sofifa.net/players/{id[:3]}/{id[3:]}/{year[0] if year else "26"}_120.png'
+              try:
+                  with urllib.request.urlopen(url,timeout=7) as r: data=r.read(2000000)
+                  im=Image.open(io.BytesIO(data)).convert('RGBA')
+                  im.thumbnail((120,120))
+                  return ref,url,im,'ok'
+              except Exception as exc:
+                  return ref,url,None,str(exc)[:120]
+          # Public image references; no access controls overridden.
+          items=[]
+          with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
+              items=list(pool.map(fetch,q))
+          for k in range(0,len(items),24):
+              batch=items[k:k+24]; canvas=Image.new('RGB',(6*144,4*150),'#e9e9e9');d=ImageDraw.Draw(canvas)
+              for i,(ref,url,img,status) in enumerate(batch):
+                  x=(i%6)*144;y=(i//6)*150;d.text((x+7,y+4),ref,fill='black')
+                  if img:canvas.paste(img,(x+12,y+22),img)
+                  else:d.text((x+7,y+45),'Unavailable',fill='black')
+              canvas.save(f'output/sheet_{k//24+1}.png')
+          out=[{'ref':ref,'url':url,'status':status} for ref,url,img,status in items]
+          print('PORTRAITS',sum(x['status']=='ok' for x in out),'/',len(out))
+          open('output/manifest.json','w').write(json.dumps(out,indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ISS26-public-portrait-review-temporary
+          path: output/
+          retention-days: 1
