@@ -1,0 +1,22 @@
+name: ISS26 inspect PS1 texture codec source
+on:
+  push:
+    branches: [feature/v096-player-database-integration]
+    paths: ['.github/workflows/v096-kit-codec-source.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  download:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Retrieve public Python package without installing or executing it
+        run: |
+          mkdir -p output
+          python -m pip download --no-deps --only-binary=:all: retro-roster-patcher==0.9.10 -d output
+          sha256sum output/*
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ISS26-kit-codec-research-source
+          path: output/
+          retention-days: 1
