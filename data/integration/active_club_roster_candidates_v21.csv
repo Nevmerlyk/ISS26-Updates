@@ -1,0 +1,529 @@
+team_id,menu_table_ordinal,menu_name,original_menu_name,source_slot,player_name,source_position,uid,roster_source,source_status,disc_roster_id,integration_status
+CLB_SHK,0,Shakhtar,Buenos Aires,1,Dmytro Riznyk,GK,,https://sortitoutsi.net/football-manager-2026/team/1895/shakhtar-donetsk,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_SHK,0,Shakhtar,Buenos Aires,2,Denys Tvardovskyi,GK,,https://sortitoutsi.net/football-manager-2026/team/1895/shakhtar-donetsk,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_SHK,0,Shakhtar,Buenos Aires,3,Mykola Matviienko,D LC,,https://sortitoutsi.net/football-manager-2026/team/1895/shakhtar-donetsk,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_SHK,0,Shakhtar,Buenos Aires,4,Valerii Bondar,D RC,,https://sortitoutsi.net/football-manager-2026/team/1895/shakhtar-donetsk,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_SHK,0,Shakhtar,Buenos Aires,5,Yukhym Konoplia,D RL,,https://sortitoutsi.net/football-manager-2026/team/1895/shakhtar-donetsk,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_SHK,0,Shakhtar,Buenos Aires,6,Pedro Henrique,D/WB/M L,,https://sortitoutsi.net/football-manager-2026/team/1895/shakhtar-donetsk,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_SHK,0,Shakhtar,Buenos Aires,7,Vinicius Tobias,D/WB R,,https://sortitoutsi.net/football-manager-2026/team/1895/shakhtar-donetsk,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_SHK,0,Shakhtar,Buenos Aires,8,Diego Arroyo,D LC,,https://sortitoutsi.net/football-manager-2026/team/1895/shakhtar-donetsk,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_SHK,0,Shakhtar,Buenos Aires,9,Danylo Udod,D RC,,https://sortitoutsi.net/football-manager-2026/team/1895/shakhtar-donetsk,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_SHK,0,Shakhtar,Buenos Aires,10,Roman Savchenko,D LC,,https://sortitoutsi.net/football-manager-2026/team/1895/shakhtar-donetsk,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_SHK,0,Shakhtar,Buenos Aires,11,Pedrinho,AM RLC,,https://sortitoutsi.net/football-manager-2026/team/1895/shakhtar-donetsk,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_SHK,0,Shakhtar,Buenos Aires,12,Marlon Gomes,DM/M/AM,,https://sortitoutsi.net/football-manager-2026/team/1895/shakhtar-donetsk,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_SHK,0,Shakhtar,Buenos Aires,13,Artem Bondarenko,DM/M/AM C,,https://sortitoutsi.net/football-manager-2026/team/1895/shakhtar-donetsk,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_SHK,0,Shakhtar,Buenos Aires,14,Yehor Nazaryna,DM/M C,,https://sortitoutsi.net/football-manager-2026/team/1895/shakhtar-donetsk,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_SHK,0,Shakhtar,Buenos Aires,15,Alisson,M R/AM RC,,https://sortitoutsi.net/football-manager-2026/team/1895/shakhtar-donetsk,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_SHK,0,Shakhtar,Buenos Aires,16,Oleh Ocheretko,AM RLC,,https://sortitoutsi.net/football-manager-2026/team/1895/shakhtar-donetsk,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_SHK,0,Shakhtar,Buenos Aires,17,Eguinaldo,AM RL/ST,,https://sortitoutsi.net/football-manager-2026/team/1895/shakhtar-donetsk,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_SHK,0,Shakhtar,Buenos Aires,18,Dmytro Kryskiv,DM/M LC,,https://sortitoutsi.net/football-manager-2026/team/1895/shakhtar-donetsk,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_SHK,0,Shakhtar,Buenos Aires,19,Newertton,AM RL,,https://sortitoutsi.net/football-manager-2026/team/1895/shakhtar-donetsk,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_SHK,0,Shakhtar,Buenos Aires,20,Kauã Elias,AM R/ST,,https://sortitoutsi.net/football-manager-2026/team/1895/shakhtar-donetsk,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_SHK,0,Shakhtar,Buenos Aires,21,Viktor Tsukanov,M RC/AM C,,https://sortitoutsi.net/football-manager-2026/team/1895/shakhtar-donetsk,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_SHK,0,Shakhtar,Buenos Aires,22,Ivan Petriak,D/WB R/M/AM RL,,https://sortitoutsi.net/football-manager-2026/team/1895/shakhtar-donetsk,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_KRY,1,FC Kryvbass,Rio De Janeiro,1,Oleksandr Kemkin,GK,71111029,https://database.footballmanagerblog.org/fm26/clubs/2000028043-kryvbas-kryvyi-rih,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_KRY,1,FC Kryvbass,Rio De Janeiro,2,Volodymyr Makhankov,GK,71081855,https://database.footballmanagerblog.org/fm26/clubs/2000028043-kryvbas-kryvyi-rih,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_KRY,1,FC Kryvbass,Rio De Janeiro,3,Bohdan Khoma,GK,71112466,https://database.footballmanagerblog.org/fm26/clubs/2000028043-kryvbas-kryvyi-rih,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_KRY,1,FC Kryvbass,Rio De Janeiro,4,Yvan Dibango,FB,2000090938,https://database.footballmanagerblog.org/fm26/clubs/2000028043-kryvbas-kryvyi-rih,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_KRY,1,FC Kryvbass,Rio De Janeiro,5,Jan Jurčec,FB,24062583,https://database.footballmanagerblog.org/fm26/clubs/2000028043-kryvbas-kryvyi-rih,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_KRY,1,FC Kryvbass,Rio De Janeiro,6,Ante Bekavac,FB,2000054375,https://database.footballmanagerblog.org/fm26/clubs/2000028043-kryvbas-kryvyi-rih,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_KRY,1,FC Kryvbass,Rio De Janeiro,7,Rojas,CB,2000115098,https://database.footballmanagerblog.org/fm26/clubs/2000028043-kryvbas-kryvyi-rih,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_KRY,1,FC Kryvbass,Rio De Janeiro,8,Borges,FB,2000473358,https://database.footballmanagerblog.org/fm26/clubs/2000028043-kryvbas-kryvyi-rih,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_KRY,1,FC Kryvbass,Rio De Janeiro,9,Volodymyr Vilivald,CB,2000126761,https://database.footballmanagerblog.org/fm26/clubs/2000028043-kryvbas-kryvyi-rih,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_KRY,1,FC Kryvbass,Rio De Janeiro,10,Gleiker Mendoza,WG,2000073248,https://database.footballmanagerblog.org/fm26/clubs/2000028043-kryvbas-kryvyi-rih,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_KRY,1,FC Kryvbass,Rio De Janeiro,11,Araujo,DM,2000087494,https://database.footballmanagerblog.org/fm26/clubs/2000028043-kryvbas-kryvyi-rih,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_KRY,1,FC Kryvbass,Rio De Janeiro,12,Maksym Zaderaka,WG,71048240,https://database.footballmanagerblog.org/fm26/clubs/2000028043-kryvbas-kryvyi-rih,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_KRY,1,FC Kryvbass,Rio De Janeiro,13,Bar Lin,WG,2000020947,https://database.footballmanagerblog.org/fm26/clubs/2000028043-kryvbas-kryvyi-rih,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_KRY,1,FC Kryvbass,Rio De Janeiro,14,Jhoel Maya,AM,2000277219,https://database.footballmanagerblog.org/fm26/clubs/2000028043-kryvbas-kryvyi-rih,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_KRY,1,FC Kryvbass,Rio De Janeiro,15,Yaroslav Shevchenko,CM,2000293115,https://database.footballmanagerblog.org/fm26/clubs/2000028043-kryvbas-kryvyi-rih,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_KRY,1,FC Kryvbass,Rio De Janeiro,16,Oleksandr Kamenskyi,WG,2000291303,https://database.footballmanagerblog.org/fm26/clubs/2000028043-kryvbas-kryvyi-rih,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_KRY,1,FC Kryvbass,Rio De Janeiro,17,Carlos Paraco,ST,2000130836,https://database.footballmanagerblog.org/fm26/clubs/2000028043-kryvbas-kryvyi-rih,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_KRY,1,FC Kryvbass,Rio De Janeiro,18,Noha Ndombasi,ST,49039001,https://database.footballmanagerblog.org/fm26/clubs/2000028043-kryvbas-kryvyi-rih,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_KRY,1,FC Kryvbass,Rio De Janeiro,19,Volodymyr Mulyk,ST,2000273102,https://database.footballmanagerblog.org/fm26/clubs/2000028043-kryvbas-kryvyi-rih,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_KRY,1,FC Kryvbass,Rio De Janeiro,20,Joseph Jones,FB,2000273022,https://database.footballmanagerblog.org/fm26/clubs/2000028043-kryvbas-kryvyi-rih,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_KRY,1,FC Kryvbass,Rio De Janeiro,21,Assane Seck,WG,2000117269,https://database.footballmanagerblog.org/fm26/clubs/2000028043-kryvbas-kryvyi-rih,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_KRY,1,FC Kryvbass,Rio De Janeiro,22,Miracle Williams,CM,2000239036,https://database.footballmanagerblog.org/fm26/clubs/2000028043-kryvbas-kryvyi-rih,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_LEV,2,Leverkusen,Leverkusen,1,Mark Flekken,GK,92056834,https://database.footballmanagerblog.org/fm26/clubs/901-bayer-04-leverkusen,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_LEV,2,Leverkusen,Leverkusen,2,Jonas Omlin,GK,98033113,https://database.footballmanagerblog.org/fm26/clubs/901-bayer-04-leverkusen,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_LEV,2,Leverkusen,Leverkusen,3,Janis Blaswich,GK,91017776,https://database.footballmanagerblog.org/fm26/clubs/901-bayer-04-leverkusen,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_LEV,2,Leverkusen,Leverkusen,4,Alejandro Grimaldo,FB,67153376,https://database.footballmanagerblog.org/fm26/clubs/901-bayer-04-leverkusen,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_LEV,2,Leverkusen,Leverkusen,5,Loïc Badé,CB,49039789,https://database.footballmanagerblog.org/fm26/clubs/901-bayer-04-leverkusen,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_LEV,2,Leverkusen,Leverkusen,6,Edmond Tapsoba,CB,13196616,https://database.footballmanagerblog.org/fm26/clubs/901-bayer-04-leverkusen,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_LEV,2,Leverkusen,Leverkusen,7,Lucas Vázquez,FB,67135344,https://database.footballmanagerblog.org/fm26/clubs/901-bayer-04-leverkusen,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_LEV,2,Leverkusen,Leverkusen,8,Jarell Quansah,CB,28127161,https://database.footballmanagerblog.org/fm26/clubs/901-bayer-04-leverkusen,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_LEV,2,Leverkusen,Leverkusen,9,Arthur,FB,2000073449,https://database.footballmanagerblog.org/fm26/clubs/901-bayer-04-leverkusen,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_LEV,2,Leverkusen,Leverkusen,10,Tim Oermann,CB,2000070513,https://database.footballmanagerblog.org/fm26/clubs/901-bayer-04-leverkusen,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_LEV,2,Leverkusen,Leverkusen,11,Exequiel Palacios,DM,14110846,https://database.footballmanagerblog.org/fm26/clubs/901-bayer-04-leverkusen,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_LEV,2,Leverkusen,Leverkusen,12,Malik Tillman,AM,91187679,https://database.footballmanagerblog.org/fm26/clubs/901-bayer-04-leverkusen,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_LEV,2,Leverkusen,Leverkusen,13,Aleix García,DM,67190888,https://database.footballmanagerblog.org/fm26/clubs/901-bayer-04-leverkusen,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_LEV,2,Leverkusen,Leverkusen,14,Robert Andrich,DM,91108805,https://database.footballmanagerblog.org/fm26/clubs/901-bayer-04-leverkusen,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_LEV,2,Leverkusen,Leverkusen,15,Equi Fernández,DM,14247304,https://database.footballmanagerblog.org/fm26/clubs/901-bayer-04-leverkusen,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_LEV,2,Leverkusen,Leverkusen,16,Ibrahim Maza,AM,2000193961,https://database.footballmanagerblog.org/fm26/clubs/901-bayer-04-leverkusen,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_LEV,2,Leverkusen,Leverkusen,17,Jonas Hofmann,WG,92027981,https://database.footballmanagerblog.org/fm26/clubs/901-bayer-04-leverkusen,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_LEV,2,Leverkusen,Leverkusen,18,Nathan Tella,WG,28106683,https://database.footballmanagerblog.org/fm26/clubs/901-bayer-04-leverkusen,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_LEV,2,Leverkusen,Leverkusen,19,Ernest Poku,WG,2000014559,https://database.footballmanagerblog.org/fm26/clubs/901-bayer-04-leverkusen,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_LEV,2,Leverkusen,Leverkusen,20,Martin Terrier,WG,48042204,https://database.footballmanagerblog.org/fm26/clubs/901-bayer-04-leverkusen,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_LEV,2,Leverkusen,Leverkusen,21,Patrik Schick,ST,25042141,https://database.footballmanagerblog.org/fm26/clubs/901-bayer-04-leverkusen,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_LEV,2,Leverkusen,Leverkusen,22,Christian Kofane,ST,2000426277,https://database.footballmanagerblog.org/fm26/clubs/901-bayer-04-leverkusen,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_AJX,3,Ajax,München,1,Vítězslav Jaroš,GK,,https://sortitoutsi.net/football-manager-2026/team/992/afc-ajax,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_AJX,3,Ajax,München,2,Maarten Paes,GK,,https://sortitoutsi.net/football-manager-2026/team/992/afc-ajax,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_AJX,3,Ajax,München,3,Oleksandr Zinchenko,"D/WB L,DM,M C",,https://sortitoutsi.net/football-manager-2026/team/992/afc-ajax,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_AJX,3,Ajax,München,4,Takehiro Tomiyasu,D RLC/WB RL,,https://sortitoutsi.net/football-manager-2026/team/992/afc-ajax,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_AJX,3,Ajax,München,5,Youri Baas,D LC/WB L,,https://sortitoutsi.net/football-manager-2026/team/992/afc-ajax,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_AJX,3,Ajax,München,6,Ko Itakura,D C/DM,,https://sortitoutsi.net/football-manager-2026/team/992/afc-ajax,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_AJX,3,Ajax,München,7,Josip Šutalo,D C,,https://sortitoutsi.net/football-manager-2026/team/992/afc-ajax,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_AJX,3,Ajax,München,8,Owen Wijndal,D/WB/M L,,https://sortitoutsi.net/football-manager-2026/team/992/afc-ajax,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_AJX,3,Ajax,München,9,Anton Gaaei,D/WB/M R,,https://sortitoutsi.net/football-manager-2026/team/992/afc-ajax,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_AJX,3,Ajax,München,10,Lucas Rosa,D/WB RL/M R,,https://sortitoutsi.net/football-manager-2026/team/992/afc-ajax,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_AJX,3,Ajax,München,11,Youri Regeer,D RL/WB R/DM/M C,,https://sortitoutsi.net/football-manager-2026/team/992/afc-ajax,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_AJX,3,Ajax,München,12,Davy Klaassen,M/AM C,,https://sortitoutsi.net/football-manager-2026/team/992/afc-ajax,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_AJX,3,Ajax,München,13,Mika Godts,AM RLC,,https://sortitoutsi.net/football-manager-2026/team/992/afc-ajax,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_AJX,3,Ajax,München,14,Oscar Gloukh,M/AM C/ST,,https://sortitoutsi.net/football-manager-2026/team/992/afc-ajax,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_AJX,3,Ajax,München,15,Kian Fitz-Jim,DM/M/AM C,,https://sortitoutsi.net/football-manager-2026/team/992/afc-ajax,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_AJX,3,Ajax,München,16,Steven Berghuis,M R/AM RC,,https://sortitoutsi.net/football-manager-2026/team/992/afc-ajax,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_AJX,3,Ajax,München,17,Oliver Edvardsen,M/AM RL,,https://sortitoutsi.net/football-manager-2026/team/992/afc-ajax,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_AJX,3,Ajax,München,18,Rayane Bounida,AM RLC,,https://sortitoutsi.net/football-manager-2026/team/992/afc-ajax,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_AJX,3,Ajax,München,19,Jorthy Mokio,D LC/DM/M C,,https://sortitoutsi.net/football-manager-2026/team/992/afc-ajax,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_AJX,3,Ajax,München,20,Maher Carrizo,AM R/ST,,https://sortitoutsi.net/football-manager-2026/team/992/afc-ajax,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_AJX,3,Ajax,München,21,Kasper Dolberg,ST,,https://sortitoutsi.net/football-manager-2026/team/992/afc-ajax,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_AJX,3,Ajax,München,22,Wout Weghorst,ST,,https://sortitoutsi.net/football-manager-2026/team/992/afc-ajax,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_NEW,4,Newcastle,Dortmund,1,Nick Pope,GK,,https://database.footballmanagerblog.org/fm26/clubs/688-newcastle,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_NEW,4,Newcastle,Dortmund,2,Aaron Ramsdale,GK,,https://database.footballmanagerblog.org/fm26/clubs/688-newcastle,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_NEW,4,Newcastle,Dortmund,3,Sven Botman,DC,,https://database.footballmanagerblog.org/fm26/clubs/688-newcastle,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_NEW,4,Newcastle,Dortmund,4,Tino Livramento,DR,,https://database.footballmanagerblog.org/fm26/clubs/688-newcastle,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_NEW,4,Newcastle,Dortmund,5,Fabian Schär,DC,,https://database.footballmanagerblog.org/fm26/clubs/688-newcastle,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_NEW,4,Newcastle,Dortmund,6,Kieran Trippier,DR/WBR,,https://database.footballmanagerblog.org/fm26/clubs/688-newcastle,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_NEW,4,Newcastle,Dortmund,7,Malick Thiaw,DC,,https://database.footballmanagerblog.org/fm26/clubs/688-newcastle,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_NEW,4,Newcastle,Dortmund,8,Dan Burn,DC,,https://database.footballmanagerblog.org/fm26/clubs/688-newcastle,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_NEW,4,Newcastle,Dortmund,9,Lewis Hall,DL/WBL,,https://database.footballmanagerblog.org/fm26/clubs/688-newcastle,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_NEW,4,Newcastle,Dortmund,10,Bruno Guimarães,MC/DM,,https://database.footballmanagerblog.org/fm26/clubs/688-newcastle,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_NEW,4,Newcastle,Dortmund,11,Sandro Tonali,DM/MC,,https://database.footballmanagerblog.org/fm26/clubs/688-newcastle,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_NEW,4,Newcastle,Dortmund,12,Anthony Gordon,AML/AMR,,https://database.footballmanagerblog.org/fm26/clubs/688-newcastle,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_NEW,4,Newcastle,Dortmund,13,Joelinton,MC/AML,,https://database.footballmanagerblog.org/fm26/clubs/688-newcastle,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_NEW,4,Newcastle,Dortmund,14,Nick Woltemade,ST/AMC,,https://database.footballmanagerblog.org/fm26/clubs/688-newcastle,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_NEW,4,Newcastle,Dortmund,15,Jacob Ramsey,MC/AMC/AML,,https://database.footballmanagerblog.org/fm26/clubs/688-newcastle,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_NEW,4,Newcastle,Dortmund,16,Yoane Wissa,ST/AML,,https://database.footballmanagerblog.org/fm26/clubs/688-newcastle,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_NEW,4,Newcastle,Dortmund,17,Harvey Barnes,AML/ML,,https://database.footballmanagerblog.org/fm26/clubs/688-newcastle,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_NEW,4,Newcastle,Dortmund,18,Anthony Elanga,AMR/MR/AML,,https://database.footballmanagerblog.org/fm26/clubs/688-newcastle,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_NEW,4,Newcastle,Dortmund,19,Jacob Murphy,AMR,,https://database.footballmanagerblog.org/fm26/clubs/688-newcastle,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_NEW,4,Newcastle,Dortmund,20,Lewis Miley,MC,,https://database.footballmanagerblog.org/fm26/clubs/688-newcastle,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_NEW,4,Newcastle,Dortmund,21,Joe Willock,MC,,https://database.footballmanagerblog.org/fm26/clubs/688-newcastle,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_NEW,4,Newcastle,Dortmund,22,William Osula,ST,,https://database.footballmanagerblog.org/fm26/clubs/688-newcastle,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_SCP,5,Sporting CP,Roma,1,Rui Silva,GK,55067163,https://database.footballmanagerblog.org/fm26/clubs/1489-sporting-cp,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_SCP,5,Sporting CP,Roma,2,João Virgínia,GK,28109598,https://database.footballmanagerblog.org/fm26/clubs/1489-sporting-cp,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_SCP,5,Sporting CP,Roma,3,Maximiliano Araújo,FB,78093159,https://database.footballmanagerblog.org/fm26/clubs/1489-sporting-cp,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_SCP,5,Sporting CP,Roma,4,Ousmane Diomande,CB,2000160511,https://database.footballmanagerblog.org/fm26/clubs/1489-sporting-cp,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_SCP,5,Sporting CP,Roma,5,Gonçalo Inácio,CB,83228731,https://database.footballmanagerblog.org/fm26/clubs/1489-sporting-cp,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_SCP,5,Sporting CP,Roma,6,Zeno Debast,CB,18115016,https://database.footballmanagerblog.org/fm26/clubs/1489-sporting-cp,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_SCP,5,Sporting CP,Roma,7,Eduardo Quaresma,CB,83261917,https://database.footballmanagerblog.org/fm26/clubs/1489-sporting-cp,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_SCP,5,Sporting CP,Roma,8,Iván Fresneda,FB,2000165653,https://database.footballmanagerblog.org/fm26/clubs/1489-sporting-cp,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_SCP,5,Sporting CP,Roma,9,Nuno Santos,FB,55070264,https://database.footballmanagerblog.org/fm26/clubs/1489-sporting-cp,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_SCP,5,Sporting CP,Roma,10,Ricardo Mangas,FB,55082268,https://database.footballmanagerblog.org/fm26/clubs/1489-sporting-cp,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_SCP,5,Sporting CP,Roma,11,Giorgos Vagiannidis,FB,36141838,https://database.footballmanagerblog.org/fm26/clubs/1489-sporting-cp,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_SCP,5,Sporting CP,Roma,12,Francisco Trincão,WG,83137935,https://database.footballmanagerblog.org/fm26/clubs/1489-sporting-cp,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_SCP,5,Sporting CP,Roma,13,Pote,WG,29192705,https://database.footballmanagerblog.org/fm26/clubs/1489-sporting-cp,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_SCP,5,Sporting CP,Roma,14,Morten Hjulmand,DM,27132703,https://database.footballmanagerblog.org/fm26/clubs/1489-sporting-cp,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_SCP,5,Sporting CP,Roma,15,Geny,WG,95059117,https://database.footballmanagerblog.org/fm26/clubs/1489-sporting-cp,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_SCP,5,Sporting CP,Roma,16,Hidemasa Morita,DM,45109174,https://database.footballmanagerblog.org/fm26/clubs/1489-sporting-cp,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_SCP,5,Sporting CP,Roma,17,Geovany Quenda,WG,2000274379,https://database.footballmanagerblog.org/fm26/clubs/1489-sporting-cp,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_SCP,5,Sporting CP,Roma,18,Daniel Bragança,CM,83111519,https://database.footballmanagerblog.org/fm26/clubs/1489-sporting-cp,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_SCP,5,Sporting CP,Roma,19,Giorgi Kochorashvili,CM,59115661,https://database.footballmanagerblog.org/fm26/clubs/1489-sporting-cp,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_SCP,5,Sporting CP,Roma,20,João Simões,CM,2000268884,https://database.footballmanagerblog.org/fm26/clubs/1489-sporting-cp,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_SCP,5,Sporting CP,Roma,21,Luis Suárez,ST,76046285,https://database.footballmanagerblog.org/fm26/clubs/1489-sporting-cp,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_SCP,5,Sporting CP,Roma,22,Fotis Ioannidis,ST,36138739,https://database.footballmanagerblog.org/fm26/clubs/1489-sporting-cp,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BEN,6,Benfica,Firenze,1,Anatolii Trubin,GK,71101334,https://database.footballmanagerblog.org/fm26/clubs/1487-sl-benfica,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BEN,6,Benfica,Firenze,2,Samuel Soares,GK,83257052,https://database.footballmanagerblog.org/fm26/clubs/1487-sl-benfica,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BEN,6,Benfica,Firenze,3,Nicolás Otamendi,CB,14004589,https://database.footballmanagerblog.org/fm26/clubs/1487-sl-benfica,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BEN,6,Benfica,Firenze,4,Tomás Araújo,CB,83243060,https://database.footballmanagerblog.org/fm26/clubs/1487-sl-benfica,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BEN,6,Benfica,Firenze,5,António Silva,CB,83320135,https://database.footballmanagerblog.org/fm26/clubs/1487-sl-benfica,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BEN,6,Benfica,Firenze,6,Amar Dedić,FB,16283629,https://database.footballmanagerblog.org/fm26/clubs/1487-sl-benfica,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BEN,6,Benfica,Firenze,7,Alexander Bah,FB,27129532,https://database.footballmanagerblog.org/fm26/clubs/1487-sl-benfica,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BEN,6,Benfica,Firenze,8,Samuel Dahl,FB,93142472,https://database.footballmanagerblog.org/fm26/clubs/1487-sl-benfica,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BEN,6,Benfica,Firenze,9,Sidny Lopes Cabral,FB,37079110,https://database.footballmanagerblog.org/fm26/clubs/1487-sl-benfica,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BEN,6,Benfica,Firenze,10,Josh Wynder,CB,2000099860,https://database.footballmanagerblog.org/fm26/clubs/1487-sl-benfica,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BEN,6,Benfica,Firenze,11,Fredrik Aursnes,CM,53086846,https://database.footballmanagerblog.org/fm26/clubs/1487-sl-benfica,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BEN,6,Benfica,Firenze,12,Rafa,AM,55063493,https://database.footballmanagerblog.org/fm26/clubs/1487-sl-benfica,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BEN,6,Benfica,Firenze,13,Dodi Lukébakio,WG,18083611,https://database.footballmanagerblog.org/fm26/clubs/1487-sl-benfica,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BEN,6,Benfica,Firenze,14,Heorhii Sudakov,AM,71108249,https://database.footballmanagerblog.org/fm26/clubs/1487-sl-benfica,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BEN,6,Benfica,Firenze,15,Andreas Schjelderup,WG,2000020287,https://database.footballmanagerblog.org/fm26/clubs/1487-sl-benfica,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BEN,6,Benfica,Firenze,16,Enzo Barrenechea,DM,14217325,https://database.footballmanagerblog.org/fm26/clubs/1487-sl-benfica,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BEN,6,Benfica,Firenze,17,Leandro Barreiro,CM,91187556,https://database.footballmanagerblog.org/fm26/clubs/1487-sl-benfica,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BEN,6,Benfica,Firenze,18,Richard Ríos,CM,19391095,https://database.footballmanagerblog.org/fm26/clubs/1487-sl-benfica,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BEN,6,Benfica,Firenze,19,Bruma,WG,55026952,https://database.footballmanagerblog.org/fm26/clubs/1487-sl-benfica,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BEN,6,Benfica,Firenze,20,Gianluca Prestianni,WG,2000104173,https://database.footballmanagerblog.org/fm26/clubs/1487-sl-benfica,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BEN,6,Benfica,Firenze,21,Vangelis Pavlidis,ST,91151156,https://database.footballmanagerblog.org/fm26/clubs/1487-sl-benfica,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BEN,6,Benfica,Firenze,22,Franjo Ivanović,ST,2000068412,https://database.footballmanagerblog.org/fm26/clubs/1487-sl-benfica,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ROM,7,Roma,Parma,1,Mile Svilar,GK,18087914,https://database.footballmanagerblog.org/fm26/clubs/1100-roma,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ROM,7,Roma,Parma,2,Pierluigi Gollini,GK,43090278,https://database.footballmanagerblog.org/fm26/clubs/1100-roma,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ROM,7,Roma,Parma,3,Evan N'Dicka,CB,48032198,https://database.footballmanagerblog.org/fm26/clubs/1100-roma,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ROM,7,Roma,Parma,4,Gianluca Mancini,CB,43093502,https://database.footballmanagerblog.org/fm26/clubs/1100-roma,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ROM,7,Roma,Parma,5,Angeliño,FB,28095342,https://database.footballmanagerblog.org/fm26/clubs/1100-roma,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ROM,7,Roma,Parma,6,Wesley,FB,2000083915,https://database.footballmanagerblog.org/fm26/clubs/1100-roma,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ROM,7,Roma,Parma,7,Kostas Tsimikas,FB,36096824,https://database.footballmanagerblog.org/fm26/clubs/1100-roma,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ROM,7,Roma,Parma,8,Mario Hermoso,CB,67196188,https://database.footballmanagerblog.org/fm26/clubs/1100-roma,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ROM,7,Roma,Parma,9,Zeki Çelik,FB,70097248,https://database.footballmanagerblog.org/fm26/clubs/1100-roma,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ROM,7,Roma,Parma,10,Devyne Rensch,FB,37073313,https://database.footballmanagerblog.org/fm26/clubs/1100-roma,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ROM,7,Roma,Parma,11,Daniele Ghilardi,CB,43500332,https://database.footballmanagerblog.org/fm26/clubs/1100-roma,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ROM,7,Roma,Parma,12,Manu Koné,DM,49047182,https://database.footballmanagerblog.org/fm26/clubs/1100-roma,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ROM,7,Roma,Parma,13,Matías Soulé,AM,14222108,https://database.footballmanagerblog.org/fm26/clubs/1100-roma,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ROM,7,Roma,Parma,14,Paulo Dybala,AM,14044150,https://database.footballmanagerblog.org/fm26/clubs/1100-roma,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ROM,7,Roma,Parma,15,Bryan Cristante,DM,43091113,https://database.footballmanagerblog.org/fm26/clubs/1100-roma,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ROM,7,Roma,Parma,16,Donyell Malen,ST,37055844,https://database.footballmanagerblog.org/fm26/clubs/1100-roma,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ROM,7,Roma,Parma,17,Lorenzo Pellegrini,CM,43094100,https://database.footballmanagerblog.org/fm26/clubs/1100-roma,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ROM,7,Roma,Parma,18,Neil El Aynaoui,DM,49045412,https://database.footballmanagerblog.org/fm26/clubs/1100-roma,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ROM,7,Roma,Parma,19,Stephan El Shaarawy,WG,43036636,https://database.footballmanagerblog.org/fm26/clubs/1100-roma,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ROM,7,Roma,Parma,20,Niccolò Pisilli,CM,2000097929,https://database.footballmanagerblog.org/fm26/clubs/1100-roma,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ROM,7,Roma,Parma,21,Artem Dovbyk,ST,71099066,https://database.footballmanagerblog.org/fm26/clubs/1100-roma,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ROM,7,Roma,Parma,22,Evan Ferguson,ST,2000120742,https://database.footballmanagerblog.org/fm26/clubs/1100-roma,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BAY,8,Bayern,Lazio,1,Manuel Neuer,GK,8718372,https://database.footballmanagerblog.org/fm26/clubs/915-bayern-munchen,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BAY,8,Bayern,Lazio,2,Jonas Urbig,GK,91207698,https://database.footballmanagerblog.org/fm26/clubs/915-bayern-munchen,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BAY,8,Bayern,Lazio,3,Sven Ulreich,GK,35008097,https://database.footballmanagerblog.org/fm26/clubs/915-bayern-munchen,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BAY,8,Bayern,Lazio,4,Joshua Kimmich,DM,92039023,https://database.footballmanagerblog.org/fm26/clubs/915-bayern-munchen,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BAY,8,Bayern,Lazio,5,Dayot Upamecano,CB,16182894,https://database.footballmanagerblog.org/fm26/clubs/915-bayern-munchen,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BAY,8,Bayern,Lazio,6,Alphonso Davies,FB,20041862,https://database.footballmanagerblog.org/fm26/clubs/915-bayern-munchen,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BAY,8,Bayern,Lazio,7,Jonathan Tah,CB,91119700,https://database.footballmanagerblog.org/fm26/clubs/915-bayern-munchen,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BAY,8,Bayern,Lazio,8,Kim Min-Jae,CB,89063073,https://database.footballmanagerblog.org/fm26/clubs/915-bayern-munchen,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BAY,8,Bayern,Lazio,9,Konrad Laimer,CM,16147659,https://database.footballmanagerblog.org/fm26/clubs/915-bayern-munchen,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BAY,8,Bayern,Lazio,10,Raphaël Guerreiro,FB,85045409,https://database.footballmanagerblog.org/fm26/clubs/915-bayern-munchen,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BAY,8,Bayern,Lazio,11,Josip Stanišić,CB,91190673,https://database.footballmanagerblog.org/fm26/clubs/915-bayern-munchen,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BAY,8,Bayern,Lazio,12,Hiroki Ito,CB,45109024,https://database.footballmanagerblog.org/fm26/clubs/915-bayern-munchen,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BAY,8,Bayern,Lazio,13,Michael Olise,WG,29221846,https://database.footballmanagerblog.org/fm26/clubs/915-bayern-munchen,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BAY,8,Bayern,Lazio,14,Jamal Musiala,AM,28124579,https://database.footballmanagerblog.org/fm26/clubs/915-bayern-munchen,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BAY,8,Bayern,Lazio,15,Luis Díaz,WG,76049803,https://database.footballmanagerblog.org/fm26/clubs/915-bayern-munchen,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BAY,8,Bayern,Lazio,16,Serge Gnabry,AM,28066083,https://database.footballmanagerblog.org/fm26/clubs/915-bayern-munchen,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BAY,8,Bayern,Lazio,17,Leon Goretzka,CM,91104807,https://database.footballmanagerblog.org/fm26/clubs/915-bayern-munchen,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BAY,8,Bayern,Lazio,18,Aleksandar Pavlović,DM,2000171034,https://database.footballmanagerblog.org/fm26/clubs/915-bayern-munchen,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BAY,8,Bayern,Lazio,19,Tom Bischof,CM,2000147056,https://database.footballmanagerblog.org/fm26/clubs/915-bayern-munchen,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BAY,8,Bayern,Lazio,20,Lennart Karl,WG,2000375662,https://database.footballmanagerblog.org/fm26/clubs/915-bayern-munchen,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BAY,8,Bayern,Lazio,21,Harry Kane,ST,28049320,https://database.footballmanagerblog.org/fm26/clubs/915-bayern-munchen,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BAY,8,Bayern,Lazio,22,Nicolas Jackson,ST,12087972,https://database.footballmanagerblog.org/fm26/clubs/915-bayern-munchen,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ACM,9,Milan,Milano,1,Mike Maignan,GK,,https://database.footballmanagerblog.org/fm26/clubs/1099-milan,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ACM,9,Milan,Milano,2,Pietro Terracciano,GK,,https://database.footballmanagerblog.org/fm26/clubs/1099-milan,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ACM,9,Milan,Milano,3,Alexis Saelemaekers,WBR/MR/AMR,,https://database.footballmanagerblog.org/fm26/clubs/1099-milan,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ACM,9,Milan,Milano,4,Fikayo Tomori,DC,,https://database.footballmanagerblog.org/fm26/clubs/1099-milan,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ACM,9,Milan,Milano,5,Matteo Gabbia,DC,,https://database.footballmanagerblog.org/fm26/clubs/1099-milan,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ACM,9,Milan,Milano,6,Strahinja Pavlović,DC,,https://database.footballmanagerblog.org/fm26/clubs/1099-milan,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ACM,9,Milan,Milano,7,Pervis Estupiñán,DL/WBL,,https://database.footballmanagerblog.org/fm26/clubs/1099-milan,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ACM,9,Milan,Milano,8,Koni De Winter,DC,,https://database.footballmanagerblog.org/fm26/clubs/1099-milan,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ACM,9,Milan,Milano,9,Davide Bartesaghi,DL/WBL,,https://database.footballmanagerblog.org/fm26/clubs/1099-milan,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ACM,9,Milan,Milano,10,Zachary Athekame,DR,,https://database.footballmanagerblog.org/fm26/clubs/1099-milan,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ACM,9,Milan,Milano,11,David Odogu,DC,,https://database.footballmanagerblog.org/fm26/clubs/1099-milan,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ACM,9,Milan,Milano,12,Luka Modrić,MC/DM,,https://database.footballmanagerblog.org/fm26/clubs/1099-milan,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ACM,9,Milan,Milano,13,Christian Pulisic,AMR/AMC/ST,,https://database.footballmanagerblog.org/fm26/clubs/1099-milan,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ACM,9,Milan,Milano,14,Rafael Leão,AML/ST,,https://database.footballmanagerblog.org/fm26/clubs/1099-milan,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ACM,9,Milan,Milano,15,Adrien Rabiot,MC,,https://database.footballmanagerblog.org/fm26/clubs/1099-milan,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ACM,9,Milan,Milano,16,Christopher Nkunku,AMC,,https://database.footballmanagerblog.org/fm26/clubs/1099-milan,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ACM,9,Milan,Milano,17,Youssouf Fofana,DM/MC,,https://database.footballmanagerblog.org/fm26/clubs/1099-milan,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ACM,9,Milan,Milano,18,Ruben Loftus-Cheek,MC/AMC,,https://database.footballmanagerblog.org/fm26/clubs/1099-milan,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ACM,9,Milan,Milano,19,Samuele Ricci,DM/MC,,https://database.footballmanagerblog.org/fm26/clubs/1099-milan,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ACM,9,Milan,Milano,20,Ardon Jashari,DM/MC,,https://database.footballmanagerblog.org/fm26/clubs/1099-milan,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ACM,9,Milan,Milano,21,Santiago Giménez,ST,,https://database.footballmanagerblog.org/fm26/clubs/1099-milan,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ACM,9,Milan,Milano,22,Niclas Füllkrug,ST,,https://database.footballmanagerblog.org/fm26/clubs/1099-milan,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_JUV,10,Juventus,Torino,1,Michele Di Gregorio,GK,,https://database.footballmanagerblog.org/fm26/clubs/1139-juventus,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_JUV,10,Juventus,Torino,2,Mattia Perin,GK,,https://database.footballmanagerblog.org/fm26/clubs/1139-juventus,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_JUV,10,Juventus,Torino,3,Bremer,DC,,https://database.footballmanagerblog.org/fm26/clubs/1139-juventus,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_JUV,10,Juventus,Torino,4,Pierre Kalulu,DC/DR,,https://database.footballmanagerblog.org/fm26/clubs/1139-juventus,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_JUV,10,Juventus,Torino,5,Andrea Cambiaso,DL/WBL/ML,,https://database.footballmanagerblog.org/fm26/clubs/1139-juventus,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_JUV,10,Juventus,Torino,6,Federico Gatti,DC,,https://database.footballmanagerblog.org/fm26/clubs/1139-juventus,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_JUV,10,Juventus,Torino,7,Lloyd Kelly,DC/DL,,https://database.footballmanagerblog.org/fm26/clubs/1139-juventus,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_JUV,10,Juventus,Torino,8,Emil Holm,DR/WBR,,https://database.footballmanagerblog.org/fm26/clubs/1139-juventus,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_JUV,10,Juventus,Torino,9,Juan David Cabal,DL,,https://database.footballmanagerblog.org/fm26/clubs/1139-juventus,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_JUV,10,Juventus,Torino,10,Filip Kostić,WBL/ML,,https://database.footballmanagerblog.org/fm26/clubs/1139-juventus,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_JUV,10,Juventus,Torino,11,Kenan Yıldız,AML/AMC,,https://database.footballmanagerblog.org/fm26/clubs/1139-juventus,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_JUV,10,Juventus,Torino,12,Francisco Conceição,AMR,,https://database.footballmanagerblog.org/fm26/clubs/1139-juventus,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_JUV,10,Juventus,Torino,13,Khéphren Thuram,MC/DM,,https://database.footballmanagerblog.org/fm26/clubs/1139-juventus,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_JUV,10,Juventus,Torino,14,Manuel Locatelli,DM/MC,,https://database.footballmanagerblog.org/fm26/clubs/1139-juventus,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_JUV,10,Juventus,Torino,15,Weston McKennie,MC/MR,,https://database.footballmanagerblog.org/fm26/clubs/1139-juventus,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_JUV,10,Juventus,Torino,16,Edon Zhegrova,AMR,,https://database.footballmanagerblog.org/fm26/clubs/1139-juventus,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_JUV,10,Juventus,Torino,17,Teun Koopmeiners,MC,,https://database.footballmanagerblog.org/fm26/clubs/1139-juventus,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_JUV,10,Juventus,Torino,18,Fabio Miretti,MC,,https://database.footballmanagerblog.org/fm26/clubs/1139-juventus,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_JUV,10,Juventus,Torino,19,Jérémie Boga,AML,,https://database.footballmanagerblog.org/fm26/clubs/1139-juventus,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_JUV,10,Juventus,Torino,20,Dušan Vlahović,ST,,https://database.footballmanagerblog.org/fm26/clubs/1139-juventus,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_JUV,10,Juventus,Torino,21,Jonathan David,ST,,https://database.footballmanagerblog.org/fm26/clubs/1139-juventus,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_JUV,10,Juventus,Torino,22,Loïs Openda,ST,,https://database.footballmanagerblog.org/fm26/clubs/1139-juventus,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_INT,11,Inter Milan,International,1,Yann Sommer,GK,69000199,https://database.footballmanagerblog.org/fm26/clubs/1135-inter,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_INT,11,Inter Milan,International,2,Josep Martínez,GK,67245412,https://database.footballmanagerblog.org/fm26/clubs/1135-inter,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_INT,11,Inter Milan,International,3,Alessandro Bastoni,CB,43252460,https://database.footballmanagerblog.org/fm26/clubs/1135-inter,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_INT,11,Inter Milan,International,4,Federico Dimarco,FB,43143488,https://database.footballmanagerblog.org/fm26/clubs/1135-inter,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_INT,11,Inter Milan,International,5,Denzel Dumfries,FB,37052843,https://database.footballmanagerblog.org/fm26/clubs/1135-inter,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_INT,11,Inter Milan,International,6,Manuel Akanji,CB,98031331,https://database.footballmanagerblog.org/fm26/clubs/1135-inter,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_INT,11,Inter Milan,International,7,Francesco Acerbi,CB,43017499,https://database.footballmanagerblog.org/fm26/clubs/1135-inter,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_INT,11,Inter Milan,International,8,Carlos Augusto,FB,19350649,https://database.footballmanagerblog.org/fm26/clubs/1135-inter,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_INT,11,Inter Milan,International,9,Yann Aurel Bisseck,CB,91175868,https://database.footballmanagerblog.org/fm26/clubs/1135-inter,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_INT,11,Inter Milan,International,10,Stefan de Vrij,CB,37001814,https://database.footballmanagerblog.org/fm26/clubs/1135-inter,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_INT,11,Inter Milan,International,11,Matteo Darmian,FB,7990060,https://database.footballmanagerblog.org/fm26/clubs/1135-inter,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_INT,11,Inter Milan,International,12,Hakan Çalhanoğlu,DM,92026209,https://database.footballmanagerblog.org/fm26/clubs/1135-inter,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_INT,11,Inter Milan,International,13,Nicolò Barella,CM,43139595,https://database.footballmanagerblog.org/fm26/clubs/1135-inter,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_INT,11,Inter Milan,International,14,Henrikh Mkhitaryan,CM,59006269,https://database.footballmanagerblog.org/fm26/clubs/1135-inter,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_INT,11,Inter Milan,International,15,Piotr Zieliński,CM,43093171,https://database.footballmanagerblog.org/fm26/clubs/1135-inter,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_INT,11,Inter Milan,International,16,Davide Frattesi,CM,43272557,https://database.footballmanagerblog.org/fm26/clubs/1135-inter,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_INT,11,Inter Milan,International,17,Petar Sučić,CM,2000162930,https://database.footballmanagerblog.org/fm26/clubs/1135-inter,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_INT,11,Inter Milan,International,18,Luís Henrique,WG,19403484,https://database.footballmanagerblog.org/fm26/clubs/1135-inter,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_INT,11,Inter Milan,International,19,Lautaro Martínez,ST,14110660,https://database.footballmanagerblog.org/fm26/clubs/1135-inter,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_INT,11,Inter Milan,International,20,Marcus Thuram,ST,48037335,https://database.footballmanagerblog.org/fm26/clubs/1135-inter,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_INT,11,Inter Milan,International,21,Yoan Bonny,ST,49061476,https://database.footballmanagerblog.org/fm26/clubs/1135-inter,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_INT,11,Inter Milan,International,22,Francesco Pio Esposito,ST,2000146883,https://database.footballmanagerblog.org/fm26/clubs/1135-inter,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BVB,12,Dortmund,Amsterdam,1,Gregor Kobel,GK,98040383,https://database.footballmanagerblog.org/fm26/clubs/907-borussia-dortmund,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BVB,12,Dortmund,Amsterdam,2,Alexander Meyer,GK,91018450,https://database.footballmanagerblog.org/fm26/clubs/907-borussia-dortmund,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BVB,12,Dortmund,Amsterdam,3,Patrick Drewes,GK,91100472,https://database.footballmanagerblog.org/fm26/clubs/907-borussia-dortmund,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BVB,12,Dortmund,Amsterdam,4,Nico Schlotterbeck,CB,92088306,https://database.footballmanagerblog.org/fm26/clubs/907-borussia-dortmund,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BVB,12,Dortmund,Amsterdam,5,Waldemar Anton,CB,91137493,https://database.footballmanagerblog.org/fm26/clubs/907-borussia-dortmund,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BVB,12,Dortmund,Amsterdam,6,Emre Can,CB,92021718,https://database.footballmanagerblog.org/fm26/clubs/907-borussia-dortmund,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BVB,12,Dortmund,Amsterdam,7,Niklas Süle,CB,91107360,https://database.footballmanagerblog.org/fm26/clubs/907-borussia-dortmund,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BVB,12,Dortmund,Amsterdam,8,Ramy Bensebaïni,FB,12038706,https://database.footballmanagerblog.org/fm26/clubs/907-borussia-dortmund,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BVB,12,Dortmund,Amsterdam,9,Julian Ryerson,FB,53113114,https://database.footballmanagerblog.org/fm26/clubs/907-borussia-dortmund,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BVB,12,Dortmund,Amsterdam,10,Daniel Svensson,FB,93123163,https://database.footballmanagerblog.org/fm26/clubs/907-borussia-dortmund,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BVB,12,Dortmund,Amsterdam,11,Yan Couto,FB,19383257,https://database.footballmanagerblog.org/fm26/clubs/907-borussia-dortmund,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BVB,12,Dortmund,Amsterdam,12,Almugera Kabar,FB,2000180861,https://database.footballmanagerblog.org/fm26/clubs/907-borussia-dortmund,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BVB,12,Dortmund,Amsterdam,13,Felix Nmecha,CM,28113827,https://database.footballmanagerblog.org/fm26/clubs/907-borussia-dortmund,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BVB,12,Dortmund,Amsterdam,14,Karim Adeyemi,WG,16279486,https://database.footballmanagerblog.org/fm26/clubs/907-borussia-dortmund,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BVB,12,Dortmund,Amsterdam,15,Julian Brandt,AM,91119265,https://database.footballmanagerblog.org/fm26/clubs/907-borussia-dortmund,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BVB,12,Dortmund,Amsterdam,16,Marcel Sabitzer,CM,16045721,https://database.footballmanagerblog.org/fm26/clubs/907-borussia-dortmund,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BVB,12,Dortmund,Amsterdam,17,Carney Chukwuemeka,CM,28127875,https://database.footballmanagerblog.org/fm26/clubs/907-borussia-dortmund,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BVB,12,Dortmund,Amsterdam,18,Jobe Bellingham,CM,2000205927,https://database.footballmanagerblog.org/fm26/clubs/907-borussia-dortmund,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BVB,12,Dortmund,Amsterdam,19,Salih Özcan,DM,91139869,https://database.footballmanagerblog.org/fm26/clubs/907-borussia-dortmund,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BVB,12,Dortmund,Amsterdam,20,Serhou Guirassy,ST,85111795,https://database.footballmanagerblog.org/fm26/clubs/907-borussia-dortmund,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BVB,12,Dortmund,Amsterdam,21,Maximilian Beier,ST,91207281,https://database.footballmanagerblog.org/fm26/clubs/907-borussia-dortmund,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BVB,12,Dortmund,Amsterdam,22,Fábio Silva,ST,83228802,https://database.footballmanagerblog.org/fm26/clubs/907-borussia-dortmund,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ATM,13,Atletico,Marseille,1,Jan Oblak,GK,64016316,https://database.footballmanagerblog.org/fm26/clubs/1687-atletico-de-madrid,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ATM,13,Atletico,Marseille,2,Juan Musso,GK,14048328,https://database.footballmanagerblog.org/fm26/clubs/1687-atletico-de-madrid,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ATM,13,Atletico,Marseille,3,Marcos Llorente,WG,67196198,https://database.footballmanagerblog.org/fm26/clubs/1687-atletico-de-madrid,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ATM,13,Atletico,Marseille,4,Robin Le Normand,CB,48037162,https://database.footballmanagerblog.org/fm26/clubs/1687-atletico-de-madrid,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ATM,13,Atletico,Marseille,5,Dávid Hancko,CB,63029353,https://database.footballmanagerblog.org/fm26/clubs/1687-atletico-de-madrid,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ATM,13,Atletico,Marseille,6,José Giménez,CB,78060464,https://database.footballmanagerblog.org/fm26/clubs/1687-atletico-de-madrid,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ATM,13,Atletico,Marseille,7,Clément Lenglet,CB,85078880,https://database.footballmanagerblog.org/fm26/clubs/1687-atletico-de-madrid,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ATM,13,Atletico,Marseille,8,Matteo Ruggeri,FB,43425834,https://database.footballmanagerblog.org/fm26/clubs/1687-atletico-de-madrid,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ATM,13,Atletico,Marseille,9,Nahuel Molina,FB,14129337,https://database.footballmanagerblog.org/fm26/clubs/1687-atletico-de-madrid,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ATM,13,Atletico,Marseille,10,Marc Pubill,FB,2000101248,https://database.footballmanagerblog.org/fm26/clubs/1687-atletico-de-madrid,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ATM,13,Atletico,Marseille,11,Ademola Lookman,ST,29141828,https://database.footballmanagerblog.org/fm26/clubs/1687-atletico-de-madrid,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ATM,13,Atletico,Marseille,12,Álex Baena,AM,67287665,https://database.footballmanagerblog.org/fm26/clubs/1687-atletico-de-madrid,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ATM,13,Atletico,Marseille,13,Antoine Griezmann,AM,67086656,https://database.footballmanagerblog.org/fm26/clubs/1687-atletico-de-madrid,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ATM,13,Atletico,Marseille,14,Pablo Barrios,CM,2000125958,https://database.footballmanagerblog.org/fm26/clubs/1687-atletico-de-madrid,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ATM,13,Atletico,Marseille,15,Johnny Cardoso,CM,89066513,https://database.footballmanagerblog.org/fm26/clubs/1687-atletico-de-madrid,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ATM,13,Atletico,Marseille,16,Nicolás González,WG,14181375,https://database.footballmanagerblog.org/fm26/clubs/1687-atletico-de-madrid,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ATM,13,Atletico,Marseille,17,Giuliano Simeone,WG,14250859,https://database.footballmanagerblog.org/fm26/clubs/1687-atletico-de-madrid,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ATM,13,Atletico,Marseille,18,Thiago Almada,AM,14172522,https://database.footballmanagerblog.org/fm26/clubs/1687-atletico-de-madrid,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ATM,13,Atletico,Marseille,19,Koke,DM,67047092,https://database.footballmanagerblog.org/fm26/clubs/1687-atletico-de-madrid,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ATM,13,Atletico,Marseille,20,Rodrigo Mendoza,CM,2000126534,https://database.footballmanagerblog.org/fm26/clubs/1687-atletico-de-madrid,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ATM,13,Atletico,Marseille,21,Julián Álvarez,ST,14183207,https://database.footballmanagerblog.org/fm26/clubs/1687-atletico-de-madrid,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ATM,13,Atletico,Marseille,22,Alexander Sørloth,ST,53063430,https://database.footballmanagerblog.org/fm26/clubs/1687-atletico-de-madrid,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_NAP,14,Napoli,Monaco,1,Alex Meret,GK,,https://database.footballmanagerblog.org/fm26/clubs/1150-napoli,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_NAP,14,Napoli,Monaco,2,Vanja Milinković-Savić,GK,,https://database.footballmanagerblog.org/fm26/clubs/1150-napoli,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_NAP,14,Napoli,Monaco,3,Alessandro Buongiorno,DC,,https://database.footballmanagerblog.org/fm26/clubs/1150-napoli,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_NAP,14,Napoli,Monaco,4,Amir Rrahmani,DC,,https://database.footballmanagerblog.org/fm26/clubs/1150-napoli,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_NAP,14,Napoli,Monaco,5,Giovanni Di Lorenzo,DR,,https://database.footballmanagerblog.org/fm26/clubs/1150-napoli,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_NAP,14,Napoli,Monaco,6,Leonardo Spinazzola,DL/WBL/ML,,https://database.footballmanagerblog.org/fm26/clubs/1150-napoli,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_NAP,14,Napoli,Monaco,7,Juan Jesus,DC,,https://database.footballmanagerblog.org/fm26/clubs/1150-napoli,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_NAP,14,Napoli,Monaco,8,Mathías Olivera,DL/WBL,,https://database.footballmanagerblog.org/fm26/clubs/1150-napoli,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_NAP,14,Napoli,Monaco,9,Miguel Gutiérrez,DL/WBL,,https://database.footballmanagerblog.org/fm26/clubs/1150-napoli,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_NAP,14,Napoli,Monaco,10,Sam Beukema,DC,,https://database.footballmanagerblog.org/fm26/clubs/1150-napoli,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_NAP,14,Napoli,Monaco,11,Kevin De Bruyne,MC/AMC,,https://database.footballmanagerblog.org/fm26/clubs/1150-napoli,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_NAP,14,Napoli,Monaco,12,Scott McTominay,MC/AMC,,https://database.footballmanagerblog.org/fm26/clubs/1150-napoli,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_NAP,14,Napoli,Monaco,13,André-Franck Zambo Anguissa,MC,,https://database.footballmanagerblog.org/fm26/clubs/1150-napoli,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_NAP,14,Napoli,Monaco,14,Stanislav Lobotka,DM,,https://database.footballmanagerblog.org/fm26/clubs/1150-napoli,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_NAP,14,Napoli,Monaco,15,David Neres,AMR/AML,,https://database.footballmanagerblog.org/fm26/clubs/1150-napoli,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_NAP,14,Napoli,Monaco,16,Matteo Politano,AMR,,https://database.footballmanagerblog.org/fm26/clubs/1150-napoli,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_NAP,14,Napoli,Monaco,17,Billy Gilmour,DM/MC,,https://database.footballmanagerblog.org/fm26/clubs/1150-napoli,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_NAP,14,Napoli,Monaco,18,Eljif Elmas,MC/AMC,,https://database.footballmanagerblog.org/fm26/clubs/1150-napoli,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_NAP,14,Napoli,Monaco,19,Antonio Vergara,AMC/AMR,,https://database.footballmanagerblog.org/fm26/clubs/1150-napoli,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_NAP,14,Napoli,Monaco,20,Giovane,ST/AML/AMR,,https://database.footballmanagerblog.org/fm26/clubs/1150-napoli,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_NAP,14,Napoli,Monaco,21,Romelu Lukaku,ST,,https://database.footballmanagerblog.org/fm26/clubs/1150-napoli,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_NAP,14,Napoli,Monaco,22,Rasmus Højlund,ST,,https://database.footballmanagerblog.org/fm26/clubs/1150-napoli,FM26_PUBLIC_CLUB_SNAPSHOT_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_RMA,15,Real Madrid,Valencia,1,Thibaut Courtois,GK,18026122,https://database.footballmanagerblog.org/fm26/clubs/1736-real-madrid,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_RMA,15,Real Madrid,Valencia,2,Andriy Lunin,GK,71099053,https://database.footballmanagerblog.org/fm26/clubs/1736-real-madrid,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_RMA,15,Real Madrid,Valencia,3,Trent Alexander-Arnold,FB,28104124,https://database.footballmanagerblog.org/fm26/clubs/1736-real-madrid,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_RMA,15,Real Madrid,Valencia,4,Éder Militão,CB,19273276,https://database.footballmanagerblog.org/fm26/clubs/1736-real-madrid,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_RMA,15,Real Madrid,Valencia,5,Antonio Rüdiger,CB,92023410,https://database.footballmanagerblog.org/fm26/clubs/1736-real-madrid,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_RMA,15,Real Madrid,Valencia,6,Dani Carvajal,FB,67139735,https://database.footballmanagerblog.org/fm26/clubs/1736-real-madrid,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_RMA,15,Real Madrid,Valencia,7,David Alaba,FB,16010162,https://database.footballmanagerblog.org/fm26/clubs/1736-real-madrid,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_RMA,15,Real Madrid,Valencia,8,Álvaro Carreras,FB,2000032706,https://database.footballmanagerblog.org/fm26/clubs/1736-real-madrid,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_RMA,15,Real Madrid,Valencia,9,Fran García,FB,67245235,https://database.footballmanagerblog.org/fm26/clubs/1736-real-madrid,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_RMA,15,Real Madrid,Valencia,10,Raúl Asencio,CB,2000126407,https://database.footballmanagerblog.org/fm26/clubs/1736-real-madrid,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_RMA,15,Real Madrid,Valencia,11,Dean Huijsen,CB,2000109240,https://database.footballmanagerblog.org/fm26/clubs/1736-real-madrid,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_RMA,15,Real Madrid,Valencia,12,Kylian Mbappé,WG,85139014,https://database.footballmanagerblog.org/fm26/clubs/1736-real-madrid,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_RMA,15,Real Madrid,Valencia,13,Federico Valverde,CM,78074594,https://database.footballmanagerblog.org/fm26/clubs/1736-real-madrid,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_RMA,15,Real Madrid,Valencia,14,Jude Bellingham,CM,29232937,https://database.footballmanagerblog.org/fm26/clubs/1736-real-madrid,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_RMA,15,Real Madrid,Valencia,15,Vinícius Júnior,WG,19302146,https://database.footballmanagerblog.org/fm26/clubs/1736-real-madrid,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_RMA,15,Real Madrid,Valencia,16,Aurélien Tchouaméni,DM,48042326,https://database.footballmanagerblog.org/fm26/clubs/1736-real-madrid,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_RMA,15,Real Madrid,Valencia,17,Eduardo Camavinga,DM,49056243,https://database.footballmanagerblog.org/fm26/clubs/1736-real-madrid,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_RMA,15,Real Madrid,Valencia,18,Rodrygo,WG,19306929,https://database.footballmanagerblog.org/fm26/clubs/1736-real-madrid,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_RMA,15,Real Madrid,Valencia,19,Brahim Díaz,AM,28106999,https://database.footballmanagerblog.org/fm26/clubs/1736-real-madrid,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_RMA,15,Real Madrid,Valencia,20,Arda Güler,AM,2000077193,https://database.footballmanagerblog.org/fm26/clubs/1736-real-madrid,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_RMA,15,Real Madrid,Valencia,21,Gonzalo,ST,2000143029,https://database.footballmanagerblog.org/fm26/clubs/1736-real-madrid,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_RMA,15,Real Madrid,Valencia,22,Franco Mastantuono,AM,2000183231,https://database.footballmanagerblog.org/fm26/clubs/1736-real-madrid,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_PSG,16,PSG,Madrid,1,Lucas Chevalier,GK,49048357,https://database.footballmanagerblog.org/fm26/clubs/868-paris-saint-germain,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_PSG,16,PSG,Madrid,2,Matvey Safonov,GK,58123738,https://database.footballmanagerblog.org/fm26/clubs/868-paris-saint-germain,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_PSG,16,PSG,Madrid,3,Achraf Hakimi,FB,67228634,https://database.footballmanagerblog.org/fm26/clubs/868-paris-saint-germain,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_PSG,16,PSG,Madrid,4,Nuno Mendes,FB,83261910,https://database.footballmanagerblog.org/fm26/clubs/868-paris-saint-germain,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_PSG,16,PSG,Madrid,5,Marquinhos,CB,19163495,https://database.footballmanagerblog.org/fm26/clubs/868-paris-saint-germain,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_PSG,16,PSG,Madrid,6,Willian Pacho,CB,86075795,https://database.footballmanagerblog.org/fm26/clubs/868-paris-saint-germain,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_PSG,16,PSG,Madrid,7,Lucas Hernández,CB,67197145,https://database.footballmanagerblog.org/fm26/clubs/868-paris-saint-germain,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_PSG,16,PSG,Madrid,8,Illia Zabarnyi,CB,71113679,https://database.footballmanagerblog.org/fm26/clubs/868-paris-saint-germain,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_PSG,16,PSG,Madrid,9,Beraldo,CB,2000094252,https://database.footballmanagerblog.org/fm26/clubs/868-paris-saint-germain,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_PSG,16,PSG,Madrid,10,Ousmane Dembélé,ST,85140178,https://database.footballmanagerblog.org/fm26/clubs/868-paris-saint-germain,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_PSG,16,PSG,Madrid,11,Vitinha,DM,83174762,https://database.footballmanagerblog.org/fm26/clubs/868-paris-saint-germain,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_PSG,16,PSG,Madrid,12,Khvicha Kvaratskhelia,WG,59130638,https://database.footballmanagerblog.org/fm26/clubs/868-paris-saint-germain,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_PSG,16,PSG,Madrid,13,João Neves,CM,2000030130,https://database.footballmanagerblog.org/fm26/clubs/868-paris-saint-germain,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_PSG,16,PSG,Madrid,14,Fabián,CM,67216396,https://database.footballmanagerblog.org/fm26/clubs/868-paris-saint-germain,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_PSG,16,PSG,Madrid,15,Bradley Barcola,WG,49056282,https://database.footballmanagerblog.org/fm26/clubs/868-paris-saint-germain,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_PSG,16,PSG,Madrid,16,Désiré Doué,WG,2000115202,https://database.footballmanagerblog.org/fm26/clubs/868-paris-saint-germain,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_PSG,16,PSG,Madrid,17,Kang-In Lee,WG,67260506,https://database.footballmanagerblog.org/fm26/clubs/868-paris-saint-germain,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_PSG,16,PSG,Madrid,18,Warren Zaïre-Emery,CM,2000179712,https://database.footballmanagerblog.org/fm26/clubs/868-paris-saint-germain,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_PSG,16,PSG,Madrid,19,Senny Mayulu,CM,2000179713,https://database.footballmanagerblog.org/fm26/clubs/868-paris-saint-germain,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_PSG,16,PSG,Madrid,20,Ibrahim Mbaye,WG,2000385919,https://database.footballmanagerblog.org/fm26/clubs/868-paris-saint-germain,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_PSG,16,PSG,Madrid,21,Gonçalo Ramos,ST,83209468,https://database.footballmanagerblog.org/fm26/clubs/868-paris-saint-germain,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_PSG,16,PSG,Madrid,22,Quentin Ndjantou,ST,2000288850,https://database.footballmanagerblog.org/fm26/clubs/868-paris-saint-germain,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BAR,17,Barcelona,Barcelona,1,Joan García,GK,67277675,https://database.footballmanagerblog.org/fm26/clubs/1708-fc-barcelona,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BAR,17,Barcelona,Barcelona,2,Wojciech Szczęsny,GK,28009478,https://database.footballmanagerblog.org/fm26/clubs/1708-fc-barcelona,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BAR,17,Barcelona,Barcelona,3,Jules Koundé,FB,48036304,https://database.footballmanagerblog.org/fm26/clubs/1708-fc-barcelona,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BAR,17,Barcelona,Barcelona,4,Eric García,CB,28116427,https://database.footballmanagerblog.org/fm26/clubs/1708-fc-barcelona,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BAR,17,Barcelona,Barcelona,5,Alejandro Balde,FB,67296654,https://database.footballmanagerblog.org/fm26/clubs/1708-fc-barcelona,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BAR,17,Barcelona,Barcelona,6,Andreas Christensen,CB,27066387,https://database.footballmanagerblog.org/fm26/clubs/1708-fc-barcelona,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BAR,17,Barcelona,Barcelona,7,Pau Cubarsí,CB,2000296497,https://database.footballmanagerblog.org/fm26/clubs/1708-fc-barcelona,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BAR,17,Barcelona,Barcelona,8,João Cancelo,FB,55041623,https://database.footballmanagerblog.org/fm26/clubs/1708-fc-barcelona,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BAR,17,Barcelona,Barcelona,9,Ronald Araujo,CB,78085068,https://database.footballmanagerblog.org/fm26/clubs/1708-fc-barcelona,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BAR,17,Barcelona,Barcelona,10,Gerard Martín,FB,2000101061,https://database.footballmanagerblog.org/fm26/clubs/1708-fc-barcelona,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BAR,17,Barcelona,Barcelona,11,Pedri,CM,67293495,https://database.footballmanagerblog.org/fm26/clubs/1708-fc-barcelona,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BAR,17,Barcelona,Barcelona,12,Lamine Yamal,WG,2000256231,https://database.footballmanagerblog.org/fm26/clubs/1708-fc-barcelona,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BAR,17,Barcelona,Barcelona,13,Raphinha,WG,19242277,https://database.footballmanagerblog.org/fm26/clubs/1708-fc-barcelona,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BAR,17,Barcelona,Barcelona,14,Frenkie de Jong,CM,37047745,https://database.footballmanagerblog.org/fm26/clubs/1708-fc-barcelona,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BAR,17,Barcelona,Barcelona,15,Dani Olmo,AM,24048100,https://database.footballmanagerblog.org/fm26/clubs/1708-fc-barcelona,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BAR,17,Barcelona,Barcelona,16,Fermín,AM,2000141742,https://database.footballmanagerblog.org/fm26/clubs/1708-fc-barcelona,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BAR,17,Barcelona,Barcelona,17,Ferran Torres,ST,89056845,https://database.footballmanagerblog.org/fm26/clubs/1708-fc-barcelona,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BAR,17,Barcelona,Barcelona,18,Marcus Rashford,WG,28100266,https://database.footballmanagerblog.org/fm26/clubs/1708-fc-barcelona,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BAR,17,Barcelona,Barcelona,19,Gavi,CM,2000049413,https://database.footballmanagerblog.org/fm26/clubs/1708-fc-barcelona,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BAR,17,Barcelona,Barcelona,20,Marc Casadó,DM,2000058198,https://database.footballmanagerblog.org/fm26/clubs/1708-fc-barcelona,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BAR,17,Barcelona,Barcelona,21,Roony Bardghji,WG,2000088490,https://database.footballmanagerblog.org/fm26/clubs/1708-fc-barcelona,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_BAR,17,Barcelona,Barcelona,22,Robert Lewandowski,ST,719601,https://database.footballmanagerblog.org/fm26/clubs/1708-fc-barcelona,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_TOT,18,Tottenham,West Ham,1,Guglielmo Vicario,GK,43155241,https://database.footballmanagerblog.org/fm26/clubs/728-tottenham,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_TOT,18,Tottenham,West Ham,2,Antonín Kinský,GK,2000039995,https://database.footballmanagerblog.org/fm26/clubs/728-tottenham,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_TOT,18,Tottenham,West Ham,3,Cristian Romero,CB,14130029,https://database.footballmanagerblog.org/fm26/clubs/728-tottenham,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_TOT,18,Tottenham,West Ham,4,Micky van de Ven,CB,37084591,https://database.footballmanagerblog.org/fm26/clubs/728-tottenham,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_TOT,18,Tottenham,West Ham,5,Destiny Udogie,FB,43426047,https://database.footballmanagerblog.org/fm26/clubs/728-tottenham,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_TOT,18,Tottenham,West Ham,6,Kevin Danso,CB,91144914,https://database.footballmanagerblog.org/fm26/clubs/728-tottenham,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_TOT,18,Tottenham,West Ham,7,Pedro Porro,FB,67268221,https://database.footballmanagerblog.org/fm26/clubs/728-tottenham,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_TOT,18,Tottenham,West Ham,8,Djed Spence,FB,29178504,https://database.footballmanagerblog.org/fm26/clubs/728-tottenham,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_TOT,18,Tottenham,West Ham,9,Radu Drăguşin,CB,57178516,https://database.footballmanagerblog.org/fm26/clubs/728-tottenham,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_TOT,18,Tottenham,West Ham,10,Ben Davies,CB,28049754,https://database.footballmanagerblog.org/fm26/clubs/728-tottenham,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_TOT,18,Tottenham,West Ham,11,Dejan Kulusevski,AM,43295814,https://database.footballmanagerblog.org/fm26/clubs/728-tottenham,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_TOT,18,Tottenham,West Ham,12,James Maddison,AM,28093567,https://database.footballmanagerblog.org/fm26/clubs/728-tottenham,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_TOT,18,Tottenham,West Ham,13,Mohammed Kudus,WG,13200568,https://database.footballmanagerblog.org/fm26/clubs/728-tottenham,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_TOT,18,Tottenham,West Ham,14,João Palhinha,DM,55070285,https://database.footballmanagerblog.org/fm26/clubs/728-tottenham,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_TOT,18,Tottenham,West Ham,15,Xavi Simons,AM,67288555,https://database.footballmanagerblog.org/fm26/clubs/728-tottenham,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_TOT,18,Tottenham,West Ham,16,Conor Gallagher,CM,28108036,https://database.footballmanagerblog.org/fm26/clubs/728-tottenham,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_TOT,18,Tottenham,West Ham,17,Rodrigo Bentancur,CM,14094572,https://database.footballmanagerblog.org/fm26/clubs/728-tottenham,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_TOT,18,Tottenham,West Ham,18,Yves Bissouma,DM,13174979,https://database.footballmanagerblog.org/fm26/clubs/728-tottenham,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_TOT,18,Tottenham,West Ham,19,Lucas Bergvall,CM,2000169739,https://database.footballmanagerblog.org/fm26/clubs/728-tottenham,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_TOT,18,Tottenham,West Ham,20,Pape Matar Sarr,CM,12080051,https://database.footballmanagerblog.org/fm26/clubs/728-tottenham,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_TOT,18,Tottenham,West Ham,21,Dominic Solanke,ST,29125191,https://database.footballmanagerblog.org/fm26/clubs/728-tottenham,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_TOT,18,Tottenham,West Ham,22,Randal Kolo Muani,ST,48043873,https://database.footballmanagerblog.org/fm26/clubs/728-tottenham,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_MCI,19,ManCity,Leeds,1,Gianluigi Donnarumma,GK,43252073,https://database.footballmanagerblog.org/fm26/clubs/679-man-city,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_MCI,19,ManCity,Leeds,2,James Trafford,GK,28126242,https://database.footballmanagerblog.org/fm26/clubs/679-man-city,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_MCI,19,ManCity,Leeds,3,Rúben Dias,CB,55070299,https://database.footballmanagerblog.org/fm26/clubs/679-man-city,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_MCI,19,ManCity,Leeds,4,Marc Guéhi,CB,28108033,https://database.footballmanagerblog.org/fm26/clubs/679-man-city,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_MCI,19,ManCity,Leeds,5,John Stones,CB,28060397,https://database.footballmanagerblog.org/fm26/clubs/679-man-city,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_MCI,19,ManCity,Leeds,6,Joško Gvardiol,FB,24060473,https://database.footballmanagerblog.org/fm26/clubs/679-man-city,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_MCI,19,ManCity,Leeds,7,Matheus Nunes,FB,83188780,https://database.footballmanagerblog.org/fm26/clubs/679-man-city,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_MCI,19,ManCity,Leeds,8,Nathan Aké,CB,37025551,https://database.footballmanagerblog.org/fm26/clubs/679-man-city,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_MCI,19,ManCity,Leeds,9,Abdukodir Khusanov,CB,2000168014,https://database.footballmanagerblog.org/fm26/clubs/679-man-city,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_MCI,19,ManCity,Leeds,10,Nico O'Reilly,FB,2000101285,https://database.footballmanagerblog.org/fm26/clubs/679-man-city,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_MCI,19,ManCity,Leeds,11,Rayan Aït-Nouri,FB,49047581,https://database.footballmanagerblog.org/fm26/clubs/679-man-city,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_MCI,19,ManCity,Leeds,12,Rodri,DM,67217524,https://database.footballmanagerblog.org/fm26/clubs/679-man-city,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_MCI,19,ManCity,Leeds,13,Phil Foden,WG,28108494,https://database.footballmanagerblog.org/fm26/clubs/679-man-city,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_MCI,19,ManCity,Leeds,14,Bernardo Silva,CM,55041632,https://database.footballmanagerblog.org/fm26/clubs/679-man-city,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_MCI,19,ManCity,Leeds,15,Jérémy Doku,WG,18106083,https://database.footballmanagerblog.org/fm26/clubs/679-man-city,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_MCI,19,ManCity,Leeds,16,Omar Marmoush,ST,91205962,https://database.footballmanagerblog.org/fm26/clubs/679-man-city,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_MCI,19,ManCity,Leeds,17,Rayan Cherki,AM,49056279,https://database.footballmanagerblog.org/fm26/clubs/679-man-city,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_MCI,19,ManCity,Leeds,18,Antoine Semenyo,WG,29194724,https://database.footballmanagerblog.org/fm26/clubs/679-man-city,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_MCI,19,ManCity,Leeds,19,Tijjani Reijnders,CM,37071126,https://database.footballmanagerblog.org/fm26/clubs/679-man-city,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_MCI,19,ManCity,Leeds,20,Mateo Kovačić,CM,24016925,https://database.footballmanagerblog.org/fm26/clubs/679-man-city,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_MCI,19,ManCity,Leeds,21,Savinho,WG,2000011972,https://database.footballmanagerblog.org/fm26/clubs/679-man-city,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_MCI,19,ManCity,Leeds,22,Erling Haaland,ST,29179241,https://database.footballmanagerblog.org/fm26/clubs/679-man-city,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_LIV,20,Liverpool,Liverpool,1,Alisson,GK,19058734,https://database.footballmanagerblog.org/fm26/clubs/676-liverpool,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_LIV,20,Liverpool,Liverpool,2,Giorgi Mamardashvili,GK,59138294,https://database.footballmanagerblog.org/fm26/clubs/676-liverpool,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_LIV,20,Liverpool,Liverpool,3,Freddie Woodman,GK,28091347,https://database.footballmanagerblog.org/fm26/clubs/676-liverpool,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_LIV,20,Liverpool,Liverpool,4,Virgil van Dijk,CB,37024025,https://database.footballmanagerblog.org/fm26/clubs/676-liverpool,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_LIV,20,Liverpool,Liverpool,5,Ibrahima Konaté,CB,48037822,https://database.footballmanagerblog.org/fm26/clubs/676-liverpool,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_LIV,20,Liverpool,Liverpool,6,Jeremie Frimpong,FB,28113828,https://database.footballmanagerblog.org/fm26/clubs/676-liverpool,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_LIV,20,Liverpool,Liverpool,7,Andrew Robertson,FB,61043456,https://database.footballmanagerblog.org/fm26/clubs/676-liverpool,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_LIV,20,Liverpool,Liverpool,8,Miloš Kerkez,FB,2000011147,https://database.footballmanagerblog.org/fm26/clubs/676-liverpool,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_LIV,20,Liverpool,Liverpool,9,Joe Gomez,CB,29115800,https://database.footballmanagerblog.org/fm26/clubs/676-liverpool,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_LIV,20,Liverpool,Liverpool,10,Conor Bradley,FB,28127166,https://database.footballmanagerblog.org/fm26/clubs/676-liverpool,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_LIV,20,Liverpool,Liverpool,11,Mohamed Salah,WG,98028755,https://database.footballmanagerblog.org/fm26/clubs/676-liverpool,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_LIV,20,Liverpool,Liverpool,12,Alexander Isak,ST,93070286,https://database.footballmanagerblog.org/fm26/clubs/676-liverpool,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_LIV,20,Liverpool,Liverpool,13,Florian Wirtz,AM,91193048,https://database.footballmanagerblog.org/fm26/clubs/676-liverpool,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_LIV,20,Liverpool,Liverpool,14,Alexis Mac Allister,CM,14157184,https://database.footballmanagerblog.org/fm26/clubs/676-liverpool,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_LIV,20,Liverpool,Liverpool,15,Dominik Szoboszlai,CM,16202373,https://database.footballmanagerblog.org/fm26/clubs/676-liverpool,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_LIV,20,Liverpool,Liverpool,16,Ryan Gravenberch,CM,37071197,https://database.footballmanagerblog.org/fm26/clubs/676-liverpool,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_LIV,20,Liverpool,Liverpool,17,Cody Gakpo,WG,37062185,https://database.footballmanagerblog.org/fm26/clubs/676-liverpool,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_LIV,20,Liverpool,Liverpool,18,Curtis Jones,CM,28115788,https://database.footballmanagerblog.org/fm26/clubs/676-liverpool,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_LIV,20,Liverpool,Liverpool,19,Federico Chiesa,WG,43161651,https://database.footballmanagerblog.org/fm26/clubs/676-liverpool,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_LIV,20,Liverpool,Liverpool,20,Wataru Endo,DM,45030953,https://database.footballmanagerblog.org/fm26/clubs/676-liverpool,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_LIV,20,Liverpool,Liverpool,21,Rio Ngumoha,WG,2000399897,https://database.footballmanagerblog.org/fm26/clubs/676-liverpool,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_LIV,20,Liverpool,Liverpool,22,Hugo Ekitiké,ST,49062667,https://database.footballmanagerblog.org/fm26/clubs/676-liverpool,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_CHE,21,Chelsea,Chelsea,1,Robert Sánchez,GK,29156212,https://database.footballmanagerblog.org/fm26/clubs/630-chelsea,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_CHE,21,Chelsea,Chelsea,2,Filip Jörgensen,GK,67283140,https://database.footballmanagerblog.org/fm26/clubs/630-chelsea,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_CHE,21,Chelsea,Chelsea,3,Reece James,FB,28108035,https://database.footballmanagerblog.org/fm26/clubs/630-chelsea,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_CHE,21,Chelsea,Chelsea,4,Wesley Fofana,CB,49037900,https://database.footballmanagerblog.org/fm26/clubs/630-chelsea,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_CHE,21,Chelsea,Chelsea,5,Levi Colwill,CB,28124573,https://database.footballmanagerblog.org/fm26/clubs/630-chelsea,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_CHE,21,Chelsea,Chelsea,6,Trevoh Chalobah,CB,28103591,https://database.footballmanagerblog.org/fm26/clubs/630-chelsea,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_CHE,21,Chelsea,Chelsea,7,Marc Cucurella,FB,67215284,https://database.footballmanagerblog.org/fm26/clubs/630-chelsea,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_CHE,21,Chelsea,Chelsea,8,Benoît Badiashile,CB,49038942,https://database.footballmanagerblog.org/fm26/clubs/630-chelsea,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_CHE,21,Chelsea,Chelsea,9,Jorrel Hato,CB,2000105654,https://database.footballmanagerblog.org/fm26/clubs/630-chelsea,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_CHE,21,Chelsea,Chelsea,10,Malo Gusto,FB,49056280,https://database.footballmanagerblog.org/fm26/clubs/630-chelsea,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_CHE,21,Chelsea,Chelsea,11,Tosin Adarabioyo,CB,28100239,https://database.footballmanagerblog.org/fm26/clubs/630-chelsea,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_CHE,21,Chelsea,Chelsea,12,Cole Palmer,AM,28120042,https://database.footballmanagerblog.org/fm26/clubs/630-chelsea,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_CHE,21,Chelsea,Chelsea,13,Enzo Fernández,CM,14229525,https://database.footballmanagerblog.org/fm26/clubs/630-chelsea,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_CHE,21,Chelsea,Chelsea,14,Moisés Caicedo,DM,86078360,https://database.footballmanagerblog.org/fm26/clubs/630-chelsea,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_CHE,21,Chelsea,Chelsea,15,João Pedro,AM,19371552,https://database.footballmanagerblog.org/fm26/clubs/630-chelsea,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_CHE,21,Chelsea,Chelsea,16,Alejandro Garnacho,WG,2000035036,https://database.footballmanagerblog.org/fm26/clubs/630-chelsea,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_CHE,21,Chelsea,Chelsea,17,Pedro Neto,WG,29179717,https://database.footballmanagerblog.org/fm26/clubs/630-chelsea,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_CHE,21,Chelsea,Chelsea,18,Estêvão,WG,2000263999,https://database.footballmanagerblog.org/fm26/clubs/630-chelsea,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_CHE,21,Chelsea,Chelsea,19,Jamie Gittens,WG,2000015300,https://database.footballmanagerblog.org/fm26/clubs/630-chelsea,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_CHE,21,Chelsea,Chelsea,20,Roméo Lavia,DM,18115012,https://database.footballmanagerblog.org/fm26/clubs/630-chelsea,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_CHE,21,Chelsea,Chelsea,21,Andrey Santos,CM,2000007415,https://database.footballmanagerblog.org/fm26/clubs/630-chelsea,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_CHE,21,Chelsea,Chelsea,22,Liam Delap,ST,28126247,https://database.footballmanagerblog.org/fm26/clubs/630-chelsea,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ARS,22,Arsenal,London,1,David Raya,GK,29111433,https://database.footballmanagerblog.org/fm26/clubs/602-arsenal,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ARS,22,Arsenal,London,2,Kepa Arrizabalaga,GK,67157624,https://database.footballmanagerblog.org/fm26/clubs/602-arsenal,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ARS,22,Arsenal,London,3,William Saliba,CB,49039004,https://database.footballmanagerblog.org/fm26/clubs/602-arsenal,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ARS,22,Arsenal,London,4,Gabriel,CB,19242094,https://database.footballmanagerblog.org/fm26/clubs/602-arsenal,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ARS,22,Arsenal,London,5,Jurriën Timber,FB,37063644,https://database.footballmanagerblog.org/fm26/clubs/602-arsenal,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ARS,22,Arsenal,London,6,Benjamin White,FB,29141472,https://database.footballmanagerblog.org/fm26/clubs/602-arsenal,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ARS,22,Arsenal,London,7,Riccardo Calafiori,FB,43424738,https://database.footballmanagerblog.org/fm26/clubs/602-arsenal,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ARS,22,Arsenal,London,8,Piero Hincapié,CB,86066853,https://database.footballmanagerblog.org/fm26/clubs/602-arsenal,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ARS,22,Arsenal,London,9,Cristhian Mosquera,CB,2000030816,https://database.footballmanagerblog.org/fm26/clubs/602-arsenal,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ARS,22,Arsenal,London,10,Myles Lewis-Skelly,FB,2000283274,https://database.footballmanagerblog.org/fm26/clubs/602-arsenal,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ARS,22,Arsenal,London,11,Declan Rice,CM,28106491,https://database.footballmanagerblog.org/fm26/clubs/602-arsenal,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ARS,22,Arsenal,London,12,Bukayo Saka,WG,28122642,https://database.footballmanagerblog.org/fm26/clubs/602-arsenal,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ARS,22,Arsenal,London,13,Martin Ødegaard,CM,53095137,https://database.footballmanagerblog.org/fm26/clubs/602-arsenal,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ARS,22,Arsenal,London,14,Martín Zubimendi,DM,67246385,https://database.footballmanagerblog.org/fm26/clubs/602-arsenal,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ARS,22,Arsenal,London,15,Gabriel Martinelli,WG,19351309,https://database.footballmanagerblog.org/fm26/clubs/602-arsenal,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ARS,22,Arsenal,London,16,Kai Havertz,ST,91151081,https://database.footballmanagerblog.org/fm26/clubs/602-arsenal,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ARS,22,Arsenal,London,17,Ebere Eze,AM,29156522,https://database.footballmanagerblog.org/fm26/clubs/602-arsenal,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ARS,22,Arsenal,London,18,Leandro Trossard,WG,18054004,https://database.footballmanagerblog.org/fm26/clubs/602-arsenal,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ARS,22,Arsenal,London,19,Mikel Merino,CM,67211760,https://database.footballmanagerblog.org/fm26/clubs/602-arsenal,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ARS,22,Arsenal,London,20,Noni Madueke,WG,37076092,https://database.footballmanagerblog.org/fm26/clubs/602-arsenal,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ARS,22,Arsenal,London,21,Gabriel Jesus,ST,19220266,https://database.footballmanagerblog.org/fm26/clubs/602-arsenal,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_ARS,22,Arsenal,London,22,Viktor Gyökeres,ST,93070271,https://database.footballmanagerblog.org/fm26/clubs/602-arsenal,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_MUN,23,Man United,Manchester,1,Senne Lammens,GK,18107436,https://database.footballmanagerblog.org/fm26/clubs/680-man-utd,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_MUN,23,Man United,Manchester,2,Altay Bayındır,GK,70099201,https://database.footballmanagerblog.org/fm26/clubs/680-man-utd,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_MUN,23,Man United,Manchester,3,Tom Heaton,GK,5112064,https://database.footballmanagerblog.org/fm26/clubs/680-man-utd,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_MUN,23,Man United,Manchester,4,Matthijs de Ligt,CB,37055843,https://database.footballmanagerblog.org/fm26/clubs/680-man-utd,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_MUN,23,Man United,Manchester,5,Lisandro Martínez,CB,14167329,https://database.footballmanagerblog.org/fm26/clubs/680-man-utd,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_MUN,23,Man United,Manchester,6,Luke Shaw,FB,29076105,https://database.footballmanagerblog.org/fm26/clubs/680-man-utd,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_MUN,23,Man United,Manchester,7,Amad,WG,43425040,https://database.footballmanagerblog.org/fm26/clubs/680-man-utd,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_MUN,23,Man United,Manchester,8,Noussair Mazraoui,FB,37052470,https://database.footballmanagerblog.org/fm26/clubs/680-man-utd,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_MUN,23,Man United,Manchester,9,Harry Maguire,CB,28049740,https://database.footballmanagerblog.org/fm26/clubs/680-man-utd,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_MUN,23,Man United,Manchester,10,Diogo Dalot,FB,83105845,https://database.footballmanagerblog.org/fm26/clubs/680-man-utd,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_MUN,23,Man United,Manchester,11,Leny Yoro,CB,2000182819,https://database.footballmanagerblog.org/fm26/clubs/680-man-utd,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_MUN,23,Man United,Manchester,12,Patrick Dorgu,FB,27164470,https://database.footballmanagerblog.org/fm26/clubs/680-man-utd,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_MUN,23,Man United,Manchester,13,Ayden Heaven,CB,2000301027,https://database.footballmanagerblog.org/fm26/clubs/680-man-utd,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_MUN,23,Man United,Manchester,14,Bruno Fernandes,AM,43124203,https://database.footballmanagerblog.org/fm26/clubs/680-man-utd,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_MUN,23,Man United,Manchester,15,Bryan Mbeumo,WG,48042658,https://database.footballmanagerblog.org/fm26/clubs/680-man-utd,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_MUN,23,Man United,Manchester,16,Matheus Cunha,AM,19334410,https://database.footballmanagerblog.org/fm26/clubs/680-man-utd,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_MUN,23,Man United,Manchester,17,Mason Mount,AM,28103590,https://database.footballmanagerblog.org/fm26/clubs/680-man-utd,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_MUN,23,Man United,Manchester,18,Kobbie Mainoo,CM,2000123586,https://database.footballmanagerblog.org/fm26/clubs/680-man-utd,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_MUN,23,Man United,Manchester,19,Casemiro,DM,19061518,https://database.footballmanagerblog.org/fm26/clubs/680-man-utd,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_MUN,23,Man United,Manchester,20,Manuel Ugarte,CM,78084541,https://database.footballmanagerblog.org/fm26/clubs/680-man-utd,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_MUN,23,Man United,Manchester,21,Benjamin Šeško,ST,62246208,https://database.footballmanagerblog.org/fm26/clubs/680-man-utd,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
+CLB_MUN,23,Man United,Manchester,22,Joshua Zirkzee,ST,37060922,https://database.footballmanagerblog.org/fm26/clubs/680-man-utd,V20_UNVERIFIED_MEMBERSHIP_CANDIDATE,,NOT_MAPPED_NOT_IN_GAME
