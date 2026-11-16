@@ -43,7 +43,7 @@ def source_id(r):
         m=re.search(r"/player/(\d+)",u)
         v=m.group(1) if m else ""
     if v.endswith(".0"):v=v[:-2]
-    return v if v.isdigit() else ""
+    return v if v.isdigit() and int(v)>0 else ""
 def index_names(r):
     return {norm(v) for v in (val(r,"name","short_name"),val(r,"full_name","long_name"),
             val(r,"short_name"),val(r,"long_name"),val(r,"full_name")) if norm(v)}
@@ -60,12 +60,15 @@ def bit_record(r):
     return {k:int(r[k]) for k in RAW if str(r.get(k,"")).strip().lstrip("-").isdigit()}
 def match(manifest,fc25,sofifa,fc26):
     raw={}
+    duplicates=set()
     for r in fc25:
         # EA gender 0 in this dump is men's football; do not use women's records.
         if r.get("gender")!="0":continue
         eid=source_id(r)
-        if eid in raw:raise ValueError("duplicate EA player ID "+eid)
+        if not eid:continue
+        if eid in raw:duplicates.add(eid)
         raw[eid]=r
+    for eid in duplicates:raw.pop(eid,None)
     a=source_index(sofifa,"FC25_SOFIFA_NAME_DOB")
     b=source_index(fc26,"FC26_NAME_DOB_TO_FC25_MODEL")
     result=[]
