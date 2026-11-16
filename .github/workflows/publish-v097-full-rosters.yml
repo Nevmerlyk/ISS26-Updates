@@ -1,0 +1,29 @@
+name: Publish verified ISS26 0.9.7 roster test
+on:
+  push:
+    branches: [feature/v096-player-database-integration]
+    paths: ['.github/workflows/publish-v097-full-rosters.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reconstruct exact independently validated patch
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 'https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.6-test1/ISS26_Test_0.9.6.iss26p' -o /tmp/carrier.iss26p
+          python tools/reconstruct_v097_verified.py --carrier /tmp/carrier.iss26p --out artifacts
+          echo 'acba2d25d505d949d95718092cde2d23baf0c361ab17fbf127db411ad7c3d870  artifacts/ISS26_Test_0.9.7.iss26p' | sha256sum -c -
+      - name: Publish test release, leave stable and feeds untouched
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh release create v0.9.7-test1 artifacts/ISS26_Test_0.9.7.iss26p artifacts/ISS26_Test_0.9.7.report.json --target "$GITHUB_SHA" --prerelease --title 'ISS26 0.9.7 Test 1 — national and club roster database' --notes 'Standalone XOR patch from clean EU Track01. All 54 national and 24 club rosters integrated: 1716 occupied slots, 220 shared national/club links, 308 extra club records, 15 attributes and age/height/foot/positions per unique modern record. Preserves 88 original bonus names and attributes. Independent full-disc SHA and 699 guards verified locally; runtime acceptance pending. Candidate source rosters and 3023 estimated ratings are not certified FM26/FIFA data. Club-only nationality, shirt numbers, appearances, weight and tactics are not modernized.'
+          gh release download v0.9.7-test1 --pattern 'ISS26_Test_0.9.7.iss26p' --dir /tmp/verify
+          echo 'acba2d25d505d949d95718092cde2d23baf0c361ab17fbf127db411ad7c3d870  /tmp/verify/ISS26_Test_0.9.7.iss26p' | sha256sum -c -
