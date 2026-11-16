@@ -1,0 +1,31 @@
+name: ISS26 merged bulk appearance candidate plan
+on:
+  push:
+    branches: [feature/v096-player-database-integration]
+    paths: ['.github/workflows/v096-merged-appearance-plan.yml','tools/merge_v096_appearance_candidates.py']
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  match:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reuse verified EA identity match from successful run
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh run download 43934305577 --name ISS26-v096-historical-appearance-reference-not-patch --dir /tmp/ea
+      - name: Match native candidates and merge covered memberships
+        shell: bash
+        run: |
+          set -eu
+          curl -fsSL --retry 2 'https://raw.githubusercontent.com/zetaprog/Easy-Mcr-Winning-Eleven-2002-PS1/30af1fe59cf96beee3b066f6cdfcb1b6f3df37cc/fifatomcr/bin/Debug/net8.0-windows10.0.17763.0/mydatabase.db' -o /tmp/reference.db
+          python tools/match_v096_we2002_appearance.py --db /tmp/reference.db --ea /tmp/ea/fc25_appearance_matches.csv --out output
+          python tools/merge_v096_appearance_candidates.py --native output/we2002_native_appearance_matches.csv --external /tmp/ea/fc25_appearance_matches.csv --out output
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ISS26-v096-combined-appearance-plan-not-patch
+          path: output/
+          if-no-files-found: error
+          retention-days: 30
