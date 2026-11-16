@@ -1,0 +1,43 @@
+name: ISS26 labelled World Cup portrait catalogue
+on:
+  push:
+    branches: [feature/v096-player-database-integration]
+    paths: ['.github/workflows/v096-worldcup-portrait-catalogue.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  index:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - name: Obtain only name and portrait links from publicly served team sheets
+        run: |
+          mkdir -p output
+          python - <<'PY'
+          import urllib.request,json,csv,concurrent.futures,re
+          base='https://interactive.guim.co.uk/docsdata/'
+          def read(s):
+              assert re.fullmatch('[A-Za-z0-9_-]+',s)
+              with urllib.request.urlopen(base+s+'.json',timeout=15) as r:return json.load(r)
+          teams=read('1_ZAfmUkTZ4BvDgvhEGaEruakfu4aWIIjjzXaMAiT1yc')['sheets']['Teams']
+          print('TEAMS',len(teams),list(teams[0]))
+          def fetch(t):
+              try:
+                  data=read(t['spreadsheet'])['sheets']['Players']
+                  result=[dict(team=t['Team'],name=p.get('name',''),number=p.get('number',''),url=p.get('grid_image',''),age=p.get('age',''),club=p.get('club','')) for p in data if p.get('name')]
+                  return result
+              except Exception as e:
+                  print('TEAM_ERROR',t.get('Team'),str(e));return []
+          with concurrent.futures.ThreadPoolExecutor(max_workers=4) as ex:
+              allrows=[p for a in ex.map(fetch,teams) for p in a]
+          print('PORTRAIT_COUNT',len(allrows),'links',sum(bool(x['url']) for x in allrows),'sample',json.dumps(allrows[:2],ensure_ascii=False))
+          with open('output/portrait_index.csv','w',encoding='utf-8',newline='') as o:
+              w=csv.DictWriter(o,fieldnames=['team','name','number','url','age','club'])
+              w.writeheader();w.writerows(allrows)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ISS26-worldcup-labelled-portrait-index
+          path: output/
+          retention-days: 1
