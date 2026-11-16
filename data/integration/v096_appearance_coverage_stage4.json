@@ -1,0 +1,31 @@
+{
+  "version": "0.9.6",
+  "status": "SOURCE_ONLY_NOT_RUNTIME_VERIFIED",
+  "total_roster_slots": 1716,
+  "native_or_individual_candidate_slots": 1219,
+  "native_complete_slots": 1214,
+  "historical_crosswalk_review_slots": 73,
+  "missing_source_slots": 398,
+  "needs_translation_slots": 26,
+  "shared_uid_conflicts": 0,
+  "changes_since_previous_stage": {
+    "native_candidate_slots": 206,
+    "historical_partial_slots": 73
+  },
+  "crosswalk": {
+    "independent_nonroster_training_and_holdout_players": 3668,
+    "accepted_candidate_codes": 10,
+    "new_field_values": 76
+  },
+  "runs": {
+    "expanded": "https://github.com/Nevmerlyk/ISS26-Updates/actions/runs/43936401342",
+    "full_name": "https://github.com/Nevmerlyk/ISS26-Updates/actions/runs/43936619710",
+    "crosswalk": "https://github.com/Nevmerlyk/ISS26-Updates/actions/runs/43936727625"
+  },
+  "limitations": [
+    "Counts are roster memberships, not unique binary records.",
+    "Community native appearance templates and historical EA model conversions are not independently visually verified in ISS Pro Evolution 2 PAL.",
+    "The original disc could not be accessed in the local runtime; no new BIN or standalone patch produced.",
+    "Stable and test feeds unchanged."
+  ]
+}
