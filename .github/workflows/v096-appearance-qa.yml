@@ -1,0 +1,29 @@
+name: ISS26 0.9.6 appearance source QA
+on:
+  push:
+    branches: [feature/v096-player-database-integration]
+    paths:
+      - '.github/workflows/v096-appearance-qa.yml'
+      - 'tools/build_v096_appearance_profiles.py'
+      - 'tests/test_v096_appearance_profiles.py'
+      - 'data/integration/v096_appearance_*'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  appearance-source-qa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate appearance candidates and bit isolation
+        run: python -m unittest discover -s tests -p test_v096_appearance_profiles.py -v
+      - name: Upload source-only profiles and queue
+        uses: actions/upload-artifact@v4
+        with:
+          name: ISS26-v096-appearance-source-not-a-patch
+          path: |
+            data/integration/v096_appearance_profiles_v2.json
+            data/integration/v096_appearance_review_queue.csv
+            tools/build_v096_appearance_profiles.py
+          if-no-files-found: error
+          retention-days: 14
