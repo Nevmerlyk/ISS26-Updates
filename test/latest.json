@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "channel": "test",
   "latest": {
-    "version": "0.9.7",
-    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.7-test1/ISS26_Test_0.9.7.iss26p",
-    "patchSha256": "ACBA2D25D505D949D95718092CDE2D23BAF0C361AB17FBF127DB411AD7C3D870",
+    "version": "0.9.5",
+    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.5-stable-4914c36bfac27aff/ISS26_0.9.5.iss26p",
+    "patchSha256": "4914C36BFAC27AFF4C4FB60BBD7AB49867FC1E67F26CE733686E73C79C839148",
     "baseSha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
-    "resultSha256": "48FFB37D302989052BFD69964E98DBF08E042AD99172062A95DC1CA690398C98"
+    "resultSha256": "BC6606EF3B16A110911D933E4926AF1394B44AEA4FEF6A0F289F85760AE548E6"
   },
-  "notes": "0.9.7 Test 1: all 54 national and 24 club rosters with 1716 occupied slots, shared identities, 15 attributes plus age, height, foot and position integrated. 88 original bonus player names/stats preserved byte-identically. Full clean Track01 digest and 699 guards validated locally; published asset SHA verified after download. Source roster candidates and estimated fields are provisional; runtime acceptance pending. Stable 0.9.5 unchanged. Supersedes withdrawn incomplete 0.9.6."
+  "notes": "Owner-requested withdrawal of 0.9.7 Test 1. Test channel temporarily points to stable 0.9.5. Preserve 0.9.7 roster database implementation and binary QA as development baseline for revised 0.9.6. Do not promote until owner approves revisions. Cached newer installations may require test-cache reset; stable feed unchanged."
 }
