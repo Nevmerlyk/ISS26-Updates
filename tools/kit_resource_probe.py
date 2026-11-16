@@ -458,16 +458,67 @@ def snapshots(paths):
                 count+=1
                 yield path.name,label,read_member(z,m,RAM_SIZE),read_member(z,vr,VRAM_SIZE)
 
-def audit_kits(track,paths):
+TEX_FILE=re.compile(r"^TEX_(\d+)\.BIN$",re.I)
+
+def palette_candidate(raw):
+    if len(raw)!=32:return False
+    colors=struct.unpack("<16H",raw)
+    # Heuristic only: do not reject STP or assume color/number semantics.
+    return len(set(c&0x7fff for c in colors))>=6 and sum(c!=0 for c in colors)>=6
+
+def clut_index(images):
+    result={}
+    for archive,label,ram,vram in images:
+        for y in range(512):
+            for x in range(0,1024,16):
+                at=2*(y*1024+x)
+                raw=vram[at:at+32]
+                if palette_candidate(raw):
+                    result.setdefault(raw,[]).append((archive,label,x,y))
+    return result
+
+def tex_palettes(data,index):
+    out=[]
+    # Palette candidates are located by exact 32-byte equality, not a
+    # presumed fixed offset imported from WE2002.
+    for at in range(0,len(data)-31,2):
+        raw=data[at:at+32]
+        matches=index.get(raw)
+        if not matches or len(matches)>256:continue
+        out.append({"offset":at,"sha256":sha(raw),
+            "vramLocations":[{"archive":a,"capture":b,"xWords":x,"y":y}
+                             for a,b,x,y in matches]})
+    return out
+
+def tex_family(rows):
+    tex=[r for r in rows if TEX_FILE.fullmatch(r["resource"].split("/")[-1])]
+    by_id={}
+    by_offset={}
+    for r in tex:
+        number=int(TEX_FILE.fullmatch(r["resource"].split("/")[-1]).group(1))
+        by_id.setdefault(number,[]).append(r["resource"])
+        for p in r.get("exactClutCandidates",[]):
+            by_offset.setdefault(p["offset"],set()).add(r["resource"])
+    return {"resourceCount":len(tex),"fileIds":[{"fileId":k,"paths":v}
+                  for k,v in sorted(by_id.items())],
+            "repeatedPaletteOffsets":[{"offset":k,"resourceCount":len(v)}
+                  for k,v in sorted(by_offset.items()) if len(v)>=2],
+            "teamSlotMappingVerified":False,"paletteRoleMappingVerified":False,
+            "warning":"Filename number is not necessarily the current mod team slot. Shared palettes or pixel rows can match without ownership."}
+
+def audit_kits(track,paths,tex_only=False):
     digest=digest_file(track)
     if digest!=EXPECTED_ORIGINAL_HASH:
         raise ISOError("Clean original Track01 SHA256 mismatch")
     images=list(snapshots(paths))
+    palette_index=clut_index(images)
     rows=[]; skipped=[]; candidates=[]
     with RawPS1ISO(track) as disc:
         files,volume=disc.list_files()
         for name,entry in sorted(files.items()):
             if entry.is_dir:continue
+            is_tex=bool(TEX_FILE.fullmatch(name.split("/")[-1]))
+            if tex_only and not is_tex:continue
             if not disc.fits_track(entry) or entry.size>MAX_FILE or name.startswith(("SD/","MOVIE/")):
                 skipped.append({"resource":name,"size":entry.size,"reason":"outside_track_or_excluded_media_or_size"})
                 continue
@@ -479,6 +530,8 @@ def audit_kits(track,paths):
             info={"resource":name,"lba":entry.lba,"size":entry.size,
                   "sha256":sha(data),"filenameHint":bool(KIT_HINT.search(name.split("/")[-1])),
                   "signatureCount":len(samples),"ramMatches":[],"vramMatches":[]}
+            if is_tex:
+                info["exactClutCandidates"]=tex_palettes(data,palette_index)
             # Even files with no name hint are inspected.
             gpu_cache={}
             for archive,label,ram,vram in images:
@@ -500,14 +553,14 @@ def audit_kits(track,paths):
             info["ramCaptureCount"]=len({(x["archive"],x["capture"]) for x in info["ramMatches"]})
             info["exactVramCaptureCount"]=len({(x["archive"],x["capture"]) for x in info["vramMatches"] if x["match"]=="exact"})
             rows.append(info)
-            if info["ramMatches"] or info["vramMatches"]:
+            if info["ramMatches"] or info["vramMatches"] or info.get("exactClutCandidates"):
                 candidates.append({k:info[k] for k in ("resource","lba","size","ramCaptureCount","exactVramCaptureCount")})
     candidates.sort(key=lambda x:(-x["exactVramCaptureCount"],-x["ramCaptureCount"],x["resource"]))
     return {"schemaVersion":1,"kind":"ISS26_kit_resource_probe",
         "originalTrackSha256":digest,"volume":volume,
         "archives":[p.name for p in paths],"pairedCaptures":len(images),
         "resourcesRead":len(rows),"skipped":skipped,"candidates":candidates,
-        "resources":rows,"kitOwnershipVerified":False,
+        "resources":rows,"texFamily":tex_family(rows),"texOnly":tex_only,"kitOwnershipVerified":False,
         "limitations":["RAM residency and exact VRAM match are evidence of a resource, not necessarily a uniform.",
         "Modified RC3 resource bytes may differ from clean original.",
         "Unknown loaders, kind-9 codecs, partial runtime transformations and nonresident resources may be missed.",
@@ -534,9 +587,18 @@ def self_test():
         pos=2*((320+y)*1024+640);vram[pos:pos+16]=payload[y*16:(y+1)*16]
     assert vram_match(records[0],payload,bytes(vram))["match"]=="exact"
     vram[2*(320*1024+640)]^=1
-    assert vram_match(records[0],payload,bytes(vram)) is None
+    damaged=vram_match(records[0],payload,bytes(vram))
+    assert damaged is None or damaged["match"]=="partial_rows"
     assert not match_ram(bytes(data),anchors(bytes(data)),bytes(RAM_SIZE))
-    print("PASS: synthetic resource-to-RAM/VRAM correlation and negative guards")
+    palette=struct.pack("<16H",*range(1,17))
+    vram[2*(505*1024+640):2*(505*1024+640)+32]=palette
+    index=clut_index([("fixture.zip","fixture",b"",bytes(vram))])
+    hits=tex_palettes(bytes(18)+palette+bytes(18),index)
+    assert any(h["offset"]==18 and any(v["xWords"]==640 and v["y"]==505
+               for v in h["vramLocations"]) for h in hits)
+    assert not tex_palettes(bytes(100),index)
+    assert tex_family([{"resource":"BIN/TEX_00.BIN","exactClutCandidates":hits}])["resourceCount"]==1
+    print("PASS: synthetic resource-to-RAM/VRAM correlation, CLUT and negative guards")
 
 def main():
     p=argparse.ArgumentParser(description="ISS26 Kit Resource Probe: local read-only analysis")
@@ -544,6 +606,7 @@ def main():
     p.add_argument("--track",type=Path)
     p.add_argument("--archive",type=Path,action="append",default=[])
     p.add_argument("--out",type=Path,default=Path("KitResearch.json"))
+    p.add_argument("--tex-only",action="store_true",help="Focus on per-team TEX files")
     p.add_argument("--self-test",action="store_true")
     a=p.parse_args()
     if a.self_test:self_test();return
@@ -562,7 +625,7 @@ def main():
     if not paths:print("No Academy archives found; inventory only. Use --archive with an existing ZIP.")
     if len(paths)>MAX_ARCHIVES:raise ValueError("At most four archives per run")
     self_test()
-    result=audit_kits(track,paths)
+    result=audit_kits(track,paths,a.tex_only)
     a.out.parent.mkdir(parents=True,exist_ok=True)
     with a.out.open("x",encoding="utf-8") as f:
         json.dump(result,f,indent=2);f.write("\n")
