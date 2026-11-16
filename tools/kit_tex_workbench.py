@@ -233,7 +233,8 @@ def selftest():
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     sub=p.add_subparsers(dest="mode",required=True)
-    scan=sub.add_parser("inventory");scan.add_argument("--track",type=Path,required=True)
+    scan=sub.add_parser("inventory");scan.add_argument("--track",type=Path)
+    scan.add_argument("--root",type=Path,default=Path(r"D:\ISS 26"))
     scan.add_argument("--archive",type=Path,action="append",default=[])
     scan.add_argument("--out",type=Path,required=True)
     preview=sub.add_parser("preview");preview.add_argument("tex",type=Path)
@@ -245,7 +246,10 @@ def main():
     if args.mode=="self-test":selftest();return
     if args.mode=="inventory":
         require(len(args.archive)<=4,"Too many archives")
-        report=inventory(args.track,args.archive)
+        track=args.track or original_track_from_cue(args.root/ORIGINAL_CUE)
+        archives=args.archive or sorted((args.root/"ISS26_Data"/"explorer"/"archives").glob("*.zip"),
+            key=lambda p:p.stat().st_mtime,reverse=True)[:4]
+        report=inventory(track,archives)
         with args.out.open("x",encoding="utf-8") as f:json.dump(report,f,indent=2)
         print("Candidate layouts:",report["candidateLayouts"],"/",report["texCount"])
     elif args.mode=="preview":
