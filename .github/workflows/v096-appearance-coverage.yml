@@ -1,0 +1,35 @@
+name: ISS26 expanded appearance coverage
+on:
+  push:
+    branches: [feature/v096-player-database-integration]
+    paths: ['.github/workflows/v096-appearance-coverage.yml','tools/expand_v096_appearance_coverage.py']
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  expand:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Retrieve validated matching artifacts
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh run download 43934305577 --name ISS26-v096-historical-appearance-reference-not-patch --dir /tmp/ea
+          gh run download 43935775581 --name ISS26-v096-refined-appearance-plan-not-patch --dir /tmp/native
+      - name: Retrieve pinned source tables and extend appearance references
+        run: |
+          set -eu
+          mkdir /tmp/appearance
+          curl -fsSL --retry 2 'https://raw.githubusercontent.com/Radzim/football_data/076dbb1e76413c93582385d8e56f18384dc6bee9/sofifa.csv' -o /tmp/appearance/sofifa.csv
+          curl -fsSL --retry 2 'https://raw.githubusercontent.com/ismailoksuz/EAFC26-DataHub/8724af5803a787c9c262eee2ac8f942651b0e4b9/data/players.csv' -o /tmp/appearance/fc26.csv
+          curl -fsSL --retry 2 'https://raw.githubusercontent.com/zetaprog/Easy-Mcr-Winning-Eleven-2002-PS1/30af1fe59cf96beee3b066f6cdfcb1b6f3df37cc/fifatomcr/bin/Debug/net8.0-windows10.0.17763.0/mydatabase.db' -o /tmp/reference.db
+          (cd /tmp/appearance && printf '%s\n' 'bb2cdb140716d86fcb5e8523c39750f5  sofifa.csv' '764f4c62d94cdefa5fc99d41f6bee08f  fc26.csv' | md5sum -c -)
+          python tools/expand_v096_appearance_coverage.py --src /tmp/appearance --native /tmp/native/we2002_native_appearance_matches.csv --external /tmp/ea/fc25_appearance_matches.csv --plan /tmp/native/bulk_appearance_candidate_plan.json --db /tmp/reference.db --out output
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ISS26-v096-expanded-appearance-candidates-not-patch
+          path: output/
+          if-no-files-found: error
+          retention-days: 30
