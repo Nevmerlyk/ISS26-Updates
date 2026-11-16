@@ -6,6 +6,8 @@ on:
       - '.github/workflows/v096-appearance-qa.yml'
       - 'tools/build_v096_appearance_profiles.py'
       - 'tests/test_v096_appearance_profiles.py'
+      - 'tests/test_v096_bulk_appearance.py'
+      - 'tools/refine_v096_appearance_identities.py'
       - 'data/integration/v096_appearance_*'
   workflow_dispatch:
 permissions:
@@ -16,7 +18,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Validate appearance candidates and bit isolation
-        run: python -m unittest discover -s tests -p test_v096_appearance_profiles.py -v
+        run: |
+          python -m unittest discover -s tests -p 'test_v096_appearance_profiles.py' -v
+          python -m unittest discover -s tests -p 'test_v096_bulk_appearance.py' -v
       - name: Upload source-only profiles and queue
         uses: actions/upload-artifact@v4
         with:
