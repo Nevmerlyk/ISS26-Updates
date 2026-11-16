@@ -92,7 +92,7 @@ def match(manifest,fc25,sofifa,fc26):
                 # EA database birthdate encoding is checked against source DOB.
                 rawdate=raw[eid].get("birthdate","")
                 try:
-                    rd=(dt.date(1582,10,15)+dt.timedelta(days=int(rawdate))).isoformat()
+                    rd=(dt.date(1582,10,14)+dt.timedelta(days=int(rawdate))).isoformat()
                 except (ValueError,OverflowError):rd=""
                 if rd!=key[1]:
                     status="EA_RAW_DOB_MISMATCH"
