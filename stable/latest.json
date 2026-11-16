@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "channel": "stable",
   "latest": {
-    "version": "0.9.4",
-    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.4-preview/ISS26_0.9.4_preview.iss26p",
-    "patchSha256": "70E46566A7F2C3A7E5F1E930210A132D452EF0B752D18E92F4B5475DE2CB45FE",
+    "version": "0.9.5",
+    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.5-rc1/ISS26_0.9.5_RC1.iss26p",
+    "patchSha256": "2561F1F03745C4E1520E1902E486EF3699DC2B5F190E88A6A0056399F31BE72E",
     "baseSha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
-    "resultSha256": "DF547EACFC8B65EF9409C3220E546968BF842C8F412D2685F8EA5F78C99422BB"
+    "resultSha256": "A5C01CA8B2C665279F1E0CA8A9C3CF5C38C592B12DE65A70766DEC3F0BCD6312"
   },
-  "notes": "Owner-requested stable rollback to v0.9.4 from v0.9.5A due to observed in-game graphics and naming defects. Existing installs of v0.9.5A may require manual removal of ISS26_Data/patches/active before Play Game downloads v0.9.4, because existing launcher avoids downgrades."
+  "notes": "Owner-approved promotion of the existing 0.9.5 RC1 independent clean-EU patch to stable v0.9.5 on 2026-11-16. Identical patch asset and hashes. Existing graphics limitations and emulator validation caveats remain. Database v20 is not included."
 }
