@@ -3,11 +3,15 @@
   "as_of": "2026-11-16",
   "policy": "Keep existing FM26 candidate roster snapshot until owner chooses a new club snapshot; do not silently remove or replace transferred players. Sporting association, not exhaustive legal citizenship.",
   "counts": {
-    "PENDING": 3,
-    "OFFICIAL_COUNTRY_CORROBORATED": 23,
+    "OFFICIAL_COUNTRY_CORROBORATED": 26,
     "CLUB_EVIDENCE_ONLY": 8
   },
   "departure_discrepancies": [
+    [
+      "CLB_AJX",
+      "Vítězslav Jaroš",
+      "LOAN_ENDED_LIVERPOOL"
+    ],
     [
       "CLB_AJX",
       "Oleksandr Zinchenko",
@@ -30,8 +34,18 @@
     ],
     [
       "CLB_NAP",
+      "Miguel Gutiérrez",
+      "TRANSFERRED_BAYER_LEVERKUSEN"
+    ],
+    [
+      "CLB_NAP",
       "Eljif Elmas",
       "LOANED_TO_ATALANTA"
+    ],
+    [
+      "CLB_NAP",
+      "Romelu Lukaku",
+      "TRANSFERRED_FENERBAHCE"
     ],
     [
       "CLB_PSG",
@@ -46,7 +60,11 @@
       "player": "Vítězslav Jaroš",
       "proposed_country": "CZE",
       "fm_primary": "CZE",
-      "review_status": "PENDING"
+      "review_status": "OFFICIAL_COUNTRY_CORROBORATED",
+      "country": "CZE",
+      "nationality_url": "https://www.liverpoolfc.com/teams/mens-team/vitezslav-jaros",
+      "membership": "LOAN_ENDED_LIVERPOOL",
+      "membership_url": "https://www.liverpoolfc.com/news/vitezslav-jaros-signs-new-lfc-deal-and-joins-ajax-season-long-loan/"
     },
     {
       "team": "CLB_AJX",
@@ -259,7 +277,11 @@
       "player": "Miguel Gutiérrez",
       "proposed_country": "ESP",
       "fm_primary": "ESP",
-      "review_status": "PENDING"
+      "review_status": "OFFICIAL_COUNTRY_CORROBORATED",
+      "country": "ESP",
+      "nationality_url": "https://sscnapoli.it/en/news/sscn-ufficiale-lingaggio-di-gutierrez",
+      "membership": "TRANSFERRED_BAYER_LEVERKUSEN",
+      "membership_url": "https://sscnapoli.it/en/news/ufficiale-gutierrez-al-bayer-04-leverkusen-fusball"
     },
     {
       "team": "CLB_NAP",
@@ -400,7 +422,11 @@
       "player": "Romelu Lukaku",
       "proposed_country": "BEL",
       "fm_primary": "BEL",
-      "review_status": "PENDING"
+      "review_status": "OFFICIAL_COUNTRY_CORROBORATED",
+      "country": "BEL",
+      "nationality_url": "https://sscnapoli.it/en/news/il-napoli-ufficializza-lacquisto-di-romelu-lukaku",
+      "membership": "TRANSFERRED_FENERBAHCE",
+      "membership_url": "https://sscnapoli.it/en/news/ufficiale-lukaku-al-fenerbahce"
     },
     {
       "team": "CLB_NAP",
