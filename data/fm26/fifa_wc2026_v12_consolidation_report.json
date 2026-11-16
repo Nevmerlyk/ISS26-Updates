@@ -1,0 +1,36 @@
+{
+  "status": "DRAFT_NOT_RELEASE_READY",
+  "source_v11_sha": "2715ae316e7ecb0f5cc122a8a5b82208866a5719",
+  "source_snapshot_sha": "235251325a7e0ee41083fdc3b2eea3c91449c934",
+  "rows": 1248,
+  "chosen": 1106,
+  "added_uid_candidates": 259,
+  "added_attribute_cells": 5773,
+  "changed_existing_cells": 0,
+  "uid_candidates": 1132,
+  "any": 1121,
+  "complete": 1120,
+  "filled_cells": 16814,
+  "missing_cells": 1906,
+  "incomplete": 128,
+  "review": [
+    {
+      "team_id": "NAT_CAN",
+      "shirt_number": "3",
+      "player_name": "Alfie Jones",
+      "reason": "roster_identity_difference",
+      "source_name": "Ale Jones"
+    },
+    {
+      "team_id": "NAT_CUW",
+      "shirt_number": "9",
+      "player_name": "Juergen Locadia",
+      "reason": "roster_identity_difference",
+      "source_name": "Jurgen Locadia"
+    }
+  ],
+  "notes": [
+    "Bulk values were recovered in an existing repository artifact, not independently re-extracted here. Source game edition and column mapping remain unconfirmed.",
+    "Prior source-linked public values retained but not independently verified in this merge. FIFA membership remains draft. No disc changes."
+  ]
+}
