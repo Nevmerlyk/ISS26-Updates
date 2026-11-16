@@ -1,0 +1,55 @@
+name: ISS26 targeted portrait review sheets
+on:
+  push:
+    branches: [feature/v096-player-database-integration]
+    paths: ['.github/workflows/v096-targeted-portrait-sheets.yml']
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: read
+jobs:
+  retrieve:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Obtain previous indexed names and image URLs
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh run download 43965267640 --name ISS26-worldcup-labelled-portrait-index --dir /tmp/index -R Nevmerlyk/ISS26-Updates
+      - name: Make low resolution labelled contact sheets for private technical review
+        run: |
+          python -m pip -q install Pillow
+          mkdir -p output
+          python - <<'PY'
+          import urllib.request,concurrent.futures,csv,json,io,math
+          from urllib.parse import urlparse
+          from PIL import Image, ImageOps, ImageDraw,ImageFont
+          rows=list(csv.DictReader(open('/tmp/index/portrait_index.csv',encoding='utf-8')))
+          targets=[(p.split(':')[0],int(p.split(':')[1])) for p in '0000:739 0001:730 0004:749 0005:741 0006:738 0007:753 0008:737 000a:736 000b:729 000d:752 000e:735 000f:733 0010:742 0011:734 0012:747 0013:745 0014:728 0015:743 0103:939 0109:955 010d:961 0110:959 0114:951 0115:940 0210:293 0211:305 0213:299 0304:496 0310:518 0314:516 0813:649 0908:571 0c05:23 0c06:24 0c10:7 0c11:12 0f02:898 0f03:908 0f15:891 1004:595 1006:593 100d:577 1012:597 1014:594 1102:1197 1103:1212 1106:1198 1107:1218 1108:1210 110a:1205 110d:1216 110f:1215 1114:1207 1115:1221 1300:1086 1304:1087 1305:1080 1307:1090 130a:1076 130b:1070 130c:1089 130d:1077 1310:1075 1311:1078 1313:1084 1314:1081 1315:1073 1407:1006 1600:245 1602:238 1603:255 1604:241 1606:240 1608:254 1609:249 160a:244 160c:257 160d:246 160e:239 160f:258 1610:259 1612:252 1613:253 1614:247 1615:256 1712:1167 1800:440 1803:418 1805:430 1806:421 180a:431 180b:420 180c:417 180d:439 180e:425 180f:423 1810:436 1811:426 1812:429 1813:428 1815:427 1900:1025 1902:1036 1904:1015 1906:1019 1907:1028 1908:1031 1909:1022 190a:1026 190c:1029 190d:1032 190e:1038 190f:1034 1910:1021 1913:1020 1915:1027 1a00:869 1a01:872 1a03:883 1a05:877 1a08:876 1a0b:880 1a0d:861 1a0f:871 1a10:881 1a12:870 1a14:859 1a15:858 1b01:717 1b06:720 1b0f:724 1b15:726 1e02:106 1e03:105 1e06:119 1e0f:116 1e10:117 1e13:122 1e14:129 1e15:115 1f09:279 1f0d:278 1f0e:275 1f13:280 1f14:271 2000:613 2001:602 2004:618 200d:620 200e:612 2010:623 2011:616 2013:611 2014:617 2100:672 2101:662 2103:664 2108:660 210f:668 2110:666 2115:673 2301:913 2310:931 2401:77 2402:72 2403:54 2404:65 2405:57 2409:68 240c:75 240e:64 2410:56 2411:63 2412:62 2413:76 2414:58 2500:413 2506:404 250c:401 250e:403 2511:409 2512:408 260c:45 2615:37 2708:140 270b:133 270f:154 2715:151 2803:1061 2804:1053 2808:1047 280a:1048 280d:1043 2901:213 2904:223 2907:225 290a:228 2a02:443 2a05:462 2a06:455 2a09:454 2a0a:460 2b02:1237 2b05:1240 2b06:1241 2b07:1227 2b09:1245 2b0a:1239 2b0b:1236 2b0c:1225 2b0f:1228 2b10:1229 2b12:1230 2b13:1242 2b15:1233 2c00:359 2c01:342 2c02:352 2c04:350 2c05:357 2c06:353 2c08:361 2c0c:343 2c0e:348 2c12:362 2c14:351 2d03:822 2d05:819 2d06:820 2d08:815 2d0d:818 2d0e:827 2d15:806 2f04:522 2f0a:545 2f11:538 2f13:528 2f14:531 3003:82 3004:79 3005:94 3009:86 300c:93 3010:85 3014:92 3102:1135 3103:1142 3104:1121 3105:1139 3106:1136 3107:1125 3108:1126 3109:1137 310d:1130 310f:1123 3110:1140 3114:1129 3201:700 3202:678 3206:701 3207:691 320a:699 3213:695 330a:163 330c:159 330d:160 330e:167 330f:161 3412:772 3504:330 3506:325 3509:321 350e:315 3510:335 3511:318 3512:320 3514:329'.split()]
+          def read(x):
+              ref,i=x;r=rows[i];u=r['url'];assert urlparse(u).hostname=='media.guim.co.uk'
+              try:
+                  with urllib.request.urlopen(u,timeout=9) as f:b=f.read(3000000)
+                  im=Image.open(io.BytesIO(b)).convert('RGB')
+                  return dict(ref=ref,name=r['name'],team=r['team'],index=i,url=u,status='ok'),ImageOps.contain(im,(114,114))
+              except Exception as e:
+                  return dict(ref=ref,name=r['name'],team=r['team'],index=i,url=u,status=str(e)[:100]),None
+          with concurrent.futures.ThreadPoolExecutor(max_workers=8) as ex:results=list(ex.map(read,targets))
+          for k in range(0,len(results),32):
+              items=results[k:k+32];can=Image.new('RGB',(8*144,4*148),'#f5f5f5');d=ImageDraw.Draw(can)
+              for j,(m,im) in enumerate(items):
+                  x=(j%8)*144;y=(j//8)*148
+                  d.text((x+4,y+3),m['ref'],fill='black')
+                  if im:can.paste(im,(x+15,y+19))
+                  else:d.text((x+4,y+40),'Unavailable',fill='black')
+                  d.text((x+3,y+133),m['name'][:22].encode('ascii','replace').decode(),fill='black')
+              can.save(f'output/review_{k//32+1:02d}.jpg',quality=85)
+          manifest=[m for m,im in results]
+          open('output/manifest.json','w').write(json.dumps(manifest,ensure_ascii=False,indent=2))
+          print('PORTRAIT_REVIEW',sum(x['status']=='ok' for x in manifest),len(manifest))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ISS26-targeted-portrait-review-temporary
+          path: output/
+          retention-days: 1
