@@ -41,7 +41,33 @@ def visual_edit(record,values):
     need((old^k)&~selected_mask==0,"nonselected field changed")
     return k.to_bytes(12,"little")
 
-def build(track,baseline,readback,out):
+CANDIDATE_FIELDS=(32,8,7,7,4,8)
+
+def combine_candidates(candidates):
+    """Coalesce physical record patches only when identity and all specified fields agree."""
+    need(bool(candidates),"empty candidate list")
+    for c in candidates:
+        values=c["values"]
+        need(len(values)==6,"bad appearance shape")
+        for v,limit in zip(values,CANDIDATE_FIELDS):
+            need(v is None or (type(v) is int and 0<=v<limit),"invalid native display selector")
+    if len(candidates)>1:
+        uidset={str(c.get("roster_uid") or "") for c in candidates}
+        wset={str(c.get("native_we_id") or "") for c in candidates}
+        names={norm(c["name"]) for c in candidates}
+        dates={str(c.get("dob") or "") for c in candidates}
+        # Evidence is public roster keys, not similarity of faces. A conflicting
+        # date is rejected even if the source IDs happen to agree.
+        identified=(len(uidset)==1 and "" not in uidset) or (len(wset)==1 and "" not in wset) or (len(names)==1 and len(dates)==1 and "" not in dates)
+        need(identified and len(dates-{''})<=1,"shared physical ref identity conflict")
+    out=[]
+    for i in range(6):
+        vals={c["values"][i] for c in candidates if c["values"][i] is not None}
+        need(len(vals)<=1,"shared physical ref appearance conflict")
+        out.append(next(iter(vals)) if vals else None)
+    return out
+
+def build(track,baseline,readback,out,plan=None,diagnostic=False):
     need(track.stat().st_size==BASE_SIZE and digest(track)==BASE_SHA,"wrong clean original disc")
     need(digest(baseline)==INTERNAL_SHA,"wrong exact internal 0.9.6 baseline")
     p=parse_patch(baseline)
@@ -93,28 +119,48 @@ def build(track,baseline,readback,out):
         posmap[team].append(int(r["position"]))
     need(len(rows)==1716 and len(byref)==1489 and len(posmap)==78,"wrong modern roster population")
     need(all(len(v)==22 and v.count(0)==2 for v in posmap.values()),"2GK roster constraint broken")
-    data=json.loads((ROOT/"data/integration/v096_appearance_profiles_v2.json").read_text())
+    data=json.loads((plan or ROOT/"data/integration/v096_appearance_profiles_v2.json").read_text(encoding="utf-8"))
     need(tuple(data["fields"])==FIELD_NAMES,"field schema drift")
-    new=bytearray(sel)
-    profiles=[]
-    claimed=set()
-    edits=[]
-    for profile in data["profiles"]:
+    if plan:
+        need(diagnostic,"bulk candidate requires explicit diagnostic flag; not a stable patch")
+        need(data["status"]=="NOT_APPROVED_FOR_BINARY_WRITE" and len(data["rows"])==1716,"unexpected bulk source manifest")
+        source=data["rows"]
+        keys=[(r["team"],norm(r["name"])) for r in source]
+        need(len(set(keys))==1716 and set(keys)==set(byname),"bulk plan roster identity mismatch")
+        chosen=[r for r in source if r["status"]=="NATIVE_OR_INDIVIDUAL_CANDIDATE"]
+    else:
+        chosen=data["profiles"]
+    grouped=defaultdict(list)
+    for profile in chosen:
         matches=byname[profile["team"],norm(profile["name"])]
         need(len(matches)==1,"missing or ambiguous visual identity: "+profile["name"])
         r=matches[0]
         ref=tuple(bytes.fromhex(r["ref"]))
-        need(ref not in claimed,"duplicate physical player profile")
+        grouped[ref].append(profile)
+    new=bytearray(sel)
+    profiles=[]
+    claimed=set()
+    conflicts=[]
+    edits=[]
+    for ref,candidates in sorted(grouped.items()):
+        profile=candidates[0]
+        r=byname[profile["team"],norm(profile["name"])][0]
+        try:
+            values=combine_candidates(candidates)
+        except ValueError as e:
+            if not plan:raise
+            conflicts.append({"ref":r["ref"],"reason":str(e),"candidates":[[x["team"],x["name"]] for x in candidates]})
+            continue
         claimed.add(ref)
         off=addresses[ref]
         prev=sel[off:off+12]
-        after=visual_edit(prev,profile["values"])
+        after=visual_edit(prev,values)
         new[off:off+12]=after
         linked=[{"team":x["team_id"],"slot":int(x["slot"]),"player":x["player_name"]} for x in byref[ref]]
         profiles.append({"name":profile["name"],"team":profile["team"],"ref":r["ref"],
                          "previous":decode_visual(prev),"new":decode_visual(after),
                          "changed":prev!=after,"linked_slots":linked,
-                         "source":profile["source"],"status":"NATIVE_TEMPLATE_RUNTIME_PENDING"})
+                         "source":profile["source"],"candidate_memberships":len(candidates),"status":"NATIVE_TEMPLATE_RUNTIME_PENDING"})
         for i,(a,b) in enumerate(zip(prev,after)):
             if a!=b:
                 j=off+i
@@ -129,11 +175,12 @@ def build(track,baseline,readback,out):
             "profiles_count":len(profiles),"changed_physical_records":sum(x["changed"] for x in profiles),
             "covered_slots":sum(len(x["linked_slots"]) for x in profiles),
             "unreviewed_physical_records":len(byref)-len(profiles),
-            "feed_changed":False,"runtime_verified":False}
+            "feed_changed":False,"runtime_verified":False,"bulk_candidate_diagnostic":bool(plan),
+            "blocked_physical_refs":conflicts,"planned_candidate_memberships":len(chosen)}
     if edits:
         ed=out/"appearance_edits.json"
         ed.write_text(json.dumps(edits))
-        target=out/"ISS26_0.9.6_APPEARANCE_INTERNAL.iss26p"
+        target=out/("ISS26_0.9.6_APPEARANCE_BULK_DIAGNOSTIC.iss26p" if plan else "ISS26_0.9.6_APPEARANCE_INTERNAL.iss26p")
         report["patch"]=merge(track,baseline,ed,target,RESULT_SHA)
         final=parse_patch(target)
         need(resource(track,final,SELECT_LBA,SELECT_LEN)==new,"SELECT readback drift")
@@ -149,5 +196,7 @@ if __name__=="__main__":
     p=argparse.ArgumentParser(description=__doc__)
     for name in ("track","baseline","readback","out"):
         p.add_argument("--"+name,type=Path,required=True)
+    p.add_argument("--plan",type=Path)
+    p.add_argument("--diagnostic-unverified-native-templates",action="store_true")
     a=p.parse_args()
-    print(json.dumps(build(a.track,a.baseline,a.readback,a.out),indent=2,ensure_ascii=False))
+    print(json.dumps(build(a.track,a.baseline,a.readback,a.out,a.plan,a.diagnostic_unverified_native_templates),indent=2,ensure_ascii=False))
