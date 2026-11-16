@@ -1,0 +1,58 @@
+{
+  "version": "0.9.6",
+  "stage": "APPEARANCE_FINAL_STAGE10",
+  "status": "STATIC_CLEAN_DISC_VERIFIED_RUNTIME_PENDING",
+  "unique_profiles": 1489,
+  "memberships": 1716,
+  "refined_profiles": 50,
+  "changed_physical_records_vs_stage9": 43,
+  "fields_refined": {
+    "body_type": 12,
+    "facial_hair": 29,
+    "facial_color": 28,
+    "hair_color": 9
+  },
+  "unknown_after": {
+    "hair": 34,
+    "hair_color": 35,
+    "facial_hair": 22,
+    "facial_color": 21,
+    "skin_shade": 1,
+    "body_type": 150
+  },
+  "unknown_face_profiles": 42,
+  "unknown_any_profiles": 182,
+  "skin_source_unverified_player": "Danylo Udod",
+  "body_model_holdout_n": 822,
+  "body_model_holdout_agreement": 0.8880778588807786,
+  "patch_sha256": "6B4BD98ABBC126EB03DC640071662C8D7600A7780878CF96B8F5923786EF8169",
+  "original_sha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
+  "result_sha256": "865D1CD4134C358F911820A3F0FC570BBBBEA3EB8688DA3593D072A0DEB4549E",
+  "archive_sha256": "6D4DFCFCCA51DAE09ACA126C659180C3B76E825D4F02E591819F82B4797A939D",
+  "merged_sectors": 1924,
+  "edited_sectors": [
+    930,
+    931,
+    932,
+    933,
+    934,
+    935,
+    936,
+    937,
+    939
+  ],
+  "all_1489_profiles_readback_verified": true,
+  "nonvisual_bits_preserved": true,
+  "rosters_unchanged": true,
+  "all_kit_and_menu_sectors_unchanged": true,
+  "bonus_88_preserved": true,
+  "exe_unchanged": true,
+  "edited_ecc_verified": true,
+  "runtime_verified": false,
+  "release_published": false,
+  "feed_changed": false,
+  "limitations": [
+    "All technical values written, not all source-verified. Coarse palette and beard approximations. Missing or contradictory data retained rather than invented.",
+    "One skin selector and 182 profiles with at least one unknown field remain. Local internal archive only."
+  ]
+}
