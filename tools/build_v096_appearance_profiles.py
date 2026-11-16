@@ -128,6 +128,7 @@ def build(track,baseline,readback,out,plan=None,diagnostic=False):
         keys=[(r["team"],norm(r["name"])) for r in source]
         need(len(set(keys))==1716 and set(keys)==set(byname),"bulk plan roster identity mismatch")
         chosen=[r for r in source if r["status"]=="NATIVE_OR_INDIVIDUAL_CANDIDATE"]
+        source_bykey={(r["team"],norm(r["name"])):r for r in source}
     else:
         chosen=data["profiles"]
     grouped=defaultdict(list)
@@ -146,7 +147,15 @@ def build(track,baseline,readback,out,plan=None,diagnostic=False):
         profile=candidates[0]
         r=byname[profile["team"],norm(profile["name"])][0]
         try:
-            values=combine_candidates(candidates)
+            candidates_for_check=list(candidates)
+            if plan:
+                selected_keys={(x["team"],norm(x["name"])) for x in candidates}
+                for linked_row in byref[ref]:
+                    k=(linked_row["team_id"],norm(linked_row["player_name"]))
+                    if k not in selected_keys:
+                        # An unapproved linked slot contributes identity only, never visual values.
+                        candidates_for_check.append({**source_bykey[k],"values":[None]*6})
+            values=combine_candidates(candidates_for_check)
         except ValueError as e:
             if not plan:raise
             conflicts.append({"ref":r["ref"],"reason":str(e),"candidates":[[x["team"],x["name"]] for x in candidates]})
