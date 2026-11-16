@@ -1,0 +1,24 @@
+name: v097 roster source bundle
+on:
+  push:
+    branches: [feature/v096-player-database-integration]
+    paths: ['.github/workflows/v097-source-bundle.yml']
+permissions:
+  contents: read
+jobs:
+  bundle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ISS26-v097-roster-inputs
+          path: |
+            data/fm26/ISS26_complete_working_pool_v20.csv
+            data/fm26/ISS26_modern_game_slots_v20.csv
+            data/integration/national_name_test1_v096.csv
+            data/integration/active_club_roster_candidates_v21.csv
+            data/integration/active_club_registry_v21.json
+            data/integration/club_roster_supplement_v21.csv
+            tools/integration_merge_eu.py
+          if-no-files-found: error
