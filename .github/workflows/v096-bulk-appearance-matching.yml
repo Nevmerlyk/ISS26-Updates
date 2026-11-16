@@ -1,0 +1,31 @@
+name: ISS26 bulk historical appearance matching
+on:
+  push:
+    branches: [feature/v096-player-database-integration]
+    paths: ['.github/workflows/v096-bulk-appearance-matching.yml', 'tools/match_v096_external_appearance.py']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  match:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch pinned public sources and check integrity
+        shell: bash
+        run: |
+          set -eu
+          mkdir -p /tmp/appearance
+          cd /tmp/appearance
+          base='https://raw.githubusercontent.com/Radzim/football_data/076dbb1e76413c93582385d8e56f18384dc6bee9'
+          for f in players sofifa; do curl -fsSL --retry 2 "$base/$f.csv" -o "$f.csv"; done
+          curl -fsSL --retry 2 'https://raw.githubusercontent.com/ismailoksuz/EAFC26-DataHub/8724af5803a787c9c262eee2ac8f942651b0e4b9/data/players.csv' -o fc26.csv
+          printf '%s\n' '623f4367a2322d976f73cb5c08f467bf  players.csv' 'bb2cdb140716d86fcb5e8523c39750f5  sofifa.csv' '764f4c62d94cdefa5fc99d41f6bee08f  fc26.csv' | md5sum -c -
+      - name: Match model settings against verified names and DOBs
+        run: python tools/match_v096_external_appearance.py --source /tmp/appearance --out output
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ISS26-v096-historical-appearance-reference-not-patch
+          path: output/
+          if-no-files-found: error
+          retention-days: 14
