@@ -1,0 +1,70 @@
+{
+  "status": "STATIC_READBACK_VERIFIED_RUNTIME_PENDING",
+  "version": "0.9.7",
+  "national_teams": 54,
+  "club_teams": 24,
+  "national_slots": 1188,
+  "club_slots": 528,
+  "shared_national_club_records": 220,
+  "extra_club_records": 308,
+  "unique_modern_records": 1496,
+  "preserved_bonus": 88,
+  "attributes_written": 22440,
+  "estimated_national_cells": 1417,
+  "estimated_extra_club_cells": 1606,
+  "estimated_extra_club_players": 108,
+  "identity_methods": {
+    "EXACT_NAME_AND_GK_GATE": 36,
+    "NO_UNIQUE_MATCH": 308,
+    "UID": 184
+  },
+  "identity_conflicts": [],
+  "source_candidate_membership_not_officially_verified": true,
+  "unsupported_fields": [
+    "weight",
+    "appearance customization",
+    "club-only nationality retained from assigned native ID"
+  ],
+  "method": "Static MIPS-derived 12-byte codec, corroborated historical anchor players; runtime editor and matches required",
+  "patch": {
+    "baseline_records": 689,
+    "merged_records": 699,
+    "edited_sectors": [
+      852,
+      853,
+      854,
+      930,
+      931,
+      932,
+      933,
+      934,
+      935,
+      936,
+      937,
+      938,
+      939
+    ],
+    "edits": 3807,
+    "original_sha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
+    "result_sha256": "48FFB37D302989052BFD69964E98DBF08E042AD99172062A95DC1CA690398C98",
+    "patch_sha256": "ACBA2D25D505D949D95718092CDE2D23BAF0C361AB17FBF127DB411AD7C3D870",
+    "status": "verified format, full original sector preconditions and CD EDC/ECC; gameplay not tested"
+  },
+  "carrier_release": "v0.9.6-test1 (internal merge input only; final patch applies directly to clean original)",
+  "independent_verification": {
+    "clean_track_sha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
+    "final_track_sha256": "48FFB37D302989052BFD69964E98DBF08E042AD99172062A95DC1CA690398C98",
+    "sector_guards_verified": 699,
+    "modified_sector_edc_ecc_verified": 13,
+    "all_78_team_slots_verified": true,
+    "duplicate_display_labels_within_team": 0,
+    "original_bonus_names_and_attributes_byte_identical": true,
+    "emulator_tests": false
+  },
+  "source_limits": [
+    "v20/v21 candidate membership is not certified against every official squad; omitted and estimated player data may be incorrect",
+    "native country ID of club-only slots not converted",
+    "appearances, body/weight, shirt numbers and team tactics left unchanged",
+    "static codec and field offsets validated by readback; game editor/display validation still required"
+  ]
+}
