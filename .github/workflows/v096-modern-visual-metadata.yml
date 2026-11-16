@@ -1,0 +1,29 @@
+name: ISS26 modern visual metadata
+on:
+  push:
+    branches: [feature/v096-player-database-integration]
+    paths: ['.github/workflows/v096-modern-visual-metadata.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Extract only appearance metadata from public DB templates
+        run: |
+          set -eu
+          mkdir -p output /tmp/eaus
+          base='https://raw.githubusercontent.com/ViniMacacari/eafc-db-kit/1464907bf4e726504d8b3ce15ffd0a552990565e/templates'
+          for v in 26 27; do
+            curl -fsSL --retry 1 --max-time 60 "$base/FC%20$v/fifa_ng_db.db" -o /tmp/eaus/db
+            curl -fsSL --retry 1 --max-time 30 "$base/FC%20$v/fifa_ng_db-meta.xml" -o /tmp/eaus/meta.xml
+            python tools/extract_v096_ea_visual_metadata.py /tmp/eaus/db /tmp/eaus/meta.xml "output/fc${v}_visual.csv"
+          done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ISS26-modern-visual-metadata
+          path: output/
+          retention-days: 1
