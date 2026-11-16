@@ -1,0 +1,92 @@
+{
+  "source": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf",
+  "edition": "2026-07-19 22:34 UTC",
+  "status": "PARTIAL_DRAFT_NOT_RELEASE",
+  "expected": 1248,
+  "teams_expected": 48,
+  "registered": 338,
+  "teams": 13,
+  "remaining": 910,
+  "matched_candidates": 228,
+  "complete_15_candidates": 51,
+  "team_stats": {
+    "NAT_ALG": {
+      "registered": 26,
+      "matched": 17,
+      "full": 4
+    },
+    "NAT_ARG": {
+      "registered": 26,
+      "matched": 23,
+      "full": 5
+    },
+    "NAT_AUS": {
+      "registered": 26,
+      "matched": 3,
+      "full": 1
+    },
+    "NAT_AUT": {
+      "registered": 26,
+      "matched": 22,
+      "full": 2
+    },
+    "NAT_BEL": {
+      "registered": 26,
+      "matched": 25,
+      "full": 6
+    },
+    "NAT_BIH": {
+      "registered": 26,
+      "matched": 23,
+      "full": 5
+    },
+    "NAT_BRA": {
+      "registered": 26,
+      "matched": 11,
+      "full": 2
+    },
+    "NAT_CPV": {
+      "registered": 26,
+      "matched": 0,
+      "full": 0
+    },
+    "NAT_CAN": {
+      "registered": 26,
+      "matched": 22,
+      "full": 4
+    },
+    "NAT_COL": {
+      "registered": 26,
+      "matched": 19,
+      "full": 4
+    },
+    "NAT_COD": {
+      "registered": 26,
+      "matched": 18,
+      "full": 8
+    },
+    "NAT_CIV": {
+      "registered": 26,
+      "matched": 20,
+      "full": 3
+    },
+    "NAT_CRO": {
+      "registered": 26,
+      "matched": 25,
+      "full": 7
+    }
+  },
+  "corrections": [
+    {
+      "team": "NAT_ALG",
+      "name": "Mohamed Amine Tougai",
+      "before": "2000-01-27",
+      "after": "2000-01-22"
+    }
+  ],
+  "notes": [
+    "Consolidated CSV supersedes older batch01 FM joined file.",
+    "Manual transcription of official PDF factual roster fields, full source PDF unavailable in execution environment due to DNS; no independent automated PDF extraction performed.",
+    "FM26 source remains unverified community candidate dataset; no new FM26 attribute records acquired. No changes to game slots or BIN/CUE."
+  ]
+}

@@ -1,0 +1,436 @@
+{
+  "revision": 18,
+  "status": "CANDIDATE_POOL_NOT_SELECTED_NOT_RELEASE",
+  "records": 1938,
+  "known_teams": 78,
+  "expected_teams": 82,
+  "bonus_teams_unresolved": 4,
+  "complete_attribute_records": 1686,
+  "any_attribute_records": 1768,
+  "filled_attribute_cells": 26372,
+  "expected_attribute_cells": 29070,
+  "remaining_missing_attribute_cells": 2698,
+  "world_cup": {
+    "rows": 1248,
+    "complete": 1122,
+    "remaining_incomplete": 126,
+    "filled_cells": 16844,
+    "roster_membership": "unchanged draft; 22-slot selection pending"
+  },
+  "non_world_cup": {
+    "rows": 162,
+    "complete": 50,
+    "filled_cells": 1818,
+    "roster_membership": "FM26 membership audit pending"
+  },
+  "club": {
+    "rows": 528,
+    "complete": 514,
+    "filled_cells": 7710,
+    "roster_membership": "mixed candidate snapshots; audit pending"
+  },
+  "new_national_attribute_cells": 84,
+  "new_national_bio_cells": 16,
+  "source_blobs": {
+    "fifa_wc2026_consolidated_v12.csv": "c676717db6b2537a95ca7814388eff88cfa3584a",
+    "fifa_wc2026_consolidated_v13.csv": "4e4ba6fa901109b1a6361fc735aa06554b7d4751",
+    "ISS26_club_rosters_v17.csv": "e0230c344ce6c02069b79d01352bda409b19ff97",
+    "ISS26_unified_candidate_pool_v12.csv": "03b7e36d7c1943693a3a370eecbfffb28d51b810",
+    "ISS26_non_wc_national_candidates_v18.csv": "cb9c4864821876fe6d37872d9e45eea404fdc014",
+    "ISS26_national_crossmatch_changes_v18.csv": "f18e9236acf29a320c23c0624a5e0ee5fce64656"
+  },
+  "unified_blob": "708dba0bd54f3d14b20a9d277d7f4e2643d6710d",
+  "team_coverage": {
+    "NAT_ALG": {
+      "rows": 26,
+      "complete": 25,
+      "filled_cells": 375
+    },
+    "NAT_ARG": {
+      "rows": 26,
+      "complete": 26,
+      "filled_cells": 390
+    },
+    "NAT_AUS": {
+      "rows": 26,
+      "complete": 23,
+      "filled_cells": 345
+    },
+    "NAT_AUT": {
+      "rows": 26,
+      "complete": 25,
+      "filled_cells": 375
+    },
+    "NAT_BEL": {
+      "rows": 26,
+      "complete": 26,
+      "filled_cells": 390
+    },
+    "NAT_BIH": {
+      "rows": 26,
+      "complete": 24,
+      "filled_cells": 360
+    },
+    "NAT_BRA": {
+      "rows": 26,
+      "complete": 26,
+      "filled_cells": 390
+    },
+    "NAT_CPV": {
+      "rows": 26,
+      "complete": 25,
+      "filled_cells": 375
+    },
+    "NAT_CAN": {
+      "rows": 26,
+      "complete": 24,
+      "filled_cells": 360
+    },
+    "NAT_COL": {
+      "rows": 26,
+      "complete": 25,
+      "filled_cells": 375
+    },
+    "NAT_COD": {
+      "rows": 26,
+      "complete": 22,
+      "filled_cells": 330
+    },
+    "NAT_CIV": {
+      "rows": 26,
+      "complete": 25,
+      "filled_cells": 375
+    },
+    "NAT_CRO": {
+      "rows": 26,
+      "complete": 26,
+      "filled_cells": 390
+    },
+    "NAT_CUW": {
+      "rows": 26,
+      "complete": 22,
+      "filled_cells": 344
+    },
+    "NAT_CZE": {
+      "rows": 26,
+      "complete": 26,
+      "filled_cells": 390
+    },
+    "NAT_ECU": {
+      "rows": 26,
+      "complete": 26,
+      "filled_cells": 390
+    },
+    "NAT_EGY": {
+      "rows": 26,
+      "complete": 18,
+      "filled_cells": 270
+    },
+    "NAT_ENG": {
+      "rows": 26,
+      "complete": 26,
+      "filled_cells": 390
+    },
+    "NAT_FRA": {
+      "rows": 26,
+      "complete": 26,
+      "filled_cells": 390
+    },
+    "NAT_GER": {
+      "rows": 26,
+      "complete": 26,
+      "filled_cells": 390
+    },
+    "NAT_GHA": {
+      "rows": 26,
+      "complete": 21,
+      "filled_cells": 315
+    },
+    "NAT_HAI": {
+      "rows": 26,
+      "complete": 15,
+      "filled_cells": 225
+    },
+    "NAT_IRN": {
+      "rows": 26,
+      "complete": 20,
+      "filled_cells": 300
+    },
+    "NAT_IRQ": {
+      "rows": 26,
+      "complete": 21,
+      "filled_cells": 315
+    },
+    "NAT_JPN": {
+      "rows": 26,
+      "complete": 25,
+      "filled_cells": 375
+    },
+    "NAT_JOR": {
+      "rows": 26,
+      "complete": 11,
+      "filled_cells": 165
+    },
+    "NAT_KOR": {
+      "rows": 26,
+      "complete": 26,
+      "filled_cells": 390
+    },
+    "NAT_MEX": {
+      "rows": 26,
+      "complete": 26,
+      "filled_cells": 390
+    },
+    "NAT_MAR": {
+      "rows": 26,
+      "complete": 26,
+      "filled_cells": 390
+    },
+    "NAT_NED": {
+      "rows": 26,
+      "complete": 26,
+      "filled_cells": 390
+    },
+    "NAT_NZL": {
+      "rows": 26,
+      "complete": 20,
+      "filled_cells": 300
+    },
+    "NAT_NOR": {
+      "rows": 26,
+      "complete": 25,
+      "filled_cells": 375
+    },
+    "NAT_PAN": {
+      "rows": 26,
+      "complete": 22,
+      "filled_cells": 330
+    },
+    "NAT_PAR": {
+      "rows": 26,
+      "complete": 22,
+      "filled_cells": 330
+    },
+    "NAT_POR": {
+      "rows": 26,
+      "complete": 26,
+      "filled_cells": 390
+    },
+    "NAT_QAT": {
+      "rows": 26,
+      "complete": 17,
+      "filled_cells": 255
+    },
+    "NAT_KSA": {
+      "rows": 26,
+      "complete": 11,
+      "filled_cells": 165
+    },
+    "NAT_SCO": {
+      "rows": 26,
+      "complete": 25,
+      "filled_cells": 375
+    },
+    "NAT_SEN": {
+      "rows": 26,
+      "complete": 24,
+      "filled_cells": 360
+    },
+    "NAT_RSA": {
+      "rows": 26,
+      "complete": 21,
+      "filled_cells": 315
+    },
+    "NAT_ESP": {
+      "rows": 26,
+      "complete": 26,
+      "filled_cells": 390
+    },
+    "NAT_SWE": {
+      "rows": 26,
+      "complete": 25,
+      "filled_cells": 375
+    },
+    "NAT_SUI": {
+      "rows": 26,
+      "complete": 26,
+      "filled_cells": 390
+    },
+    "NAT_TUN": {
+      "rows": 26,
+      "complete": 23,
+      "filled_cells": 345
+    },
+    "NAT_TUR": {
+      "rows": 26,
+      "complete": 26,
+      "filled_cells": 390
+    },
+    "NAT_URU": {
+      "rows": 26,
+      "complete": 26,
+      "filled_cells": 390
+    },
+    "NAT_USA": {
+      "rows": 26,
+      "complete": 26,
+      "filled_cells": 390
+    },
+    "NAT_UZB": {
+      "rows": 26,
+      "complete": 22,
+      "filled_cells": 330
+    },
+    "NAT_UKR": {
+      "rows": 33,
+      "complete": 6,
+      "filled_cells": 338
+    },
+    "NAT_ITA": {
+      "rows": 27,
+      "complete": 16,
+      "filled_cells": 380
+    },
+    "NAT_DEN": {
+      "rows": 24,
+      "complete": 7,
+      "filled_cells": 247
+    },
+    "NAT_POL": {
+      "rows": 25,
+      "complete": 12,
+      "filled_cells": 258
+    },
+    "NAT_HUN": {
+      "rows": 27,
+      "complete": 5,
+      "filled_cells": 259
+    },
+    "NAT_NGA": {
+      "rows": 26,
+      "complete": 4,
+      "filled_cells": 336
+    },
+    "CLB_BAY": {
+      "rows": 22,
+      "complete": 22,
+      "filled_cells": 330
+    },
+    "CLB_ARS": {
+      "rows": 22,
+      "complete": 22,
+      "filled_cells": 330
+    },
+    "CLB_RMA": {
+      "rows": 22,
+      "complete": 22,
+      "filled_cells": 330
+    },
+    "CLB_PSG": {
+      "rows": 22,
+      "complete": 22,
+      "filled_cells": 330
+    },
+    "CLB_INT": {
+      "rows": 22,
+      "complete": 22,
+      "filled_cells": 330
+    },
+    "CLB_LIV": {
+      "rows": 22,
+      "complete": 22,
+      "filled_cells": 330
+    },
+    "CLB_MCI": {
+      "rows": 22,
+      "complete": 22,
+      "filled_cells": 330
+    },
+    "CLB_BVB": {
+      "rows": 22,
+      "complete": 22,
+      "filled_cells": 330
+    },
+    "CLB_LEV": {
+      "rows": 22,
+      "complete": 22,
+      "filled_cells": 330
+    },
+    "CLB_AVL": {
+      "rows": 22,
+      "complete": 22,
+      "filled_cells": 330
+    },
+    "CLB_TOT": {
+      "rows": 22,
+      "complete": 22,
+      "filled_cells": 330
+    },
+    "CLB_BRU": {
+      "rows": 22,
+      "complete": 22,
+      "filled_cells": 330
+    },
+    "CLB_BAR": {
+      "rows": 22,
+      "complete": 22,
+      "filled_cells": 330
+    },
+    "CLB_ATM": {
+      "rows": 22,
+      "complete": 22,
+      "filled_cells": 330
+    },
+    "CLB_ROM": {
+      "rows": 22,
+      "complete": 22,
+      "filled_cells": 330
+    },
+    "CLB_SCP": {
+      "rows": 22,
+      "complete": 22,
+      "filled_cells": 330
+    },
+    "CLB_POR": {
+      "rows": 22,
+      "complete": 22,
+      "filled_cells": 330
+    },
+    "CLB_FIO": {
+      "rows": 22,
+      "complete": 22,
+      "filled_cells": 330
+    },
+    "CLB_BEN": {
+      "rows": 22,
+      "complete": 22,
+      "filled_cells": 330
+    },
+    "CLB_BET": {
+      "rows": 22,
+      "complete": 22,
+      "filled_cells": 330
+    },
+    "CLB_CHE": {
+      "rows": 22,
+      "complete": 22,
+      "filled_cells": 330
+    },
+    "CLB_ATA": {
+      "rows": 22,
+      "complete": 22,
+      "filled_cells": 330
+    },
+    "CLB_MUN": {
+      "rows": 22,
+      "complete": 22,
+      "filled_cells": 330
+    },
+    "CLB_KRY": {
+      "rows": 22,
+      "complete": 8,
+      "filled_cells": 120
+    }
+  },
+  "qa": "WC registration fields and existing nonempty attributes unchanged; additional national nonblank prior data retained; unique team identities, attribute values 12–19 and counts checked; reread unified file; all source-specific files preserved. Player attributes are community candidates, exact FM26 build not certified. No disc build or emulator test."
+}

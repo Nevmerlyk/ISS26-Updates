@@ -1,0 +1,43 @@
+{
+  "revision": 19,
+  "status": "DRAFT_NOT_RELEASE",
+  "records": 1938,
+  "complete": 1686,
+  "filled_attribute_cells": 26372,
+  "remaining_missing_attribute_cells": 2698,
+  "incomplete": 252,
+  "metadata_added": {
+    "uid": 12,
+    "preferred_foot": 12,
+    "fm_profile_url": 11,
+    "fm_profile_position": 11,
+    "fm_profile_height_cm": 11,
+    "age_2026_11_16": 1907,
+    "birth_date": 17,
+    "height_cm": 17
+  },
+  "rows_changed": 1907,
+  "attributes_reused": 0,
+  "missing_metadata": {
+    "weight_kg": 1922,
+    "appearance_reference": 1922,
+    "uid": 133,
+    "preferred_foot": 141,
+    "birth_date": 31,
+    "age_2026_11_16": 31,
+    "height_cm": 31
+  },
+  "source_blobs": {
+    "ISS26_unified_candidate_pool_v18.csv": "708dba0bd54f3d14b20a9d277d7f4e2643d6710d",
+    "ISS26_FM26_candidate_partial_20261116.csv": "6bf9f6b439b116c4a38bedb0909412250061be05",
+    "ISS26_club_rosters_v17.csv": "e0230c344ce6c02069b79d01352bda409b19ff97",
+    "roster_refresh_pool_20261116_b.csv": "617a5d64d3d713f79be9b4af8b5f071298e1237e",
+    "official_rosters_UKR_KRY_FM26_candidates_20261116.csv": "e18b94557172fcec95f9b1e7e939ef8bd7d46e95",
+    "fifa_wc2026_consolidated_v13.csv": "4e4ba6fa901109b1a6361fc735aa06554b7d4751"
+  },
+  "notes": [
+    "11 independently checked FM Blog profiles matched against roster dates; no derived 1–99 ratings imported as raw FM attributes.",
+    "Previous nonempty fields unchanged, exact UID/name/DOB or unique name/DOB with no conflicting UID; conflicting metadata left intact. Ages computed 2026-11-16.",
+    "Four bonus teams identified separately, historic player rosters not yet extracted. No PS1 integration."
+  ]
+}

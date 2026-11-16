@@ -1,0 +1,195 @@
+{
+  "status": "DRAFT_NOT_RELEASE",
+  "totals": {
+    "rows": 528,
+    "teams": 24,
+    "matched": 256,
+    "full": 210,
+    "partial": 36,
+    "empty": 282,
+    "cells": 3627
+  },
+  "teams": {
+    "CLB_BAY": {
+      "slots": 22,
+      "matched": 17,
+      "complete": 16,
+      "partial": 1,
+      "empty": 5
+    },
+    "CLB_ARS": {
+      "slots": 22,
+      "matched": 15,
+      "complete": 13,
+      "partial": 2,
+      "empty": 7
+    },
+    "CLB_RMA": {
+      "slots": 22,
+      "matched": 11,
+      "complete": 10,
+      "partial": 1,
+      "empty": 11
+    },
+    "CLB_PSG": {
+      "slots": 22,
+      "matched": 16,
+      "complete": 14,
+      "partial": 1,
+      "empty": 7
+    },
+    "CLB_INT": {
+      "slots": 22,
+      "matched": 13,
+      "complete": 7,
+      "partial": 5,
+      "empty": 10
+    },
+    "CLB_LIV": {
+      "slots": 22,
+      "matched": 11,
+      "complete": 9,
+      "partial": 2,
+      "empty": 11
+    },
+    "CLB_MCI": {
+      "slots": 22,
+      "matched": 20,
+      "complete": 19,
+      "partial": 1,
+      "empty": 2
+    },
+    "CLB_BVB": {
+      "slots": 22,
+      "matched": 11,
+      "complete": 11,
+      "partial": 0,
+      "empty": 11
+    },
+    "CLB_LEV": {
+      "slots": 22,
+      "matched": 7,
+      "complete": 6,
+      "partial": 1,
+      "empty": 15
+    },
+    "CLB_AVL": {
+      "slots": 22,
+      "matched": 10,
+      "complete": 10,
+      "partial": 0,
+      "empty": 12
+    },
+    "CLB_TOT": {
+      "slots": 22,
+      "matched": 10,
+      "complete": 8,
+      "partial": 2,
+      "empty": 12
+    },
+    "CLB_BRU": {
+      "slots": 22,
+      "matched": 7,
+      "complete": 5,
+      "partial": 1,
+      "empty": 16
+    },
+    "CLB_KRY": {
+      "slots": 22,
+      "matched": 8,
+      "complete": 1,
+      "partial": 1,
+      "empty": 20
+    },
+    "CLB_BAR": {
+      "slots": 22,
+      "matched": 15,
+      "complete": 14,
+      "partial": 1,
+      "empty": 7
+    },
+    "CLB_ATM": {
+      "slots": 22,
+      "matched": 9,
+      "complete": 8,
+      "partial": 1,
+      "empty": 13
+    },
+    "CLB_ROM": {
+      "slots": 22,
+      "matched": 8,
+      "complete": 5,
+      "partial": 3,
+      "empty": 14
+    },
+    "CLB_SCP": {
+      "slots": 22,
+      "matched": 7,
+      "complete": 6,
+      "partial": 1,
+      "empty": 15
+    },
+    "CLB_POR": {
+      "slots": 22,
+      "matched": 7,
+      "complete": 5,
+      "partial": 2,
+      "empty": 15
+    },
+    "CLB_FIO": {
+      "slots": 22,
+      "matched": 2,
+      "complete": 1,
+      "partial": 1,
+      "empty": 20
+    },
+    "CLB_BEN": {
+      "slots": 22,
+      "matched": 9,
+      "complete": 8,
+      "partial": 1,
+      "empty": 13
+    },
+    "CLB_BET": {
+      "slots": 22,
+      "matched": 7,
+      "complete": 5,
+      "partial": 1,
+      "empty": 16
+    },
+    "CLB_CHE": {
+      "slots": 22,
+      "matched": 10,
+      "complete": 8,
+      "partial": 2,
+      "empty": 12
+    },
+    "CLB_ATA": {
+      "slots": 22,
+      "matched": 13,
+      "complete": 9,
+      "partial": 4,
+      "empty": 9
+    },
+    "CLB_MUN": {
+      "slots": 22,
+      "matched": 13,
+      "complete": 12,
+      "partial": 1,
+      "empty": 9
+    }
+  },
+  "identity_conflicts": [],
+  "inputs": {
+    "roster_batch01": "ba7647e3077c9244856eb35a84df1bd8d9db3525",
+    "roster_batch02": "ca48635e98b8a61e00fdc58d5edfda62c55944b2",
+    "pool": "03b7e36d7c1943693a3a370eecbfffb28d51b810",
+    "wc": "c676717db6b2537a95ca7814388eff88cfa3584a"
+  },
+  "notes": [
+    "22 selected roster slots per club, includes Kryvbas and Manchester United; not a verified current real-world roster.",
+    "FM26 secondary website snapshots, exact patch/version not independently confirmed; selection and source age are separate from current age.",
+    "Numerical attributes reused from previous candidate tables only where name, context, age and goalkeeper status agreed. Previous rating provenance remains provisional; no new raw FM26 retrieval claimed.",
+    "Weight, appearance and other missing facts left empty. No game injection."
+  ]
+}

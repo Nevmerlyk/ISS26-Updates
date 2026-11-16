@@ -1,0 +1,339 @@
+team_id,shirt_number,player_name,position_group,birth_date,height_cm,fifa_page,source_edition,registration_status,iss_slot_selection,age_at_wc_end,fm_match_status,fm_uid_candidate,preferred_foot_candidate,fm_position_candidate,fm_source_snapshot,weight_kg,iss_offense,iss_defense,iss_body_balance,iss_stamina,iss_speed,iss_acceleration,iss_response,iss_jump_power,iss_head_accuracy,iss_technique,iss_pass_accuracy,iss_shot_power,iss_shot_accuracy,iss_dribble,iss_curve,converted_count
+NAT_ALG,1,Melvin Mastil,GK,2000-02-19,194,1,2026-07-19,registered,pending,26,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_ALG,2,Aissa Mandi,DF,1991-10-22,184,1,2026-07-19,registered,pending,34,candidate_name_or_alias_dob_match,85079680,R,D RLC,community_FM26_candidate_2025_snapshot,,16,17,17,,16,16,16,16,16,16,17,15,14,16,15,14
+NAT_ALG,3,Achref Abada,DF,1999-06-15,185,1,2026-07-19,registered,pending,27,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_ALG,4,Mohamed Amine Tougai,DF,2000-01-22,186,1,2026-07-19,registered,pending,26,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_ALG,5,Zineddine Belaid,DF,1999-03-20,186,1,2026-07-19,registered,pending,27,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_ALG,6,Ramiz Zerrouki,MF,1998-05-26,183,1,2026-07-19,registered,pending,28,candidate_name_or_alias_dob_match,37055855,R,DM/M C,community_FM26_candidate_2025_snapshot,,16,17,16,17,16,15,16,16,16,16,17,16,15,16,16,15
+NAT_ALG,7,Riyad Mahrez,FW,1991-02-21,179,1,2026-07-19,registered,pending,35,candidate_name_or_alias_dob_match,85078058,L,M/AM R,community_FM26_candidate_2025_snapshot,,17,14,16,,16,16,17,15,14,19,18,16,17,18,17,14
+NAT_ALG,8,Houssem Aouar,MF,1998-06-30,175,1,2026-07-19,registered,pending,28,candidate_name_or_alias_dob_match,48031455,R,M/AM C,community_FM26_candidate_2025_snapshot,,17,15,16,,16,17,17,15,15,18,17,16,16,18,16,14
+NAT_ALG,9,Amine Gouiri,FW,2000-02-16,180,1,2026-07-19,registered,pending,26,candidate_name_or_alias_dob_match,48044735,R,AM/ST L,community_FM26_candidate_2025_snapshot,,17,14,17,,17,17,17,16,16,17,16,17,17,17,16,14
+NAT_ALG,10,Fares Chaibi,MF,2002-11-28,183,1,2026-07-19,registered,pending,23,candidate_name_or_alias_dob_match,49060523,R,DM/M/AM LC,community_FM26_candidate_2025_snapshot,,16,15,16,,16,16,16,15,15,17,17,15,15,16,17,14
+NAT_ALG,11,Anis Hadj Moussa,FW,2002-02-11,176,1,2026-07-19,registered,pending,24,candidate_name_or_alias_dob_match,73201859,L,M/AM RL,community_FM26_candidate_2025_snapshot,,16,13,16,16,17,18,16,15,14,17,16,15,15,18,17,15
+NAT_ALG,12,Nadhir Benbouali,FW,2000-04-17,190,1,2026-07-19,registered,pending,26,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_ALG,13,Jaouen Hadjam,DF,2003-03-26,185,1,2026-07-19,registered,pending,23,candidate_name_or_alias_dob_match,2000006105,L,D/WB L,community_FM26_candidate_2025_snapshot,,16,16,16,,16,17,16,16,15,17,16,15,15,16,15,14
+NAT_ALG,14,Hicham Boudaoui,MF,1999-09-23,175,1,2026-07-19,registered,pending,26,candidate_name_or_alias_dob_match,13227048,R,DM/M C,community_FM26_candidate_2025_snapshot,,17,17,16,,16,16,16,15,15,17,17,16,17,16,15,14
+NAT_ALG,15,Rayan Ait-Nouri,DF,2001-06-06,180,1,2026-07-19,registered,pending,25,candidate_name_or_alias_dob_match,49047581,L,D/WB L,community_FM26_candidate_2025_snapshot,,16,17,16,,17,17,16,15,16,17,16,15,16,18,15,14
+NAT_ALG,16,Oussama Benbot,GK,1994-10-11,188,1,2026-07-19,registered,pending,31,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_ALG,17,Rak Belghali,DF,2002-06-07,180,1,2026-07-19,registered,pending,24,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_ALG,18,Mohamed Amoura,FW,2000-05-09,170,1,2026-07-19,registered,pending,26,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_ALG,19,Nabil Bentaleb,MF,1994-11-24,189,1,2026-07-19,registered,pending,31,candidate_name_or_alias_dob_match,28085752,L,DM/M C,community_FM26_candidate_2025_snapshot,,16,17,17,17,16,16,16,17,15,17,17,16,16,16,15,15
+NAT_ALG,20,Adil Boulbina,FW,2003-05-02,183,1,2026-07-19,registered,pending,23,candidate_name_or_alias_dob_match,2000158695,R,AM LC,community_FM26_candidate_2025_snapshot,,16,14,15,,17,17,16,15,14,16,16,16,16,17,16,14
+NAT_ALG,21,Ramy Bensebaini,DF,1995-04-16,187,1,2026-07-19,registered,pending,31,candidate_name_or_alias_dob_match,12038706,L,D/WB LC,community_FM26_candidate_2025_snapshot,,16,17,17,,17,16,16,17,18,17,16,16,16,16,16,14
+NAT_ALG,22,Ibrahim Maza,MF,2005-11-24,180,1,2026-07-19,registered,pending,20,candidate_name_or_alias_dob_match,2000193961,R,M/AM LC,community_FM26_candidate_2025_snapshot,,16,15,15,,17,16,16,15,15,17,16,15,16,18,16,14
+NAT_ALG,23,Luca Zidane,GK,1998-05-13,183,1,2026-07-19,registered,pending,28,candidate_name_or_alias_dob_match,67214451,R,GK,community_FM26_candidate_2025_snapshot,,,,16,16,17,17,,,15,,,14,14,14,14,9
+NAT_ALG,24,Yassine Titraoui,MF,2003-07-26,180,1,2026-07-19,registered,pending,22,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_ALG,25,Fares Ghedjemis,FW,2002-09-06,183,1,2026-07-19,registered,pending,23,candidate_name_or_alias_dob_match,49061425,L,M/AM R,community_FM26_candidate_2025_snapshot,,16,14,16,16,16,16,15,16,15,16,16,15,15,17,16,15
+NAT_ALG,26,Samir Chergui,DF,1999-02-06,185,1,2026-07-19,registered,pending,27,candidate_name_or_alias_dob_match,48037980,R,D/DM RC,community_FM26_candidate_2025_snapshot,,16,16,16,,16,16,16,16,16,16,17,16,15,16,15,14
+NAT_ARG,1,Juan Musso,GK,1994-05-06,193,2,2026-07-19,registered,pending,32,candidate_name_or_alias_dob_match,14048328,R,GK,community_FM26_candidate_2025_snapshot,,,,16,,16,16,,,13,,,14,13,12,14,8
+NAT_ARG,2,Marcos Senesi,DF,1997-05-10,185,2,2026-07-19,registered,pending,29,candidate_name_or_alias_dob_match,14080605,L,D C,community_FM26_candidate_2025_snapshot,,16,17,16,,16,17,17,17,17,17,17,15,15,15,15,14
+NAT_ARG,3,Nicolas Tagliafico,DF,1992-08-31,172,2,2026-07-19,registered,pending,33,candidate_name_or_alias_dob_match,14008030,L,D/WB/M L,community_FM26_candidate_2025_snapshot,,16,17,17,,16,16,17,16,17,16,16,15,15,16,16,14
+NAT_ARG,4,Gonzalo Montiel,DF,1997-01-01,175,2,2026-07-19,registered,pending,29,candidate_name_or_alias_dob_match,14136122,R,D/WB R,community_FM26_candidate_2025_snapshot,,16,17,17,18,17,17,16,15,16,16,16,15,14,15,14,15
+NAT_ARG,5,Leandro Paredes,MF,1994-06-29,182,2,2026-07-19,registered,pending,32,candidate_name_or_alias_dob_match,14024702,R,DM/M C,community_FM26_candidate_2025_snapshot,,16,17,16,17,15,16,17,15,15,17,17,16,16,16,17,15
+NAT_ARG,6,Lisandro Martinez,DF,1998-01-18,175,2,2026-07-19,registered,pending,28,candidate_name_or_alias_dob_match,14167329,L,D LC,community_FM26_candidate_2025_snapshot,,15,18,17,17,16,16,17,16,16,17,17,15,15,15,15,15
+NAT_ARG,7,Rodrigo De Paul,MF,1994-05-24,178,2,2026-07-19,registered,pending,32,candidate_name_or_alias_dob_match,14048343,R,M/AM RC,community_FM26_candidate_2025_snapshot,,17,16,17,,17,17,17,15,15,17,17,17,17,18,17,14
+NAT_ARG,8,Valentin Barco,MF,2004-07-23,172,2,2026-07-19,registered,pending,21,candidate_name_or_alias_dob_match,2000033291,L,D/WB/M LC,community_FM26_candidate_2025_snapshot,,16,16,15,,16,16,16,14,13,17,17,15,15,17,17,14
+NAT_ARG,9,Julian Alvarez,FW,2000-01-31,170,2,2026-07-19,registered,pending,26,candidate_name_or_alias_dob_match,14183207,R,AM/ST RLC,community_FM26_candidate_2025_snapshot,,18,15,16,,17,18,17,14,16,17,17,17,17,17,17,14
+NAT_ARG,10,Lionel Messi,FW,1987-06-24,170,2,2026-07-19,registered,pending,39,candidate_name_or_alias_dob_match,7458500,L,AM/ST RC,community_FM26_candidate_2025_snapshot,,17,14,17,,15,16,18,14,15,19,19,17,18,19,18,14
+NAT_ARG,11,Giovani Lo Celso,MF,1996-04-09,177,2,2026-07-19,registered,pending,30,candidate_name_or_alias_dob_match,14108651,L,M/AM LC,community_FM26_candidate_2025_snapshot,,17,16,17,,16,16,16,15,15,18,18,16,16,17,17,14
+NAT_ARG,12,Geronimo Rulli,GK,1992-05-20,189,2,2026-07-19,registered,pending,34,candidate_name_or_alias_dob_match,14030119,R,GK,community_FM26_candidate_2025_snapshot,,,,15,,15,16,,,13,,,14,13,13,12,8
+NAT_ARG,13,Cristian Romero,DF,1998-04-27,185,2,2026-07-19,registered,pending,28,candidate_name_or_alias_dob_match,14130029,R,D C,community_FM26_candidate_2025_snapshot,,15,18,17,,17,17,18,17,17,17,16,15,15,15,13,14
+NAT_ARG,14,Exequiel Palacios,MF,1998-10-05,177,2,2026-07-19,registered,pending,27,candidate_name_or_alias_dob_match,14110846,R,DM/M C,community_FM26_candidate_2025_snapshot,,16,17,17,,16,16,17,15,15,18,18,16,16,16,15,14
+NAT_ARG,15,Nico Gonzalez,MF,1998-04-06,180,2,2026-07-19,registered,pending,28,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_ARG,16,Thiago Almada,FW,2001-04-26,171,2,2026-07-19,registered,pending,25,candidate_name_or_alias_dob_match,14172522,R,AM RLC,community_FM26_candidate_2025_snapshot,,17,14,16,,16,17,17,13,13,18,17,16,16,18,17,14
+NAT_ARG,17,Giuliano Simeone,FW,2002-12-18,174,2,2026-07-19,registered,pending,23,candidate_name_or_alias_dob_match,14250859,R,M/AM RL,community_FM26_candidate_2025_snapshot,,17,15,16,17,18,17,16,15,15,16,16,16,16,16,15,15
+NAT_ARG,18,Nico Paz,FW,2004-09-08,185,2,2026-07-19,registered,pending,21,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_ARG,19,Nicolas Otamendi,DF,1988-02-12,182,2,2026-07-19,registered,pending,38,candidate_name_or_alias_dob_match,14004589,R,D C,community_FM26_candidate_2025_snapshot,,17,17,17,,15,15,17,17,18,16,16,15,15,16,14,14
+NAT_ARG,20,Alexis Mac Allister,MF,1998-12-24,176,2,2026-07-19,registered,pending,27,candidate_name_or_alias_dob_match,14157184,R,DM/M/AM C,community_FM26_candidate_2025_snapshot,,17,16,16,,16,16,18,15,15,18,17,16,16,16,17,14
+NAT_ARG,21,Jose Manuel Lopez,FW,2000-12-06,190,2,2026-07-19,registered,pending,25,candidate_name_or_alias_dob_match,2000044526,L,ST,community_FM26_candidate_2025_snapshot,,17,15,17,16,16,16,16,18,17,16,16,16,16,16,15,15
+NAT_ARG,22,Lautaro Martinez,FW,1997-08-22,175,2,2026-07-19,registered,pending,28,candidate_name_or_alias_dob_match,14110660,R,ST,community_FM26_candidate_2025_snapshot,,18,14,17,,17,17,17,16,18,18,16,17,18,17,14,14
+NAT_ARG,23,Emiliano Martinez,GK,1992-09-02,195,2,2026-07-19,registered,pending,33,candidate_name_or_alias_dob_match,14020367,R,GK,community_FM26_candidate_2025_snapshot,,,,16,,15,15,,,13,,,14,13,13,14,8
+NAT_ARG,24,Enzo Fernandez,MF,2001-01-17,178,2,2026-07-19,registered,pending,25,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_ARG,25,Facundo Medina,DF,1999-05-28,184,2,2026-07-19,registered,pending,27,candidate_name_or_alias_dob_match,14185869,L,D/WB LC,community_FM26_candidate_2025_snapshot,,16,17,17,,17,16,17,17,16,17,17,16,16,16,15,14
+NAT_ARG,26,Nahuel Molina,DF,1998-04-06,179,2,2026-07-19,registered,pending,28,candidate_name_or_alias_dob_match,14129337,R,D/WB R,community_FM26_candidate_2025_snapshot,,17,16,16,,17,17,16,15,15,17,17,16,16,16,16,14
+NAT_AUS,1,Mathew Ryan,GK,1992-04-08,184,3,2026-07-19,registered,pending,34,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_AUS,2,Milos Degenek,DF,1994-04-28,187,3,2026-07-19,registered,pending,32,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_AUS,3,Alessandro Circati,DF,2003-10-10,191,3,2026-07-19,registered,pending,22,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_AUS,4,Jacob Italiano,DF,2001-07-30,177,3,2026-07-19,registered,pending,24,candidate_name_or_alias_dob_match,15081929,L,D/M RL,community_FM26_candidate_2025_snapshot,,15,15,14,,17,16,15,15,14,16,16,15,15,16,15,14
+NAT_AUS,5,Jordan Bos,DF,2002-10-29,180,3,2026-07-19,registered,pending,23,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_AUS,6,Jason Geria,DF,1993-05-10,181,3,2026-07-19,registered,pending,33,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_AUS,7,Mathew Leckie,FW,1991-02-04,181,3,2026-07-19,registered,pending,35,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_AUS,8,Connor Metcalfe,MF,1999-11-05,183,3,2026-07-19,registered,pending,26,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_AUS,9,Mohamed Toure,FW,2004-03-26,186,3,2026-07-19,registered,pending,22,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_AUS,10,Ajdin Hrustic,FW,1996-07-05,180,3,2026-07-19,registered,pending,30,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_AUS,11,Awer Mabil,FW,1995-09-15,178,3,2026-07-19,registered,pending,30,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_AUS,12,Paul Izzo,GK,1995-01-06,184,3,2026-07-19,registered,pending,31,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_AUS,13,Aiden O'Neill,MF,1998-07-04,180,3,2026-07-19,registered,pending,28,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_AUS,14,Cameron Devlin,MF,1998-06-07,170,3,2026-07-19,registered,pending,28,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_AUS,15,Kai Trewin,DF,2001-05-18,183,3,2026-07-19,registered,pending,25,candidate_name_or_alias_dob_match,15085280,R,D/DM RC,community_FM26_candidate_2025_snapshot,,15,16,16,17,15,16,16,15,15,15,15,15,15,15,15,15
+NAT_AUS,16,Aziz Behich,DF,1990-12-16,170,3,2026-07-19,registered,pending,35,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_AUS,17,Nestory Irankunda,FW,2006-02-09,165,3,2026-07-19,registered,pending,20,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_AUS,18,Patrick Beach,GK,2003-08-06,189,3,2026-07-19,registered,pending,22,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_AUS,19,Harry Souttar,DF,1998-10-22,198,3,2026-07-19,registered,pending,27,candidate_name_or_alias_dob_match,61069532,R,D C,community_FM26_candidate_2025_snapshot,,14,16,17,,15,14,16,19,18,15,15,15,14,14,13,14
+NAT_AUS,20,Cristian Volpato,FW,2003-11-15,187,3,2026-07-19,registered,pending,22,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_AUS,21,Cameron Burgess,DF,1995-10-21,194,3,2026-07-19,registered,pending,30,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_AUS,22,Jackson Irvine,MF,1993-03-07,189,3,2026-07-19,registered,pending,33,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_AUS,23,Nishan Velupillay,FW,2001-05-07,181,3,2026-07-19,registered,pending,25,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_AUS,24,Paul Okon-Engstler,MF,2005-01-24,185,3,2026-07-19,registered,pending,21,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_AUS,25,Lucas Herrington,DF,2007-09-05,193,3,2026-07-19,registered,pending,18,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_AUS,26,Tete Yengi,FW,2000-11-28,197,3,2026-07-19,registered,pending,25,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_AUT,1,Alexander Schlager,GK,1996-02-01,188,4,2026-07-19,registered,pending,30,candidate_name_or_alias_dob_match,16096422,R,GK,community_FM26_candidate_2025_snapshot,,,,17,16,15,16,,,14,,,15,13,14,13,9
+NAT_AUT,2,David Affengruber,DF,2001-03-19,185,4,2026-07-19,registered,pending,25,candidate_name_or_alias_dob_match,16202375,R,D C,community_FM26_candidate_2025_snapshot,,14,17,17,,17,16,16,17,17,17,16,15,14,15,14,14
+NAT_AUT,3,Kevin Danso,DF,1998-09-19,190,4,2026-07-19,registered,pending,27,candidate_name_or_alias_dob_match,91144914,R,D C,community_FM26_candidate_2025_snapshot,,16,17,17,,18,17,17,18,17,16,16,16,15,15,14,14
+NAT_AUT,4,Xaver Schlager,MF,1997-09-28,174,4,2026-07-19,registered,pending,28,candidate_name_or_alias_dob_match,16147660,L,DM/M C,community_FM26_candidate_2025_snapshot,,16,17,17,,16,16,17,15,15,17,17,16,15,16,15,14
+NAT_AUT,5,Stefan Posch,DF,1997-05-14,188,4,2026-07-19,registered,pending,29,candidate_name_or_alias_dob_match,16147386,R,D RC,community_FM26_candidate_2025_snapshot,,16,17,18,,17,16,17,17,17,16,16,16,15,16,14,14
+NAT_AUT,6,Nicolas Seiwald,MF,2001-05-04,179,4,2026-07-19,registered,pending,25,candidate_name_or_alias_dob_match,16191724,R,DM/M C,community_FM26_candidate_2025_snapshot,,16,17,16,,17,16,17,16,16,16,16,16,15,16,16,14
+NAT_AUT,7,Marko Arnautovic,FW,1989-04-19,192,4,2026-07-19,registered,pending,37,candidate_name_or_alias_dob_match,37003555,R,ST,community_FM26_candidate_2025_snapshot,,16,14,18,,16,16,15,17,17,17,17,17,16,17,16,14
+NAT_AUT,8,David Alaba,DF,1992-06-24,180,4,2026-07-19,registered,pending,34,candidate_name_or_alias_dob_match,16010162,L,D/WB LC,community_FM26_candidate_2025_snapshot,,16,17,17,,17,17,17,16,16,17,17,16,16,16,17,14
+NAT_AUT,9,Marcel Sabitzer,MF,1994-03-17,178,4,2026-07-19,registered,pending,32,candidate_name_or_alias_dob_match,16045721,R,DM/M C,community_FM26_candidate_2025_snapshot,,17,16,16,18,16,16,16,15,15,16,17,17,16,16,17,15
+NAT_AUT,10,Florian Grillitsch,MF,1995-08-07,186,4,2026-07-19,registered,pending,30,candidate_name_or_alias_dob_match,16096614,R,D/DM/M C,community_FM26_candidate_2025_snapshot,,15,16,17,,16,16,17,16,16,17,17,16,15,16,16,14
+NAT_AUT,11,Michael Gregoritsch,FW,1994-04-18,193,4,2026-07-19,registered,pending,32,candidate_name_or_alias_dob_match,16045723,L,ST C,community_FM26_candidate_2025_snapshot,,17,14,17,16,16,15,17,18,17,16,16,17,16,16,16,15
+NAT_AUT,12,Florian Wiegele,GK,2001-03-21,205,4,2026-07-19,registered,pending,25,candidate_name_or_alias_dob_match,16191332,R,GK,community_FM26_candidate_2025_snapshot,,,,17,,16,15,,,15,,,15,13,12,13,8
+NAT_AUT,13,Patrick Pentz,GK,1997-01-02,183,4,2026-07-19,registered,pending,29,candidate_name_or_alias_dob_match,16147449,L,GK,community_FM26_candidate_2025_snapshot,,,,16,,15,15,,,13,,,14,14,14,13,8
+NAT_AUT,14,Sasa Kalajdzic,FW,1997-07-07,200,4,2026-07-19,registered,pending,29,candidate_name_or_alias_dob_match,16197824,R,ST,community_FM26_candidate_2025_snapshot,,17,14,17,,15,15,17,19,18,17,17,16,16,16,14,14
+NAT_AUT,15,Philipp Lienhart,DF,1996-07-11,189,4,2026-07-19,registered,pending,30,candidate_name_or_alias_dob_match,16130398,R,D C,community_FM26_candidate_2025_snapshot,,15,17,17,,17,16,17,18,18,16,16,15,15,16,14,14
+NAT_AUT,16,Phillip Mwene,DF,1994-01-29,170,4,2026-07-19,registered,pending,32,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_AUT,17,Carney Chukwuemeka,MF,2003-10-20,187,4,2026-07-19,registered,pending,22,candidate_name_or_alias_dob_match,28127875,R,M/AM C,community_FM26_candidate_2025_snapshot,,16,15,16,,17,17,16,16,16,18,16,16,16,17,15,14
+NAT_AUT,18,Romano Schmid,MF,2000-01-27,168,4,2026-07-19,registered,pending,26,candidate_name_or_alias_dob_match,16184737,R,M/AM RLC,community_FM26_candidate_2025_snapshot,,16,15,16,,17,17,16,14,15,17,17,15,15,17,16,14
+NAT_AUT,19,Dejan Ljubicic,MF,1997-10-08,187,4,2026-07-19,registered,pending,28,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_AUT,20,Konrad Laimer,MF,1997-05-27,180,4,2026-07-19,registered,pending,29,candidate_name_or_alias_dob_match,16147659,R,D/WB/DM/M RC,community_FM26_candidate_2025_snapshot,,16,17,16,,17,17,16,15,15,16,16,16,15,16,15,14
+NAT_AUT,21,Patrick Wimmer,FW,2001-05-30,182,4,2026-07-19,registered,pending,25,candidate_name_or_alias_dob_match,16253898,R,AM RLC,community_FM26_candidate_2025_snapshot,,16,15,16,,17,17,16,16,15,16,16,16,15,17,16,14
+NAT_AUT,22,Alexander Prass,MF,2001-05-26,180,4,2026-07-19,registered,pending,25,candidate_name_or_alias_dob_match,16191722,L,D/WB LC,community_FM26_candidate_2025_snapshot,,16,16,16,,17,17,16,15,15,16,16,16,15,16,16,14
+NAT_AUT,23,Marco Friedl,DF,1998-03-16,187,4,2026-07-19,registered,pending,28,candidate_name_or_alias_dob_match,91143703,L,D LC,community_FM26_candidate_2025_snapshot,,16,17,17,,17,16,17,17,16,16,16,15,15,16,16,14
+NAT_AUT,24,Paul Wanner,MF,2005-12-23,185,4,2026-07-19,registered,pending,20,candidate_name_or_alias_dob_match,2000138516,L,M/AM RC,community_FM26_candidate_2025_snapshot,,15,14,15,,16,16,15,16,15,18,16,15,16,17,16,14
+NAT_AUT,25,Michael Svoboda,DF,1998-10-15,195,4,2026-07-19,registered,pending,27,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_AUT,26,Alessandro Schoepf,MF,1994-02-07,178,4,2026-07-19,registered,pending,32,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_BEL,1,Thibaut Courtois,GK,1992-05-11,199,5,2026-07-19,registered,pending,34,candidate_name_or_alias_dob_match,18026122,L,GK,community_FM26_candidate_2025_snapshot,,,,17,,16,16,,,15,,,14,13,15,14,8
+NAT_BEL,2,Zeno Debast,DF,2003-10-24,189,5,2026-07-19,registered,pending,22,candidate_name_or_alias_dob_match,18115016,R,D C,community_FM26_candidate_2025_snapshot,,15,16,16,,17,17,16,18,17,17,17,16,15,15,16,14
+NAT_BEL,3,Arthur Theate,DF,2000-05-25,185,5,2026-07-19,registered,pending,26,candidate_name_or_alias_dob_match,18105815,L,D LC,community_FM26_candidate_2025_snapshot,,16,17,17,,16,16,17,17,17,16,17,16,15,16,15,14
+NAT_BEL,4,Brandon Mechele,DF,1993-01-28,190,5,2026-07-19,registered,pending,33,candidate_name_or_alias_dob_match,18059927,R,D C,community_FM26_candidate_2025_snapshot,,16,17,16,17,16,15,16,17,16,15,15,16,15,14,15,15
+NAT_BEL,5,Maxim De Cuyper,DF,2000-12-22,182,5,2026-07-19,registered,pending,25,candidate_name_or_alias_dob_match,18110473,L,D/WB/M L,community_FM26_candidate_2025_snapshot,,16,16,16,16,17,17,16,16,16,17,17,16,16,16,16,15
+NAT_BEL,6,Axel Witsel,MF,1989-01-12,186,5,2026-07-19,registered,pending,37,candidate_name_or_alias_dob_match,8169215,R,D/DM C,community_FM26_candidate_2025_snapshot,,16,16,17,,15,15,18,17,16,17,17,16,16,16,15,14
+NAT_BEL,7,Kevin De Bruyne,MF,1991-06-28,181,5,2026-07-19,registered,pending,35,candidate_name_or_alias_dob_match,18004457,R,M/AM C,community_FM26_candidate_2025_snapshot,,17,15,17,,16,16,17,15,14,18,19,17,18,17,18,14
+NAT_BEL,8,Youri Tielemans,MF,1997-05-07,176,5,2026-07-19,registered,pending,29,candidate_name_or_alias_dob_match,18077264,R,DM/M/AM C,community_FM26_candidate_2025_snapshot,,17,16,16,,16,16,17,15,15,18,18,16,16,16,16,14
+NAT_BEL,9,Romelu Lukaku,FW,1993-05-13,190,5,2026-07-19,registered,pending,33,candidate_name_or_alias_dob_match,18007344,L,ST,community_FM26_candidate_2025_snapshot,,17,14,19,17,17,17,17,18,17,17,16,18,17,16,15,15
+NAT_BEL,10,Leandro Trossard,FW,1994-12-04,172,5,2026-07-19,registered,pending,31,candidate_name_or_alias_dob_match,18054004,R,AM RLC,community_FM26_candidate_2025_snapshot,,17,14,16,,17,18,17,14,14,17,17,16,17,17,16,14
+NAT_BEL,11,Jeremy Doku,FW,2002-05-27,173,5,2026-07-19,registered,pending,24,candidate_name_or_alias_dob_match,18106083,R,AM/ST RL,community_FM26_candidate_2025_snapshot,,16,14,16,,18,18,16,15,13,17,17,16,16,18,15,14
+NAT_BEL,12,Senne Lammens,GK,2002-07-07,193,5,2026-07-19,registered,pending,24,candidate_name_or_alias_dob_match,18107436,R,GK,community_FM26_candidate_2025_snapshot,,,,15,16,16,16,,,16,,,14,13,12,12,9
+NAT_BEL,13,Mike Penders,GK,2005-07-31,200,5,2026-07-19,registered,pending,20,candidate_name_or_alias_dob_match,2000102877,L,GK,community_FM26_candidate_2025_snapshot,,,,16,,15,15,,,16,,,14,13,12,14,8
+NAT_BEL,14,Dodi Lukebakio,FW,1997-09-24,184,5,2026-07-19,registered,pending,28,candidate_name_or_alias_dob_match,18083611,L,M/AM RL,community_FM26_candidate_2025_snapshot,,17,13,16,,18,18,16,16,15,17,16,17,17,18,16,14
+NAT_BEL,15,Thomas Meunier,DF,1991-09-12,190,5,2026-07-19,registered,pending,34,candidate_name_or_alias_dob_match,18043393,R,D/WB R,community_FM26_candidate_2025_snapshot,,17,16,17,,16,16,16,17,16,16,16,16,15,16,15,14
+NAT_BEL,16,Koni De Winter,DF,2002-06-12,191,5,2026-07-19,registered,pending,24,candidate_name_or_alias_dob_match,18108550,R,D C,community_FM26_candidate_2025_snapshot,,15,17,17,,17,16,16,17,17,16,16,16,15,16,15,14
+NAT_BEL,17,Charles De Ketelaere,FW,2001-03-10,192,5,2026-07-19,registered,pending,25,candidate_name_or_alias_dob_match,18110528,L,AM/ST C,community_FM26_candidate_2025_snapshot,,17,15,17,16,17,16,17,17,17,17,17,17,17,17,16,15
+NAT_BEL,18,Joaquin Seys,DF,2005-03-28,178,5,2026-07-19,registered,pending,21,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_BEL,19,Diego Moreira,MF,2004-08-06,179,5,2026-07-19,registered,pending,21,candidate_name_or_alias_dob_match,2000027719,L,WB/M/AM RL,community_FM26_candidate_2025_snapshot,,16,14,15,,18,18,15,14,13,16,16,15,15,17,15,14
+NAT_BEL,20,Hans Vanaken,MF,1992-08-24,195,5,2026-07-19,registered,pending,33,candidate_name_or_alias_dob_match,18051194,R,M/AM C,community_FM26_candidate_2025_snapshot,,17,15,16,16,16,15,17,16,17,16,17,16,17,15,16,15
+NAT_BEL,21,Timothy Castagne,DF,1995-12-05,185,5,2026-07-19,registered,pending,30,candidate_name_or_alias_dob_match,18074558,R,D/WB/M RL,community_FM26_candidate_2025_snapshot,,16,16,16,,17,17,16,16,15,16,16,15,15,16,15,14
+NAT_BEL,22,Alexis Saelemaekers,MF,1999-06-27,180,5,2026-07-19,registered,pending,27,candidate_name_or_alias_dob_match,18097159,R,WB/M/AM RL,community_FM26_candidate_2025_snapshot,,16,16,16,,17,17,16,15,15,17,17,16,16,17,16,14
+NAT_BEL,23,Nicolas Raskin,MF,2001-02-23,178,5,2026-07-19,registered,pending,25,candidate_name_or_alias_dob_match,18104192,R,DM/M C,community_FM26_candidate_2025_snapshot,,17,16,16,,16,17,17,15,14,17,17,16,15,17,16,14
+NAT_BEL,24,Amadou Onana,MF,2001-08-16,192,5,2026-07-19,registered,pending,24,candidate_name_or_alias_dob_match,91207274,R,DM/M C,community_FM26_candidate_2025_snapshot,,16,17,17,,18,16,16,18,18,17,17,16,16,17,15,14
+NAT_BEL,25,Nathan Ngoy,DF,2003-06-10,183,5,2026-07-19,registered,pending,23,candidate_name_or_alias_dob_match,18114991,R,D C,community_FM26_candidate_2025_snapshot,,16,16,17,16,17,16,16,16,17,17,16,17,16,16,14,15
+NAT_BEL,26,Matias Fernandez-Pardo,FW,2005-02-03,188,5,2026-07-19,registered,pending,21,candidate_name_or_alias_dob_match,2000107089,R,AM/ST RL,community_FM26_candidate_2025_snapshot,,16,14,16,,18,18,17,14,15,16,16,16,17,17,16,14
+NAT_BIH,1,Nikola Vasilj,GK,1995-12-02,193,6,2026-07-19,registered,pending,30,candidate_name_or_alias_dob_match,21024436,R,GK,community_FM26_candidate_2025_snapshot,,,,16,,15,15,,,14,,,14,13,12,12,8
+NAT_BIH,2,Nihad Mujakic,DF,1998-04-15,189,6,2026-07-19,registered,pending,28,candidate_name_or_alias_dob_match,21028829,L,D C,community_FM26_candidate_2025_snapshot,,15,16,16,,17,16,16,17,16,15,15,15,14,15,14,14
+NAT_BIH,3,Dennis Hadzikadunic,DF,1998-07-09,191,6,2026-07-19,registered,pending,28,candidate_name_or_alias_dob_match,93060314,R,D C,community_FM26_candidate_2025_snapshot,,15,17,17,,16,16,16,18,16,16,16,15,14,15,13,14
+NAT_BIH,4,Tarik Muharemovic,DF,2003-02-28,192,6,2026-07-19,registered,pending,23,candidate_name_or_alias_dob_match,16337326,L,D C,community_FM26_candidate_2025_snapshot,,15,17,16,,16,16,17,17,17,15,15,15,14,14,13,14
+NAT_BIH,5,Sead Kolasinac,DF,1993-06-20,183,6,2026-07-19,registered,pending,33,candidate_name_or_alias_dob_match,92029805,L,D LC,community_FM26_candidate_2025_snapshot,,16,17,18,,17,16,17,16,18,16,16,16,14,16,14,14
+NAT_BIH,6,Benjamin Tahirovic,MF,2003-03-03,191,6,2026-07-19,registered,pending,23,candidate_name_or_alias_dob_match,93145052,R,DM/M/AM C,community_FM26_candidate_2025_snapshot,,15,15,17,16,16,15,16,17,15,17,17,16,15,16,15,15
+NAT_BIH,7,Amar Dedic,DF,2002-08-18,180,6,2026-07-19,registered,pending,23,candidate_name_or_alias_dob_match,16283629,R,D/WB R,community_FM26_candidate_2025_snapshot,,17,16,16,17,18,17,16,15,15,17,16,15,16,18,15,15
+NAT_BIH,8,Armin Gigovic,MF,2002-04-06,187,6,2026-07-19,registered,pending,24,candidate_name_or_alias_dob_match,93122308,R,DM/M C,community_FM26_candidate_2025_snapshot,,16,15,16,,16,16,16,16,16,17,16,16,16,16,16,14
+NAT_BIH,9,Samed Bazdar,FW,2004-01-31,189,6,2026-07-19,registered,pending,22,candidate_name_or_alias_dob_match,2000027057,R,AM/ST RLC,community_FM26_candidate_2025_snapshot,,16,14,16,,16,16,16,17,16,17,16,16,16,16,15,14
+NAT_BIH,10,Ermedin Demirovic,FW,1998-03-25,185,6,2026-07-19,registered,pending,28,candidate_name_or_alias_dob_match,91158071,R,ST L,community_FM26_candidate_2025_snapshot,,17,15,17,,17,16,16,17,17,16,16,16,17,16,15,14
+NAT_BIH,11,Edin Dzeko,FW,1986-03-17,192,6,2026-07-19,registered,pending,40,candidate_name_or_alias_dob_match,8502440,R,ST,community_FM26_candidate_2025_snapshot,,18,15,16,,15,13,17,17,17,17,17,16,16,16,15,14
+NAT_BIH,12,Mladen Jurkas,GK,2007-10-07,193,6,2026-07-19,registered,pending,18,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_BIH,13,Ivan Basic,MF,2002-04-30,178,6,2026-07-19,registered,pending,24,candidate_name_or_alias_dob_match,2000044656,L,DM/M C,community_FM26_candidate_2025_snapshot,,16,15,16,16,16,16,16,15,16,17,16,16,15,16,16,15
+NAT_BIH,14,Ivan Sunjic,MF,1996-10-09,183,6,2026-07-19,registered,pending,29,candidate_name_or_alias_dob_match,24039617,R,DM/M C,community_FM26_candidate_2025_snapshot,,14,17,16,,16,16,16,15,15,15,16,16,15,15,14,14
+NAT_BIH,15,Amar Memic,MF,2001-01-20,176,6,2026-07-19,registered,pending,25,candidate_name_or_alias_dob_match,2000056780,R,WB/M/AM RL,community_FM26_candidate_2025_snapshot,,16,15,15,,17,17,16,15,14,16,16,15,16,17,16,14
+NAT_BIH,16,Amir Hadziahmetovic,MF,1997-03-08,179,6,2026-07-19,registered,pending,29,candidate_name_or_alias_dob_match,21026981,R,DM/M C,community_FM26_candidate_2025_snapshot,,16,16,16,16,15,16,17,15,15,17,17,15,15,16,17,15
+NAT_BIH,17,Dzenis Burnic,MF,1998-05-22,182,6,2026-07-19,registered,pending,28,candidate_name_or_alias_dob_match,92068724,L,DM/M RC,community_FM26_candidate_2025_snapshot,,16,16,16,,16,16,16,16,15,16,16,15,15,16,16,14
+NAT_BIH,18,Nikola Katic,DF,1996-10-10,194,6,2026-07-19,registered,pending,29,candidate_name_or_alias_dob_match,24047814,R,D C,community_FM26_candidate_2025_snapshot,,15,17,18,,16,15,17,18,18,15,15,15,14,14,13,14
+NAT_BIH,19,Kerim Alajbegovic,FW,2007-09-21,186,6,2026-07-19,registered,pending,18,candidate_name_or_alias_dob_match,2000330855,R,M/AM RLC,community_FM26_candidate_2025_snapshot,,15,14,15,,16,16,15,15,14,17,16,15,15,16,17,14
+NAT_BIH,20,Esmir Bajraktarevic,FW,2005-03-10,175,6,2026-07-19,registered,pending,21,candidate_name_or_alias_dob_match,2000143821,L,AM RLC,community_FM26_candidate_2025_snapshot,,16,15,16,,17,17,16,14,15,17,16,15,16,18,16,14
+NAT_BIH,21,Stjepan Radeljic,DF,1997-09-05,201,6,2026-07-19,registered,pending,28,candidate_name_or_alias_dob_match,91181821,L,D C,community_FM26_candidate_2025_snapshot,,15,16,17,16,15,15,17,19,17,15,16,16,14,16,14,15
+NAT_BIH,22,Martin Zlomislic,GK,1998-08-16,189,6,2026-07-19,registered,pending,27,candidate_name_or_alias_dob_match,2000045461,R,GK,community_FM26_candidate_2025_snapshot,,,,16,,15,15,,,13,,,14,13,12,13,8
+NAT_BIH,23,Haris Tabakovic,FW,1994-06-20,196,6,2026-07-19,registered,pending,32,candidate_name_or_alias_dob_match,98029083,R,ST,community_FM26_candidate_2025_snapshot,,16,14,18,,16,16,16,18,17,16,16,17,17,15,14,14
+NAT_BIH,24,Arjan Malic,DF,2005-08-28,188,6,2026-07-19,registered,pending,20,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_BIH,25,Jovo Lukic,FW,1998-11-28,190,6,2026-07-19,registered,pending,27,candidate_name_or_alias_dob_match,21029564,L,ST,community_FM26_candidate_2025_snapshot,,16,15,18,,16,15,16,17,16,16,16,16,16,15,14,14
+NAT_BIH,26,Ermin Mahmic,MF,2005-03-14,182,6,2026-07-19,registered,pending,21,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_BRA,1,Alisson,GK,1992-10-02,193,7,2026-07-19,registered,pending,33,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_BRA,2,Ederson Silva,MF,1999-07-07,184,7,2026-07-19,registered,pending,27,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_BRA,3,Gabriel Magalhaes,DF,1997-12-19,190,7,2026-07-19,registered,pending,28,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_BRA,4,Marquinhos,DF,1994-05-14,183,7,2026-07-19,registered,pending,32,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_BRA,5,Casemiro,MF,1992-02-23,185,7,2026-07-19,registered,pending,34,candidate_name_or_alias_dob_match,19061518,R,DM/M C,community_FM26_candidate_2025_snapshot,,17,17,17,,15,15,17,17,18,17,17,17,16,15,15,14
+NAT_BRA,6,Alex Sandro,DF,1991-01-26,180,7,2026-07-19,registered,pending,35,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_BRA,7,Vinicius Junior,FW,2000-07-12,176,7,2026-07-19,registered,pending,26,candidate_name_or_alias_dob_match,19302146,R,AM/ST L,community_FM26_candidate_2025_snapshot,,18,14,17,,18,19,17,15,16,17,17,16,17,19,15,14
+NAT_BRA,8,Bruno Guimaraes,MF,1997-11-16,182,7,2026-07-19,registered,pending,28,candidate_name_or_alias_dob_match,19297055,R,DM/M C,community_FM26_candidate_2025_snapshot,,17,17,17,,16,16,17,16,15,18,18,16,16,18,16,14
+NAT_BRA,9,Matheus Cunha,FW,1999-05-27,183,7,2026-07-19,registered,pending,27,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_BRA,10,Neymar Jr,FW,1992-02-05,175,7,2026-07-19,registered,pending,34,candidate_name_or_alias_dob_match,19024412,R,AM LC,community_FM26_candidate_2025_snapshot,,18,13,16,,16,16,17,14,15,19,18,16,17,19,17,14
+NAT_BRA,11,Raphinha,FW,1996-12-14,176,7,2026-07-19,registered,pending,29,candidate_name_or_alias_dob_match,19242277,L,M/AM RLC,community_FM26_candidate_2025_snapshot,,18,15,17,,17,18,17,15,15,17,17,16,17,17,17,14
+NAT_BRA,12,Weverton,GK,1987-12-13,189,7,2026-07-19,registered,pending,38,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_BRA,13,Danilo,DF,1991-07-15,184,7,2026-07-19,registered,pending,35,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_BRA,14,Bremer,DF,1997-03-18,188,7,2026-07-19,registered,pending,29,candidate_name_or_alias_dob_match,19270493,R,D C,community_FM26_candidate_2025_snapshot,,16,17,17,,17,17,18,18,18,16,16,16,16,15,13,14
+NAT_BRA,15,Leo Pereira,DF,1996-01-31,189,7,2026-07-19,registered,pending,30,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_BRA,16,Douglas Santos,DF,1994-03-22,173,7,2026-07-19,registered,pending,32,candidate_name_or_alias_dob_match,19187721,L,D/WB LC,community_FM26_candidate_2025_snapshot,,16,16,16,17,16,17,17,15,15,17,17,16,16,16,17,15
+NAT_BRA,17,Fabinho,MF,1993-10-23,188,7,2026-07-19,registered,pending,32,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_BRA,18,Danilo Santos,MF,2001-04-29,177,7,2026-07-19,registered,pending,25,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_BRA,19,Endrick,FW,2006-07-21,172,7,2026-07-19,registered,pending,19,candidate_name_or_alias_dob_match,2000220941,L,ST R,community_FM26_candidate_2025_snapshot,,17,14,17,,17,18,16,14,16,17,16,17,17,17,15,14
+NAT_BRA,20,Lucas Paqueta,MF,1997-08-27,183,7,2026-07-19,registered,pending,28,candidate_name_or_alias_dob_match,19226741,L,M/AM LC,community_FM26_candidate_2025_snapshot,,16,16,17,16,16,16,16,16,16,18,16,16,16,17,16,15
+NAT_BRA,21,Luiz Henrique,FW,2001-01-02,182,7,2026-07-19,registered,pending,25,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_BRA,22,Gabriel Martinelli,FW,2001-06-18,178,7,2026-07-19,registered,pending,25,candidate_name_or_alias_dob_match,19351309,R,AM RL,community_FM26_candidate_2025_snapshot,,17,14,16,,18,18,16,16,16,17,16,16,16,18,16,14
+NAT_BRA,23,Ederson,GK,1993-08-17,188,7,2026-07-19,registered,pending,32,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_BRA,24,Roger Ibanez,DF,1998-11-23,186,7,2026-07-19,registered,pending,27,candidate_name_or_alias_dob_match,19337893,R,D C,community_FM26_candidate_2025_snapshot,,16,17,16,,17,17,17,17,18,16,16,15,15,16,14,14
+NAT_BRA,25,Igor Thiago,FW,2001-06-26,190,7,2026-07-19,registered,pending,25,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_BRA,26,Rayan,FW,2006-08-03,187,7,2026-07-19,registered,pending,19,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_CPV,1,Vozinha,GK,1986-06-03,189,8,2026-07-19,registered,pending,40,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_CPV,2,Stopira,DF,1988-05-20,178,8,2026-07-19,registered,pending,38,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_CPV,3,Diney Borges,DF,1995-01-17,185,8,2026-07-19,registered,pending,31,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_CPV,4,Pico Lopes,DF,1992-06-17,186,8,2026-07-19,registered,pending,34,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_CPV,5,Logan Costa,DF,2001-04-01,190,8,2026-07-19,registered,pending,25,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_CPV,6,Kevin Pina,MF,1997-01-27,177,8,2026-07-19,registered,pending,29,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_CPV,7,Jovane Cabral,MF,1998-06-14,174,8,2026-07-19,registered,pending,28,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_CPV,8,Joao Paulo,MF,1998-05-26,180,8,2026-07-19,registered,pending,28,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_CPV,9,Gilson Benchimol,FW,2001-12-29,187,8,2026-07-19,registered,pending,24,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_CPV,10,Jamiro Monteiro,MF,1993-11-23,175,8,2026-07-19,registered,pending,32,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_CPV,11,Garry Rodrigues,MF,1990-11-27,173,8,2026-07-19,registered,pending,35,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_CPV,12,Marcio Rosa,GK,1997-02-23,186,8,2026-07-19,registered,pending,29,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_CPV,13,Sidny Lopes Cabral,DF,2002-09-18,176,8,2026-07-19,registered,pending,23,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_CPV,14,Deroy Duarte,MF,1999-07-04,177,8,2026-07-19,registered,pending,27,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_CPV,15,Laros Duarte,MF,1997-02-28,180,8,2026-07-19,registered,pending,29,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_CPV,16,Yannick Semedo,MF,1995-12-29,176,8,2026-07-19,registered,pending,30,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_CPV,17,Willy Semedo,MF,1994-04-27,185,8,2026-07-19,registered,pending,32,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_CPV,18,Telmo Arcanjo,MF,2001-06-21,180,8,2026-07-19,registered,pending,25,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_CPV,19,Dailon Livramento,FW,2001-05-04,185,8,2026-07-19,registered,pending,25,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_CPV,20,Ryan Mendes,FW,1990-01-08,178,8,2026-07-19,registered,pending,36,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_CPV,21,Nuno da Costa,MF,1991-02-10,182,8,2026-07-19,registered,pending,35,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_CPV,22,Steven Moreira,DF,1994-08-13,178,8,2026-07-19,registered,pending,31,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_CPV,23,CJ dos Santos,GK,2000-08-24,189,8,2026-07-19,registered,pending,25,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_CPV,24,Wagner Pina,DF,2002-11-03,180,8,2026-07-19,registered,pending,23,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_CPV,25,Kelvin Pires,DF,2000-06-05,193,8,2026-07-19,registered,pending,26,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_CPV,26,Helio Varela,MF,2002-05-03,176,8,2026-07-19,registered,pending,24,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_CAN,1,Dayne St. Clair,GK,1997-05-09,191,9,2026-07-19,registered,pending,29,candidate_name_or_alias_dob_match,72052878,L,GK,community_FM26_candidate_2025_snapshot,,,,16,,16,16,,,12,,,14,13,13,13,8
+NAT_CAN,2,Alistair Johnston,DF,1998-10-08,180,9,2026-07-19,registered,pending,27,candidate_name_or_alias_dob_match,72056139,R,D/WB R,community_FM26_candidate_2025_snapshot,,16,17,17,,16,16,16,16,16,16,16,15,15,15,15,14
+NAT_CAN,3,Ale Jones,DF,1997-10-07,191,9,2026-07-19,registered,pending,28,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_CAN,4,Luc De Fougerolles,DF,2005-10-12,183,9,2026-07-19,registered,pending,20,candidate_name_or_alias_dob_match,2000225029,R,D C,community_FM26_candidate_2025_snapshot,,15,16,16,16,16,16,16,16,16,15,15,14,14,16,14,15
+NAT_CAN,5,Joel Waterman,DF,1996-01-24,185,9,2026-07-19,registered,pending,30,candidate_name_or_alias_dob_match,20503374,R,D C,community_FM26_candidate_2025_snapshot,,16,16,16,,16,15,16,16,17,16,16,15,15,15,13,14
+NAT_CAN,6,Mathieu Choiniere,MF,1999-02-07,173,9,2026-07-19,registered,pending,27,candidate_name_or_alias_dob_match,72052133,R,DM/M C,community_FM26_candidate_2025_snapshot,,15,16,15,,16,16,16,14,14,16,16,15,15,16,16,14
+NAT_CAN,7,Stephen Eustaquio,MF,1996-12-21,175,9,2026-07-19,registered,pending,29,candidate_name_or_alias_dob_match,55079798,R,DM/M C,community_FM26_candidate_2025_snapshot,,16,16,16,,16,16,16,16,16,17,17,15,16,15,16,14
+NAT_CAN,8,Ismael Kone,MF,2002-06-16,188,9,2026-07-19,registered,pending,24,candidate_name_or_alias_dob_match,2000121309,R,DM/M/AM C,community_FM26_candidate_2025_snapshot,,16,16,16,,16,16,16,16,15,17,17,16,16,16,15,14
+NAT_CAN,9,Cyle Larin,FW,1995-04-17,188,9,2026-07-19,registered,pending,31,candidate_name_or_alias_dob_match,72044151,R,AM/ST RL,community_FM26_candidate_2025_snapshot,,17,14,17,17,16,16,16,17,17,16,15,16,16,16,13,15
+NAT_CAN,10,Jonathan David,FW,2000-01-14,175,9,2026-07-19,registered,pending,26,candidate_name_or_alias_dob_match,18108540,R,AM/ST RLC,community_FM26_candidate_2025_snapshot,,17,14,16,,17,18,16,16,16,17,16,16,16,17,15,14
+NAT_CAN,11,Liam Millar,MF,1999-09-27,176,9,2026-07-19,registered,pending,26,candidate_name_or_alias_dob_match,28109697,R,M/AM L,community_FM26_candidate_2025_snapshot,,16,14,16,,17,17,16,15,15,17,16,15,15,17,15,14
+NAT_CAN,12,Tani Oluwaseyi,FW,2000-05-15,187,9,2026-07-19,registered,pending,26,candidate_name_or_alias_dob_match,2000158854,L,AM/ST LC,community_FM26_candidate_2025_snapshot,,17,14,16,,18,18,16,17,16,16,15,16,17,16,14,14
+NAT_CAN,13,Derek Cornelius,DF,1997-11-25,186,9,2026-07-19,registered,pending,28,candidate_name_or_alias_dob_match,62206980,L,D LC,community_FM26_candidate_2025_snapshot,,16,16,16,,16,16,16,17,17,16,16,16,15,15,16,14
+NAT_CAN,14,Jacob Shaffelburg,MF,1999-11-26,181,9,2026-07-19,registered,pending,26,candidate_name_or_alias_dob_match,20048623,L,M/AM RL,community_FM26_candidate_2025_snapshot,,15,15,14,,18,18,15,15,14,16,15,15,16,17,15,14
+NAT_CAN,15,Moise Bombito,DF,2000-03-30,190,9,2026-07-19,registered,pending,26,candidate_name_or_alias_dob_match,2000239167,R,D C,community_FM26_candidate_2025_snapshot,,16,17,16,,18,18,16,18,17,15,16,15,14,15,14,14
+NAT_CAN,16,Maxime Crepeau,GK,1994-05-11,185,9,2026-07-19,registered,pending,32,candidate_name_or_alias_dob_match,72022967,R,GK,community_FM26_candidate_2025_snapshot,,,,16,,15,15,,,13,,,14,13,13,13,8
+NAT_CAN,17,Tajon Buchanan,FW,1999-02-08,183,9,2026-07-19,registered,pending,27,candidate_name_or_alias_dob_match,72052880,R,D/WB/M/AM R,community_FM26_candidate_2025_snapshot,,17,16,16,,17,17,16,15,16,16,16,16,16,17,16,14
+NAT_CAN,18,Owen Goodman,GK,2003-11-27,193,9,2026-07-19,registered,pending,22,candidate_name_or_alias_dob_match,2000048047,L,GK,community_FM26_candidate_2025_snapshot,,,,15,,15,15,,,14,,,13,13,12,13,8
+NAT_CAN,19,Alphonso Davies,DF,2000-11-02,183,9,2026-07-19,registered,pending,25,candidate_name_or_alias_dob_match,20041862,L,D/WB L,community_FM26_candidate_2025_snapshot,,16,16,16,,19,19,16,16,15,16,16,16,15,18,16,14
+NAT_CAN,20,Ali Ahmed,FW,2000-10-10,180,9,2026-07-19,registered,pending,25,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_CAN,21,Jonathan Osorio,MF,1992-06-12,175,9,2026-07-19,registered,pending,34,candidate_name_or_alias_dob_match,72040331,R,M/AM RLC,community_FM26_candidate_2025_snapshot,,16,16,16,16,16,16,16,14,14,16,16,16,16,17,16,15
+NAT_CAN,22,Richie Laryea,DF,1995-01-07,175,9,2026-07-19,registered,pending,31,candidate_name_or_alias_dob_match,72045915,R,D/WB RL,community_FM26_candidate_2025_snapshot,,16,16,16,,18,17,16,15,15,16,16,16,16,16,15,14
+NAT_CAN,23,Niko Sigur,DF,2003-09-09,178,9,2026-07-19,registered,pending,22,candidate_name_or_alias_dob_match,2000205816,R,D/DM/M RC,community_FM26_candidate_2025_snapshot,,16,16,15,,16,16,16,15,15,16,16,15,15,16,15,14
+NAT_CAN,24,Promise David,FW,2001-07-03,195,9,2026-07-19,registered,pending,25,candidate_name_or_alias_dob_match,2000159861,R,AM/ST RC,community_FM26_candidate_2025_snapshot,,17,16,16,17,16,16,16,16,17,16,16,16,17,15,15,15
+NAT_CAN,25,Nathan Saliba,MF,2004-02-07,174,9,2026-07-19,registered,pending,22,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_CAN,26,Jayden Nelson,FW,2002-09-26,170,9,2026-07-19,registered,pending,23,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_COL,1,David Ospina,GK,1988-08-31,183,10,2026-07-19,registered,pending,37,candidate_name_or_alias_dob_match,8835677,R,GK,community_FM26_candidate_2025_snapshot,,,,16,,15,15,,,15,,,14,13,13,13,8
+NAT_COL,2,Daniel Munoz,DF,1996-05-26,180,10,2026-07-19,registered,pending,30,candidate_name_or_alias_dob_match,76050675,R,D/WB/M R,community_FM26_candidate_2025_snapshot,,16,16,16,,17,17,16,16,16,16,16,16,16,17,16,14
+NAT_COL,3,Jhon Lucumi,DF,1998-06-26,187,10,2026-07-19,registered,pending,28,candidate_name_or_alias_dob_match,76042952,L,D C,community_FM26_candidate_2025_snapshot,,16,17,18,,17,17,17,16,16,16,17,16,15,16,14,14
+NAT_COL,4,Santiago Arias,DF,1992-01-13,177,10,2026-07-19,registered,pending,34,candidate_name_or_alias_dob_match,76015950,R,D/WB R,community_FM26_candidate_2025_snapshot,,16,16,16,,16,16,16,15,15,16,17,15,15,16,16,14
+NAT_COL,5,Kevin Castano,MF,2000-09-29,179,10,2026-07-19,registered,pending,25,candidate_name_or_alias_dob_match,76069073,R,DM/M C,community_FM26_candidate_2025_snapshot,,16,16,16,,16,16,16,15,15,17,17,16,15,16,15,14
+NAT_COL,6,Richard Rios,MF,2000-06-02,185,10,2026-07-19,registered,pending,26,candidate_name_or_alias_dob_match,19391095,R,DM/M C,community_FM26_candidate_2025_snapshot,,16,17,17,18,16,17,16,17,15,16,16,16,16,16,16,15
+NAT_COL,7,Luis Diaz,FW,1997-01-13,179,10,2026-07-19,registered,pending,29,candidate_name_or_alias_dob_match,76049803,R,M/AM RL,community_FM26_candidate_2025_snapshot,,17,15,16,,18,18,16,16,16,18,17,16,16,18,16,14
+NAT_COL,8,Jorge Carrascal,MF,1998-05-25,180,10,2026-07-19,registered,pending,28,candidate_name_or_alias_dob_match,76040911,R,AM RLC,community_FM26_candidate_2025_snapshot,,16,14,16,,16,17,16,15,14,17,16,15,16,18,16,14
+NAT_COL,9,Jhon Cordoba,FW,1993-05-11,186,10,2026-07-19,registered,pending,33,candidate_name_or_alias_dob_match,76018954,R,ST,community_FM26_candidate_2025_snapshot,,17,15,18,,18,17,16,17,16,16,16,16,16,16,14,14
+NAT_COL,10,James Rodriguez,MF,1991-07-12,181,10,2026-07-19,registered,pending,35,candidate_name_or_alias_dob_match,76002390,L,AM RLC,community_FM26_candidate_2025_snapshot,,17,14,16,,15,15,17,15,16,18,18,17,17,17,17,14
+NAT_COL,11,Jhon Arias,MF,1997-09-21,168,10,2026-07-19,registered,pending,28,candidate_name_or_alias_dob_match,76053760,R,AM RLC,community_FM26_candidate_2025_snapshot,,17,15,16,,16,16,17,15,15,17,17,16,16,17,17,14
+NAT_COL,12,Camilo Vargas,GK,1989-03-09,183,10,2026-07-19,registered,pending,37,candidate_name_or_alias_dob_match,76007680,L,GK,community_FM26_candidate_2025_snapshot,,,,16,16,16,16,,,12,,,14,13,12,14,9
+NAT_COL,13,Yerry Mina,DF,1994-09-23,195,10,2026-07-19,registered,pending,31,candidate_name_or_alias_dob_match,76037151,R,D C,community_FM26_candidate_2025_snapshot,,15,17,17,,16,15,17,18,17,16,15,16,15,16,13,14
+NAT_COL,14,Gustavo Puerta,DF,2003-07-23,173,10,2026-07-19,registered,pending,22,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_COL,15,Juan Portilla,MF,1998-09-12,181,10,2026-07-19,registered,pending,27,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_COL,16,Jefferson Lerma,MF,1994-10-25,180,10,2026-07-19,registered,pending,31,candidate_name_or_alias_dob_match,76038475,R,D/DM/M C,community_FM26_candidate_2025_snapshot,,16,17,17,,16,16,17,17,17,16,16,16,15,16,15,14
+NAT_COL,17,Johan Mojica,DF,1992-08-21,184,10,2026-07-19,registered,pending,33,candidate_name_or_alias_dob_match,76020280,L,D/WB L,community_FM26_candidate_2025_snapshot,,16,16,17,,18,18,16,15,15,16,16,16,15,17,16,14
+NAT_COL,18,Willer Ditta,DF,1998-01-23,179,10,2026-07-19,registered,pending,28,candidate_name_or_alias_dob_match,76053523,R,D C,community_FM26_candidate_2025_snapshot,,16,17,16,16,16,16,17,16,16,16,16,16,15,14,14,15
+NAT_COL,19,Cucho Hernandez,FW,1999-04-20,176,10,2026-07-19,registered,pending,27,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_COL,20,Juan Quintero,MF,1993-01-18,167,10,2026-07-19,registered,pending,33,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_COL,21,Jaminton Campaz,FW,2000-05-24,166,10,2026-07-19,registered,pending,26,candidate_name_or_alias_dob_match,76050955,L,AM RLC,community_FM26_candidate_2025_snapshot,,17,14,16,16,17,18,15,13,15,16,16,16,16,17,16,15
+NAT_COL,22,Deiver Machado,DF,1993-09-02,173,10,2026-07-19,registered,pending,32,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_COL,23,Davinson Sanchez,DF,1996-06-12,188,10,2026-07-19,registered,pending,30,candidate_name_or_alias_dob_match,76023027,R,D C,community_FM26_candidate_2025_snapshot,,15,17,17,17,17,16,16,18,18,16,16,16,15,16,14,15
+NAT_COL,24,Alvaro Montero,GK,1995-03-29,201,10,2026-07-19,registered,pending,31,candidate_name_or_alias_dob_match,19215609,R,GK,community_FM26_candidate_2025_snapshot,,,,16,,16,15,,,15,,,14,13,12,12,8
+NAT_COL,25,Luis Suarez,FW,1997-12-02,179,10,2026-07-19,registered,pending,28,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_COL,26,Andres Gomez,FW,2002-09-12,170,10,2026-07-19,registered,pending,23,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_COD,1,Lionel Mpasi,GK,1994-08-01,182,11,2026-07-19,registered,pending,31,candidate_name_or_alias_dob_match,85072030,R,GK,community_FM26_candidate_2025_snapshot,,,,16,16,16,16,,,15,,,14,13,12,13,9
+NAT_COD,2,Aaron Wan-Bissaka,DF,1997-11-26,183,11,2026-07-19,registered,pending,28,candidate_name_or_alias_dob_match,28100123,R,D R,community_FM26_candidate_2025_snapshot,,16,17,17,17,17,18,16,15,15,16,15,15,14,16,14,15
+NAT_COD,3,Steve Kapuadi,DF,1998-04-30,196,11,2026-07-19,registered,pending,28,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_COD,4,Axel Tuanzebe,DF,1997-11-14,188,11,2026-07-19,registered,pending,28,candidate_name_or_alias_dob_match,28100269,R,D RC,community_FM26_candidate_2025_snapshot,,15,17,17,16,18,17,17,16,16,16,16,15,14,16,14,15
+NAT_COD,5,Dylan Batubinsika,DF,1996-02-15,185,11,2026-07-19,registered,pending,30,candidate_name_or_alias_dob_match,85121090,R,D C,community_FM26_candidate_2025_snapshot,,15,17,17,17,16,16,16,17,17,16,15,16,14,15,15,15
+NAT_COD,6,Ngalayel Mukau,MF,2004-11-03,186,11,2026-07-19,registered,pending,21,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_COD,7,Nathanael Mbuku,MF,2002-03-16,170,11,2026-07-19,registered,pending,24,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_COD,8,Samuel Moutoussamy,MF,1996-08-12,176,11,2026-07-19,registered,pending,29,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_COD,9,Brian Cipenga,FW,1998-03-11,172,11,2026-07-19,registered,pending,28,candidate_name_or_alias_dob_match,83236733,L,AM RLC,community_FM26_candidate_2025_snapshot,,15,14,15,,17,17,16,15,14,16,15,15,15,16,15,14
+NAT_COD,10,Theo Bongonda,MF,1995-11-20,176,11,2026-07-19,registered,pending,30,candidate_name_or_alias_dob_match,18081111,L,M/AM RL,community_FM26_candidate_2025_snapshot,,16,14,16,,17,17,16,15,14,17,16,16,16,17,16,14
+NAT_COD,11,Gael Kakuta,FW,1991-06-21,174,11,2026-07-19,registered,pending,35,candidate_name_or_alias_dob_match,34001371,L,AM RLC,community_FM26_candidate_2025_snapshot,,16,13,16,,14,16,16,14,14,18,17,16,16,17,16,14
+NAT_COD,12,Joris Kayembe,DF,1994-08-08,180,11,2026-07-19,registered,pending,31,candidate_name_or_alias_dob_match,55070229,L,D/WB L,community_FM26_candidate_2025_snapshot,,15,16,16,,17,17,15,16,15,16,16,16,15,17,16,14
+NAT_COD,13,Meschack Elia,FW,1997-08-06,173,11,2026-07-19,registered,pending,28,candidate_name_or_alias_dob_match,13173388,R,AM/ST R,community_FM26_candidate_2025_snapshot,,16,14,16,16,17,18,16,13,14,16,16,16,15,16,15,15
+NAT_COD,14,Noah Sadiki,MF,2004-12-17,165,11,2026-07-19,registered,pending,21,candidate_name_or_alias_dob_match,2000045005,R,DM/M C,community_FM26_candidate_2025_snapshot,,16,17,17,,16,17,16,16,15,16,16,16,15,17,15,14
+NAT_COD,15,Aaron Tshibola,MF,1995-01-02,184,11,2026-07-19,registered,pending,31,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_COD,16,Timothy Fayulu,GK,1999-07-24,192,11,2026-07-19,registered,pending,26,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_COD,17,Cedric Bakambu,FW,1991-04-11,182,11,2026-07-19,registered,pending,35,candidate_name_or_alias_dob_match,34009930,R,ST,community_FM26_candidate_2025_snapshot,,17,14,17,,16,17,16,16,16,16,16,16,17,16,15,14
+NAT_COD,18,Charles Pickel,MF,1997-05-15,187,11,2026-07-19,registered,pending,29,candidate_name_or_alias_dob_match,98033713,R,DM/M C,community_FM26_candidate_2025_snapshot,,16,17,16,17,16,16,16,16,16,16,16,16,15,15,15,15
+NAT_COD,19,Fiston Mayele,FW,1994-06-24,185,11,2026-07-19,registered,pending,32,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_COD,20,Yoane Wissa,FW,1996-09-03,176,11,2026-07-19,registered,pending,29,candidate_name_or_alias_dob_match,85140175,R,M/AM/ST L,community_FM26_candidate_2025_snapshot,,17,14,16,17,17,18,17,16,16,17,16,16,17,16,15,15
+NAT_COD,21,Matthieu Epolo,GK,2005-01-15,183,11,2026-07-19,registered,pending,21,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_COD,22,Chancel Mbemba,DF,1994-08-08,182,11,2026-07-19,registered,pending,31,candidate_name_or_alias_dob_match,18057323,R,D RC,community_FM26_candidate_2025_snapshot,,16,17,17,,16,16,16,16,17,16,16,16,14,16,14,14
+NAT_COD,23,Simon Banza,FW,1996-08-13,189,11,2026-07-19,registered,pending,29,candidate_name_or_alias_dob_match,29132973,R,ST,community_FM26_candidate_2025_snapshot,,18,14,16,,16,16,17,17,18,16,15,16,17,16,14,14
+NAT_COD,24,Gedeon Kalulu,DF,1997-08-29,178,11,2026-07-19,registered,pending,28,candidate_name_or_alias_dob_match,85136397,R,D RLC,community_FM26_candidate_2025_snapshot,,16,16,16,17,16,16,16,15,15,16,16,15,15,16,15,15
+NAT_COD,25,Edo Kayembe,MF,1998-06-03,183,11,2026-07-19,registered,pending,28,candidate_name_or_alias_dob_match,18107092,L,DM/M C,community_FM26_candidate_2025_snapshot,,16,16,17,17,17,17,16,16,15,16,16,17,17,16,15,15
+NAT_COD,26,Arthur Masuaku,DF,1993-11-07,179,11,2026-07-19,registered,pending,32,candidate_name_or_alias_dob_match,85074537,L,D/WB L,community_FM26_candidate_2025_snapshot,,16,15,17,,16,16,16,15,14,17,17,16,16,17,17,14
+NAT_CIV,1,Yahia Fofana,GK,2000-08-21,194,12,2026-07-19,registered,pending,25,candidate_name_or_alias_dob_match,48043476,R,GK,community_FM26_candidate_2025_snapshot,,,,16,16,15,15,,,14,,,14,13,12,12,9
+NAT_CIV,2,Ousmane Diomande,DF,2003-12-04,190,12,2026-07-19,registered,pending,22,candidate_name_or_alias_dob_match,2000160511,R,D C,community_FM26_candidate_2025_snapshot,,15,17,18,,17,16,17,18,18,16,16,16,15,16,14,14
+NAT_CIV,3,Ghislain Konan,DF,1995-12-27,176,12,2026-07-19,registered,pending,30,candidate_name_or_alias_dob_match,83137942,L,D/WB L,community_FM26_candidate_2025_snapshot,,16,15,17,,17,17,16,15,15,16,16,15,15,17,15,14
+NAT_CIV,4,Jean Michael Seri,MF,1991-07-19,168,12,2026-07-19,registered,pending,35,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_CIV,5,Wilfried Singo,DF,2000-12-25,182,12,2026-07-19,registered,pending,25,candidate_name_or_alias_dob_match,12078947,R,D/WB RC,community_FM26_candidate_2025_snapshot,,16,16,17,17,18,17,16,18,17,16,16,16,15,16,14,15
+NAT_CIV,6,Seko Fofana,MF,1995-05-07,185,12,2026-07-19,registered,pending,31,candidate_name_or_alias_dob_match,85094652,R,DM/M C,community_FM26_candidate_2025_snapshot,,16,16,17,,16,17,16,16,16,16,16,17,16,16,15,14
+NAT_CIV,7,Odilon Kossounou,DF,2001-01-04,191,12,2026-07-19,registered,pending,25,candidate_name_or_alias_dob_match,93127195,R,D RC,community_FM26_candidate_2025_snapshot,,15,17,17,,18,17,17,18,16,16,17,15,14,16,14,14
+NAT_CIV,8,Franck Kessie,MF,1996-12-19,183,12,2026-07-19,registered,pending,29,candidate_name_or_alias_dob_match,13136664,R,DM/M C,community_FM26_candidate_2025_snapshot,,17,17,17,,16,16,17,16,16,16,16,17,16,16,14,14
+NAT_CIV,9,Ange-Yoan Bonny,FW,2003-10-25,189,12,2026-07-19,registered,pending,22,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_CIV,10,Simon Adingra,FW,2002-01-01,175,12,2026-07-19,registered,pending,24,candidate_name_or_alias_dob_match,2000018781,R,AM RL,community_FM26_candidate_2025_snapshot,,17,14,16,,18,18,17,15,15,17,17,16,16,18,15,14
+NAT_CIV,11,Yan Diomande,FW,2006-11-14,180,12,2026-07-19,registered,pending,19,candidate_name_or_alias_dob_match,2000311833,R,M/AM RL,community_FM26_candidate_2025_snapshot,,16,14,16,,18,18,15,15,14,16,15,16,15,18,15,14
+NAT_CIV,12,Elye Wahi,FW,2003-01-02,181,12,2026-07-19,registered,pending,23,candidate_name_or_alias_dob_match,49061868,R,ST,community_FM26_candidate_2025_snapshot,,17,14,16,,18,17,16,16,16,17,16,16,17,16,15,14
+NAT_CIV,13,Christopher Operi,DF,1997-04-29,183,12,2026-07-19,registered,pending,29,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_CIV,14,Oumar Diakite,FW,2003-12-20,182,12,2026-07-19,registered,pending,22,candidate_name_or_alias_dob_match,12093352,R,ST,community_FM26_candidate_2025_snapshot,,16,15,16,,17,16,16,16,15,16,16,16,16,16,15,14
+NAT_CIV,15,Amad Diallo,FW,2002-07-11,173,12,2026-07-19,registered,pending,24,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_CIV,16,Mohamed Kone,GK,2002-03-07,186,12,2026-07-19,registered,pending,24,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_CIV,17,Guela Doue,DF,2002-10-17,187,12,2026-07-19,registered,pending,23,candidate_name_or_alias_dob_match,73201428,R,D RC,community_FM26_candidate_2025_snapshot,,16,17,17,,17,16,16,17,16,16,16,16,15,16,15,14
+NAT_CIV,18,Ibrahim Sangare,MF,1997-12-02,191,12,2026-07-19,registered,pending,28,candidate_name_or_alias_dob_match,48042717,R,DM/M C,community_FM26_candidate_2025_snapshot,,16,17,17,,16,16,16,18,17,16,17,17,15,16,16,14
+NAT_CIV,19,Nicolas Pepe,FW,1995-05-29,183,12,2026-07-19,registered,pending,31,candidate_name_or_alias_dob_match,85136376,L,AM RL,community_FM26_candidate_2025_snapshot,,18,14,16,,17,18,16,15,15,18,17,16,17,18,17,14
+NAT_CIV,20,Emmanuel Agbadou,DF,1997-06-17,185,12,2026-07-19,registered,pending,29,candidate_name_or_alias_dob_match,12078577,R,D RC,community_FM26_candidate_2025_snapshot,,16,17,18,,17,16,17,17,17,16,16,16,15,15,15,14
+NAT_CIV,21,Evan Ndicka,DF,1999-08-20,192,12,2026-07-19,registered,pending,26,candidate_name_or_alias_dob_match,48032198,L,D C,community_FM26_candidate_2025_snapshot,,15,17,17,,17,17,17,18,17,16,16,15,15,16,14,14
+NAT_CIV,22,Evann Guessand,FW,2001-07-01,188,12,2026-07-19,registered,pending,25,candidate_name_or_alias_dob_match,49041006,R,ST R,community_FM26_candidate_2025_snapshot,,17,14,17,17,17,17,16,17,17,17,17,17,17,16,14,15
+NAT_CIV,23,Alban Lafont,GK,1999-01-23,196,12,2026-07-19,registered,pending,27,candidate_name_or_alias_dob_match,48036990,R,GK,community_FM26_candidate_2025_snapshot,,,,16,,16,15,,,13,,,14,13,12,12,8
+NAT_CIV,24,Bazoumana Toure,FW,2006-03-02,178,12,2026-07-19,registered,pending,20,candidate_name_or_alias_dob_match,12095040,L,M/AM RLC,community_FM26_candidate_2025_snapshot,,15,15,15,16,18,18,15,16,16,16,15,15,15,17,16,15
+NAT_CIV,25,Parfait Guiagon,MF,2001-02-22,165,12,2026-07-19,registered,pending,25,candidate_name_or_alias_dob_match,12078200,R,AM L,community_FM26_candidate_2025_snapshot,,16,15,15,,16,16,16,13,14,17,16,15,15,17,16,14
+NAT_CIV,26,Christ Inao Oulai,MF,2006-04-06,173,12,2026-07-19,registered,pending,20,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_CRO,1,Dominik Livakovic,GK,1995-01-09,188,13,2026-07-19,registered,pending,31,candidate_name_or_alias_dob_match,24025298,R,GK,community_FM26_candidate_2025_snapshot,,,,15,,14,15,,,15,,,14,13,12,14,8
+NAT_CRO,2,Josip Stanisic,DF,2000-04-02,186,13,2026-07-19,registered,pending,26,candidate_name_or_alias_dob_match,91190673,R,D RLC,community_FM26_candidate_2025_snapshot,,16,17,17,,17,16,17,17,17,16,16,15,15,16,15,14
+NAT_CRO,3,Marin Pongracic,DF,1997-09-11,193,13,2026-07-19,registered,pending,28,candidate_name_or_alias_dob_match,91175664,R,D C,community_FM26_candidate_2025_snapshot,,15,17,17,,17,17,17,17,17,16,16,15,14,16,14,14
+NAT_CRO,4,Josko Gvardiol,DF,2002-01-23,185,13,2026-07-19,registered,pending,24,candidate_name_or_alias_dob_match,24060473,L,D LC,community_FM26_candidate_2025_snapshot,,16,17,17,,17,17,17,16,17,17,17,16,16,16,14,14
+NAT_CRO,5,Duje Caleta-Car,DF,1996-09-17,193,13,2026-07-19,registered,pending,29,candidate_name_or_alias_dob_match,24039427,R,D C,community_FM26_candidate_2025_snapshot,,15,17,17,17,16,16,16,17,18,16,15,16,14,15,14,15
+NAT_CRO,6,Josip Sutalo,DF,2000-02-28,185,13,2026-07-19,registered,pending,26,candidate_name_or_alias_dob_match,24058106,R,D C,community_FM26_candidate_2025_snapshot,,15,17,16,,16,16,17,16,17,17,16,15,14,16,13,14
+NAT_CRO,7,Nikola Moro,MF,1998-03-12,183,13,2026-07-19,registered,pending,28,candidate_name_or_alias_dob_match,24046418,R,DM/M C,community_FM26_candidate_2025_snapshot,,16,16,16,,16,16,16,16,16,17,17,16,16,16,16,14
+NAT_CRO,8,Mateo Kovacic,MF,1994-05-06,178,13,2026-07-19,registered,pending,32,candidate_name_or_alias_dob_match,24016925,R,DM/M C,community_FM26_candidate_2025_snapshot,,16,17,17,,17,17,17,15,15,18,17,15,15,18,16,14
+NAT_CRO,9,Andrej Kramaric,FW,1991-06-19,177,13,2026-07-19,registered,pending,35,candidate_name_or_alias_dob_match,24004434,R,AM/ST RLC,community_FM26_candidate_2025_snapshot,,16,14,16,18,16,16,16,15,16,18,17,16,17,16,17,15
+NAT_CRO,10,Luka Modric,MF,1985-09-09,172,13,2026-07-19,registered,pending,40,candidate_name_or_alias_dob_match,653054,R,DM/M C,community_FM26_candidate_2025_snapshot,,17,16,16,,16,16,18,14,14,19,18,16,16,18,17,14
+NAT_CRO,11,Ante Budimir,FW,1991-07-22,190,13,2026-07-19,registered,pending,34,candidate_name_or_alias_dob_match,24003746,L,ST,community_FM26_candidate_2025_snapshot,,17,16,17,17,16,16,17,17,18,16,16,17,17,15,14,15
+NAT_CRO,12,Ivor Pandur,GK,2000-03-25,187,13,2026-07-19,registered,pending,26,candidate_name_or_alias_dob_match,24060905,R,GK,community_FM26_candidate_2025_snapshot,,,,16,,16,15,,,13,,,14,13,13,12,8
+NAT_CRO,13,Nikola Vlasic,MF,1997-10-04,179,13,2026-07-19,registered,pending,28,candidate_name_or_alias_dob_match,24039948,R,AM RLC,community_FM26_candidate_2025_snapshot,,17,14,17,,16,17,17,15,15,17,17,16,17,17,16,14
+NAT_CRO,14,Ivan Perisic,FW,1989-02-02,186,13,2026-07-19,registered,pending,37,candidate_name_or_alias_dob_match,34012563,R,M/AM RL,community_FM26_candidate_2025_snapshot,,17,15,16,,16,16,17,17,17,17,17,16,17,16,17,14
+NAT_CRO,15,Mario Pasalic,MF,1995-02-09,188,13,2026-07-19,registered,pending,31,candidate_name_or_alias_dob_match,24021244,R,M/AM C,community_FM26_candidate_2025_snapshot,,17,15,16,16,16,16,17,17,16,17,17,16,16,16,15,15
+NAT_CRO,16,Martin Baturina,MF,2003-02-16,172,13,2026-07-19,registered,pending,23,candidate_name_or_alias_dob_match,24065108,R,M/AM C,community_FM26_candidate_2025_snapshot,,16,15,17,,16,16,16,14,14,17,17,16,16,18,16,14
+NAT_CRO,17,Petar Sucic,MF,2003-10-25,183,13,2026-07-19,registered,pending,22,candidate_name_or_alias_dob_match,2000162930,R,DM/M C,community_FM26_candidate_2025_snapshot,,17,16,16,18,16,16,17,16,16,17,17,16,16,16,15,15
+NAT_CRO,18,Kristijan Jakic,DF,1997-05-14,181,13,2026-07-19,registered,pending,29,candidate_name_or_alias_dob_match,24051635,R,DM/M RC,community_FM26_candidate_2025_snapshot,,16,17,17,,16,16,17,17,16,16,16,16,15,15,15,14
+NAT_CRO,19,Toni Fruk,MF,2001-03-09,177,13,2026-07-19,registered,pending,25,pending,,,,,,,,,,,,,,,,,,,,,0
+NAT_CRO,20,Igor Matanovic,FW,2003-03-31,194,13,2026-07-19,registered,pending,23,candidate_name_or_alias_dob_match,2000072022,R,ST,community_FM26_candidate_2025_snapshot,,16,14,17,,16,16,16,18,17,16,16,16,16,16,15,14
+NAT_CRO,21,Luka Sucic,MF,2002-09-08,185,13,2026-07-19,registered,pending,23,candidate_name_or_alias_dob_match,16254093,L,M/AM C,community_FM26_candidate_2025_snapshot,,16,14,16,,17,17,16,16,16,17,16,16,16,17,16,14
+NAT_CRO,22,Luka Vuskovic,DF,2007-02-24,193,13,2026-07-19,registered,pending,19,candidate_name_or_alias_dob_match,2000262919,R,D C,community_FM26_candidate_2025_snapshot,,16,16,17,,16,16,16,18,17,16,16,16,16,16,15,14
+NAT_CRO,23,Dominik Kotarski,GK,2000-02-10,190,13,2026-07-19,registered,pending,26,candidate_name_or_alias_dob_match,24056362,R,GK,community_FM26_candidate_2025_snapshot,,,,17,16,16,15,,,12,,,14,13,13,13,9
+NAT_CRO,24,Marco Pasalic,FW,2000-09-14,177,13,2026-07-19,registered,pending,25,candidate_name_or_alias_dob_match,92097178,L,M/AM RL,community_FM26_candidate_2025_snapshot,,16,15,16,16,16,16,16,14,14,16,16,16,16,17,17,15
+NAT_CRO,25,Martin Erlic,DF,1998-01-24,192,13,2026-07-19,registered,pending,28,candidate_name_or_alias_dob_match,43212365,R,D C,community_FM26_candidate_2025_snapshot,,15,17,17,16,16,16,16,17,17,16,16,15,14,15,14,15
+NAT_CRO,26,Petar Musa,FW,1998-03-04,190,13,2026-07-19,registered,pending,28,candidate_name_or_alias_dob_match,24053167,R,ST,community_FM26_candidate_2025_snapshot,,17,14,18,,16,16,17,17,17,16,16,17,17,15,14,14

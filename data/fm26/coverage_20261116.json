@@ -1,0 +1,654 @@
+{
+  "stage": "PARTIAL_DRAFT_NOT_RELEASE",
+  "as_of": "2026-11-16",
+  "expected_main": 1804,
+  "expected_reserve": 279,
+  "main_read": 1000,
+  "reserve_read": 279,
+  "source_rows": 34644,
+  "source_blob": "5dd3ec2d109ed5d9a13b3df0dd49c8760d2d459c",
+  "counts": {
+    "candidate_context_match": 1009,
+    "not_found": 195,
+    "ambiguous": 21,
+    "context_mismatch": 28,
+    "candidate_club_changed_review": 26
+  },
+  "mainStats": {
+    "candidate_context_match": 827,
+    "not_found": 135,
+    "ambiguous": 15,
+    "context_mismatch": 23
+  },
+  "teams_total": 82,
+  "teams_with_any_match": 72,
+  "missing_main": 804,
+  "complete_candidate_rows": 220,
+  "team_coverage": {
+    "NAT_ESP": {
+      "main_read": 22,
+      "reserve_read": 3,
+      "main_matched": 20,
+      "reserve_matched": 3,
+      "complete_attrs": 2
+    },
+    "NAT_FRA": {
+      "main_read": 22,
+      "reserve_read": 2,
+      "main_matched": 22,
+      "reserve_matched": 2,
+      "complete_attrs": 6
+    },
+    "NAT_ENG": {
+      "main_read": 22,
+      "reserve_read": 3,
+      "main_matched": 20,
+      "reserve_matched": 3,
+      "complete_attrs": 5
+    },
+    "NAT_POR": {
+      "main_read": 22,
+      "reserve_read": 4,
+      "main_matched": 19,
+      "reserve_matched": 4,
+      "complete_attrs": 5
+    },
+    "NAT_BEL": {
+      "main_read": 22,
+      "reserve_read": 3,
+      "main_matched": 22,
+      "reserve_matched": 3,
+      "complete_attrs": 6
+    },
+    "NAT_NED": {
+      "main_read": 22,
+      "reserve_read": 3,
+      "main_matched": 22,
+      "reserve_matched": 3,
+      "complete_attrs": 8
+    },
+    "NAT_GER": {
+      "main_read": 22,
+      "reserve_read": 3,
+      "main_matched": 19,
+      "reserve_matched": 3,
+      "complete_attrs": 5
+    },
+    "NAT_CRO": {
+      "main_read": 22,
+      "reserve_read": 3,
+      "main_matched": 22,
+      "reserve_matched": 3,
+      "complete_attrs": 7
+    },
+    "NAT_SUI": {
+      "main_read": 22,
+      "reserve_read": 3,
+      "main_matched": 22,
+      "reserve_matched": 3,
+      "complete_attrs": 6
+    },
+    "NAT_NOR": {
+      "main_read": 22,
+      "reserve_read": 3,
+      "main_matched": 14,
+      "reserve_matched": 3,
+      "complete_attrs": 3
+    },
+    "NAT_AUT": {
+      "main_read": 22,
+      "reserve_read": 2,
+      "main_matched": 21,
+      "reserve_matched": 2,
+      "complete_attrs": 3
+    },
+    "NAT_TUR": {
+      "main_read": 22,
+      "reserve_read": 3,
+      "main_matched": 15,
+      "reserve_matched": 2,
+      "complete_attrs": 3
+    },
+    "NAT_SWE": {
+      "main_read": 22,
+      "reserve_read": 3,
+      "main_matched": 22,
+      "reserve_matched": 3,
+      "complete_attrs": 7
+    },
+    "NAT_SCO": {
+      "main_read": 22,
+      "reserve_read": 4,
+      "main_matched": 20,
+      "reserve_matched": 3,
+      "complete_attrs": 7
+    },
+    "NAT_CZE": {
+      "main_read": 22,
+      "reserve_read": 4,
+      "main_matched": 21,
+      "reserve_matched": 4,
+      "complete_attrs": 3
+    },
+    "NAT_BIH": {
+      "main_read": 22,
+      "reserve_read": 4,
+      "main_matched": 21,
+      "reserve_matched": 4,
+      "complete_attrs": 5
+    },
+    "NAT_UKR": {
+      "main_read": 22,
+      "reserve_read": 3,
+      "main_matched": 6,
+      "reserve_matched": 1,
+      "complete_attrs": 1
+    },
+    "NAT_ITA": {
+      "main_read": 22,
+      "reserve_read": 5,
+      "main_matched": 21,
+      "reserve_matched": 5,
+      "complete_attrs": 2
+    },
+    "NAT_DEN": {
+      "main_read": 22,
+      "reserve_read": 2,
+      "main_matched": 16,
+      "reserve_matched": 2,
+      "complete_attrs": 4
+    },
+    "NAT_POL": {
+      "main_read": 22,
+      "reserve_read": 3,
+      "main_matched": 17,
+      "reserve_matched": 1,
+      "complete_attrs": 8
+    },
+    "NAT_HUN": {
+      "main_read": 22,
+      "reserve_read": 5,
+      "main_matched": 17,
+      "reserve_matched": 2,
+      "complete_attrs": 3
+    },
+    "NAT_MAR": {
+      "main_read": 22,
+      "reserve_read": 3,
+      "main_matched": 19,
+      "reserve_matched": 3,
+      "complete_attrs": 6
+    },
+    "NAT_SEN": {
+      "main_read": 22,
+      "reserve_read": 4,
+      "main_matched": 18,
+      "reserve_matched": 4,
+      "complete_attrs": 3
+    },
+    "NAT_EGY": {
+      "main_read": 22,
+      "reserve_read": 4,
+      "main_matched": 9,
+      "reserve_matched": 3,
+      "complete_attrs": 3
+    },
+    "NAT_ALG": {
+      "main_read": 22,
+      "reserve_read": 4,
+      "main_matched": 17,
+      "reserve_matched": 2,
+      "complete_attrs": 4
+    },
+    "NAT_CIV": {
+      "main_read": 22,
+      "reserve_read": 4,
+      "main_matched": 17,
+      "reserve_matched": 4,
+      "complete_attrs": 3
+    },
+    "NAT_TUN": {
+      "main_read": 22,
+      "reserve_read": 4,
+      "main_matched": 15,
+      "reserve_matched": 4,
+      "complete_attrs": 6
+    },
+    "NAT_GHA": {
+      "main_read": 22,
+      "reserve_read": 4,
+      "main_matched": 17,
+      "reserve_matched": 2,
+      "complete_attrs": 3
+    },
+    "NAT_RSA": {
+      "main_read": 22,
+      "reserve_read": 4,
+      "main_matched": 21,
+      "reserve_matched": 4,
+      "complete_attrs": 6
+    },
+    "NAT_COD": {
+      "main_read": 22,
+      "reserve_read": 3,
+      "main_matched": 19,
+      "reserve_matched": 3,
+      "complete_attrs": 8
+    },
+    "NAT_CPV": {
+      "main_read": 22,
+      "reserve_read": 4,
+      "main_matched": 0,
+      "reserve_matched": 0,
+      "complete_attrs": 0
+    },
+    "NAT_NGA": {
+      "main_read": 22,
+      "reserve_read": 4,
+      "main_matched": 21,
+      "reserve_matched": 4,
+      "complete_attrs": 3
+    },
+    "NAT_ARG": {
+      "main_read": 22,
+      "reserve_read": 4,
+      "main_matched": 21,
+      "reserve_matched": 3,
+      "complete_attrs": 5
+    },
+    "NAT_BRA": {
+      "main_read": 22,
+      "reserve_read": 4,
+      "main_matched": 10,
+      "reserve_matched": 1,
+      "complete_attrs": 2
+    },
+    "NAT_COL": {
+      "main_read": 22,
+      "reserve_read": 1,
+      "main_matched": 19,
+      "reserve_matched": 1,
+      "complete_attrs": 4
+    },
+    "NAT_URU": {
+      "main_read": 22,
+      "reserve_read": 4,
+      "main_matched": 21,
+      "reserve_matched": 4,
+      "complete_attrs": 4
+    },
+    "NAT_ECU": {
+      "main_read": 22,
+      "reserve_read": 4,
+      "main_matched": 21,
+      "reserve_matched": 4,
+      "complete_attrs": 5
+    },
+    "NAT_PAR": {
+      "main_read": 22,
+      "reserve_read": 4,
+      "main_matched": 19,
+      "reserve_matched": 3,
+      "complete_attrs": 6
+    },
+    "NAT_MEX": {
+      "main_read": 22,
+      "reserve_read": 4,
+      "main_matched": 21,
+      "reserve_matched": 3,
+      "complete_attrs": 2
+    },
+    "NAT_USA": {
+      "main_read": 22,
+      "reserve_read": 4,
+      "main_matched": 20,
+      "reserve_matched": 4,
+      "complete_attrs": 3
+    },
+    "NAT_CAN": {
+      "main_read": 22,
+      "reserve_read": 4,
+      "main_matched": 21,
+      "reserve_matched": 3,
+      "complete_attrs": 5
+    },
+    "NAT_PAN": {
+      "main_read": 22,
+      "reserve_read": 4,
+      "main_matched": 21,
+      "reserve_matched": 3,
+      "complete_attrs": 5
+    },
+    "NAT_HAI": {
+      "main_read": 22,
+      "reserve_read": 4,
+      "main_matched": 11,
+      "reserve_matched": 3,
+      "complete_attrs": 5
+    },
+    "NAT_CUW": {
+      "main_read": 22,
+      "reserve_read": 4,
+      "main_matched": 19,
+      "reserve_matched": 4,
+      "complete_attrs": 11
+    },
+    "NAT_JPN": {
+      "main_read": 22,
+      "reserve_read": 4,
+      "main_matched": 22,
+      "reserve_matched": 3,
+      "complete_attrs": 3
+    },
+    "NAT_IRN": {
+      "main_read": 10,
+      "reserve_read": 5,
+      "main_matched": 9,
+      "reserve_matched": 4,
+      "complete_attrs": 2
+    },
+    "NAT_KOR": {
+      "main_read": 0,
+      "reserve_read": 4,
+      "main_matched": 0,
+      "reserve_matched": 2,
+      "complete_attrs": 1
+    },
+    "NAT_AUS": {
+      "main_read": 0,
+      "reserve_read": 4,
+      "main_matched": 0,
+      "reserve_matched": 3,
+      "complete_attrs": 1
+    },
+    "NAT_KSA": {
+      "main_read": 0,
+      "reserve_read": 4,
+      "main_matched": 0,
+      "reserve_matched": 3,
+      "complete_attrs": 0
+    },
+    "NAT_QAT": {
+      "main_read": 0,
+      "reserve_read": 4,
+      "main_matched": 0,
+      "reserve_matched": 0,
+      "complete_attrs": 0
+    },
+    "NAT_UZB": {
+      "main_read": 0,
+      "reserve_read": 4,
+      "main_matched": 0,
+      "reserve_matched": 0,
+      "complete_attrs": 0
+    },
+    "NAT_JOR": {
+      "main_read": 0,
+      "reserve_read": 4,
+      "main_matched": 0,
+      "reserve_matched": 1,
+      "complete_attrs": 0
+    },
+    "NAT_IRQ": {
+      "main_read": 0,
+      "reserve_read": 4,
+      "main_matched": 0,
+      "reserve_matched": 2,
+      "complete_attrs": 1
+    },
+    "NAT_NZL": {
+      "main_read": 0,
+      "reserve_read": 4,
+      "main_matched": 0,
+      "reserve_matched": 1,
+      "complete_attrs": 1
+    },
+    "CLB_BAY": {
+      "main_read": 0,
+      "reserve_read": 3,
+      "main_matched": 0,
+      "reserve_matched": 2,
+      "complete_attrs": 0
+    },
+    "CLB_ARS": {
+      "main_read": 0,
+      "reserve_read": 3,
+      "main_matched": 0,
+      "reserve_matched": 3,
+      "complete_attrs": 1
+    },
+    "CLB_RMA": {
+      "main_read": 0,
+      "reserve_read": 5,
+      "main_matched": 0,
+      "reserve_matched": 4,
+      "complete_attrs": 0
+    },
+    "CLB_PSG": {
+      "main_read": 0,
+      "reserve_read": 2,
+      "main_matched": 0,
+      "reserve_matched": 1,
+      "complete_attrs": 0
+    },
+    "CLB_INT": {
+      "main_read": 0,
+      "reserve_read": 2,
+      "main_matched": 0,
+      "reserve_matched": 2,
+      "complete_attrs": 1
+    },
+    "CLB_LIV": {
+      "main_read": 0,
+      "reserve_read": 3,
+      "main_matched": 0,
+      "reserve_matched": 3,
+      "complete_attrs": 1
+    },
+    "CLB_MCI": {
+      "main_read": 0,
+      "reserve_read": 3,
+      "main_matched": 0,
+      "reserve_matched": 2,
+      "complete_attrs": 0
+    },
+    "CLB_BAR": {
+      "main_read": 0,
+      "reserve_read": 4,
+      "main_matched": 0,
+      "reserve_matched": 3,
+      "complete_attrs": 0
+    },
+    "CLB_BVB": {
+      "main_read": 0,
+      "reserve_read": 4,
+      "main_matched": 0,
+      "reserve_matched": 4,
+      "complete_attrs": 0
+    },
+    "CLB_LEV": {
+      "main_read": 0,
+      "reserve_read": 3,
+      "main_matched": 0,
+      "reserve_matched": 3,
+      "complete_attrs": 0
+    },
+    "CLB_AVL": {
+      "main_read": 0,
+      "reserve_read": 3,
+      "main_matched": 0,
+      "reserve_matched": 3,
+      "complete_attrs": 1
+    },
+    "CLB_ATM": {
+      "main_read": 0,
+      "reserve_read": 3,
+      "main_matched": 0,
+      "reserve_matched": 2,
+      "complete_attrs": 0
+    },
+    "CLB_ROM": {
+      "main_read": 0,
+      "reserve_read": 2,
+      "main_matched": 0,
+      "reserve_matched": 0,
+      "complete_attrs": 0
+    },
+    "CLB_BRU": {
+      "main_read": 0,
+      "reserve_read": 3,
+      "main_matched": 0,
+      "reserve_matched": 3,
+      "complete_attrs": 1
+    },
+    "CLB_SCP": {
+      "main_read": 0,
+      "reserve_read": 4,
+      "main_matched": 0,
+      "reserve_matched": 4,
+      "complete_attrs": 0
+    },
+    "CLB_TOT": {
+      "main_read": 0,
+      "reserve_read": 4,
+      "main_matched": 0,
+      "reserve_matched": 3,
+      "complete_attrs": 0
+    },
+    "CLB_POR": {
+      "main_read": 0,
+      "reserve_read": 4,
+      "main_matched": 0,
+      "reserve_matched": 3,
+      "complete_attrs": 2
+    },
+    "CLB_FIO": {
+      "main_read": 0,
+      "reserve_read": 3,
+      "main_matched": 0,
+      "reserve_matched": 0,
+      "complete_attrs": 0
+    },
+    "CLB_BEN": {
+      "main_read": 0,
+      "reserve_read": 5,
+      "main_matched": 0,
+      "reserve_matched": 2,
+      "complete_attrs": 0
+    },
+    "CLB_BET": {
+      "main_read": 0,
+      "reserve_read": 3,
+      "main_matched": 0,
+      "reserve_matched": 3,
+      "complete_attrs": 1
+    },
+    "CLB_CHE": {
+      "main_read": 0,
+      "reserve_read": 4,
+      "main_matched": 0,
+      "reserve_matched": 4,
+      "complete_attrs": 0
+    },
+    "CLB_ATA": {
+      "main_read": 0,
+      "reserve_read": 3,
+      "main_matched": 0,
+      "reserve_matched": 3,
+      "complete_attrs": 0
+    },
+    "CLB_MUN": {
+      "main_read": 0,
+      "reserve_read": 5,
+      "main_matched": 0,
+      "reserve_matched": 4,
+      "complete_attrs": 2
+    },
+    "CLB_KRY": {
+      "main_read": 0,
+      "reserve_read": 5,
+      "main_matched": 0,
+      "reserve_matched": 0,
+      "complete_attrs": 0
+    },
+    "BON_EUR": {
+      "main_read": 0,
+      "reserve_read": 0,
+      "main_matched": 0,
+      "reserve_matched": 0,
+      "complete_attrs": 0
+    },
+    "BON_WOR": {
+      "main_read": 0,
+      "reserve_read": 0,
+      "main_matched": 0,
+      "reserve_matched": 0,
+      "complete_attrs": 0
+    },
+    "BON_CEU": {
+      "main_read": 0,
+      "reserve_read": 0,
+      "main_matched": 0,
+      "reserve_matched": 0,
+      "complete_attrs": 0
+    },
+    "BON_CWO": {
+      "main_read": 0,
+      "reserve_read": 0,
+      "main_matched": 0,
+      "reserve_matched": 0,
+      "complete_attrs": 0
+    }
+  },
+  "samples": [
+    {
+      "name": "Lamine Yamal",
+      "team": "NAT_ESP",
+      "age": 19,
+      "height": "180",
+      "foot": "L",
+      "pos": "M/AM R",
+      "converted": 14,
+      "speed": 17,
+      "dribble": 18
+    },
+    {
+      "name": "Kylian Mbappe",
+      "team": "NAT_FRA",
+      "age": 27,
+      "height": "178",
+      "foot": "R",
+      "pos": "AM/ST RL",
+      "converted": 15,
+      "speed": 19,
+      "dribble": 18
+    },
+    {
+      "name": "Erling Haaland",
+      "team": "NAT_NOR",
+      "age": 26,
+      "height": "195",
+      "foot": "L",
+      "pos": "ST ",
+      "converted": 14,
+      "speed": 19,
+      "dribble": 17
+    },
+    {
+      "name": "Anatolii Trubin",
+      "team": "NAT_UKR",
+      "age": 25,
+      "height": "199",
+      "foot": "R",
+      "pos": "GK ",
+      "converted": 8,
+      "speed": 15,
+      "dribble": 12
+    }
+  ],
+  "content_notes": [
+    "No squad membership was updated; source club is old snapshot, not current roster evidence.",
+    "Public community CSV, provenance/version not independently verified; header is 50 fields but source rows have 116; fields 0..42 align with documented prefix; age, height, foot and UID tail fields remain candidates, not authoritative.",
+    "Weight absent; goalkeeper-specific unnamed columns not decoded; GK mapped attributes are incomplete. Stamina is withheld when two apparent endurance columns disagree. All appearance fields blank until documented photo/reference. No data from missing roster rows fabricated."
+  ]
+}

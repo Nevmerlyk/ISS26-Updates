@@ -1,0 +1,179 @@
+{
+  "status": "DRAFT_NOT_RELEASE",
+  "previous_blob": "b3878eb010c486b93b2d86b3c2fbdf88478213c7",
+  "rows": 528,
+  "complete": 212,
+  "any": 248,
+  "uid": 268,
+  "source_checked_kry": 22,
+  "source_checked_numeric_profiles": 5,
+  "removed_kry": [
+    "Yevhen Maiakov",
+    "Ramir Hubenko",
+    "Ivan Kononykhin",
+    "Yehor Korobka",
+    "Giovany Herbert",
+    "Sami Adam",
+    "Nazar Popov"
+  ],
+  "added_kry": [
+    "Rojas",
+    "Borges",
+    "Jhoel Maya",
+    "Yaroslav Shevchenko",
+    "Noha Ndombasi",
+    "Joseph Jones",
+    "Assane Seck"
+  ],
+  "conflicts": [],
+  "stats": {
+    "CLB_BAY": {
+      "slots": 22,
+      "full": 16,
+      "any": 17,
+      "uid": 17
+    },
+    "CLB_ARS": {
+      "slots": 22,
+      "full": 13,
+      "any": 15,
+      "uid": 15
+    },
+    "CLB_RMA": {
+      "slots": 22,
+      "full": 10,
+      "any": 11,
+      "uid": 11
+    },
+    "CLB_PSG": {
+      "slots": 22,
+      "full": 14,
+      "any": 15,
+      "uid": 15
+    },
+    "CLB_INT": {
+      "slots": 22,
+      "full": 7,
+      "any": 12,
+      "uid": 12
+    },
+    "CLB_LIV": {
+      "slots": 22,
+      "full": 9,
+      "any": 11,
+      "uid": 11
+    },
+    "CLB_MCI": {
+      "slots": 22,
+      "full": 19,
+      "any": 20,
+      "uid": 20
+    },
+    "CLB_BVB": {
+      "slots": 22,
+      "full": 12,
+      "any": 12,
+      "uid": 12
+    },
+    "CLB_LEV": {
+      "slots": 22,
+      "full": 6,
+      "any": 7,
+      "uid": 7
+    },
+    "CLB_AVL": {
+      "slots": 22,
+      "full": 10,
+      "any": 10,
+      "uid": 10
+    },
+    "CLB_TOT": {
+      "slots": 22,
+      "full": 8,
+      "any": 10,
+      "uid": 10
+    },
+    "CLB_BRU": {
+      "slots": 22,
+      "full": 5,
+      "any": 6,
+      "uid": 6
+    },
+    "CLB_BAR": {
+      "slots": 22,
+      "full": 14,
+      "any": 15,
+      "uid": 15
+    },
+    "CLB_ATM": {
+      "slots": 22,
+      "full": 8,
+      "any": 9,
+      "uid": 9
+    },
+    "CLB_ROM": {
+      "slots": 22,
+      "full": 5,
+      "any": 8,
+      "uid": 8
+    },
+    "CLB_SCP": {
+      "slots": 22,
+      "full": 6,
+      "any": 7,
+      "uid": 7
+    },
+    "CLB_POR": {
+      "slots": 22,
+      "full": 5,
+      "any": 7,
+      "uid": 7
+    },
+    "CLB_FIO": {
+      "slots": 22,
+      "full": 2,
+      "any": 3,
+      "uid": 3
+    },
+    "CLB_BEN": {
+      "slots": 22,
+      "full": 8,
+      "any": 9,
+      "uid": 9
+    },
+    "CLB_BET": {
+      "slots": 22,
+      "full": 5,
+      "any": 6,
+      "uid": 6
+    },
+    "CLB_CHE": {
+      "slots": 22,
+      "full": 8,
+      "any": 10,
+      "uid": 10
+    },
+    "CLB_ATA": {
+      "slots": 22,
+      "full": 9,
+      "any": 13,
+      "uid": 13
+    },
+    "CLB_MUN": {
+      "slots": 22,
+      "full": 12,
+      "any": 13,
+      "uid": 13
+    },
+    "CLB_KRY": {
+      "slots": 22,
+      "full": 1,
+      "any": 2,
+      "uid": 22
+    }
+  },
+  "notes": [
+    "FM Blog disclaims raw game ratings; no fan ratings were treated as FM raw attributes. Kryvbas selection is 19 first-team plus three U19 by position coverage; FM26 snapshot is not current real roster.",
+    "Previous rosters and numerical tables remain candidate data and require independent validation; this revision does not certify earlier source claims. FMPlayer indexed excerpts are secondary sources, not primary game dump. DNS unavailable in container. Other profiles not positively identified left unchanged."
+  ]
+}

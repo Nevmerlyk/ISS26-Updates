@@ -1,0 +1,260 @@
+{
+  "source": "https://github.com/vfxper/fm26",
+  "blob": "5dd3ec2d109ed5d9a13b3df0dd49c8760d2d459c",
+  "source_rows": 34644,
+  "source_width": 116,
+  "header_width": 50,
+  "source_version": "unconfirmed; 2025-11-07 label",
+  "rows": 1248,
+  "matched": 1121,
+  "full": 1121,
+  "missing": 127,
+  "conflicting_prior_ids": [],
+  "team_stats": {
+    "NAT_ALG": {
+      "matched": 25,
+      "full": 25,
+      "missing": 1
+    },
+    "NAT_ARG": {
+      "matched": 26,
+      "full": 26,
+      "missing": 0
+    },
+    "NAT_AUS": {
+      "matched": 23,
+      "full": 23,
+      "missing": 3
+    },
+    "NAT_AUT": {
+      "matched": 25,
+      "full": 25,
+      "missing": 1
+    },
+    "NAT_BEL": {
+      "matched": 26,
+      "full": 26,
+      "missing": 0
+    },
+    "NAT_BIH": {
+      "matched": 24,
+      "full": 24,
+      "missing": 2
+    },
+    "NAT_BRA": {
+      "matched": 26,
+      "full": 26,
+      "missing": 0
+    },
+    "NAT_CPV": {
+      "matched": 25,
+      "full": 25,
+      "missing": 1
+    },
+    "NAT_CAN": {
+      "matched": 24,
+      "full": 24,
+      "missing": 2
+    },
+    "NAT_COL": {
+      "matched": 25,
+      "full": 25,
+      "missing": 1
+    },
+    "NAT_COD": {
+      "matched": 22,
+      "full": 22,
+      "missing": 4
+    },
+    "NAT_CIV": {
+      "matched": 25,
+      "full": 25,
+      "missing": 1
+    },
+    "NAT_CRO": {
+      "matched": 26,
+      "full": 26,
+      "missing": 0
+    },
+    "NAT_CUW": {
+      "matched": 23,
+      "full": 23,
+      "missing": 3
+    },
+    "NAT_CZE": {
+      "matched": 26,
+      "full": 26,
+      "missing": 0
+    },
+    "NAT_ECU": {
+      "matched": 26,
+      "full": 26,
+      "missing": 0
+    },
+    "NAT_EGY": {
+      "matched": 18,
+      "full": 18,
+      "missing": 8
+    },
+    "NAT_ENG": {
+      "matched": 26,
+      "full": 26,
+      "missing": 0
+    },
+    "NAT_FRA": {
+      "matched": 26,
+      "full": 26,
+      "missing": 0
+    },
+    "NAT_GER": {
+      "matched": 26,
+      "full": 26,
+      "missing": 0
+    },
+    "NAT_GHA": {
+      "matched": 21,
+      "full": 21,
+      "missing": 5
+    },
+    "NAT_HAI": {
+      "matched": 15,
+      "full": 15,
+      "missing": 11
+    },
+    "NAT_IRN": {
+      "matched": 20,
+      "full": 20,
+      "missing": 6
+    },
+    "NAT_IRQ": {
+      "matched": 21,
+      "full": 21,
+      "missing": 5
+    },
+    "NAT_JPN": {
+      "matched": 25,
+      "full": 25,
+      "missing": 1
+    },
+    "NAT_JOR": {
+      "matched": 11,
+      "full": 11,
+      "missing": 15
+    },
+    "NAT_KOR": {
+      "matched": 26,
+      "full": 26,
+      "missing": 0
+    },
+    "NAT_MEX": {
+      "matched": 25,
+      "full": 25,
+      "missing": 1
+    },
+    "NAT_MAR": {
+      "matched": 26,
+      "full": 26,
+      "missing": 0
+    },
+    "NAT_NED": {
+      "matched": 26,
+      "full": 26,
+      "missing": 0
+    },
+    "NAT_NZL": {
+      "matched": 20,
+      "full": 20,
+      "missing": 6
+    },
+    "NAT_NOR": {
+      "matched": 25,
+      "full": 25,
+      "missing": 1
+    },
+    "NAT_PAN": {
+      "matched": 22,
+      "full": 22,
+      "missing": 4
+    },
+    "NAT_PAR": {
+      "matched": 22,
+      "full": 22,
+      "missing": 4
+    },
+    "NAT_POR": {
+      "matched": 26,
+      "full": 26,
+      "missing": 0
+    },
+    "NAT_QAT": {
+      "matched": 17,
+      "full": 17,
+      "missing": 9
+    },
+    "NAT_KSA": {
+      "matched": 11,
+      "full": 11,
+      "missing": 15
+    },
+    "NAT_SCO": {
+      "matched": 25,
+      "full": 25,
+      "missing": 1
+    },
+    "NAT_SEN": {
+      "matched": 23,
+      "full": 23,
+      "missing": 3
+    },
+    "NAT_RSA": {
+      "matched": 21,
+      "full": 21,
+      "missing": 5
+    },
+    "NAT_ESP": {
+      "matched": 26,
+      "full": 26,
+      "missing": 0
+    },
+    "NAT_SWE": {
+      "matched": 25,
+      "full": 25,
+      "missing": 1
+    },
+    "NAT_SUI": {
+      "matched": 26,
+      "full": 26,
+      "missing": 0
+    },
+    "NAT_TUN": {
+      "matched": 23,
+      "full": 23,
+      "missing": 3
+    },
+    "NAT_TUR": {
+      "matched": 26,
+      "full": 26,
+      "missing": 0
+    },
+    "NAT_URU": {
+      "matched": 26,
+      "full": 26,
+      "missing": 0
+    },
+    "NAT_USA": {
+      "matched": 26,
+      "full": 26,
+      "missing": 0
+    },
+    "NAT_UZB": {
+      "matched": 22,
+      "full": 22,
+      "missing": 4
+    }
+  },
+  "notes": [
+    "Community snapshot, not verified official final FM26 update. Physical and goalkeeper order sampled against public profiles; source values may differ across patches.",
+    "FIFA roster draft unchanged. Missing matches blank. Age/height from prior FIFA transcription, no independent FIFA audit. Weight and faces not sourced.",
+    "22-player selection and binary injection not done. Neuer dribble 17 stored as separate user-design override."
+  ]
+}

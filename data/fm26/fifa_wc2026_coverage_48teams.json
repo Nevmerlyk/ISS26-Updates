@@ -1,0 +1,265 @@
+{
+  "source": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf",
+  "edition": "2026-07-19 22:34 UTC (earlier Ghana screenshot discrepancy pending independent audit)",
+  "status": "FULL_ROSTER_COVERAGE_DRAFT_NOT_RELEASE",
+  "expected": 1248,
+  "teams_expected": 48,
+  "registered": 1248,
+  "teams": 48,
+  "remaining": 0,
+  "matched_candidates": 802,
+  "complete_15_candidates": 175,
+  "team_stats": {
+    "NAT_ALG": {
+      "registered": 26,
+      "matched": 17,
+      "full": 4
+    },
+    "NAT_ARG": {
+      "registered": 26,
+      "matched": 23,
+      "full": 5
+    },
+    "NAT_AUS": {
+      "registered": 26,
+      "matched": 3,
+      "full": 1
+    },
+    "NAT_AUT": {
+      "registered": 26,
+      "matched": 22,
+      "full": 2
+    },
+    "NAT_BEL": {
+      "registered": 26,
+      "matched": 25,
+      "full": 6
+    },
+    "NAT_BIH": {
+      "registered": 26,
+      "matched": 23,
+      "full": 5
+    },
+    "NAT_BRA": {
+      "registered": 26,
+      "matched": 11,
+      "full": 2
+    },
+    "NAT_CPV": {
+      "registered": 26,
+      "matched": 0,
+      "full": 0
+    },
+    "NAT_CAN": {
+      "registered": 26,
+      "matched": 22,
+      "full": 4
+    },
+    "NAT_COL": {
+      "registered": 26,
+      "matched": 19,
+      "full": 4
+    },
+    "NAT_COD": {
+      "registered": 26,
+      "matched": 18,
+      "full": 8
+    },
+    "NAT_CIV": {
+      "registered": 26,
+      "matched": 20,
+      "full": 3
+    },
+    "NAT_CRO": {
+      "registered": 26,
+      "matched": 25,
+      "full": 7
+    },
+    "NAT_CUW": {
+      "registered": 26,
+      "matched": 23,
+      "full": 11
+    },
+    "NAT_CZE": {
+      "registered": 26,
+      "matched": 25,
+      "full": 3
+    },
+    "NAT_ECU": {
+      "registered": 26,
+      "matched": 25,
+      "full": 5
+    },
+    "NAT_EGY": {
+      "registered": 26,
+      "matched": 10,
+      "full": 2
+    },
+    "NAT_ENG": {
+      "registered": 26,
+      "matched": 22,
+      "full": 4
+    },
+    "NAT_FRA": {
+      "registered": 26,
+      "matched": 24,
+      "full": 6
+    },
+    "NAT_GER": {
+      "registered": 26,
+      "matched": 21,
+      "full": 5
+    },
+    "NAT_GHA": {
+      "registered": 26,
+      "matched": 17,
+      "full": 2
+    },
+    "NAT_HAI": {
+      "registered": 26,
+      "matched": 12,
+      "full": 4
+    },
+    "NAT_IRN": {
+      "registered": 26,
+      "matched": 6,
+      "full": 2
+    },
+    "NAT_IRQ": {
+      "registered": 26,
+      "matched": 1,
+      "full": 0
+    },
+    "NAT_JPN": {
+      "registered": 26,
+      "matched": 25,
+      "full": 3
+    },
+    "NAT_JOR": {
+      "registered": 26,
+      "matched": 1,
+      "full": 0
+    },
+    "NAT_KOR": {
+      "registered": 26,
+      "matched": 1,
+      "full": 1
+    },
+    "NAT_MEX": {
+      "registered": 26,
+      "matched": 24,
+      "full": 2
+    },
+    "NAT_MAR": {
+      "registered": 26,
+      "matched": 21,
+      "full": 5
+    },
+    "NAT_NED": {
+      "registered": 26,
+      "matched": 25,
+      "full": 8
+    },
+    "NAT_NZL": {
+      "registered": 26,
+      "matched": 0,
+      "full": 0
+    },
+    "NAT_NOR": {
+      "registered": 26,
+      "matched": 16,
+      "full": 2
+    },
+    "NAT_PAN": {
+      "registered": 26,
+      "matched": 20,
+      "full": 4
+    },
+    "NAT_PAR": {
+      "registered": 26,
+      "matched": 19,
+      "full": 6
+    },
+    "NAT_POR": {
+      "registered": 26,
+      "matched": 23,
+      "full": 5
+    },
+    "NAT_QAT": {
+      "registered": 26,
+      "matched": 0,
+      "full": 0
+    },
+    "NAT_KSA": {
+      "registered": 26,
+      "matched": 0,
+      "full": 0
+    },
+    "NAT_SCO": {
+      "registered": 26,
+      "matched": 21,
+      "full": 7
+    },
+    "NAT_SEN": {
+      "registered": 26,
+      "matched": 21,
+      "full": 3
+    },
+    "NAT_RSA": {
+      "registered": 26,
+      "matched": 19,
+      "full": 5
+    },
+    "NAT_ESP": {
+      "registered": 26,
+      "matched": 24,
+      "full": 2
+    },
+    "NAT_SWE": {
+      "registered": 26,
+      "matched": 23,
+      "full": 6
+    },
+    "NAT_SUI": {
+      "registered": 26,
+      "matched": 25,
+      "full": 6
+    },
+    "NAT_TUN": {
+      "registered": 26,
+      "matched": 16,
+      "full": 5
+    },
+    "NAT_TUR": {
+      "registered": 26,
+      "matched": 17,
+      "full": 3
+    },
+    "NAT_URU": {
+      "registered": 26,
+      "matched": 24,
+      "full": 4
+    },
+    "NAT_USA": {
+      "registered": 26,
+      "matched": 23,
+      "full": 3
+    },
+    "NAT_UZB": {
+      "registered": 26,
+      "matched": 0,
+      "full": 0
+    }
+  },
+  "checks": [
+    "48 team IDs match policy",
+    "26 unique shirt numbers 1–26 per team",
+    "unique normalized names per team",
+    "valid position groups, date format, height range"
+  ],
+  "notes": [
+    "Pages 29–48 manually transcribed from official FIFA screenshots; earlier 28 teams carried forward. Corrected Enzo Fernandez DOB to 2001-01-17 using official page 2 text.",
+    "No independent machine verification of individual fields yet. Full roster coverage is not final data QA.",
+    "FM stats from the existing unverified community candidates only. No primary FM26 acquisition. Weight, appearances, final 22-player selections, and game integration pending. Direct PDF network download continues to fail."
+  ]
+}
