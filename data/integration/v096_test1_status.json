@@ -1,0 +1,35 @@
+{
+  "version": "0.9.6",
+  "channel": "test",
+  "status": "SOURCE_CANDIDATE_PREPARED_BINARY_NOT_BUILT_NOT_PUBLISHED",
+  "scope": "national_player_names_only",
+  "source_plan": {
+    "teams": 54,
+    "players": 1188,
+    "secondary_role_candidates": 30,
+    "provisional_role_template": true
+  },
+  "base": {
+    "version": "0.9.5",
+    "patch_sha256": "4914C36BFAC27AFF4C4FB60BBD7AB49867FC1E67F26CE733686E73C79C839148"
+  },
+  "verified_source_blobs": {
+    "data/integration/eu_v096_registry.json": "d690c184e87045379236ca5a27ca856d688a27ec",
+    "data/integration/national_name_test1_v096.csv": "9ec535e651066c9aba7bf6599ed3edca2b2ff84d",
+    "tools/build_v096_test1.py": "8aa44c96915d801791931abc169a8604d147ae63",
+    "tools/integration_merge_eu.py": "43d87ad7afbc52379992263ba009b4afe284897f",
+    "tools/Build-ISS26-Test-0.9.6.ps1": "f3d7a43d8822cf2c48411efbd71fbb2c4dbc81ba"
+  },
+  "source_qa": "CSV re-read, exact 54-team offsets, 22 unique labels per team, 3 GK template slots, pinned plan digest in builder. No Python execution, CD build or runtime test due to unavailable local container.",
+  "blocked": [
+    "local clean Track01 read and build",
+    "original skill and bio bit mapping",
+    "24 club roster linkage",
+    "runtime validation",
+    "release asset publishing"
+  ],
+  "stable_feed_unchanged": true,
+  "test_feed_unchanged": true,
+  "expected_local_output": "artifacts/v0.9.6-test/ISS26_Test_0.9.6.iss26p",
+  "launch": "powershell -ExecutionPolicy Bypass -File .\\tools\\Build-ISS26-Test-0.9.6.ps1 -Track01 <clean EU Track01 path>"
+}
