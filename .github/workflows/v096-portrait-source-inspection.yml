@@ -1,0 +1,34 @@
+name: ISS26 World Cup portrait source inspection
+on:
+  push:
+    branches: [feature/v096-player-database-integration]
+    paths: ['.github/workflows/v096-portrait-source-inspection.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Inspect publicly served portrait source references
+        run: |
+          mkdir -p output
+          python - <<'PY'
+          import re,urllib.request,json
+          sources={
+            'guardian':'https://www.theguardian.com/football/ng-interactive/2026/jun/04/world-cup-2026-complete-player-guide',
+            'mercatowire':'https://www.mercatowire.com/world-cup-2026/squads/jordan/',
+            'worldcupphoto':'https://fifaworldcupphoto.com/',
+          }
+          for tag,url in sources.items():
+              try:
+                  with urllib.request.urlopen(url,timeout=15) as r: data=r.read(8000000).decode('utf-8','replace')
+                  open('output/'+tag+'.html','w').write(data)
+                  print('PORTRAIT_SOURCE',tag,len(data), 'Jamous',data.lower().find('jamous'),'script_urls',re.findall(r'<script[^>]+src=["\']([^"\']+)',data)[:30])
+              except Exception as exc:print('PORTRAIT_SOURCE_ERROR',tag,str(exc))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ISS26-portrait-source-inspection-temporary
+          path: output/
+          retention-days: 1
