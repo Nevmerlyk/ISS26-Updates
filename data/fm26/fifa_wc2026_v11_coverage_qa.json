@@ -1,0 +1,461 @@
+{
+  "roster_blob_sha": "2715ae316e7ecb0f5cc122a8a5b82208866a5719",
+  "rows": 1248,
+  "teams": 48,
+  "attributes_filled": 11041,
+  "attributes_missing": 7679,
+  "uid_candidates": 873,
+  "players_any": 811,
+  "players_complete": 189,
+  "invalid_values": [],
+  "converted_count_mismatches": [],
+  "provenance": {
+    "missing_raw_fm26_attributes": 437,
+    "legacy_community_candidate_not_verified": 797,
+    "fmplayer_FM26_history_column_scaled_10x_source_observed": 1,
+    "public_FM26_1to20_profile_secondary_not_primary_export": 2,
+    "fmplayer_FM26_profile_scaled_10x_secondary": 4,
+    "fmplayer_FM26_history_column_scaled_10x_secondary": 2,
+    "fmplayer_FM26_profile_scaled_10x_source_observed": 4,
+    "fmplayer_public_FM26_attributes_scaled_10x_reverse_not_primary_export": 1
+  },
+  "teams_by_missing": [
+    {
+      "team_id": "NAT_CPV",
+      "players": 26,
+      "uid_candidates": 26,
+      "any": 0,
+      "full": 0,
+      "attribute_cells_filled": 0,
+      "attribute_cells_missing": 390
+    },
+    {
+      "team_id": "NAT_NZL",
+      "players": 26,
+      "uid_candidates": 26,
+      "any": 0,
+      "full": 0,
+      "attribute_cells_filled": 0,
+      "attribute_cells_missing": 390
+    },
+    {
+      "team_id": "NAT_KSA",
+      "players": 26,
+      "uid_candidates": 0,
+      "any": 0,
+      "full": 0,
+      "attribute_cells_filled": 0,
+      "attribute_cells_missing": 390
+    },
+    {
+      "team_id": "NAT_UZB",
+      "players": 26,
+      "uid_candidates": 0,
+      "any": 0,
+      "full": 0,
+      "attribute_cells_filled": 0,
+      "attribute_cells_missing": 390
+    },
+    {
+      "team_id": "NAT_IRQ",
+      "players": 26,
+      "uid_candidates": 1,
+      "any": 1,
+      "full": 0,
+      "attribute_cells_filled": 14,
+      "attribute_cells_missing": 376
+    },
+    {
+      "team_id": "NAT_JOR",
+      "players": 26,
+      "uid_candidates": 1,
+      "any": 1,
+      "full": 0,
+      "attribute_cells_filled": 14,
+      "attribute_cells_missing": 376
+    },
+    {
+      "team_id": "NAT_KOR",
+      "players": 26,
+      "uid_candidates": 1,
+      "any": 1,
+      "full": 1,
+      "attribute_cells_filled": 15,
+      "attribute_cells_missing": 375
+    },
+    {
+      "team_id": "NAT_QAT",
+      "players": 26,
+      "uid_candidates": 1,
+      "any": 1,
+      "full": 1,
+      "attribute_cells_filled": 15,
+      "attribute_cells_missing": 375
+    },
+    {
+      "team_id": "NAT_AUS",
+      "players": 26,
+      "uid_candidates": 3,
+      "any": 3,
+      "full": 1,
+      "attribute_cells_filled": 43,
+      "attribute_cells_missing": 347
+    },
+    {
+      "team_id": "NAT_IRN",
+      "players": 26,
+      "uid_candidates": 6,
+      "any": 6,
+      "full": 2,
+      "attribute_cells_filled": 80,
+      "attribute_cells_missing": 310
+    },
+    {
+      "team_id": "NAT_EGY",
+      "players": 26,
+      "uid_candidates": 11,
+      "any": 10,
+      "full": 3,
+      "attribute_cells_filled": 137,
+      "attribute_cells_missing": 253
+    },
+    {
+      "team_id": "NAT_HAI",
+      "players": 26,
+      "uid_candidates": 12,
+      "any": 12,
+      "full": 4,
+      "attribute_cells_filled": 172,
+      "attribute_cells_missing": 218
+    },
+    {
+      "team_id": "NAT_BRA",
+      "players": 26,
+      "uid_candidates": 16,
+      "any": 14,
+      "full": 6,
+      "attribute_cells_filled": 202,
+      "attribute_cells_missing": 188
+    },
+    {
+      "team_id": "NAT_NOR",
+      "players": 26,
+      "uid_candidates": 16,
+      "any": 16,
+      "full": 2,
+      "attribute_cells_filled": 214,
+      "attribute_cells_missing": 176
+    },
+    {
+      "team_id": "NAT_GHA",
+      "players": 26,
+      "uid_candidates": 17,
+      "any": 17,
+      "full": 2,
+      "attribute_cells_filled": 234,
+      "attribute_cells_missing": 156
+    },
+    {
+      "team_id": "NAT_TUR",
+      "players": 26,
+      "uid_candidates": 17,
+      "any": 17,
+      "full": 3,
+      "attribute_cells_filled": 235,
+      "attribute_cells_missing": 155
+    },
+    {
+      "team_id": "NAT_ALG",
+      "players": 26,
+      "uid_candidates": 17,
+      "any": 17,
+      "full": 4,
+      "attribute_cells_filled": 237,
+      "attribute_cells_missing": 153
+    },
+    {
+      "team_id": "NAT_TUN",
+      "players": 26,
+      "uid_candidates": 17,
+      "any": 17,
+      "full": 6,
+      "attribute_cells_filled": 238,
+      "attribute_cells_missing": 152
+    },
+    {
+      "team_id": "NAT_RSA",
+      "players": 26,
+      "uid_candidates": 19,
+      "any": 19,
+      "full": 5,
+      "attribute_cells_filled": 253,
+      "attribute_cells_missing": 137
+    },
+    {
+      "team_id": "NAT_COD",
+      "players": 26,
+      "uid_candidates": 18,
+      "any": 18,
+      "full": 8,
+      "attribute_cells_filled": 255,
+      "attribute_cells_missing": 135
+    },
+    {
+      "team_id": "NAT_PAR",
+      "players": 26,
+      "uid_candidates": 19,
+      "any": 19,
+      "full": 6,
+      "attribute_cells_filled": 262,
+      "attribute_cells_missing": 128
+    },
+    {
+      "team_id": "NAT_COL",
+      "players": 26,
+      "uid_candidates": 20,
+      "any": 20,
+      "full": 4,
+      "attribute_cells_filled": 267,
+      "attribute_cells_missing": 123
+    },
+    {
+      "team_id": "NAT_CIV",
+      "players": 26,
+      "uid_candidates": 20,
+      "any": 20,
+      "full": 3,
+      "attribute_cells_filled": 272,
+      "attribute_cells_missing": 118
+    },
+    {
+      "team_id": "NAT_SEN",
+      "players": 26,
+      "uid_candidates": 21,
+      "any": 21,
+      "full": 3,
+      "attribute_cells_filled": 279,
+      "attribute_cells_missing": 111
+    },
+    {
+      "team_id": "NAT_GER",
+      "players": 26,
+      "uid_candidates": 21,
+      "any": 21,
+      "full": 5,
+      "attribute_cells_filled": 281,
+      "attribute_cells_missing": 109
+    },
+    {
+      "team_id": "NAT_PAN",
+      "players": 26,
+      "uid_candidates": 21,
+      "any": 21,
+      "full": 4,
+      "attribute_cells_filled": 286,
+      "attribute_cells_missing": 104
+    },
+    {
+      "team_id": "NAT_SCO",
+      "players": 26,
+      "uid_candidates": 21,
+      "any": 21,
+      "full": 7,
+      "attribute_cells_filled": 289,
+      "attribute_cells_missing": 101
+    },
+    {
+      "team_id": "NAT_AUT",
+      "players": 26,
+      "uid_candidates": 22,
+      "any": 22,
+      "full": 2,
+      "attribute_cells_filled": 293,
+      "attribute_cells_missing": 97
+    },
+    {
+      "team_id": "NAT_MAR",
+      "players": 26,
+      "uid_candidates": 21,
+      "any": 21,
+      "full": 5,
+      "attribute_cells_filled": 293,
+      "attribute_cells_missing": 97
+    },
+    {
+      "team_id": "NAT_CAN",
+      "players": 26,
+      "uid_candidates": 23,
+      "any": 22,
+      "full": 4,
+      "attribute_cells_filled": 294,
+      "attribute_cells_missing": 96
+    },
+    {
+      "team_id": "NAT_ENG",
+      "players": 26,
+      "uid_candidates": 22,
+      "any": 22,
+      "full": 6,
+      "attribute_cells_filled": 296,
+      "attribute_cells_missing": 94
+    },
+    {
+      "team_id": "NAT_USA",
+      "players": 26,
+      "uid_candidates": 23,
+      "any": 23,
+      "full": 3,
+      "attribute_cells_filled": 307,
+      "attribute_cells_missing": 83
+    },
+    {
+      "team_id": "NAT_ARG",
+      "players": 26,
+      "uid_candidates": 23,
+      "any": 23,
+      "full": 6,
+      "attribute_cells_filled": 310,
+      "attribute_cells_missing": 80
+    },
+    {
+      "team_id": "NAT_SWE",
+      "players": 26,
+      "uid_candidates": 23,
+      "any": 23,
+      "full": 6,
+      "attribute_cells_filled": 310,
+      "attribute_cells_missing": 80
+    },
+    {
+      "team_id": "NAT_BIH",
+      "players": 26,
+      "uid_candidates": 26,
+      "any": 23,
+      "full": 5,
+      "attribute_cells_filled": 315,
+      "attribute_cells_missing": 75
+    },
+    {
+      "team_id": "NAT_POR",
+      "players": 26,
+      "uid_candidates": 23,
+      "any": 23,
+      "full": 6,
+      "attribute_cells_filled": 317,
+      "attribute_cells_missing": 73
+    },
+    {
+      "team_id": "NAT_MEX",
+      "players": 26,
+      "uid_candidates": 24,
+      "any": 24,
+      "full": 2,
+      "attribute_cells_filled": 320,
+      "attribute_cells_missing": 70
+    },
+    {
+      "team_id": "NAT_URU",
+      "players": 26,
+      "uid_candidates": 24,
+      "any": 24,
+      "full": 4,
+      "attribute_cells_filled": 323,
+      "attribute_cells_missing": 67
+    },
+    {
+      "team_id": "NAT_FRA",
+      "players": 26,
+      "uid_candidates": 26,
+      "any": 24,
+      "full": 6,
+      "attribute_cells_filled": 325,
+      "attribute_cells_missing": 65
+    },
+    {
+      "team_id": "NAT_CUW",
+      "players": 26,
+      "uid_candidates": 23,
+      "any": 23,
+      "full": 11,
+      "attribute_cells_filled": 327,
+      "attribute_cells_missing": 63
+    },
+    {
+      "team_id": "NAT_CZE",
+      "players": 26,
+      "uid_candidates": 26,
+      "any": 25,
+      "full": 4,
+      "attribute_cells_filled": 336,
+      "attribute_cells_missing": 54
+    },
+    {
+      "team_id": "NAT_JPN",
+      "players": 26,
+      "uid_candidates": 25,
+      "any": 25,
+      "full": 3,
+      "attribute_cells_filled": 336,
+      "attribute_cells_missing": 54
+    },
+    {
+      "team_id": "NAT_ESP",
+      "players": 26,
+      "uid_candidates": 25,
+      "any": 25,
+      "full": 3,
+      "attribute_cells_filled": 336,
+      "attribute_cells_missing": 54
+    },
+    {
+      "team_id": "NAT_ECU",
+      "players": 26,
+      "uid_candidates": 25,
+      "any": 25,
+      "full": 5,
+      "attribute_cells_filled": 337,
+      "attribute_cells_missing": 53
+    },
+    {
+      "team_id": "NAT_SUI",
+      "players": 26,
+      "uid_candidates": 25,
+      "any": 25,
+      "full": 6,
+      "attribute_cells_filled": 338,
+      "attribute_cells_missing": 52
+    },
+    {
+      "team_id": "NAT_CRO",
+      "players": 26,
+      "uid_candidates": 25,
+      "any": 25,
+      "full": 7,
+      "attribute_cells_filled": 340,
+      "attribute_cells_missing": 50
+    },
+    {
+      "team_id": "NAT_NED",
+      "players": 26,
+      "uid_candidates": 25,
+      "any": 25,
+      "full": 8,
+      "attribute_cells_filled": 340,
+      "attribute_cells_missing": 50
+    },
+    {
+      "team_id": "NAT_BEL",
+      "players": 26,
+      "uid_candidates": 26,
+      "any": 26,
+      "full": 7,
+      "attribute_cells_filled": 354,
+      "attribute_cells_missing": 36
+    }
+  ],
+  "release_status": "DRAFT_NOT_RELEASE_READY",
+  "notes": [
+    "Batch 03 numeric values manually transcribed from publicly indexed FM26 profile/history excerpts in this session. No direct massive import performed.",
+    "No independent DOB match or FIFA PDF audit claimed. Existing numeric candidates from other sources have not been independently revalidated."
+  ]
+}
