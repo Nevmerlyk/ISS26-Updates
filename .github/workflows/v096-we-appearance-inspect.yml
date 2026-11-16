@@ -1,0 +1,28 @@
+name: ISS26 WE2002 appearance reference inspection
+on:
+  push:
+    branches: [feature/v096-player-database-integration]
+    paths: ['.github/workflows/v096-we-appearance-inspect.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Inspect community editor reference schema without executing binaries
+        shell: bash
+        run: |
+          set -eu
+          curl -fsSL --retry 2 'https://raw.githubusercontent.com/zetaprog/Easy-Mcr-Winning-Eleven-2002-PS1/30af1fe59cf96beee3b066f6cdfcb1b6f3df37cc/fifatomcr/bin/Debug/net8.0-windows10.0.17763.0/mydatabase.db' -o /tmp/reference.db
+          python - <<'PY'
+          import sqlite3,json
+          c=sqlite3.connect('file:/tmp/reference.db?mode=ro',uri=True)
+          c.execute('PRAGMA trusted_schema=OFF')
+          tables=c.execute("SELECT name,sql FROM sqlite_master WHERE type='table'").fetchall()
+          for name,schema in tables:
+              if name.startswith('sqlite_'):continue
+              q='"'+name.replace('"','""')+'"'
+              print('TABLE',name,'COUNT',c.execute('SELECT count(*) FROM '+q).fetchone()[0])
+              print('COLUMNS',json.dumps(c.execute('PRAGMA table_info('+q+')').fetchall(),ensure_ascii=False))
+          PY
