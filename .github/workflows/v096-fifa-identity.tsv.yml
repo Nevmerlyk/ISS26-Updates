@@ -1,0 +1,23 @@
+name: ISS26 FIFA squad identity cross-reference
+on:
+  push:
+    branches: [feature/v096-player-database-integration]
+    paths: ['.github/workflows/v096-fifa-identity.tsv.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  retrieve:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download CC BY 4.0 attributed FIFA squad transcription
+        run: |
+          mkdir -p output
+          curl -fsSL --retry 2 'https://raw.githubusercontent.com/matyuschenko/fifa-wc2026-players/main/data/players.tsv' -o output/wc2026_fifa.tsv
+          sha256sum output/wc2026_fifa.tsv
+          head -n 2 output/wc2026_fifa.tsv
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ISS26-fifa-squad-identity-reference
+          path: output/
+          retention-days: 7
