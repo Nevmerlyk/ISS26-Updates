@@ -1,0 +1,31 @@
+name: ISS26 local appearance integration inputs
+on:
+  push:
+    branches: [feature/v096-player-database-integration]
+    paths: ['.github/workflows/v096-local-appearance-inputs.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Package existing source and historical carrier (no original game)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -eu
+          mkdir -p transfer/carrier
+          gh release download v0.9.6-test1 --pattern ISS26_Test_0.9.6.iss26p --dir transfer/carrier
+          echo '5ec84c0c6b31f503decd9ff2ad37b40a65efef3cf5cd593a1a98992368326d11  transfer/carrier/ISS26_Test_0.9.6.iss26p' | sha256sum -c -
+          for f in tools/integration_merge_eu.py tools/reproduce_v096_readback.py tools/audit_v096_nationality_refs.py tools/reconstruct_v096_internal.py tools/build_v096_appearance_profiles.py data/integration/v096_revision_internal_bundle.json data/integration/eu_v096_registry.json data/integration/active_club_registry_v21.json data/integration/v096_appearance_profiles_v2.json data/integration/fm26_nationality_roster_extract_v22.csv data/integration/fm26_reserve_candidates_v22.json data/fm26/ISS26_complete_working_pool_v20.csv data/integration/national_name_test1_v096.csv data/integration/active_club_roster_candidates_v21.csv data/integration/club_roster_supplement_v21.csv; do
+            mkdir -p "transfer/$(dirname "$f")"
+            cp "$f" "transfer/$f"
+          done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ISS26-v096-local-appearance-inputs
+          path: transfer/
+          retention-days: 7
+          if-no-files-found: error
