@@ -36,7 +36,7 @@ def assoc(m,w):
     return bool(nations.intersection({norm(w["Nation"]),norm(w["NationalTeam"])}))
 def unique_preset(candidates):
     if not candidates:return None
-    if len({tuple(decode(r)) for r in candidates})!=1:return None
+    if len({(str(r['Id']),tuple(decode(r))) for r in candidates})!=1:return None
     return sorted(candidates,key=lambda r:(str(r["Id"]),r["Name"]))[0]
 def choose(m,old,e,bydob):
     if m["identity_status"]=="DOB_CONFLICT_REVIEW" or old["status"]=="WE_CONFLICTING_PRESETS":
