@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "scope": {
+    "nationalSeason": "2026",
+    "clubSeason": "2025/26",
+    "nationalTeams": 58,
+    "clubs": 24,
+    "minimumRoles": [
+      "home",
+      "away",
+      "goalkeeper"
+    ],
+    "goalkeeperVariants": "Determine number of native roles; related WE2002 documentation describes two GK palettes."
+  },
+  "status": "reference selection only; no converted textures or offsets verified",
+  "teams": [
+    {
+      "name": "Ukraine",
+      "season": "2026",
+      "brand": "adidas",
+      "home": {
+        "reference": "https://en.uaf.ua/article/54933",
+        "basis": "official federation launch, 2025-11-05",
+        "design": "Historical Ukrainian emblem-inspired graphic. Verify full strip and colors from match photographs."
+      },
+      "away": {
+        "reference": "https://en.uaf.ua/en/article/55552",
+        "basis": "official federation launch, 2026-03-20",
+        "design": "Blue shirt with geometric detail concentrated on upper chest and shoulders."
+      },
+      "goalkeeper": {
+        "reference": "https://www.footballkitarchive.com/ukraine-kits-2026-t516/",
+        "status": "variant selection pending match evidence"
+      }
+    },
+    {
+      "name": "Germany",
+      "season": "2026",
+      "brand": "adidas",
+      "home": {
+        "reference": "https://www.dfb.de/news/new-adidas-germany-home-kit-unveiled",
+        "basis": "official DFB",
+        "design": "White shirt, black/red/gold diagonal diamond accents, black shorts, white socks."
+      },
+      "away": {
+        "reference": "https://www.dfb.de/news/the-new-germany-away-kit-from-adidas",
+        "basis": "official DFB",
+        "design": "Deep blue with brighter blue vertical zigzag pattern."
+      },
+      "goalkeeper": {
+        "reference": "https://www.footballkitarchive.com/germany-kits-2026-t56/",
+        "status": "variant selection pending tournament evidence"
+      }
+    },
+    {
+      "name": "FC Kryvbass",
+      "season": "2025/26",
+      "brand": "SKIDAN",
+      "home": {
+        "reference": "https://www.footballkitarchive.com/kryvbas-kryvyi-rih-2025-26-home-kit-418208/",
+        "basis": "secondary shirt archive",
+        "design": "Red base, white details, Rudomain sponsor."
+      },
+      "away": {
+        "reference": "https://www.footballkitarchive.com/kryvbas-kryvyi-rih-2025-26-away-kit-418210/",
+        "basis": "secondary shirt archive",
+        "design": "White base, red details, Rudomain sponsor."
+      },
+      "goalkeeper": {
+        "status": "source pending; do not substitute 2026/27"
+      }
+    },
+    {
+      "name": "Manchester United",
+      "season": "2025/26",
+      "brand": "adidas",
+      "home": {
+        "reference": "https://www.bbc.co.uk/sport/football/articles/c626ynk3dk6o",
+        "basis": "launch report",
+        "design": "Red shirt, tonal red sleeve graphic."
+      },
+      "away": {
+        "reference": "https://store.manutd.com/en-gb/p/manchester-united-2526-away-jersey-4096",
+        "basis": "official store",
+        "design": "White base, lilac graphic, purple accents."
+      },
+      "goalkeeper": {
+        "reference": "https://www.footballkitarchive.com/manchester-united-kits-2025-26-t26/",
+        "status": "variant selection pending match evidence"
+      }
+    }
+  ],
+  "technicalEvidence": [
+    {
+      "url": "https://soccergaming.com/forums/threads/we2002-how-to-edit-shirts-d.35591/",
+      "scope": "Historical ISSPE2 TEX kit-file and CLUT workflow; candidate only until EU resource verified"
+    },
+    {
+      "url": "https://issonline.pl/?cmd=komentator&id=1121172977",
+      "scope": "Related WE2002 has home/away, separate player/GK palettes and separate flag/referee graphics; do not import offsets."
+    }
+  ],
+  "guardrails": [
+    "Retain accepted RC3 flags, all team slots and original audio.",
+    "Never infer palette roles from color alone.",
+    "Record shorts, socks, crest and number color with kit reference before compiling.",
+    "Use verified PS1 native offsets and independent clean-original patch."
+  ]
+}
