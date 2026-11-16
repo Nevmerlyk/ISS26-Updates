@@ -8,6 +8,7 @@ import argparse,csv,json
 from pathlib import Path
 from collections import Counter,defaultdict
 from match_v096_external_appearance import norm,rows
+from refine_v096_appearance_identities import BASE_EXACT,ADDED
 ROOT=Path(__file__).resolve().parents[1]
 FIELDS=("hair","hair_color","facial_hair","facial_color","skin_shade","body_type")
 def key(r):return (r["team_id"],norm(r["player_name"]))
@@ -33,9 +34,9 @@ def main(native,external,out):
         a=manual.get(k)
         if a is None and m["identity_status"]=="ROSTER_UID_WITH_NAME_OR_DOB":
             a=uid_manual.get(m["roster_uid"])
-        native_exact=r["status"] in ("WE_NAME_DOB_MATCH","WE_NAME_DOB_DUPLICATES_SAME_PRESET")
+        native_exact=r["status"] in BASE_EXACT|ADDED
         values=[int(r[f]) if native_exact and r[f]!="" else None for f in FIELDS]
-        methods=["WE2002_NAME_DOB_PRESET" if v is not None else "" for v in values]
+        methods=[r["status"]+"_PRESET" if v is not None else "" for v in values]
         conflicts=[]
         # The individual photo references are preferable for current style, but
         # remain provisional; preserve the comparison against the native profile.
