@@ -1,0 +1,66 @@
+{
+  "version": "0.9.6",
+  "stage": "KITS_TEST3",
+  "status": "STATIC_CLEAN_DISC_VERIFIED_RUNTIME_PENDING",
+  "teams": 78,
+  "goalkeeper_palettes": 156,
+  "menu_palettes": 156,
+  "keeper_chest_mean_coverage": 0.7539410256410256,
+  "keeper_chest_min_coverage": 0.1234,
+  "weak_keeper_palettes": [
+    [
+      "NAT_ITA",
+      "home",
+      0.1234
+    ],
+    [
+      "NAT_ITA",
+      "away",
+      0.1234
+    ],
+    [
+      "CLB_TOT",
+      "home",
+      0.187
+    ],
+    [
+      "CLB_TOT",
+      "away",
+      0.1828
+    ],
+    [
+      "CLB_ROM",
+      "home",
+      0.4813
+    ]
+  ],
+  "menu_resource": "SELECT2.BIN",
+  "menu_lba": 1050,
+  "menu_logical_offset": 235008,
+  "menu_signature_records": 82,
+  "menu_color_distance_aligned": 46.10491571620184,
+  "menu_color_distance_shifted": 130.48015999401207,
+  "menu_comparison_sample_size": 26,
+  "original_sha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
+  "baseline_patch_sha256": "B77CFC3DBE08303AC0D8D8EDE2976996AE944B4F7F413B28726CE326E22A8301",
+  "patch_sha256": "14EEF2E57BC4AB3764D777DE8084087EA990E34BC1C258F72D8E9076FA1DED11",
+  "result_sha256": "58E80B651DF226E92053CE28008D513436DB0452730F2BCB9A2977EEE70E532C",
+  "archive_sha256": "ECD7D9B620B1FE52011D999C437B15AA57A000086ACF139E1FA1B84842702D7B",
+  "baseline_sectors": 1920,
+  "merged_sectors": 1924,
+  "edited_sectors": 185,
+  "field_player_textures_unchanged": true,
+  "flag_textures_unchanged": true,
+  "bonus_and_nonactive_tex_unchanged": true,
+  "appearance_and_rosters_unchanged": true,
+  "protected_keeper_palette_entries_unchanged": true,
+  "all_edited_ecc_verified": true,
+  "runtime_verified": false,
+  "feed_changed": false,
+  "release_published": false,
+  "limitations": [
+    "Keeper contrast palettes are provisional, not exact season reproductions; original shared entries remain; five kits have low chest recolor coverage.",
+    "Menu palette correspondence is strong static evidence but not verified in game. Original sprite geometry is retained; not a recreation of all kit patterns.",
+    "Local archive only. Existing temporary profiles and approximate field kits preserved."
+  ]
+}
