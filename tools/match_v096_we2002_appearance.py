@@ -29,7 +29,7 @@ def dbdate(s):
         try:return dt.date(int(m[3]),int(m[2]),int(m[1])).isoformat()
         except ValueError:return ""
     return ""
-def main(db,out):
+def main(db,out,ea=None):
     conn=sqlite3.connect(db.resolve().as_uri()+"?mode=ro",uri=True)
     conn.execute("PRAGMA trusted_schema=OFF")
     conn.row_factory=sqlite3.Row
@@ -39,6 +39,10 @@ def main(db,out):
     for x in data:
         if norm(x["Name"]):byname[norm(x["Name"])].append(x)
     manifest=rows(ROOT/"data/integration/v096_appearance_identity_manifest.csv")
+    by_id=defaultdict(list)
+    for r in data:
+        if r['Id'] is not None:by_id[str(r['Id'])].append(r)
+    external={(r['team_id'],norm(r['player_name'])):r for r in rows(ea)} if ea else {}
     result=[]
     for x in manifest:
         name=x["player_name"]
@@ -55,6 +59,13 @@ def main(db,out):
                 if len(presets)==1:selected=exact[0];status="WE_NAME_DOB_DUPLICATES_SAME_PRESET"
                 else:status="WE_CONFLICTING_PRESETS"
             else:status="WE_NAME_ONLY_REVIEW"
+        # EA identity was independently verified by name+DOB and raw birthdate.
+        # WE Id is not universally an EA ID; require exact DOB too and refuse conflicts.
+        e=external.get((x['team_id'],norm(name)))
+        if not selected and status in ('NO_EXACT_NAME','WE_NAME_ONLY_REVIEW') and e and e['status']=='FC25_MODEL_MATCHED_HISTORICAL':
+            candidates=[r for r in by_id[e['ea_player_id']] if d and dbdate(r['Birthday'])==d]
+            if len(candidates)==1:
+                selected=candidates[0];status='WE_EA_ID_DOB_CANDIDATE'
         vals=decode(selected) if selected else [None]*6
         result.append({"team_id":x["team_id"],"player_name":name,"roster_uid":x["roster_uid"],
           "dob":d,"status":status,"we_id":selected["Id"] if selected else "",
@@ -69,11 +80,11 @@ def main(db,out):
     with (out/"we2002_native_appearance_matches.csv").open("w",encoding="utf-8",newline="") as f:
         w=csv.DictWriter(f,fieldnames=result[0]);w.writeheader();w.writerows(result)
     counts=Counter(r["status"] for r in result)
-    hits=[r for r in result if r["status"].startswith("WE_NAME_DOB")]
+    hits=[r for r in result if r["status"].startswith("WE_NAME_DOB") or r["status"]=="WE_EA_ID_DOB_CANDIDATE"]
     full=[r for r in hits if all(r[k] is not None for k in ("hair","hair_color","facial_hair","facial_color","skin_shade","body_type"))]
     report={"status":"WE2002_NATIVE_REFERENCE_NOT_PAL_RUNTIME_VERIFIED","source_rows":len(data),"manifest_rows":len(manifest),
        "counts":dict(counts),"distinct_matched_we_ids":len({r["we_id"] for r in hits}),
-       "complete_preset_slots":len(full),"slots_with_any_preset":sum(any(r[k] is not None for k in ("hair","hair_color","facial_hair","facial_color","skin_shade","body_type")) for r in hits),
+       "complete_preset_slots":len(full),"unique_union_source_slots":sum(r["status"].startswith("WE_NAME_DOB") or r["status"]=="WE_EA_ID_DOB_CANDIDATE" or external.get((r["team_id"],norm(r["player_name"])),{}).get("status")=="FC25_MODEL_MATCHED_HISTORICAL" for r in result),"slots_with_any_preset":sum(any(r[k] is not None for k in ("hair","hair_color","facial_hair","facial_color","skin_shade","body_type")) for r in hits),
        "source_date_parse_count":sum(bool(dbdate(r["Birthday"])) for r in data),
        "value_distributions":{k:dict(Counter(str(r[k]) for r in data).most_common(40)) for k in FIELD_NAMES},
        "samples":[{k:r[k] for k in ("Name","Birthday",*FIELD_NAMES)} for r in data[:10]],
@@ -83,5 +94,5 @@ def main(db,out):
     print("WE_RESULT",json.dumps(report,ensure_ascii=False))
 if __name__=="__main__":
     p=argparse.ArgumentParser(description=__doc__)
-    p.add_argument("--db",type=Path,required=True);p.add_argument("--out",type=Path,required=True)
-    a=p.parse_args();main(a.db,a.out)
+    p.add_argument("--db",type=Path,required=True);p.add_argument("--out",type=Path,required=True);p.add_argument("--ea",type=Path)
+    a=p.parse_args();main(a.db,a.out,a.ea)
