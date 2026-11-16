@@ -1,0 +1,77 @@
+{
+  "version": "0.9.6",
+  "status": "STATIC_CLEAN_DISC_VERIFIED_RUNTIME_PENDING",
+  "source_memberships": 1716,
+  "unique_modern_records": 1489,
+  "appearance_profiles_applied": 995,
+  "changed_unique_records": 989,
+  "changed_membership_slots": 1210,
+  "covered_membership_slots": 1220,
+  "unreviewed_unique_records": 494,
+  "nonvisual_bits_preserved_all_records": true,
+  "bonus_88_preserved": true,
+  "rosters_unchanged": true,
+  "exe_unchanged": true,
+  "goalkeepers_each_team": 2,
+  "sector_guards": 699,
+  "edited_sector_ecc_rechecked": 10,
+  "all_applied_selectors_observed_in_clean_EU_records": true,
+  "original_records_for_selector_check": 1591,
+  "body_code_zero_preserved_memberships": 42,
+  "body_code_zero_preserved_unique_records": 35,
+  "patch_sha256": "3FA8C2B870A6FA41C2B454B316675869BEA87C2DC83F9D869AE0554D917F69BE",
+  "original_sha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
+  "result_sha256": "1960E812D2B2D6892B6AB70CB085323BA9F439F15BA7BEE0DA5453CF132AF7D3",
+  "baseline_patch_sha256": "F3A211300AF201BE709498872E1E2572A7D1C362B3AA6E1ABCF90EC6C0969A97",
+  "readback_sha256": "21A633CE9AD180C9060472A7D59B6F0E4158065CB78D78991B2EFEC56F4613AE",
+  "input_artifacts": {
+    "baseline": 14257952266,
+    "source_plan": 14259589941,
+    "reproduction_inputs": 14262440613
+  },
+  "identity_overrides": [
+    {
+      "team": "CLB_SHK",
+      "from": "NAT_UKR",
+      "name": "Valerii Bondar",
+      "source": "https://upl.ua/en/people/view/58596",
+      "fields": [
+        "dob",
+        "roster_uid",
+        "native_we_id",
+        "values",
+        "methods",
+        "native_status",
+        "native_source",
+        "source",
+        "status"
+      ]
+    },
+    {
+      "team": "CLB_ACM",
+      "from": "NAT_USA",
+      "name": "Christian Pulisic",
+      "source": "https://www.acmilan.com/en/news/articles/media/2023-07-13/official-statement-christian-pulisic",
+      "fields": [
+        "dob",
+        "roster_uid",
+        "native_we_id",
+        "values",
+        "methods",
+        "native_status",
+        "native_source",
+        "source",
+        "status"
+      ]
+    }
+  ],
+  "guard": "For candidate records, replace visual values[5] == 0 with null (preserve old body code); source zero absent from 1591 original EU records.",
+  "runtime_verified": false,
+  "release_published": false,
+  "feed_changed": false,
+  "limitations": [
+    "Actual standalone XOR patch built locally against clean PAL original; patch ZIP delivered in conversation, not uploaded to GitHub release.",
+    "Historical FC25 approximations not written. Native visual IDs observed in original EU records; semantics and appearance still need runtime review.",
+    "494 unique players remain without applied candidate profiles."
+  ]
+}
