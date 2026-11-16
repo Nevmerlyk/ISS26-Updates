@@ -3,10 +3,11 @@
   "original_track_size": 496156752,
   "original_track_sha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
   "baseline": {
-    "version": "0.9.5-rc1",
-    "url": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.5-rc1/ISS26_0.9.5_RC1.iss26p",
-    "patch_sha256": "2561F1F03745C4E1520E1902E486EF3699DC2B5F190E88A6A0056399F31BE72E",
-    "result_sha256": "A5C01CA8B2C665279F1E0CA8A9C3CF5C38C592B12DE65A70766DEC3F0BCD6312"
+    "version": "0.9.5",
+    "url": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.5-stable-4914c36bfac27aff/ISS26_0.9.5.iss26p",
+    "patch_sha256": "4914C36BFAC27AFF4C4FB60BBD7AB49867FC1E67F26CE733686E73C79C839148",
+    "result_sha256": "BC6606EF3B16A110911D933E4926AF1394B44AEA4FEF6A0F289F85760AE548E6",
+    "source_manifest_blob": "a56d1c6a9f20f6f53179b1d394be148f989078ef"
   },
   "national_exe_lba": 24,
   "national_record_size": 10,
@@ -365,5 +366,5 @@
   "source_identity_blob": "e9a2e6ede2ad3612069fe75dcc53ef0cc74a13bb",
   "source_database_blob": "efb332c7a672f4606eb3578c9255161863af6bcc",
   "bonus_policy": "preserve original; no writes",
-  "notes": "Name bank based on Stage2/3 verified audit; revalidate on RC1. Club name ownership, player skill bits, roster-index linkage, bio and formation encodings not verified."
+  "notes": "Name bank based on Stage2/3 verified audit; must be revalidated on stable 0.9.5. Club name ownership, skill bit encoding, roster linkage, bio and formation encodings not verified."
 }
