@@ -1,0 +1,28 @@
+name: ISS26 Guardian interactive portrait index
+on:
+  push:
+    branches: [feature/v096-player-database-integration]
+    paths: ['.github/workflows/v096-guardian-portrait-index.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Inspect public article resource, no execution
+        run: |
+          mkdir -p output
+          curl -fsSL --retry 1 --max-time 30 'https://interactive.guim.co.uk/atoms/2026/04/world-cup-player-guide-2026/default/v/1781860188747/app.js' -o output/guardian_app.js
+          python - <<'PY'
+          import re
+          s=open('output/guardian_app.js').read()
+          print('bytes',len(s),'name offset',s.lower().find('jamous'))
+          for x in sorted(set(re.findall(r'https?[^"\'\s<>\\]+',s))):
+              if 'guim' in x or 'json' in x or 'players' in x:print(x[:800])
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ISS26-guardian-public-interactive-index-temporary
+          path: output/
+          retention-days: 1
