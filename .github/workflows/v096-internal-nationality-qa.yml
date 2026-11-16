@@ -1,0 +1,35 @@
+name: Internal ISS26 0.9.6 nationality probe QA
+on:
+  push:
+    branches: [feature/v096-player-database-integration]
+    paths:
+      - '.github/workflows/v096-internal-nationality-qa.yml'
+      - 'tools/reconstruct_v096_internal.py'
+      - 'tools/build_v096_nationality_ab_probe.py'
+      - 'tests/test_v096_nationality_ab_probe.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  internal-qa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test collision rejection and complete record preservation
+        run: python -m unittest discover -s tests -p test_v096_nationality_ab_probe.py -v
+      - name: Reconstruct previously verified internal revision
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p carrier
+          gh release download v0.9.7-test1 --pattern ISS26_Test_0.9.7.iss26p --dir carrier
+          python tools/reconstruct_v096_internal.py --carrier carrier/ISS26_Test_0.9.7.iss26p --out internal
+          echo 'f3a211300af201be709498872e1e2572a7d1c362b3aa6e1abcf90ec6c0969a97  internal/ISS26_0.9.6_INTERNAL.iss26p' | sha256sum -c -
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ISS26-v096-INTERNAL-not-for-release
+          path: internal/
+          if-no-files-found: error
+          retention-days: 7
