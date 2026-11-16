@@ -1,0 +1,68 @@
+{
+  "version": "0.9.6",
+  "stage": "KITS_TEST1",
+  "status": "STATIC_CLEAN_DISC_VERIFIED_RUNTIME_PENDING",
+  "original_tex_files_decoded": 105,
+  "mapped_modern_teams": 78,
+  "changed_teams": 4,
+  "changed_outfield_kits": 8,
+  "remaining_teams": 74,
+  "teams": [
+    {
+      "team": "NAT_CPV",
+      "tex": "TEX_00.BIN",
+      "lba": 8400,
+      "original_size": 33032,
+      "rebuilt_size": 31524,
+      "source": "https://www.footyheadlines.com/2026/04/new-cape-verde-2026-world-cup-home-away-kits.html"
+    },
+    {
+      "team": "NAT_ALG",
+      "tex": "TEX_01.BIN",
+      "lba": 8420,
+      "original_size": 33388,
+      "rebuilt_size": 32396,
+      "source": "https://www.footylogos.com/kits/algeria-2026-world-cup"
+    },
+    {
+      "team": "NAT_UKR",
+      "tex": "TEX_29.BIN",
+      "lba": 8980,
+      "original_size": 31548,
+      "rebuilt_size": 30924,
+      "source": "https://en.uaf.ua/en/article/55552"
+    },
+    {
+      "team": "CLB_KRY",
+      "tex": "TEX_80.BIN",
+      "lba": 10000,
+      "original_size": 31420,
+      "rebuilt_size": 31184,
+      "source": "https://en.fckryvbas.com/post/fk-krivbas-prezentuvav-novu-formu-na-sezon-2026-2027"
+    }
+  ],
+  "codec": "retro-roster-patcher 0.9.10 MIT Gabriel Moterani; inspected and decoded local original PAL resources",
+  "codec_source_run": 43948830913,
+  "codec_source_artifact": 14267520256,
+  "original_sha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
+  "baseline_patch_sha256": "DAAD439012079F98AF87CF2F42F5C2254E130E58AEE9FA9ED4D6920BDBEDB5D6",
+  "patch_sha256": "2F0D47456CCE2A34FD5FB3D856EDB715E270BEF86DCAB7A2D7C05A11FF3AED03",
+  "result_sha256": "E026005DDDDDA302E83118B7F48F0457717E90D05EB1118B3612D804A5869ED3",
+  "archive_sha256": "3F8E14C148871A896E3131C65B88027A8BBB6891D559DBB1903CBE6E3F6AA0CB",
+  "baseline_sectors": 699,
+  "merged_sectors": 759,
+  "edited_sectors": 66,
+  "edited_ecc_verified": true,
+  "select_unchanged": true,
+  "exe_unchanged": true,
+  "flag_and_keeper_decoded_blocks_unchanged": true,
+  "iso_file_extents_unchanged": true,
+  "runtime_verified": false,
+  "feed_changed": false,
+  "release_published": false,
+  "limitations": [
+    "Approximate home/away color palettes and original silhouette; current precise graphics, sponsors, crests not reproduced.",
+    "2D selection kits and keeper textures unchanged. All Stage 7 player profiles and placeholders unchanged.",
+    "Local archive not published; runtime mapping and visual test required."
+  ]
+}
