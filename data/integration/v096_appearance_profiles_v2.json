@@ -1,0 +1,335 @@
+{
+  "version": "0.9.6",
+  "status": "PARTIAL_INDIVIDUAL_APPEARANCE_CANDIDATES_NOT_GAME_VERIFIED",
+  "fields": [
+    "hair",
+    "hair_color",
+    "facial_hair",
+    "facial_color",
+    "skin_shade",
+    "body_type"
+  ],
+  "policy": "Null preserves existing bits. Numeric template IDs are provisional aliases based on prior EU prototype; no claim of exact mesh or palette. Skin shade is only a visual palette approximation from a named reference, never inferred from nationality or ethnicity. Body unchanged for new profiles. No photos embedded.",
+  "profiles": [
+    {
+      "team": "NAT_GER",
+      "name": "Manuel Neuer",
+      "values": [
+        18,
+        1,
+        0,
+        0,
+        0,
+        4
+      ],
+      "description": "Short light brown hair, clean shaven; original Kahn hair/body template",
+      "source": "https://www.bundesliga.com/en/player/manuel-neuer/",
+      "source_date": "prior reference; date unpinned",
+      "status": "PRIOR_INTERNAL_TEMPLATE_RUNTIME_PENDING"
+    },
+    {
+      "team": "NAT_POR",
+      "name": "Cristiano Ronaldo",
+      "values": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        4
+      ],
+      "description": "Short dark hair, clean shaven; original Figo hair template",
+      "source": "https://www.uefa.com/uefachampionsleague/clubs/players/63706--cristiano-ronaldo/",
+      "source_date": "prior reference; date unpinned",
+      "status": "PRIOR_INTERNAL_TEMPLATE_RUNTIME_PENDING"
+    },
+    {
+      "team": "NAT_ARG",
+      "name": "Lionel Messi",
+      "values": [
+        0,
+        1,
+        5,
+        1,
+        0,
+        4
+      ],
+      "description": "Short brown hair and beard; short hair and provisional facial hair template",
+      "source": "https://www.intermiamicf.com/players/lionel-messi/",
+      "source_date": "prior reference; date unpinned",
+      "status": "PRIOR_INTERNAL_TEMPLATE_RUNTIME_PENDING"
+    },
+    {
+      "team": "NAT_NOR",
+      "name": "Erling Haaland",
+      "values": [
+        15,
+        2,
+        0,
+        0,
+        0,
+        3
+      ],
+      "description": "Tied blond hair and clean shaven; Seaman/Maldini long hair template",
+      "source": "https://www.mancity.com/players/erling-haaland",
+      "source_date": "prior reference; date unpinned",
+      "status": "PRIOR_INTERNAL_TEMPLATE_RUNTIME_PENDING"
+    },
+    {
+      "team": "NAT_EGY",
+      "name": "Mohamed Salah",
+      "values": [
+        19,
+        0,
+        5,
+        0,
+        2,
+        3
+      ],
+      "description": "Short dark curls and dark beard; Kluivert hair and provisional facial hair template",
+      "source": "https://www.liverpoolfc.com/team/mens/player/mohamed-salah",
+      "source_date": "prior reference; date unpinned",
+      "status": "PRIOR_INTERNAL_TEMPLATE_RUNTIME_PENDING"
+    },
+    {
+      "team": "NAT_FRA",
+      "name": "Kylian Mbappe",
+      "values": [
+        1,
+        0,
+        0,
+        null,
+        2,
+        null
+      ],
+      "description": "Very short dark cropped hair; no prominent beard; close-crop approximation.",
+      "source": "https://www.fifa.com/en/articles/stars-portrait-photographs-messi-ronaldo-mbappe",
+      "source_date": "2026-06-11",
+      "status": "PHOTO_REFERENCE_NATIVE_APPROXIMATION_RUNTIME_PENDING"
+    },
+    {
+      "team": "NAT_ENG",
+      "name": "Jude Bellingham",
+      "values": [
+        19,
+        0,
+        null,
+        null,
+        2,
+        null
+      ],
+      "description": "Short dark tight curls, tapered sides; beard detail left unchanged.",
+      "source": "https://as.com/futbol/videos/mbappe-vinicius-y-bellingham-protagonistas-del-anuncio-de-la-nueva-camiseta-del-real-madrid-f202606-v/",
+      "source_date": "2026-06",
+      "status": "PHOTO_REFERENCE_NATIVE_APPROXIMATION_RUNTIME_PENDING"
+    },
+    {
+      "team": "CLB_RMA",
+      "name": "Vinicius Junior",
+      "values": [
+        19,
+        0,
+        null,
+        null,
+        2,
+        null
+      ],
+      "description": "Short dark curls, fade sides; native curl model approximate.",
+      "source": "https://as.com/futbol/videos/mbappe-vinicius-y-bellingham-protagonistas-del-anuncio-de-la-nueva-camiseta-del-real-madrid-f202606-v/",
+      "source_date": "2026-06",
+      "status": "PHOTO_REFERENCE_NATIVE_APPROXIMATION_RUNTIME_PENDING"
+    },
+    {
+      "team": "NAT_ENG",
+      "name": "Harry Kane",
+      "values": [
+        18,
+        1,
+        5,
+        1,
+        0,
+        null
+      ],
+      "description": "Short swept-back brown hair and trimmed brown beard.",
+      "source": "https://fcbayern.com/store/en-zz/i/trikots-der-saison",
+      "source_date": "2026/27",
+      "status": "PHOTO_REFERENCE_NATIVE_APPROXIMATION_RUNTIME_PENDING"
+    },
+    {
+      "team": "NAT_ENG",
+      "name": "Bukayo Saka",
+      "values": [
+        19,
+        0,
+        null,
+        null,
+        2,
+        null
+      ],
+      "description": "Short dark tight curls; beard detail left unchanged.",
+      "source": "https://sports.yahoo.com/articles/2026-fifa-world-cup-stars-120000262.html",
+      "source_date": "2026-06",
+      "status": "PHOTO_REFERENCE_NATIVE_APPROXIMATION_RUNTIME_PENDING"
+    },
+    {
+      "team": "NAT_ESP",
+      "name": "Lamine Yamal",
+      "values": [
+        19,
+        1,
+        0,
+        null,
+        1,
+        null
+      ],
+      "description": "Curly top with lighter tips, short sides; single brown palette approximates highlights.",
+      "source": "https://www.forcabarca.sk/clanok/63583/nove-dresy-barcelony-2026-27-pocta-camp-nou-black-mamba-a-retro-90-roky-foto",
+      "source_date": "2026/27",
+      "status": "PHOTO_REFERENCE_NATIVE_APPROXIMATION_RUNTIME_PENDING"
+    },
+    {
+      "team": "NAT_ESP",
+      "name": "Pedri",
+      "values": [
+        1,
+        0,
+        0,
+        null,
+        0,
+        null
+      ],
+      "description": "Short dark straight hair with fringe; no prominent facial hair.",
+      "source": "https://www.forcabarca.sk/clanok/63583/nove-dresy-barcelony-2026-27-pocta-camp-nou-black-mamba-a-retro-90-roky-foto",
+      "source_date": "2026/27",
+      "status": "PHOTO_REFERENCE_NATIVE_APPROXIMATION_RUNTIME_PENDING"
+    },
+    {
+      "team": "NAT_BRA",
+      "name": "Raphinha",
+      "values": [
+        null,
+        0,
+        null,
+        null,
+        1,
+        null
+      ],
+      "description": "Dark braided hair; hairstyle not assigned until braids template is catalogued.",
+      "source": "https://www.forcabarca.sk/clanok/63583/nove-dresy-barcelony-2026-27-pocta-camp-nou-black-mamba-a-retro-90-roky-foto",
+      "source_date": "2026/27",
+      "status": "PHOTO_REFERENCE_NATIVE_APPROXIMATION_RUNTIME_PENDING"
+    },
+    {
+      "team": "NAT_GER",
+      "name": "Jamal Musiala",
+      "values": [
+        19,
+        0,
+        0,
+        null,
+        null,
+        null
+      ],
+      "description": "Short dark curly hair, clean-shaven; portrait lighting means shade not assigned.",
+      "source": "https://www.fifa.com/en/articles/stars-portrait-photographs-messi-ronaldo-mbappe",
+      "source_date": "2026-06-09",
+      "status": "PHOTO_REFERENCE_NATIVE_APPROXIMATION_RUNTIME_PENDING"
+    },
+    {
+      "team": "NAT_USA",
+      "name": "Christian Pulisic",
+      "values": [
+        19,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "description": "Dark brown curls and light stubble; no stubble or shade ID assigned from toned image.",
+      "source": "https://www.gettyimages.co.uk/detail/news-photo/christian-pulisic-of-the-united-states-poses-for-a-portrait-news-photo/2280774018",
+      "source_date": "2026-06-08",
+      "status": "PHOTO_REFERENCE_NATIVE_APPROXIMATION_RUNTIME_PENDING"
+    },
+    {
+      "team": "NAT_POR",
+      "name": "Bruno Fernandes",
+      "values": [
+        1,
+        0,
+        5,
+        0,
+        null,
+        null
+      ],
+      "description": "Short dark hair, trimmed dark beard; photo lighting leaves skin palette unassigned.",
+      "source": "https://www.gettyimages.com/",
+      "source_date": "2026-06-16",
+      "status": "PHOTO_REFERENCE_NATIVE_APPROXIMATION_RUNTIME_PENDING"
+    },
+    {
+      "team": "CLB_PSG",
+      "name": "Ousmane Dembele",
+      "values": [
+        1,
+        0,
+        null,
+        null,
+        null,
+        null
+      ],
+      "description": "Very short dark hair, fine moustache and goatee; exact facial-hair selector not yet catalogued.",
+      "source": "https://www.gettyimages.com/",
+      "source_date": "2026-06-11",
+      "status": "PHOTO_REFERENCE_NATIVE_APPROXIMATION_RUNTIME_PENDING"
+    },
+    {
+      "team": "NAT_UKR",
+      "name": "Artem Dovbyk",
+      "values": [
+        18,
+        1,
+        0,
+        null,
+        0,
+        null
+      ],
+      "description": "Short brown crop, no prominent beard; reference date not established.",
+      "source": "https://ws.royalsoccersim.de/?id=5089&page=player",
+      "source_date": "unknown",
+      "status": "PHOTO_REFERENCE_NATIVE_APPROXIMATION_RUNTIME_PENDING"
+    },
+    {
+      "team": "NAT_UKR",
+      "name": "Anatolii Trubin",
+      "values": [
+        18,
+        1,
+        0,
+        null,
+        0,
+        null
+      ],
+      "description": "Short brown side-swept hair, clean-shaven; tattoos unsupported.",
+      "source": "https://www.bundesliga.com/en/player/anatoliy-trubin",
+      "source_date": "2025/26",
+      "status": "PHOTO_REFERENCE_NATIVE_APPROXIMATION_RUNTIME_PENDING"
+    },
+    {
+      "team": "NAT_UKR",
+      "name": "Heorhii Sudakov",
+      "values": [
+        18,
+        0,
+        0,
+        null,
+        0,
+        null
+      ],
+      "description": "Short dark hair swept back, clean-shaven; hair model approximate.",
+      "source": "https://www.ligaportugal.pt/player/84734/heorhii-sudakov/20252026/278",
+      "source_date": "2025/26",
+      "status": "PHOTO_REFERENCE_NATIVE_APPROXIMATION_RUNTIME_PENDING"
+    }
+  ]
+}
