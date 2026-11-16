@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "channel": "test",
   "latest": {
-    "version": "0.9.6",
-    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.6-test1/ISS26_Test_0.9.6.iss26p",
-    "patchSha256": "5EC84C0C6B31F503DECD9FF2AD37B40A65EFEF3CF5CD593A1A98992368326D11",
+    "version": "0.9.5",
+    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.5-stable-4914c36bfac27aff/ISS26_0.9.5.iss26p",
+    "patchSha256": "4914C36BFAC27AFF4C4FB60BBD7AB49867FC1E67F26CE733686E73C79C839148",
     "baseSha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
-    "resultSha256": "7C503B7F214C7414F7B41C01553DB1F06387EEC290835164CAB00505EE7B9DAE"
+    "resultSha256": "BC6606EF3B16A110911D933E4926AF1394B44AEA4FEF6A0F289F85760AE548E6"
   },
-  "notes": "ISS26 0.9.6 Test 1: national player names only, 1188 slots. Clean-original standalone patch. Full Track01 hash and all 689 original sector guards verified; emulator acceptance pending. No attributes or club roster integration. Stable remains 0.9.5."
+  "notes": "Owner-requested withdrawal of incomplete 0.9.6 Test 1. Test channel temporarily uses exact stable 0.9.5. Do not promote a new roster test until all 54 national and 24 club rosters are validated. Cached newer test installs may require removal of test-only cache; stable feed is unchanged."
 }
