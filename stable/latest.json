@@ -3,10 +3,10 @@
   "channel": "stable",
   "latest": {
     "version": "0.9.5",
-    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.5-rc1/ISS26_0.9.5_RC1.iss26p",
-    "patchSha256": "2561F1F03745C4E1520E1902E486EF3699DC2B5F190E88A6A0056399F31BE72E",
+    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.5-stable-4914c36bfac27aff/ISS26_0.9.5.iss26p",
+    "patchSha256": "4914C36BFAC27AFF4C4FB60BBD7AB49867FC1E67F26CE733686E73C79C839148",
     "baseSha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
-    "resultSha256": "A5C01CA8B2C665279F1E0CA8A9C3CF5C38C592B12DE65A70766DEC3F0BCD6312"
+    "resultSha256": "BC6606EF3B16A110911D933E4926AF1394B44AEA4FEF6A0F289F85760AE548E6"
   },
-  "notes": "Owner-approved promotion of the existing 0.9.5 RC1 independent clean-EU patch to stable v0.9.5 on 2026-11-16. Identical patch asset and hashes. Existing graphics limitations and emulator validation caveats remain. Database v20 is not included."
+  "notes": "Owner-approved promotion of exact RC3 to stable 0.9.5. Verified original sector guards and downloaded release SHA256. Known remaining flag/name defects deferred. No database or kit update."
 }
