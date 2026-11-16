@@ -1,0 +1,412 @@
+{
+  "source": "vfxper/fm26 blob 5dd3ec2d109ed5d9a13b3df0dd49c8760d2d459c",
+  "candidates": [
+    {
+      "team": "CLB_KRY",
+      "club": "Kryvbas Kryvyi Rih",
+      "candidates": [
+        {
+          "name": "Yehor Tverdokhlib",
+          "pos": "M/AM C",
+          "ca": "115",
+          "uid": "2000037597",
+          "nationality": "Ukraine"
+        },
+        {
+          "name": "Bandeira",
+          "pos": "D/WB R",
+          "ca": "105",
+          "uid": "43390109",
+          "nationality": "Portugal"
+        },
+        {
+          "name": "Artur Mykytyshyn",
+          "pos": "M/AM RL",
+          "ca": "104",
+          "uid": "2000030731",
+          "nationality": "Ukraine"
+        }
+      ]
+    },
+    {
+      "team": "CLB_LEV",
+      "club": "Bayer 04 Leverkusen",
+      "candidates": [
+        {
+          "name": "Piero Hincapié",
+          "pos": "D/WB LC",
+          "ca": "152",
+          "uid": "86066853",
+          "nationality": "Ecuador"
+        },
+        {
+          "name": "Victor Boniface",
+          "pos": "AM/ST C",
+          "ca": "142",
+          "uid": "53174131",
+          "nationality": "Nigeria"
+        },
+        {
+          "name": "Eliesse Ben Seghir",
+          "pos": "AM LC",
+          "ca": "130",
+          "uid": "2000104892",
+          "nationality": "Morocco,France"
+        },
+        {
+          "name": "Jeanuël Belocian",
+          "pos": "D/WB LC",
+          "ca": "125",
+          "uid": "2000115205",
+          "nationality": "France,Guadeloupe"
+        },
+        {
+          "name": "Axel Tape",
+          "pos": "D RC",
+          "ca": "118",
+          "uid": "2000288856",
+          "nationality": "France,Ivory Coast"
+        },
+        {
+          "name": "Abdoulaye Faye",
+          "pos": "D C",
+          "ca": "117",
+          "uid": "13181675",
+          "nationality": "Senegal"
+        },
+        {
+          "name": "Noah Mbamba",
+          "pos": "DM/M C",
+          "ca": "111",
+          "uid": "2000084166",
+          "nationality": "Belgium"
+        },
+        {
+          "name": "Alejo Sarco",
+          "pos": "ST ",
+          "ca": "106",
+          "uid": "2000110066",
+          "nationality": "Argentina,Italy"
+        },
+        {
+          "name": "Francis Onyeka",
+          "pos": "M/AM LC",
+          "ca": "105",
+          "uid": "2000259411",
+          "nationality": "Germany,Nigeria"
+        },
+        {
+          "name": "Artem Stepanov",
+          "pos": "ST ",
+          "ca": "102",
+          "uid": "2000290285",
+          "nationality": "Ukraine"
+        }
+      ]
+    },
+    {
+      "team": "CLB_BAY",
+      "club": "FC Bayern München",
+      "candidates": [
+        {
+          "name": "João Palhinha",
+          "pos": "DM/M C",
+          "ca": "150",
+          "uid": "55070285",
+          "nationality": "Portugal"
+        },
+        {
+          "name": "Bryan Zaragoza",
+          "pos": "AM RL",
+          "ca": "145",
+          "uid": "2000054263",
+          "nationality": "Spain"
+        },
+        {
+          "name": "Sacha Boey",
+          "pos": "D/WB R",
+          "ca": "135",
+          "uid": "49038965",
+          "nationality": "France,Cameroon,Belgium"
+        },
+        {
+          "name": "Armindo Sieb",
+          "pos": "AM/ST RLC",
+          "ca": "118",
+          "uid": "2000065610",
+          "nationality": "Germany,Mozambique"
+        },
+        {
+          "name": "Arijon Ibrahimović",
+          "pos": "AM RLC",
+          "ca": "116",
+          "uid": "2000114473",
+          "nationality": "Germany,Kosovo"
+        },
+        {
+          "name": "Noël Aséko",
+          "pos": "DM/M C",
+          "ca": "116",
+          "uid": "2000180847",
+          "nationality": "Germany,Equatorial Guinea"
+        },
+        {
+          "name": "Lovro Zvonarek",
+          "pos": "M/AM C",
+          "ca": "116",
+          "uid": "2000097325",
+          "nationality": "Croatia"
+        },
+        {
+          "name": "Maurice Krattenmacher",
+          "pos": "AM RLC",
+          "ca": "115",
+          "uid": "2000170613",
+          "nationality": "Germany"
+        },
+        {
+          "name": "Jonathan Asp-Jensen",
+          "pos": "M/AM C",
+          "ca": "112",
+          "uid": "2000150158",
+          "nationality": "Denmark"
+        },
+        {
+          "name": "Benno Schmitz",
+          "pos": "D/DM R",
+          "ca": "110",
+          "uid": "91126210",
+          "nationality": "Germany"
+        }
+      ]
+    },
+    {
+      "team": "CLB_BVB",
+      "club": "Borussia Dortmund",
+      "candidates": [
+        {
+          "name": "Pascal Groß",
+          "pos": "DM/M RC",
+          "ca": "153",
+          "uid": "92017376",
+          "nationality": "Germany"
+        },
+        {
+          "name": "Julien Duranville",
+          "pos": "AM RL",
+          "ca": "125",
+          "uid": "2000155483",
+          "nationality": "Belgium,Ivory Coast,Democratic Republic of Congo"
+        },
+        {
+          "name": "Michael Eberwein",
+          "pos": "M/AM/ST C",
+          "ca": "117",
+          "uid": "91150149",
+          "nationality": "Germany"
+        },
+        {
+          "name": "Ayman Azhil",
+          "pos": "DM/M C",
+          "ca": "116",
+          "uid": "92096837",
+          "nationality": "Morocco,Germany"
+        },
+        {
+          "name": "Cole Campbell",
+          "pos": "AM RLC",
+          "ca": "115",
+          "uid": "2000085150",
+          "nationality": "United States,Iceland"
+        },
+        {
+          "name": "Kjell Wätjen",
+          "pos": "DM/M C",
+          "ca": "112",
+          "uid": "2000229933",
+          "nationality": "Germany,Italy"
+        },
+        {
+          "name": "Filippo Mané",
+          "pos": "D RC",
+          "ca": "110",
+          "uid": "2000121585",
+          "nationality": "Italy,Senegal"
+        },
+        {
+          "name": "Ben Hüning",
+          "pos": "D C",
+          "ca": "108",
+          "uid": "2000174928",
+          "nationality": "Germany"
+        },
+        {
+          "name": "Baran Moğultay",
+          "pos": "D/WB/M L",
+          "ca": "107",
+          "uid": "2000172723",
+          "nationality": "Türkiye,Germany"
+        },
+        {
+          "name": "Patrick Göbel",
+          "pos": "D/WB/M R",
+          "ca": "107",
+          "uid": "92056106",
+          "nationality": "Germany"
+        }
+      ]
+    },
+    {
+      "team": "CLB_LIV",
+      "club": "Liverpool",
+      "candidates": [
+        {
+          "name": "Harvey Elliott",
+          "pos": "M/AM RC",
+          "ca": "150",
+          "uid": "29233143",
+          "nationality": "England"
+        },
+        {
+          "name": "Kostas Tsimikas",
+          "pos": "D/WB L",
+          "ca": "149",
+          "uid": "36096824",
+          "nationality": "Greece"
+        },
+        {
+          "name": "Giovanni Leoni",
+          "pos": "D C",
+          "ca": "125",
+          "uid": "2000259904",
+          "nationality": "Italy"
+        },
+        {
+          "name": "Stefan Bajčetić",
+          "pos": "D/DM/M C",
+          "ca": "125",
+          "uid": "2000082598",
+          "nationality": "Spain,Serbia"
+        },
+        {
+          "name": "Trey Nyoni",
+          "pos": "DM/M/AM C",
+          "ca": "123",
+          "uid": "2000261214",
+          "nationality": "England,Zimbabwe"
+        },
+        {
+          "name": "Owen Beck",
+          "pos": "D/WB L",
+          "ca": "123",
+          "uid": "28121435",
+          "nationality": "Wales"
+        },
+        {
+          "name": "Jayden Danns",
+          "pos": "AM/ST LC",
+          "ca": "121",
+          "uid": "2000191846",
+          "nationality": "England,Guyana"
+        },
+        {
+          "name": "Luke Chambers",
+          "pos": "D/WB LC",
+          "ca": "118",
+          "uid": "2000049215",
+          "nationality": "England"
+        },
+        {
+          "name": "James McConnell",
+          "pos": "DM/M RC",
+          "ca": "116",
+          "uid": "2000108364",
+          "nationality": "England"
+        },
+        {
+          "name": "Lewis Koumas",
+          "pos": "AM/ST RLC",
+          "ca": "116",
+          "uid": "2000191802",
+          "nationality": "Wales,England,Cyprus"
+        }
+      ]
+    },
+    {
+      "team": "CLB_MUN",
+      "club": "Manchester United",
+      "candidates": [
+        {
+          "name": "Marcus Rashford",
+          "pos": "AM/ST RL",
+          "ca": "156",
+          "uid": "28100266",
+          "nationality": "England"
+        },
+        {
+          "name": "Jadon Sancho",
+          "pos": "AM RLC",
+          "ca": "146",
+          "uid": "28108490",
+          "nationality": "England,Trinidad and Tobago,Jamaica"
+        },
+        {
+          "name": "Rasmus Højlund",
+          "pos": "ST ",
+          "ca": "143",
+          "uid": "27160181",
+          "nationality": "Denmark"
+        },
+        {
+          "name": "Tyrell Malacia",
+          "pos": "D L",
+          "ca": "134",
+          "uid": "37058363",
+          "nationality": "Netherlands,Curaçao"
+        },
+        {
+          "name": "Toby Collyer",
+          "pos": "DM/M C",
+          "ca": "124",
+          "uid": "2000010840",
+          "nationality": "England"
+        },
+        {
+          "name": "Harry Amass",
+          "pos": "D/WB L",
+          "ca": "112",
+          "uid": "2000280807",
+          "nationality": "England"
+        },
+        {
+          "name": "Daniel Gore",
+          "pos": "DM/M C",
+          "ca": "112",
+          "uid": "2000123626",
+          "nationality": "England"
+        },
+        {
+          "name": "Ethan Williams",
+          "pos": "M/AM RLC",
+          "ca": "112",
+          "uid": "2000190312",
+          "nationality": "England"
+        },
+        {
+          "name": "Ethan Ennis",
+          "pos": "AM RL",
+          "ca": "106",
+          "uid": "2000125909",
+          "nationality": "England"
+        },
+        {
+          "name": "Chido Obi",
+          "pos": "ST ",
+          "ca": "102",
+          "uid": "2000382120",
+          "nationality": "Denmark,England,Nigeria"
+        }
+      ]
+    }
+  ]
+}
