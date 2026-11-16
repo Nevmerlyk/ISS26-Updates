@@ -1,0 +1,32 @@
+name: v096 baseline text transport
+on:
+  push:
+    branches: [feature/v096-player-database-integration]
+    paths: ['.github/workflows/v096-baseline-transport.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  transport:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify and encode existing public stable patch
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 'https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.5-stable-4914c36bfac27aff/ISS26_0.9.5.iss26p' -o /tmp/stable.iss26p
+          echo '4914c36bfac27aff4c4fb60bbd7ab49867fc1e67f26ce733686e73c79c839148  /tmp/stable.iss26p' | sha256sum -c -
+          python - <<'PY'
+          import base64,zlib,pathlib
+          d=pathlib.Path('data/integration/stable095_transport');d.mkdir(parents=True,exist_ok=True)
+          text=base64.b64encode(zlib.compress(pathlib.Path('/tmp/stable.iss26p').read_bytes(),9)).decode('ascii')
+          for i in range(0,len(text),16000):
+              (d/f'part{i//16000:03}.b64').write_text(text[i:i+16000]+'\n')
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/integration/stable095_transport
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Transport verified existing public 0.9.5 patch as compressed text'
+          git push origin HEAD:feature/v096-player-database-integration
