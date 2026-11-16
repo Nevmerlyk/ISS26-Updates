@@ -1,0 +1,133 @@
+team_id,game_slot,player_name,source_position,fm_snapshot_age,roster_source,status
+CLB_SHK,1,Dmytro Riznyk,GK,26,https://sortitoutsi.net/football-manager-2026/team/1895/shakhtar-donetsk,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_SHK,2,Denys Tvardovskyi,GK,22,https://sortitoutsi.net/football-manager-2026/team/1895/shakhtar-donetsk,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_SHK,3,Mykola Matviienko,D LC,29,https://sortitoutsi.net/football-manager-2026/team/1895/shakhtar-donetsk,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_SHK,4,Valerii Bondar,D RC,26,https://sortitoutsi.net/football-manager-2026/team/1895/shakhtar-donetsk,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_SHK,5,Yukhym Konoplia,D RL,25,https://sortitoutsi.net/football-manager-2026/team/1895/shakhtar-donetsk,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_SHK,6,Pedro Henrique,D/WB/M L,22,https://sortitoutsi.net/football-manager-2026/team/1895/shakhtar-donetsk,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_SHK,7,Vinicius Tobias,D/WB R,21,https://sortitoutsi.net/football-manager-2026/team/1895/shakhtar-donetsk,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_SHK,8,Diego Arroyo,D LC,20,https://sortitoutsi.net/football-manager-2026/team/1895/shakhtar-donetsk,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_SHK,9,Danylo Udod,D RC,21,https://sortitoutsi.net/football-manager-2026/team/1895/shakhtar-donetsk,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_SHK,10,Roman Savchenko,D LC,21,https://sortitoutsi.net/football-manager-2026/team/1895/shakhtar-donetsk,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_SHK,11,Pedrinho,AM RLC,27,https://sortitoutsi.net/football-manager-2026/team/1895/shakhtar-donetsk,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_SHK,12,Marlon Gomes,DM/M/AM,21,https://sortitoutsi.net/football-manager-2026/team/1895/shakhtar-donetsk,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_SHK,13,Artem Bondarenko,DM/M/AM C,24,https://sortitoutsi.net/football-manager-2026/team/1895/shakhtar-donetsk,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_SHK,14,Yehor Nazaryna,DM/M C,27,https://sortitoutsi.net/football-manager-2026/team/1895/shakhtar-donetsk,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_SHK,15,Alisson,M R/AM RC,19,https://sortitoutsi.net/football-manager-2026/team/1895/shakhtar-donetsk,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_SHK,16,Oleh Ocheretko,AM RLC,22,https://sortitoutsi.net/football-manager-2026/team/1895/shakhtar-donetsk,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_SHK,17,Eguinaldo,AM RL/ST,20,https://sortitoutsi.net/football-manager-2026/team/1895/shakhtar-donetsk,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_SHK,18,Dmytro Kryskiv,DM/M LC,24,https://sortitoutsi.net/football-manager-2026/team/1895/shakhtar-donetsk,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_SHK,19,Newertton,AM RL,20,https://sortitoutsi.net/football-manager-2026/team/1895/shakhtar-donetsk,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_SHK,20,Kauã Elias,AM R/ST,19,https://sortitoutsi.net/football-manager-2026/team/1895/shakhtar-donetsk,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_SHK,21,Viktor Tsukanov,M RC/AM C,19,https://sortitoutsi.net/football-manager-2026/team/1895/shakhtar-donetsk,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_SHK,22,Ivan Petriak,D/WB R/M/AM RL,31,https://sortitoutsi.net/football-manager-2026/team/1895/shakhtar-donetsk,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_AJX,1,Vítězslav Jaroš,GK,23,https://sortitoutsi.net/football-manager-2026/team/992/afc-ajax,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_AJX,2,Maarten Paes,GK,27,https://sortitoutsi.net/football-manager-2026/team/992/afc-ajax,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_AJX,3,Oleksandr Zinchenko,"D/WB L,DM,M C",28,https://sortitoutsi.net/football-manager-2026/team/992/afc-ajax,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_AJX,4,Takehiro Tomiyasu,D RLC/WB RL,26,https://sortitoutsi.net/football-manager-2026/team/992/afc-ajax,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_AJX,5,Youri Baas,D LC/WB L,22,https://sortitoutsi.net/football-manager-2026/team/992/afc-ajax,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_AJX,6,Ko Itakura,D C/DM,28,https://sortitoutsi.net/football-manager-2026/team/992/afc-ajax,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_AJX,7,Josip Šutalo,D C,25,https://sortitoutsi.net/football-manager-2026/team/992/afc-ajax,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_AJX,8,Owen Wijndal,D/WB/M L,25,https://sortitoutsi.net/football-manager-2026/team/992/afc-ajax,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_AJX,9,Anton Gaaei,D/WB/M R,22,https://sortitoutsi.net/football-manager-2026/team/992/afc-ajax,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_AJX,10,Lucas Rosa,D/WB RL/M R,25,https://sortitoutsi.net/football-manager-2026/team/992/afc-ajax,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_AJX,11,Youri Regeer,D RL/WB R/DM/M C,21,https://sortitoutsi.net/football-manager-2026/team/992/afc-ajax,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_AJX,12,Davy Klaassen,M/AM C,32,https://sortitoutsi.net/football-manager-2026/team/992/afc-ajax,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_AJX,13,Mika Godts,AM RLC,20,https://sortitoutsi.net/football-manager-2026/team/992/afc-ajax,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_AJX,14,Oscar Gloukh,M/AM C/ST,21,https://sortitoutsi.net/football-manager-2026/team/992/afc-ajax,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_AJX,15,Kian Fitz-Jim,DM/M/AM C,21,https://sortitoutsi.net/football-manager-2026/team/992/afc-ajax,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_AJX,16,Steven Berghuis,M R/AM RC,33,https://sortitoutsi.net/football-manager-2026/team/992/afc-ajax,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_AJX,17,Oliver Edvardsen,M/AM RL,26,https://sortitoutsi.net/football-manager-2026/team/992/afc-ajax,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_AJX,18,Rayane Bounida,AM RLC,19,https://sortitoutsi.net/football-manager-2026/team/992/afc-ajax,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_AJX,19,Jorthy Mokio,D LC/DM/M C,17,https://sortitoutsi.net/football-manager-2026/team/992/afc-ajax,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_AJX,20,Maher Carrizo,AM R/ST,19,https://sortitoutsi.net/football-manager-2026/team/992/afc-ajax,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_AJX,21,Kasper Dolberg,ST,27,https://sortitoutsi.net/football-manager-2026/team/992/afc-ajax,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_AJX,22,Wout Weghorst,ST,32,https://sortitoutsi.net/football-manager-2026/team/992/afc-ajax,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_NEW,1,Nick Pope,GK,33,https://database.footballmanagerblog.org/fm26/clubs/688-newcastle,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_NEW,2,Aaron Ramsdale,GK,27,https://database.footballmanagerblog.org/fm26/clubs/688-newcastle,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_NEW,3,Sven Botman,DC,25,https://database.footballmanagerblog.org/fm26/clubs/688-newcastle,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_NEW,4,Tino Livramento,DR,22,https://database.footballmanagerblog.org/fm26/clubs/688-newcastle,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_NEW,5,Fabian Schär,DC,33,https://database.footballmanagerblog.org/fm26/clubs/688-newcastle,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_NEW,6,Kieran Trippier,DR/WBR,34,https://database.footballmanagerblog.org/fm26/clubs/688-newcastle,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_NEW,7,Malick Thiaw,DC,23,https://database.footballmanagerblog.org/fm26/clubs/688-newcastle,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_NEW,8,Dan Burn,DC,33,https://database.footballmanagerblog.org/fm26/clubs/688-newcastle,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_NEW,9,Lewis Hall,DL/WBL,20,https://database.footballmanagerblog.org/fm26/clubs/688-newcastle,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_NEW,10,Bruno Guimarães,MC/DM,27,https://database.footballmanagerblog.org/fm26/clubs/688-newcastle,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_NEW,11,Sandro Tonali,DM/MC,25,https://database.footballmanagerblog.org/fm26/clubs/688-newcastle,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_NEW,12,Anthony Gordon,AML/AMR,24,https://database.footballmanagerblog.org/fm26/clubs/688-newcastle,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_NEW,13,Joelinton,MC/AML,28,https://database.footballmanagerblog.org/fm26/clubs/688-newcastle,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_NEW,14,Nick Woltemade,ST/AMC,23,https://database.footballmanagerblog.org/fm26/clubs/688-newcastle,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_NEW,15,Jacob Ramsey,MC/AMC/AML,24,https://database.footballmanagerblog.org/fm26/clubs/688-newcastle,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_NEW,16,Yoane Wissa,ST/AML,28,https://database.footballmanagerblog.org/fm26/clubs/688-newcastle,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_NEW,17,Harvey Barnes,AML/ML,27,https://database.footballmanagerblog.org/fm26/clubs/688-newcastle,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_NEW,18,Anthony Elanga,AMR/MR/AML,23,https://database.footballmanagerblog.org/fm26/clubs/688-newcastle,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_NEW,19,Jacob Murphy,AMR,30,https://database.footballmanagerblog.org/fm26/clubs/688-newcastle,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_NEW,20,Lewis Miley,MC,19,https://database.footballmanagerblog.org/fm26/clubs/688-newcastle,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_NEW,21,Joe Willock,MC,25,https://database.footballmanagerblog.org/fm26/clubs/688-newcastle,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_NEW,22,William Osula,ST,21,https://database.footballmanagerblog.org/fm26/clubs/688-newcastle,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_ACM,1,Mike Maignan,GK,30,https://database.footballmanagerblog.org/fm26/clubs/1099-milan,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_ACM,2,Pietro Terracciano,GK,35,https://database.footballmanagerblog.org/fm26/clubs/1099-milan,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_ACM,3,Alexis Saelemaekers,WBR/MR/AMR,26,https://database.footballmanagerblog.org/fm26/clubs/1099-milan,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_ACM,4,Fikayo Tomori,DC,27,https://database.footballmanagerblog.org/fm26/clubs/1099-milan,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_ACM,5,Matteo Gabbia,DC,25,https://database.footballmanagerblog.org/fm26/clubs/1099-milan,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_ACM,6,Strahinja Pavlović,DC,24,https://database.footballmanagerblog.org/fm26/clubs/1099-milan,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_ACM,7,Pervis Estupiñán,DL/WBL,27,https://database.footballmanagerblog.org/fm26/clubs/1099-milan,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_ACM,8,Koni De Winter,DC,23,https://database.footballmanagerblog.org/fm26/clubs/1099-milan,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_ACM,9,Davide Bartesaghi,DL/WBL,19,https://database.footballmanagerblog.org/fm26/clubs/1099-milan,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_ACM,10,Zachary Athekame,DR,20,https://database.footballmanagerblog.org/fm26/clubs/1099-milan,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_ACM,11,David Odogu,DC,19,https://database.footballmanagerblog.org/fm26/clubs/1099-milan,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_ACM,12,Luka Modrić,MC/DM,39,https://database.footballmanagerblog.org/fm26/clubs/1099-milan,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_ACM,13,Christian Pulisic,AMR/AMC/ST,26,https://database.footballmanagerblog.org/fm26/clubs/1099-milan,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_ACM,14,Rafael Leão,AML/ST,26,https://database.footballmanagerblog.org/fm26/clubs/1099-milan,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_ACM,15,Adrien Rabiot,MC,30,https://database.footballmanagerblog.org/fm26/clubs/1099-milan,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_ACM,16,Christopher Nkunku,AMC,27,https://database.footballmanagerblog.org/fm26/clubs/1099-milan,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_ACM,17,Youssouf Fofana,DM/MC,26,https://database.footballmanagerblog.org/fm26/clubs/1099-milan,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_ACM,18,Ruben Loftus-Cheek,MC/AMC,29,https://database.footballmanagerblog.org/fm26/clubs/1099-milan,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_ACM,19,Samuele Ricci,DM/MC,23,https://database.footballmanagerblog.org/fm26/clubs/1099-milan,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_ACM,20,Ardon Jashari,DM/MC,22,https://database.footballmanagerblog.org/fm26/clubs/1099-milan,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_ACM,21,Santiago Giménez,ST,24,https://database.footballmanagerblog.org/fm26/clubs/1099-milan,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_ACM,22,Niclas Füllkrug,ST,32,https://database.footballmanagerblog.org/fm26/clubs/1099-milan,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_JUV,1,Michele Di Gregorio,GK,27,https://database.footballmanagerblog.org/fm26/clubs/1139-juventus,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_JUV,2,Mattia Perin,GK,32,https://database.footballmanagerblog.org/fm26/clubs/1139-juventus,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_JUV,3,Bremer,DC,28,https://database.footballmanagerblog.org/fm26/clubs/1139-juventus,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_JUV,4,Pierre Kalulu,DC/DR,25,https://database.footballmanagerblog.org/fm26/clubs/1139-juventus,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_JUV,5,Andrea Cambiaso,DL/WBL/ML,25,https://database.footballmanagerblog.org/fm26/clubs/1139-juventus,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_JUV,6,Federico Gatti,DC,27,https://database.footballmanagerblog.org/fm26/clubs/1139-juventus,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_JUV,7,Lloyd Kelly,DC/DL,26,https://database.footballmanagerblog.org/fm26/clubs/1139-juventus,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_JUV,8,Emil Holm,DR/WBR,25,https://database.footballmanagerblog.org/fm26/clubs/1139-juventus,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_JUV,9,Juan David Cabal,DL,24,https://database.footballmanagerblog.org/fm26/clubs/1139-juventus,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_JUV,10,Filip Kostić,WBL/ML,32,https://database.footballmanagerblog.org/fm26/clubs/1139-juventus,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_JUV,11,Kenan Yıldız,AML/AMC,20,https://database.footballmanagerblog.org/fm26/clubs/1139-juventus,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_JUV,12,Francisco Conceição,AMR,22,https://database.footballmanagerblog.org/fm26/clubs/1139-juventus,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_JUV,13,Khéphren Thuram,MC/DM,24,https://database.footballmanagerblog.org/fm26/clubs/1139-juventus,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_JUV,14,Manuel Locatelli,DM/MC,27,https://database.footballmanagerblog.org/fm26/clubs/1139-juventus,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_JUV,15,Weston McKennie,MC/MR,26,https://database.footballmanagerblog.org/fm26/clubs/1139-juventus,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_JUV,16,Edon Zhegrova,AMR,26,https://database.footballmanagerblog.org/fm26/clubs/1139-juventus,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_JUV,17,Teun Koopmeiners,MC,27,https://database.footballmanagerblog.org/fm26/clubs/1139-juventus,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_JUV,18,Fabio Miretti,MC,21,https://database.footballmanagerblog.org/fm26/clubs/1139-juventus,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_JUV,19,Jérémie Boga,AML,28,https://database.footballmanagerblog.org/fm26/clubs/1139-juventus,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_JUV,20,Dušan Vlahović,ST,25,https://database.footballmanagerblog.org/fm26/clubs/1139-juventus,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_JUV,21,Jonathan David,ST,25,https://database.footballmanagerblog.org/fm26/clubs/1139-juventus,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_JUV,22,Loïs Openda,ST,25,https://database.footballmanagerblog.org/fm26/clubs/1139-juventus,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_NAP,1,Alex Meret,GK,28,https://database.footballmanagerblog.org/fm26/clubs/1150-napoli,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_NAP,2,Vanja Milinković-Savić,GK,28,https://database.footballmanagerblog.org/fm26/clubs/1150-napoli,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_NAP,3,Alessandro Buongiorno,DC,26,https://database.footballmanagerblog.org/fm26/clubs/1150-napoli,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_NAP,4,Amir Rrahmani,DC,31,https://database.footballmanagerblog.org/fm26/clubs/1150-napoli,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_NAP,5,Giovanni Di Lorenzo,DR,31,https://database.footballmanagerblog.org/fm26/clubs/1150-napoli,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_NAP,6,Leonardo Spinazzola,DL/WBL/ML,32,https://database.footballmanagerblog.org/fm26/clubs/1150-napoli,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_NAP,7,Juan Jesus,DC,34,https://database.footballmanagerblog.org/fm26/clubs/1150-napoli,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_NAP,8,Mathías Olivera,DL/WBL,27,https://database.footballmanagerblog.org/fm26/clubs/1150-napoli,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_NAP,9,Miguel Gutiérrez,DL/WBL,23,https://database.footballmanagerblog.org/fm26/clubs/1150-napoli,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_NAP,10,Sam Beukema,DC,26,https://database.footballmanagerblog.org/fm26/clubs/1150-napoli,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_NAP,11,Kevin De Bruyne,MC/AMC,34,https://database.footballmanagerblog.org/fm26/clubs/1150-napoli,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_NAP,12,Scott McTominay,MC/AMC,28,https://database.footballmanagerblog.org/fm26/clubs/1150-napoli,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_NAP,13,André-Franck Zambo Anguissa,MC,29,https://database.footballmanagerblog.org/fm26/clubs/1150-napoli,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_NAP,14,Stanislav Lobotka,DM,30,https://database.footballmanagerblog.org/fm26/clubs/1150-napoli,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_NAP,15,David Neres,AMR/AML,28,https://database.footballmanagerblog.org/fm26/clubs/1150-napoli,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_NAP,16,Matteo Politano,AMR,31,https://database.footballmanagerblog.org/fm26/clubs/1150-napoli,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_NAP,17,Billy Gilmour,DM/MC,24,https://database.footballmanagerblog.org/fm26/clubs/1150-napoli,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_NAP,18,Eljif Elmas,MC/AMC,25,https://database.footballmanagerblog.org/fm26/clubs/1150-napoli,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_NAP,19,Antonio Vergara,AMC/AMR,22,https://database.footballmanagerblog.org/fm26/clubs/1150-napoli,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_NAP,20,Giovane,ST/AML/AMR,21,https://database.footballmanagerblog.org/fm26/clubs/1150-napoli,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_NAP,21,Romelu Lukaku,ST,32,https://database.footballmanagerblog.org/fm26/clubs/1150-napoli,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
+CLB_NAP,22,Rasmus Højlund,ST,22,https://database.footballmanagerblog.org/fm26/clubs/1150-napoli,SOURCE_CLUB_MEMBER_CANDIDATE; NOT_DISC_MAPPED
