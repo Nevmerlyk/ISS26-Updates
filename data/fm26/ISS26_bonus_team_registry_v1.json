@@ -1,0 +1,41 @@
+{
+  "status": "HISTORICAL_REFERENCE_NOT_DISC_VERIFIED",
+  "teams": [
+    {
+      "reference_team_id": "BON_EURO",
+      "name": "Euro All-Stars",
+      "reference_players": 22,
+      "actual_binary_team_id": null,
+      "policy": "preserve original bonus team and original attributes pending binary verification"
+    },
+    {
+      "reference_team_id": "BON_WORLD",
+      "name": "World All-Stars",
+      "reference_players": 22,
+      "actual_binary_team_id": null,
+      "policy": "preserve original bonus team and original attributes pending binary verification"
+    },
+    {
+      "reference_team_id": "BON_CLASSIC_EURO",
+      "name": "Classic Euro All-Stars",
+      "reference_players": 22,
+      "actual_binary_team_id": null,
+      "policy": "preserve original bonus team and original attributes pending binary verification"
+    },
+    {
+      "reference_team_id": "BON_CLASSIC_WORLD",
+      "name": "Classic World All-Stars",
+      "reference_players": 22,
+      "actual_binary_team_id": null,
+      "policy": "preserve original bonus team and original attributes pending binary verification"
+    }
+  ],
+  "team_count": 4,
+  "player_reference_count": 88,
+  "ambiguous_names": 4,
+  "source_urls": [
+    "https://gamefaqs.gamespot.com/ps/578734-iss-pro-evolution-2/faqs/14154",
+    "https://gamefaqs.gamespot.com/ps/578734-iss-pro-evolution-2/faqs/9452"
+  ],
+  "notes": "Reference keys are newly assigned, not original PS1 team IDs. Historic players are not rated by substituting current FM26 values. Original disc was not accessible in this execution. Keep separate from modern pool until verified."
+}
