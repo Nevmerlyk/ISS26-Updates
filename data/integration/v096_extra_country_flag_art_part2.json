@@ -1,0 +1,55 @@
+{
+  "source": "lipis/flag-icons",
+  "license": "MIT",
+  "status": "SOURCE_ART_ONLY_NOT_IN_GAME",
+  "flags": {
+    "SVK": {
+      "code": "sk",
+      "blob": "676018e6284fcfed6c878552ef1e662fac4395dd",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" id=\"flag-icons-sk\" viewBox=\"0 0 640 480\">\n  <path fill=\"#ee1c25\" d=\"M0 0h640v480H0z\"/>\n  <path fill=\"#0b4ea2\" d=\"M0 0h640v320H0z\"/>\n  <path fill=\"#fff\" d=\"M0 0h640v160H0z\"/>\n  <path fill=\"#fff\" d=\"M233 370.8c-43-20.7-104.6-61.9-104.6-143.2 0-81.4 4-118.4 4-118.4h201.3s3.9 37 3.9 118.4S276 350 233 370.8\"/>\n  <path fill=\"#ee1c25\" d=\"M233 360c-39.5-19-96-56.8-96-131.4s3.6-108.6 3.6-108.6h184.8s3.5 34 3.5 108.6C329 303.3 272.5 341 233 360\"/>\n  <path fill=\"#fff\" d=\"M241.4 209c10.7.2 31.6.6 50.1-5.6 0 0-.4 6.7-.4 14.4s.5 14.4.5 14.4c-17-5.7-38.1-5.8-50.2-5.7v41.2h-16.8v-41.2c-12-.1-33.1 0-50.1 5.7 0 0 .5-6.7.5-14.4s-.5-14.4-.5-14.4c18.5 6.2 39.4 5.8 50 5.6v-25.9c-9.7 0-23.7.4-39.6 5.7 0 0 .5-6.6.5-14.4 0-7.7-.5-14.4-.5-14.4 15.9 5.3 29.9 5.8 39.6 5.7-.5-16.4-5.3-37-5.3-37s9.9.7 13.8.7 13.8-.7 13.8-.7-4.8 20.6-5.3 37c9.7.1 23.7-.4 39.6-5.7 0 0-.5 6.7-.5 14.4s.5 14.4.5 14.4a119 119 0 0 0-39.7-5.7v26z\"/>\n  <path fill=\"#0b4ea2\" d=\"M233 263.3c-19.9 0-30.5 27.5-30.5 27.5s-6-13-22.2-13c-11 0-19 9.7-24.2 18.8 20 31.7 51.9 51.3 76.9 63.4 25-12 57-31.7 76.9-63.4-5.2-9-13.2-18.8-24.2-18.8-16.2 0-22.2 13-22.2 13S253 263.3 233 263.3\"/>\n</svg>\n",
+      "source": "https://github.com/lipis/flag-icons/blob/main/flags/4x3/sk.svg"
+    },
+    "BFA": {
+      "code": "bf",
+      "blob": "09e53a8d5e83a6004c374f099e552ec938755ff6",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" id=\"flag-icons-bf\" viewBox=\"0 0 640 480\">\n  <g fill-rule=\"evenodd\">\n    <path fill=\"#de0000\" d=\"M640 479.6H.4V0H640z\"/>\n    <path fill=\"#35a100\" d=\"M639.6 480H0V240.2h639.6z\"/>\n    <path fill=\"#fff300\" d=\"m320 160 18 55.3h58.1l-47 34.1 17.9 55.3-47-34.1-47 34.1 17.9-55.3-47-34.1H302z\"/>\n  </g>\n</svg>\n",
+      "source": "https://github.com/lipis/flag-icons/blob/main/flags/4x3/bf.svg"
+    },
+    "IDN": {
+      "code": "id",
+      "blob": "3b7c8fcfd96578480474bf942e1a0adb604dde0f",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" id=\"flag-icons-id\" viewBox=\"0 0 640 480\">\n  <path fill=\"#e70011\" d=\"M0 0h640v240H0Z\"/>\n  <path fill=\"#fff\" d=\"M0 240h640v240H0Z\"/>\n</svg>\n",
+      "source": "https://github.com/lipis/flag-icons/blob/main/flags/4x3/id.svg"
+    },
+    "MOZ": {
+      "code": "mz",
+      "blob": "0f94c3a1aaa2320e891aa5e92b2c11362c770f47",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" id=\"flag-icons-mz\" viewBox=\"0 0 640 480\">\n  <defs>\n    <clipPath id=\"mz-a\">\n      <path fill-opacity=\".7\" d=\"M0 0h682.7v512H0z\"/>\n    </clipPath>\n  </defs>\n  <g clip-path=\"url(#mz-a)\" transform=\"scale(.9375)\">\n    <path fill=\"#009a00\" fill-rule=\"evenodd\" d=\"M0 0h768v160H0z\"/>\n    <path fill=\"#fff\" fill-rule=\"evenodd\" d=\"M0 160h768v16H0z\"/>\n    <path fill=\"#000001\" fill-rule=\"evenodd\" d=\"M0 176h768v160H0z\"/>\n    <path fill=\"#fff\" fill-rule=\"evenodd\" d=\"M0 336h768v16H0z\"/>\n    <path fill=\"#ffca00\" fill-rule=\"evenodd\" d=\"M0 352h768v160H0z\"/>\n    <path fill=\"red\" fill-rule=\"evenodd\" d=\"M0 0v512l336-256z\"/>\n    <path fill=\"#ffca00\" fill-rule=\"evenodd\" d=\"m198.5 333-51.2-37.5L96.1 333l19.9-60.3-51.5-37.1 63.5.2 19.3-60.4 19.4 60.5 63.5-.3-51.5 37.1z\"/>\n    <path fill=\"#fff\" fill-rule=\"evenodd\" stroke=\"#000\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.1\" d=\"M102.8 290.9h37c3 3.3 9.5 4.7 15.8 0 11.6-6.4 34 0 34 0l4.4-4.7-10.7-35.2-3.9-4.2s-8.3-5-24-3.3-21.2-.5-21.2-.5-13.7 1.6-17.6 3.6l-4.4 4.4z\"/>\n    <path fill=\"none\" stroke=\"#000\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.1\" d=\"M110.3 281.8s35.2-4.4 45.4 9.1c-5.7 4-10.8 4.3-16.2.3.8-1.5 12.6-13.8 42.7-9.7\"/>\n    <path fill=\"none\" stroke=\"#000\" stroke-width=\"1.2\" d=\"m148 246.6-.3 38.8m31.7-38.3L186 278\"/>\n    <path fill=\"none\" stroke=\"#000\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.1\" d=\"m117 246.6-3.7 16\"/>\n    <path fill-rule=\"evenodd\" stroke=\"#000\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.1\" d=\"m78.9 295.1 8.6 10.2q1.5.9 2.9 0l12.8-15.4 5.4-6.7q1.3-1.6 1-3l10.4-9.3 2.2.2c-1-.2-1.7-.7-1-1.8l2.4-1.8 1.8 2.3s-2.6 3.4-2.9 3.4h-2.8l-5.4 4.9 2.4 2 3.5 9.8 4.4-3.1-2.8-10 6.1-6.7-2.3-3.6 1.6-2s21.3 13.4 29.6 9.8c.2 0 .5-9.6.5-9.6s-22.2-2.3-22.7-6.7 5-5 5-5l-2.4-3.2.5-1.8 3.9 4.8 8.7-7.4 51.5 58.6c2.8-1.1 3.4-1.8 3.6-4.6L155 241.5l3.8-4.1c.8-.9 1-1.2 1-2.6l6-5.1a7 7 0 0 1 3.8 3L186 219c.4.4 1.7.8 2.6.4l26.9-25.9-29.3 20.7-1-.7c0-.9 1-1 0-2.6-1.2-1.4-2.9 1.3-3.1 1.3s-4.3-1.4-5.2-3.2l-.2 4.7-7.5 7-5.7-.3-8.2 8-1 3 1.3 2.7s-4.4 3.8-4.4 3.6c0-.3-.9-1.2-1-1.3l3.8-3.4.5-2.3-1.2-2c-.4.3-5.2 5.4-5.5 4.8l-14-15.5.8-2.9-8.7-9.5c-3.2-1.1-8.3-1.3-9.3 5.7-.8 1.6-7.4.2-7.4.2l-3.6.8L85.2 241l11.3 13.6 23.2-29.3.7-8.3 4.8 5.4q2.5.5 4.7-.5l13.7 15.3-2.3 2.3 2 2.2 2.4-1.6.9 1.3-3.1 2.1c-1.8-1.2-3.6-2.7-3.5-5l-7.7 6.4-.3 1.2-22.9 19-2 .3-.5 6 14.9-12.4v-1.8l1.5 1.3 11.6-9.3s.8 1 .5 1-10.3 9.3-10.3 9.3l-.2 1-1.8 1.6-1-.8-14 12.4h-2l-7.7 7.7c-2 .2-3.7.4-5.4 1.5z\"/>\n  </g>\n</svg>\n",
+      "source": "https://github.com/lipis/flag-icons/blob/main/flags/4x3/mz.svg"
+    },
+    "LUX": {
+      "code": "lu",
+      "blob": "cc122068125c02693dee300ebec3909459ac50f7",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" id=\"flag-icons-lu\" viewBox=\"0 0 640 480\">\n  <path fill=\"#ed2939\" d=\"M0 0h640v160H0z\"/>\n  <path fill=\"#fff\" d=\"M0 160h640v160H0z\"/>\n  <path fill=\"#00a1de\" d=\"M0 320h640v160H0z\"/>\n</svg>\n",
+      "source": "https://github.com/lipis/flag-icons/blob/main/flags/4x3/lu.svg"
+    },
+    "IRL": {
+      "code": "ie",
+      "blob": "049be14de14f4f67419f3c5e2f0c5d022b74ca39",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" id=\"flag-icons-ie\" viewBox=\"0 0 640 480\">\n  <g fill-rule=\"evenodd\" stroke-width=\"1pt\">\n    <path fill=\"#fff\" d=\"M0 0h640v480H0z\"/>\n    <path fill=\"#009A49\" d=\"M0 0h213.3v480H0z\"/>\n    <path fill=\"#FF7900\" d=\"M426.7 0H640v480H426.7z\"/>\n  </g>\n</svg>\n",
+      "source": "https://github.com/lipis/flag-icons/blob/main/flags/4x3/ie.svg"
+    },
+    "ARM": {
+      "code": "am",
+      "blob": "99fa4dc5979a45b249ca805c2a43d3a8c74841d2",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" id=\"flag-icons-am\" viewBox=\"0 0 640 480\">\n  <path fill=\"#d90012\" d=\"M0 0h640v160H0z\"/>\n  <path fill=\"#0033a0\" d=\"M0 160h640v160H0z\"/>\n  <path fill=\"#f2a800\" d=\"M0 320h640v160H0z\"/>\n</svg>\n",
+      "source": "https://github.com/lipis/flag-icons/blob/main/flags/4x3/am.svg"
+    },
+    "GUI": {
+      "code": "gn",
+      "blob": "40d6ad4f03dbd66bd713bad8595fb88dc0d55d73",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" id=\"flag-icons-gn\" viewBox=\"0 0 640 480\">\n  <g fill-rule=\"evenodd\" stroke-width=\"1pt\">\n    <path fill=\"red\" d=\"M0 0h213.3v480H0z\"/>\n    <path fill=\"#ff0\" d=\"M213.3 0h213.4v480H213.3z\"/>\n    <path fill=\"#090\" d=\"M426.7 0H640v480H426.7z\"/>\n  </g>\n</svg>\n",
+      "source": "https://github.com/lipis/flag-icons/blob/main/flags/4x3/gn.svg"
+    }
+  }
+}
