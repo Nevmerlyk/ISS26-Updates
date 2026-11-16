@@ -1,0 +1,211 @@
+{
+  "status": "observed stable v095 SELECT.BIN long club labels correspond to 24 original roster menu ordinals; exact roster references unverified",
+  "source": "SELECT.BIN LBA850 long club labels near logical 39036; SELECTC original club name order",
+  "menu_order": [
+    {
+      "ordinal": 0,
+      "team_id": "CLB_SHK",
+      "display_name": "Shakhtar",
+      "original_name": "Buenos Aires",
+      "has_v20": false
+    },
+    {
+      "ordinal": 1,
+      "team_id": "CLB_KRY",
+      "display_name": "FC Kryvbass",
+      "original_name": "Rio De Janeiro",
+      "has_v20": true
+    },
+    {
+      "ordinal": 2,
+      "team_id": "CLB_LEV",
+      "display_name": "Leverkusen",
+      "original_name": "Leverkusen",
+      "has_v20": true
+    },
+    {
+      "ordinal": 3,
+      "team_id": "CLB_AJX",
+      "display_name": "Ajax",
+      "original_name": "München",
+      "has_v20": false
+    },
+    {
+      "ordinal": 4,
+      "team_id": "CLB_NEW",
+      "display_name": "Newcastle",
+      "original_name": "Dortmund",
+      "has_v20": false
+    },
+    {
+      "ordinal": 5,
+      "team_id": "CLB_SCP",
+      "display_name": "Sporting CP",
+      "original_name": "Roma",
+      "has_v20": true
+    },
+    {
+      "ordinal": 6,
+      "team_id": "CLB_BEN",
+      "display_name": "Benfica",
+      "original_name": "Firenze",
+      "has_v20": true
+    },
+    {
+      "ordinal": 7,
+      "team_id": "CLB_ROM",
+      "display_name": "Roma",
+      "original_name": "Parma",
+      "has_v20": true
+    },
+    {
+      "ordinal": 8,
+      "team_id": "CLB_BAY",
+      "display_name": "Bayern",
+      "original_name": "Lazio",
+      "has_v20": true
+    },
+    {
+      "ordinal": 9,
+      "team_id": "CLB_ACM",
+      "display_name": "Milan",
+      "original_name": "Milano",
+      "has_v20": false
+    },
+    {
+      "ordinal": 10,
+      "team_id": "CLB_JUV",
+      "display_name": "Juventus",
+      "original_name": "Torino",
+      "has_v20": false
+    },
+    {
+      "ordinal": 11,
+      "team_id": "CLB_INT",
+      "display_name": "Inter Milan",
+      "original_name": "International",
+      "has_v20": true
+    },
+    {
+      "ordinal": 12,
+      "team_id": "CLB_BVB",
+      "display_name": "Dortmund",
+      "original_name": "Amsterdam",
+      "has_v20": true
+    },
+    {
+      "ordinal": 13,
+      "team_id": "CLB_ATM",
+      "display_name": "Atletico",
+      "original_name": "Marseille",
+      "has_v20": true
+    },
+    {
+      "ordinal": 14,
+      "team_id": "CLB_NAP",
+      "display_name": "Napoli",
+      "original_name": "Monaco",
+      "has_v20": false
+    },
+    {
+      "ordinal": 15,
+      "team_id": "CLB_RMA",
+      "display_name": "Real Madrid",
+      "original_name": "Valencia",
+      "has_v20": true
+    },
+    {
+      "ordinal": 16,
+      "team_id": "CLB_PSG",
+      "display_name": "PSG",
+      "original_name": "Madrid",
+      "has_v20": true
+    },
+    {
+      "ordinal": 17,
+      "team_id": "CLB_BAR",
+      "display_name": "Barcelona",
+      "original_name": "Barcelona",
+      "has_v20": true
+    },
+    {
+      "ordinal": 18,
+      "team_id": "CLB_TOT",
+      "display_name": "Tottenham",
+      "original_name": "West Ham",
+      "has_v20": true
+    },
+    {
+      "ordinal": 19,
+      "team_id": "CLB_MCI",
+      "display_name": "ManCity",
+      "original_name": "Leeds",
+      "has_v20": true
+    },
+    {
+      "ordinal": 20,
+      "team_id": "CLB_LIV",
+      "display_name": "Liverpool",
+      "original_name": "Liverpool",
+      "has_v20": true
+    },
+    {
+      "ordinal": 21,
+      "team_id": "CLB_CHE",
+      "display_name": "Chelsea",
+      "original_name": "Chelsea",
+      "has_v20": true
+    },
+    {
+      "ordinal": 22,
+      "team_id": "CLB_ARS",
+      "display_name": "Arsenal",
+      "original_name": "London",
+      "has_v20": true
+    },
+    {
+      "ordinal": 23,
+      "team_id": "CLB_MUN",
+      "display_name": "Man United",
+      "original_name": "Manchester",
+      "has_v20": true
+    }
+  ],
+  "missing_in_v20": [
+    "CLB_SHK",
+    "CLB_AJX",
+    "CLB_NEW",
+    "CLB_ACM",
+    "CLB_JUV",
+    "CLB_NAP"
+  ],
+  "excluded_v20_clubs": [
+    "CLB_AVL",
+    "CLB_BRU",
+    "CLB_POR",
+    "CLB_FIO",
+    "CLB_BET",
+    "CLB_ATA"
+  ],
+  "cross_club_name_duplicates": [
+    [
+      {
+        "team_id": "CLB_SHK",
+        "name": "Alisson",
+        "position": "M R/AM RC",
+        "uid": ""
+      },
+      {
+        "team_id": "CLB_LIV",
+        "name": "Alisson",
+        "position": "GK",
+        "uid": "19058734"
+      }
+    ]
+  ],
+  "source_file_shas": [
+    "efb332c7a672f4606eb3578c9255161863af6bcc",
+    "4cdde5e258f4239280f6fedfab3786a92510c5d2",
+    "9ec535e651066c9aba7bf6599ed3edca2b2ff84d"
+  ]
+}
