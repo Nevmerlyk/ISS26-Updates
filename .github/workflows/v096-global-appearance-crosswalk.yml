@@ -1,0 +1,34 @@
+name: ISS26 global visual code validation
+on:
+  push:
+    branches: [feature/v096-player-database-integration]
+    paths: ['.github/workflows/v096-global-appearance-crosswalk.yml','tools/crosswalk_v096_global_visual_codes.py']
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  match:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Retrieve alias-refined source plan
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh run download 43936619710 --name ISS26-v096-full-name-appearance-plan-not-patch --dir /tmp/native
+      - name: Validate crosswalk on independent source pairs
+        run: |
+          set -eu
+          mkdir /tmp/appearance
+          base='https://raw.githubusercontent.com/Radzim/football_data/076dbb1e76413c93582385d8e56f18384dc6bee9'
+          for f in players sofifa; do curl -fsSL --retry 2 "$base/$f.csv" -o "/tmp/appearance/$f.csv"; done
+          curl -fsSL --retry 2 'https://raw.githubusercontent.com/ismailoksuz/EAFC26-DataHub/8724af5803a787c9c262eee2ac8f942651b0e4b9/data/players.csv' -o /tmp/appearance/fc26.csv
+          curl -fsSL --retry 2 'https://raw.githubusercontent.com/zetaprog/Easy-Mcr-Winning-Eleven-2002-PS1/30af1fe59cf96beee3b066f6cdfcb1b6f3df37cc/fifatomcr/bin/Debug/net8.0-windows10.0.17763.0/mydatabase.db' -o /tmp/reference.db
+          (cd /tmp/appearance && printf '%s\n' '623f4367a2322d976f73cb5c08f467bf  players.csv' 'bb2cdb140716d86fcb5e8523c39750f5  sofifa.csv' '764f4c62d94cdefa5fc99d41f6bee08f  fc26.csv' | md5sum -c -)
+          python tools/crosswalk_v096_global_visual_codes.py --src /tmp/appearance --db /tmp/reference.db --plan /tmp/native/bulk_appearance_candidate_plan.json --out output
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ISS26-v096-global-crosswalk-candidates-not-patch
+          path: output/
+          if-no-files-found: error
+          retention-days: 30
