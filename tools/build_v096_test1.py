@@ -10,7 +10,7 @@ PLAN=ROOT/"data/integration/national_name_test1_v096.csv"
 PLAN_BLOB="9ec535e651066c9aba7bf6599ed3edca2b2ff84d"
 S=2352
 def git_blob(path):
-    b=path.read_bytes()
+    b=path.read_bytes().replace(b"\r\n",b"\n")
     return hashlib.sha1(("blob "+str(len(b))+"\0").encode()+b).hexdigest()
 def load_plan(reg):
     if git_blob(PLAN)!=PLAN_BLOB: raise ValueError("Unapproved roster plan")
