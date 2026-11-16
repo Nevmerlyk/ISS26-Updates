@@ -1,0 +1,29 @@
+name: ISS26 current EA identity metadata
+on:
+  push:
+    branches: [feature/v096-player-database-integration]
+    paths: ['.github/workflows/v096-current-ea-identities.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  retrieve:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Retain only public identity columns
+        run: |
+          mkdir -p output
+          curl -fsSL --max-time 45 'https://raw.githubusercontent.com/LakshmiKanth11/EA_FC_ANALYSIS/c0b2542d9fcae72d2c538a472a30ee57c4e7c75e/EA_FC_PLAYERS_DATASET_AND_%20DASHBOARD/data/players.csv' -o /tmp/players.csv
+          python - <<'PY'
+          import csv
+          with open('/tmp/players.csv',encoding='utf-8-sig') as f, open('output/ea27_identities.csv','w',encoding='utf-8',newline='') as o:
+              r=csv.DictReader(f);keys='player_id common_name first_name last_name birthdate nationality gender height_cm weight_kg club'.split();w=csv.DictWriter(o,fieldnames=keys,extrasaction='ignore');w.writeheader();n=0
+              for row in r:
+                  if row['gender']=="Men's Football":w.writerow(row);n+=1
+              print('IDENTITIES',n)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ISS26-ea27-public-identity-metadata
+          path: output/
+          retention-days: 1
