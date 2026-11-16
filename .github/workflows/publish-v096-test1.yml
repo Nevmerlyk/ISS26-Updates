@@ -1,0 +1,27 @@
+name: Publish ISS26 0.9.6 manual name test
+on:
+  push:
+    branches: [feature/v096-player-database-integration]
+    paths: ['.github/workflows/publish-v096-test1.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build and verify independent patch
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 'https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.5-stable-4914c36bfac27aff/ISS26_0.9.5.iss26p' -o /tmp/stable.iss26p
+          python tools/build_v096_from_verified_delta.py --baseline /tmp/stable.iss26p --out artifacts
+          cp tools/apply_v096_test1.py artifacts/
+      - name: Publish explicit manual prerelease only
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh release create v0.9.6-test1 artifacts/ISS26_Test_0.9.6.iss26p artifacts/ISS26_Test_0.9.6.report.json artifacts/apply_v096_test1.py --target "$GITHUB_SHA" --prerelease --title 'ISS26 0.9.6 Test 1 — national player names' --notes 'Manual test only; independent patch from clean EU original. 1188 national player name slots mapped, stable 0.9.5 sectors preserved except six name sectors. No player attribute or club roster integration. Static sector/guard/EDC/ECC QA; whole final image hash and emulator acceptance not verified. No launcher feed changes.'
