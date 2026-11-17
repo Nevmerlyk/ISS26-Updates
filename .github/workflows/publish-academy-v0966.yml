@@ -1,0 +1,155 @@
+name: Publish verified Academy 0.9.6.6 stable self-update
+on:
+  push:
+    branches: [release/academy-0966-publisher]
+    paths: ['.github/workflows/publish-academy-v0966.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: public-release-academy-v0966
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: windows-latest
+    timeout-minutes: 50
+    env:
+      GH_TOKEN: ${{ github.token }}
+      RELEASE_REPO: Nevmerlyk/ISS26-Updates
+    steps:
+      - name: Verify public release preconditions
+        id: gate
+        shell: pwsh
+        run: |
+          $ErrorActionPreference='Stop'
+          if ([string]::IsNullOrWhiteSpace($env:GH_TOKEN)) { throw 'Missing private-to-public release token' }
+          $feed=Invoke-RestMethod -Uri "https://raw.githubusercontent.com/Nevmerlyk/ISS26-Updates/main/launcher/latest.json"
+          if ($feed.schemaVersion -ne 1) { throw 'Bad feed schema' }
+          if ($feed.latest.version -eq '0.9.6.6') {
+            if ($feed.latest.zipUrl -ne 'https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.9.6.6/ISS26-LauncherUpdate.zip') { throw 'Conflicting 0.9.6.6 feed' }
+            'publish=false' | Out-File -FilePath $env:GITHUB_OUTPUT -Encoding utf8 -Append
+          } elseif ($feed.latest.version -eq '0.9.6.5') {
+            'publish=true' | Out-File -FilePath $env:GITHUB_OUTPUT -Encoding utf8 -Append
+          } else { throw "Unexpected current launcher feed $($feed.latest.version)" }
+      - name: Checkout pinned PRIVATE Academy source without public source mirroring
+        if: steps.gate.outputs.publish == 'true'
+        uses: actions/checkout@v4
+        with:
+          repository: Nevmerlyk/ISS26-Android
+          ref: 87d8364a08b5ee8f99c723c8bc6e91070c78f5e8
+          path: source
+          token: ${{ secrets.ISS26_PRIVATE_SOURCE_TOKEN || secrets.ISS26_PRIVATE_READ_TOKEN || secrets.ISS26_PUBLIC_RELEASE_TOKEN || github.token }}
+          persist-credentials: false
+      - name: Install .NET 8 and Python
+        if: steps.gate.outputs.publish == 'true'
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - uses: actions/setup-python@v5
+        if: steps.gate.outputs.publish == 'true'
+        with:
+          python-version: '3.12'
+      - name: Test, build, release and promote only verified launcher feed
+        if: steps.gate.outputs.publish == 'true'
+        working-directory: source
+        shell: pwsh
+        run: |
+          $ErrorActionPreference='Stop'
+          $repo='Nevmerlyk/ISS26-Updates'
+          $tag='launcher-v0.9.6.6'
+          $source='87d8364a08b5ee8f99c723c8bc6e91070c78f5e8'
+          if ((git rev-parse HEAD).Trim() -ne $source) { throw 'Not pinned source' }
+          foreach ($proj in @('windows/ISS26.Launcher/ISS26.Launcher.csproj','windows/ISS26.Updater/ISS26.Updater.csproj')) {
+            $xml=[xml](Get-Content -LiteralPath $proj -Raw)
+            if ([string]$xml.Project.PropertyGroup.Version -ne '0.9.6.6') { throw "Wrong version in $proj" }
+          }
+          python -m unittest discover -s .github/scripts -p test_academy_v0966_contract.py -v
+          if ($LASTEXITCODE -ne 0) { throw 'Academy 0966 contract failed' }
+          python .github/scripts/test_academy_research_triage.py
+          if ($LASTEXITCODE -ne 0) { throw 'Python research regression failed' }
+          dotnet run --project windows/ISS26.PortableTests/ISS26.PortableTests.csproj -c Release
+          if ($LASTEXITCODE -ne 0) { throw 'Portable tests failed' }
+          New-Item -ItemType Directory -Force -Path package | Out-Null
+          foreach ($p in @('ISS26.Launcher','ISS26.Updater')) {
+            dotnet publish "windows/$p/$p.csproj" -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:PublishTrimmed=false -o package
+            if ($LASTEXITCODE -ne 0) { throw "Publish failed: $p" }
+          }
+          foreach ($name in @('ISS26.exe','ISS26.Updater.exe')) {
+            $file=(Resolve-Path "package/$name").Path
+            $bytes=[IO.File]::ReadAllBytes($file)
+            if ($bytes.Length -lt 1000000 -or $bytes[0] -ne 77 -or $bytes[1] -ne 90) { throw "Invalid PE: $name" }
+            if (!([Diagnostics.FileVersionInfo]::GetVersionInfo($file).FileVersion.StartsWith('0.9.6.6'))) { throw "Wrong binary version $name" }
+          }
+          Compress-Archive -LiteralPath package/ISS26.exe,package/ISS26.Updater.exe -DestinationPath ISS26-LauncherUpdate.zip -CompressionLevel Optimal
+          if ((Get-Item ISS26-LauncherUpdate.zip).Length -ge 160MB) { throw 'Update too large' }
+          $zip=[IO.Compression.ZipFile]::OpenRead((Resolve-Path ISS26-LauncherUpdate.zip).Path)
+          try {
+            $names=@($zip.Entries | ForEach-Object { $_.FullName })
+            if ($names.Count -ne 2 -or $names -cnotcontains 'ISS26.exe' -or $names -cnotcontains 'ISS26.Updater.exe') { throw 'Wrong ZIP members' }
+            foreach ($name in $names) {
+              $stream=$zip.GetEntry($name).Open()
+              try { $digest=[Convert]::ToHexString([Security.Cryptography.SHA256]::HashData($stream)) }
+              finally { $stream.Dispose() }
+              if ($digest -ne (Get-FileHash "package/$name" -Algorithm SHA256).Hash) { throw "ZIP member digest mismatch: $name" }
+            }
+          } finally { $zip.Dispose() }
+          $manifest=[ordered]@{
+            schemaVersion=1
+            latest=[ordered]@{
+              version='0.9.6.6'
+              zipUrl="https://github.com/$repo/releases/download/$tag/ISS26-LauncherUpdate.zip"
+              zipSha256=(Get-FileHash ISS26-LauncherUpdate.zip -Algorithm SHA256).Hash
+              launcherSha256=(Get-FileHash package/ISS26.exe -Algorithm SHA256).Hash
+              updaterSha256=(Get-FileHash package/ISS26.Updater.exe -Algorithm SHA256).Hash
+              notes='Academy AutoResearch 0.9.6.6 integrated into Test Game; passive RAM, VRAM and screen capture. Game Stable/Test unaffected.'
+            }
+          }
+          # Game-content channels are independent from Academy; verify before and after.
+          $stableBefore=(gh api repos/$repo/contents/stable/latest.json | ConvertFrom-Json).sha
+          $testBefore=(gh api repos/$repo/contents/test/latest.json | ConvertFrom-Json).sha
+          if ($LASTEXITCODE -ne 0 -or !$stableBefore -or !$testBefore) { throw 'Cannot protect game feeds' }
+          $json=$manifest | ConvertTo-Json -Depth 5
+          gh release view $tag --repo $repo *> $null
+          if ($LASTEXITCODE -ne 0) {
+            gh release create $tag ISS26-LauncherUpdate.zip --repo $repo --target main --latest=false --title 'ISS26 Academy 0.9.6.6' --notes 'Integrated self-updating Academy. No external collector, game patch or BIOS.'
+            if ($LASTEXITCODE -ne 0) { throw 'Release upload failed' }
+          }
+          New-Item -ItemType Directory -Force verify | Out-Null
+          gh release download $tag --repo $repo -p ISS26-LauncherUpdate.zip -D verify
+          if ($LASTEXITCODE -ne 0) { throw 'Could not download published release' }
+          $hash=(Get-FileHash ISS26-LauncherUpdate.zip -Algorithm SHA256).Hash
+          if ((Get-FileHash verify/ISS26-LauncherUpdate.zip -Algorithm SHA256).Hash -ne $hash) { throw 'Remote release ZIP is different; no feed update' }
+          $anonymous=$false
+          for ($i=0;$i -lt 6;$i++) {
+            try {
+              Invoke-WebRequest -Uri $manifest.latest.zipUrl -OutFile public.zip -TimeoutSec 90
+              if ((Get-FileHash public.zip -Algorithm SHA256).Hash -eq $hash) { $anonymous=$true;break }
+            } catch {}
+            Start-Sleep -Seconds 8
+          }
+          if (!$anonymous) { throw 'Public ZIP not verifiable, leaving feed unchanged' }
+          if ((gh api repos/$repo/contents/stable/latest.json | ConvertFrom-Json).sha -ne $stableBefore -or
+              (gh api repos/$repo/contents/test/latest.json | ConvertFrom-Json).sha -ne $testBefore) {
+            throw 'Game feed changed during Academy publication: refuse activation'
+          }
+          $endpoint="repos/$repo/contents/launcher/latest.json"
+          $before=gh api $endpoint | ConvertFrom-Json
+          if ($LASTEXITCODE -ne 0) { throw 'Cannot read launcher feed' }
+          $current=[Text.Encoding]::UTF8.GetString([Convert]::FromBase64String(($before.content -replace '\s',''))) | ConvertFrom-Json
+          if ($current.latest.version -ne '0.9.6.5') { throw 'Concurrent release changed launcher feed' }
+          $payload=@{
+            branch='main'
+            sha=$before.sha
+            message='release(academy): activate verified 0.9.6.6'
+            content=[Convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes($json))
+          } | ConvertTo-Json -Compress
+          $payload | gh api -X PUT $endpoint --input - | Out-Null
+          if ($LASTEXITCODE -ne 0) { throw 'Feed promotion failed' }
+          $after=gh api $endpoint | ConvertFrom-Json
+          $active=[Text.Encoding]::UTF8.GetString([Convert]::FromBase64String(($after.content -replace '\s',''))) | ConvertFrom-Json
+          if ($active.latest.version -ne '0.9.6.6' -or $active.latest.zipSha256 -ne $hash) { throw 'Feed readback mismatch' }
+          if ((gh api repos/$repo/contents/stable/latest.json | ConvertFrom-Json).sha -ne $stableBefore -or
+              (gh api repos/$repo/contents/test/latest.json | ConvertFrom-Json).sha -ne $testBefore) {
+            throw 'Game feed changed concurrently: alert owner'
+          }
+          Write-Host 'PUBLISHED 0.9.6.6 via self-update. Game Stable/Test feeds untouched.'
