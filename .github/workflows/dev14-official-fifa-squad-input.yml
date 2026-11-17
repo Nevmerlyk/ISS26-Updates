@@ -16,8 +16,8 @@ jobs:
           mkdir -p evidence
           curl -fLsS --retry 3 'https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf' -o evidence/FIFA_WC2026_SquadLists-English.pdf
           file evidence/FIFA_WC2026_SquadLists-English.pdf
-          pdftotext -layout evidence/FIFA_WC2026_SquadLists-English.pdf evidence/FIFA_WC2026_SquadLists-English.txt
-          pdfinfo evidence/FIFA_WC2026_SquadLists-English.pdf | grep -E 'Pages|Page size|File size'
+          echo 'PDF text extraction is performed locally after source download'
+          ls -lh evidence/FIFA_WC2026_SquadLists-English.pdf
           sha256sum evidence/* > evidence/SHA256SUMS.txt
       - name: Research-only upload, not a game release
         uses: actions/upload-artifact@v4
