@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "latest": {
-    "version": "0.9.6.4",
-    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.9.6.4/ISS26-LauncherUpdate.zip",
-    "zipSha256": "2B4D536C7404465E89530649D75449445FC0D04A118EB1C54B0033CBD9FA7760",
-    "launcherSha256": "14C5BBFFB0B1241EDFDB881D5A3202F4B1E1E8B8780E2566A6A601BBF3BF78B9",
-    "updaterSha256": "B8817AA0CE3D4E70702F19C36A9634F3834E059D27ECE2A57D37940255CC396B",
-    "notes": "ISS26 Academy 0.9.6.4 integrated passive Test Game RAM/VRAM/screen research. Game Stable and Test unchanged."
+    "version": "0.9.6.5",
+    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.9.6.5/ISS26-LauncherUpdate.zip",
+    "zipSha256": "1C67109C111F7AF8CBFD2DE06E982EA88F53D20FE3137FAE4806ACC4D01366AD",
+    "launcherSha256": "65B14305F48BA05F9073BE8D71E10781C64E4DDB3CB04136D8ED6A48C20F9961",
+    "updaterSha256": "F37E913D14AA93F744EE718B068C8FC080A7BC5960CAD9CF4EE577B5A393CB42",
+    "notes": "ISS26 Academy 0.9.6.5: continuous change-driven Master League RAM/VRAM/screen evidence; no pause or idle priority. Game Stable and Test untouched."
   }
 }
