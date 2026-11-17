@@ -1,0 +1,28 @@
+name: ISS26 DEV14 research fetch of official FIFA WC26 squad source
+on:
+  push:
+    branches: [research/dev11-stable095-binary-audit]
+    paths: ['.github/workflows/dev14-official-fifa-squad-input.yml']
+permissions: {contents: read}
+jobs:
+  source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Download original public FIFA list and extract searchable text for offline team matching
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p evidence
+          curl -fLsS --retry 3 'https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf' -o evidence/FIFA_WC2026_SquadLists-English.pdf
+          file evidence/FIFA_WC2026_SquadLists-English.pdf
+          pdftotext -layout evidence/FIFA_WC2026_SquadLists-English.pdf evidence/FIFA_WC2026_SquadLists-English.txt
+          pdfinfo evidence/FIFA_WC2026_SquadLists-English.pdf | grep -E 'Pages|Page size|File size'
+          sha256sum evidence/* > evidence/SHA256SUMS.txt
+      - name: Research-only upload, not a game release
+        uses: actions/upload-artifact@v4
+        with:
+          name: iss26-dev14-official-fifa-wc2026-squad-evidence
+          path: evidence/
+          if-no-files-found: error
+          retention-days: 2
