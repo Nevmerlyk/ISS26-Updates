@@ -1,0 +1,29 @@
+name: Research recovery of owner-approved stable 0.9.5 for DEV11 static merge
+on:
+  push:
+    branches: [research/dev11-stable095-binary-audit]
+    paths: ['.github/workflows/recover-v095-binary-dev11.yml']
+permissions:
+  contents: read
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Fetch exact already-published stable artifact by immutable tag
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p recovered
+          gh release download v0.9.5-stable-4914c36bfac27aff --repo Nevmerlyk/ISS26-Updates --pattern 'ISS26_0.9.5.iss26p' --dir recovered
+          echo '4914c36bfac27aff4c4fb60bbd7ab49867fc1e67f26ce733686e73c79c839148  recovered/ISS26_0.9.5.iss26p' | sha256sum -c -
+          ls -lh recovered/
+      - name: Upload audit-only exact binary, never update stable or test manifest
+        uses: actions/upload-artifact@v4
+        with:
+          name: iss26-dev11-stable095-audit-input
+          path: recovered/ISS26_0.9.5.iss26p
+          retention-days: 1
+          if-no-files-found: error
