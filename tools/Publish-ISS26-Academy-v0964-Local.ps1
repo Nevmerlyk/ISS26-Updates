@@ -54,7 +54,8 @@ Check 'Read .NET SDK inventory'
 if (!($sdks | Where-Object { $_ -match '^8\.' })) { throw '.NET 8 SDK is required.' }
 $python=if (Get-Command py -ErrorAction SilentlyContinue) {'py'} elseif (Get-Command python -ErrorAction SilentlyContinue) {'python'} else {$null}
 if (!$python) { throw 'Python 3 is required for Academy regression tests.' }
-$pythonArgs=if ($python -eq 'py') {@('-3')} else {@()}
+$pythonArgs=@()
+if ($python -eq 'py') { $pythonArgs=@('-3') }
 gh auth status
 Check 'GitHub authorization'
 gh api "repos/$sourceRepo" | Out-Null
