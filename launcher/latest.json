@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "latest": {
-    "version": "0.9.6.3",
-    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.9.6-livedashboard-a2b98c86141740cb/ISS26-LauncherUpdate.zip",
-    "zipSha256": "A2B98C86141740CB8D23E772040148A579EBAF05AE964D9E39381550AD83AC7E",
-    "launcherSha256": "2CA02E21F1A00D756FBB0059C7E6DC84AE4871BF4E578B06BDD7A07201056235",
-    "updaterSha256": "1AA7CE525D9031D588017251E91BBEBE455F0C46161D79786B7C226F013D3DD2",
-    "notes": "Product 0.9.6 Live Dashboard: live frame, session journals, restored skill imports and concurrent Academy capture. Transport 0.9.6.3 upgrades prior 0.9.6.2. Game patch unchanged."
+    "version": "0.9.6.4",
+    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.9.6.4/ISS26-LauncherUpdate.zip",
+    "zipSha256": "2B4D536C7404465E89530649D75449445FC0D04A118EB1C54B0033CBD9FA7760",
+    "launcherSha256": "14C5BBFFB0B1241EDFDB881D5A3202F4B1E1E8B8780E2566A6A601BBF3BF78B9",
+    "updaterSha256": "B8817AA0CE3D4E70702F19C36A9634F3834E059D27ECE2A57D37940255CC396B",
+    "notes": "ISS26 Academy 0.9.6.4 integrated passive Test Game RAM/VRAM/screen research. Game Stable and Test unchanged."
   }
 }
