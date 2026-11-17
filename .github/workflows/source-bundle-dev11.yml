@@ -1,0 +1,33 @@
+name: Research source bundle for ISS26 DEV11 nationality and kit checks
+on:
+  push:
+    branches: [research/dev11-stable095-binary-audit]
+    paths: ['.github/workflows/source-bundle-dev11.yml']
+permissions: {contents: read}
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/v096-player-database-integration
+      - name: Package exact original source manifests (not game patches)
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p exported
+          cp data/integration/v096_master_league_nationality_targets.json exported/
+          cp data/integration/v096_club_nationality_official_review.json exported/
+          cp data/integration/v096_club_nationality_identity_review.json exported/
+          cp data/integration/v096_kits_test4_binary_qa.json exported/
+          cp data/integration/v096_appearance_final_stage10_binary_qa.json exported/
+          cp data/fm26/ISS26_modern_game_slots_v20.csv exported/
+          cp data/fm26/ISS26_complete_working_pool_v20.csv exported/
+          sha256sum exported/* > exported/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: iss26-dev11-input-manifests
+          path: exported/
+          retention-days: 1
+          if-no-files-found: error
