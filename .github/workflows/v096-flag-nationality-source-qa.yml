@@ -1,0 +1,25 @@
+name: ISS26 0.9.6 flag art and nationality source QA
+on:
+  push:
+    branches: [feature/v096-player-database-integration]
+    paths: ['.github/workflows/v096-flag-nationality-source-qa.yml','tools/build_v096_stage10_nationality.py','tools/build_v096_small_flag_art.py','tests/test_v096_stage10_nationality.py']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify guarded relocation algorithm
+        run: python -m unittest discover -s tests -p 'test_v096_stage10_nationality.py' -v
+      - name: Generate independent flag artwork (not a game patch)
+        run: |
+          python -m pip -q install Pillow cairosvg
+          python tools/build_v096_small_flag_art.py --out output/flags
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ISS26-small-flag-art-candidates
+          path: output/
+          retention-days: 14
