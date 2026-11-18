@@ -45,7 +45,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: Nevmerlyk/ISS26-Android
-          ref: 6be79ea2f8d51014e913ed67167942c0683c1015
+          ref: 36d9927d54c069e14f8d088923e9f47e2baca4fb
           path: source
           token: ${{ secrets.ISS26_PUBLIC_RELEASE_TOKEN }}
           persist-credentials: false
@@ -66,7 +66,7 @@ jobs:
           $ErrorActionPreference='Stop'
           $repo='Nevmerlyk/ISS26-Updates'
           $tag='launcher-v0.9.6.6'
-          $source='6be79ea2f8d51014e913ed67167942c0683c1015'
+          $source='36d9927d54c069e14f8d088923e9f47e2baca4fb'
           if ((git rev-parse HEAD).Trim() -ne $source) { throw 'Not pinned source' }
           foreach ($proj in @('windows/ISS26.Launcher/ISS26.Launcher.csproj','windows/ISS26.Updater/ISS26.Updater.csproj')) {
             $xml=[xml](Get-Content -LiteralPath $proj -Raw)
