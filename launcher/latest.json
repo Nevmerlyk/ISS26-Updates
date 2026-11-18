@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "latest": {
-    "version": "0.9.6.8",
-    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.9.6.8/ISS26-LauncherUpdate.zip",
-    "zipSha256": "E8DA6FE18A4198D21068B025664DF3A71ED9D9D7C4CB4BCC32BD1D8A06959020",
-    "launcherSha256": "055705F4ED2CF594FC72BB4DFA5582C8DDF1D92462A8BC6D685AD112A770BF18",
-    "updaterSha256": "9BE123BF9A1B4C4ADE876FB5EAC3F2BD6512239759A74F21576F445704465526",
-    "notes": "Academy 0.9.6.8: raw-sector exact capture of the local Test 0.9.6 with XA/EDC warnings; full SHA replay; not CD-integrity approval or a game patch. Stable/Test unchanged."
+    "version": "0.9.6.9",
+    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.9.6.9/ISS26-LauncherUpdate.zip",
+    "zipSha256": "CCCA652C7FB6A0E243D1C1E8CDB24CD5963BAC95101A6E6310879DCDB71DE73F",
+    "launcherSha256": "58F4024DFBB66B9D542B5E2875E5655BFE3E75F7638B2C22E70D7D0FB3A67478",
+    "updaterSha256": "103AE6361DE1A0FEBA6B27359905DA90D887A4D7558986B472E7772A0A7D7DEC",
+    "notes": "Academy 0.9.6.9: read-only Form1/Form2 XA sector audit of local Test 0.9.6; full SHA replay; EDC warning classes and sanitized LBA ranges. No game patch publication."
   }
 }
