@@ -8,6 +8,11 @@ on:
       - 'data/integration/ISS26_active_rosters_v22_two_GK_*.json'
       - 'tools/verify_v096_two_gk_stage.py'
       - 'tests/test_v096_two_gk_stage.py'
+      - 'data/integration/ISS26_active_rosters_v23_shakhtar_refresh.csv'
+      - 'data/integration/ISS26_shakhtar_v23_five_official_refresh.json'
+      - 'data/integration/ISS26_shakhtar_2026_27_official_review_targets.json'
+      - 'tools/verify_v096_v23_shakhtar_refresh.py'
+      - 'tests/test_v096_v23_shakhtar_refresh.py'
       - '.github/workflows/validate-v096-two-gk-stage.yml'
   pull_request:
     paths:
@@ -15,6 +20,11 @@ on:
       - 'data/integration/ISS26_active_rosters_v22_two_GK_*.json'
       - 'tools/verify_v096_two_gk_stage.py'
       - 'tests/test_v096_two_gk_stage.py'
+      - 'data/integration/ISS26_active_rosters_v23_shakhtar_refresh.csv'
+      - 'data/integration/ISS26_shakhtar_v23_five_official_refresh.json'
+      - 'data/integration/ISS26_shakhtar_2026_27_official_review_targets.json'
+      - 'tools/verify_v096_v23_shakhtar_refresh.py'
+      - 'tests/test_v096_v23_shakhtar_refresh.py'
       - '.github/workflows/validate-v096-two-gk-stage.yml'
 permissions:
   contents: read
@@ -31,3 +41,7 @@ jobs:
         run: python tools/verify_v096_two_gk_stage.py
       - name: Run fail-closed regression tests
         run: python -m unittest discover -s tests -p 'test_v096_two_gk_stage.py' -v
+      - name: Independently audit all 1716 v23 rows and five Shakhtar replacements
+        run: python tools/verify_v096_v23_shakhtar_refresh.py
+      - name: Check v23 Shakhtar regression tests
+        run: python -m unittest discover -s tests -p 'test_v096_v23_shakhtar_refresh.py' -v
