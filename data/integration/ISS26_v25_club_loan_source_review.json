@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "status": "V25_LOAN_FIXES_SOURCE_CANDIDATES_NO_NATIVE_WRITES",
+  "as_of": "2026-11-18",
+  "previous_source_sha": "82ba84014632d4b6ad5c66b3af23d2ae18ec3588",
+  "previous_source": "data/integration/ISS26_active_rosters_v24_shakhtar_current.csv",
+  "new_source": "data/integration/ISS26_active_rosters_v25_club_loan_corrections.csv",
+  "row_count": 1716,
+  "teams": 78,
+  "nationals": 54,
+  "clubs": 24,
+  "keeper_slots": [
+    1,
+    22
+  ],
+  "shakhtar_retained_unchanged": true,
+  "other_1714_records_unchanged": true,
+  "edits": [
+    {
+      "team": "CLB_LEV",
+      "slot": "21",
+      "old": "Axel Tape",
+      "name": "Eliesse Ben Seghir",
+      "position": "WG",
+      "country": "MAR",
+      "shirt": 29,
+      "evidence": [
+        "https://www.bayer04.de/en-us/news/bayer04/bayer-04-loan-tape-to-levante-ud",
+        "https://www.uefa.com/uefaeuropaleague/clubs/50109/squad/",
+        "https://www.bayer04.de/en-us/player/werkself/bayer-04-leverkusen/eliesse-ben-seghir"
+      ],
+      "reason": "Axel Tape loaned to Levante 2026-08-30; Ben Seghir named in Bayer active UEFA 2026/27 roster",
+      "position_status": "candidate",
+      "club_shirt_number_status": "official_source_worklist_not_native_write",
+      "country_status": "sporting_association_candidate_not_native_write"
+    },
+    {
+      "team": "CLB_MUN",
+      "slot": "21",
+      "old": "Chido Obi",
+      "name": "Shea Lacey",
+      "position": "WG",
+      "country": "ENG",
+      "shirt": 31,
+      "evidence": [
+        "https://www.willem-ii.nl/artikel/willem-ii-huurt-chido-obi-van-manchester-united",
+        "https://www.manutd.com/en/news/confirmed-our-2026-27-squad-numbers",
+        "https://www.manutd.com/en/news/how-did-lacey-find-it-at-right-back-v-roma-2-nov-2026",
+        "https://www.premierleague.com/en/players/576628/shea-lacey/overview"
+      ],
+      "reason": "Chido Obi loaned to Willem II 2026-09-03; Shea Lacey active Man U first-team match and #31",
+      "position_status": "candidate",
+      "club_shirt_number_status": "official_source_worklist_not_native_write",
+      "country_status": "sporting_association_candidate_not_native_write"
+    }
+  ],
+  "all_records_game_write_authorized_no": true,
+  "source_data_not_a_game_patch": true,
+  "release_ready": false
+}
