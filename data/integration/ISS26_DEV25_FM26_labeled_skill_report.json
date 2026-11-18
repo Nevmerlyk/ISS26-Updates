@@ -1,0 +1,142 @@
+{
+  "schema": 1,
+  "status": "SOURCE_FM26_V22_NAMED_36_OF_74_ONLY_NOT_GAME_PATCH",
+  "source": "https://github.com/vfxper/fm26/blob/main/2600%E7%90%83%E5%91%98%E5%B1%9E%E6%80%A7.csv",
+  "source_kind": "community_FM26_snapshot_NOT_official_game_export",
+  "raw_source_sha256": "FF2B5D5783C490A5F2165F22AFC8409FDFBE7C9450E2FE5C613B04EE7A71E749",
+  "source_v20_sha256": "2A4CC0C568F23B4FF66BD91CC271031EF7AF8005607E7E63E652B98251D6D745",
+  "players": 1707,
+  "goalkeepers": 189,
+  "outfield": 1518,
+  "named_field_count": 36,
+  "unlabeled_field_count_forbidden": 38,
+  "field_evidence_counts": {
+    "COMPLETE_NAMED_SOURCE": 22953,
+    "MISSING_GOALKEEPER_FIELD": 945,
+    "PARTIAL_NAMED_SOURCE": 1707
+  },
+  "v20_team_memberships_with_UID_join": 1625,
+  "v20_UID_and_exact_name_joins": 1462,
+  "v20_UID_matches_requiring_individual_name_review": 163,
+  "rz_uid": "71100666",
+  "rz_unchanged_dev18_native_hex": "000260B6ECD1E6A459B7A903",
+  "rz_source_values": {
+    "offense": {
+      "value": 15,
+      "evidence": "COMPLETE_NAMED_SOURCE",
+      "covered_weight": 1.0
+    },
+    "defense": {
+      "value": null,
+      "evidence": "MISSING_GOALKEEPER_FIELD",
+      "covered_weight": 0.2
+    },
+    "body_balance": {
+      "value": 17,
+      "evidence": "COMPLETE_NAMED_SOURCE",
+      "covered_weight": 1.0
+    },
+    "stamina": {
+      "value": 17,
+      "evidence": "PARTIAL_NAMED_SOURCE",
+      "covered_weight": 0.75
+    },
+    "speed": {
+      "value": 16,
+      "evidence": "COMPLETE_NAMED_SOURCE",
+      "covered_weight": 1.0
+    },
+    "acceleration": {
+      "value": 16,
+      "evidence": "COMPLETE_NAMED_SOURCE",
+      "covered_weight": 1.0
+    },
+    "response": {
+      "value": null,
+      "evidence": "MISSING_GOALKEEPER_FIELD",
+      "covered_weight": 0.3
+    },
+    "jump_power": {
+      "value": null,
+      "evidence": "MISSING_GOALKEEPER_FIELD",
+      "covered_weight": 0.4
+    },
+    "head_accuracy": {
+      "value": 12,
+      "evidence": "COMPLETE_NAMED_SOURCE",
+      "covered_weight": 1.0
+    },
+    "technique": {
+      "value": null,
+      "evidence": "MISSING_GOALKEEPER_FIELD",
+      "covered_weight": 0.45
+    },
+    "pass_accuracy": {
+      "value": null,
+      "evidence": "MISSING_GOALKEEPER_FIELD",
+      "covered_weight": 0.45
+    },
+    "shot_power": {
+      "value": 14,
+      "evidence": "COMPLETE_NAMED_SOURCE",
+      "covered_weight": 1.0
+    },
+    "shot_accuracy": {
+      "value": 13,
+      "evidence": "COMPLETE_NAMED_SOURCE",
+      "covered_weight": 1.0
+    },
+    "dribble": {
+      "value": 13,
+      "evidence": "COMPLETE_NAMED_SOURCE",
+      "covered_weight": 1.0
+    },
+    "curve": {
+      "value": 12,
+      "evidence": "COMPLETE_NAMED_SOURCE",
+      "covered_weight": 1.0
+    }
+  },
+  "rz_six_skill_candidate_hex": "000260B6ECD196645DB61503",
+  "rz_six_skill_changes": {
+    "offense": {
+      "dev18": 17,
+      "candidate": 15,
+      "evidence": "NAMED_COMMUNITY_FM_SNAPSHOT"
+    },
+    "defense": {
+      "dev18": 13,
+      "candidate": 17,
+      "evidence": "ORIGINAL_2001_GK_MEDIAN_NOT_PLAYER_SPECIFIC"
+    },
+    "dribble": {
+      "dev18": 18,
+      "candidate": 13,
+      "evidence": "NAMED_COMMUNITY_FM_SNAPSHOT"
+    },
+    "shot_accuracy": {
+      "dev18": 17,
+      "candidate": 13,
+      "evidence": "NAMED_COMMUNITY_FM_SNAPSHOT"
+    },
+    "curve": {
+      "dev18": 17,
+      "candidate": 12,
+      "evidence": "NAMED_COMMUNITY_FM_SNAPSHOT"
+    },
+    "jump_power": {
+      "dev18": 14,
+      "candidate": 17,
+      "evidence": "ORIGINAL_2001_GK_MEDIAN_NOT_PLAYER_SPECIFIC"
+    }
+  },
+  "riznyk_height_discrepancy_cm": {
+    "source_snapshot": 191,
+    "pinned_game_dev18": 186
+  },
+  "actual_game_carrier_checked": false,
+  "native_citizenship_fixed": false,
+  "source_snapshot_is_not_current_2026_2027_club_roster": true,
+  "source_candidates_not_approved_for_game": true,
+  "game_release_ready": false
+}
