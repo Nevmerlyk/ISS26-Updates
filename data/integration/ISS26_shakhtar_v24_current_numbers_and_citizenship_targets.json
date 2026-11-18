@@ -1,0 +1,243 @@
+{
+  "schema": 1,
+  "status": "SHK_2026_27_LATEST_FIRST_TEAM_STAGE_NO_GAME_WRITE",
+  "as_of": "2026-11-18",
+  "game_version": "0.9.6",
+  "source_v23_blob_sha": "684d7965cd30da75c0ce2204b3b9b8d3061b2c40",
+  "teams": 78,
+  "clubs": 24,
+  "national_teams": 54,
+  "slots_total": 1716,
+  "shakhtar_team_id": "CLB_SHK",
+  "official_club_roster_source": "https://shakhtar.com/en/players/first-team",
+  "official_2026_27_loan_source": "https://shakhtar.com/en/news/2026/august/21_news/21_bondarenko/",
+  "replace_out_of_first_team": {
+    "old_player": "Artem Bondarenko",
+    "new_player": "Isaque Silva",
+    "slot": 12,
+    "reason": "Artem Bondarenko is on loan to Al Ahli through June 2027; Isaque Silva is listed in active 2026/27 Shakhtar first team",
+    "source_check_pending_in_emulator": true
+  },
+  "shakhtar_official_player_membership_matched": 22,
+  "club_2026_27_shirt_targets": [
+    {
+      "source_slot": 1,
+      "player_name": "Dmytro Riznyk",
+      "club_jersey_number": 31,
+      "country_candidate": "UKR",
+      "country_is_not_natively_written": true,
+      "club_number_is_not_natively_written": true,
+      "national_number_separate": true
+    },
+    {
+      "source_slot": 2,
+      "player_name": "Mykola Matviienko",
+      "club_jersey_number": 22,
+      "country_candidate": "UKR",
+      "country_is_not_natively_written": true,
+      "club_number_is_not_natively_written": true,
+      "national_number_separate": true
+    },
+    {
+      "source_slot": 3,
+      "player_name": "Valerii Bondar",
+      "club_jersey_number": 5,
+      "country_candidate": "UKR",
+      "country_is_not_natively_written": true,
+      "club_number_is_not_natively_written": true,
+      "national_number_separate": true
+    },
+    {
+      "source_slot": 4,
+      "player_name": "Oleksandr Karavaiev",
+      "club_jersey_number": 20,
+      "country_candidate": "UKR",
+      "country_is_not_natively_written": true,
+      "club_number_is_not_natively_written": true,
+      "national_number_separate": true
+    },
+    {
+      "source_slot": 5,
+      "player_name": "Pedro Henrique",
+      "club_jersey_number": 13,
+      "country_candidate": "BRA",
+      "country_is_not_natively_written": true,
+      "club_number_is_not_natively_written": true,
+      "national_number_separate": true
+    },
+    {
+      "source_slot": 6,
+      "player_name": "Vinicius Tobias",
+      "club_jersey_number": 17,
+      "country_candidate": "BRA",
+      "country_is_not_natively_written": true,
+      "club_number_is_not_natively_written": true,
+      "national_number_separate": true
+    },
+    {
+      "source_slot": 7,
+      "player_name": "Irakli Azarov",
+      "club_jersey_number": 16,
+      "country_candidate": "GEO",
+      "country_is_not_natively_written": true,
+      "club_number_is_not_natively_written": true,
+      "national_number_separate": true
+    },
+    {
+      "source_slot": 8,
+      "player_name": "Alaa Ghram",
+      "club_jersey_number": 18,
+      "country_candidate": "TUN",
+      "country_is_not_natively_written": true,
+      "club_number_is_not_natively_written": true,
+      "national_number_separate": true
+    },
+    {
+      "source_slot": 9,
+      "player_name": "Marlon Santos",
+      "club_jersey_number": 4,
+      "country_candidate": "BRA",
+      "country_is_not_natively_written": true,
+      "club_number_is_not_natively_written": true,
+      "national_number_separate": true
+    },
+    {
+      "source_slot": 10,
+      "player_name": "Pedrinho",
+      "club_jersey_number": 10,
+      "country_candidate": "BRA",
+      "country_is_not_natively_written": true,
+      "club_number_is_not_natively_written": true,
+      "national_number_separate": true
+    },
+    {
+      "source_slot": 11,
+      "player_name": "Marlon Gomes",
+      "club_jersey_number": 6,
+      "country_candidate": "BRA",
+      "country_is_not_natively_written": true,
+      "club_number_is_not_natively_written": true,
+      "national_number_separate": true
+    },
+    {
+      "source_slot": 12,
+      "player_name": "Isaque Silva",
+      "club_jersey_number": 14,
+      "country_candidate": "BRA",
+      "country_is_not_natively_written": true,
+      "club_number_is_not_natively_written": true,
+      "national_number_separate": true
+    },
+    {
+      "source_slot": 13,
+      "player_name": "Yehor Nazaryna",
+      "club_jersey_number": 29,
+      "country_candidate": "UKR",
+      "country_is_not_natively_written": true,
+      "club_number_is_not_natively_written": true,
+      "national_number_separate": true
+    },
+    {
+      "source_slot": 14,
+      "player_name": "Alisson",
+      "club_jersey_number": 30,
+      "country_candidate": "BRA",
+      "country_is_not_natively_written": true,
+      "club_number_is_not_natively_written": true,
+      "national_number_separate": true
+    },
+    {
+      "source_slot": 15,
+      "player_name": "Oleh Ocheretko",
+      "club_jersey_number": 27,
+      "country_candidate": "UKR",
+      "country_is_not_natively_written": true,
+      "club_number_is_not_natively_written": true,
+      "national_number_separate": true
+    },
+    {
+      "source_slot": 16,
+      "player_name": "Eguinaldo",
+      "club_jersey_number": 7,
+      "country_candidate": "BRA",
+      "country_is_not_natively_written": true,
+      "club_number_is_not_natively_written": true,
+      "national_number_separate": true
+    },
+    {
+      "source_slot": 17,
+      "player_name": "Dmytro Kryskiv",
+      "club_jersey_number": 8,
+      "country_candidate": "UKR",
+      "country_is_not_natively_written": true,
+      "club_number_is_not_natively_written": true,
+      "national_number_separate": true
+    },
+    {
+      "source_slot": 18,
+      "player_name": "Newertton",
+      "club_jersey_number": 11,
+      "country_candidate": "BRA",
+      "country_is_not_natively_written": true,
+      "club_number_is_not_natively_written": true,
+      "national_number_separate": true
+    },
+    {
+      "source_slot": 19,
+      "player_name": "Kauã Elias",
+      "club_jersey_number": 9,
+      "country_candidate": "BRA",
+      "country_is_not_natively_written": true,
+      "club_number_is_not_natively_written": true,
+      "national_number_separate": true
+    },
+    {
+      "source_slot": 20,
+      "player_name": "Viktor Tsukanov",
+      "club_jersey_number": 24,
+      "country_candidate": "UKR",
+      "country_is_not_natively_written": true,
+      "club_number_is_not_natively_written": true,
+      "national_number_separate": true
+    },
+    {
+      "source_slot": 21,
+      "player_name": "Alan Matturro",
+      "club_jersey_number": 28,
+      "country_candidate": "URU",
+      "country_is_not_natively_written": true,
+      "club_number_is_not_natively_written": true,
+      "national_number_separate": true
+    },
+    {
+      "source_slot": 22,
+      "player_name": "Denys Tvardovskyi",
+      "club_jersey_number": 48,
+      "country_candidate": "UKR",
+      "country_is_not_natively_written": true,
+      "club_number_is_not_natively_written": true,
+      "national_number_separate": true
+    }
+  ],
+  "special_number_rule": {
+    "base_native_shirt_bit_width": 5,
+    "max_value": 32,
+    "requires_runtime_override": [
+      {
+        "player_name": "Denys Tvardovskyi",
+        "club_shirt_number": 48
+      }
+    ]
+  },
+  "further_release_gates": [
+    "official positions and bench specialities",
+    "native personal citizenship flag lookup",
+    "independent club-vs-national shirt numbers",
+    "game image exact carrier",
+    "physical player skill conversion",
+    "PS1 gameplay verification"
+  ],
+  "game_bin_changed": false,
+  "game_test_feed_changed": false,
+  "release_ready": false
+}
