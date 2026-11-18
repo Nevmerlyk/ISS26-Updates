@@ -1,0 +1,53 @@
+name: Validate Academy 0.9.6.9 DEV16 independent XA Form1/Form2 audit
+on:
+  push:
+    branches: [ci/academy-v0969-raw-recovery]
+    paths: ['.github/workflows/validate-academy-v0969-carrier.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: windows-latest
+    timeout-minutes: 35
+    steps:
+      - name: Read pinned private Academy source using existing owner token
+        uses: actions/checkout@v4
+        with:
+          repository: Nevmerlyk/ISS26-Android
+          ref: 422ea8f8872e8d238d582f374f09f2da2dd3b916
+          path: source
+          token: ${{ secrets.ISS26_PUBLIC_RELEASE_TOKEN }}
+          persist-credentials: false
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - name: Run existing + independent carrier regression tests
+        shell: pwsh
+        run: |
+          $ErrorActionPreference='Stop'
+          dotnet run --project source/windows/ISS26.PortableTests/ISS26.PortableTests.csproj -c Release
+          if ($LASTEXITCODE -ne 0) { throw 'Portable regression test failure: no release' }
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Static raw-sector and media-warning safety contract
+        shell: pwsh
+        run: |
+          python source/.github/scripts/test_academy_v0969_contract.py
+          if ($LASTEXITCODE -ne 0) { throw 'Raw-sector safety contract failed' }
+      - name: Compile Windows launcher and updater without publishing
+        shell: pwsh
+        run: |
+          $ErrorActionPreference='Stop'
+          foreach($name in @('ISS26.Launcher','ISS26.Updater')) {
+            dotnet publish "source/windows/$name/$name.csproj" -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:PublishTrimmed=false -o "check/$name"
+            if ($LASTEXITCODE -ne 0) { throw "Win-x64 publish failed: $name" }
+          }
+          foreach($name in @('ISS26.exe','ISS26.Updater.exe')) {
+            $file= if ($name -eq 'ISS26.exe') {"check/ISS26.Launcher/$name"} else {"check/ISS26.Updater/$name"}
+            $b=[IO.File]::ReadAllBytes((Resolve-Path $file).Path)
+            if($b.Length -lt 1000000 -or $b[0] -ne 77 -or $b[1] -ne 90) { throw "Not a Windows PE: $name" }
+            if(![Diagnostics.FileVersionInfo]::GetVersionInfo((Resolve-Path $file).Path).FileVersion.StartsWith('0.9.6.9')) { throw "Wrong EXE version $name" }
+          }
+          Write-Host 'PASS: Academy 0.9.6.9 compiles, local carrier tests pass; NO RELEASE PUBLISHED'
