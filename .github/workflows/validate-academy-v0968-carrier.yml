@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: Nevmerlyk/ISS26-Android
-          ref: ab7b138ee128995ed8dccd6324b547fb1d846dcd
+          ref: 153f4a80c42b957630a4775243fbdcb48c30c5c5
           path: source
           token: ${{ secrets.ISS26_PUBLIC_RELEASE_TOKEN }}
           persist-credentials: false
