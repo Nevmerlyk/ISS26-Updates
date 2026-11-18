@@ -11,7 +11,10 @@ import hashlib
 import json
 from pathlib import Path
 
-try:\n    from .verify_v096_two_gk_stage import ROOT, load_csv\nexcept ImportError:\n    from verify_v096_two_gk_stage import ROOT, load_csv
+try:
+    from .verify_v096_two_gk_stage import ROOT, load_csv
+except ImportError:
+    from verify_v096_two_gk_stage import ROOT, load_csv
 
 OLD = ROOT / "data/integration/ISS26_active_rosters_v22_two_GK_stage.csv"
 NEW = ROOT / "data/integration/ISS26_active_rosters_v23_shakhtar_refresh.csv"
