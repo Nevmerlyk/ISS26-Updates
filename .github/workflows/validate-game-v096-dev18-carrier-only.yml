@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: Nevmerlyk/ISS26-Android
-          ref: 894ca255c2dfafdba917eb69012a9c78c3d6a998
+          ref: e5d31cd681cd9dd7aefe671d8802e6832beaa062
           token: ${{ secrets.ISS26_PUBLIC_RELEASE_TOKEN }}
           persist-credentials: false
           path: source
@@ -30,6 +30,7 @@ jobs:
           python -m unittest discover -s source/tools/ps1_graphics -p 'test_build_game_v096_dev18_carrier_only.py' -v
           python -m unittest discover -s source/tools/ps1_graphics -p 'test_build_game_v096_dev17.py' -v
           python -m unittest discover -s source/tools/ps1_graphics -p 'test_audit_game_v096_native_78.py' -v
+          python -m unittest discover -s source/tools/ps1_graphics -p 'test_audit_game_v096_citizenship_join.py' -v
       - name: Assert evidence-pinned game patch only, no Stable/Test feed writes
         shell: bash
         run: |
@@ -43,6 +44,12 @@ jobs:
           assert report['RiznykDiscRecordHex']=='000230B5ECD1E6A459B7A903'
           assert report['CarrierSha256']=='51592906D69E34420DB5145382C03451286BBA8B36B9BCD5B6A5E6D3C8C354D3'
           assert report['TestSha256']=='2152910CEFC789B1DF13327FBA7F29C92A75F602E887A245B35C4FC56B6FAC22'
+          names=json.loads((root/'docs/research/ISS26_DEV18_citizenship_528_source_snapshot.json').read_text())
+          assert len(names['items'])==528
+          assert len(set(r['club'] for r in names['items']))==24
+          assert sum(r['candidate_country_id'] is None for r in names['items'])==37
+          assert names['country_id_is_provisional'] is True
+
           for marker in ['parity_delta()', 'native.edc(', 'native.ecc(', 'preserves_all_other_698_baseline_sector_masks',
                          '"release_ready":False','"game_feeds_modified":False','verify_original']:
               if marker=='verify_original':continue
