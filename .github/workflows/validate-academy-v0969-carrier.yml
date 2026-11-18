@@ -1,7 +1,7 @@
 name: Validate Academy 0.9.6.9 DEV16 independent XA Form1/Form2 audit
 on:
   push:
-    branches: [ci/academy-v0969-raw-recovery]
+    branches: [ci/academy-v0969-sector-diagnostics]
     paths: ['.github/workflows/validate-academy-v0969-carrier.yml']
   workflow_dispatch:
 permissions:
