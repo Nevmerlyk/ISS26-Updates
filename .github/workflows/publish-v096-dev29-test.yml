@@ -1,0 +1,116 @@
+name: Publish ISS26 v0.9.6 DEV29 experimental Test Game
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publish-v096-dev29-test.yml'
+      - 'tools/build_v096_dev29_from_dev28.py'
+      - 'staging/v0.9.6/DEV29_sector_overrides.xz.b64'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: publish-iss26-v096-dev29-test
+  cancel-in-progress: false
+jobs:
+  build_release_and_update_test_only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      GH_TOKEN: ${{ github.token }}
+      REPO: Nevmerlyk/ISS26-Updates
+      TAG: v0.9.6-dev29-test
+      NAME: ISS26_0.9.6_DEV29_Test.iss26p
+      BASESHA: 4A1C2293F6A91A77DBD6CBECC96B0E02A98C63444C309202402F094AC5F312B6
+      PATCHSHA: 0049C38CED7620129B1A29D928B4D9E617EF5FD8300A74D9FFEEBB42BBE0C62D
+      RESULTSHA: FA44FB13100C83ED1582170E9AC11D649CA1B5395EBFEEC663D9F68821C41E42
+      ORIGINALSHA: D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify stable channel untouched and pin former Test feed
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          stable=json.load(open('stable/latest.json'))
+          test=json.load(open('test/latest.json'))
+          assert stable['channel']=='stable' and stable['latest']['version']=='0.9.5'
+          assert test['channel']=='test' and test['latest']['version'] in ('0.9.6-dev28-test','0.9.6-dev29-test')
+          PY
+      - name: Fetch verified DEV28 independent clean-original patch
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          gh release download v0.9.6-dev28-test --repo "$REPO" --pattern ISS26_0.9.6_DEV28_Test.iss26p --dir dist
+          echo "$BASESHA  dist/ISS26_0.9.6_DEV28_Test.iss26p" | sha256sum -c -
+      - name: Build exact self-contained DEV29 patch from its four source-sector overrides
+        shell: bash
+        run: |
+          set -euo pipefail
+          python tools/build_v096_dev29_from_dev28.py \
+            --baseline dist/ISS26_0.9.6_DEV28_Test.iss26p \
+            --overrides staging/v0.9.6/DEV29_sector_overrides.xz.b64 \
+            --output "dist/$NAME"
+          echo "$PATCHSHA  dist/$NAME" | sha256sum -c -
+          python - <<'PY'
+          import struct,os
+          data=open('dist/'+os.environ['NAME'],'rb').read()
+          assert data[:8]==b'ISS26X01' and struct.unpack_from('<I',data,8)[0]==699
+          assert len(data)==12+699*2388
+          assert [struct.unpack_from('<I',data,12+2388*i)[0] for i in range(699)]==sorted(set(struct.unpack_from('<I',data,12+2388*i)[0] for i in range(699)))
+          print('699 immutable source sector guards, self-contained patch format verified')
+          PY
+      - name: Publish immutable new experimental prerelease (never stable)
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat >dist/RELEASE_NOTES.md <<'NOTES'
+          # ISS26 v0.9.6 DEV29 — experimental Test Game only
+
+          Independent clean-original European PS1 ISS Pro Evolution 2 game patch. No previous patches required, 699 SHA-guarded sectors. Retains DEV28, with source-checked correction of Ayman Azhil in Dortmund's native extra player country group (NED -> MAR), while moving full extra records and preserving all player names, attributes and club membership. Static disc QA confirmed 54 national teams + 24 clubs, 22 players each, exactly two GK each (slots 1 and 22), 528 unique club references, XA Mode2 Form1 EDC/ECC and full clean-original replay.
+
+          **Known issues not claimed fixed:** some individual player nationalities, wrong/missing flag texture routing, slot/role quotas, game appearance/kit/jersey completeness and independent PS1 emulator run. Bolivian Diego Arroyo source identity audited, not replaced with a fabricated Uruguayan flag. User testing in Test Game required. Stable 0.9.5 unchanged.
+
+          Patch SHA-256: 0049C38CED7620129B1A29D928B4D9E617EF5FD8300A74D9FFEEBB42BBE0C62D
+          Base Track01 SHA-256: D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44
+          Patched Track01 SHA-256: FA44FB13100C83ED1582170E9AC11D649CA1B5395EBFEEC663D9F68821C41E42
+          NOTES
+          if gh release view "$TAG" -R "$REPO" >/dev/null 2>&1; then
+            echo "Tag exists: checking remote immutability"
+            digest=$(gh api "repos/$REPO/releases/tags/$TAG" --jq '[.assets[] | select(.name=="'"$NAME"'")][0].digest // ""')
+            [[ "$digest" == "sha256:${PATCHSHA,,}" ]] || { echo 'Existing release mismatch'; exit 1; }
+          else
+            gh release create "$TAG" "dist/$NAME" --repo "$REPO" --target main --prerelease \
+              --title 'ISS26 v0.9.6 DEV29 — experimental Test Game' --notes-file dist/RELEASE_NOTES.md
+          fi
+      - name: Remote asset check and promote Test feed only
+        shell: python
+        run: |
+          import base64,hashlib,json,os,pathlib,subprocess
+          env=os.environ;repo=env['REPO'];tag=env['TAG'];name=env['NAME']
+          patch_sha=env['PATCHSHA'];patch=pathlib.Path('dist')/name
+          data=patch.read_bytes()
+          assert hashlib.sha256(data).hexdigest().upper()==patch_sha
+          rel=json.loads(subprocess.check_output(['gh','api',f'repos/{repo}/releases/tags/{tag}'],text=True))
+          assets=[x for x in rel['assets'] if x['name']==name]
+          assert len(assets)==1 and assets[0]['size']==len(data) and assets[0]['digest'].lower()=='sha256:'+patch_sha.lower()
+          # Remote raw asset download, independent of GH server metadata.
+          downloaded=subprocess.check_output(['gh','api',f'repos/{repo}/releases/assets/{assets[0]["id"]}','-H','Accept: application/octet-stream'])
+          assert downloaded==data
+          uri=f'https://github.com/{repo}/releases/download/{tag}/{name}'
+          endpoint=f'repos/{repo}/contents/test/latest.json'
+          curr=json.loads(subprocess.check_output(['gh','api',endpoint],text=True))
+          old=json.loads(base64.b64decode(curr['content']))
+          assert old['channel']=='test' and old['latest']['version'] in ('0.9.6-dev28-test','0.9.6-dev29-test')
+          new={'schemaVersion':1,'channel':'test','latest':{'version':'0.9.6-dev29-test','patchUrl':uri,
+            'patchSha256':patch_sha,'baseSha256':env['ORIGINALSHA'],'resultSha256':env['RESULTSHA']},
+            'notes':'Experimental DEV29 — Ayman Azhil Morocco country link corrected; known mini-flag and extra nationality issues remain. Stable 0.9.5 unaffected.'}
+          if old!=new:
+            payload={'message':'release(test): activate verified ISS26 DEV29 prerelease only','content':base64.b64encode((json.dumps(new,indent=2)+'\n').encode()).decode(),'sha':curr['sha']}
+            subprocess.run(['gh','api','-X','PUT',endpoint,'--input','-'],input=json.dumps(payload),text=True,check=True)
+          # Recheck stable from GitHub live, do not modify it.
+          stable=json.loads(base64.b64decode(json.loads(subprocess.check_output(['gh','api',f'repos/{repo}/contents/stable/latest.json'],text=True))['content']))
+          assert stable['channel']=='stable' and stable['latest']['version']=='0.9.5'
+          print('Verified published remote patch and activated TEST ONLY (stable 0.9.5 unchanged).')
