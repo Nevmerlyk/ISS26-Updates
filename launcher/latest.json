@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "latest": {
-    "version": "0.9.6.6",
-    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.9.6.6/ISS26-LauncherUpdate.zip",
-    "zipSha256": "02E8F4C8A2B9227894CDAE6F8E968F3B792B8700571DEDF62B4EF4BBD7CF1F82",
-    "launcherSha256": "DA91ADEBACDF84F889A2B17C27DC6E7A40CC3ADC5B8384FB150058924EA0CDB8",
-    "updaterSha256": "715582368C08F858547FF1D26DA91CE1DB405859BE1CE1995211EE47C58FEEFD",
-    "notes": "Academy AutoResearch 0.9.6.6 integrated into Test Game; passive RAM, VRAM and screen capture. Game Stable/Test unaffected."
+    "version": "0.9.6.7",
+    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.9.6.7/ISS26-LauncherUpdate.zip",
+    "zipSha256": "FF3EA411EA2280CC4B24C356B92604D75F4F20AB1004FB88CF69493F08E44F5F",
+    "launcherSha256": "DABCC4CD32FF6C34E257D1A4793FF50D928944D5A86C909730E53F51631A8ABE",
+    "updaterSha256": "4E29A11F609F7330E485FD55B72D016821B4A86F0874732A650326E0DD798AEA",
+    "notes": "Academy 0.9.6.7: automatic private local recovery of existing full Test 0.9.6 as independent SHA-verified carrier; no raw upload. Game Stable/Test unchanged."
   }
 }
