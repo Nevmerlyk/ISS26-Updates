@@ -1,0 +1,893 @@
+{
+  "schema": 2,
+  "status": "PROVISIONAL_SOURCE_STAGE_NOT_WRITTEN_TO_BIN",
+  "game_version": "0.9.6",
+  "as_of": "2026-11-18",
+  "source_repo": "Nevmerlyk/ISS26-Updates",
+  "source_branch": "feature/v096-player-database-integration",
+  "source_sha": {
+    "v21": "9196a8a02af0a6873d8d33770745eb5bf34b9337",
+    "v20": "efb332c7a672f4606eb3578c9255161863af6bcc",
+    "non_wc_v18": "cb9c4864821876fe6d37872d9e45eea404fdc014",
+    "fifa_draft": "5f05250eec8d38347976c9991c820ca1d7648d89"
+  },
+  "teams": 78,
+  "nationals": 54,
+  "clubs": 24,
+  "total_players": 1716,
+  "starter_gk_slot": 1,
+  "reserve_gk_slot": 22,
+  "starter_outfield_slots": [
+    2,
+    11
+  ],
+  "reserve_outfield_slots": [
+    12,
+    21
+  ],
+  "goalkeeper_count_all_teams": 2,
+  "old_v21_three_goalkeeper_teams_fixed_in_source_stage": 60,
+  "provisional_outfield_insertions": 60,
+  "fifa_transcription_match_count": 48,
+  "active_clubs": [
+    "CLB_ACM",
+    "CLB_AJX",
+    "CLB_ARS",
+    "CLB_ATM",
+    "CLB_BAR",
+    "CLB_BAY",
+    "CLB_BEN",
+    "CLB_BVB",
+    "CLB_CHE",
+    "CLB_INT",
+    "CLB_JUV",
+    "CLB_KRY",
+    "CLB_LEV",
+    "CLB_LIV",
+    "CLB_MCI",
+    "CLB_MUN",
+    "CLB_NAP",
+    "CLB_NEW",
+    "CLB_PSG",
+    "CLB_RMA",
+    "CLB_ROM",
+    "CLB_SCP",
+    "CLB_SHK",
+    "CLB_TOT"
+  ],
+  "shakhtar": {
+    "team_id": "CLB_SHK",
+    "included": true,
+    "players_preserved_all_22": true,
+    "starting_keeper": "Dmytro Riznyk",
+    "last_reserve_keeper": "Denys Tvardovskyi",
+    "note": "club and national numbers remain independent; source game slots are NOT jersey numbers"
+  },
+  "warning": "NO native disc or patch changed; no candidate promoted without citizenship, numbers, positions and official roster cross-check",
+  "external_evidence_2026": {
+    "CLB_KRY": {
+      "name": "Jimmy Mpanzu",
+      "position": "D C",
+      "uid": "",
+      "country": "POR",
+      "url": "https://fckryvbas.com/post/dzhimmi-mpanzu-duzhe-radii-znovu-trenuvatisya-z-komandoyu-na-povnu-silu"
+    },
+    "CLB_LEV": {
+      "name": "Axel Tape",
+      "position": "D RC",
+      "uid": "2000288856",
+      "country": "FRA",
+      "url": "https://datencenter.dfb.de/competitions/bundesliga/seasons/2026-2027/teams/bayer-leverkusen"
+    },
+    "CLB_BAY": {
+      "name": "Sacha Boey",
+      "position": "D/WB R",
+      "uid": "49038965",
+      "country": "FRA",
+      "url": "https://datencenter.dfb.de/en/competitions/bundesliga/seasons/2026-2027/teams/bayern-munich"
+    },
+    "CLB_BVB": {
+      "name": "Filippo Mané",
+      "position": "D RC",
+      "uid": "2000121585",
+      "country": "ITA",
+      "url": "https://www.bvb.de/de/en/news/news-overview/news.html/2026/8/20/These-are-the-jersey-numbers-for-the-2026/27-season.html"
+    },
+    "CLB_LIV": {
+      "name": "Giovanni Leoni",
+      "position": "D C",
+      "uid": "2000259904",
+      "country": "ITA",
+      "url": "https://www.liverpoolfc.com/teams/mens-team?position=all"
+    },
+    "CLB_MUN": {
+      "name": "Chido Obi",
+      "position": "ST",
+      "uid": "2000382120",
+      "country": "DEN",
+      "url": "https://www.manutd.com/en/news/premier-league-squad-confirmed-for-2026-27"
+    }
+  },
+  "changes": [
+    {
+      "team_id": "CLB_BAY",
+      "removed_goalkeeper": "Sven Ulreich",
+      "retained_goalkeepers": [
+        "Manuel Neuer",
+        "Jonas Urbig"
+      ],
+      "new_outfield": "Sacha Boey",
+      "new_outfield_position": "D/WB R",
+      "evidence_source": "CLUB_2026_EXTERNAL_MEMBERSHIP",
+      "evidence_url": "https://datencenter.dfb.de/en/competitions/bundesliga/seasons/2026-2027/teams/bayern-munich",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "CLB_BVB",
+      "removed_goalkeeper": "Patrick Drewes",
+      "retained_goalkeepers": [
+        "Gregor Kobel",
+        "Alexander Meyer"
+      ],
+      "new_outfield": "Filippo Mané",
+      "new_outfield_position": "D RC",
+      "evidence_source": "CLUB_2026_EXTERNAL_MEMBERSHIP",
+      "evidence_url": "https://www.bvb.de/de/en/news/news-overview/news.html/2026/8/20/These-are-the-jersey-numbers-for-the-2026/27-season.html",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "CLB_KRY",
+      "removed_goalkeeper": "Bohdan Khoma",
+      "retained_goalkeepers": [
+        "Oleksandr Kemkin",
+        "Volodymyr Makhankov"
+      ],
+      "new_outfield": "Jimmy Mpanzu",
+      "new_outfield_position": "D C",
+      "evidence_source": "CLUB_2026_EXTERNAL_MEMBERSHIP",
+      "evidence_url": "https://fckryvbas.com/post/dzhimmi-mpanzu-duzhe-radii-znovu-trenuvatisya-z-komandoyu-na-povnu-silu",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "CLB_LEV",
+      "removed_goalkeeper": "Janis Blaswich",
+      "retained_goalkeepers": [
+        "Mark Flekken",
+        "Jonas Omlin"
+      ],
+      "new_outfield": "Axel Tape",
+      "new_outfield_position": "D RC",
+      "evidence_source": "CLUB_2026_EXTERNAL_MEMBERSHIP",
+      "evidence_url": "https://datencenter.dfb.de/competitions/bundesliga/seasons/2026-2027/teams/bayer-leverkusen",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "CLB_LIV",
+      "removed_goalkeeper": "Freddie Woodman",
+      "retained_goalkeepers": [
+        "Alisson",
+        "Giorgi Mamardashvili"
+      ],
+      "new_outfield": "Giovanni Leoni",
+      "new_outfield_position": "D C",
+      "evidence_source": "CLUB_2026_EXTERNAL_MEMBERSHIP",
+      "evidence_url": "https://www.liverpoolfc.com/teams/mens-team?position=all",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "CLB_MUN",
+      "removed_goalkeeper": "Tom Heaton",
+      "retained_goalkeepers": [
+        "Senne Lammens",
+        "Altay Bayındır"
+      ],
+      "new_outfield": "Chido Obi",
+      "new_outfield_position": "ST",
+      "evidence_source": "CLUB_2026_EXTERNAL_MEMBERSHIP",
+      "evidence_url": "https://www.manutd.com/en/news/premier-league-squad-confirmed-for-2026-27",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_ALG",
+      "removed_goalkeeper": "Melvin Mastil",
+      "retained_goalkeepers": [
+        "Luca Zidane",
+        "Oussama Benbot"
+      ],
+      "new_outfield": "Zineddine Belaid",
+      "new_outfield_position": "CB",
+      "evidence_source": "V20_FIFA_DRAFT_NAME_MATCH",
+      "evidence_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_ARG",
+      "removed_goalkeeper": "Juan Musso",
+      "retained_goalkeepers": [
+        "Emiliano Martinez",
+        "Geronimo Rulli"
+      ],
+      "new_outfield": "Thiago Almada",
+      "new_outfield_position": "WG",
+      "evidence_source": "V20_FIFA_DRAFT_NAME_MATCH",
+      "evidence_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_AUS",
+      "removed_goalkeeper": "Paul Izzo",
+      "retained_goalkeepers": [
+        "Mathew Ryan",
+        "Patrick Beach"
+      ],
+      "new_outfield": "Nishan Velupillay",
+      "new_outfield_position": "WG",
+      "evidence_source": "V20_FIFA_DRAFT_NAME_MATCH",
+      "evidence_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_AUT",
+      "removed_goalkeeper": "Florian Wiegele",
+      "retained_goalkeepers": [
+        "Alexander Schlager",
+        "Patrick Pentz"
+      ],
+      "new_outfield": "Xaver Schlager",
+      "new_outfield_position": "DM",
+      "evidence_source": "V20_FIFA_DRAFT_NAME_MATCH",
+      "evidence_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_BEL",
+      "removed_goalkeeper": "Mike Penders",
+      "retained_goalkeepers": [
+        "Senne Lammens",
+        "Thibaut Courtois"
+      ],
+      "new_outfield": "Romelu Lukaku",
+      "new_outfield_position": "ST",
+      "evidence_source": "V20_FIFA_DRAFT_NAME_MATCH",
+      "evidence_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_BIH",
+      "removed_goalkeeper": "Mladen Jurkas",
+      "retained_goalkeepers": [
+        "Martin Zlomislic",
+        "Nikola Vasilj"
+      ],
+      "new_outfield": "Ermin Mahmic",
+      "new_outfield_position": "AM",
+      "evidence_source": "V20_FIFA_DRAFT_NAME_MATCH",
+      "evidence_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_BRA",
+      "removed_goalkeeper": "Weverton",
+      "retained_goalkeepers": [
+        "Alisson",
+        "Ederson"
+      ],
+      "new_outfield": "Vinicius Junior",
+      "new_outfield_position": "WG",
+      "evidence_source": "V20_FIFA_DRAFT_NAME_MATCH",
+      "evidence_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_CAN",
+      "removed_goalkeeper": "Owen Goodman",
+      "retained_goalkeepers": [
+        "Dayne St. Clair",
+        "Maxime Crepeau"
+      ],
+      "new_outfield": "Richie Laryea",
+      "new_outfield_position": "FB",
+      "evidence_source": "V20_FIFA_DRAFT_NAME_MATCH",
+      "evidence_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_CIV",
+      "removed_goalkeeper": "Mohamed Kone",
+      "retained_goalkeepers": [
+        "Alban Lafont",
+        "Yahia Fofana"
+      ],
+      "new_outfield": "Wilfried Singo",
+      "new_outfield_position": "FB",
+      "evidence_source": "V20_FIFA_DRAFT_NAME_MATCH",
+      "evidence_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_COD",
+      "removed_goalkeeper": "Matthieu Epolo",
+      "retained_goalkeepers": [
+        "Lionel Mpasi",
+        "Timothy Fayulu"
+      ],
+      "new_outfield": "Samuel Moutoussamy",
+      "new_outfield_position": "CM",
+      "evidence_source": "V20_FIFA_DRAFT_NAME_MATCH",
+      "evidence_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_COL",
+      "removed_goalkeeper": "Alvaro Montero",
+      "retained_goalkeepers": [
+        "Camilo Vargas",
+        "David Ospina"
+      ],
+      "new_outfield": "Yerry Mina",
+      "new_outfield_position": "CB",
+      "evidence_source": "V20_FIFA_DRAFT_NAME_MATCH",
+      "evidence_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_CPV",
+      "removed_goalkeeper": "CJ dos Santos",
+      "retained_goalkeepers": [
+        "Vozinha",
+        "Marcio Rosa"
+      ],
+      "new_outfield": "Yannick Semedo",
+      "new_outfield_position": "DM",
+      "evidence_source": "V20_FIFA_DRAFT_NAME_MATCH",
+      "evidence_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_CRO",
+      "removed_goalkeeper": "Ivor Pandur",
+      "retained_goalkeepers": [
+        "Dominik Kotarski",
+        "Dominik Livakovic"
+      ],
+      "new_outfield": "Martin Erlic",
+      "new_outfield_position": "CB",
+      "evidence_source": "V20_FIFA_DRAFT_NAME_MATCH",
+      "evidence_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_CUW",
+      "removed_goalkeeper": "Tyrick Bodak",
+      "retained_goalkeepers": [
+        "Eloy Room",
+        "Trevor Doornbusch"
+      ],
+      "new_outfield": "Gervane Kastaneer",
+      "new_outfield_position": "ST",
+      "evidence_source": "V20_FIFA_DRAFT_NAME_MATCH",
+      "evidence_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_CZE",
+      "removed_goalkeeper": "Lukas Hornicek",
+      "retained_goalkeepers": [
+        "Jindrich Stanek",
+        "Matej Kovar"
+      ],
+      "new_outfield": "Tomas Chory",
+      "new_outfield_position": "ST",
+      "evidence_source": "V20_FIFA_DRAFT_NAME_MATCH",
+      "evidence_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_DEN",
+      "removed_goalkeeper": "Mads Hermansen",
+      "retained_goalkeepers": [
+        "Filip Jorgensen",
+        "Andreas Jungdal"
+      ],
+      "new_outfield": "Rasmus Hojlund",
+      "new_outfield_position": "FW",
+      "evidence_source": "NONWC_OLD_SOURCE_CANDIDATE",
+      "evidence_url": "https://github.com/Nevmerlyk/ISS26-Updates/blob/feature/v096-player-database-integration/data/fm26/ISS26_non_wc_national_candidates_v18.csv",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_ECU",
+      "removed_goalkeeper": "Gonzalo Valle",
+      "retained_goalkeepers": [
+        "Hernan Galindez",
+        "Moises Ramirez"
+      ],
+      "new_outfield": "Kevin Rodriguez",
+      "new_outfield_position": "WG",
+      "evidence_source": "V20_FIFA_DRAFT_NAME_MATCH",
+      "evidence_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_EGY",
+      "removed_goalkeeper": "Mahdy Soliman",
+      "retained_goalkeepers": [
+        "Mohamed Elshenawy",
+        "Mostafa Shoubir"
+      ],
+      "new_outfield": "Zizo",
+      "new_outfield_position": "WG",
+      "evidence_source": "V20_FIFA_DRAFT_NAME_MATCH",
+      "evidence_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_ENG",
+      "removed_goalkeeper": "James Trafford",
+      "retained_goalkeepers": [
+        "Dean Henderson",
+        "Jordan Pickford"
+      ],
+      "new_outfield": "Reece James",
+      "new_outfield_position": "FB",
+      "evidence_source": "V20_FIFA_DRAFT_NAME_MATCH",
+      "evidence_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_ESP",
+      "removed_goalkeeper": "David Raya",
+      "retained_goalkeepers": [
+        "Joan Garcia",
+        "Unai Simon"
+      ],
+      "new_outfield": "Nico Williams",
+      "new_outfield_position": "WG",
+      "evidence_source": "V20_FIFA_DRAFT_NAME_MATCH",
+      "evidence_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_FRA",
+      "removed_goalkeeper": "Robin Risser",
+      "retained_goalkeepers": [
+        "Brice Samba",
+        "Mike Maignan"
+      ],
+      "new_outfield": "William Saliba",
+      "new_outfield_position": "CB",
+      "evidence_source": "V20_FIFA_DRAFT_NAME_MATCH",
+      "evidence_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_GER",
+      "removed_goalkeeper": "Alexander Nubel",
+      "retained_goalkeepers": [
+        "Manuel Neuer",
+        "Oliver Baumann"
+      ],
+      "new_outfield": "Waldemar Anton",
+      "new_outfield_position": "CB",
+      "evidence_source": "V20_FIFA_DRAFT_NAME_MATCH",
+      "evidence_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_GHA",
+      "removed_goalkeeper": "Benjamin Asare",
+      "retained_goalkeepers": [
+        "Lawrence Ati Zigi",
+        "Joseph Anang"
+      ],
+      "new_outfield": "Prince Adu",
+      "new_outfield_position": "ST",
+      "evidence_source": "V20_FIFA_DRAFT_NAME_MATCH",
+      "evidence_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_HAI",
+      "removed_goalkeeper": "Josue Duverger",
+      "retained_goalkeepers": [
+        "Johny Placide",
+        "Alexandre Pierre"
+      ],
+      "new_outfield": "Ruben Providence",
+      "new_outfield_position": "ST",
+      "evidence_source": "V20_FIFA_DRAFT_NAME_MATCH",
+      "evidence_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_HUN",
+      "removed_goalkeeper": "Bence Gundel-Takacs",
+      "retained_goalkeepers": [
+        "Armin Pecsi",
+        "Balazs Toth"
+      ],
+      "new_outfield": "Rajmund Toth",
+      "new_outfield_position": "CM",
+      "evidence_source": "V20_LEGACY_CANDIDATE",
+      "evidence_url": null,
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_IRN",
+      "removed_goalkeeper": "Payam Niazmand",
+      "retained_goalkeepers": [
+        "Alireza Beiranvand",
+        "Hossein Hosseini"
+      ],
+      "new_outfield": "Saeid Ezatolahi",
+      "new_outfield_position": "CM",
+      "evidence_source": "V20_FIFA_DRAFT_NAME_MATCH",
+      "evidence_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_IRQ",
+      "removed_goalkeeper": "Fahad Talib",
+      "retained_goalkeepers": [
+        "Ahmed Basil",
+        "Jalal Hassan"
+      ],
+      "new_outfield": "Rebin Sulaka",
+      "new_outfield_position": "CB",
+      "evidence_source": "V20_FIFA_DRAFT_NAME_MATCH",
+      "evidence_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_ITA",
+      "removed_goalkeeper": "Marco Carnesecchi",
+      "retained_goalkeepers": [
+        "Gianluigi Donnarumma",
+        "Guglielmo Vicario"
+      ],
+      "new_outfield": "Sebastiano Esposito",
+      "new_outfield_position": "AM",
+      "evidence_source": "V20_LEGACY_CANDIDATE",
+      "evidence_url": null,
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_JOR",
+      "removed_goalkeeper": "Nour Baniateyah",
+      "retained_goalkeepers": [
+        "Abdallah Alfakhori",
+        "Yazeed Abulaila"
+      ],
+      "new_outfield": "Rajaei Ayed",
+      "new_outfield_position": "CM",
+      "evidence_source": "V20_FIFA_DRAFT_NAME_MATCH",
+      "evidence_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_JPN",
+      "removed_goalkeeper": "Tomoki Hayakawa",
+      "retained_goalkeepers": [
+        "Keisuke Osako",
+        "Zion Suzuki"
+      ],
+      "new_outfield": "Yuito Suzuki",
+      "new_outfield_position": "AM",
+      "evidence_source": "V20_FIFA_DRAFT_NAME_MATCH",
+      "evidence_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_KOR",
+      "removed_goalkeeper": "Song Bumkeun",
+      "retained_goalkeepers": [
+        "Jo Hyeonwoo",
+        "Kim Seunggyu"
+      ],
+      "new_outfield": "Yang Hyunjun",
+      "new_outfield_position": "WG",
+      "evidence_source": "V20_FIFA_DRAFT_NAME_MATCH",
+      "evidence_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_KSA",
+      "removed_goalkeeper": "Mohammed Alowais",
+      "retained_goalkeepers": [
+        "Ahmed Alkassar",
+        "Nawaf Alaqidi"
+      ],
+      "new_outfield": "Khalid Alghannam",
+      "new_outfield_position": "ST",
+      "evidence_source": "V20_FIFA_DRAFT_NAME_MATCH",
+      "evidence_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_MAR",
+      "removed_goalkeeper": "Ahmed Reda Tagnaouti",
+      "retained_goalkeepers": [
+        "Munir El Kajoui",
+        "Yassine Bounou"
+      ],
+      "new_outfield": "Zakaria El Ouahdi",
+      "new_outfield_position": "FB",
+      "evidence_source": "V20_FIFA_DRAFT_NAME_MATCH",
+      "evidence_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_MEX",
+      "removed_goalkeeper": "Carlos Acevedo",
+      "retained_goalkeepers": [
+        "Guillermo Ochoa",
+        "Raul Rangel"
+      ],
+      "new_outfield": "Santiago Gimenez",
+      "new_outfield_position": "ST",
+      "evidence_source": "V20_FIFA_DRAFT_NAME_MATCH",
+      "evidence_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_NED",
+      "removed_goalkeeper": "Mark Flekken",
+      "retained_goalkeepers": [
+        "Bart Verbruggen",
+        "Robin Roefs"
+      ],
+      "new_outfield": "Virgil van Dijk",
+      "new_outfield_position": "CB",
+      "evidence_source": "V20_FIFA_DRAFT_NAME_MATCH",
+      "evidence_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_NGA",
+      "removed_goalkeeper": "Stanley Nwabali",
+      "retained_goalkeepers": [
+        "Arthur Okonkwo",
+        "Maduka Okoye"
+      ],
+      "new_outfield": "Victor Osimhen",
+      "new_outfield_position": "ST",
+      "evidence_source": "V20_LEGACY_CANDIDATE",
+      "evidence_url": null,
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_NOR",
+      "removed_goalkeeper": "Sander Tangvik",
+      "retained_goalkeepers": [
+        "Egil Selvik",
+        "Orjan Nyland"
+      ],
+      "new_outfield": "Sander Berge",
+      "new_outfield_position": "CM",
+      "evidence_source": "V20_FIFA_DRAFT_NAME_MATCH",
+      "evidence_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_NZL",
+      "removed_goalkeeper": "Michael Woud",
+      "retained_goalkeepers": [
+        "Alex Paulsen",
+        "Max Crocombe"
+      ],
+      "new_outfield": "Tommy Smith",
+      "new_outfield_position": "CB",
+      "evidence_source": "V20_FIFA_DRAFT_NAME_MATCH",
+      "evidence_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_PAN",
+      "removed_goalkeeper": "Cesar Samudio",
+      "retained_goalkeepers": [
+        "Luis Mejia",
+        "Orlando Mosquera"
+      ],
+      "new_outfield": "Jose Cordoba",
+      "new_outfield_position": "CB",
+      "evidence_source": "V20_FIFA_DRAFT_NAME_MATCH",
+      "evidence_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_PAR",
+      "removed_goalkeeper": "Gaston Olveira",
+      "retained_goalkeepers": [
+        "Gatito Fernandez",
+        "Orlando Gill"
+      ],
+      "new_outfield": "Andres Cubas",
+      "new_outfield_position": "CM",
+      "evidence_source": "V20_FIFA_DRAFT_NAME_MATCH",
+      "evidence_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_POL",
+      "removed_goalkeeper": "Slawomir Abramowicz",
+      "retained_goalkeepers": [
+        "Mateusz Kochalski",
+        "Marcin Bulka"
+      ],
+      "new_outfield": "Przemyslaw Wisniewski",
+      "new_outfield_position": "CB",
+      "evidence_source": "V20_LEGACY_CANDIDATE",
+      "evidence_url": null,
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_POR",
+      "removed_goalkeeper": "Jose Sa",
+      "retained_goalkeepers": [
+        "Diogo Costa",
+        "Rui Silva"
+      ],
+      "new_outfield": "Tomas Araujo",
+      "new_outfield_position": "CB",
+      "evidence_source": "V20_FIFA_DRAFT_NAME_MATCH",
+      "evidence_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_QAT",
+      "removed_goalkeeper": "Meshaal Barsham",
+      "retained_goalkeepers": [
+        "Mahmoud Abunada",
+        "Salah Zakaria"
+      ],
+      "new_outfield": "Tahsin Mohammed",
+      "new_outfield_position": "ST",
+      "evidence_source": "V20_FIFA_DRAFT_NAME_MATCH",
+      "evidence_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_RSA",
+      "removed_goalkeeper": "Sipho Chaine",
+      "retained_goalkeepers": [
+        "Ricardo Goss",
+        "Ronwen Williams"
+      ],
+      "new_outfield": "Thabang Matuludi",
+      "new_outfield_position": "CB",
+      "evidence_source": "V20_FIFA_DRAFT_NAME_MATCH",
+      "evidence_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_SCO",
+      "removed_goalkeeper": "Craig Gordon",
+      "retained_goalkeepers": [
+        "Angus Gunn",
+        "Liam Kelly"
+      ],
+      "new_outfield": "Scott McKenna",
+      "new_outfield_position": "CB",
+      "evidence_source": "V20_FIFA_DRAFT_NAME_MATCH",
+      "evidence_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_SEN",
+      "removed_goalkeeper": "Edouard Mendy",
+      "retained_goalkeepers": [
+        "Mory Diaw",
+        "Yehvann Diouf"
+      ],
+      "new_outfield": "Sadio Mane",
+      "new_outfield_position": "WG",
+      "evidence_source": "V20_FIFA_DRAFT_NAME_MATCH",
+      "evidence_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_SUI",
+      "removed_goalkeeper": "Marvin Keller",
+      "retained_goalkeepers": [
+        "Gregor Kobel",
+        "Yvon Mvogo"
+      ],
+      "new_outfield": "Zeki Amdouni",
+      "new_outfield_position": "WG",
+      "evidence_source": "V20_FIFA_DRAFT_NAME_MATCH",
+      "evidence_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_SWE",
+      "removed_goalkeeper": "Jacob Widell Zetterstrom",
+      "retained_goalkeepers": [
+        "Kristoffer Nordfeldt",
+        "Viktor Johansson"
+      ],
+      "new_outfield": "Isak Hien",
+      "new_outfield_position": "CB",
+      "evidence_source": "V20_FIFA_DRAFT_NAME_MATCH",
+      "evidence_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_TUN",
+      "removed_goalkeeper": "Mouhib Chamakhi",
+      "retained_goalkeepers": [
+        "Aymen Dahmen",
+        "Sabri Ben Hessen"
+      ],
+      "new_outfield": "Yan Valery",
+      "new_outfield_position": "FB",
+      "evidence_source": "V20_FIFA_DRAFT_NAME_MATCH",
+      "evidence_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_TUR",
+      "removed_goalkeeper": "Mert Gunok",
+      "retained_goalkeepers": [
+        "Altay Bayindir",
+        "Ugurcan Cakir"
+      ],
+      "new_outfield": "Oguz Aydin",
+      "new_outfield_position": "FB",
+      "evidence_source": "V20_FIFA_DRAFT_NAME_MATCH",
+      "evidence_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_UKR",
+      "removed_goalkeeper": "Dmytro Riznyk",
+      "retained_goalkeepers": [
+        "Anatolii Trubin",
+        "Ruslan Neshcheret"
+      ],
+      "new_outfield": "Roman Yaremchuk",
+      "new_outfield_position": "ST",
+      "evidence_source": "V20_LEGACY_CANDIDATE",
+      "evidence_url": null,
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_URU",
+      "removed_goalkeeper": "Sergio Rochet",
+      "retained_goalkeepers": [
+        "Fernando Muslera",
+        "Santiago Mele"
+      ],
+      "new_outfield": "Maxi Araujo",
+      "new_outfield_position": "FB",
+      "evidence_source": "V20_FIFA_DRAFT_NAME_MATCH",
+      "evidence_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_USA",
+      "removed_goalkeeper": "Chris Brady",
+      "retained_goalkeepers": [
+        "Matt Freese",
+        "Matt Turner"
+      ],
+      "new_outfield": "Timothy Weah",
+      "new_outfield_position": "FB",
+      "evidence_source": "V20_FIFA_DRAFT_NAME_MATCH",
+      "evidence_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf",
+      "source_is_independently_approved_for_game": false
+    },
+    {
+      "team_id": "NAT_UZB",
+      "removed_goalkeeper": "Botirali Ergashev",
+      "retained_goalkeepers": [
+        "Abduvokhid Nematov",
+        "Utkir Yusupov"
+      ],
+      "new_outfield": "Umar Eshmurodov",
+      "new_outfield_position": "CB",
+      "evidence_source": "V20_FIFA_DRAFT_NAME_MATCH",
+      "evidence_url": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf",
+      "source_is_independently_approved_for_game": false
+    }
+  ]
+}
