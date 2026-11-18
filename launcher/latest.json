@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "latest": {
-    "version": "0.9.6.7",
-    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.9.6.7/ISS26-LauncherUpdate.zip",
-    "zipSha256": "FF3EA411EA2280CC4B24C356B92604D75F4F20AB1004FB88CF69493F08E44F5F",
-    "launcherSha256": "DABCC4CD32FF6C34E257D1A4793FF50D928944D5A86C909730E53F51631A8ABE",
-    "updaterSha256": "4E29A11F609F7330E485FD55B72D016821B4A86F0874732A650326E0DD798AEA",
-    "notes": "Academy 0.9.6.7: automatic private local recovery of existing full Test 0.9.6 as independent SHA-verified carrier; no raw upload. Game Stable/Test unchanged."
+    "version": "0.9.6.8",
+    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.9.6.8/ISS26-LauncherUpdate.zip",
+    "zipSha256": "E8DA6FE18A4198D21068B025664DF3A71ED9D9D7C4CB4BCC32BD1D8A06959020",
+    "launcherSha256": "055705F4ED2CF594FC72BB4DFA5582C8DDF1D92462A8BC6D685AD112A770BF18",
+    "updaterSha256": "9BE123BF9A1B4C4ADE876FB5EAC3F2BD6512239759A74F21576F445704465526",
+    "notes": "Academy 0.9.6.8: raw-sector exact capture of the local Test 0.9.6 with XA/EDC warnings; full SHA replay; not CD-integrity approval or a game patch. Stable/Test unchanged."
   }
 }
