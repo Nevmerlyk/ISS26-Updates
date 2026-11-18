@@ -1,7 +1,7 @@
 name: Validate Academy 0.9.6.8 exact raw-sector rescue + integrity warnings
 on:
   push:
-    branches: [ci/academy-v0968-local-carrier]
+    branches: [ci/academy-v0968-raw-recovery]
     paths: ['.github/workflows/validate-academy-v0968-carrier.yml']
   workflow_dispatch:
 permissions:
