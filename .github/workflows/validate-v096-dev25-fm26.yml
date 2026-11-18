@@ -1,0 +1,46 @@
+name: Validate ISS26 0.9.6 DEV25 labeled FM26 candidates
+on:
+  push:
+    branches:
+      - feature/v096-game-v25-labeled-fm26-source
+    paths:
+      - 'tools/convert_labeled_fm26_v22.py'
+      - 'tests/test_convert_labeled_fm26_v22.py'
+      - 'data/integration/ISS26_DEV25_FM26_labeled_skill_report.json'
+      - 'data/integration/fm26_nationality_roster_extract_v22.csv'
+      - 'data/fm26/ISS26_modern_game_slots_v20.csv'
+      - '.github/workflows/validate-v096-dev25-fm26.yml'
+  pull_request:
+    paths:
+      - 'tools/convert_labeled_fm26_v22.py'
+      - 'tests/test_convert_labeled_fm26_v22.py'
+      - 'data/integration/ISS26_DEV25_FM26_labeled_skill_report.json'
+      - 'data/integration/fm26_nationality_roster_extract_v22.csv'
+      - 'data/fm26/ISS26_modern_game_slots_v20.csv'
+      - '.github/workflows/validate-v096-dev25-fm26.yml'
+permissions:
+  contents: read
+jobs:
+  source-converter:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      PYTHONPATH: tools
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Fail-closed named source tests
+        run: python -m unittest discover -s tests -p 'test_convert_labeled_fm26_v22.py' -v
+      - name: Convert all 1,707 from exact pinned v22 and v20 sources
+        run: |
+          python tools/convert_labeled_fm26_v22.py \
+            --raw-v22 data/integration/fm26_nationality_roster_extract_v22.csv \
+            --v20 data/fm26/ISS26_modern_game_slots_v20.csv \
+            --out /tmp/ISS26_DEV25_labeled_1707.csv \
+            --report /tmp/ISS26_DEV25_report.json
+      - name: Confirm exact 1,707-source data SHA and report
+        run: |
+          echo '30E3A4E1AD4CDCE055D4DA9DFF34DA3B68144681FDD1458A5998B5D9D742AF31  /tmp/ISS26_DEV25_labeled_1707.csv' | sha256sum --check
+          cmp /tmp/ISS26_DEV25_report.json data/integration/ISS26_DEV25_FM26_labeled_skill_report.json
