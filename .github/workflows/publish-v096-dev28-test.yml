@@ -1,0 +1,124 @@
+name: Publish ISS26 v0.9.6 DEV28 experimental Test Game
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publish-v096-dev28-test.yml'
+      - 'tools/build_v096_dev28_from_v095.py'
+      - 'staging/v0.9.6/DEV28_sector_overrides.xz.b64'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: iss26-game-v096-dev28-test
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      GH_TOKEN: ${{ github.token }}
+      REPO: Nevmerlyk/ISS26-Updates
+      RELEASE_TAG: v0.9.6-dev28-test
+      RELEASE_FILE: ISS26_0.9.6_DEV28_Test.iss26p
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download published verified standalone 0.9.5 patch (no game image)
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          gh release download v0.9.5-stable-4914c36bfac27aff --repo "$REPO" \
+            --pattern 'ISS26_0.9.5.iss26p' --dir dist
+          python - <<'PY'
+          import pathlib,hashlib
+          path=pathlib.Path('dist/ISS26_0.9.5.iss26p')
+          assert hashlib.sha256(path.read_bytes()).hexdigest().upper()=='4914C36BFAC27AFF4C4FB60BBD7AB49867FC1E67F26CE733686E73C79C839148'
+          print('Verified stable source patch',path.stat().st_size)
+          PY
+      - name: Reconstruct and verify independent DEV28 sector patch
+        shell: bash
+        run: |
+          set -euo pipefail
+          python tools/build_v096_dev28_from_v095.py \
+            --base dist/ISS26_0.9.5.iss26p \
+            --overrides staging/v0.9.6/DEV28_sector_overrides.xz.b64 \
+            --output "dist/$RELEASE_FILE"
+          python - <<'PY'
+          import hashlib,os,pathlib,struct
+          p=pathlib.Path('dist')/os.environ['RELEASE_FILE']
+          b=p.read_bytes()
+          assert b[:8]==b'ISS26X01' and struct.unpack_from('<I',b,8)[0]==699
+          assert len(b)==1669224
+          assert hashlib.sha256(b).hexdigest().upper()=='4A1C2293F6A91A77DBD6CBECC96B0E02A98C63444C309202402F094AC5F312B6'
+          print('Release candidate exactly byte-identical to owner-tested DEV28')
+          PY
+      - name: Publish test prerelease (leave Stable untouched)
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat > dist/release-notes.md <<'NOTES'
+          # ISS26 v0.9.6 DEV28 — Test Game only
+          
+          **Experimental; not stable or fully gameplay-tested.** New country-reference grouping for 227 active extra club players, 15 Kryvbass and 16 Shakhtar player country groups corrected, preserved physical names/stats for all 528 club memberships; previous DEV27 goalkeeper and bench ordering retained.
+          
+          Correctness limitations: 38 unsupported/unmatched country assignments retained as-is; country-only flag artwork, existing broken mini-flags and full emulator tests are not fixed/verified. Use a disposable memory card. The Stable channel remains on game v0.9.5.
+          
+          Independent clean-original EU Track01 ISS26X01 patch, **699 guarded sectors**. Original SHA256: `D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44`. Patch SHA256: `4A1C2293F6A91A77DBD6CBECC96B0E02A98C63444C309202402F094AC5F312B6`. Derived Track01 SHA256: `8EBE4D82F781112A33AE09E4D7400912E58505A6313BFBC0172C4FF2E17459CE`.
+          
+          No original game images, audio, BIOS, or proprietary music distributed. This is an experimental release; not a guarantee that each jersey, player nationality display, or flag renders correctly.
+          NOTES
+          if gh release view "$RELEASE_TAG" --repo "$REPO" >/dev/null 2>&1; then
+            echo 'Existing tag found; verify existing asset before reuse.'
+          else
+            gh release create "$RELEASE_TAG" "dist/$RELEASE_FILE" \
+              --repo "$REPO" --target main --prerelease \
+              --title 'ISS26 v0.9.6 DEV28 — Experimental Test Game' \
+              --notes-file dist/release-notes.md
+          fi
+      - name: Download/check GitHub release binary then activate Test Game only
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p dist/remote
+          gh release download "$RELEASE_TAG" --repo "$REPO" \
+            --pattern "$RELEASE_FILE" --dir dist/remote
+          cmp "dist/$RELEASE_FILE" "dist/remote/$RELEASE_FILE"
+          python - <<'PY'
+          import base64,hashlib,json,os,pathlib,subprocess
+          repo=os.environ['REPO'];tag=os.environ['RELEASE_TAG'];name=os.environ['RELEASE_FILE']
+          expected='4A1C2293F6A91A77DBD6CBECC96B0E02A98C63444C309202402F094AC5F312B6'
+          data=(pathlib.Path('dist/remote')/name).read_bytes()
+          assert len(data)==1669224 and hashlib.sha256(data).hexdigest().upper()==expected
+          release=json.loads(subprocess.check_output(['gh','api',f'repos/{repo}/releases/tags/{tag}'],text=True))
+          assets=[a for a in release['assets'] if a['name']==name]
+          assert len(assets)==1 and assets[0]['size']==len(data), 'Release asset missing'
+          if assets[0].get('digest'):
+              assert assets[0]['digest'].lower()=='sha256:'+expected.lower()
+          endpoint=f'repos/{repo}/contents/test/latest.json'
+          resp=json.loads(subprocess.check_output(['gh','api',endpoint],text=True))
+          current=json.loads(base64.b64decode(resp['content']))
+          assert current.get('channel')=='test'
+          old=current['latest']
+          allowed={'0.9.5':'4914C36BFAC27AFF4C4FB60BBD7AB49867FC1E67F26CE733686E73C79C839148',
+                   '0.9.6-dev28-test':expected}
+          assert old['version'] in allowed and old['patchSha256'].upper()==allowed[old['version']], 'Refuse unexpected Test Game overwrite'
+          feed={'schemaVersion':1,'channel':'test','latest':{
+            'version':'0.9.6-dev28-test',
+            'patchUrl':f'https://github.com/{repo}/releases/download/{tag}/{name}',
+            'patchSha256':expected,
+            'baseSha256':'D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44',
+            'resultSha256':'8EBE4D82F781112A33AE09E4D7400912E58505A6313BFBC0172C4FF2E17459CE',
+          },'notes':'Experimental DEV28 test channel only. Country group fix; known flag and unsupported country issues remain. Stable game stays 0.9.5.'}
+          if current==feed:
+              print('Test Game already active on verified DEV28');raise SystemExit(0)
+          payload={'message':'release(test): activate verified experimental ISS26 0.9.6 DEV28 game patch',
+                   'content':base64.b64encode((json.dumps(feed,indent=2)+'\n').encode()).decode(),
+                   'sha':resp['sha']}
+          subprocess.run(['gh','api','-X','PUT',endpoint,'--input','-'],input=json.dumps(payload),text=True,check=True)
+          print('Activated Test Game DEV28 only after remote binary verification.')
+          PY
