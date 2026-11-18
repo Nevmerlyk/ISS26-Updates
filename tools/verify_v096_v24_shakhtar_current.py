@@ -43,6 +43,10 @@ def verify(previous: list[dict], current: list[dict], manifest: dict, previous_s
     members=collections.defaultdict(list)
     for identity,b in before.items():
         a=after[identity]
+        if (a["game_write_authorized"]!="NO" or
+            a["nationality_verified"]!="NO" or
+            a["jersey_number_verified"]!="NO"):
+            raise ValueError("Source is not approved for native binary writing")
         if b!=a:
             if (identity!=("CLB_SHK","12") or
                 b["player_name"]!="Artem Bondarenko" or
@@ -54,10 +58,6 @@ def verify(previous: list[dict], current: list[dict], manifest: dict, previous_s
                 a["selection_type"]!=b["selection_type"]):
                 raise ValueError("Unexpected change to v23: "+str(identity))
             differences.append(identity)
-        if (a["game_write_authorized"]!="NO" or
-            a["nationality_verified"]!="NO" or
-            a["jersey_number_verified"]!="NO"):
-            raise ValueError("Source is not approved for native binary writing")
         members[a["team_id"]].append(a)
     if differences!=[("CLB_SHK","12")]:
         raise ValueError("Exactly one Shakhtar source refresh must occur")
