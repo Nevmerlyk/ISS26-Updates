@@ -1,8 +1,8 @@
 name: Validate Academy 0.9.6.10 DEV16 ISO catalog & RAM/sector fidelity
 on:
   push:
-    branches: [ci/academy-v09610-sector-diagnostics]
-    paths: ['.github/workflows/validate-academy-v09610-carrier.yml']
+    branches: [ci/academy-v09610-disc-ram]
+    paths: ['.github/workflows/validate-academy-v09610-disc-ram.yml']
   workflow_dispatch:
 permissions:
   contents: read
