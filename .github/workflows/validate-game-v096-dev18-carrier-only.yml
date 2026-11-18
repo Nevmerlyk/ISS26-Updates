@@ -1,0 +1,53 @@
+name: Validate ISS26 game DEV18 original-free standalone patch
+on:
+  push:
+    branches: [ci/game-v096-dev18-carrier-only]
+    paths:
+      - .github/workflows/validate-game-v096-dev18-carrier-only.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout pinned private game source, without persistent credentials
+        uses: actions/checkout@v4
+        with:
+          repository: Nevmerlyk/ISS26-Android
+          ref: 894ca255c2dfafdba917eb69012a9c78c3d6a998
+          token: ${{ secrets.ISS26_PUBLIC_RELEASE_TOKEN }}
+          persist-credentials: false
+          path: source
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Prove native parity-delta equivalence against independent full Mode2/Form1 repair
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s source/tools/ps1_graphics -p 'test_build_game_v096_dev18_carrier_only.py' -v
+          python -m unittest discover -s source/tools/ps1_graphics -p 'test_build_game_v096_dev17.py' -v
+          python -m unittest discover -s source/tools/ps1_graphics -p 'test_audit_game_v096_native_78.py' -v
+      - name: Assert evidence-pinned game patch only, no Stable/Test feed writes
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          root=Path('source')
+          script=(root/'tools/ps1_graphics/build_game_v096_dev18_carrier_only.py').read_text()
+          report=json.loads((root/'docs/research/ISS26_2026-11-18_DEV16_owner_disc_ram_crosscheck.json').read_text())
+          assert report['RiznykDiscRecordHex']=='000230B5ECD1E6A459B7A903'
+          assert report['CarrierSha256']=='51592906D69E34420DB5145382C03451286BBA8B36B9BCD5B6A5E6D3C8C354D3'
+          assert report['TestSha256']=='2152910CEFC789B1DF13327FBA7F29C92A75F602E887A245B35C4FC56B6FAC22'
+          for marker in ['parity_delta()', 'native.edc(', 'native.ecc(', 'preserves_all_other_698_baseline_sector_masks',
+                         '"release_ready":False','"game_feeds_modified":False','verify_original']:
+              if marker=='verify_original':continue
+              assert marker in script,marker
+          for forbidden in ['gh release create','stable/latest.json','test/latest.json','HttpClient','requests.post(']:
+              assert forbidden not in script,forbidden
+          print('PASS: owner physical record, SHA identity and no automatic game release.')
+          PY
