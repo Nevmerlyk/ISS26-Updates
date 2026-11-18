@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "status": "SHK_2026_27_REFRESH_PROVISIONAL_NOT_APPLIED_TO_GAME",
+  "as_of": "2026-11-18",
+  "game_version": "0.9.6",
+  "source_v22_sha": "f8d25e0db1a551d15217dae09daa7fef645b745d",
+  "source_v22_path": "data/integration/ISS26_active_rosters_v22_two_GK_stage.csv",
+  "source_club_page": "https://shakhtar.com/en/players/first-team",
+  "old_club_registry_preserved": true,
+  "team_id": "CLB_SHK",
+  "other_77_teams_unchanged": true,
+  "original_goalkeepers_retained": [
+    "Dmytro Riznyk",
+    "Denys Tvardovskyi"
+  ],
+  "source_only": true,
+  "all_new_5_need_native_identity_jersey_country_runtime_proof": true,
+  "number_48_requires_non5bit_override": true,
+  "gameplay_verified": false,
+  "release_ready": false,
+  "changes": [
+    {
+      "game_slot": 4,
+      "removed_stale_candidate": "Yukhym Konoplia",
+      "new_verified_current_player": "Oleksandr Karavaiev",
+      "source_position": "D R",
+      "club_number": 20,
+      "country": "UKR",
+      "club_number_source": "2026/27 official FC Shakhtar first-team listing",
+      "authorizes_native_edit": false
+    },
+    {
+      "game_slot": 7,
+      "removed_stale_candidate": "Diego Arroyo",
+      "new_verified_current_player": "Irakli Azarov",
+      "source_position": "D L",
+      "club_number": 16,
+      "country": "GEO",
+      "club_number_source": "2026/27 official FC Shakhtar first-team listing",
+      "authorizes_native_edit": false
+    },
+    {
+      "game_slot": 8,
+      "removed_stale_candidate": "Danylo Udod",
+      "new_verified_current_player": "Alaa Ghram",
+      "source_position": "D C",
+      "club_number": 18,
+      "country": "TUN",
+      "club_number_source": "2026/27 official FC Shakhtar first-team listing",
+      "authorizes_native_edit": false
+    },
+    {
+      "game_slot": 9,
+      "removed_stale_candidate": "Roman Savchenko",
+      "new_verified_current_player": "Marlon Santos",
+      "source_position": "D C",
+      "club_number": 4,
+      "country": "BRA",
+      "club_number_source": "2026/27 official FC Shakhtar first-team listing",
+      "authorizes_native_edit": false
+    },
+    {
+      "game_slot": 21,
+      "removed_stale_candidate": "Ivan Petriak",
+      "new_verified_current_player": "Alan Matturro",
+      "source_position": "D LC",
+      "club_number": 28,
+      "country": "URU",
+      "club_number_source": "2026/27 official FC Shakhtar first-team listing",
+      "authorizes_native_edit": false
+    }
+  ]
+}
