@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: Nevmerlyk/ISS26-Android
-          ref: ddfc02da1cef3747606ba48b4a2d6f4fc8d7bd04
+          ref: 115eaabc12e7aa58ef5be0754701eae9f9fb4017
           token: ${{ secrets.ISS26_PUBLIC_RELEASE_TOKEN }}
           persist-credentials: false
       - uses: actions/setup-python@v5
@@ -27,9 +27,11 @@ jobs:
         run: python -m unittest discover -s tools/ps1_graphics -p 'test_audit_dev16_club_source.py' -v
       - name: Seven-frame resident module recovery and fail-closed diff tests
         run: python -m unittest discover -s tools/ps1_graphics -p 'test_recover_dev16_resident_modules.py' -v
+      - name: Exact XOR carrier structural, SHA replay and XA Form1/Form2 forensic tests
+        run: python -m unittest discover -s tools/ps1_graphics -p 'test_audit_iss26x01_carrier.py' -v
       - name: Compile source only
-        run: python -m py_compile tools/ps1_graphics/recover_dev16_resident_modules.py tools/ps1_graphics/audit_dev16_club_source.py tools/ps1_graphics/verify_dev16_player_record.py
+        run: python -m py_compile tools/ps1_graphics/recover_dev16_resident_modules.py tools/ps1_graphics/audit_dev16_club_source.py tools/ps1_graphics/verify_dev16_player_record.py tools/ps1_graphics/audit_iss26x01_carrier.py tools/ps1_graphics/test_audit_iss26x01_carrier.py
       - name: Assert game update manifests are not touched
         run: |
-          echo 'Research-only CI: 0.9.5 Stable/Test and Academy 0.9.6.6 unchanged'
+          echo 'Research-only CI: 0.9.5 Stable/Test and Academy launcher channels unchanged'
           echo 'No test game image or original ROM uploaded or published'
