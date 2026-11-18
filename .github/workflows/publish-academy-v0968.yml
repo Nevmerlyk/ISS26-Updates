@@ -110,7 +110,7 @@ jobs:
               zipSha256=(Get-FileHash ISS26-LauncherUpdate.zip -Algorithm SHA256).Hash
               launcherSha256=(Get-FileHash package/ISS26.exe -Algorithm SHA256).Hash
               updaterSha256=(Get-FileHash package/ISS26.Updater.exe -Algorithm SHA256).Hash
-              notes='Academy 0.9.6.8: raw-sector exact capture of owner's Test 0.9.6 with XA/EDC warnings; full SHA replay; not CD-integrity approval or a game patch. Stable/Test unchanged.'
+              notes='Academy 0.9.6.8: raw-sector exact capture of the local Test 0.9.6 with XA/EDC warnings; full SHA replay; not CD-integrity approval or a game patch. Stable/Test unchanged.'
             }
           }
           # Game-content channels are independent from Academy; verify before and after.
