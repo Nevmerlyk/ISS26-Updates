@@ -1,0 +1,53 @@
+name: ISS26 v0.9.6 local build handoff
+on:
+  push:
+    branches: [ci/game-v096-build-handoff]
+    paths: ['.github/workflows/iss26-v096-build-handoff.yml']
+permissions:
+  contents: read
+jobs:
+  handoff:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reconstitute pinned 0.9.5 standalone XOR patch and source
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import base64,hashlib,json,pathlib,shutil,struct,zlib
+          root=pathlib.Path(".")
+          parts=sorted((root/"data/integration/stable095_transport").glob("part*.b64"))
+          if len(parts)!=58 or [p.name for p in parts]!=[f"part{i:03}.b64" for i in range(58)]:
+              raise SystemExit("Missing or reordered stable 0.9.5 transport chunk")
+          carrier=zlib.decompress(base64.b64decode("".join(p.read_text().strip() for p in parts),validate=True))
+          sha=hashlib.sha256(carrier).hexdigest().upper()
+          expected="4914C36BFAC27AFF4C4FB60BBD7AB49867FC1E67F26CE733686E73C79C839148"
+          if sha!=expected or carrier[:8]!=b"ISS26X01":
+              raise SystemExit("Incorrect stable 0.9.5 data")
+          count=struct.unpack_from("<I",carrier,8)[0]
+          if len(carrier)!=12+count*(4+32+2352):
+              raise SystemExit("Invalid independent patch envelope")
+          bundle=pathlib.Path("/tmp/iss26-v096-handoff")
+          bundle.mkdir(parents=True)
+          (bundle/"ISS26_0.9.5.iss26p").write_bytes(carrier)
+          for directory in ("tools","data","docs","tests"):
+              shutil.copytree(directory,bundle/directory,ignore=shutil.ignore_patterns("__pycache__"))
+          metadata={
+              "status":"BUILD_INPUTS_ONLY_NOT_RELEASE",
+              "stable_baseline_sha256":sha,
+              "stable_baseline_sectors":count,
+              "expected_clean_track01_sha256":"D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
+              "branch":"ci/game-v096-build-handoff",
+              "game_image_included":False
+          }
+          (bundle/"handoff.json").write_text(json.dumps(metadata,indent=2)+"\n")
+          print(json.dumps(metadata,indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ISS26-v096-local-build-handoff
+          path: /tmp/iss26-v096-handoff/
+          retention-days: 3
+          if-no-files-found: error
