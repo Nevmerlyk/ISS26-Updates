@@ -1,0 +1,33 @@
+name: Validate ISS26 v0.9.6 v22 two-GK source stage
+on:
+  push:
+    branches:
+      - feature/v096-game-v22-two-gk-shakhtar-lock
+    paths:
+      - 'data/integration/ISS26_active_rosters_v22_two_GK_*.csv'
+      - 'data/integration/ISS26_active_rosters_v22_two_GK_*.json'
+      - 'tools/verify_v096_two_gk_stage.py'
+      - 'tests/test_v096_two_gk_stage.py'
+      - '.github/workflows/validate-v096-two-gk-stage.yml'
+  pull_request:
+    paths:
+      - 'data/integration/ISS26_active_rosters_v22_two_GK_*.csv'
+      - 'data/integration/ISS26_active_rosters_v22_two_GK_*.json'
+      - 'tools/verify_v096_two_gk_stage.py'
+      - 'tests/test_v096_two_gk_stage.py'
+      - '.github/workflows/validate-v096-two-gk-stage.yml'
+permissions:
+  contents: read
+jobs:
+  audit-source-v22:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate actual 1716 source rows and Shakhtar slot22
+        run: python tools/verify_v096_two_gk_stage.py
+      - name: Run fail-closed regression tests
+        run: python -m unittest discover -s tests -p 'test_v096_two_gk_stage.py' -v
