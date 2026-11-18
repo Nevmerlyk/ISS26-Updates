@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "channel": "test",
   "latest": {
-    "version": "0.9.6-dev28-test",
-    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.6-dev28-test/ISS26_0.9.6_DEV28_Test.iss26p",
-    "patchSha256": "4A1C2293F6A91A77DBD6CBECC96B0E02A98C63444C309202402F094AC5F312B6",
+    "version": "0.9.6-dev29-test",
+    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.6-dev29-test/ISS26_0.9.6_DEV29_Test.iss26p",
+    "patchSha256": "0049C38CED7620129B1A29D928B4D9E617EF5FD8300A74D9FFEEBB42BBE0C62D",
     "baseSha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
-    "resultSha256": "8EBE4D82F781112A33AE09E4D7400912E58505A6313BFBC0172C4FF2E17459CE"
+    "resultSha256": "FA44FB13100C83ED1582170E9AC11D649CA1B5395EBFEEC663D9F68821C41E42"
   },
-  "notes": "Experimental DEV28 test channel only. Country group fix; known flag and unsupported country issues remain. Stable game stays 0.9.5."
+  "notes": "Experimental DEV29 \u2014 Ayman Azhil Morocco country link corrected; known mini-flag and extra nationality issues remain. Stable 0.9.5 unaffected."
 }
