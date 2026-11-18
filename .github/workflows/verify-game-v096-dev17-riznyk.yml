@@ -1,0 +1,42 @@
+name: Verify ISS26 game DEV17 guarded Riznyk standalone builder
+on:
+  push:
+    branches: [ci/game-v096-dev17-riznyk]
+    paths: ['.github/workflows/verify-game-v096-dev17-riznyk.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-dev17:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - name: Checkout pinned private game-development code
+        uses: actions/checkout@v4
+        with:
+          repository: Nevmerlyk/ISS26-Android
+          ref: 8f5426318ac7f35404ed52629b7a48f0f4535458
+          path: source
+          token: ${{ secrets.ISS26_PUBLIC_RELEASE_TOKEN }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate native 12-byte stats, exact 2-byte edit, ISO mode2 ECC and fail-closed full-image replay
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s source/tools/ps1_graphics -p 'test_build_game_v096_dev17.py' -v
+      - name: Assert no game release or automatic feed promotion
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          s=Path('source/tools/ps1_graphics/build_game_v096_dev17.py').read_text()
+          for marker in ('BASELINE_CARRIER_SHA = "51592906','BASELINE_TRACK_SHA = "2152910','CLEAN_SHA = "D9B483','RIZNYK_LBA = SELECT_LBA','PREIMAGE = bytes.fromhex','PROPOSED = bytes.fromhex','target_sector_mode2_form1_edc_ecc_verified','result_track_sha256','national_teams_gk_slot1_and_slot22','club_player_refs_globally_distinct','release_ready":False','game_feeds_modified":False'):
+              assert marker in s, marker
+          for forbidden in ('github.com/', 'gh release create', 'requests.post(', 'HttpClient', 'stable/latest.json', 'test/latest.json'):
+              assert forbidden not in s, forbidden
+          print('PASS: game DEV17 has no updater, release operation or original-disk modifications.')
+          PY
