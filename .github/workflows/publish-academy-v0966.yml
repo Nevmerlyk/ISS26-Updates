@@ -31,6 +31,15 @@ jobs:
           } elseif ($feed.latest.version -eq '0.9.6.5') {
             'publish=true' | Out-File -FilePath $env:GITHUB_OUTPUT -Encoding utf8 -Append
           } else { throw "Unexpected current launcher feed $($feed.latest.version)" }
+      - name: Verify existing ISS26_PUBLIC_RELEASE_TOKEN is configured for private read
+        if: steps.gate.outputs.publish == 'true'
+        shell: pwsh
+        env:
+          PRIVATE_READ_TOKEN: ${{ secrets.ISS26_PUBLIC_RELEASE_TOKEN }}
+        run: |
+          if ([string]::IsNullOrWhiteSpace($env:PRIVATE_READ_TOKEN)) {
+            throw 'ISS26_PUBLIC_RELEASE_TOKEN is not configured as an Actions secret in ISS26-Updates. No public fallback is permitted.'
+          }
       - name: Checkout pinned PRIVATE Academy source without public source mirroring
         if: steps.gate.outputs.publish == 'true'
         uses: actions/checkout@v4
@@ -38,7 +47,7 @@ jobs:
           repository: Nevmerlyk/ISS26-Android
           ref: 87d8364a08b5ee8f99c723c8bc6e91070c78f5e8
           path: source
-          token: ${{ secrets.ISS26_PRIVATE_SOURCE_TOKEN || secrets.ISS26_PRIVATE_READ_TOKEN || secrets.ISS26_PUBLIC_RELEASE_TOKEN || github.token }}
+          token: ${{ secrets.ISS26_PUBLIC_RELEASE_TOKEN }}
           persist-credentials: false
       - name: Install .NET 8 and Python
         if: steps.gate.outputs.publish == 'true'
