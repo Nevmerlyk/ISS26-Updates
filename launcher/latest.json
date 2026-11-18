@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "latest": {
-    "version": "0.9.6.10",
-    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.9.6.10/ISS26-LauncherUpdate.zip",
-    "zipSha256": "DF4A7F19CFBEF1F617CA9AC5EC0D908D75832887F16FFF87BF2724170A67FB06",
-    "launcherSha256": "2777F7A53D764C46A63FACB13980EFAC7861440578A6963DFF860DC02BCB35C4",
-    "updaterSha256": "D2A3A4E21BC2FF4EE3879C5D7C80A10B7D24E2C1BFD00F8E6264C0AD26D89DAD",
-    "notes": "Academy 0.9.6.10: read-only DEV16 comparison of clean and experimental ISO catalogs, 162 raw-sector headers and seven retained SELECT RAM captures; no game patch changes."
+    "version": "0.9.6.11",
+    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.9.6.11/ISS26-LauncherUpdate.zip",
+    "zipSha256": "9CD24890CD1D5304F17404B95DC1653C33E96AB2BB7D3D8DEE35CA110CBD1C49",
+    "launcherSha256": "8C2C7E2AD23BBBA118697851D54F937FF485000715D7F96B05FD5B757F13E3A9",
+    "updaterSha256": "2DFF47D606C334556C51CC7180A8700CA34EC1AEFB78F15B2E3CE0F69AF108EC",
+    "notes": "Academy 0.9.6.11: read-only comparison of the 233864-byte SELECT prefix after a 1620-byte extension; seven RAM frames, true ISO extents, no game patch changes."
   }
 }
