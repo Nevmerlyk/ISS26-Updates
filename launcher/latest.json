@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "latest": {
-    "version": "0.9.6.9",
-    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.9.6.9/ISS26-LauncherUpdate.zip",
-    "zipSha256": "CCCA652C7FB6A0E243D1C1E8CDB24CD5963BAC95101A6E6310879DCDB71DE73F",
-    "launcherSha256": "58F4024DFBB66B9D542B5E2875E5655BFE3E75F7638B2C22E70D7D0FB3A67478",
-    "updaterSha256": "103AE6361DE1A0FEBA6B27359905DA90D887A4D7558986B472E7772A0A7D7DEC",
-    "notes": "Academy 0.9.6.9: read-only Form1/Form2 XA sector audit of local Test 0.9.6; full SHA replay; EDC warning classes and sanitized LBA ranges. No game patch publication."
+    "version": "0.9.6.10",
+    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.9.6.10/ISS26-LauncherUpdate.zip",
+    "zipSha256": "DF4A7F19CFBEF1F617CA9AC5EC0D908D75832887F16FFF87BF2724170A67FB06",
+    "launcherSha256": "2777F7A53D764C46A63FACB13980EFAC7861440578A6963DFF860DC02BCB35C4",
+    "updaterSha256": "D2A3A4E21BC2FF4EE3879C5D7C80A10B7D24E2C1BFD00F8E6264C0AD26D89DAD",
+    "notes": "Academy 0.9.6.10: read-only DEV16 comparison of clean and experimental ISO catalogs, 162 raw-sector headers and seven retained SELECT RAM captures; no game patch changes."
   }
 }
