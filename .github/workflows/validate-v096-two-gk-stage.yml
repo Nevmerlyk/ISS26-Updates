@@ -17,6 +17,11 @@ on:
       - 'data/integration/ISS26_shakhtar_v24_current_numbers_and_citizenship_targets.json'
       - 'tools/verify_v096_v24_shakhtar_current.py'
       - 'tests/test_v096_v24_shakhtar_current.py'
+      - 'data/integration/ISS26_active_rosters_v25_club_loan_corrections.csv'
+      - 'data/integration/ISS26_v25_club_loan_source_review.json'
+      - 'data/integration/ISS26_v25_club_528_country_worklist.json'
+      - 'tools/verify_v096_v25_country_source.py'
+      - 'tests/test_v096_v25_country_source.py'
       - '.github/workflows/validate-v096-two-gk-stage.yml'
   pull_request:
     paths:
@@ -33,6 +38,11 @@ on:
       - 'data/integration/ISS26_shakhtar_v24_current_numbers_and_citizenship_targets.json'
       - 'tools/verify_v096_v24_shakhtar_current.py'
       - 'tests/test_v096_v24_shakhtar_current.py'
+      - 'data/integration/ISS26_active_rosters_v25_club_loan_corrections.csv'
+      - 'data/integration/ISS26_v25_club_loan_source_review.json'
+      - 'data/integration/ISS26_v25_club_528_country_worklist.json'
+      - 'tools/verify_v096_v25_country_source.py'
+      - 'tests/test_v096_v25_country_source.py'
       - '.github/workflows/validate-v096-two-gk-stage.yml'
 permissions:
   contents: read
@@ -57,3 +67,7 @@ jobs:
         run: python tools/verify_v096_v24_shakhtar_current.py
       - name: Run v24 source regression suite
         run: python -m unittest discover -s tests -p 'test_v096_v24_shakhtar_current.py' -v
+      - name: Validate 528 nationality source targets and v25 loan corrections
+        run: python tools/verify_v096_v25_country_source.py
+      - name: Run citizenship and loan regression tests
+        run: python -m unittest discover -s tests -p 'test_v096_v25_country_source.py' -v
