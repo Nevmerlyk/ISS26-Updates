@@ -1,0 +1,116 @@
+name: Publish ISS26 v0.9.6 DEV37 two-club shirt numbers and roles (manual test)
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/publish-v096-dev37-player-corrections.yml
+      - staging/v0.9.6/DEV37_3_sector_overrides.xz.b64
+  workflow_dispatch:
+
+permissions:
+  contents: write
+concurrency:
+  group: iss26-v096-dev37-native-player-fixes
+  cancel-in-progress: false
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ github.token }}
+      REPO: Nevmerlyk/ISS26-Updates
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download verified full standalone DEV35 base patch
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          gh release download 'v0.9.6-dev35-tunisia-canada-ab' -R "$REPO" --pattern 'ISS26_0.9.6_DEV35_Flags.iss26p' --dir dist
+          echo 'ff358c929b20693b7bb689dfecdb5441d81673a988270592a26658c476c8c585  dist/ISS26_0.9.6_DEV35_Flags.iss26p' | sha256sum -c -
+      - name: Reconstruct exact self-contained DEV37 patch from three original-sector guarded records
+        shell: python
+        run: |
+          import struct,pathlib,hashlib,lzma,base64
+          sha=lambda b:hashlib.sha256(b).hexdigest().upper()
+          before=pathlib.Path('dist/ISS26_0.9.6_DEV35_Flags.iss26p').read_bytes()
+          assert sha(before)=='FF358C929B20693B7BB689DFECDB5441D81673A988270592A26658C476C8C585'
+          assert before[:8]==b'ISS26X01' and struct.unpack_from('<I',before,8)[0]==772 and len(before)==12+772*2388
+          source=pathlib.Path('staging/v0.9.6/DEV37_3_sector_overrides.xz.b64').read_bytes()
+          incoming=lzma.decompress(base64.b64decode(source))
+          assert sha(incoming)=='699A4FEE0B07B100BDCA09EE34412B13FBB23DD28E3D150CF8F7316AF9AAFB83'
+          assert incoming[:8]==b'ISS26OV1' and struct.unpack_from('<I',incoming,8)[0]==3
+          assert len(incoming)==12+3*2388
+          new={}
+          for i,lba in enumerate((854,933,939)):
+              pos=12+i*2388
+              row=incoming[pos:pos+2388]
+              assert struct.unpack_from('<I',row,0)[0]==lba
+              assert row[36:60]==bytes(24)
+              new[lba]=row
+          assert len(new)==3
+          result=bytearray(before)
+          changed=[]
+          for i in range(772):
+              start=12+i*2388
+              old=before[start:start+2388]
+              lba=struct.unpack_from('<I',old,0)[0]
+              if lba not in new:continue
+              row=new[lba]
+              assert old[:36]==row[:36], ('Changed original sector preimage',lba)
+              assert old!=row
+              result[start:start+2388]=row
+              changed.append(lba)
+          assert changed==[854,933,939]
+          assert len(result)==1843548
+          assert sha(result)=='1782EBE665B4C34C62FA7341EC05CBD89112FC97C902B0C961EE52863ED6895C'
+          dst=pathlib.Path('dist/ISS26_0.9.6_DEV37_Numbers_Positions.iss26p')
+          dst.write_bytes(result)
+          print('PASS: exact SHA and original guards, 3 native game sectors, 769 other sectors identical')
+      - name: Release experimental patch; no Test or Stable feed promotion
+        shell: bash
+        run: |
+          set -euo pipefail
+          tag='v0.9.6-dev37-native-player-corrections'
+          file='dist/ISS26_0.9.6_DEV37_Numbers_Positions.iss26p'
+          cat > dist/release-notes.md <<'NOTES'
+          # ISS26 v0.9.6 DEV37 — two-club 2026/27 player data improvements (EXPERIMENTAL)
+          
+          Reproducibly rebuilt from clean-original self-contained DEV35:
+          - Official 2026/27 Shakhtar Donetsk and FC Kryvbas jersey assignments for 26 named footballers.
+          - Changed 21 incorrect official shirt numbers and 7 conflicting fallback numbers
+            (fallback numbers for departed/unverified players are not official).
+          - Corrected five native role bits: Nazaryna to CM, Ocheretko to CM,
+            Kaua Elias to CF, Bar Lin to CM, Jones to CB.
+          - All 772 source-relative guarded CD sectors retained, 3 differ from DEV35
+            (LBA 854, 933, 939). Player identities, club refs, and all previous
+            national flag bitmap corrections unchanged.
+          - Static QA: 54 national teams +24 clubs, 1716 memberships,
+            528 unique native club references and 2 goalkeepers/team.
+          
+          External primary sources: Shakhtar and Kryvbas 2026/27 official first-team pages.
+          Other rosters, club badges, national ML flags and kits are NOT thereby fixed.
+          Full clean-original SHA verification and emulator-run QA must happen on user's computer:
+          original available to the build runtime is truncated, so this is **manual A/B**,
+          NOT yet the automatically installed Test Game release.
+          
+          Patch SHA256: 1782EBE665B4C34C62FA7341EC05CBD89112FC97C902B0C961EE52863ED6895C
+          NOTES
+          if gh release view "$tag" -R "$REPO" >/dev/null 2>&1; then
+            existing=$(gh api "repos/$REPO/releases/tags/$tag" --jq '[.assets[] | select(.name=="ISS26_0.9.6_DEV37_Numbers_Positions.iss26p")][0].digest // ""')
+            test "$existing" = 'sha256:1782ebe665b4c34c62fa7341ec05cbd89112fc97c902b0c961ee52863ed6895c' || { echo 'Release conflict'; exit 1; }
+          else
+            gh release create "$tag" "$file" -R "$REPO" --target main --prerelease \
+              --title 'ISS26 DEV37 — Shakhtar and Kryvbas 2026/27 player data (A/B)' --notes-file dist/release-notes.md
+          fi
+      - name: Download published binary and verify SHA-256
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p dist/verified
+          gh release download 'v0.9.6-dev37-native-player-corrections' -R "$REPO" \
+            --pattern 'ISS26_0.9.6_DEV37_Numbers_Positions.iss26p' --dir dist/verified
+          cmp dist/ISS26_0.9.6_DEV37_Numbers_Positions.iss26p dist/verified/ISS26_0.9.6_DEV37_Numbers_Positions.iss26p
+          echo '1782ebe665b4c34c62fa7341ec05cbd89112fc97c902b0c961ee52863ed6895c  dist/verified/ISS26_0.9.6_DEV37_Numbers_Positions.iss26p' | sha256sum -c -
+          echo 'DEV37 A/B release verified; Test Game and Stable feeds unchanged.'
