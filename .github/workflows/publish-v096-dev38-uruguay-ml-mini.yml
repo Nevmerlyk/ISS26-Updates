@@ -1,0 +1,104 @@
+name: Publish ISS26 0.9.6 DEV38 Uruguay mini-flag A-B patch
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/publish-v096-dev38-uruguay-ml-mini.yml
+      - staging/v0.9.6/DEV38_9sector_uruguay_mini.xz.b64
+  workflow_dispatch:
+
+permissions:
+  contents: write
+concurrency:
+  group: iss26-v096-dev38-uruguay-flag
+  cancel-in-progress: false
+
+jobs:
+  build-and-verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ github.token }}
+      REPO: Nevmerlyk/ISS26-Updates
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch exact standalone DEV37 patch (source guard base)
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          gh release download v0.9.6-dev37-native-player-corrections -R "$REPO" \
+             --pattern 'ISS26_0.9.6_DEV37_Numbers_Positions.iss26p' --dir dist
+          echo '1782ebe665b4c34c62fa7341ec05cbd89112fc97c902b0c961ee52863ed6895c  dist/ISS26_0.9.6_DEV37_Numbers_Positions.iss26p' | sha256sum -c -
+      - name: Independently recreate DEV38 by substituting exactly nine original-sector records
+        shell: python
+        run: |
+          import lzma,base64,struct,pathlib,hashlib
+          sha=lambda b:hashlib.sha256(b).hexdigest().upper()
+          old=pathlib.Path('dist/ISS26_0.9.6_DEV37_Numbers_Positions.iss26p').read_bytes()
+          assert sha(old)=='1782EBE665B4C34C62FA7341EC05CBD89112FC97C902B0C961EE52863ED6895C'
+          assert old[:8]==b'ISS26X01' and struct.unpack_from('<I',old,8)[0]==772 and len(old)==12+772*2388
+          raw=lzma.decompress(base64.b64decode(pathlib.Path('staging/v0.9.6/DEV38_9sector_uruguay_mini.xz.b64').read_bytes()))
+          assert sha(raw)=='9BDD685188D48B91B9016BA1E3EE0FD54731516FFEF7B6827EED6C76CA337545'
+          assert raw[:8]==b'ISS26OV1' and struct.unpack_from('<I',raw,8)[0]==9 and len(raw)==12+9*2388
+          lbAs=[6085,6086,6087,6088,6251,6252,6253,6254,6255]
+          stage={}
+          for i,lba in enumerate(lbAs):
+            o=12+i*2388
+            row=raw[o:o+2388]
+            assert struct.unpack_from('<I',row,0)[0]==lba
+            stage[lba]=row
+          result=bytearray(old)
+          changed=[]
+          for i in range(772):
+            o=12+i*2388
+            lba=struct.unpack_from('<I',old,o)[0]
+            if lba not in stage:continue
+            original=old[o:o+2388];new=stage[lba]
+            assert original[:36]==new[:36], ('original-game sector guard mismatch',lba)
+            assert original!=new
+            result[o:o+2388]=new
+            changed.append(lba)
+          assert changed==lbAs and len(result)==len(old)
+          assert sha(result)=='649C7F5328EDA13058D94C2A94869AE61067C3E23C1DDD1C477093BDE6575533'
+          dst=pathlib.Path('dist/ISS26_0.9.6_DEV38_Uruguay_Mini.iss26p')
+          dst.write_bytes(result)
+          print('PASS: nine exact source-guarded CD sector substitutions; 763 records untouched; DEV37 cumulative game data retained')
+      - name: Publish manual test prerelease, preserve Test/Stable game channels
+        shell: bash
+        run: |
+          set -euo pipefail
+          tag=v0.9.6-dev38-uruguay-mini-ab
+          file=dist/ISS26_0.9.6_DEV38_Uruguay_Mini.iss26p
+          cat > dist/notes.txt <<'EOF'
+          ISS26 v0.9.6 DEV38: experimental native 16×18 Master League Uruguay mini-flag pixel replacement.
+          One 16×18 uniform blue old index tile in source DATSEL/DATSEL3 atlases, VRAM (816,368),
+          selected CLUT (208,507), original BGR555 #ECC3 matches old PCSX Uruguay screen.
+          Replaces blue tile with Uruguay nine stripe approximation including small sun.
+          Nine guarded CD sectors differ from full DEV37 standalone patch, 772 sector records total.
+          All existing DEV31-DEV37 national flag/kit/player fixes retained; no palette or neighboring pixel changes.
+          Static GPU stream roundtrip and Mode2/Form1 sector parity tests PASS.
+          Visual game QA for this exact build not yet available, and no last GPU draw packet was recorded.
+          This is NOT the final 24-club crest or all-national-flag fix.
+          Source full Track01 unavailable in current build runtime; installer validates exact EU original
+          source SHA256 D9B483BDEA7774346DF437FEBF038E68CB2C4AD993D3C2B1F620EA44.
+          Test Game/Stable update channels NOT switched by this release.
+          Patch SHA256 649C7F5328EDA13058D94C2A94869AE61067C3E23C1DDD1C477093BDE6575533
+          EOF
+          if gh release view "$tag" -R "$REPO" >/dev/null 2>&1; then
+            digest=$(gh api "repos/$REPO/releases/tags/$tag" --jq '[.assets[] | select(.name=="ISS26_0.9.6_DEV38_Uruguay_Mini.iss26p")][0].digest // ""')
+            test "$digest" = 'sha256:649c7f5328eda13058d94c2a94869ae61067c3e23c1ddd1c477093bde6575533' || { echo "Refuse conflicting release"; exit 1; }
+          else
+            gh release create "$tag" "$file" -R "$REPO" --target main --prerelease \
+              --title 'ISS26 DEV38 — Uruguay native mini flag (manual A/B)' --notes-file dist/notes.txt
+          fi
+      - name: Compare published bytes to independent build and verify SHA
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p dist/verify
+          gh release download v0.9.6-dev38-uruguay-mini-ab -R "$REPO" \
+              --pattern 'ISS26_0.9.6_DEV38_Uruguay_Mini.iss26p' --dir dist/verify
+          cmp dist/ISS26_0.9.6_DEV38_Uruguay_Mini.iss26p dist/verify/ISS26_0.9.6_DEV38_Uruguay_Mini.iss26p
+          echo '649c7f5328eda13058d94c2a94869ae61067c3e23c1ddd1c477093bde6575533  dist/verify/ISS26_0.9.6_DEV38_Uruguay_Mini.iss26p' | sha256sum -c -
+          echo 'PASS DEV38 remote prerelease source-guarded patch; unchanged game update feeds'
