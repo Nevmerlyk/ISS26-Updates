@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build:
@@ -76,3 +76,26 @@ jobs:
           name: ISS26-v096-DEV30-24-Club-Art-SOURCE-ONLY
           path: dist/ISS26_v096_DEV30_24_Club_Art_SOURCE_ONLY.zip
           retention-days: 30
+
+      - name: Publish source-only art pack with SHA verification; do not change game feeds
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          tag='v0.9.6-dev30-club-art-source'
+          file='dist/ISS26_v096_DEV30_24_Club_Art_SOURCE_ONLY.zip'
+          digest="$(sha256sum "$file" | cut -d' ' -f1)"
+          repo='Nevmerlyk/ISS26-Updates'
+          if gh release view "$tag" -R "$repo" >/dev/null 2>&1; then
+            existing="$(gh api "repos/$repo/releases/tags/$tag" --jq '[.assets[] | select(.name=="ISS26_v096_DEV30_24_Club_Art_SOURCE_ONLY.zip")][0].digest // ""')"
+            test "$existing" = "sha256:$digest" || { echo "Refuse conflicted art asset"; exit 1; }
+          else
+            gh release create "$tag" "$file" -R "$repo" --target main --prerelease \
+              --title 'ISS26 DEV30 source art: 24 club identities and PS1 sprites (NOT game patch)' \
+              --notes '24 club identities from the v21 provisional SELECT name registry, 72 individual 4bpp textures and 32-byte CLUTs with previews. Source artwork only: no BIN or .iss26p, no verified final club-crest resource routing, no game-content feed updated.'
+          fi
+          mkdir -p dist/recheck
+          gh release download "$tag" -R "$repo" --pattern "$(basename "$file")" --dir dist/recheck
+          echo "$digest  dist/recheck/$(basename "$file")" | sha256sum -c -
+          echo 'Verified remote source-only art release; Test and Stable feeds are UNCHANGED.'
