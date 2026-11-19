@@ -1,0 +1,97 @@
+name: Publish ISS26 v0.9.6 DEV33 six large national source flags (manual A-B)
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/publish-v096-dev33-six-large-flags.yml
+      - staging/v0.9.6/DEV33_26_sector_overrides.xz.b64
+  workflow_dispatch:
+
+permissions:
+  contents: write
+concurrency:
+  group: iss26-v096-dev33-six-national-manual
+  cancel-in-progress: false
+
+jobs:
+  standalone-verify-release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ github.token }}
+      REPO: Nevmerlyk/ISS26-Updates
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download exact standalone DEV32 base
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          gh release download v0.9.6-dev32-riznyk31-ab -R "$REPO" --pattern ISS26_0.9.6_DEV32_Riznyk31.iss26p --dir dist
+          echo 'c94bbf74d068b3058baad2293970fd39c763c84493c069fd843d154f07b00340  dist/ISS26_0.9.6_DEV32_Riznyk31.iss26p' | sha256sum -c -
+      - name: Rebuild complete clean-original standalone DEV33 binary using SHA-pinned 26-sector deltas
+        shell: python
+        run: |
+          import hashlib,lzma,base64,struct,pathlib
+          p=pathlib.Path('dist/ISS26_0.9.6_DEV32_Riznyk31.iss26p').read_bytes()
+          sha=lambda data:hashlib.sha256(data).hexdigest().upper()
+          assert sha(p)=='C94BBF74D068B3058BAAD2293970FD39C763C84493C069FD843D154F07B00340'
+          assert p[:8]==b'ISS26X01' and struct.unpack_from('<I',p,8)[0]==699 and len(p)==12+699*2388
+          raw=lzma.decompress(base64.b64decode(pathlib.Path('staging/v0.9.6/DEV33_26_sector_overrides.xz.b64').read_bytes()))
+          assert sha(raw)=='62B65233C0A757CCB67F30F01C68BAD120CA35DBE430DD07140DA37C0115025C'
+          assert raw[:8]==b'ISS26OV1' and struct.unpack_from('<I',raw,8)[0]==26 and len(raw)==12+26*2388
+          lbAs=[6084,6085,6086,6087,6088,6089,6090,6091,6092,6093,6094,6095,6096,6250,6251,6252,6253,6254,6255,6256,6257,6258,6259,6260,6261,6262]
+          old={struct.unpack_from('<I',p,12+i*2388)[0]:p[12+i*2388:12+(i+1)*2388] for i in range(699)}
+          add={}
+          for i,lba in enumerate(lbAs):
+            row=raw[12+i*2388:12+(i+1)*2388]
+            assert struct.unpack_from('<I',row,0)[0]==lba
+            assert row[36:60]==b'\x00'*24
+            if lba in old:
+              assert row[:36]==old[lba][:36],('pre-image sector mismatch',lba)
+            add[lba]=row
+          assert len(add)==26
+          output={**old,**add}
+          assert len(output)==710
+          payload=b'ISS26X01'+struct.pack('<I',len(output))+b''.join(output[k] for k in sorted(output))
+          assert len(payload)==12+710*2388
+          assert sha(payload)=='C089BEDE6CC7A36A8507454F40D597A9575049B752D4568FEE359E02E1013A0D'
+          pathlib.Path('dist/ISS26_0.9.6_DEV33_6LargeFlags_AB.iss26p').write_bytes(payload)
+          print('PASS: 710 guarded original sectors, six large atlas sources, all DEV31 mini-flags and DEV32 GK retained')
+      - name: Publish experimental prerelease only — do not update Test or Stable feeds
+        shell: bash
+        run: |
+          set -euo pipefail
+          tag='v0.9.6-dev33-six-large-flags-ab'
+          file='dist/ISS26_0.9.6_DEV33_6LargeFlags_AB.iss26p'
+          cat > dist/notes.txt <<'NOTES'
+          # DEV33 - Six experimental 64x28 national flag source replacements
+          Native decoded GPU texture pixel changes in BIN/DATSEL.BIN and DATSEL3.BIN
+          for Tunisia, Canada, Qatar, Bosnia, Uzbekistan and New Zealand.
+          Does not change any PS1 CLUT palette or 16x18 mini flag art.
+          Preserves accepted Algeria, Turkey, Côte d'Ivoire mini-flags and Shakhtar Riznyk #31.
+          Standalone clean-original EU SLES-03321 ISS26X01 patch; 710 guarded records.
+          26 new/changed CD sectors vs DEV32, 18 LZ streams touched. CD EDC/ECC verified locally.
+          No newly embedded club crest, 78-team roster refresh, or uniform editing.
+          **Not emulator-approved**. Stadium GDC graphics are deliberately unchanged: many
+          contain different artwork and cannot safely be edited using the menu source layout.
+          Do not automatically promote to Game Test or Stable feeds. Use local standalone
+          installer package from owner conversation on exact original 12-track media.
+          Patch SHA256 C089BEDE6CC7A36A8507454F40D597A9575049B752D4568FEE359E02E1013A0D
+          NOTES
+          if gh release view "$tag" -R "$REPO" >/dev/null 2>&1; then
+            existing=$(gh api "repos/$REPO/releases/tags/$tag" --jq '[.assets[] | select(.name=="ISS26_0.9.6_DEV33_6LargeFlags_AB.iss26p")][0].digest // ""')
+            test "$existing" = 'sha256:c089bede6cc7a36a8507454f40d597a9575049b752d4568fee359e02e1013a0d'
+          else
+            gh release create "$tag" "$file" -R "$REPO" --target main --prerelease \
+             --title 'ISS26 0.9.6 DEV33 - six large national flags (experimental)' --notes-file dist/notes.txt
+          fi
+      - name: Verify released bytes and remote SHA-256
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p dist/recheck
+          gh release download v0.9.6-dev33-six-large-flags-ab -R "$REPO" --pattern ISS26_0.9.6_DEV33_6LargeFlags_AB.iss26p --dir dist/recheck
+          cmp dist/ISS26_0.9.6_DEV33_6LargeFlags_AB.iss26p dist/recheck/ISS26_0.9.6_DEV33_6LargeFlags_AB.iss26p
+          echo 'c089bede6cc7a36a8507454f40d597a9575049b752d4568fee359e02e1013a0d  dist/recheck/ISS26_0.9.6_DEV33_6LargeFlags_AB.iss26p' | sha256sum -c -
+          echo 'DEV33 experimental release verified; game feeds unchanged.'
