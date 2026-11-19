@@ -1,0 +1,114 @@
+name: Publish ISS26 0.9.6 DEV31 three MINI flags A-B (not Test feed)
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/publish-v096-dev31-three-mini-flags.yml
+      - staging/v0.9.6/DEV31_12flag_sector_overrides.xz.b64
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: iss26-dev31-mini-flag-ab
+  cancel-in-progress: false
+
+jobs:
+  standalone:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      GH_TOKEN: ${{ github.token }}
+      REPO: Nevmerlyk/ISS26-Updates
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download pinned standalone DEV30 A-B patch
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          gh release download 'v0.9.6-dev30-clubstyle-ab' -R "$REPO" --pattern 'ISS26_0.9.6_DEV30_ClubStyle_AB.iss26p' --dir dist
+          echo '536115c44308b1ea1d62c16bb359e0a71fc8a7c96d28f0d85277afdd8d1246d0  dist/ISS26_0.9.6_DEV30_ClubStyle_AB.iss26p' | sha256sum -c -
+      - name: Build byte-exact independent 699-sector DEV31 from guarded 12-sector overrides
+        shell: python
+        run: |
+          import base64,hashlib,lzma,struct,pathlib
+          sha=lambda b:hashlib.sha256(b).hexdigest().upper()
+          prev=pathlib.Path('dist/ISS26_0.9.6_DEV30_ClubStyle_AB.iss26p').read_bytes()
+          assert prev[:8]==b'ISS26X01' and struct.unpack_from('<I',prev,8)[0]==699 and len(prev)==12+699*2388
+          assert sha(prev)=='536115C44308B1EA1D62C16BB359E0A71FC8A7C96D28F0D85277AFDD8D1246D0'
+          ovpath=pathlib.Path('staging/v0.9.6/DEV31_12flag_sector_overrides.xz.b64')
+          raw=lzma.decompress(base64.b64decode(ovpath.read_bytes()))
+          assert sha(raw)=='D5BA2D51A1A8B57D7F7403F349E06B2C10C60551B8142C1B7DDA91B51690D22F'
+          assert raw[:8]==b'ISS26OV1' and struct.unpack_from('<I',raw,8)[0]==12
+          expected=[6084,6085,6086,6087,6088,6089,6250,6251,6252,6253,6254,6255]
+          ov={}
+          for i in range(12):
+              k=12+i*2388
+              lba=struct.unpack_from('<I',raw,k)[0]
+              assert lba==expected[i]
+              ov[lba]=raw[k:k+2388]
+          out=bytearray(prev)
+          applied=[]
+          for i in range(699):
+              k=12+i*2388
+              lba=struct.unpack_from('<I',prev,k)[0]
+              if lba in ov:
+                  old=prev[k:k+2388]
+                  new=ov[lba]
+                  assert old[:36]==new[:36],lba
+                  assert old!=new,lba
+                  assert old[36:60]==new[36:60],lba
+                  out[k:k+2388]=new
+                  applied.append(lba)
+          assert applied==expected
+          assert len(out)==1669224
+          expectedsha='D61ED821A54DA7E14DFF8E6CB401F58C5E836DF4F528625ACDE3ADBFBA6D049B'
+          assert sha(out)==expectedsha
+          dst=pathlib.Path('dist/ISS26_0.9.6_DEV31_ThreeMiniFlags_AB.iss26p')
+          dst.write_bytes(out)
+          print('PASS: 699 clean-original guarded sectors; exactly 12 GRAPHICS sector changes; independent patch digest',expectedsha)
+      - name: Prerelease only — never enable test or stable game feed automatically
+        shell: bash
+        run: |
+          set -euo pipefail
+          tag='v0.9.6-dev31-three-mini-flags-ab'
+          file='dist/ISS26_0.9.6_DEV31_ThreeMiniFlags_AB.iss26p'
+          cat > dist/notes.txt <<'NOTES'
+          # ISS26 v0.9.6 DEV31 — experimental 16×18 Master League mini-flags
+          
+          This is the *actual* pixel replacement for Algeria, Turkey, Côte d’Ivoire in DATSEL.BIN
+          and DATSEL3.BIN, not a nationality re-label or simple team-style-ID shuffle. 
+          The standalone patch includes all previous DEV29 changes and DEV30 club-style A/B edits.
+          Exactly 12 PS1 Mode2/Form1 sectors differ from the pinned DEV30 A/B patch. Source-relative
+          XOR guards retained for 699 original EU SLES-03321 sectors.
+          
+          Native CLUTs and all pixels outside the three verified 16×18 flag source rectangles
+          in the eight affected decoded GPU streams are unchanged (local source readback).
+          Screenshot/VRAM exact matching 288/288 pixels per flag was used to identify source UV.
+          
+          **Not confirmed visually on PCSX-Redux after patching**. No clean-original full-track
+          result SHA available because the owner Track01 mounted into the build runtime was truncated.
+          NO automatic Test Game / Stable feed update. Manual standalone test only.
+          
+          Do not claim 24 club crests or every national flag is fixed. Other team graphics
+          and 78-team roster issues remain in separate development.
+          NOTES
+          if gh release view "$tag" -R "$REPO" >/dev/null 2>&1; then
+            existing=$(gh api "repos/$REPO/releases/tags/$tag" --jq '[.assets[] | select(.name=="ISS26_0.9.6_DEV31_ThreeMiniFlags_AB.iss26p")][0].digest // ""')
+            test "$existing" = 'sha256:d61ed821a54da7e14dff8e6cb401f58c5e836df4f528625acde3adbfba6d049b' && exit 0 || { echo 'EXISTING release conflict: refuse overwrite'; exit 1; }
+          else
+            gh release create "$tag" "$file" -R "$REPO" --target main --prerelease \
+             --title 'ISS26 0.9.6 DEV31 — three native ML mini-flags A/B' --notes-file dist/notes.txt
+          fi
+      - name: Verify published bytes and SHA256; Test and Stable feeds unchanged
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p dist/recheck
+          gh release download 'v0.9.6-dev31-three-mini-flags-ab' -R "$REPO" --pattern 'ISS26_0.9.6_DEV31_ThreeMiniFlags_AB.iss26p' --dir dist/recheck
+          cmp dist/ISS26_0.9.6_DEV31_ThreeMiniFlags_AB.iss26p dist/recheck/ISS26_0.9.6_DEV31_ThreeMiniFlags_AB.iss26p
+          echo 'd61ed821a54da7e14dff8e6cb401f58c5e836df4f528625acde3adbfba6d049b' | tr -d ' ' > dist/expected.txt
+          echo "$(cat dist/expected.txt)  dist/recheck/ISS26_0.9.6_DEV31_ThreeMiniFlags_AB.iss26p" | sha256sum -c -
+          echo 'DEV31 A/B remote binary verified; no channel promoted.'
