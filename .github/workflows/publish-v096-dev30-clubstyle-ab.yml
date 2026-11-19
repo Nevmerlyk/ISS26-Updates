@@ -1,0 +1,106 @@
+name: Publish ISS26 v0.9.6 DEV30 standalone club-style A-B test
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/publish-v096-dev30-clubstyle-ab.yml
+      - staging/v0.9.6/DEV30_clubstyle_5_sector_overrides.xz.b64
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: iss26-dev30-clubstyle-ab-release
+  cancel-in-progress: false
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ github.token }}
+      REPO: Nevmerlyk/ISS26-Updates
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download exact released DEV29 standalone base
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          gh release download v0.9.6-dev29-test -R "$REPO" --pattern 'ISS26_0.9.6_DEV29_Test.iss26p' --dir dist
+          echo '0049c38ced7620129b1a29d928b4d9e617ef5fd8300a74d9ffeebb42bbe0c62d  dist/ISS26_0.9.6_DEV29_Test.iss26p' | sha256sum -c -
+      - name: Build independent five-sector clean-original test patch
+        shell: python
+        run: |
+          import base64,hashlib,lzma,pathlib,struct
+          base=pathlib.Path('dist/ISS26_0.9.6_DEV29_Test.iss26p').read_bytes()
+          assert hashlib.sha256(base).hexdigest().upper()=='0049C38CED7620129B1A29D928B4D9E617EF5FD8300A74D9FFEEBB42BBE0C62D'
+          assert base[:8]==b'ISS26X01' and struct.unpack_from('<I',base,8)[0]==699 and len(base)==12+699*2388
+          payload=lzma.decompress(base64.b64decode(pathlib.Path('staging/v0.9.6/DEV30_clubstyle_5_sector_overrides.xz.b64').read_bytes()))
+          assert hashlib.sha256(payload).hexdigest().upper()=='8F525E4DD29AC15126AE48D2C1C4BAABDF01BD5B2EF577E0EEBB8D034C72337F'
+          assert payload[:8]==b'ISS26OV1' and struct.unpack_from('<I',payload,8)[0]==5 and len(payload)==12+5*2388
+          approved=[820,852,955,2085,2433]
+          overrides={}
+          for j,k in enumerate(approved):
+              row=payload[12+j*2388:12+(j+1)*2388]
+              assert struct.unpack_from('<I',row,0)[0]==k
+              overrides[k]=row
+          assert len(overrides)==5
+          out=bytearray(base)
+          changed=[]
+          for i in range(699):
+              start=12+i*2388
+              lba=struct.unpack_from('<I',base,start)[0]
+              if lba not in overrides:continue
+              old=base[start:start+2388]
+              new=overrides[lba]
+              assert old[:36]==new[:36], ('wrong clean original guard',lba)
+              assert old[36:60]==new[36:60], ('modified XA header',lba)
+              assert old!=new
+              out[start:start+2388]=new
+              changed.append(lba)
+          assert changed==approved
+          output=pathlib.Path('dist/ISS26_0.9.6_DEV30_ClubStyle_AB.iss26p')
+          output.write_bytes(out)
+          assert hashlib.sha256(out).hexdigest().upper()=='536115C44308B1EA1D62C16BB359E0A71FC8A7C96D28F0D85277AFDD8D1246D0'
+          assert output.stat().st_size==1669224
+          print('PASS: standalone 699-record source-guarded 0.9.6 DEV30 club-style A/B patch; five modified source sectors')
+      - name: Publish A-B diagnostic pre-release; no feed promotion
+        shell: bash
+        run: |
+          set -euo pipefail
+          tag='v0.9.6-dev30-clubstyle-ab'
+          file='dist/ISS26_0.9.6_DEV30_ClubStyle_AB.iss26p'
+          cat > dist/notes.txt <<'NOTES'
+          # ISS26 0.9.6 DEV30 — club style A/B test (NOT final graphic correction)
+          This self-contained ISS26X01 patch targets the verified clean SLES-03321 European disc.
+          Changes five 82-entry style maps only, restoring original-name club style IDs for
+          Manchester United, Chelsea, Liverpool, Barcelona and Leverkusen as an A/B experiment.
+          All 699 original-sector guards retained. Only LBA 820, 852, 955, 2085, 2433 edited.
+          Player records, graphics bitmap/CLUT resources, all national style IDs, and audio unchanged.
+          Gameplay appearance is NOT verified; this is NOT a fix for all club crests or ML flags.
+          Clean original full Track01 SHA256: D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44.
+          Patch SHA256: 536115C44308B1EA1D62C16BB359E0A71FC8A7C96D28F0D85277AFDD8D1246D0.
+          Derived whole-disc result SHA cannot be independently obtained in this run; Test Game
+          and Stable feeds remain unchanged. Use owner-supplied local standalone installer for
+          experimental evaluation; do not apply over DEV29 or to real saves.
+          NOTES
+          if gh release view "$tag" -R "$REPO" >/dev/null 2>&1; then
+            existing=$(gh api "repos/$REPO/releases/tags/$tag" --jq '[.assets[] | select(.name=="ISS26_0.9.6_DEV30_ClubStyle_AB.iss26p")][0].digest // ""')
+            test "$existing" = 'sha256:536115c44308b1ea1d62c16bb359e0a71fc8a7c96d28f0d85277afdd8d1246d0' || exit 1
+            echo 'Existing published binary matches pinned digest'
+          else
+            gh release create "$tag" "$file" -R "$REPO" --target main --prerelease \
+              --title 'ISS26 0.9.6 DEV30 Club Style A/B (experimental)' --notes-file dist/notes.txt
+          fi
+      - name: Verify published asset by download and SHA
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p dist/recheck
+          gh release download v0.9.6-dev30-clubstyle-ab -R "$REPO" \
+             --pattern 'ISS26_0.9.6_DEV30_ClubStyle_AB.iss26p' --dir dist/recheck
+          cmp dist/ISS26_0.9.6_DEV30_ClubStyle_AB.iss26p dist/recheck/ISS26_0.9.6_DEV30_ClubStyle_AB.iss26p
+          echo '536115c44308b1ea1d62c16bb359e0a71fc8a7c96d28f0d85277afdd8d1246d0  dist/recheck/ISS26_0.9.6_DEV30_ClubStyle_AB.iss26p' | sha256sum -c -
+          echo 'Verified pre-release A/B asset; Test and Stable update feeds unchanged.'
