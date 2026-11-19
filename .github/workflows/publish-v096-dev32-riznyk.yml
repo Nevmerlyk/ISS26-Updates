@@ -1,0 +1,85 @@
+name: Publish ISS26 DEV32 standalone Riznyk shirt-number correction (experimental)
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/publish-v096-dev32-riznyk.yml
+      - staging/v0.9.6/DEV32_sector854_jersey.xz.b64
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: iss26-v096-dev32-riznyk
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ github.token }}
+      REPO: Nevmerlyk/ISS26-Updates
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download pinned exact standalone DEV31 patch
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          gh release download 'v0.9.6-dev31-three-mini-flags-ab' -R "$REPO" --pattern 'ISS26_0.9.6_DEV31_ThreeMiniFlags_AB.iss26p' --dir dist
+          echo 'd61ed821a54da7e14dff8e6cb401f58c5e836df4f528625acde3adbfba6d049b  dist/ISS26_0.9.6_DEV31_ThreeMiniFlags_AB.iss26p' | sha256sum -c -
+      - name: Build byte-identical source-guarded one-sector test patch
+        shell: python
+        run: |
+          import base64,hashlib,lzma,pathlib,struct
+          sha=lambda b:hashlib.sha256(b).hexdigest().upper()
+          source=pathlib.Path('dist/ISS26_0.9.6_DEV31_ThreeMiniFlags_AB.iss26p').read_bytes()
+          assert source[:8]==b'ISS26X01' and struct.unpack_from('<I',source,8)[0]==699 and len(source)==1669224
+          assert sha(source)=='D61ED821A54DA7E14DFF8E6CB401F58C5E836DF4F528625ACDE3ADBFBA6D049B'
+          data=lzma.decompress(base64.b64decode(pathlib.Path('staging/v0.9.6/DEV32_sector854_jersey.xz.b64').read_bytes()))
+          assert sha(data)=='D53359ACABBA7F81E6A70B9A1F13486673D71AC0B0937E477C556DD0963DE84C'
+          assert data[:8]==b'ISS26OV1' and struct.unpack_from('<I',data,8)[0]==1 and len(data)==12+2388
+          new=data[12:]
+          assert struct.unpack_from('<I',new,0)[0]==854
+          idx=next(i for i in range(699) if struct.unpack_from('<I',source,12+i*2388)[0]==854)
+          start=12+idx*2388
+          old=source[start:start+2388]
+          assert old[:36]==new[:36] and old[36:60]==new[36:60] and old!=new
+          out=source[:start]+new+source[start+2388:]
+          assert sha(out)=='C94BBF74D068B3058BAAD2293970FD39C763C84493C069FD843D154F07B00340'
+          assert sum(out[12+i*2388:12+(i+1)*2388]!=source[12+i*2388:12+(i+1)*2388] for i in range(699))==1
+          path=pathlib.Path('dist/ISS26_0.9.6_DEV32_Riznyk31.iss26p')
+          path.write_bytes(out)
+          print('PASS: exactly one guarded sector, preserving all DEV31 graphics edits')
+      - name: Publish experimental release only; Test and Stable untouched
+        shell: bash
+        run: |
+          set -euo pipefail
+          tag='v0.9.6-dev32-riznyk31-ab'
+          file='dist/ISS26_0.9.6_DEV32_Riznyk31.iss26p'
+          cat > dist/notes.txt <<'EOF'
+          ISS26 0.9.6 DEV32 standalone experimental game patch.
+          Retains all DEV31 Algeria, Turkey and Côte d'Ivoire native mini-flag edits.
+          Corrects Shakhtar Dmytro Riznyk club shirt #12 -> #31 only at SELECT.BIN logical 0x27DE, LBA 854.
+          Only one of 699 source-guarded sector records differs from DEV31. No other game resources edited.
+          PS1 Mode2/Form1 EDC/ECC verified at build time; full resulting disc SHA cannot be precomputed
+          from the truncated local clean-original source, so this remains manual A/B.
+          Not an all-flag, all-club-crest, or full-squad fix. No game update feeds promoted.
+          EOF
+          if gh release view "$tag" -R "$REPO" >/dev/null 2>&1; then
+            existing=$(gh api "repos/$REPO/releases/tags/$tag" --jq '[.assets[]|select(.name=="ISS26_0.9.6_DEV32_Riznyk31.iss26p")][0].digest // ""')
+            test "$existing" = 'sha256:c94bbf74d068b3058baad2293970fd39c763c84493c069fd843d154f07b00340' || { echo 'Conflict'; exit 1; }
+          else
+            gh release create "$tag" "$file" -R "$REPO" --target main --prerelease \
+              --title 'ISS26 DEV32 — Shakhtar Riznyk club #31 (A/B)' --notes-file dist/notes.txt
+          fi
+      - name: Verify downloaded release binary
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p dist/verify
+          gh release download 'v0.9.6-dev32-riznyk31-ab' -R "$REPO" --pattern 'ISS26_0.9.6_DEV32_Riznyk31.iss26p' --dir dist/verify
+          cmp dist/ISS26_0.9.6_DEV32_Riznyk31.iss26p dist/verify/ISS26_0.9.6_DEV32_Riznyk31.iss26p
+          echo 'c94bbf74d068b3058baad2293970fd39c763c84493c069fd843d154f07b00340  dist/verify/ISS26_0.9.6_DEV32_Riznyk31.iss26p' | sha256sum -c -
+          echo 'Verified standalone A/B; Test and Stable feeds unchanged.'
