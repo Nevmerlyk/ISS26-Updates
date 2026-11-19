@@ -1,0 +1,130 @@
+name: ISS26 0.9.6 DEV35 native flag fix standalone release
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/publish-v096-dev35-native-flags.yml
+      - staging/v0.9.6/DEV34_tunisia_7sector_overrides.xz.b64
+      - staging/v0.9.6/DEV35_canada_gdc_112sector_overrides.xz.b64
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: iss26-dev35-flags-standalone
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ github.token }}
+      REPO: Nevmerlyk/ISS26-Updates
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download exact published DEV33 clean-original sector patch
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          gh release download 'v0.9.6-dev33-six-large-flags-ab' -R "$REPO" --pattern 'ISS26_0.9.6_DEV33_6LargeFlags_AB.iss26p' --dir dist
+          echo 'c089bede6cc7a36a8507454f40d597a9575049b752d4568fee359e02e1013a0d  dist/ISS26_0.9.6_DEV33_6LargeFlags_AB.iss26p' | sha256sum -c -
+      - name: Assemble guard-preserving DEV34 and DEV35 without game ISO
+        shell: python
+        run: |
+          import pathlib,hashlib,struct,lzma,base64
+          sha=lambda x:hashlib.sha256(x).hexdigest().upper()
+          base=pathlib.Path('dist/ISS26_0.9.6_DEV33_6LargeFlags_AB.iss26p').read_bytes()
+          assert sha(base)=='C089BEDE6CC7A36A8507454F40D597A9575049B752D4568FEE359E02E1013A0D'
+          record=2388
+          assert base[:8]==b'ISS26X01' and struct.unpack_from('<I',base,8)[0]==710 and len(base)==12+710*record
+          def parse(blob):
+              assert blob[:8]==b'ISS26X01' and len(blob)==12+struct.unpack_from('<I',blob,8)[0]*record
+              n=struct.unpack_from('<I',blob,8)[0]
+              ret={}
+              for i in range(n):
+                  row=blob[12+i*record:12+(i+1)*record];lba=struct.unpack_from('<I',row)[0]
+                  assert lba not in ret and len(row)==record
+                  ret[lba]=row
+              return ret
+          def stage(rows,path,expected_count,expected_sha):
+              data=lzma.decompress(base64.b64decode(pathlib.Path(path).read_bytes()))
+              assert sha(data)==expected_sha
+              assert data[:8]==b'ISS26OV1' and struct.unpack_from('<I',data,8)[0]==expected_count
+              assert len(data)==12+expected_count*record
+              edits={}
+              for i in range(expected_count):
+                  row=data[12+i*record:12+(i+1)*record]
+                  lba=struct.unpack_from('<I',row,0)[0]
+                  assert lba not in edits and row[36:60]==bytes(24)
+                  if lba in rows:
+                      assert row[:36]==rows[lba][:36]
+                      assert rows[lba]!=row
+                  edits[lba]=row
+              rows.update(edits)
+              return sorted(edits)
+          def export(rows):
+              b=b'ISS26X01'+struct.pack('<I',len(rows))+b''.join(rows[lba] for lba in sorted(rows))
+              assert len(b)==12+len(rows)*record
+              return b
+          data=parse(base)
+          first=stage(data,'staging/v0.9.6/DEV34_tunisia_7sector_overrides.xz.b64',7,
+                      '0AB9DA1FA8674A0CAD1EC20879B67D4A803A7B4A869F459CF04DFA128B379B58')
+          assert first==[6086,6087,6088,6252,6253,6254,6255]
+          assert len(data)==710
+          inter=export(data)
+          assert sha(inter)=='0CF8044642FA81D5D327758D03411BCB5FED870AFD09314A53E8023847E1E4DE'
+          second=stage(data,'staging/v0.9.6/DEV35_canada_gdc_112sector_overrides.xz.b64',112,
+                       '46F80602E988A32420DC8A2825FB9A655865231807CB61973B988BFA0D806B7F')
+          assert len(data)==772 and len(second)==112
+          # All additional bytes are graphics resource CD sectors in 10k..17k LBA
+          assert all(10000<=lba<=17000 for lba in second)
+          result=export(data)
+          assert sha(result)=='FF358C929B20693B7BB689DFECDB5441D81673A988270592A26658C476C8C585'
+          out=pathlib.Path('dist/ISS26_0.9.6_DEV35_Flags.iss26p')
+          out.write_bytes(result)
+          print('PASS 772 standalone source-guarded records, stage hashes, original preimage preserved')
+      - name: Publish standalone-only prerelease, do NOT change Test Game or Stable feed
+        shell: bash
+        run: |
+          set -euo pipefail
+          tag='v0.9.6-dev35-tunisia-canada-ab'
+          file='dist/ISS26_0.9.6_DEV35_Flags.iss26p'
+          cat > dist/notes.txt <<'NOTES'
+          ISS26 0.9.6 DEV35 standalone A/B graphics patch (clean original EU 12-track).
+          
+          Adds Tunisia's actual native 16x18 ML mini-flag source artwork to DATSEL/DATSEL3,
+          and replaces Canada's 64x28 menu-derived flag in 33 GDC stadium graphics
+          resources that have byte-identical old source art. Bosnia stadium GDC_BN not
+          touched because its source is independent.
+          
+          Preserves DEV31 Algeria/Turkey/Côte d'Ivoire minis, DEV32 Riznyk club #31,
+          DEV33 six large national selection flag sources. No unrelated decoded GPU
+          pixels, CLUTs, player records, kits or binary code modified in new edits.
+          
+          Correctness established by static guarded-sector, GPU decoded readback,
+          original Mode2 Form1 EDC/ECC checks, but post-patch PCSX-Redux display
+          remains unverified. NOT complete 24 club crests, nationality flags or
+          78-team update. Game feed Test still DEV29 and Stable still 0.9.5.
+          
+          SHA256: FF358C929B20693B7BB689DFECDB5441D81673A988270592A26658C476C8C585
+          NOTES
+          if gh release view "$tag" -R "$REPO" >/dev/null 2>&1; then
+            actual=$(gh api "repos/$REPO/releases/tags/$tag" --jq '[.assets[]|select(.name=="ISS26_0.9.6_DEV35_Flags.iss26p")][0].digest // ""')
+            test "$actual" = 'sha256:ff358c929b20693b7bb689dfecdb5441d81673a988270592a26658c476c8c585' || { echo 'Refusing release conflict'; exit 1; }
+          else
+            gh release create "$tag" "$file" -R "$REPO" --target main --prerelease \
+              --title 'ISS26 DEV35 - Tunisia miniature / Canada stadium graphics (A/B)' --notes-file dist/notes.txt
+          fi
+      - name: Verify published GitHub release bytes
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p dist/checked
+          gh release download v0.9.6-dev35-tunisia-canada-ab -R "$REPO" \
+            --pattern 'ISS26_0.9.6_DEV35_Flags.iss26p' --dir dist/checked
+          cmp dist/ISS26_0.9.6_DEV35_Flags.iss26p dist/checked/ISS26_0.9.6_DEV35_Flags.iss26p
+          echo 'ff358c929b20693b7bb689dfecdb5441d81673a988270592a26658c476c8c585  dist/checked/ISS26_0.9.6_DEV35_Flags.iss26p' | sha256sum -c -
+          echo 'DEV35 independent remote artifact digest PASS; Test and Stable channels unchanged'
