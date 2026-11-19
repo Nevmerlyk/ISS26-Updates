@@ -1,0 +1,78 @@
+name: Build ISS26 0.9.6 DEV30 source-only club artwork
+on:
+  push:
+    branches: [main]
+    paths:
+      - tools/prepare_v096_dev30_club_crest_art.py
+      - .github/workflows/build-v096-dev30-club-art-source.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install source graphics renderer
+        run: python -m pip install "Pillow>=11,<13" "cairosvg>=2.7,<3"
+      - name: Render PS1-native indexed artwork for 24 source registry clubs
+        run: python tools/prepare_v096_dev30_club_crest_art.py
+      - name: Validate every native bitmap and its independent CLUT
+        shell: python
+        run: |
+          import json,hashlib,pathlib,struct
+          folder=pathlib.Path("dist/iss26-artwork/club-crests")
+          doc=json.loads(pathlib.Path("dist/iss26-artwork/clubs.json").read_text())
+          expected=["SHK","KRY","LEV","AJX","NEW","SCP","BEN","ROM",
+                    "BAY","ACM","JUV","INT","BVB","ATM","NAP","RMA",
+                    "PSG","BAR","TOT","MCI","LIV","CHE","ARS","MUN"]
+          assert len(doc)==24 and [e["code"] for e in doc]==expected
+          assert [e["slot"] for e in doc]==list(range(24))
+          sizes=[(64,28),(24,16),(24,8)]
+          for item in doc:
+              assert list(item["sizes"])==[f"{w}x{h}" for w,h in sizes]
+              assert item["source_url"].startswith("https://raw.githubusercontent.com/JoseArroyave/football-logos/5ab11fed47427b3003f4b276554491fe683387b1/")
+              for w,h in sizes:
+                  s=item["sizes"][f"{w}x{h}"]
+                  base=f'{item["slot"]:02d}_{item["code"]}_{w}x{h}'
+                  tex=(folder/(base+".4bpp")).read_bytes()
+                  clut=(folder/(base+".clut")).read_bytes()
+                  png=(folder/(base+".png")).read_bytes()
+                  assert len(tex)==w*h//2 and len(clut)==32
+                  assert png[:8]==b"\x89PNG\r\n\x1a\n"
+                  assert hashlib.sha256(tex).hexdigest()==s["texture_sha256"]
+                  assert hashlib.sha256(clut).hexdigest()==s["clut_sha256"]
+                  assert hashlib.sha256(png).hexdigest()==s["image_sha256"]
+                  assert len(s["palette_rgb"])==16
+                  vals=[v for c in tex for v in (c&15,c>>4)]
+                  assert len(vals)==w*h and 0<max(vals)<16
+          assert len(list(folder.glob("*.4bpp")))==72
+          assert len(list(folder.glob("*.clut")))==72
+          assert len(list(folder.glob("*.png")))==96
+          print("PASS: 24 source identities, 72 texture+CLUT pairs, native sizes and all SHA256 digests")
+          print("No game image was read; no PS1 disc patch or update feed created")
+      - name: Package source artwork for local ROM integration
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd dist/iss26-artwork
+          python - <<'PY'
+          from pathlib import Path
+          import zipfile
+          root=Path('.')
+          with zipfile.ZipFile('../ISS26_v096_DEV30_24_Club_Art_SOURCE_ONLY.zip','w',compression=zipfile.ZIP_DEFLATED,compresslevel=9) as z:
+              for p in sorted(root.rglob('*')):
+                  if p.is_file():z.write(p,p.as_posix())
+          print('Source art package ready')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ISS26-v096-DEV30-24-Club-Art-SOURCE-ONLY
+          path: dist/ISS26_v096_DEV30_24_Club_Art_SOURCE_ONLY.zip
+          retention-days: 30
