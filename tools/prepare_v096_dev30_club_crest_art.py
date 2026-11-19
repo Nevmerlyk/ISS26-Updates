@@ -161,9 +161,10 @@ def main():
                 entries[f"{w}x{h}"]={"width":w,"height":h,
                     "texture_sha256":hashlib.sha256(texture).hexdigest(),
                     "clut_sha256":hashlib.sha256(clut).hexdigest(),
-                    "image_sha256":hashlib.sha256(data).hexdigest()}
+                    "image_sha256":hashlib.sha256(data).hexdigest(),
+                    "palette_rgb":palette}
             catalog.append({"slot":index,"code":code,"name":name,
-                "source_url":url,"palette_rgb":palette,
+                "source_url":url,
                 "sizes":entries})
             print(f"Created accurate crest source and PS1 sprite for {code}")
         except Exception as exc:
@@ -171,7 +172,7 @@ def main():
     (root.parent/"clubs.json").write_text(json.dumps(catalog,ensure_ascii=False,indent=2),
                                             encoding="utf-8")
     assert len(catalog)==24 and [r["slot"] for r in catalog]==list(range(24))
-    print("PASS: 24 exact active club identities; 72 4bpp 3-size sprites + 32-byte CLUTs. SOURCE ART ONLY: no runtime disc integration.")
+    print("PASS: 24 source-registry club entries, 72 4bpp 3-size sprites + 32-byte CLUTs. SOURCE ART ONLY: runtime disc mapping not verified.")
 
 if __name__=="__main__":
     main()
