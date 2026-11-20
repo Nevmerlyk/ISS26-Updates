@@ -1,0 +1,109 @@
+name: Publish ISS26 v0.9.6 DEV39 — four bonus teams permanently unlocked
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/publish-v096-dev39-four-bonus.yml
+      - staging/v0.9.6/DEV39_2_exe_sector_overrides.xz.b64
+  workflow_dispatch:
+
+permissions:
+  contents: write
+concurrency:
+  group: iss26-v096-dev39-four-bonus-release
+  cancel-in-progress: false
+
+jobs:
+  rebuild-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ github.token }}
+      REPO: Nevmerlyk/ISS26-Updates
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download exact cumulative DEV38 patch
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          gh release download v0.9.6-dev38-uruguay-mini-ab -R "$REPO" \
+            --pattern 'ISS26_0.9.6_DEV38_Uruguay_Mini.iss26p' --dir dist
+          echo '649c7f5328eda13058d94c2a94869ae61067c3e23c1ddd1c477093bde6575533  dist/ISS26_0.9.6_DEV38_Uruguay_Mini.iss26p' | sha256sum -c -
+      - name: Rebuild standalone DEV39 and verify all inherited 772 records
+        shell: python
+        run: |
+          import base64,hashlib,lzma,pathlib,struct
+          sha=lambda b:hashlib.sha256(b).hexdigest().upper()
+          old=pathlib.Path('dist/ISS26_0.9.6_DEV38_Uruguay_Mini.iss26p').read_bytes()
+          assert sha(old)=='649C7F5328EDA13058D94C2A94869AE61067C3E23C1DDD1C477093BDE6575533'
+          assert old[:8]==b'ISS26X01' and struct.unpack_from('<I',old,8)[0]==772 and len(old)==12+772*2388
+          encoded=pathlib.Path('staging/v0.9.6/DEV39_2_exe_sector_overrides.xz.b64').read_bytes()
+          raw=lzma.decompress(base64.b64decode(encoded))
+          assert sha(raw)=='3EBB1FFE0543102F85A1034D0DC15617F4097660C2CB1707A087C51867A7B930'
+          assert raw[:8]==b'ISS26OV1' and struct.unpack_from('<I',raw,8)[0]==2 and len(raw)==12+2*2388
+          records={}
+          for i in range(772):
+            record=old[12+i*2388:12+(i+1)*2388]
+            lba=struct.unpack_from('<I',record,0)[0]
+            assert lba not in records
+            records[lba]=record
+          assert 45 not in records and 152 not in records
+          for i,lba in enumerate([45,152]):
+            record=raw[12+i*2388:12+(i+1)*2388]
+            assert struct.unpack_from('<I',record,0)[0]==lba
+            # 4 bytes LBA, 32 bytes of original sector SHA, 2352 bytes XOR
+            assert any(record[36:]) and len(record)==2388
+            records[lba]=record
+          assert len(records)==774
+          output=b'ISS26X01'+struct.pack('<I',774)+b''.join(records[k] for k in sorted(records))
+          assert len(output)==1848324
+          assert sha(output)=='64CB487FEE50CEF4837FD00703262BD44F2B9B25950F155E5156B1BC14D1BF36'
+          # No hidden removal or replacement of any cumulative DEV38 record.
+          for i in range(772):
+            record=old[12+i*2388:12+(i+1)*2388]
+            k=struct.unpack_from('<I',record,0)[0]
+            assert records[k]==record
+          pathlib.Path('dist/ISS26_0.9.6_DEV39_4BonusAlwaysUnlocked.iss26p').write_bytes(output)
+          print('PASS: 774 clean-original guarded sectors, two new executable rows, all DEV38 flags and player fixes retained')
+      - name: Publish experimental test release (do not switch stable/test feed)
+        shell: bash
+        run: |
+          set -euo pipefail
+          tag='v0.9.6-dev39-4-bonus-unlocked'
+          file='dist/ISS26_0.9.6_DEV39_4BonusAlwaysUnlocked.iss26p'
+          cat > dist/notes.txt <<'NOTES'
+          ISS26 0.9.6 DEV39 - four permanently unlocked original bonus teams:
+          Euro All-Stars, World All-Stars, Euro Classics, World Classics.
+          GameShark unlock-state address in SLES-03321: 0x800736B3, value FF.
+          Six MIPS instructions in original SLES executable:
+          main loop 0x8001A4D0..D4 hooks dead code 0x8004FA24..30 (after jr ra).
+          At the end of each main loop iteration the flag is rewritten to FF.
+          No memory card or cup completion required, no external Lua or cheat.
+          This is a complete standalone clean-original European 12-track sector patch.
+          Retains all previous DEV38 changes to game content and nationality mini-flags.
+          774 guards, exactly two added original executable sector records (LBA45,152).
+          Patch SHA256: 64CB487FEE50CEF4837FD00703262BD44F2B9B25950F155E5156B1BC14D1BF36
+          Original Track01 SHA256: D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44
+          Derived Track01 SHA256 verified locally: E116F7E833536AB7E5623AFE1398C4CD9F4D574212A860FFFCB247E887D5985B
+          Local source-disc and all 774 Mode2/Form1 EDC/ECC validations passed.
+          Manual PCSX-Redux gameplay verification is pending.
+          This is experimental. Test and Stable feeds remain unchanged.
+          NOTES
+          if gh release view "$tag" -R "$REPO" >/dev/null 2>&1; then
+            existing=$(gh api "repos/$REPO/releases/tags/$tag" --jq '[.assets[]|select(.name=="ISS26_0.9.6_DEV39_4BonusAlwaysUnlocked.iss26p")][0].digest // ""')
+            test "$existing" = 'sha256:64cb487fee50cef4837fd00703262bd44f2b9b25950f155e5156b1bc14d1bf36' || exit 1
+          else
+            gh release create "$tag" "$file" -R "$REPO" --target main --prerelease \
+              --title 'ISS26 DEV39 - four bonus teams permanently unlocked (experimental)' --notes-file dist/notes.txt
+          fi
+      - name: Download remotely and verify exact published bytes
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p dist/recheck
+          gh release download v0.9.6-dev39-4-bonus-unlocked -R "$REPO" \
+            --pattern 'ISS26_0.9.6_DEV39_4BonusAlwaysUnlocked.iss26p' --dir dist/recheck
+          cmp dist/ISS26_0.9.6_DEV39_4BonusAlwaysUnlocked.iss26p dist/recheck/ISS26_0.9.6_DEV39_4BonusAlwaysUnlocked.iss26p
+          echo '64cb487fee50cef4837fd00703262bd44f2b9b25950f155e5156b1bc14d1bf36  dist/recheck/ISS26_0.9.6_DEV39_4BonusAlwaysUnlocked.iss26p' | sha256sum -c -
+          echo 'DEV39 prerel asset verified; no update channel auto-switched.'
