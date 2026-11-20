@@ -1,12 +1,12 @@
 {
-  "schemaVersion": 1,
-  "channel": "test",
-  "latest": {
-    "version": "0.9.6-dev29-test",
-    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.6-dev29-test/ISS26_0.9.6_DEV29_Test.iss26p",
-    "patchSha256": "0049C38CED7620129B1A29D928B4D9E617EF5FD8300A74D9FFEEBB42BBE0C62D",
-    "baseSha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
-    "resultSha256": "FA44FB13100C83ED1582170E9AC11D649CA1B5395EBFEEC663D9F68821C41E42"
-  },
-  "notes": "Experimental DEV29 \u2014 Ayman Azhil Morocco country link corrected; known mini-flag and extra nationality issues remain. Stable 0.9.5 unaffected."
+    "schemaVersion":  1,
+    "channel":  "test",
+    "latest":  {
+                   "version":  "0.9.6-alt-c7d38ff1a878",
+                   "patchUrl":  "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.6-alt-rosters-c7d38ff1a878-test/ISS26_AltRosters_c7d38ff1a878.iss26p",
+                   "patchSha256":  "C7D38FF1A8782F710F2633E2010F5DF045D1F17DFB9E741CA0A4F8CEE8943C1F",
+                   "baseSha256":  "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
+                   "resultSha256":  "C265019267C11DBBB60FA32E369FE5DA9E1759403D860E5F11824FD69AB0518C"
+               },
+    "notes":  "Alternative rosters: 54 national, 24 club, 1716 slots; test patch only. Runtime QA pending."
 }
