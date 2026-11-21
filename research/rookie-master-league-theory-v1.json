@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "edition": "ISS Pro Evolution 2 Europe, ISS26 0.9.6 test",
+  "examId": "rookie_master_league_kryvbas_22",
+  "objective": "Enter Master League; choose any club except Manchester United; reach Buy Players; highlight FC Kryvbas; visit all 22 FC Kryvbas players without buying anybody.",
+  "maxWallClockSeconds": 300,
+  "perDistinctVisualScreenTrials": 10,
+  "globalSafeActionLimit": 160,
+  "maxPlayerScrolls": 30,
+  "notAllowed": [
+    "Manchester United as own club",
+    "Commit Buy/Transfer/Confirm Purchase",
+    "Overwrite memory card",
+    "Edit game ISO/BIN/CUE",
+    "Claim success from visual difference or raw 0x29 group alone"
+  ],
+  "expectedPlayerCoverage": 22,
+  "stages": [
+    {
+      "id": "boot",
+      "goal": "Leave splash/title and memory card gate",
+      "candidateKeys": "START, CROSS, CIRCLE (only in confirmed context)",
+      "safety": "Do not treat a changed intro frame as a menu",
+      "verifiedByGame": false
+    },
+    {
+      "id": "main_menu",
+      "goal": "Locate MASTER LEAGUE; do not choose MATCH MODE",
+      "candidateKeys": "UP, DOWN, CROSS or CIRCLE",
+      "safety": "Know current cursor and confirm mapping from screenshot",
+      "verifiedByGame": false
+    },
+    {
+      "id": "master_league_start",
+      "goal": "Open NEW GAME or isolated exam save",
+      "candidateKeys": "UP, DOWN, CROSS or CIRCLE",
+      "safety": "Do not load or overwrite real memory card",
+      "verifiedByGame": false
+    },
+    {
+      "id": "own_club",
+      "goal": "Choose any club EXCEPT Manchester United",
+      "candidateKeys": "LEFT, RIGHT, UP, DOWN, confirm only after visible name",
+      "safety": "Explicitly reject Manchester United; no assumption from raw slot index",
+      "verifiedByGame": false
+    },
+    {
+      "id": "league_hub",
+      "goal": "Find market/transfer function",
+      "candidateKeys": "UP, DOWN",
+      "safety": "Formation, schedule and lineup are wrong branches",
+      "verifiedByGame": false
+    },
+    {
+      "id": "buy_players",
+      "goal": "Open player purchase browser",
+      "candidateKeys": "UP, DOWN, confirm only on proven entry",
+      "safety": "Never commit a transfer or purchase",
+      "verifiedByGame": false
+    },
+    {
+      "id": "club_search",
+      "goal": "Find FC Kryvbas/Kryvbass among 24 clubs",
+      "candidateKeys": "UP, DOWN, LEFT, RIGHT, L1, R1",
+      "safety": "Kryvbas is modded team; stock 2001 order is invalid",
+      "verifiedByGame": false
+    },
+    {
+      "id": "player_list",
+      "goal": "Move across each of 22 player rows",
+      "candidateKeys": "DOWN/UP, page keys only when proven",
+      "safety": "One raw slot is not proof of a separate footballer",
+      "verifiedByGame": false
+    },
+    {
+      "id": "audit",
+      "goal": "Verify 22 unique refs, complete screenshots and VAT",
+      "candidateKeys": "No purchase, no confirmation",
+      "safety": "Check independent rendered club and player identity",
+      "verifiedByGame": false
+    }
+  ],
+  "menuTheory": [
+    {
+      "claim": "Master League is a top-level mode with NEW GAME and LOAD GAME",
+      "confidence": "historic documented",
+      "citation": "https://gamefaqs.gamespot.com/ps/578734-iss-pro-evolution-2/faqs/8976"
+    },
+    {
+      "claim": "Master League contains 24 clubs; 16 in Division 1 and 8 in Division 2",
+      "confidence": "historic documented",
+      "citation": "https://gamefaqs.gamespot.com/ps/578734-iss-pro-evolution-2/faqs/14154"
+    },
+    {
+      "claim": "Points can be used to acquire players in Master League",
+      "confidence": "historic documented",
+      "citation": "https://gamefaqs.gamespot.com/ps/578734-iss-pro-evolution-2/faqs/14154"
+    },
+    {
+      "claim": "One guide lists O=confirm/X=cancel; other European-derived menu priors favor CROSS confirmation; must calibrate from emulator",
+      "confidence": "conflicting; NOT verified",
+      "citation": "https://gamefaqs.gamespot.com/ps/578734-iss-pro-evolution-2/faqs/8976"
+    },
+    {
+      "claim": "Kryvbas replaces one of 24 club slots in the ISS26 mod; original GameFAQs roster indices cannot identify it",
+      "confidence": "ISS26 user project requirement",
+      "citation": "ISS26 current alternative roster requirements"
+    }
+  ],
+  "evidenceToCollect": [
+    "visible Master League screen",
+    "visible chosen own club name other than MU",
+    "visible Buy Players menu",
+    "visible FC Kryvbas title",
+    "for each of 22 slots screenshot+VRAM, stable 44-byte roster ref bank, selected group/index",
+    "no purchase/transfer confirmation event"
+  ],
+  "passPolicy": "Requires independently reviewed semantic evidence for every named screen, own club !=Manchester United, target==FC Kryvbas, 22 different player references with distinct screenshots. Raw-byte counter and press sequence are candidates, never PASS.",
+  "failurePolicy": "After 5 minutes, incomplete or unproven route receives no PASS; retain reports to improve future training."
+}
