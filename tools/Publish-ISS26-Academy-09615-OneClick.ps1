@@ -133,22 +133,46 @@ try {
       break
     }catch{if($i -eq 4){throw};Start-Sleep -Seconds 4}
   }
-  $check=GetMeta "launcher/latest.json"
-  if($check.sha -ne $feed.sha){throw "Launcher feed updated concurrently"}
-  if((GetMeta "stable/latest.json").sha -ne $stable.sha){throw "Game Stable feed changed; refusing publication"}
+  # The current feed SHA is a compare-and-swap lease. Always re-fetch it
+  # immediately before PUT and retry only confirmed HTTP 409 races.
   $body=@{schemaVersion=1;latest=@{
     version=$v;zipUrl=$url;zipSha256=$ziphash;
     launcherSha256=(Hash $launcher);updaterSha256=(Hash $updater);
     notes="Academy $v UI hotfix: Practice action buttons docked above status bar; original CUE and Stable PS1 game patch unchanged."
   }}|ConvertTo-Json -Depth 8
-  $req=@{branch="main";sha=$feed.sha;message="Release verified Academy $v Windows auto-update";content=[Convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes($body))}|ConvertTo-Json -Depth 6
   $request=Join-Path $out "publish-feed.json"
-  [IO.File]::WriteAllText($request,$req,[Text.UTF8Encoding]::new($false))
-  InvokeGithub @("api","--method","PUT","repos/$updates/contents/launcher/latest.json","--input",$request)|Out-Null
-  $verified=GetMeta "launcher/latest.json"
-  $actual=[Text.Encoding]::UTF8.GetString([Convert]::FromBase64String(($verified.content -replace '\s+','')))|ConvertFrom-Json
-  if($actual.latest.version -ne $v -or $actual.latest.zipSha256 -ne $ziphash){throw "Feed readback mismatch"}
-  Write-Host "PUBLISHED: ISS26 $v ACTIVE! Run your usual ISS26.exe to auto-update." -ForegroundColor Green
+  for($attempt=1;$attempt -le 4;$attempt++){
+    $live=GetMeta "launcher/latest.json"
+    $liveState=[Text.Encoding]::UTF8.GetString([Convert]::FromBase64String(($live.content -replace '\s+','')))|ConvertFrom-Json
+    if($liveState.latest.version -eq $v){
+      if($liveState.latest.zipSha256 -eq $ziphash -and
+         $liveState.latest.launcherSha256 -eq (Hash $launcher) -and
+         $liveState.latest.updaterSha256 -eq (Hash $updater)){
+         Write-Host "ALREADY ACTIVE $v" -ForegroundColor Green; return
+      }
+      throw "Different $v binaries already active; refusing overwrite"
+    }
+    if($liveState.latest.version -ne "0.9.6.14"){throw "Unexpected current launcher $($liveState.latest.version)"}
+    if((GetMeta "stable/latest.json").sha -ne $stable.sha){throw "Game Stable feed changed; refusing publication"}
+    $req=@{branch="main";sha=$live.sha;message="Release verified Academy $v Windows auto-update";content=[Convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes($body))}|ConvertTo-Json -Depth 6
+    [IO.File]::WriteAllText($request,$req,[Text.UTF8Encoding]::new($false))
+    try {
+      InvokeGithub @("api","--method","PUT","repos/$updates/contents/launcher/latest.json","--input",$request)|Out-Null
+    } catch {
+      if($attempt -lt 4 -and $_.Exception.Message -match '(?i)(HTTP 409|status["\s:]+409|is at [0-9a-f]{40} but expected)'){
+        Write-Host "Concurrent manifest update; retrying with latest SHA ($attempt/4)"
+        Start-Sleep -Seconds 1
+        continue
+      }
+      throw
+    }
+    $verified=GetMeta "launcher/latest.json"
+    $actual=[Text.Encoding]::UTF8.GetString([Convert]::FromBase64String(($verified.content -replace '\s+','')))|ConvertFrom-Json
+    if($actual.latest.version -ne $v -or $actual.latest.zipSha256 -ne $ziphash){throw "Feed readback mismatch"}
+    Write-Host "PUBLISHED: ISS26 $v ACTIVE! Run your usual ISS26.exe to auto-update." -ForegroundColor Green
+    return
+  }
+  throw "Concurrent launcher updates persist; safe stop without overwrite"
 }catch{
   Write-Host ("STOPPED: "+$_.Exception.Message) -ForegroundColor Red
   Write-Host "Logs: $logs"
