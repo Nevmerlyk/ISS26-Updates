@@ -97,6 +97,10 @@ try {
   }finally{$zip.Dispose()}
   if((Get-Item $candidate).Length -gt 160MB){throw "ZIP exceeds updater size limit"}
   $ziphash=Hash $candidate
+  # GitHub's launcher updater downloads this exact asset name, not LOCAL-ONLY.
+  $releaseZip=Join-Path $out "ISS26-LauncherUpdate.zip"
+  Copy-Item -LiteralPath $candidate -Destination $releaseZip -Force
+  if((Hash $releaseZip) -ne $ziphash){throw "Release archive staging SHA mismatch"}
   $feed=GetMeta "launcher/latest.json"
   $state=[Text.Encoding]::UTF8.GetString([Convert]::FromBase64String(($feed.content -replace '\s+','')))|ConvertFrom-Json
   $stable=GetMeta "stable/latest.json"
@@ -109,7 +113,7 @@ try {
   try{$ErrorActionPreference="Continue";& gh release view $tag --repo $updates *> $null;$exists=$LASTEXITCODE -eq 0}
   finally{$ErrorActionPreference=$old}
   if(-not $exists){
-    InvokeGithub @("release","create",$tag,$candidate,"--repo",$updates,"--target","main","--latest=false","--title","ISS26 Academy $v Stable Windows launcher","--notes","Launcher-only release; game BIN/CUE and Stable PS1 patch unchanged.")|Out-Null
+    InvokeGithub @("release","create",$tag,$releaseZip,"--repo",$updates,"--target","main","--latest=false","--title","ISS26 Academy $v Stable Windows launcher","--notes","Launcher-only release; game BIN/CUE and Stable PS1 patch unchanged.")|Out-Null
   }
   $remote=Join-Path $out "verified-public.zip"
   for($i=0;$i -lt 5;$i++){
