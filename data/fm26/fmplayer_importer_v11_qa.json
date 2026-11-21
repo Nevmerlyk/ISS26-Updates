@@ -1,0 +1,61 @@
+{
+  "status": "offline_core_pass_live_unavailable",
+  "roster_revision": 10,
+  "roster_blob_sha": "aecd2eb689c2555b07a3d0a3d99174219b7b3831",
+  "coverage": {
+    "roster_rows": 1248,
+    "uid_candidates": 873,
+    "with_any_converted_attributes": 811,
+    "complete_15_candidate_rows": 184
+  },
+  "batch": {
+    "players": 6,
+    "previously_incomplete_now_complete": 5,
+    "newly_filled_iss_fields": 47,
+    "new_uid": 1,
+    "raw_normalized_observations": 216,
+    "conversion_values_rechecked": 90,
+    "profile_sources": 4,
+    "history_sources": 2
+  },
+  "tests": {
+    "profile_core": 8,
+    "history_core": 6,
+    "passed": 14,
+    "failed": 0,
+    "history_cli_synthetic_smoke": "passed",
+    "source_format_reconstructed_fixtures": "6/6 passed, 90/90 converted values matched committed batch02"
+  },
+  "local_verification": {
+    "profile_core_prefix": {
+      "characters": 6530,
+      "fnv1a_utf16": "04f7857b"
+    },
+    "profile_tests": {
+      "characters": 3339,
+      "fnv1a_utf16": "77610ebd"
+    },
+    "history_module": {
+      "characters": 6420,
+      "fnv1a_utf16": "78e9898e"
+    },
+    "history_tests": {
+      "characters": 2209,
+      "fnv1a_utf16": "1cbe8227"
+    },
+    "scope": "Local copies of repository parser core and tests, matching lengths and FNV checksums; conversion dependency reconstructed from existing mapping. Original live CLI not executed. History CLI only synthetic offline test."
+  },
+  "blockers": [
+    "Direct HTTPS from execution container fails DNS; direct FMPlayer profile fetch through web returned HTTP 403 and robots.txt was unavailable. No automated requests or bypass attempted.",
+    "New numerical observations manually recorded from indexed public source excerpts; no live HTML integration test, game changes or independent full FIFA roster audit.",
+    "Original database version/build on FMPlayer is unspecified. Older Sortitoutsi FM24 identity link for Vinicius supplies date/UID only; numeric values come solely from FM26 history column. Verify source use permission before redistribution."
+  ],
+  "sources": [
+    "https://fmplayer.net/fm-26/gabriel-19242094",
+    "https://fmplayer.net/fm-26/marquinhos-19163495",
+    "https://fmplayer.net/fm-26/kylian-mbappe-85139014",
+    "https://fmplayer.net/fm-26/rodri-67217524",
+    "https://fmplayer.net/history/bukayo-saka-28122642",
+    "https://fmplayer.net/history/vinicius-junior-19302146"
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "applies_to": "ISS26 player database and future roster builds",
+  "world_cup": {
+    "participant_team_ids": [
+      "NAT_ALG",
+      "NAT_ARG",
+      "NAT_AUS",
+      "NAT_AUT",
+      "NAT_BEL",
+      "NAT_BIH",
+      "NAT_BRA",
+      "NAT_CAN",
+      "NAT_CIV",
+      "NAT_COD",
+      "NAT_COL",
+      "NAT_CPV",
+      "NAT_CRO",
+      "NAT_CUW",
+      "NAT_CZE",
+      "NAT_ECU",
+      "NAT_EGY",
+      "NAT_ENG",
+      "NAT_ESP",
+      "NAT_FRA",
+      "NAT_GER",
+      "NAT_GHA",
+      "NAT_HAI",
+      "NAT_IRN",
+      "NAT_IRQ",
+      "NAT_JOR",
+      "NAT_JPN",
+      "NAT_KOR",
+      "NAT_KSA",
+      "NAT_MAR",
+      "NAT_MEX",
+      "NAT_NED",
+      "NAT_NOR",
+      "NAT_NZL",
+      "NAT_PAN",
+      "NAT_PAR",
+      "NAT_POR",
+      "NAT_QAT",
+      "NAT_RSA",
+      "NAT_SCO",
+      "NAT_SEN",
+      "NAT_SUI",
+      "NAT_SWE",
+      "NAT_TUN",
+      "NAT_TUR",
+      "NAT_URU",
+      "NAT_USA",
+      "NAT_UZB"
+    ],
+    "expected_teams": 48,
+    "expected_registered_players": 1248,
+    "expected_roster_per_team": 26,
+    "authoritative_source": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf",
+    "source_snapshot": "2026-07-19 final tournament edition as observed 2026-11-16",
+    "announcement": "https://inside.fifa.com/organisation/media-releases/world-cup-2026-48-squads-confirmed",
+    "membership": "official FIFA World Cup 2026 registered squads including FIFA-approved replacements reflected in final edition; no subsequent callups or FM club/national selection may alter membership",
+    "official_fields": [
+      "shirt_number",
+      "player_name",
+      "shirt_name",
+      "birth_date",
+      "height_cm",
+      "position_group",
+      "club_at_world_cup"
+    ],
+    "fm26_fields": [
+      "attributes",
+      "preferred_foot",
+      "detailed_positions",
+      "weight_kg",
+      "appearance_if_available"
+    ],
+    "preserve_full_registered_pool": true,
+    "game_main_slot_count_existing": 22,
+    "game_reserve_count": 4,
+    "slot_selection": "pending; choose the 22 only from official 26, preserve other four in source database, no invented slot expansion",
+    "superseded_for_membership": "November callup pool and all earlier predicted/current squad membership for these 48 teams; retain files as historical reference only"
+  },
+  "non_world_cup": {
+    "membership_source": "FM26 verified roster data",
+    "remaining_standard_nations": [
+      "NAT_UKR",
+      "NAT_ITA",
+      "NAT_DEN",
+      "NAT_POL",
+      "NAT_HUN",
+      "NAT_NGA"
+    ],
+    "club_count": 24,
+    "required_clubs": [
+      "CLB_KRY",
+      "CLB_MUN"
+    ],
+    "excluded_clubs": [
+      "PSV Eindhoven"
+    ],
+    "excluded_nations": [
+      "Russia"
+    ],
+    "bonus_teams": {
+      "count": 4,
+      "policy": "preserve existing bonus-team identities; use FM26 data where applicable; do not invent rosters where no FM26 equivalent exists"
+    }
+  },
+  "quality": {
+    "do_not_override_fifa_membership": true,
+    "do_not_guess_missing_attributes": true,
+    "join_player_identity": "verified FM UID or matching name and birth date, review conflicts",
+    "data_status": "policy only; full FIFA roster import and FM26 squad refresh not yet performed",
+    "source_precedence": "FIFA for registered tournament membership, FM26 for other roster membership and player attributes; store provenance per field"
+  }
+}

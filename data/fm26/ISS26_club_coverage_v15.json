@@ -1,0 +1,1065 @@
+{
+  "status": "BULK_SOURCE_REPRODUCED_CANDIDATES_NOT_RELEASE",
+  "input_blob": "45447494a4e31c2e500b2a98c77623fb6cccb7fe",
+  "source_repo": "vfxper/fm26",
+  "source_blob": "5dd3ec2d109ed5d9a13b3df0dd49c8760d2d459c",
+  "source_records": 34644,
+  "header_columns": 50,
+  "record_columns": 116,
+  "schema_zero_based": {
+    "corners": 7,
+    "crossing": 8,
+    "dribbling": 9,
+    "finishing": 10,
+    "first_touch": 11,
+    "free_kick_taking": 12,
+    "heading": 13,
+    "long_shots": 14,
+    "long_throws": 15,
+    "marking": 16,
+    "passing": 17,
+    "penalty_taking": 18,
+    "tackling": 19,
+    "technique": 20,
+    "aggression": 21,
+    "anticipation": 22,
+    "bravery": 23,
+    "composure": 24,
+    "concentration": 25,
+    "decisions": 26,
+    "determination": 27,
+    "flair": 28,
+    "leadership": 29,
+    "off_the_ball": 30,
+    "positioning": 31,
+    "teamwork": 32,
+    "vision": 33,
+    "work_rate": 34,
+    "acceleration": 35,
+    "agility": 36,
+    "balance": 37,
+    "jumping_reach": 38,
+    "natural_fitness": 39,
+    "pace": 40,
+    "stamina": 41,
+    "strength": 42,
+    "aerial_reach": 48,
+    "command_of_area": 49,
+    "handling": 52,
+    "kicking": 53,
+    "one_on_ones": 54,
+    "reflexes": 55,
+    "height_cm": 81,
+    "left_foot": 83,
+    "right_foot": 84,
+    "birth_date": 92,
+    "loan_club": 96,
+    "uid": 97
+  },
+  "schema_caveats": [
+    "Community snapshot labeled 2025-11-07; exact FM26 build unconfirmed.",
+    "36 visible attributes compared against public FM26 Mbappe sample; natural fitness and stamina mapping differs from broken header. Goalkeeper columns sampled against Courtois and Alisson; no full independent schema audit. Weight not available (column 82 empty in samples); do not infer.",
+    "Candidate roster kept unchanged, club snapshot differences flagged. Prior unmatched ratings withheld; v14 remains intact. Existing DOB or UID conflicts do not merge. Source name or age/context only is not independent DOB verification."
+  ],
+  "totals": {
+    "slots": 528,
+    "previous_complete": 212,
+    "previous_cells": 3657,
+    "source_matched": 509,
+    "complete": 509,
+    "partial": 0,
+    "empty": 19,
+    "filled_cells": 7635,
+    "new_cells_on_matched": 3993,
+    "changed_previous_cells": 0,
+    "club_context_conflicts": 19
+  },
+  "teams": {
+    "CLB_BAY": {
+      "slots": 22,
+      "matched": 22,
+      "complete": 22,
+      "partial": 0,
+      "empty": 0,
+      "club_context_conflicts": 0
+    },
+    "CLB_ARS": {
+      "slots": 22,
+      "matched": 22,
+      "complete": 22,
+      "partial": 0,
+      "empty": 0,
+      "club_context_conflicts": 0
+    },
+    "CLB_RMA": {
+      "slots": 22,
+      "matched": 22,
+      "complete": 22,
+      "partial": 0,
+      "empty": 0,
+      "club_context_conflicts": 0
+    },
+    "CLB_PSG": {
+      "slots": 22,
+      "matched": 21,
+      "complete": 21,
+      "partial": 0,
+      "empty": 1,
+      "club_context_conflicts": 0
+    },
+    "CLB_INT": {
+      "slots": 22,
+      "matched": 22,
+      "complete": 22,
+      "partial": 0,
+      "empty": 0,
+      "club_context_conflicts": 0
+    },
+    "CLB_LIV": {
+      "slots": 22,
+      "matched": 22,
+      "complete": 22,
+      "partial": 0,
+      "empty": 0,
+      "club_context_conflicts": 0
+    },
+    "CLB_MCI": {
+      "slots": 22,
+      "matched": 22,
+      "complete": 22,
+      "partial": 0,
+      "empty": 0,
+      "club_context_conflicts": 2
+    },
+    "CLB_BVB": {
+      "slots": 22,
+      "matched": 22,
+      "complete": 22,
+      "partial": 0,
+      "empty": 0,
+      "club_context_conflicts": 0
+    },
+    "CLB_LEV": {
+      "slots": 22,
+      "matched": 22,
+      "complete": 22,
+      "partial": 0,
+      "empty": 0,
+      "club_context_conflicts": 1
+    },
+    "CLB_AVL": {
+      "slots": 22,
+      "matched": 22,
+      "complete": 22,
+      "partial": 0,
+      "empty": 0,
+      "club_context_conflicts": 2
+    },
+    "CLB_TOT": {
+      "slots": 22,
+      "matched": 22,
+      "complete": 22,
+      "partial": 0,
+      "empty": 0,
+      "club_context_conflicts": 1
+    },
+    "CLB_BRU": {
+      "slots": 22,
+      "matched": 21,
+      "complete": 21,
+      "partial": 0,
+      "empty": 1,
+      "club_context_conflicts": 1
+    },
+    "CLB_BAR": {
+      "slots": 22,
+      "matched": 22,
+      "complete": 22,
+      "partial": 0,
+      "empty": 0,
+      "club_context_conflicts": 1
+    },
+    "CLB_ATM": {
+      "slots": 22,
+      "matched": 22,
+      "complete": 22,
+      "partial": 0,
+      "empty": 0,
+      "club_context_conflicts": 2
+    },
+    "CLB_ROM": {
+      "slots": 22,
+      "matched": 22,
+      "complete": 22,
+      "partial": 0,
+      "empty": 0,
+      "club_context_conflicts": 1
+    },
+    "CLB_SCP": {
+      "slots": 22,
+      "matched": 22,
+      "complete": 22,
+      "partial": 0,
+      "empty": 0,
+      "club_context_conflicts": 0
+    },
+    "CLB_POR": {
+      "slots": 22,
+      "matched": 22,
+      "complete": 22,
+      "partial": 0,
+      "empty": 0,
+      "club_context_conflicts": 2
+    },
+    "CLB_FIO": {
+      "slots": 22,
+      "matched": 22,
+      "complete": 22,
+      "partial": 0,
+      "empty": 0,
+      "club_context_conflicts": 5
+    },
+    "CLB_BEN": {
+      "slots": 22,
+      "matched": 20,
+      "complete": 20,
+      "partial": 0,
+      "empty": 2,
+      "club_context_conflicts": 0
+    },
+    "CLB_BET": {
+      "slots": 22,
+      "matched": 21,
+      "complete": 21,
+      "partial": 0,
+      "empty": 1,
+      "club_context_conflicts": 0
+    },
+    "CLB_CHE": {
+      "slots": 22,
+      "matched": 22,
+      "complete": 22,
+      "partial": 0,
+      "empty": 0,
+      "club_context_conflicts": 0
+    },
+    "CLB_ATA": {
+      "slots": 22,
+      "matched": 22,
+      "complete": 22,
+      "partial": 0,
+      "empty": 0,
+      "club_context_conflicts": 1
+    },
+    "CLB_MUN": {
+      "slots": 22,
+      "matched": 22,
+      "complete": 22,
+      "partial": 0,
+      "empty": 0,
+      "club_context_conflicts": 0
+    },
+    "CLB_KRY": {
+      "slots": 22,
+      "matched": 8,
+      "complete": 8,
+      "partial": 0,
+      "empty": 14,
+      "club_context_conflicts": 0
+    }
+  },
+  "review": [
+    {
+      "team": "CLB_BAY",
+      "name": "Alphonso Davies",
+      "reason": "height_source_differs",
+      "previous": "183",
+      "source": "185"
+    },
+    {
+      "team": "CLB_BAY",
+      "name": "Josip Stanišić",
+      "reason": "height_source_differs",
+      "previous": "186",
+      "source": "187"
+    },
+    {
+      "team": "CLB_BAY",
+      "name": "Jamal Musiala",
+      "reason": "height_source_differs",
+      "previous": "180",
+      "source": "184"
+    },
+    {
+      "team": "CLB_BAY",
+      "name": "Luis Díaz",
+      "reason": "height_source_differs",
+      "previous": "179",
+      "source": "180"
+    },
+    {
+      "team": "CLB_BAY",
+      "name": "Harry Kane",
+      "reason": "height_source_differs",
+      "previous": "190",
+      "source": "188"
+    },
+    {
+      "team": "CLB_ARS",
+      "name": "David Raya",
+      "reason": "height_source_differs",
+      "previous": "186",
+      "source": "183"
+    },
+    {
+      "team": "CLB_ARS",
+      "name": "Piero Hincapié",
+      "reason": "height_source_differs",
+      "previous": "183",
+      "source": "184"
+    },
+    {
+      "team": "CLB_ARS",
+      "name": "Gabriel Martinelli",
+      "reason": "height_source_differs",
+      "previous": "178",
+      "source": "180"
+    },
+    {
+      "team": "CLB_ARS",
+      "name": "Kai Havertz",
+      "reason": "height_source_differs",
+      "previous": "190",
+      "source": "191"
+    },
+    {
+      "team": "CLB_ARS",
+      "name": "Mikel Merino",
+      "reason": "height_source_differs",
+      "previous": "188",
+      "source": "187"
+    },
+    {
+      "team": "CLB_ARS",
+      "name": "Noni Madueke",
+      "reason": "height_source_differs",
+      "previous": "182",
+      "source": "176"
+    },
+    {
+      "team": "CLB_ARS",
+      "name": "Viktor Gyökeres",
+      "reason": "height_source_differs",
+      "previous": "189",
+      "source": "187"
+    },
+    {
+      "team": "CLB_RMA",
+      "name": "Thibaut Courtois",
+      "reason": "height_source_differs",
+      "previous": "199",
+      "source": "200"
+    },
+    {
+      "team": "CLB_RMA",
+      "name": "Kylian Mbappé",
+      "reason": "height_source_differs",
+      "previous": "180",
+      "source": "178"
+    },
+    {
+      "team": "CLB_RMA",
+      "name": "Jude Bellingham",
+      "reason": "height_source_differs",
+      "previous": "183",
+      "source": "186"
+    },
+    {
+      "team": "CLB_PSG",
+      "name": "Achraf Hakimi",
+      "reason": "height_source_differs",
+      "previous": "180",
+      "source": "181"
+    },
+    {
+      "team": "CLB_PSG",
+      "name": "Nuno Mendes",
+      "reason": "height_source_differs",
+      "previous": "177",
+      "source": "176"
+    },
+    {
+      "team": "CLB_PSG",
+      "name": "Ousmane Dembélé",
+      "reason": "height_source_differs",
+      "previous": "179",
+      "source": "178"
+    },
+    {
+      "team": "CLB_PSG",
+      "name": "João Neves",
+      "reason": "height_source_differs",
+      "previous": "171",
+      "source": "174"
+    },
+    {
+      "team": "CLB_PSG",
+      "name": "Fabián",
+      "reason": "height_source_differs",
+      "previous": "188",
+      "source": "189"
+    },
+    {
+      "team": "CLB_PSG",
+      "name": "Bradley Barcola",
+      "reason": "height_source_differs",
+      "previous": "187",
+      "source": "186"
+    },
+    {
+      "team": "CLB_PSG",
+      "name": "Désiré Doué",
+      "reason": "height_source_differs",
+      "previous": "182",
+      "source": "181"
+    },
+    {
+      "team": "CLB_PSG",
+      "name": "Kang-In Lee",
+      "reason": "height_source_differs",
+      "previous": "174",
+      "source": "173"
+    },
+    {
+      "team": "CLB_PSG",
+      "name": "Warren Zaïre-Emery",
+      "reason": "height_source_differs",
+      "previous": "176",
+      "source": "178"
+    },
+    {
+      "team": "CLB_INT",
+      "name": "Manuel Akanji",
+      "reason": "height_source_differs",
+      "previous": "188",
+      "source": "187"
+    },
+    {
+      "team": "CLB_INT",
+      "name": "Lautaro Martínez",
+      "reason": "height_source_differs",
+      "previous": "175",
+      "source": "174"
+    },
+    {
+      "team": "CLB_LIV",
+      "name": "Alisson",
+      "reason": "height_source_differs",
+      "previous": "193",
+      "source": "191"
+    },
+    {
+      "team": "CLB_LIV",
+      "name": "Florian Wirtz",
+      "reason": "height_source_differs",
+      "previous": "176",
+      "source": "177"
+    },
+    {
+      "team": "CLB_LIV",
+      "name": "Alexis Mac Allister",
+      "reason": "height_source_differs",
+      "previous": "176",
+      "source": "174"
+    },
+    {
+      "team": "CLB_LIV",
+      "name": "Cody Gakpo",
+      "reason": "height_source_differs",
+      "previous": "193",
+      "source": "189"
+    },
+    {
+      "team": "CLB_MCI",
+      "name": "Rúben Dias",
+      "reason": "height_source_differs",
+      "previous": "187",
+      "source": "186"
+    },
+    {
+      "team": "CLB_MCI",
+      "name": "Marc Guéhi",
+      "reason": "club_snapshot_differs",
+      "source_club": "Crystal Palace",
+      "source_loan": ""
+    },
+    {
+      "team": "CLB_MCI",
+      "name": "Marc Guéhi",
+      "reason": "height_source_differs",
+      "previous": "183",
+      "source": "182"
+    },
+    {
+      "team": "CLB_MCI",
+      "name": "Matheus Nunes",
+      "reason": "height_source_differs",
+      "previous": "183",
+      "source": "184"
+    },
+    {
+      "team": "CLB_MCI",
+      "name": "Abdukodir Khusanov",
+      "reason": "height_source_differs",
+      "previous": "186",
+      "source": "187"
+    },
+    {
+      "team": "CLB_MCI",
+      "name": "Nico O'Reilly",
+      "reason": "height_source_differs",
+      "previous": "177",
+      "source": "193"
+    },
+    {
+      "team": "CLB_MCI",
+      "name": "Rodri",
+      "reason": "height_source_differs",
+      "previous": "190",
+      "source": "191"
+    },
+    {
+      "team": "CLB_MCI",
+      "name": "Jérémy Doku",
+      "reason": "height_source_differs",
+      "previous": "173",
+      "source": "171"
+    },
+    {
+      "team": "CLB_MCI",
+      "name": "Omar Marmoush",
+      "reason": "height_source_differs",
+      "previous": "180",
+      "source": "183"
+    },
+    {
+      "team": "CLB_MCI",
+      "name": "Rayan Cherki",
+      "reason": "height_source_differs",
+      "previous": "180",
+      "source": "177"
+    },
+    {
+      "team": "CLB_MCI",
+      "name": "Antoine Semenyo",
+      "reason": "club_snapshot_differs",
+      "source_club": "AFC Bournemouth",
+      "source_loan": ""
+    },
+    {
+      "team": "CLB_MCI",
+      "name": "Antoine Semenyo",
+      "reason": "height_source_differs",
+      "previous": "185",
+      "source": "178"
+    },
+    {
+      "team": "CLB_MCI",
+      "name": "Tijjani Reijnders",
+      "reason": "height_source_differs",
+      "previous": "178",
+      "source": "185"
+    },
+    {
+      "team": "CLB_MCI",
+      "name": "Mateo Kovačić",
+      "reason": "height_source_differs",
+      "previous": "178",
+      "source": "176"
+    },
+    {
+      "team": "CLB_BVB",
+      "name": "Gregor Kobel",
+      "reason": "height_source_differs",
+      "previous": "196",
+      "source": "195"
+    },
+    {
+      "team": "CLB_BVB",
+      "name": "Julian Ryerson",
+      "reason": "height_source_differs",
+      "previous": "186",
+      "source": "183"
+    },
+    {
+      "team": "CLB_BVB",
+      "name": "Felix Nmecha",
+      "reason": "height_source_differs",
+      "previous": "190",
+      "source": "188"
+    },
+    {
+      "team": "CLB_BVB",
+      "name": "Carney Chukwuemeka",
+      "reason": "height_source_differs",
+      "previous": "187",
+      "source": "188"
+    },
+    {
+      "team": "CLB_LEV",
+      "name": "Jonas Omlin",
+      "reason": "club_snapshot_differs",
+      "source_club": "Borussia Mönchengladbach",
+      "source_loan": ""
+    },
+    {
+      "team": "CLB_LEV",
+      "name": "Jarell Quansah",
+      "reason": "height_source_differs",
+      "previous": "190",
+      "source": "192"
+    },
+    {
+      "team": "CLB_LEV",
+      "name": "Exequiel Palacios",
+      "reason": "height_source_differs",
+      "previous": "177",
+      "source": "176"
+    },
+    {
+      "team": "CLB_AVL",
+      "name": "Emiliano Martínez",
+      "reason": "height_source_differs",
+      "previous": "195",
+      "source": "193"
+    },
+    {
+      "team": "CLB_AVL",
+      "name": "Ezri Konsa",
+      "reason": "height_source_differs",
+      "previous": "180",
+      "source": "183"
+    },
+    {
+      "team": "CLB_AVL",
+      "name": "Amadou Onana",
+      "reason": "height_source_differs",
+      "previous": "192",
+      "source": "195"
+    },
+    {
+      "team": "CLB_AVL",
+      "name": "Douglas Luiz",
+      "reason": "club_snapshot_differs",
+      "source_club": "Juventus",
+      "source_loan": "Nottingham Forest"
+    },
+    {
+      "team": "CLB_AVL",
+      "name": "Tammy Abraham",
+      "reason": "club_snapshot_differs",
+      "source_club": "Associazione Sportiva Roma",
+      "source_loan": "Beşiktaş A.Ş."
+    },
+    {
+      "team": "CLB_TOT",
+      "name": "Pedro Porro",
+      "reason": "height_source_differs",
+      "previous": "173",
+      "source": "176"
+    },
+    {
+      "team": "CLB_TOT",
+      "name": "Conor Gallagher",
+      "reason": "club_snapshot_differs",
+      "source_club": "A. Madrid",
+      "source_loan": ""
+    },
+    {
+      "team": "CLB_TOT",
+      "name": "Lucas Bergvall",
+      "reason": "height_source_differs",
+      "previous": "187",
+      "source": "186"
+    },
+    {
+      "team": "CLB_TOT",
+      "name": "Pape Matar Sarr",
+      "reason": "height_source_differs",
+      "previous": "185",
+      "source": "184"
+    },
+    {
+      "team": "CLB_BRU",
+      "name": "Brandon Mechele",
+      "reason": "height_source_differs",
+      "previous": "190",
+      "source": "188"
+    },
+    {
+      "team": "CLB_BRU",
+      "name": "Joel Ordóñez",
+      "reason": "height_source_differs",
+      "previous": "188",
+      "source": "185"
+    },
+    {
+      "team": "CLB_BRU",
+      "name": "Hans Vanaken",
+      "reason": "height_source_differs",
+      "previous": "195",
+      "source": "174"
+    },
+    {
+      "team": "CLB_BRU",
+      "name": "Félix Lemaréchal",
+      "reason": "club_snapshot_differs",
+      "source_club": "RC Strasbourg Alsace",
+      "source_loan": ""
+    },
+    {
+      "team": "CLB_BRU",
+      "name": "Gustaf Nilsson",
+      "reason": "prior_date_differs",
+      "previous": "1997-05-25",
+      "source": "1997-05-23",
+      "uid": "93060362"
+    },
+    {
+      "team": "CLB_BAR",
+      "name": "Joan García",
+      "reason": "height_source_differs",
+      "previous": "194",
+      "source": "191"
+    },
+    {
+      "team": "CLB_BAR",
+      "name": "Eric García",
+      "reason": "height_source_differs",
+      "previous": "183",
+      "source": "182"
+    },
+    {
+      "team": "CLB_BAR",
+      "name": "Pau Cubarsí",
+      "reason": "height_source_differs",
+      "previous": "185",
+      "source": "184"
+    },
+    {
+      "team": "CLB_BAR",
+      "name": "João Cancelo",
+      "reason": "height_source_differs",
+      "previous": "175",
+      "source": "182"
+    },
+    {
+      "team": "CLB_BAR",
+      "name": "Ronald Araujo",
+      "reason": "height_source_differs",
+      "previous": "185",
+      "source": "188"
+    },
+    {
+      "team": "CLB_BAR",
+      "name": "Lamine Yamal",
+      "reason": "height_source_differs",
+      "previous": "183",
+      "source": "180"
+    },
+    {
+      "team": "CLB_BAR",
+      "name": "Ferran Torres",
+      "reason": "height_source_differs",
+      "previous": "183",
+      "source": "184"
+    },
+    {
+      "team": "CLB_BAR",
+      "name": "Marcus Rashford",
+      "reason": "club_snapshot_differs",
+      "source_club": "Manchester United",
+      "source_loan": "Barcelona"
+    },
+    {
+      "team": "CLB_BAR",
+      "name": "Marcus Rashford",
+      "reason": "height_source_differs",
+      "previous": "180",
+      "source": "183"
+    },
+    {
+      "team": "CLB_ATM",
+      "name": "Juan Musso",
+      "reason": "height_source_differs",
+      "previous": "193",
+      "source": "191"
+    },
+    {
+      "team": "CLB_ATM",
+      "name": "Marcos Llorente",
+      "reason": "height_source_differs",
+      "previous": "183",
+      "source": "184"
+    },
+    {
+      "team": "CLB_ATM",
+      "name": "Nahuel Molina",
+      "reason": "height_source_differs",
+      "previous": "179",
+      "source": "175"
+    },
+    {
+      "team": "CLB_ATM",
+      "name": "Marc Pubill",
+      "reason": "height_source_differs",
+      "previous": "191",
+      "source": "190"
+    },
+    {
+      "team": "CLB_ATM",
+      "name": "Ademola Lookman",
+      "reason": "club_snapshot_differs",
+      "source_club": "Bergamo",
+      "source_loan": ""
+    },
+    {
+      "team": "CLB_ATM",
+      "name": "Álex Baena",
+      "reason": "height_source_differs",
+      "previous": "172",
+      "source": "174"
+    },
+    {
+      "team": "CLB_ATM",
+      "name": "Giuliano Simeone",
+      "reason": "height_source_differs",
+      "previous": "174",
+      "source": "180"
+    },
+    {
+      "team": "CLB_ATM",
+      "name": "Rodrigo Mendoza",
+      "reason": "club_snapshot_differs",
+      "source_club": "Elche",
+      "source_loan": ""
+    },
+    {
+      "team": "CLB_ROM",
+      "name": "Evan N'Dicka",
+      "reason": "height_source_differs",
+      "previous": "192",
+      "source": "190"
+    },
+    {
+      "team": "CLB_ROM",
+      "name": "Donyell Malen",
+      "reason": "club_snapshot_differs",
+      "source_club": "Aston Villa",
+      "source_loan": ""
+    },
+    {
+      "team": "CLB_ROM",
+      "name": "Donyell Malen",
+      "reason": "height_source_differs",
+      "previous": "178",
+      "source": "176"
+    },
+    {
+      "team": "CLB_SCP",
+      "name": "Gonçalo Inácio",
+      "reason": "height_source_differs",
+      "previous": "185",
+      "source": "186"
+    },
+    {
+      "team": "CLB_SCP",
+      "name": "Zeno Debast",
+      "reason": "height_source_differs",
+      "previous": "189",
+      "source": "191"
+    },
+    {
+      "team": "CLB_SCP",
+      "name": "Luis Suárez",
+      "reason": "height_source_differs",
+      "previous": "179",
+      "source": "181"
+    },
+    {
+      "team": "CLB_POR",
+      "name": "Diogo Costa",
+      "reason": "height_source_differs",
+      "previous": "188",
+      "source": "186"
+    },
+    {
+      "team": "CLB_POR",
+      "name": "Thiago Silva",
+      "reason": "club_snapshot_differs",
+      "source_club": "FLU",
+      "source_loan": ""
+    },
+    {
+      "team": "CLB_POR",
+      "name": "Séko Fofana",
+      "reason": "club_snapshot_differs",
+      "source_club": "Stade Rennais FC",
+      "source_loan": ""
+    },
+    {
+      "team": "CLB_POR",
+      "name": "Séko Fofana",
+      "reason": "height_source_differs",
+      "previous": "185",
+      "source": "183"
+    },
+    {
+      "team": "CLB_FIO",
+      "name": "Daniele Rugani",
+      "reason": "club_snapshot_differs",
+      "source_club": "Juventus",
+      "source_loan": ""
+    },
+    {
+      "team": "CLB_FIO",
+      "name": "Marin Pongračić",
+      "reason": "height_source_differs",
+      "previous": "193",
+      "source": "189"
+    },
+    {
+      "team": "CLB_FIO",
+      "name": "Marco Brescianini",
+      "reason": "club_snapshot_differs",
+      "source_club": "Bergamo",
+      "source_loan": ""
+    },
+    {
+      "team": "CLB_FIO",
+      "name": "Manor Solomon",
+      "reason": "club_snapshot_differs",
+      "source_club": "Tottenham Hotspur",
+      "source_loan": "Villarreal"
+    },
+    {
+      "team": "CLB_FIO",
+      "name": "Giovanni Fabbian",
+      "reason": "club_snapshot_differs",
+      "source_club": "Bologna FC 1909",
+      "source_loan": ""
+    },
+    {
+      "team": "CLB_FIO",
+      "name": "Jack Harrison",
+      "reason": "club_snapshot_differs",
+      "source_club": "Leeds United",
+      "source_loan": ""
+    },
+    {
+      "team": "CLB_BEN",
+      "name": "Nicolás Otamendi",
+      "reason": "height_source_differs",
+      "previous": "182",
+      "source": "183"
+    },
+    {
+      "team": "CLB_BEN",
+      "name": "Rafa",
+      "reason": "ambiguous_or_weak_identity",
+      "options": [
+        [
+          "Rafa",
+          "55063493",
+          "Beşiktaş A.Ş."
+        ]
+      ]
+    },
+    {
+      "team": "CLB_BEN",
+      "name": "Dodi Lukébakio",
+      "reason": "height_source_differs",
+      "previous": "184",
+      "source": "187"
+    },
+    {
+      "team": "CLB_BEN",
+      "name": "Andreas Schjelderup",
+      "reason": "height_source_differs",
+      "previous": "177",
+      "source": "176"
+    },
+    {
+      "team": "CLB_CHE",
+      "name": "Reece James",
+      "reason": "height_source_differs",
+      "previous": "180",
+      "source": "179"
+    },
+    {
+      "team": "CLB_CHE",
+      "name": "Pedro Neto",
+      "reason": "height_source_differs",
+      "previous": "174",
+      "source": "172"
+    },
+    {
+      "team": "CLB_ATA",
+      "name": "Éderson",
+      "reason": "height_source_differs",
+      "previous": "184",
+      "source": "183"
+    },
+    {
+      "team": "CLB_ATA",
+      "name": "Marten de Roon",
+      "reason": "height_source_differs",
+      "previous": "186",
+      "source": "185"
+    },
+    {
+      "team": "CLB_ATA",
+      "name": "Kamaldeen Sulemana",
+      "reason": "height_source_differs",
+      "previous": "174",
+      "source": "175"
+    },
+    {
+      "team": "CLB_ATA",
+      "name": "Giacomo Raspadori",
+      "reason": "club_snapshot_differs",
+      "source_club": "A. Madrid",
+      "source_loan": ""
+    },
+    {
+      "team": "CLB_MUN",
+      "name": "Bruno Fernandes",
+      "reason": "height_source_differs",
+      "previous": "183",
+      "source": "179"
+    },
+    {
+      "team": "CLB_KRY",
+      "name": "Oleksandr Kemkin",
+      "reason": "height_source_differs",
+      "previous": "187",
+      "source": "186"
+    },
+    {
+      "team": "CLB_KRY",
+      "name": "Oleksandr Kamenskyi",
+      "reason": "height_source_differs",
+      "previous": "180",
+      "source": "182"
+    }
+  ],
+  "source_checks": [
+    "https://fmplayer.net/fm-26/kylian-mbappe-85139014",
+    "https://www.footballmanagerblog.org/2026/06/fm26-best-world-cup-goalkeepers.html",
+    "https://sortitoutsi.net/football-manager-2026/person/18026122/thibaut-courtois"
+  ],
+  "notes": [
+    "Neuer design override 17 stored separately from base calculated rating.",
+    "No original game or stable patch changed. Previous claims of individual source verification are not certified by this merge."
+  ]
+}

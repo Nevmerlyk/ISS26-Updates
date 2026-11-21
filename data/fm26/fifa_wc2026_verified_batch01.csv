@@ -1,0 +1,105 @@
+team_id,shirt_number,player_name,position_group,birth_date,height_cm,fifa_page,source_edition,registration_status,iss_slot_selection
+NAT_ALG,1,Melvin Mastil,GK,2000-02-19,194,1,2026-07-19,registered,pending
+NAT_ALG,2,Aissa Mandi,DF,1991-10-22,184,1,2026-07-19,registered,pending
+NAT_ALG,3,Achref Abada,DF,1999-06-15,185,1,2026-07-19,registered,pending
+NAT_ALG,4,Mohamed Amine Tougai,DF,2000-01-22,186,1,2026-07-19,registered,pending
+NAT_ALG,5,Zineddine Belaid,DF,1999-03-20,186,1,2026-07-19,registered,pending
+NAT_ALG,6,Ramiz Zerrouki,MF,1998-05-26,183,1,2026-07-19,registered,pending
+NAT_ALG,7,Riyad Mahrez,FW,1991-02-21,179,1,2026-07-19,registered,pending
+NAT_ALG,8,Houssem Aouar,MF,1998-06-30,175,1,2026-07-19,registered,pending
+NAT_ALG,9,Amine Gouiri,FW,2000-02-16,180,1,2026-07-19,registered,pending
+NAT_ALG,10,Fares Chaibi,MF,2002-11-28,183,1,2026-07-19,registered,pending
+NAT_ALG,11,Anis Hadj Moussa,FW,2002-02-11,176,1,2026-07-19,registered,pending
+NAT_ALG,12,Nadhir Benbouali,FW,2000-04-17,190,1,2026-07-19,registered,pending
+NAT_ALG,13,Jaouen Hadjam,DF,2003-03-26,185,1,2026-07-19,registered,pending
+NAT_ALG,14,Hicham Boudaoui,MF,1999-09-23,175,1,2026-07-19,registered,pending
+NAT_ALG,15,Rayan Ait-Nouri,DF,2001-06-06,180,1,2026-07-19,registered,pending
+NAT_ALG,16,Oussama Benbot,GK,1994-10-11,188,1,2026-07-19,registered,pending
+NAT_ALG,17,Rak Belghali,DF,2002-06-07,180,1,2026-07-19,registered,pending
+NAT_ALG,18,Mohamed Amoura,FW,2000-05-09,170,1,2026-07-19,registered,pending
+NAT_ALG,19,Nabil Bentaleb,MF,1994-11-24,189,1,2026-07-19,registered,pending
+NAT_ALG,20,Adil Boulbina,FW,2003-05-02,183,1,2026-07-19,registered,pending
+NAT_ALG,21,Ramy Bensebaini,DF,1995-04-16,187,1,2026-07-19,registered,pending
+NAT_ALG,22,Ibrahim Maza,MF,2005-11-24,180,1,2026-07-19,registered,pending
+NAT_ALG,23,Luca Zidane,GK,1998-05-13,183,1,2026-07-19,registered,pending
+NAT_ALG,24,Yassine Titraoui,MF,2003-07-26,180,1,2026-07-19,registered,pending
+NAT_ALG,25,Fares Ghedjemis,FW,2002-09-06,183,1,2026-07-19,registered,pending
+NAT_ALG,26,Samir Chergui,DF,1999-02-06,185,1,2026-07-19,registered,pending
+NAT_BIH,1,Nikola Vasilj,GK,1995-12-02,193,6,2026-07-19,registered,pending
+NAT_BIH,2,Nihad Mujakic,DF,1998-04-15,189,6,2026-07-19,registered,pending
+NAT_BIH,3,Dennis Hadzikadunic,DF,1998-07-09,191,6,2026-07-19,registered,pending
+NAT_BIH,4,Tarik Muharemovic,DF,2003-02-28,192,6,2026-07-19,registered,pending
+NAT_BIH,5,Sead Kolasinac,DF,1993-06-20,183,6,2026-07-19,registered,pending
+NAT_BIH,6,Benjamin Tahirovic,MF,2003-03-03,191,6,2026-07-19,registered,pending
+NAT_BIH,7,Amar Dedic,DF,2002-08-18,180,6,2026-07-19,registered,pending
+NAT_BIH,8,Armin Gigovic,MF,2002-04-06,187,6,2026-07-19,registered,pending
+NAT_BIH,9,Samed Bazdar,FW,2004-01-31,189,6,2026-07-19,registered,pending
+NAT_BIH,10,Ermedin Demirovic,FW,1998-03-25,185,6,2026-07-19,registered,pending
+NAT_BIH,11,Edin Dzeko,FW,1986-03-17,192,6,2026-07-19,registered,pending
+NAT_BIH,12,Mladen Jurkas,GK,2007-10-07,193,6,2026-07-19,registered,pending
+NAT_BIH,13,Ivan Basic,MF,2002-04-30,178,6,2026-07-19,registered,pending
+NAT_BIH,14,Ivan Sunjic,MF,1996-10-09,183,6,2026-07-19,registered,pending
+NAT_BIH,15,Amar Memic,MF,2001-01-20,176,6,2026-07-19,registered,pending
+NAT_BIH,16,Amir Hadziahmetovic,MF,1997-03-08,179,6,2026-07-19,registered,pending
+NAT_BIH,17,Dzenis Burnic,MF,1998-05-22,182,6,2026-07-19,registered,pending
+NAT_BIH,18,Nikola Katic,DF,1996-10-10,194,6,2026-07-19,registered,pending
+NAT_BIH,19,Kerim Alajbegovic,FW,2007-09-21,186,6,2026-07-19,registered,pending
+NAT_BIH,20,Esmir Bajraktarevic,FW,2005-03-10,175,6,2026-07-19,registered,pending
+NAT_BIH,21,Stjepan Radeljic,DF,1997-09-05,201,6,2026-07-19,registered,pending
+NAT_BIH,22,Martin Zlomislic,GK,1998-08-16,189,6,2026-07-19,registered,pending
+NAT_BIH,23,Haris Tabakovic,FW,1994-06-20,196,6,2026-07-19,registered,pending
+NAT_BIH,24,Arjan Malic,DF,2005-08-28,188,6,2026-07-19,registered,pending
+NAT_BIH,25,Jovo Lukic,FW,1998-11-28,190,6,2026-07-19,registered,pending
+NAT_BIH,26,Ermin Mahmic,MF,2005-03-14,182,6,2026-07-19,registered,pending
+NAT_CPV,1,Vozinha,GK,1986-06-03,189,8,2026-07-19,registered,pending
+NAT_CPV,2,Stopira,DF,1988-05-20,178,8,2026-07-19,registered,pending
+NAT_CPV,3,Diney Borges,DF,1995-01-17,185,8,2026-07-19,registered,pending
+NAT_CPV,4,Pico Lopes,DF,1992-06-17,186,8,2026-07-19,registered,pending
+NAT_CPV,5,Logan Costa,DF,2001-04-01,190,8,2026-07-19,registered,pending
+NAT_CPV,6,Kevin Pina,MF,1997-01-27,177,8,2026-07-19,registered,pending
+NAT_CPV,7,Jovane Cabral,MF,1998-06-14,174,8,2026-07-19,registered,pending
+NAT_CPV,8,Joao Paulo,MF,1998-05-26,180,8,2026-07-19,registered,pending
+NAT_CPV,9,Gilson Benchimol,FW,2001-12-29,187,8,2026-07-19,registered,pending
+NAT_CPV,10,Jamiro Monteiro,MF,1993-11-23,175,8,2026-07-19,registered,pending
+NAT_CPV,11,Garry Rodrigues,MF,1990-11-27,173,8,2026-07-19,registered,pending
+NAT_CPV,12,Marcio Rosa,GK,1997-02-23,186,8,2026-07-19,registered,pending
+NAT_CPV,13,Sidny Lopes Cabral,DF,2002-09-18,176,8,2026-07-19,registered,pending
+NAT_CPV,14,Deroy Duarte,MF,1999-07-04,177,8,2026-07-19,registered,pending
+NAT_CPV,15,Laros Duarte,MF,1997-02-28,180,8,2026-07-19,registered,pending
+NAT_CPV,16,Yannick Semedo,MF,1995-12-29,176,8,2026-07-19,registered,pending
+NAT_CPV,17,Willy Semedo,MF,1994-04-27,185,8,2026-07-19,registered,pending
+NAT_CPV,18,Telmo Arcanjo,MF,2001-06-21,180,8,2026-07-19,registered,pending
+NAT_CPV,19,Dailon Livramento,FW,2001-05-04,185,8,2026-07-19,registered,pending
+NAT_CPV,20,Ryan Mendes,FW,1990-01-08,178,8,2026-07-19,registered,pending
+NAT_CPV,21,Nuno da Costa,MF,1991-02-10,182,8,2026-07-19,registered,pending
+NAT_CPV,22,Steven Moreira,DF,1994-08-13,178,8,2026-07-19,registered,pending
+NAT_CPV,23,CJ dos Santos,GK,2000-08-24,189,8,2026-07-19,registered,pending
+NAT_CPV,24,Wagner Pina,DF,2002-11-03,180,8,2026-07-19,registered,pending
+NAT_CPV,25,Kelvin Pires,DF,2000-06-05,193,8,2026-07-19,registered,pending
+NAT_CPV,26,Helio Varela,MF,2002-05-03,176,8,2026-07-19,registered,pending
+NAT_ARG,1,Juan Musso,GK,1994-05-06,193,2,2026-07-19,registered,pending
+NAT_ARG,2,Marcos Senesi,DF,1997-05-10,185,2,2026-07-19,registered,pending
+NAT_ARG,3,Nicolas Tagliafico,DF,1992-08-31,172,2,2026-07-19,registered,pending
+NAT_ARG,4,Gonzalo Montiel,DF,1997-01-01,175,2,2026-07-19,registered,pending
+NAT_ARG,5,Leandro Paredes,MF,1994-06-29,182,2,2026-07-19,registered,pending
+NAT_ARG,6,Lisandro Martinez,DF,1998-01-18,175,2,2026-07-19,registered,pending
+NAT_ARG,7,Rodrigo De Paul,MF,1994-05-24,178,2,2026-07-19,registered,pending
+NAT_ARG,8,Valentin Barco,MF,2004-07-23,172,2,2026-07-19,registered,pending
+NAT_ARG,9,Julian Alvarez,FW,2000-01-31,170,2,2026-07-19,registered,pending
+NAT_ARG,10,Lionel Messi,FW,1987-06-24,170,2,2026-07-19,registered,pending
+NAT_ARG,11,Giovani Lo Celso,MF,1996-04-09,177,2,2026-07-19,registered,pending
+NAT_ARG,12,Geronimo Rulli,GK,1992-05-20,189,2,2026-07-19,registered,pending
+NAT_ARG,13,Cristian Romero,DF,1998-04-27,185,2,2026-07-19,registered,pending
+NAT_ARG,14,Exequiel Palacios,MF,1998-10-05,177,2,2026-07-19,registered,pending
+NAT_ARG,15,Nico Gonzalez,MF,1998-04-06,180,2,2026-07-19,registered,pending
+NAT_ARG,16,Thiago Almada,FW,2001-04-26,171,2,2026-07-19,registered,pending
+NAT_ARG,17,Giuliano Simeone,FW,2002-12-18,174,2,2026-07-19,registered,pending
+NAT_ARG,18,Nico Paz,FW,2004-09-08,185,2,2026-07-19,registered,pending
+NAT_ARG,19,Nicolas Otamendi,DF,1988-02-12,182,2,2026-07-19,registered,pending
+NAT_ARG,20,Alexis Mac Allister,MF,1998-12-24,176,2,2026-07-19,registered,pending
+NAT_ARG,21,Jose Manuel Lopez,FW,2000-12-06,190,2,2026-07-19,registered,pending
+NAT_ARG,22,Lautaro Martinez,FW,1997-08-22,175,2,2026-07-19,registered,pending
+NAT_ARG,23,Emiliano Martinez,GK,1992-09-02,195,2,2026-07-19,registered,pending
+NAT_ARG,24,Enzo Fernandez,MF,2001-01-17,178,2,2026-07-19,registered,pending
+NAT_ARG,25,Facundo Medina,DF,1999-05-28,184,2,2026-07-19,registered,pending
+NAT_ARG,26,Nahuel Molina,DF,1998-04-06,179,2,2026-07-19,registered,pending

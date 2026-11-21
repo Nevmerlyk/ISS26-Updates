@@ -1,0 +1,243 @@
+team_id,slot,player_name,nationality_code,source_age,position,roster_source,roster_status
+CLB_BAR,1,Joan García,ESP,24,GK,https://database.footballmanagerblog.org/fm26/clubs/1708-fc-barcelona,FM26_public_snapshot_manual_selection_candidate
+CLB_BAR,2,Wojciech Szczęsny,POL,35,GK,https://database.footballmanagerblog.org/fm26/clubs/1708-fc-barcelona,FM26_public_snapshot_manual_selection_candidate
+CLB_BAR,3,Jules Koundé,FRA,26,DR,https://database.footballmanagerblog.org/fm26/clubs/1708-fc-barcelona,FM26_public_snapshot_manual_selection_candidate
+CLB_BAR,4,Eric García,ESP,24,"DC,DM,DR",https://database.footballmanagerblog.org/fm26/clubs/1708-fc-barcelona,FM26_public_snapshot_manual_selection_candidate
+CLB_BAR,5,Alejandro Balde,ESP,21,"DL,WBL",https://database.footballmanagerblog.org/fm26/clubs/1708-fc-barcelona,FM26_public_snapshot_manual_selection_candidate
+CLB_BAR,6,Andreas Christensen,DEN,29,DC,https://database.footballmanagerblog.org/fm26/clubs/1708-fc-barcelona,FM26_public_snapshot_manual_selection_candidate
+CLB_BAR,7,Pau Cubarsí,ESP,18,DC,https://database.footballmanagerblog.org/fm26/clubs/1708-fc-barcelona,FM26_public_snapshot_manual_selection_candidate
+CLB_BAR,8,João Cancelo,POR,31,"DL,DR,WBL,WBR",https://database.footballmanagerblog.org/fm26/clubs/1708-fc-barcelona,FM26_public_snapshot_manual_selection_candidate
+CLB_BAR,9,Ronald Araujo,URU,26,DC,https://database.footballmanagerblog.org/fm26/clubs/1708-fc-barcelona,FM26_public_snapshot_manual_selection_candidate
+CLB_BAR,10,Gerard Martín,ESP,23,"DL,DC",https://database.footballmanagerblog.org/fm26/clubs/1708-fc-barcelona,FM26_public_snapshot_manual_selection_candidate
+CLB_BAR,11,Pedri,ESP,22,MC,https://database.footballmanagerblog.org/fm26/clubs/1708-fc-barcelona,FM26_public_snapshot_manual_selection_candidate
+CLB_BAR,12,Lamine Yamal,ESP,17,"AMR,MR",https://database.footballmanagerblog.org/fm26/clubs/1708-fc-barcelona,FM26_public_snapshot_manual_selection_candidate
+CLB_BAR,13,Raphinha,BRA,28,"AML,AMR",https://database.footballmanagerblog.org/fm26/clubs/1708-fc-barcelona,FM26_public_snapshot_manual_selection_candidate
+CLB_BAR,14,Frenkie de Jong,NED,28,"MC,DM",https://database.footballmanagerblog.org/fm26/clubs/1708-fc-barcelona,FM26_public_snapshot_manual_selection_candidate
+CLB_BAR,15,Dani Olmo,ESP,27,AMC,https://database.footballmanagerblog.org/fm26/clubs/1708-fc-barcelona,FM26_public_snapshot_manual_selection_candidate
+CLB_BAR,16,Fermín,ESP,22,"AMC,MC,AML,AMR",https://database.footballmanagerblog.org/fm26/clubs/1708-fc-barcelona,FM26_public_snapshot_manual_selection_candidate
+CLB_BAR,17,Ferran Torres,ESP,25,"ST,AML",https://database.footballmanagerblog.org/fm26/clubs/1708-fc-barcelona,FM26_public_snapshot_manual_selection_candidate
+CLB_BAR,18,Marcus Rashford,ENG,27,AML,https://database.footballmanagerblog.org/fm26/clubs/1708-fc-barcelona,FM26_public_snapshot_manual_selection_candidate
+CLB_BAR,19,Gavi,ESP,20,"MC,DM,AMC",https://database.footballmanagerblog.org/fm26/clubs/1708-fc-barcelona,FM26_public_snapshot_manual_selection_candidate
+CLB_BAR,20,Marc Casadó,ESP,21,DM,https://database.footballmanagerblog.org/fm26/clubs/1708-fc-barcelona,FM26_public_snapshot_manual_selection_candidate
+CLB_BAR,21,Roony Bardghji,SWE,19,AMR,https://database.footballmanagerblog.org/fm26/clubs/1708-fc-barcelona,FM26_public_snapshot_manual_selection_candidate
+CLB_BAR,22,Robert Lewandowski,POL,36,ST,https://database.footballmanagerblog.org/fm26/clubs/1708-fc-barcelona,FM26_public_snapshot_manual_selection_candidate
+CLB_ATM,1,Jan Oblak,SVN,32,GK,https://database.footballmanagerblog.org/fm26/clubs/1687-atletico-de-madrid,FM26_public_snapshot_manual_selection_candidate
+CLB_ATM,2,Juan Musso,ARG,31,GK,https://database.footballmanagerblog.org/fm26/clubs/1687-atletico-de-madrid,FM26_public_snapshot_manual_selection_candidate
+CLB_ATM,3,Marcos Llorente,ESP,30,"MR,DR,WBR",https://database.footballmanagerblog.org/fm26/clubs/1687-atletico-de-madrid,FM26_public_snapshot_manual_selection_candidate
+CLB_ATM,4,Robin Le Normand,ESP,28,DC,https://database.footballmanagerblog.org/fm26/clubs/1687-atletico-de-madrid,FM26_public_snapshot_manual_selection_candidate
+CLB_ATM,5,Dávid Hancko,SVK,27,"DC,DL",https://database.footballmanagerblog.org/fm26/clubs/1687-atletico-de-madrid,FM26_public_snapshot_manual_selection_candidate
+CLB_ATM,6,José Giménez,URU,30,DC,https://database.footballmanagerblog.org/fm26/clubs/1687-atletico-de-madrid,FM26_public_snapshot_manual_selection_candidate
+CLB_ATM,7,Clément Lenglet,FRA,30,DC,https://database.footballmanagerblog.org/fm26/clubs/1687-atletico-de-madrid,FM26_public_snapshot_manual_selection_candidate
+CLB_ATM,8,Matteo Ruggeri,ITA,22,"DL,WBL",https://database.footballmanagerblog.org/fm26/clubs/1687-atletico-de-madrid,FM26_public_snapshot_manual_selection_candidate
+CLB_ATM,9,Nahuel Molina,ARG,27,DR,https://database.footballmanagerblog.org/fm26/clubs/1687-atletico-de-madrid,FM26_public_snapshot_manual_selection_candidate
+CLB_ATM,10,Marc Pubill,ESP,22,"DR,WBR,DC",https://database.footballmanagerblog.org/fm26/clubs/1687-atletico-de-madrid,FM26_public_snapshot_manual_selection_candidate
+CLB_ATM,11,Ademola Lookman,NGA,27,"ST,AMC,AML",https://database.footballmanagerblog.org/fm26/clubs/1687-atletico-de-madrid,FM26_public_snapshot_manual_selection_candidate
+CLB_ATM,12,Álex Baena,ESP,23,"AMC,AML",https://database.footballmanagerblog.org/fm26/clubs/1687-atletico-de-madrid,FM26_public_snapshot_manual_selection_candidate
+CLB_ATM,13,Antoine Griezmann,FRA,34,AMC,https://database.footballmanagerblog.org/fm26/clubs/1687-atletico-de-madrid,FM26_public_snapshot_manual_selection_candidate
+CLB_ATM,14,Pablo Barrios,ESP,22,"MC,DM",https://database.footballmanagerblog.org/fm26/clubs/1687-atletico-de-madrid,FM26_public_snapshot_manual_selection_candidate
+CLB_ATM,15,Johnny Cardoso,USA,23,"MC,DM",https://database.footballmanagerblog.org/fm26/clubs/1687-atletico-de-madrid,FM26_public_snapshot_manual_selection_candidate
+CLB_ATM,16,Nicolás González,ARG,27,"AMR,MR",https://database.footballmanagerblog.org/fm26/clubs/1687-atletico-de-madrid,FM26_public_snapshot_manual_selection_candidate
+CLB_ATM,17,Giuliano Simeone,ARG,22,"AMR,MR,AML",https://database.footballmanagerblog.org/fm26/clubs/1687-atletico-de-madrid,FM26_public_snapshot_manual_selection_candidate
+CLB_ATM,18,Thiago Almada,ARG,24,"AMC,AML",https://database.footballmanagerblog.org/fm26/clubs/1687-atletico-de-madrid,FM26_public_snapshot_manual_selection_candidate
+CLB_ATM,19,Koke,ESP,33,"DM,MC",https://database.footballmanagerblog.org/fm26/clubs/1687-atletico-de-madrid,FM26_public_snapshot_manual_selection_candidate
+CLB_ATM,20,Rodrigo Mendoza,ESP,20,"MC,AMC",https://database.footballmanagerblog.org/fm26/clubs/1687-atletico-de-madrid,FM26_public_snapshot_manual_selection_candidate
+CLB_ATM,21,Julián Álvarez,ARG,25,ST,https://database.footballmanagerblog.org/fm26/clubs/1687-atletico-de-madrid,FM26_public_snapshot_manual_selection_candidate
+CLB_ATM,22,Alexander Sørloth,NOR,29,ST,https://database.footballmanagerblog.org/fm26/clubs/1687-atletico-de-madrid,FM26_public_snapshot_manual_selection_candidate
+CLB_ROM,1,Mile Svilar,SRB,25,GK,https://database.footballmanagerblog.org/fm26/clubs/1100-roma,FM26_public_snapshot_manual_selection_candidate
+CLB_ROM,2,Pierluigi Gollini,ITA,30,GK,https://database.footballmanagerblog.org/fm26/clubs/1100-roma,FM26_public_snapshot_manual_selection_candidate
+CLB_ROM,3,Evan N'Dicka,CIV,25,DC,https://database.footballmanagerblog.org/fm26/clubs/1100-roma,FM26_public_snapshot_manual_selection_candidate
+CLB_ROM,4,Gianluca Mancini,ITA,29,DC,https://database.footballmanagerblog.org/fm26/clubs/1100-roma,FM26_public_snapshot_manual_selection_candidate
+CLB_ROM,5,Angeliño,ESP,28,"DL,WBL",https://database.footballmanagerblog.org/fm26/clubs/1100-roma,FM26_public_snapshot_manual_selection_candidate
+CLB_ROM,6,Wesley,BRA,21,"DR,WBR",https://database.footballmanagerblog.org/fm26/clubs/1100-roma,FM26_public_snapshot_manual_selection_candidate
+CLB_ROM,7,Kostas Tsimikas,GRE,29,DL,https://database.footballmanagerblog.org/fm26/clubs/1100-roma,FM26_public_snapshot_manual_selection_candidate
+CLB_ROM,8,Mario Hermoso,ESP,30,DC,https://database.footballmanagerblog.org/fm26/clubs/1100-roma,FM26_public_snapshot_manual_selection_candidate
+CLB_ROM,9,Zeki Çelik,TUR,28,"DR,WBR",https://database.footballmanagerblog.org/fm26/clubs/1100-roma,FM26_public_snapshot_manual_selection_candidate
+CLB_ROM,10,Devyne Rensch,NED,22,"DR,DC,WBR",https://database.footballmanagerblog.org/fm26/clubs/1100-roma,FM26_public_snapshot_manual_selection_candidate
+CLB_ROM,11,Daniele Ghilardi,ITA,22,DC,https://database.footballmanagerblog.org/fm26/clubs/1100-roma,FM26_public_snapshot_manual_selection_candidate
+CLB_ROM,12,Manu Koné,FRA,24,"DM,MC",https://database.footballmanagerblog.org/fm26/clubs/1100-roma,FM26_public_snapshot_manual_selection_candidate
+CLB_ROM,13,Matías Soulé,ARG,22,"AMC,AMR",https://database.footballmanagerblog.org/fm26/clubs/1100-roma,FM26_public_snapshot_manual_selection_candidate
+CLB_ROM,14,Paulo Dybala,ARG,31,AMC,https://database.footballmanagerblog.org/fm26/clubs/1100-roma,FM26_public_snapshot_manual_selection_candidate
+CLB_ROM,15,Bryan Cristante,ITA,30,"DM,MC",https://database.footballmanagerblog.org/fm26/clubs/1100-roma,FM26_public_snapshot_manual_selection_candidate
+CLB_ROM,16,Donyell Malen,NED,26,"ST,AML,AMR",https://database.footballmanagerblog.org/fm26/clubs/1100-roma,FM26_public_snapshot_manual_selection_candidate
+CLB_ROM,17,Lorenzo Pellegrini,ITA,29,"MC,AMC",https://database.footballmanagerblog.org/fm26/clubs/1100-roma,FM26_public_snapshot_manual_selection_candidate
+CLB_ROM,18,Neil El Aynaoui,MAR,24,"DM,MC",https://database.footballmanagerblog.org/fm26/clubs/1100-roma,FM26_public_snapshot_manual_selection_candidate
+CLB_ROM,19,Stephan El Shaarawy,ITA,32,AML,https://database.footballmanagerblog.org/fm26/clubs/1100-roma,FM26_public_snapshot_manual_selection_candidate
+CLB_ROM,20,Niccolò Pisilli,ITA,20,MC,https://database.footballmanagerblog.org/fm26/clubs/1100-roma,FM26_public_snapshot_manual_selection_candidate
+CLB_ROM,21,Artem Dovbyk,UKR,28,ST,https://database.footballmanagerblog.org/fm26/clubs/1100-roma,FM26_public_snapshot_manual_selection_candidate
+CLB_ROM,22,Evan Ferguson,IRL,20,ST,https://database.footballmanagerblog.org/fm26/clubs/1100-roma,FM26_public_snapshot_manual_selection_candidate
+CLB_SCP,1,Rui Silva,POR,31,GK,https://database.footballmanagerblog.org/fm26/clubs/1489-sporting-cp,FM26_public_snapshot_manual_selection_candidate
+CLB_SCP,2,João Virgínia,POR,25,GK,https://database.footballmanagerblog.org/fm26/clubs/1489-sporting-cp,FM26_public_snapshot_manual_selection_candidate
+CLB_SCP,3,Maximiliano Araújo,URU,25,"WBL,DL,ML",https://database.footballmanagerblog.org/fm26/clubs/1489-sporting-cp,FM26_public_snapshot_manual_selection_candidate
+CLB_SCP,4,Ousmane Diomande,CIV,21,DC,https://database.footballmanagerblog.org/fm26/clubs/1489-sporting-cp,FM26_public_snapshot_manual_selection_candidate
+CLB_SCP,5,Gonçalo Inácio,POR,23,DC,https://database.footballmanagerblog.org/fm26/clubs/1489-sporting-cp,FM26_public_snapshot_manual_selection_candidate
+CLB_SCP,6,Zeno Debast,BEL,21,DC,https://database.footballmanagerblog.org/fm26/clubs/1489-sporting-cp,FM26_public_snapshot_manual_selection_candidate
+CLB_SCP,7,Eduardo Quaresma,POR,23,DC,https://database.footballmanagerblog.org/fm26/clubs/1489-sporting-cp,FM26_public_snapshot_manual_selection_candidate
+CLB_SCP,8,Iván Fresneda,ESP,20,"DR,WBR",https://database.footballmanagerblog.org/fm26/clubs/1489-sporting-cp,FM26_public_snapshot_manual_selection_candidate
+CLB_SCP,9,Nuno Santos,POR,30,"WBL,AML",https://database.footballmanagerblog.org/fm26/clubs/1489-sporting-cp,FM26_public_snapshot_manual_selection_candidate
+CLB_SCP,10,Ricardo Mangas,POR,27,"WBL,DL,ML",https://database.footballmanagerblog.org/fm26/clubs/1489-sporting-cp,FM26_public_snapshot_manual_selection_candidate
+CLB_SCP,11,Giorgos Vagiannidis,GRE,23,"DR,WBR",https://database.footballmanagerblog.org/fm26/clubs/1489-sporting-cp,FM26_public_snapshot_manual_selection_candidate
+CLB_SCP,12,Francisco Trincão,POR,25,"AMR,AMC",https://database.footballmanagerblog.org/fm26/clubs/1489-sporting-cp,FM26_public_snapshot_manual_selection_candidate
+CLB_SCP,13,Pote,POR,27,"AML,AMC",https://database.footballmanagerblog.org/fm26/clubs/1489-sporting-cp,FM26_public_snapshot_manual_selection_candidate
+CLB_SCP,14,Morten Hjulmand,DEN,26,"DM,MC",https://database.footballmanagerblog.org/fm26/clubs/1489-sporting-cp,FM26_public_snapshot_manual_selection_candidate
+CLB_SCP,15,Geny,MOZ,24,"MR,AMR,ML",https://database.footballmanagerblog.org/fm26/clubs/1489-sporting-cp,FM26_public_snapshot_manual_selection_candidate
+CLB_SCP,16,Hidemasa Morita,JPN,30,"DM,MC",https://database.footballmanagerblog.org/fm26/clubs/1489-sporting-cp,FM26_public_snapshot_manual_selection_candidate
+CLB_SCP,17,Geovany Quenda,POR,18,"MR,AMR,AML,ML",https://database.footballmanagerblog.org/fm26/clubs/1489-sporting-cp,FM26_public_snapshot_manual_selection_candidate
+CLB_SCP,18,Daniel Bragança,POR,26,MC,https://database.footballmanagerblog.org/fm26/clubs/1489-sporting-cp,FM26_public_snapshot_manual_selection_candidate
+CLB_SCP,19,Giorgi Kochorashvili,GEO,26,"MC,DM",https://database.footballmanagerblog.org/fm26/clubs/1489-sporting-cp,FM26_public_snapshot_manual_selection_candidate
+CLB_SCP,20,João Simões,POR,18,"MC,DM",https://database.footballmanagerblog.org/fm26/clubs/1489-sporting-cp,FM26_public_snapshot_manual_selection_candidate
+CLB_SCP,21,Luis Suárez,COL,27,ST,https://database.footballmanagerblog.org/fm26/clubs/1489-sporting-cp,FM26_public_snapshot_manual_selection_candidate
+CLB_SCP,22,Fotis Ioannidis,GRE,25,ST,https://database.footballmanagerblog.org/fm26/clubs/1489-sporting-cp,FM26_public_snapshot_manual_selection_candidate
+CLB_POR,1,Diogo Costa,POR,25,GK,https://database.footballmanagerblog.org/fm26/clubs/1478-fc-porto,FM26_public_snapshot_manual_selection_candidate
+CLB_POR,2,Cláudio Ramos,POR,33,GK,https://database.footballmanagerblog.org/fm26/clubs/1478-fc-porto,FM26_public_snapshot_manual_selection_candidate
+CLB_POR,3,Jakub Kiwior,POL,25,"DC,DL",https://database.footballmanagerblog.org/fm26/clubs/1478-fc-porto,FM26_public_snapshot_manual_selection_candidate
+CLB_POR,4,Jan Bednarek,POL,29,DC,https://database.footballmanagerblog.org/fm26/clubs/1478-fc-porto,FM26_public_snapshot_manual_selection_candidate
+CLB_POR,5,Thiago Silva,BRA,40,DC,https://database.footballmanagerblog.org/fm26/clubs/1478-fc-porto,FM26_public_snapshot_manual_selection_candidate
+CLB_POR,6,Alberto Costa,POR,21,"DR,WBR",https://database.footballmanagerblog.org/fm26/clubs/1478-fc-porto,FM26_public_snapshot_manual_selection_candidate
+CLB_POR,7,Francisco Moura,POR,25,"WBL,DL,ML",https://database.footballmanagerblog.org/fm26/clubs/1478-fc-porto,FM26_public_snapshot_manual_selection_candidate
+CLB_POR,8,Nehuén Pérez,ARG,25,DC,https://database.footballmanagerblog.org/fm26/clubs/1478-fc-porto,FM26_public_snapshot_manual_selection_candidate
+CLB_POR,9,Martim Fernandes,POR,19,DR,https://database.footballmanagerblog.org/fm26/clubs/1478-fc-porto,FM26_public_snapshot_manual_selection_candidate
+CLB_POR,10,Dominik Prpić,CRO,21,DC,https://database.footballmanagerblog.org/fm26/clubs/1478-fc-porto,FM26_public_snapshot_manual_selection_candidate
+CLB_POR,11,Zaidu Sanusi,NGA,28,"DL,WBL",https://database.footballmanagerblog.org/fm26/clubs/1478-fc-porto,FM26_public_snapshot_manual_selection_candidate
+CLB_POR,12,Victor Froholdt,DEN,19,"MC,DM",https://database.footballmanagerblog.org/fm26/clubs/1478-fc-porto,FM26_public_snapshot_manual_selection_candidate
+CLB_POR,13,Gabri Veiga,ESP,23,"MC,AMC",https://database.footballmanagerblog.org/fm26/clubs/1478-fc-porto,FM26_public_snapshot_manual_selection_candidate
+CLB_POR,14,Borja Sainz,ESP,24,AML,https://database.footballmanagerblog.org/fm26/clubs/1478-fc-porto,FM26_public_snapshot_manual_selection_candidate
+CLB_POR,15,Pepê,BRA,28,"AMR,AML,MR,AMC",https://database.footballmanagerblog.org/fm26/clubs/1478-fc-porto,FM26_public_snapshot_manual_selection_candidate
+CLB_POR,16,Alan Varela,ARG,24,"DM,MC",https://database.footballmanagerblog.org/fm26/clubs/1478-fc-porto,FM26_public_snapshot_manual_selection_candidate
+CLB_POR,17,Pablo Rosario,DOM,28,"DM,MC",https://database.footballmanagerblog.org/fm26/clubs/1478-fc-porto,FM26_public_snapshot_manual_selection_candidate
+CLB_POR,18,William Gomes,BRA,19,"AML,ML,AMR",https://database.footballmanagerblog.org/fm26/clubs/1478-fc-porto,FM26_public_snapshot_manual_selection_candidate
+CLB_POR,19,Séko Fofana,CIV,30,"MC,DM",https://database.footballmanagerblog.org/fm26/clubs/1478-fc-porto,FM26_public_snapshot_manual_selection_candidate
+CLB_POR,20,Rodrigo Mora,POR,18,AMC,https://database.footballmanagerblog.org/fm26/clubs/1478-fc-porto,FM26_public_snapshot_manual_selection_candidate
+CLB_POR,21,Samu Aghehowa,ESP,21,ST,https://database.footballmanagerblog.org/fm26/clubs/1478-fc-porto,FM26_public_snapshot_manual_selection_candidate
+CLB_POR,22,Luuk de Jong,NED,34,ST,https://database.footballmanagerblog.org/fm26/clubs/1478-fc-porto,FM26_public_snapshot_manual_selection_candidate
+CLB_FIO,1,David De Gea,ESP,34,GK,https://database.footballmanagerblog.org/fm26/clubs/1129-fiorentina,FM26_public_snapshot_manual_selection_candidate
+CLB_FIO,2,Oliver Christensen,DEN,26,GK,https://database.footballmanagerblog.org/fm26/clubs/1129-fiorentina,FM26_public_snapshot_manual_selection_candidate
+CLB_FIO,3,Dodô,BRA,26,"DR,WBR",https://database.footballmanagerblog.org/fm26/clubs/1129-fiorentina,FM26_public_snapshot_manual_selection_candidate
+CLB_FIO,4,Robin Gosens,GER,31,"WBL,DL,ML",https://database.footballmanagerblog.org/fm26/clubs/1129-fiorentina,FM26_public_snapshot_manual_selection_candidate
+CLB_FIO,5,Luca Ranieri,ITA,26,DC,https://database.footballmanagerblog.org/fm26/clubs/1129-fiorentina,FM26_public_snapshot_manual_selection_candidate
+CLB_FIO,6,Pietro Comuzzo,ITA,20,DC,https://database.footballmanagerblog.org/fm26/clubs/1129-fiorentina,FM26_public_snapshot_manual_selection_candidate
+CLB_FIO,7,Daniele Rugani,ITA,30,DC,https://database.footballmanagerblog.org/fm26/clubs/1129-fiorentina,FM26_public_snapshot_manual_selection_candidate
+CLB_FIO,8,Marin Pongračić,CRO,27,DC,https://database.footballmanagerblog.org/fm26/clubs/1129-fiorentina,FM26_public_snapshot_manual_selection_candidate
+CLB_FIO,9,Fabiano Parisi,ITA,24,"DL,WBL",https://database.footballmanagerblog.org/fm26/clubs/1129-fiorentina,FM26_public_snapshot_manual_selection_candidate
+CLB_FIO,10,Tariq Lamptey,GHA,24,"DR,WBR,MR",https://database.footballmanagerblog.org/fm26/clubs/1129-fiorentina,FM26_public_snapshot_manual_selection_candidate
+CLB_FIO,11,Niccolò Fortini,ITA,19,"DL,WBL,ML",https://database.footballmanagerblog.org/fm26/clubs/1129-fiorentina,FM26_public_snapshot_manual_selection_candidate
+CLB_FIO,12,Rolando Mandragora,ITA,28,"DM,MC",https://database.footballmanagerblog.org/fm26/clubs/1129-fiorentina,FM26_public_snapshot_manual_selection_candidate
+CLB_FIO,13,Albert Guðmundsson,ISL,28,"AMC,ST",https://database.footballmanagerblog.org/fm26/clubs/1129-fiorentina,FM26_public_snapshot_manual_selection_candidate
+CLB_FIO,14,Marco Brescianini,ITA,25,"MC,AMC",https://database.footballmanagerblog.org/fm26/clubs/1129-fiorentina,FM26_public_snapshot_manual_selection_candidate
+CLB_FIO,15,Nicolò Fagioli,ITA,24,"MC,DM",https://database.footballmanagerblog.org/fm26/clubs/1129-fiorentina,FM26_public_snapshot_manual_selection_candidate
+CLB_FIO,16,Manor Solomon,ISR,25,AML,https://database.footballmanagerblog.org/fm26/clubs/1129-fiorentina,FM26_public_snapshot_manual_selection_candidate
+CLB_FIO,17,Giovanni Fabbian,ITA,22,"MC,AMC",https://database.footballmanagerblog.org/fm26/clubs/1129-fiorentina,FM26_public_snapshot_manual_selection_candidate
+CLB_FIO,18,Jack Harrison,ENG,28,"AML,AMR",https://database.footballmanagerblog.org/fm26/clubs/1129-fiorentina,FM26_public_snapshot_manual_selection_candidate
+CLB_FIO,19,Cher Ndour,ITA,20,MC,https://database.footballmanagerblog.org/fm26/clubs/1129-fiorentina,FM26_public_snapshot_manual_selection_candidate
+CLB_FIO,20,Jacopo Fazzini,ITA,22,"MC,AMC",https://database.footballmanagerblog.org/fm26/clubs/1129-fiorentina,FM26_public_snapshot_manual_selection_candidate
+CLB_FIO,21,Moise Kean,ITA,25,ST,https://database.footballmanagerblog.org/fm26/clubs/1129-fiorentina,FM26_public_snapshot_manual_selection_candidate
+CLB_FIO,22,Roberto Piccoli,ITA,24,ST,https://database.footballmanagerblog.org/fm26/clubs/1129-fiorentina,FM26_public_snapshot_manual_selection_candidate
+CLB_BEN,1,Anatolii Trubin,UKR,23,GK,https://database.footballmanagerblog.org/fm26/clubs/1487-sl-benfica,FM26_public_snapshot_manual_selection_candidate
+CLB_BEN,2,Samuel Soares,POR,23,GK,https://database.footballmanagerblog.org/fm26/clubs/1487-sl-benfica,FM26_public_snapshot_manual_selection_candidate
+CLB_BEN,3,Nicolás Otamendi,ARG,37,DC,https://database.footballmanagerblog.org/fm26/clubs/1487-sl-benfica,FM26_public_snapshot_manual_selection_candidate
+CLB_BEN,4,Tomás Araújo,POR,23,DC,https://database.footballmanagerblog.org/fm26/clubs/1487-sl-benfica,FM26_public_snapshot_manual_selection_candidate
+CLB_BEN,5,António Silva,POR,21,DC,https://database.footballmanagerblog.org/fm26/clubs/1487-sl-benfica,FM26_public_snapshot_manual_selection_candidate
+CLB_BEN,6,Amar Dedić,BIH,22,"DR,WBR",https://database.footballmanagerblog.org/fm26/clubs/1487-sl-benfica,FM26_public_snapshot_manual_selection_candidate
+CLB_BEN,7,Alexander Bah,DEN,27,"DR,WBR",https://database.footballmanagerblog.org/fm26/clubs/1487-sl-benfica,FM26_public_snapshot_manual_selection_candidate
+CLB_BEN,8,Samuel Dahl,SWE,22,"DL,WBL,ML",https://database.footballmanagerblog.org/fm26/clubs/1487-sl-benfica,FM26_public_snapshot_manual_selection_candidate
+CLB_BEN,9,Sidny Lopes Cabral,CPV,22,"DR,DL,WBL,WBR",https://database.footballmanagerblog.org/fm26/clubs/1487-sl-benfica,FM26_public_snapshot_manual_selection_candidate
+CLB_BEN,10,Josh Wynder,USA,20,DC,https://database.footballmanagerblog.org/fm26/clubs/1487-sl-benfica,FM26_public_snapshot_manual_selection_candidate
+CLB_BEN,11,Fredrik Aursnes,NOR,29,"MC,MR,AMR",https://database.footballmanagerblog.org/fm26/clubs/1487-sl-benfica,FM26_public_snapshot_manual_selection_candidate
+CLB_BEN,12,Rafa,POR,32,"AMC,ST",https://database.footballmanagerblog.org/fm26/clubs/1487-sl-benfica,FM26_public_snapshot_manual_selection_candidate
+CLB_BEN,13,Dodi Lukébakio,BEL,27,AMR,https://database.footballmanagerblog.org/fm26/clubs/1487-sl-benfica,FM26_public_snapshot_manual_selection_candidate
+CLB_BEN,14,Heorhii Sudakov,UKR,22,"AMC,MC",https://database.footballmanagerblog.org/fm26/clubs/1487-sl-benfica,FM26_public_snapshot_manual_selection_candidate
+CLB_BEN,15,Andreas Schjelderup,NOR,21,AML,https://database.footballmanagerblog.org/fm26/clubs/1487-sl-benfica,FM26_public_snapshot_manual_selection_candidate
+CLB_BEN,16,Enzo Barrenechea,ARG,24,"DM,MC",https://database.footballmanagerblog.org/fm26/clubs/1487-sl-benfica,FM26_public_snapshot_manual_selection_candidate
+CLB_BEN,17,Leandro Barreiro,LUX,25,"MC,DM",https://database.footballmanagerblog.org/fm26/clubs/1487-sl-benfica,FM26_public_snapshot_manual_selection_candidate
+CLB_BEN,18,Richard Ríos,COL,25,MC,https://database.footballmanagerblog.org/fm26/clubs/1487-sl-benfica,FM26_public_snapshot_manual_selection_candidate
+CLB_BEN,19,Bruma,POR,30,AML,https://database.footballmanagerblog.org/fm26/clubs/1487-sl-benfica,FM26_public_snapshot_manual_selection_candidate
+CLB_BEN,20,Gianluca Prestianni,ARG,19,"AMR,AML",https://database.footballmanagerblog.org/fm26/clubs/1487-sl-benfica,FM26_public_snapshot_manual_selection_candidate
+CLB_BEN,21,Vangelis Pavlidis,GRE,26,ST,https://database.footballmanagerblog.org/fm26/clubs/1487-sl-benfica,FM26_public_snapshot_manual_selection_candidate
+CLB_BEN,22,Franjo Ivanović,CRO,21,ST,https://database.footballmanagerblog.org/fm26/clubs/1487-sl-benfica,FM26_public_snapshot_manual_selection_candidate
+CLB_BET,1,Álvaro Valles,ESP,27,GK,https://database.footballmanagerblog.org/fm26/clubs/1733-real-betis,FM26_public_snapshot_manual_selection_candidate
+CLB_BET,2,Pau López,ESP,30,GK,https://database.footballmanagerblog.org/fm26/clubs/1733-real-betis,FM26_public_snapshot_manual_selection_candidate
+CLB_BET,3,Diego Llorente,ESP,31,DC,https://database.footballmanagerblog.org/fm26/clubs/1733-real-betis,FM26_public_snapshot_manual_selection_candidate
+CLB_BET,4,Natan,BRA,24,DC,https://database.footballmanagerblog.org/fm26/clubs/1733-real-betis,FM26_public_snapshot_manual_selection_candidate
+CLB_BET,5,Aitor Ruibal,ESP,29,"DR,AMR",https://database.footballmanagerblog.org/fm26/clubs/1733-real-betis,FM26_public_snapshot_manual_selection_candidate
+CLB_BET,6,Héctor Bellerín,ESP,30,"DR,WBR",https://database.footballmanagerblog.org/fm26/clubs/1733-real-betis,FM26_public_snapshot_manual_selection_candidate
+CLB_BET,7,Marc Bartra,ESP,34,DC,https://database.footballmanagerblog.org/fm26/clubs/1733-real-betis,FM26_public_snapshot_manual_selection_candidate
+CLB_BET,8,Júnior Firpo,DOM,28,"DL,WBL",https://database.footballmanagerblog.org/fm26/clubs/1733-real-betis,FM26_public_snapshot_manual_selection_candidate
+CLB_BET,9,Ricardo Rodríguez,SUI,32,"DC,DL",https://database.footballmanagerblog.org/fm26/clubs/1733-real-betis,FM26_public_snapshot_manual_selection_candidate
+CLB_BET,10,Valentín Gómez,ARG,22,DC,https://database.footballmanagerblog.org/fm26/clubs/1733-real-betis,FM26_public_snapshot_manual_selection_candidate
+CLB_BET,11,Isco,ESP,33,"AMC,MC",https://database.footballmanagerblog.org/fm26/clubs/1733-real-betis,FM26_public_snapshot_manual_selection_candidate
+CLB_BET,12,Antony,BRA,25,"AMR,MR",https://database.footballmanagerblog.org/fm26/clubs/1733-real-betis,FM26_public_snapshot_manual_selection_candidate
+CLB_BET,13,Giovani Lo Celso,ARG,29,"AMC,ML,MC",https://database.footballmanagerblog.org/fm26/clubs/1733-real-betis,FM26_public_snapshot_manual_selection_candidate
+CLB_BET,14,Ez Abde,MAR,23,"AML,AMR",https://database.footballmanagerblog.org/fm26/clubs/1733-real-betis,FM26_public_snapshot_manual_selection_candidate
+CLB_BET,15,Pablo Fornals,ESP,29,"AMC,MC",https://database.footballmanagerblog.org/fm26/clubs/1733-real-betis,FM26_public_snapshot_manual_selection_candidate
+CLB_BET,16,Álvaro Fidalgo,MEX,28,"MC,AMC",https://database.footballmanagerblog.org/fm26/clubs/1733-real-betis,FM26_public_snapshot_manual_selection_candidate
+CLB_BET,17,Rodrigo Riquelme,ESP,25,"AML,ML",https://database.footballmanagerblog.org/fm26/clubs/1733-real-betis,FM26_public_snapshot_manual_selection_candidate
+CLB_BET,18,Sofyan Amrabat,MAR,28,DM,https://database.footballmanagerblog.org/fm26/clubs/1733-real-betis,FM26_public_snapshot_manual_selection_candidate
+CLB_BET,19,Marc Roca,ESP,28,"DM,MC",https://database.footballmanagerblog.org/fm26/clubs/1733-real-betis,FM26_public_snapshot_manual_selection_candidate
+CLB_BET,20,Nelson Deossa,COL,25,MC,https://database.footballmanagerblog.org/fm26/clubs/1733-real-betis,FM26_public_snapshot_manual_selection_candidate
+CLB_BET,21,Cucho Hernández,COL,26,ST,https://database.footballmanagerblog.org/fm26/clubs/1733-real-betis,FM26_public_snapshot_manual_selection_candidate
+CLB_BET,22,Cédric Bakambu,COD,34,ST,https://database.footballmanagerblog.org/fm26/clubs/1733-real-betis,FM26_public_snapshot_manual_selection_candidate
+CLB_CHE,1,Robert Sánchez,ESP,27,GK,https://database.footballmanagerblog.org/fm26/clubs/630-chelsea,FM26_public_snapshot_manual_selection_candidate
+CLB_CHE,2,Filip Jörgensen,DEN,23,GK,https://database.footballmanagerblog.org/fm26/clubs/630-chelsea,FM26_public_snapshot_manual_selection_candidate
+CLB_CHE,3,Reece James,ENG,25,"DR,WBR",https://database.footballmanagerblog.org/fm26/clubs/630-chelsea,FM26_public_snapshot_manual_selection_candidate
+CLB_CHE,4,Wesley Fofana,FRA,24,DC,https://database.footballmanagerblog.org/fm26/clubs/630-chelsea,FM26_public_snapshot_manual_selection_candidate
+CLB_CHE,5,Levi Colwill,ENG,22,DC,https://database.footballmanagerblog.org/fm26/clubs/630-chelsea,FM26_public_snapshot_manual_selection_candidate
+CLB_CHE,6,Trevoh Chalobah,ENG,26,DC,https://database.footballmanagerblog.org/fm26/clubs/630-chelsea,FM26_public_snapshot_manual_selection_candidate
+CLB_CHE,7,Marc Cucurella,ESP,26,"DL,WBL",https://database.footballmanagerblog.org/fm26/clubs/630-chelsea,FM26_public_snapshot_manual_selection_candidate
+CLB_CHE,8,Benoît Badiashile,FRA,24,DC,https://database.footballmanagerblog.org/fm26/clubs/630-chelsea,FM26_public_snapshot_manual_selection_candidate
+CLB_CHE,9,Jorrel Hato,NED,19,"DC,DL,WBL",https://database.footballmanagerblog.org/fm26/clubs/630-chelsea,FM26_public_snapshot_manual_selection_candidate
+CLB_CHE,10,Malo Gusto,FRA,22,"DR,WBR",https://database.footballmanagerblog.org/fm26/clubs/630-chelsea,FM26_public_snapshot_manual_selection_candidate
+CLB_CHE,11,Tosin Adarabioyo,ENG,27,DC,https://database.footballmanagerblog.org/fm26/clubs/630-chelsea,FM26_public_snapshot_manual_selection_candidate
+CLB_CHE,12,Cole Palmer,ENG,23,"AMC,AMR",https://database.footballmanagerblog.org/fm26/clubs/630-chelsea,FM26_public_snapshot_manual_selection_candidate
+CLB_CHE,13,Enzo Fernández,ARG,24,"MC,DM",https://database.footballmanagerblog.org/fm26/clubs/630-chelsea,FM26_public_snapshot_manual_selection_candidate
+CLB_CHE,14,Moisés Caicedo,ECU,23,"DM,MC",https://database.footballmanagerblog.org/fm26/clubs/630-chelsea,FM26_public_snapshot_manual_selection_candidate
+CLB_CHE,15,João Pedro,BRA,23,"AMC,ST,AML,AMR",https://database.footballmanagerblog.org/fm26/clubs/630-chelsea,FM26_public_snapshot_manual_selection_candidate
+CLB_CHE,16,Alejandro Garnacho,ARG,21,AML,https://database.footballmanagerblog.org/fm26/clubs/630-chelsea,FM26_public_snapshot_manual_selection_candidate
+CLB_CHE,17,Pedro Neto,POR,25,"AML,AMR",https://database.footballmanagerblog.org/fm26/clubs/630-chelsea,FM26_public_snapshot_manual_selection_candidate
+CLB_CHE,18,Estêvão,BRA,18,"AMR,AMC",https://database.footballmanagerblog.org/fm26/clubs/630-chelsea,FM26_public_snapshot_manual_selection_candidate
+CLB_CHE,19,Jamie Gittens,ENG,20,AML,https://database.footballmanagerblog.org/fm26/clubs/630-chelsea,FM26_public_snapshot_manual_selection_candidate
+CLB_CHE,20,Roméo Lavia,BEL,21,"DM,MC",https://database.footballmanagerblog.org/fm26/clubs/630-chelsea,FM26_public_snapshot_manual_selection_candidate
+CLB_CHE,21,Andrey Santos,BRA,21,MC,https://database.footballmanagerblog.org/fm26/clubs/630-chelsea,FM26_public_snapshot_manual_selection_candidate
+CLB_CHE,22,Liam Delap,ENG,22,ST,https://database.footballmanagerblog.org/fm26/clubs/630-chelsea,FM26_public_snapshot_manual_selection_candidate
+CLB_ATA,1,Marco Carnesecchi,ITA,25,GK,https://database.footballmanagerblog.org/fm26/clubs/1106-atalanta,FM26_public_snapshot_manual_selection_candidate
+CLB_ATA,2,Marco Sportiello,ITA,33,GK,https://database.footballmanagerblog.org/fm26/clubs/1106-atalanta,FM26_public_snapshot_manual_selection_candidate
+CLB_ATA,3,Berat Djimsiti,ALB,32,DC,https://database.footballmanagerblog.org/fm26/clubs/1106-atalanta,FM26_public_snapshot_manual_selection_candidate
+CLB_ATA,4,Giorgio Scalvini,ITA,21,DC,https://database.footballmanagerblog.org/fm26/clubs/1106-atalanta,FM26_public_snapshot_manual_selection_candidate
+CLB_ATA,5,Isak Hien,SWE,26,DC,https://database.footballmanagerblog.org/fm26/clubs/1106-atalanta,FM26_public_snapshot_manual_selection_candidate
+CLB_ATA,6,Raoul Bellanova,ITA,25,"WBR,DR,MR",https://database.footballmanagerblog.org/fm26/clubs/1106-atalanta,FM26_public_snapshot_manual_selection_candidate
+CLB_ATA,7,Sead Kolašinac,BIH,32,DC,https://database.footballmanagerblog.org/fm26/clubs/1106-atalanta,FM26_public_snapshot_manual_selection_candidate
+CLB_ATA,8,Davide Zappacosta,ITA,33,"WBR,DR,MR,WBL,ML",https://database.footballmanagerblog.org/fm26/clubs/1106-atalanta,FM26_public_snapshot_manual_selection_candidate
+CLB_ATA,9,Odilon Kossounou,CIV,24,DC,https://database.footballmanagerblog.org/fm26/clubs/1106-atalanta,FM26_public_snapshot_manual_selection_candidate
+CLB_ATA,10,Nicola Zalewski,POL,23,"WBL,ML",https://database.footballmanagerblog.org/fm26/clubs/1106-atalanta,FM26_public_snapshot_manual_selection_candidate
+CLB_ATA,11,Mitchel Bakker,NED,25,"DL,WBL",https://database.footballmanagerblog.org/fm26/clubs/1106-atalanta,FM26_public_snapshot_manual_selection_candidate
+CLB_ATA,12,Honest Ahanor,NGA,17,DC,https://database.footballmanagerblog.org/fm26/clubs/1106-atalanta,FM26_public_snapshot_manual_selection_candidate
+CLB_ATA,13,Éderson,BRA,26,MC,https://database.footballmanagerblog.org/fm26/clubs/1106-atalanta,FM26_public_snapshot_manual_selection_candidate
+CLB_ATA,14,Charles De Ketelaere,BEL,24,"AMC,ST",https://database.footballmanagerblog.org/fm26/clubs/1106-atalanta,FM26_public_snapshot_manual_selection_candidate
+CLB_ATA,15,Marten de Roon,NED,34,"DM,MC",https://database.footballmanagerblog.org/fm26/clubs/1106-atalanta,FM26_public_snapshot_manual_selection_candidate
+CLB_ATA,16,Mario Pašalić,CRO,30,"MC,AMC",https://database.footballmanagerblog.org/fm26/clubs/1106-atalanta,FM26_public_snapshot_manual_selection_candidate
+CLB_ATA,17,Lazar Samardžić,SRB,23,"AMC,MC",https://database.footballmanagerblog.org/fm26/clubs/1106-atalanta,FM26_public_snapshot_manual_selection_candidate
+CLB_ATA,18,Yunus Musah,USA,22,"MC,DM",https://database.footballmanagerblog.org/fm26/clubs/1106-atalanta,FM26_public_snapshot_manual_selection_candidate
+CLB_ATA,19,Kamaldeen Sulemana,GHA,23,"AML,AMC",https://database.footballmanagerblog.org/fm26/clubs/1106-atalanta,FM26_public_snapshot_manual_selection_candidate
+CLB_ATA,20,Gianluca Scamacca,ITA,26,ST,https://database.footballmanagerblog.org/fm26/clubs/1106-atalanta,FM26_public_snapshot_manual_selection_candidate
+CLB_ATA,21,Giacomo Raspadori,ITA,25,ST,https://database.footballmanagerblog.org/fm26/clubs/1106-atalanta,FM26_public_snapshot_manual_selection_candidate
+CLB_ATA,22,Nikola Krstović,MNE,25,ST,https://database.footballmanagerblog.org/fm26/clubs/1106-atalanta,FM26_public_snapshot_manual_selection_candidate
+CLB_MUN,1,Senne Lammens,BEL,23,GK,https://database.footballmanagerblog.org/fm26/clubs/680-man-utd,FM26_public_snapshot_manual_selection_candidate
+CLB_MUN,2,Altay Bayındır,TUR,27,GK,https://database.footballmanagerblog.org/fm26/clubs/680-man-utd,FM26_public_snapshot_manual_selection_candidate
+CLB_MUN,3,Tom Heaton,ENG,39,GK,https://database.footballmanagerblog.org/fm26/clubs/680-man-utd,FM26_public_snapshot_manual_selection_candidate
+CLB_MUN,4,Matthijs de Ligt,NED,25,DC,https://database.footballmanagerblog.org/fm26/clubs/680-man-utd,FM26_public_snapshot_manual_selection_candidate
+CLB_MUN,5,Lisandro Martínez,ARG,27,DC,https://database.footballmanagerblog.org/fm26/clubs/680-man-utd,FM26_public_snapshot_manual_selection_candidate
+CLB_MUN,6,Luke Shaw,ENG,29,DL,https://database.footballmanagerblog.org/fm26/clubs/680-man-utd,FM26_public_snapshot_manual_selection_candidate
+CLB_MUN,7,Amad,CIV,22,"AMR,MR,AMC,WBR",https://database.footballmanagerblog.org/fm26/clubs/680-man-utd,FM26_public_snapshot_manual_selection_candidate
+CLB_MUN,8,Noussair Mazraoui,MAR,27,DR,https://database.footballmanagerblog.org/fm26/clubs/680-man-utd,FM26_public_snapshot_manual_selection_candidate
+CLB_MUN,9,Harry Maguire,ENG,32,DC,https://database.footballmanagerblog.org/fm26/clubs/680-man-utd,FM26_public_snapshot_manual_selection_candidate
+CLB_MUN,10,Diogo Dalot,POR,26,"DR,WBR",https://database.footballmanagerblog.org/fm26/clubs/680-man-utd,FM26_public_snapshot_manual_selection_candidate
+CLB_MUN,11,Leny Yoro,FRA,19,DC,https://database.footballmanagerblog.org/fm26/clubs/680-man-utd,FM26_public_snapshot_manual_selection_candidate
+CLB_MUN,12,Patrick Dorgu,DEN,20,"WBL,DL",https://database.footballmanagerblog.org/fm26/clubs/680-man-utd,FM26_public_snapshot_manual_selection_candidate
+CLB_MUN,13,Ayden Heaven,ENG,18,DC,https://database.footballmanagerblog.org/fm26/clubs/680-man-utd,FM26_public_snapshot_manual_selection_candidate
+CLB_MUN,14,Bruno Fernandes,POR,30,"AMC,DM,MC",https://database.footballmanagerblog.org/fm26/clubs/680-man-utd,FM26_public_snapshot_manual_selection_candidate
+CLB_MUN,15,Bryan Mbeumo,CMR,25,"AMR,AMC",https://database.footballmanagerblog.org/fm26/clubs/680-man-utd,FM26_public_snapshot_manual_selection_candidate
+CLB_MUN,16,Matheus Cunha,BRA,26,"AMC,ST",https://database.footballmanagerblog.org/fm26/clubs/680-man-utd,FM26_public_snapshot_manual_selection_candidate
+CLB_MUN,17,Mason Mount,ENG,26,"AMC,MC",https://database.footballmanagerblog.org/fm26/clubs/680-man-utd,FM26_public_snapshot_manual_selection_candidate
+CLB_MUN,18,Kobbie Mainoo,ENG,20,MC,https://database.footballmanagerblog.org/fm26/clubs/680-man-utd,FM26_public_snapshot_manual_selection_candidate
+CLB_MUN,19,Casemiro,BRA,33,"DM,MC",https://database.footballmanagerblog.org/fm26/clubs/680-man-utd,FM26_public_snapshot_manual_selection_candidate
+CLB_MUN,20,Manuel Ugarte,URU,24,"MC,DM",https://database.footballmanagerblog.org/fm26/clubs/680-man-utd,FM26_public_snapshot_manual_selection_candidate
+CLB_MUN,21,Benjamin Šeško,SVN,22,ST,https://database.footballmanagerblog.org/fm26/clubs/680-man-utd,FM26_public_snapshot_manual_selection_candidate
+CLB_MUN,22,Joshua Zirkzee,NED,24,ST,https://database.footballmanagerblog.org/fm26/clubs/680-man-utd,FM26_public_snapshot_manual_selection_candidate

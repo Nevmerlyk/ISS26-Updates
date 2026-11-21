@@ -1,0 +1,33 @@
+{
+  "revision": 20,
+  "status": "WORKING_TEST_DATA_NOT_VERIFIED_FM26_NOT_PATCH",
+  "modern_pool_records": 1938,
+  "modern_team_count": 78,
+  "modern_game_slots": 1716,
+  "historical_preserved_slots": 88,
+  "planned_game_slots": 1804,
+  "planned_team_count": 82,
+  "modern_attributes_expected": 29070,
+  "modern_attributes_populated": 29070,
+  "prior_source_candidate_fields": 26372,
+  "estimated_attribute_fields": 2698,
+  "crossmatched_attribute_fields": 0,
+  "estimated_players_distinct_keys": 252,
+  "estimate_rows": 252,
+  "bio_estimation_rows": {
+    "age": 31,
+    "height": 31,
+    "weight": 1922,
+    "foot": 141
+  },
+  "game_selected_estimate_rows": 167,
+  "game_selected_estimated_attributes": 1587,
+  "source_blobs": {
+    "ISS26_unified_candidate_pool_v19.csv": "517ac0425d71c8840b0321ada33537114a09d17e",
+    "fifa_wc2026_consolidated_v13.csv": "4e4ba6fa901109b1a6361fc735aa06554b7d4751",
+    "ISS26_bonus_original_roster_reference_v1.csv": "1006e8eea25af8181b76509020b69e5cc35f90d3"
+  },
+  "model": "Deterministic 16 nearest role peers with complete v19 candidate attributes. Distance uses existing ratings, age, height and same team/club bonus; canonical identity donor selection; weighted mean round and clamp 12-19. Missing weight uses height and role BMI placeholder, missing foot default R, missing age/height peer medians. Never presented as actual FM26 or observed biographical data.",
+  "selection": "22 per modern team, WC only registered 26; quota 2 GK/7 DF/8 MF/5 FW, fill shortage from remaining, cap rank before coverage for WC, other teams provisional. Historical slots retain original binary values; source roster mapping not verified.",
+  "qa": "All v19 fields preserved; 1938 modern rows x15 valid; 78 teams x22 unique selected rows; original 88 bonus records instructed to preserve. No modified ISO, face art, original historical attributes, or emulator test. Missing true FM26 and true weights remain unknown."
+}

@@ -1,0 +1,154 @@
+{
+  "rows": 1248,
+  "ids": 822,
+  "withAttrs": 805,
+  "full": 176,
+  "duplicate_uid_candidates": [],
+  "changed": [
+    {
+      "team_id": "NAT_CPV",
+      "player_name": "Vozinha",
+      "uid": "13131187",
+      "kind": "new_profile_identity",
+      "source": "https://sortitoutsi.net/football-manager-2026/person/13131187/vozinha"
+    },
+    {
+      "team_id": "NAT_CPV",
+      "player_name": "Logan Costa",
+      "uid": "49039003",
+      "kind": "new_profile_identity",
+      "source": "https://www.fmscout.com/player/49039003/logan-costa.html"
+    },
+    {
+      "team_id": "NAT_CPV",
+      "player_name": "Kevin Pina",
+      "uid": "83215595",
+      "kind": "new_profile_identity",
+      "source": "https://sortitoutsi.net/football-manager-2026/person/83215595/kevin-pina"
+    },
+    {
+      "team_id": "NAT_CPV",
+      "player_name": "Jovane Cabral",
+      "uid": "83111471",
+      "kind": "new_profile_identity",
+      "source": "https://database.footballmanagerblog.org/fm26/players/83111471-jovane-cabral"
+    },
+    {
+      "team_id": "NAT_CPV",
+      "player_name": "Gilson Benchimol",
+      "uid": "2000039621",
+      "kind": "new_profile_identity",
+      "source": "https://sortitoutsi.net/football-manager-2026/person/2000039621/gilson-benchimol"
+    },
+    {
+      "team_id": "NAT_CPV",
+      "player_name": "Jamiro Monteiro",
+      "uid": "37041867",
+      "kind": "new_profile_identity",
+      "source": "https://sortitoutsi.net/football-manager-2026/person/37041867/jamiro-monteiro"
+    },
+    {
+      "team_id": "NAT_CPV",
+      "player_name": "Garry Rodrigues",
+      "uid": "860985",
+      "kind": "new_profile_identity",
+      "source": "https://sortitoutsi.net/football-manager-2026/person/860985/garry-rodrigues"
+    },
+    {
+      "team_id": "NAT_CPV",
+      "player_name": "Sidny Lopes Cabral",
+      "uid": "37079110",
+      "kind": "new_profile_identity",
+      "source": "https://sortitoutsi.net/football-manager-2026/person/37079110/sidny-lopes-cabral"
+    },
+    {
+      "team_id": "NAT_CPV",
+      "player_name": "Deroy Duarte",
+      "uid": "37063421",
+      "kind": "new_profile_identity",
+      "source": "https://sortitoutsi.net/football-manager-2026/person/37063421/deroy-duarte"
+    },
+    {
+      "team_id": "NAT_CPV",
+      "player_name": "Willy Semedo",
+      "uid": "26035289",
+      "kind": "new_profile_identity",
+      "source": "https://sortitoutsi.net/football-manager-2026/person/26035289/willy-semedo"
+    },
+    {
+      "team_id": "NAT_CPV",
+      "player_name": "Telmo Arcanjo",
+      "uid": "83228313",
+      "kind": "new_profile_identity",
+      "source": "https://sortitoutsi.net/football-manager-2026/person/83228313/telmo-arcanjo"
+    },
+    {
+      "team_id": "NAT_CPV",
+      "player_name": "Dailon Livramento",
+      "uid": "37084655",
+      "kind": "new_profile_identity",
+      "source": "https://sortitoutsi.net/football-manager-2026/person/37084655/dailon-livramento"
+    },
+    {
+      "team_id": "NAT_CPV",
+      "player_name": "Ryan Mendes",
+      "uid": "85042178",
+      "kind": "new_profile_identity",
+      "source": "https://sortitoutsi.net/football-manager-2026/person/85042178/ryan-mendes"
+    },
+    {
+      "team_id": "NAT_CPV",
+      "player_name": "Nuno da Costa",
+      "uid": "48037370",
+      "kind": "new_profile_identity",
+      "source": "https://sortitoutsi.net/football-manager-2026/person/48037370/nuno-da-costa"
+    },
+    {
+      "team_id": "NAT_CPV",
+      "player_name": "Steven Moreira",
+      "uid": "85144322",
+      "kind": "new_profile_identity",
+      "source": "https://sortitoutsi.net/football-manager-2026/person/85144322/steven-moreira"
+    },
+    {
+      "team_id": "NAT_CPV",
+      "player_name": "Wagner Pina",
+      "uid": "2000122654",
+      "kind": "new_profile_identity",
+      "source": "https://sortitoutsi.net/football-manager-2026/person/2000122654/wagner-pina"
+    },
+    {
+      "team_id": "NAT_CPV",
+      "player_name": "Helio Varela",
+      "uid": "2000091607",
+      "kind": "new_profile_identity",
+      "source": "https://sortitoutsi.net/football-manager-2026/person/2000091607/helio-varela"
+    },
+    {
+      "team_id": "NAT_COL",
+      "player_name": "Juan Quintero",
+      "uid": "76015366",
+      "kind": "recovered_legacy_alias",
+      "source": "Juan Fernando Quintero"
+    },
+    {
+      "team_id": "NAT_PAN",
+      "player_name": "Edgar Yoel Barcenas",
+      "uid": "80027502",
+      "kind": "recovered_legacy_alias",
+      "source": "Yoel Bárcenas"
+    },
+    {
+      "team_id": "NAT_TUN",
+      "player_name": "Anis Slimane",
+      "uid": "27132918",
+      "kind": "recovered_legacy_alias",
+      "source": "Anis Ben Slimane"
+    }
+  ],
+  "source_input_sha": "5f05250eec8d38347976c9991c820ca1d7648d89",
+  "notes": [
+    "Public profile identities only; 17 new player IDs are not newly verified raw attribute rows.",
+    "Three alias matches reuse unverified legacy attribute source. Full FIFA source audit and complete FM26 extraction remain pending."
+  ]
+}

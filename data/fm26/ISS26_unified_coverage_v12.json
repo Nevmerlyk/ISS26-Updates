@@ -1,0 +1,410 @@
+{
+  "status": "CANDIDATE_POOL_NOT_SELECTED_NOT_RELEASE",
+  "known_team_ids": 78,
+  "expected_team_count": 82,
+  "bonus_team_slots_unresolved": 4,
+  "main_slots_expected": 1804,
+  "wc_registered_draft_rows": 1248,
+  "records": 1636,
+  "complete": 1280,
+  "any": 1436,
+  "reused": 8,
+  "candidateDiffs": [],
+  "team_coverage": {
+    "NAT_ALG": {
+      "candidates": 26,
+      "full": 25,
+      "any": 25
+    },
+    "NAT_ARG": {
+      "candidates": 26,
+      "full": 26,
+      "any": 26
+    },
+    "NAT_AUS": {
+      "candidates": 26,
+      "full": 23,
+      "any": 23
+    },
+    "NAT_AUT": {
+      "candidates": 26,
+      "full": 25,
+      "any": 25
+    },
+    "NAT_BEL": {
+      "candidates": 26,
+      "full": 26,
+      "any": 26
+    },
+    "NAT_BIH": {
+      "candidates": 26,
+      "full": 24,
+      "any": 24
+    },
+    "NAT_BRA": {
+      "candidates": 26,
+      "full": 26,
+      "any": 26
+    },
+    "NAT_CPV": {
+      "candidates": 26,
+      "full": 25,
+      "any": 25
+    },
+    "NAT_CAN": {
+      "candidates": 26,
+      "full": 24,
+      "any": 24
+    },
+    "NAT_COL": {
+      "candidates": 26,
+      "full": 25,
+      "any": 25
+    },
+    "NAT_COD": {
+      "candidates": 26,
+      "full": 22,
+      "any": 22
+    },
+    "NAT_CIV": {
+      "candidates": 26,
+      "full": 25,
+      "any": 25
+    },
+    "NAT_CRO": {
+      "candidates": 26,
+      "full": 26,
+      "any": 26
+    },
+    "NAT_CUW": {
+      "candidates": 26,
+      "full": 22,
+      "any": 23
+    },
+    "NAT_CZE": {
+      "candidates": 26,
+      "full": 26,
+      "any": 26
+    },
+    "NAT_ECU": {
+      "candidates": 26,
+      "full": 26,
+      "any": 26
+    },
+    "NAT_EGY": {
+      "candidates": 26,
+      "full": 18,
+      "any": 18
+    },
+    "NAT_ENG": {
+      "candidates": 26,
+      "full": 26,
+      "any": 26
+    },
+    "NAT_FRA": {
+      "candidates": 26,
+      "full": 26,
+      "any": 26
+    },
+    "NAT_GER": {
+      "candidates": 26,
+      "full": 25,
+      "any": 26
+    },
+    "NAT_GHA": {
+      "candidates": 26,
+      "full": 21,
+      "any": 21
+    },
+    "NAT_HAI": {
+      "candidates": 26,
+      "full": 15,
+      "any": 15
+    },
+    "NAT_IRN": {
+      "candidates": 26,
+      "full": 20,
+      "any": 20
+    },
+    "NAT_IRQ": {
+      "candidates": 26,
+      "full": 21,
+      "any": 21
+    },
+    "NAT_JPN": {
+      "candidates": 26,
+      "full": 25,
+      "any": 25
+    },
+    "NAT_JOR": {
+      "candidates": 26,
+      "full": 11,
+      "any": 11
+    },
+    "NAT_KOR": {
+      "candidates": 26,
+      "full": 26,
+      "any": 26
+    },
+    "NAT_MEX": {
+      "candidates": 26,
+      "full": 25,
+      "any": 25
+    },
+    "NAT_MAR": {
+      "candidates": 26,
+      "full": 26,
+      "any": 26
+    },
+    "NAT_NED": {
+      "candidates": 26,
+      "full": 26,
+      "any": 26
+    },
+    "NAT_NZL": {
+      "candidates": 26,
+      "full": 20,
+      "any": 20
+    },
+    "NAT_NOR": {
+      "candidates": 26,
+      "full": 25,
+      "any": 25
+    },
+    "NAT_PAN": {
+      "candidates": 26,
+      "full": 22,
+      "any": 22
+    },
+    "NAT_PAR": {
+      "candidates": 26,
+      "full": 22,
+      "any": 22
+    },
+    "NAT_POR": {
+      "candidates": 26,
+      "full": 26,
+      "any": 26
+    },
+    "NAT_QAT": {
+      "candidates": 26,
+      "full": 17,
+      "any": 17
+    },
+    "NAT_KSA": {
+      "candidates": 26,
+      "full": 11,
+      "any": 11
+    },
+    "NAT_SCO": {
+      "candidates": 26,
+      "full": 25,
+      "any": 25
+    },
+    "NAT_SEN": {
+      "candidates": 26,
+      "full": 23,
+      "any": 23
+    },
+    "NAT_RSA": {
+      "candidates": 26,
+      "full": 21,
+      "any": 21
+    },
+    "NAT_ESP": {
+      "candidates": 26,
+      "full": 26,
+      "any": 26
+    },
+    "NAT_SWE": {
+      "candidates": 26,
+      "full": 25,
+      "any": 25
+    },
+    "NAT_SUI": {
+      "candidates": 26,
+      "full": 26,
+      "any": 26
+    },
+    "NAT_TUN": {
+      "candidates": 26,
+      "full": 23,
+      "any": 23
+    },
+    "NAT_TUR": {
+      "candidates": 26,
+      "full": 26,
+      "any": 26
+    },
+    "NAT_URU": {
+      "candidates": 26,
+      "full": 26,
+      "any": 26
+    },
+    "NAT_USA": {
+      "candidates": 26,
+      "full": 26,
+      "any": 26
+    },
+    "NAT_UZB": {
+      "candidates": 26,
+      "full": 22,
+      "any": 22
+    },
+    "CLB_KRY": {
+      "candidates": 27,
+      "full": 1,
+      "any": 4
+    },
+    "NAT_UKR": {
+      "candidates": 33,
+      "full": 3,
+      "any": 25
+    },
+    "NAT_ITA": {
+      "candidates": 27,
+      "full": 2,
+      "any": 26
+    },
+    "NAT_DEN": {
+      "candidates": 24,
+      "full": 4,
+      "any": 18
+    },
+    "NAT_POL": {
+      "candidates": 25,
+      "full": 8,
+      "any": 18
+    },
+    "NAT_HUN": {
+      "candidates": 27,
+      "full": 3,
+      "any": 19
+    },
+    "NAT_NGA": {
+      "candidates": 26,
+      "full": 3,
+      "any": 25
+    },
+    "CLB_BAY": {
+      "candidates": 15,
+      "full": 12,
+      "any": 14
+    },
+    "CLB_ARS": {
+      "candidates": 13,
+      "full": 11,
+      "any": 13
+    },
+    "CLB_RMA": {
+      "candidates": 12,
+      "full": 8,
+      "any": 11
+    },
+    "CLB_PSG": {
+      "candidates": 9,
+      "full": 7,
+      "any": 8
+    },
+    "CLB_INT": {
+      "candidates": 6,
+      "full": 5,
+      "any": 5
+    },
+    "CLB_LIV": {
+      "candidates": 8,
+      "full": 7,
+      "any": 8
+    },
+    "CLB_MCI": {
+      "candidates": 13,
+      "full": 10,
+      "any": 12
+    },
+    "CLB_BAR": {
+      "candidates": 8,
+      "full": 3,
+      "any": 6
+    },
+    "CLB_BVB": {
+      "candidates": 11,
+      "full": 7,
+      "any": 11
+    },
+    "CLB_LEV": {
+      "candidates": 7,
+      "full": 4,
+      "any": 7
+    },
+    "CLB_AVL": {
+      "candidates": 10,
+      "full": 9,
+      "any": 10
+    },
+    "CLB_ATM": {
+      "candidates": 9,
+      "full": 7,
+      "any": 8
+    },
+    "CLB_ROM": {
+      "candidates": 4,
+      "full": 2,
+      "any": 2
+    },
+    "CLB_BRU": {
+      "candidates": 7,
+      "full": 5,
+      "any": 7
+    },
+    "CLB_SCP": {
+      "candidates": 7,
+      "full": 3,
+      "any": 7
+    },
+    "CLB_TOT": {
+      "candidates": 7,
+      "full": 4,
+      "any": 6
+    },
+    "CLB_POR": {
+      "candidates": 5,
+      "full": 3,
+      "any": 4
+    },
+    "CLB_FIO": {
+      "candidates": 4,
+      "full": 1,
+      "any": 1
+    },
+    "CLB_BEN": {
+      "candidates": 10,
+      "full": 6,
+      "any": 7
+    },
+    "CLB_BET": {
+      "candidates": 6,
+      "full": 4,
+      "any": 6
+    },
+    "CLB_CHE": {
+      "candidates": 9,
+      "full": 5,
+      "any": 9
+    },
+    "CLB_ATA": {
+      "candidates": 8,
+      "full": 6,
+      "any": 8
+    },
+    "CLB_MUN": {
+      "candidates": 11,
+      "full": 8,
+      "any": 10
+    }
+  },
+  "notes": [
+    "Club candidates are historical reserves plus available FIFA tournament club affiliations; these do not establish FM26 current club rosters. No bonus team identities supplied by the existing source files.",
+    "National and club candidate pools are not selected 22-player game rosters; same player may legitimately occur for country and club.",
+    "No guesses or fabricated values. Existing attributes and source membership claims remain provisional; weights/appearance still missing where unavailable."
+  ]
+}

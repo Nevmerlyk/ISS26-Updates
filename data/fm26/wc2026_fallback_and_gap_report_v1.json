@@ -1,0 +1,370 @@
+{
+  "status": "DRAFT_NOT_FOR_RELEASE",
+  "source_roster_blob_sha": "65260603b8ca8ee37f7a9e4447ec8573fedadcdc",
+  "source_files": [
+    {
+      "path": "BaseArsenal.rtf",
+      "blob_sha": "63bfd049980565e0af8e1feb0644b920e66cb8e0",
+      "source": "kofiAnimAY/FM26-player-analysis"
+    },
+    {
+      "path": "Madrid.rtf",
+      "blob_sha": "d1bd14085e3c1a215f72a9b0ba608f9cd37a64f8",
+      "source": "kofiAnimAY/FM26-player-analysis"
+    },
+    {
+      "path": "PSG.rtf",
+      "blob_sha": "979a333cca6ebd0af1757361292f0f7f38977e96",
+      "source": "kofiAnimAY/FM26-player-analysis"
+    }
+  ],
+  "source_rows": 89,
+  "unique_name_candidates": 31,
+  "players_with_gap_values": 27,
+  "missing_fields_with_fallback": 67,
+  "additional_complete_if_reviewed": 27,
+  "additional_with_any_if_reviewed": 2,
+  "primary_fm26_candidate_counts_unchanged": true,
+  "team_counts": {
+    "NAT_ALG": {
+      "total": 26,
+      "identity_candidates": 17,
+      "with_primary_candidate_attributes": 17,
+      "complete_primary_candidates": 4,
+      "missing_primary_fields": 153
+    },
+    "NAT_ARG": {
+      "total": 26,
+      "identity_candidates": 23,
+      "with_primary_candidate_attributes": 23,
+      "complete_primary_candidates": 5,
+      "missing_primary_fields": 81
+    },
+    "NAT_AUS": {
+      "total": 26,
+      "identity_candidates": 3,
+      "with_primary_candidate_attributes": 3,
+      "complete_primary_candidates": 1,
+      "missing_primary_fields": 347
+    },
+    "NAT_AUT": {
+      "total": 26,
+      "identity_candidates": 22,
+      "with_primary_candidate_attributes": 22,
+      "complete_primary_candidates": 2,
+      "missing_primary_fields": 97
+    },
+    "NAT_BEL": {
+      "total": 26,
+      "identity_candidates": 26,
+      "with_primary_candidate_attributes": 26,
+      "complete_primary_candidates": 7,
+      "missing_primary_fields": 36
+    },
+    "NAT_BIH": {
+      "total": 26,
+      "identity_candidates": 26,
+      "with_primary_candidate_attributes": 23,
+      "complete_primary_candidates": 5,
+      "missing_primary_fields": 75
+    },
+    "NAT_BRA": {
+      "total": 26,
+      "identity_candidates": 16,
+      "with_primary_candidate_attributes": 12,
+      "complete_primary_candidates": 3,
+      "missing_primary_fields": 219
+    },
+    "NAT_CPV": {
+      "total": 26,
+      "identity_candidates": 26,
+      "with_primary_candidate_attributes": 0,
+      "complete_primary_candidates": 0,
+      "missing_primary_fields": 390
+    },
+    "NAT_CAN": {
+      "total": 26,
+      "identity_candidates": 23,
+      "with_primary_candidate_attributes": 22,
+      "complete_primary_candidates": 4,
+      "missing_primary_fields": 96
+    },
+    "NAT_COL": {
+      "total": 26,
+      "identity_candidates": 20,
+      "with_primary_candidate_attributes": 20,
+      "complete_primary_candidates": 4,
+      "missing_primary_fields": 123
+    },
+    "NAT_COD": {
+      "total": 26,
+      "identity_candidates": 18,
+      "with_primary_candidate_attributes": 18,
+      "complete_primary_candidates": 8,
+      "missing_primary_fields": 135
+    },
+    "NAT_CIV": {
+      "total": 26,
+      "identity_candidates": 20,
+      "with_primary_candidate_attributes": 20,
+      "complete_primary_candidates": 3,
+      "missing_primary_fields": 118
+    },
+    "NAT_CRO": {
+      "total": 26,
+      "identity_candidates": 25,
+      "with_primary_candidate_attributes": 25,
+      "complete_primary_candidates": 7,
+      "missing_primary_fields": 50
+    },
+    "NAT_CUW": {
+      "total": 26,
+      "identity_candidates": 23,
+      "with_primary_candidate_attributes": 23,
+      "complete_primary_candidates": 11,
+      "missing_primary_fields": 63
+    },
+    "NAT_CZE": {
+      "total": 26,
+      "identity_candidates": 26,
+      "with_primary_candidate_attributes": 25,
+      "complete_primary_candidates": 3,
+      "missing_primary_fields": 55
+    },
+    "NAT_ECU": {
+      "total": 26,
+      "identity_candidates": 25,
+      "with_primary_candidate_attributes": 25,
+      "complete_primary_candidates": 5,
+      "missing_primary_fields": 53
+    },
+    "NAT_EGY": {
+      "total": 26,
+      "identity_candidates": 11,
+      "with_primary_candidate_attributes": 10,
+      "complete_primary_candidates": 2,
+      "missing_primary_fields": 254
+    },
+    "NAT_ENG": {
+      "total": 26,
+      "identity_candidates": 22,
+      "with_primary_candidate_attributes": 22,
+      "complete_primary_candidates": 4,
+      "missing_primary_fields": 96
+    },
+    "NAT_FRA": {
+      "total": 26,
+      "identity_candidates": 26,
+      "with_primary_candidate_attributes": 24,
+      "complete_primary_candidates": 6,
+      "missing_primary_fields": 65
+    },
+    "NAT_GER": {
+      "total": 26,
+      "identity_candidates": 21,
+      "with_primary_candidate_attributes": 21,
+      "complete_primary_candidates": 5,
+      "missing_primary_fields": 109
+    },
+    "NAT_GHA": {
+      "total": 26,
+      "identity_candidates": 17,
+      "with_primary_candidate_attributes": 17,
+      "complete_primary_candidates": 2,
+      "missing_primary_fields": 156
+    },
+    "NAT_HAI": {
+      "total": 26,
+      "identity_candidates": 12,
+      "with_primary_candidate_attributes": 12,
+      "complete_primary_candidates": 4,
+      "missing_primary_fields": 218
+    },
+    "NAT_IRN": {
+      "total": 26,
+      "identity_candidates": 6,
+      "with_primary_candidate_attributes": 6,
+      "complete_primary_candidates": 2,
+      "missing_primary_fields": 310
+    },
+    "NAT_IRQ": {
+      "total": 26,
+      "identity_candidates": 1,
+      "with_primary_candidate_attributes": 1,
+      "complete_primary_candidates": 0,
+      "missing_primary_fields": 376
+    },
+    "NAT_JPN": {
+      "total": 26,
+      "identity_candidates": 25,
+      "with_primary_candidate_attributes": 25,
+      "complete_primary_candidates": 3,
+      "missing_primary_fields": 54
+    },
+    "NAT_JOR": {
+      "total": 26,
+      "identity_candidates": 1,
+      "with_primary_candidate_attributes": 1,
+      "complete_primary_candidates": 0,
+      "missing_primary_fields": 376
+    },
+    "NAT_KOR": {
+      "total": 26,
+      "identity_candidates": 1,
+      "with_primary_candidate_attributes": 1,
+      "complete_primary_candidates": 1,
+      "missing_primary_fields": 375
+    },
+    "NAT_MEX": {
+      "total": 26,
+      "identity_candidates": 24,
+      "with_primary_candidate_attributes": 24,
+      "complete_primary_candidates": 2,
+      "missing_primary_fields": 70
+    },
+    "NAT_MAR": {
+      "total": 26,
+      "identity_candidates": 21,
+      "with_primary_candidate_attributes": 21,
+      "complete_primary_candidates": 5,
+      "missing_primary_fields": 97
+    },
+    "NAT_NED": {
+      "total": 26,
+      "identity_candidates": 25,
+      "with_primary_candidate_attributes": 25,
+      "complete_primary_candidates": 8,
+      "missing_primary_fields": 50
+    },
+    "NAT_NZL": {
+      "total": 26,
+      "identity_candidates": 26,
+      "with_primary_candidate_attributes": 0,
+      "complete_primary_candidates": 0,
+      "missing_primary_fields": 390
+    },
+    "NAT_NOR": {
+      "total": 26,
+      "identity_candidates": 16,
+      "with_primary_candidate_attributes": 16,
+      "complete_primary_candidates": 2,
+      "missing_primary_fields": 176
+    },
+    "NAT_PAN": {
+      "total": 26,
+      "identity_candidates": 21,
+      "with_primary_candidate_attributes": 21,
+      "complete_primary_candidates": 4,
+      "missing_primary_fields": 104
+    },
+    "NAT_PAR": {
+      "total": 26,
+      "identity_candidates": 19,
+      "with_primary_candidate_attributes": 19,
+      "complete_primary_candidates": 6,
+      "missing_primary_fields": 128
+    },
+    "NAT_POR": {
+      "total": 26,
+      "identity_candidates": 23,
+      "with_primary_candidate_attributes": 23,
+      "complete_primary_candidates": 5,
+      "missing_primary_fields": 74
+    },
+    "NAT_QAT": {
+      "total": 26,
+      "identity_candidates": 0,
+      "with_primary_candidate_attributes": 0,
+      "complete_primary_candidates": 0,
+      "missing_primary_fields": 390
+    },
+    "NAT_KSA": {
+      "total": 26,
+      "identity_candidates": 0,
+      "with_primary_candidate_attributes": 0,
+      "complete_primary_candidates": 0,
+      "missing_primary_fields": 390
+    },
+    "NAT_SCO": {
+      "total": 26,
+      "identity_candidates": 21,
+      "with_primary_candidate_attributes": 21,
+      "complete_primary_candidates": 7,
+      "missing_primary_fields": 101
+    },
+    "NAT_SEN": {
+      "total": 26,
+      "identity_candidates": 21,
+      "with_primary_candidate_attributes": 21,
+      "complete_primary_candidates": 3,
+      "missing_primary_fields": 111
+    },
+    "NAT_RSA": {
+      "total": 26,
+      "identity_candidates": 19,
+      "with_primary_candidate_attributes": 19,
+      "complete_primary_candidates": 5,
+      "missing_primary_fields": 137
+    },
+    "NAT_ESP": {
+      "total": 26,
+      "identity_candidates": 24,
+      "with_primary_candidate_attributes": 24,
+      "complete_primary_candidates": 2,
+      "missing_primary_fields": 69
+    },
+    "NAT_SWE": {
+      "total": 26,
+      "identity_candidates": 23,
+      "with_primary_candidate_attributes": 23,
+      "complete_primary_candidates": 6,
+      "missing_primary_fields": 80
+    },
+    "NAT_SUI": {
+      "total": 26,
+      "identity_candidates": 25,
+      "with_primary_candidate_attributes": 25,
+      "complete_primary_candidates": 6,
+      "missing_primary_fields": 52
+    },
+    "NAT_TUN": {
+      "total": 26,
+      "identity_candidates": 17,
+      "with_primary_candidate_attributes": 17,
+      "complete_primary_candidates": 6,
+      "missing_primary_fields": 152
+    },
+    "NAT_TUR": {
+      "total": 26,
+      "identity_candidates": 17,
+      "with_primary_candidate_attributes": 17,
+      "complete_primary_candidates": 3,
+      "missing_primary_fields": 155
+    },
+    "NAT_URU": {
+      "total": 26,
+      "identity_candidates": 24,
+      "with_primary_candidate_attributes": 24,
+      "complete_primary_candidates": 4,
+      "missing_primary_fields": 67
+    },
+    "NAT_USA": {
+      "total": 26,
+      "identity_candidates": 23,
+      "with_primary_candidate_attributes": 23,
+      "complete_primary_candidates": 3,
+      "missing_primary_fields": 83
+    },
+    "NAT_UZB": {
+      "total": 26,
+      "identity_candidates": 0,
+      "with_primary_candidate_attributes": 0,
+      "complete_primary_candidates": 0,
+      "missing_primary_fields": 390
+    }
+  },
+  "notes": [
+    "Source game edition not verified and roster appears historical; exact name only, no independent source DOB or database UID. Do not write fallback ratings into original roster or release automatically.",
+    "Raw FM26 1–20 bulk export remains unavailable. Existing manually transcribed FIFA registrations still need independent audit."
+  ]
+}

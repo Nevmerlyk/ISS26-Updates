@@ -1,0 +1,168 @@
+{
+  "status": "DRAFT_NOT_RELEASE",
+  "input_blob": "928a5c90e6a0c2b97e8bd82108f87e3e02e96a2f",
+  "raw_source_blob": "5dd3ec2d109ed5d9a13b3df0dd49c8760d2d459c",
+  "rows": 528,
+  "complete": 514,
+  "complete_clubs": 23,
+  "filled_cells": 7710,
+  "remaining": 14,
+  "team_stats": {
+    "CLB_BAY": {
+      "slots": 22,
+      "complete": 22,
+      "partial": 0,
+      "empty": 0
+    },
+    "CLB_ARS": {
+      "slots": 22,
+      "complete": 22,
+      "partial": 0,
+      "empty": 0
+    },
+    "CLB_RMA": {
+      "slots": 22,
+      "complete": 22,
+      "partial": 0,
+      "empty": 0
+    },
+    "CLB_PSG": {
+      "slots": 22,
+      "complete": 22,
+      "partial": 0,
+      "empty": 0
+    },
+    "CLB_INT": {
+      "slots": 22,
+      "complete": 22,
+      "partial": 0,
+      "empty": 0
+    },
+    "CLB_LIV": {
+      "slots": 22,
+      "complete": 22,
+      "partial": 0,
+      "empty": 0
+    },
+    "CLB_MCI": {
+      "slots": 22,
+      "complete": 22,
+      "partial": 0,
+      "empty": 0
+    },
+    "CLB_BVB": {
+      "slots": 22,
+      "complete": 22,
+      "partial": 0,
+      "empty": 0
+    },
+    "CLB_LEV": {
+      "slots": 22,
+      "complete": 22,
+      "partial": 0,
+      "empty": 0
+    },
+    "CLB_AVL": {
+      "slots": 22,
+      "complete": 22,
+      "partial": 0,
+      "empty": 0
+    },
+    "CLB_TOT": {
+      "slots": 22,
+      "complete": 22,
+      "partial": 0,
+      "empty": 0
+    },
+    "CLB_BRU": {
+      "slots": 22,
+      "complete": 22,
+      "partial": 0,
+      "empty": 0
+    },
+    "CLB_BAR": {
+      "slots": 22,
+      "complete": 22,
+      "partial": 0,
+      "empty": 0
+    },
+    "CLB_ATM": {
+      "slots": 22,
+      "complete": 22,
+      "partial": 0,
+      "empty": 0
+    },
+    "CLB_ROM": {
+      "slots": 22,
+      "complete": 22,
+      "partial": 0,
+      "empty": 0
+    },
+    "CLB_SCP": {
+      "slots": 22,
+      "complete": 22,
+      "partial": 0,
+      "empty": 0
+    },
+    "CLB_POR": {
+      "slots": 22,
+      "complete": 22,
+      "partial": 0,
+      "empty": 0
+    },
+    "CLB_FIO": {
+      "slots": 22,
+      "complete": 22,
+      "partial": 0,
+      "empty": 0
+    },
+    "CLB_BEN": {
+      "slots": 22,
+      "complete": 22,
+      "partial": 0,
+      "empty": 0
+    },
+    "CLB_BET": {
+      "slots": 22,
+      "complete": 22,
+      "partial": 0,
+      "empty": 0
+    },
+    "CLB_CHE": {
+      "slots": 22,
+      "complete": 22,
+      "partial": 0,
+      "empty": 0
+    },
+    "CLB_ATA": {
+      "slots": 22,
+      "complete": 22,
+      "partial": 0,
+      "empty": 0
+    },
+    "CLB_MUN": {
+      "slots": 22,
+      "complete": 22,
+      "partial": 0,
+      "empty": 0
+    },
+    "CLB_KRY": {
+      "slots": 22,
+      "complete": 8,
+      "partial": 0,
+      "empty": 14
+    }
+  },
+  "corrections": [
+    {
+      "name": "Gustaf Nilsson",
+      "field": "birth_date",
+      "old": "1997-05-25",
+      "corrected": "1997-05-23",
+      "source": "https://play.clubbrugge.be/en/teams/a-kern/players/gustaf-nilsson"
+    }
+  ],
+  "notes": [
+    "Community source exact build and full field order not certified; GK field inference sample-checked. Club composition is selected mixed-snapshot candidates, not a fully audited current roster. The four bulk fallback identities independently confirmed, Mbaye public raw values transcribed; no weight guesses. Prior v14 retained for reference."
+  ]
+}

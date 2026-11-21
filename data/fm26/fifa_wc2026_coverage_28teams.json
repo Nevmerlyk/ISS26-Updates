@@ -1,0 +1,158 @@
+{
+  "source": "https://fdp.fifa.org/assetspublic/ce281/pdf/SquadLists-English.pdf",
+  "edition": "2026-07-19; screenshot of Ghana page shows 2026-07-18 23:14; text extraction footer shows 2026-07-19 22:34; reconcile during final PDF QA",
+  "status": "PARTIAL_DRAFT_NOT_RELEASE",
+  "expected": 1248,
+  "teams_expected": 48,
+  "registered": 728,
+  "teams": 28,
+  "remaining": 520,
+  "matched_candidates": 465,
+  "complete_15_candidates": 101,
+  "team_stats": {
+    "NAT_ALG": {
+      "registered": 26,
+      "matched": 17,
+      "full": 4
+    },
+    "NAT_ARG": {
+      "registered": 26,
+      "matched": 23,
+      "full": 5
+    },
+    "NAT_AUS": {
+      "registered": 26,
+      "matched": 3,
+      "full": 1
+    },
+    "NAT_AUT": {
+      "registered": 26,
+      "matched": 22,
+      "full": 2
+    },
+    "NAT_BEL": {
+      "registered": 26,
+      "matched": 25,
+      "full": 6
+    },
+    "NAT_BIH": {
+      "registered": 26,
+      "matched": 23,
+      "full": 5
+    },
+    "NAT_BRA": {
+      "registered": 26,
+      "matched": 11,
+      "full": 2
+    },
+    "NAT_CPV": {
+      "registered": 26,
+      "matched": 0,
+      "full": 0
+    },
+    "NAT_CAN": {
+      "registered": 26,
+      "matched": 22,
+      "full": 4
+    },
+    "NAT_COL": {
+      "registered": 26,
+      "matched": 19,
+      "full": 4
+    },
+    "NAT_COD": {
+      "registered": 26,
+      "matched": 18,
+      "full": 8
+    },
+    "NAT_CIV": {
+      "registered": 26,
+      "matched": 20,
+      "full": 3
+    },
+    "NAT_CRO": {
+      "registered": 26,
+      "matched": 25,
+      "full": 7
+    },
+    "NAT_CUW": {
+      "registered": 26,
+      "matched": 23,
+      "full": 11
+    },
+    "NAT_CZE": {
+      "registered": 26,
+      "matched": 25,
+      "full": 3
+    },
+    "NAT_ECU": {
+      "registered": 26,
+      "matched": 25,
+      "full": 5
+    },
+    "NAT_EGY": {
+      "registered": 26,
+      "matched": 10,
+      "full": 2
+    },
+    "NAT_ENG": {
+      "registered": 26,
+      "matched": 22,
+      "full": 4
+    },
+    "NAT_FRA": {
+      "registered": 26,
+      "matched": 24,
+      "full": 6
+    },
+    "NAT_GER": {
+      "registered": 26,
+      "matched": 21,
+      "full": 5
+    },
+    "NAT_GHA": {
+      "registered": 26,
+      "matched": 17,
+      "full": 2
+    },
+    "NAT_HAI": {
+      "registered": 26,
+      "matched": 12,
+      "full": 4
+    },
+    "NAT_IRN": {
+      "registered": 26,
+      "matched": 6,
+      "full": 2
+    },
+    "NAT_IRQ": {
+      "registered": 26,
+      "matched": 1,
+      "full": 0
+    },
+    "NAT_JPN": {
+      "registered": 26,
+      "matched": 25,
+      "full": 3
+    },
+    "NAT_JOR": {
+      "registered": 26,
+      "matched": 1,
+      "full": 0
+    },
+    "NAT_KOR": {
+      "registered": 26,
+      "matched": 1,
+      "full": 1
+    },
+    "NAT_MEX": {
+      "registered": 26,
+      "matched": 24,
+      "full": 2
+    }
+  },
+  "notes": [
+    "Pages 21–28 transcribed using FIFA PDF renderings and text; earlier records carried forward, not independently rechecked.",
+    "Only old candidate FM26 export data reused, not new primary FM26 attributes. Player names normalized; no slot changes. Direct download blocked by DNS."
+  ]
+}

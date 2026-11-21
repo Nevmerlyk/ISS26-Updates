@@ -1,0 +1,6 @@
+team_id,shirt_number,expected_uid,expected_name,expected_nationality,source_url
+NAT_QAT,11,18091019,Akram Afif,QAT,https://fmplayer.net/fm-26/akram-afif-18091019
+NAT_BRA,3,19242094,Gabriel,BRA,https://fmplayer.net/fm-26/gabriel-19242094
+NAT_BRA,4,19163495,Marquinhos,BRA,https://fmplayer.net/fm-26/marquinhos-19163495
+NAT_FRA,10,85139014,Kylian Mbappé,FRA,https://fmplayer.net/fm-26/kylian-mbappe-85139014
+NAT_ESP,16,67217524,Rodri,ESP,https://fmplayer.net/fm-26/rodri-67217524
