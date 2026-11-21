@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "revision": 3,
+  "revision": 4,
   "tasks": [
     {
       "id": "academy_prematch_source",
@@ -47,11 +47,22 @@
       "agent": "Rookie",
       "kind": "navigate_kickoff",
       "title": "Start Bosnia vs New Zealand; preserve full prematch",
-      "priority": 100,
+      "priority": 90,
       "researchGoalId": "",
       "researchRevision": 0,
       "feedback": "Theory: MODE SELECT > Match Mode > Exhibition; avoid default-game shortcut. D-pad: move; CROSS: confirm. Verify BOSNIA home (ID 30, style 61) and N.ZEAL away (ID 27, style 54) by name, not flag or fixed press count. Key Square Stadium, Day. Confirm Start Match once; release all buttons through loading, stadium, carried banner, crowd and kickoff. Never skip. Wrong/missing evidence=incomplete. Full theory: research/rookie-bosnia-new-zealand-theory-v1.json",
       "navigationProfile": "balanced"
+    },
+    {
+      "id": "rookie_master_league_kryvbas_22",
+      "agent": "Rookie",
+      "kind": "navigate_master_league_kryvbas",
+      "title": "Rookie exam: Master League → not Manchester United → Buy Players → FC Kryvbas 22/22",
+      "priority": 100,
+      "researchGoalId": "",
+      "researchRevision": 0,
+      "feedback": "Five-minute exam. Navigate the actual Master League, choose any club EXCEPT Manchester United, locate Buy Players, find FC Kryvbas and visit 22 different footballers. Preserve per-player screenshot/VRAM, selected two-byte reference and club-name evidence. Do not make any player purchase or alter original saves. Screenshots or RAM changes alone are NOT a PASS. Source: research/rookie-master-league-theory-v1.json",
+      "navigationProfile": "confirmed_first"
     }
   ]
 }
