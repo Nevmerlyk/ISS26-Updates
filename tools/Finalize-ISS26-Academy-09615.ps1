@@ -18,11 +18,14 @@ function Hash([string]$path) {
     return (Get-FileHash -LiteralPath $path -Algorithm SHA256).Hash.ToUpperInvariant()
 }
 
-function Gh([string[]]$parts) {
+function Invoke-Iss26GitHubCli([string[]]$parts) {
     $old = $ErrorActionPreference
     try {
         $ErrorActionPreference = "Continue"
-        $output = & gh @parts 2>&1
+        # Resolve the external executable explicitly: PowerShell command names are
+        # case-insensitive, and a function named Gh would recursively invoke itself.
+        $ghExecutable = (Get-Command gh.exe -CommandType Application -ErrorAction Stop).Source
+        $output = & $ghExecutable @parts 2>&1
         $exit = $LASTEXITCODE
     } finally { $ErrorActionPreference = $old }
     if ($exit -ne 0) {
@@ -32,7 +35,7 @@ function Gh([string[]]$parts) {
 }
 
 function Meta([string]$path) {
-    return (Gh @("api", "repos/$updates/contents/$path") | ConvertFrom-Json)
+    return (Invoke-Iss26GitHubCli @("api", "repos/$updates/contents/$path") | ConvertFrom-Json)
 }
 
 function Feed([object]$meta) {
@@ -43,7 +46,7 @@ function Feed([object]$meta) {
 
 try {
     if ($env:OS -ne "Windows_NT") { throw "This script requires Windows." }
-    if (-not (Get-Command gh -ErrorAction SilentlyContinue)) {
+    if (-not (Get-Command gh.exe -CommandType Application -ErrorAction SilentlyContinue)) {
         throw "GitHub CLI (gh) not found. The earlier publisher installed it."
     }
     $launcher = Join-Path $out "binaries\ISS26.exe"
@@ -110,7 +113,7 @@ try {
         throw "Public release differs from verified local binaries."
     }
 
-    $release = Gh @("api", "repos/$updates/releases/tags/$tag") | ConvertFrom-Json
+    $release = Invoke-Iss26GitHubCli @("api", "repos/$updates/releases/tags/$tag") | ConvertFrom-Json
     $asset = @($release.assets | Where-Object {
         $_.name -ceq "ISS26-LauncherUpdate.zip" -and $_.state -eq "uploaded"
     })
@@ -163,7 +166,7 @@ try {
         [IO.File]::WriteAllText($payloadFile, $req, [Text.UTF8Encoding]::new($false))
 
         try {
-            Gh @("api", "--method", "PUT", "repos/$updates/contents/launcher/latest.json",
+            Invoke-Iss26GitHubCli @("api", "--method", "PUT", "repos/$updates/contents/launcher/latest.json",
                 "--input", $payloadFile) | Out-Null
         } catch {
             $message = $_.Exception.Message
