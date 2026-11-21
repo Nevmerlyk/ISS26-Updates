@@ -90,7 +90,9 @@ try {
     $fv=[Diagnostics.FileVersionInfo]::GetVersionInfo($file).FileVersion
     if(-not $fv.StartsWith($v)){throw "Wrong binary version $fv in $file"}
   }
-  Add-Type -AssemblyName System.IO.Compression
+  # Windows PowerShell 5.1 keeps ZipFile in FileSystem, not in System.IO.Compression.
+  Add-Type -AssemblyName System.IO.Compression -ErrorAction Stop
+  Add-Type -AssemblyName System.IO.Compression.FileSystem -ErrorAction Stop
   $zip=[IO.Compression.ZipFile]::OpenRead($candidate)
   try{
     $names=@($zip.Entries|ForEach-Object{$_.FullName})
