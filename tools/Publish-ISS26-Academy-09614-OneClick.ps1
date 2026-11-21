@@ -26,14 +26,14 @@ function NeedCommand([string]$cmd,[string]$package) {
   RefreshPath
   if(-not(Get-Command $cmd -ErrorAction SilentlyContinue)){throw "$cmd not on PATH; reopen PowerShell."}
 }
-function Gh([string[]]$p) {
+function InvokeGithub([string[]]$p) {
   $old=$ErrorActionPreference
   try { $ErrorActionPreference="Continue";$output=& gh @p 2>&1;$ec=$LASTEXITCODE }
   finally { $ErrorActionPreference=$old }
   if($ec -ne 0){throw "GitHub CLI failed: gh $($p -join ' ') : $($output -join ' ')"}
   return ($output -join [Environment]::NewLine)
 }
-function GetMeta([string]$path){ Gh @("api","repos/$updates/contents/$path") | ConvertFrom-Json }
+function GetMeta([string]$path){ InvokeGithub @("api","repos/$updates/contents/$path") | ConvertFrom-Json }
 function Hash([string]$path){(Get-FileHash -LiteralPath $path -Algorithm SHA256).Hash.ToUpperInvariant()}
 try {
   if($env:OS -ne "Windows_NT"){throw "Windows required"}
@@ -109,7 +109,7 @@ try {
   try{$ErrorActionPreference="Continue";& gh release view $tag --repo $updates *> $null;$exists=$LASTEXITCODE -eq 0}
   finally{$ErrorActionPreference=$old}
   if(-not $exists){
-    Gh @("release","create",$tag,$candidate,"--repo",$updates,"--target","main","--latest=false","--title","ISS26 Academy $v Stable Windows launcher","--notes","Launcher-only release; game BIN/CUE and Stable PS1 patch unchanged.")|Out-Null
+    InvokeGithub @("release","create",$tag,$candidate,"--repo",$updates,"--target","main","--latest=false","--title","ISS26 Academy $v Stable Windows launcher","--notes","Launcher-only release; game BIN/CUE and Stable PS1 patch unchanged.")|Out-Null
   }
   $remote=Join-Path $out "verified-public.zip"
   for($i=0;$i -lt 5;$i++){
@@ -130,7 +130,7 @@ try {
   $req=@{branch="main";sha=$feed.sha;message="Release verified Academy $v Windows auto-update";content=[Convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes($body))}|ConvertTo-Json -Depth 6
   $request=Join-Path $out "publish-feed.json"
   [IO.File]::WriteAllText($request,$req,[Text.UTF8Encoding]::new($false))
-  Gh @("api","--method","PUT","repos/$updates/contents/launcher/latest.json","--input",$request)|Out-Null
+  InvokeGithub @("api","--method","PUT","repos/$updates/contents/launcher/latest.json","--input",$request)|Out-Null
   $verified=GetMeta "launcher/latest.json"
   $actual=[Text.Encoding]::UTF8.GetString([Convert]::FromBase64String(($verified.content -replace '\s+','')))|ConvertFrom-Json
   if($actual.latest.version -ne $v -or $actual.latest.zipSha256 -ne $ziphash){throw "Feed readback mismatch"}
