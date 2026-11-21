@@ -1,11 +1,11 @@
 {
     "latest":  {
-                   "updaterSha256":  "C715B24E1E26C2E5518E8BF6BB63398B32E4C1FDD3EF9C3A107B317B586D9C5D",
-                   "version":  "0.9.6.14",
-                   "zipUrl":  "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.9.6.14/ISS26-LauncherUpdate.zip",
-                   "launcherSha256":  "20A6F8B65B0E61A8A94335078592427924B53CE481DB9F9C16D955F1C92A1115",
-                   "zipSha256":  "EFB49530829854C4059D9EDE2A2BB8458756CDA5D4111256313F49D71BB9BE0D",
-                   "notes":  "Academy 0.9.6.14 stable Windows launcher; original CUE, PgUp/PgDn and reviewed GitHub scripts. Stable PS1 game patch unchanged."
+                   "updaterSha256":  "3B7570924418F100B181DB250A52D7EEDB9F158A48B7B4FF7E105DE3BFCE6D5B",
+                   "version":  "0.9.6.15",
+                   "zipUrl":  "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.9.6.15/ISS26-LauncherUpdate.zip",
+                   "launcherSha256":  "D70F497AB2C883A914953E701C119FA734935667FC9557A07584F0F86D5E1B3D",
+                   "zipSha256":  "D57BAF6D2E3ADD01BD00834E82CE67DC343A13DDCE45CE812C29698D2C4BB79B",
+                   "notes":  "Academy 0.9.6.15: Practice actions remain visible above the status bar. Stable PS1 game patch unchanged."
                },
     "schemaVersion":  1
 }
