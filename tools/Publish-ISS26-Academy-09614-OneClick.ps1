@@ -33,6 +33,13 @@ function InvokeGithub([string[]]$p) {
   if($ec -ne 0){throw "GitHub CLI failed: gh $($p -join ' ') : $($output -join ' ')"}
   return ($output -join [Environment]::NewLine)
 }
+function InvokeGit([string[]]$p) {
+  $old=$ErrorActionPreference
+  try{$ErrorActionPreference="Continue";$output=& git @p 2>&1;$ec=$LASTEXITCODE}
+  finally{$ErrorActionPreference=$old}
+  if($ec -ne 0){throw "Git failed: $($p -join ' ') : $($output -join ' ')"}
+  return ($output -join [Environment]::NewLine)
+}
 function GetMeta([string]$path){ InvokeGithub @("api","repos/$updates/contents/$path") | ConvertFrom-Json }
 function Hash([string]$path){(Get-FileHash -LiteralPath $path -Algorithm SHA256).Hash.ToUpperInvariant()}
 try {
@@ -47,19 +54,20 @@ try {
   $old=$ErrorActionPreference
   try{$ErrorActionPreference="Continue";& gh auth status *> $null;$signed=$LASTEXITCODE -eq 0}
   finally{$ErrorActionPreference=$old}
-  if(-not $signed){& gh auth login --web;if($LASTEXITCODE -ne 0){throw "GitHub login failed"}}
-  & gh auth setup-git
-  if($LASTEXITCODE -ne 0){throw "Git credential setup failed"}
-  if(-not(Test-Path (Join-Path $src ".git"))){
-    & git clone --depth 1 --single-branch --branch $branch "https://github.com/$repo.git" $src
-    if($LASTEXITCODE -ne 0){throw "Private GitHub clone failed"}
-  }else{
-    & git -C $src fetch origin $branch --depth 1
-    if($LASTEXITCODE -ne 0){throw "Git fetch failed"}
-    & git -C $src checkout --detach FETCH_HEAD
-    if($LASTEXITCODE -ne 0){throw "Git checkout failed"}
+  if(-not $signed){
+    $prior=$ErrorActionPreference
+    try{$ErrorActionPreference="Continue";& gh auth login --web;$loginExit=$LASTEXITCODE}
+    finally{$ErrorActionPreference=$prior}
+    if($loginExit -ne 0){throw "GitHub login failed"}
   }
-  $head=(& git -C $src rev-parse HEAD).Trim().ToLowerInvariant()
+  InvokeGithub @("auth","setup-git")|Out-Null
+  if(-not(Test-Path (Join-Path $src ".git"))){
+    InvokeGit @("clone","--depth","1","--single-branch","--branch",$branch,"https://github.com/$repo.git",$src)|Out-Null
+  }else{
+    InvokeGit @("-C",$src,"fetch","origin",$branch,"--depth","1")|Out-Null
+    InvokeGit @("-C",$src,"checkout","--detach","FETCH_HEAD")|Out-Null
+  }
+  $head=(InvokeGit @("-C",$src,"rev-parse","HEAD")).Trim().ToLowerInvariant()
   if($head -ne $pin){throw "Source changed from reviewed release: $head (expected $pin)"}
   Write-Host "Compiling Academy $v and running all C# + LuaJIT tests..."
   New-Item -ItemType Directory -Force -Path $out | Out-Null
