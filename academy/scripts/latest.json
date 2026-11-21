@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "revision": 1,
+  "scripts": [
+    {
+      "id": "academy_roster_probe",
+      "title": "Read-only Master League roster pointer probe",
+      "description": "Lua diagnostics in the next explicitly approved Test Game; records raw selected club/player slot pairs, not sporting nationality.",
+      "type": "lua",
+      "filename": "academy_roster_probe.lua",
+      "sha256": "B269A6A007F284F12E78498F8F70E3ADCCCBB2E772D02DD75F64A0077681BEC0",
+      "timeoutSeconds": 45,
+      "commit": "8e05373acf9776b7627a4e3e1a24ece11c4dc7c4"
+    },
+    {
+      "id": "academy_windows_info",
+      "title": "Windows PowerShell environment diagnostics",
+      "description": "Reads PowerShell/Windows version and process architecture; saves stdout only in the local Academy report.",
+      "type": "ps1",
+      "filename": "academy_windows_info.ps1",
+      "sha256": "534313F9FC1E11F5DBFFC233D2F2116FB2F67037CCB2A7B1A51B85B7602F6AE5",
+      "timeoutSeconds": 30,
+      "commit": "8e05373acf9776b7627a4e3e1a24ece11c4dc7c4"
+    },
+    {
+      "id": "academy_cmd_info",
+      "title": "CMD Windows version diagnostics",
+      "description": "Runs ver and prints a static status marker; no data modification.",
+      "type": "cmd",
+      "filename": "academy_cmd_info.cmd",
+      "sha256": "B031AFB950074EEE274D3CA5BC9CA4125C4E944788A9307A8C5767CBA5382008",
+      "timeoutSeconds": 15,
+      "commit": "8e05373acf9776b7627a4e3e1a24ece11c4dc7c4"
+    }
+  ]
+}
