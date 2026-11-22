@@ -73,6 +73,22 @@ def report_zip(path):
   out["distinct_flag_crops"]=len(set(crops))
   out["flag_crop_digests"]=sorted(set(crops))[:40]
   return out
+def logical_select_chunk(track, offset, length):
+ # Valid only for exact SLES-03321 EU original-relative images; SELECT source
+ # starts at LBA850. This is read-only and never writes to the source BIN.
+ out=bytearray()
+ with track.open("rb") as f:
+  while length:
+   sec=offset//2048
+   inside=offset%2048
+   take=min(length,2048-inside)
+   f.seek((850+sec)*2352+24+inside)
+   chunk=f.read(take)
+   if len(chunk)!=take:raise ValueError("Truncated native SELECT")
+   out.extend(chunk)
+   offset+=take
+   length-=take
+ return bytes(out)
 def cue_track(path):
  try:s=path.read_text("utf-8-sig",errors="replace")
  except OSError:return None
@@ -120,9 +136,9 @@ def main():
    item["label"]=KNOWN.get(hashes[resolved],"UNKNOWN image, do not assume DEV75")
    # The 82-byte style lookup lives at SELECT.BIN logical 0x10F4,
    # which maps to raw LBA 852 offset +0xF4 in this exact EU layout.
-   with track.open("rb") as f:
-    f.seek(852*2352+24+0xF4)
-    styles=f.read(82)
+   styles=logical_select_chunk(track,0x10F4,82)
+   native_refs=logical_select_chunk(track,8620,528*2)
+   item["native_528_ref_bank_sha256"]=hashlib.sha256(native_refs).hexdigest().upper()
    if len(styles)==82:
     item["select_style12_czech"]=styles[12]
     item["select_style28_turkey"]=styles[28]
@@ -130,6 +146,12 @@ def main():
     item["dev75_lookup_bytes_match"]=(styles[12]==63 and styles[28]==15)
   discs.append(item)
  report["discs"]=discs
+ ref_ids=[(x.get("label"),x.get("native_528_ref_bank_sha256")) for x in discs
+          if x.get("label") in ("DEV74","DEV75")]
+ if any(x[0]=="DEV74" for x in ref_ids) and any(x[0]=="DEV75" for x in ref_ids):
+  report["dev74_dev75_native_ref_bytes_identical"]=(
+   next(x[1] for x in ref_ids if x[0]=="DEV74")==
+   next(x[1] for x in ref_ids if x[0]=="DEV75"))
  if report.get("academy"):
   report["academy"].pop("_runtime_cues",None)
  report["verdict"]=("An exact DEV75 Track01 is present among inspected CUE files. "
