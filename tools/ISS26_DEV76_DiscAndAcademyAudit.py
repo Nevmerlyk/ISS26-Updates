@@ -23,6 +23,34 @@ def vals(obj,p=""):
  elif isinstance(obj,list):
   for v in obj[:50]:yield from vals(v,p)
  elif isinstance(obj,(str,int,float,bool)):yield p,obj
+def match_native_4bpp_flag(screen,vram):
+ # Selected 16x16 flag RGB555 source evidence from real PCSX screen/VRAM pair.
+ if len(screen)!=384*480*2 or len(vram)!=2097152:return []
+ import struct
+ screenshot=[struct.unpack_from("<H",screen,2*(384*y+x))[0]
+             for y in range(69,85) for x in range(226,242)]
+ unique=set(screenshot)
+ palette_slots=list(range(144,198))+[14,36,231,232]
+ palettes=[]
+ for idx in palette_slots:
+  px=16*(idx%16);py=496+idx//16
+  pal=struct.unpack_from("<16H",vram,2*(1024*py+px))
+  if unique.issubset(set(pal)):palettes.append((idx,pal))
+ scores=[]
+ for style in range(64):
+  sx=768+4*(style%16);sy=368+18*(style//16)
+  nib=[]
+  for y in range(16):
+   for x in range(16):
+    w=struct.unpack_from("<H",vram,2*((sy+y)*1024+sx+x//4))[0]
+    nib.append((w>>(4*(x%4)))&15)
+  for idx,pal in palettes:
+   score=sum(1 for j,p in enumerate(nib) if pal[p]==screenshot[j])
+   if score>=192:scores.append((score,style,idx))
+ scores.sort(reverse=True)
+ return [{"score_of_256":n,"style":style,"clut_index":idx,
+          "ordinary_group_candidate":idx-144 if 144<=idx<198 else None}
+         for n,style,idx in scores[:5]]
 def report_zip(path):
  with zipfile.ZipFile(path) as z:
   names=z.namelist()
@@ -69,6 +97,18 @@ def report_zip(path):
    b=z.read(name)
    flag=b"".join(b[(y*384+226)*2:(y*384+242)*2] for y in range(69,85))
    crops.append(hashlib.sha256(flag).hexdigest()[:16])
+  pairs=[]
+  allnames=set(names)
+  for sname in screens[:80]:
+   vname=sname[:-len(".screen.raw")]+".vram"
+   if vname not in allnames:continue
+   if z.getinfo(sname).file_size!=384*480*2 or z.getinfo(vname).file_size!=2097152:continue
+   try:
+    matches=match_native_4bpp_flag(z.read(sname),z.read(vname))
+    pairs.append({"screen":clip(sname),"vram":clip(vname),"pixel_matches":matches})
+   except Exception as e:
+    pairs.append({"screen":clip(sname),"error":type(e).__name__})
+  out["screen_to_vram_4bpp_routes"]=pairs
   out["selected_flag_crops"]=len(crops)
   out["distinct_flag_crops"]=len(set(crops))
   out["flag_crop_digests"]=sorted(set(crops))[:40]
