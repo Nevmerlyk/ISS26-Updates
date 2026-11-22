@@ -6,8 +6,11 @@ $root="D:\ISS 26"
 $diag=Join-Path $env:LOCALAPPDATA "ISS26\diagnostics\DEV77"
 New-Item -ItemType Directory -Path $diag -Force | Out-Null
 $script=Join-Path $diag "audit_ml_all_flags_dev77.py"
-$url="https://raw.githubusercontent.com/Nevmerlyk/ISS26-Android/ce2728b99cb87acc2ef427fa30922b2d32a3afba/tools/ps1_graphics/audit_ml_all_flags_dev77.py"
+$url="https://raw.githubusercontent.com/Nevmerlyk/ISS26-Android/1513e0f4626185091f43706a7c866be36cc1bc28/tools/ps1_graphics/audit_ml_all_flags_dev77.py"
 Invoke-WebRequest -Uri $url -OutFile $script -UseBasicParsing
+$testScript=Join-Path $diag "test_audit_ml_all_flags_dev77.py"
+$testUrl="https://raw.githubusercontent.com/Nevmerlyk/ISS26-Android/1513e0f4626185091f43706a7c866be36cc1bc28/tools/ps1_graphics/test_audit_ml_all_flags_dev77.py"
+Invoke-WebRequest -Uri $testUrl -OutFile $testScript -UseBasicParsing
 $python=Get-Command py.exe -ErrorAction SilentlyContinue
 $arguments=@()
 if($python){$arguments+=@("-3",$script)}
@@ -48,6 +51,12 @@ if(-not $Archive){
 if(-not $Archive -or -not (Test-Path -LiteralPath $Archive -PathType Leaf)){
  throw "Latest DEV75 Academy report not found: 20261122_222725_df981b.zip. No other version substituted."
 }
+Write-Host "DEV77: running no-ROM regression tests before touching evidence."
+$testArgs=@()
+if($python.Name -eq "py.exe"){$testArgs+=@("-3")}
+$testArgs+=@($testScript)
+& $python.Source @testArgs
+if($LASTEXITCODE -ne 0){throw "DEV77 source regression tests failed; report was not accepted."}
 $arguments+=@("--cue",$Cue,"--archive",$Archive,"--out",$diag)
 if(-not $NoPost -and (Get-Command gh.exe -ErrorAction SilentlyContinue)){$arguments+="--post-issue"}
 Write-Host "ISS26 DEV77: validating EXACT DEV75 image; reading Academy archive."
