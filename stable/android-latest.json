@@ -1,6 +1,12 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "latest": null,
-  "notes": "Stable APK feed. The first APK is published only after a permanent signing key and trusted release are configured. Preview APK builds are not promoted automatically."
+  "latest": {
+    "versionCode": 29,
+    "versionName": "0.10.14",
+    "packageName": "com.iss26.android",
+    "apkUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/android-v0.10.14-stable/ISS26-Android-v0.10.14-Stable.apk",
+    "apkSha256": "9d1b91f4b1dfe22b56d72024717101abfc027007417e6170da770c825043d6ae"
+  },
+  "signingCertSha256": "19b6874f7f5a8dce2ec0d505d5195cc003c58cf18b07e895263fe207d9be70db"
 }
