@@ -6,10 +6,10 @@ $root="D:\ISS 26"
 $diag=Join-Path $env:LOCALAPPDATA "ISS26\diagnostics\DEV77"
 New-Item -ItemType Directory -Path $diag -Force | Out-Null
 $script=Join-Path $diag "audit_ml_all_flags_dev77.py"
-$url="https://raw.githubusercontent.com/Nevmerlyk/ISS26-Android/1513e0f4626185091f43706a7c866be36cc1bc28/tools/ps1_graphics/audit_ml_all_flags_dev77.py"
+$url="https://raw.githubusercontent.com/Nevmerlyk/ISS26-Android/08ef3b44b9e6b399b6d28f5e86996d958676f80a/tools/ps1_graphics/audit_ml_all_flags_dev77.py"
 Invoke-WebRequest -Uri $url -OutFile $script -UseBasicParsing
 $testScript=Join-Path $diag "test_audit_ml_all_flags_dev77.py"
-$testUrl="https://raw.githubusercontent.com/Nevmerlyk/ISS26-Android/1513e0f4626185091f43706a7c866be36cc1bc28/tools/ps1_graphics/test_audit_ml_all_flags_dev77.py"
+$testUrl="https://raw.githubusercontent.com/Nevmerlyk/ISS26-Android/08ef3b44b9e6b399b6d28f5e86996d958676f80a/tools/ps1_graphics/test_audit_ml_all_flags_dev77.py"
 Invoke-WebRequest -Uri $testUrl -OutFile $testScript -UseBasicParsing
 $python=Get-Command py.exe -ErrorAction SilentlyContinue
 $arguments=@()
