@@ -29,16 +29,37 @@ def report_zip(path):
   out={"archive":path.name,"entries":len(names),"bad_crc":z.testzip(),
        "types":dict(collections.Counter(P(n).suffix.lower() for n in names))}
   sessions=[]
+  cue_paths=[]
   for name in names:
    if P(name).name.lower() not in ("session.json","disc-ram-crosscheck.json","manifest.json","source.json"):continue
    i=z.getinfo(name)
    if i.file_size>2000000:continue
    try:j=json.loads(z.read(name).decode("utf-8-sig"))
    except Exception:continue
+   for k,v in vals(j):
+    if isinstance(v,str) and v.lower().endswith(".cue"):
+     cue_paths.append(v)
    fields=[{"name":k,"value":clip(v)} for k,v in vals(j)
            if re.search("patch|cue|bin|image|sha|disc|source|version",k,re.I)]
    sessions.append({"name":clip(name),"fields":fields[:50]})
   out["sessions"]=sessions[:15]
+  out["_runtime_cues"]=cue_paths[:30]
+  vram_tiles=[]
+  coords={"Italy_France_Belgium":(768,368),"Ukraine_Poland":(800,368),
+          "Croatia":(812,368),"Turkey_Venezuela":(820,368),
+          "Czech_style63":(828,422)}
+  for vname in (n for n in names if n.lower().endswith(".vram")):
+   if len(vram_tiles)>=80:break
+   info=z.getinfo(vname)
+   if info.file_size!=2097152:continue
+   vr=z.read(vname)
+   tags={}
+   for k,(x,y) in coords.items():
+    tile=b"".join(vr[2*(1024*yy+x):2*(1024*yy+x+4)]
+                  for yy in range(y,y+18))
+    tags[k]=hashlib.sha256(tile).hexdigest()[:16]
+   vram_tiles.append({"file":clip(vname),"tile_4bpp_digest":tags})
+  out["vram_loaded_texture_fingerprints"]=vram_tiles
   screens=[n for n in names if n.endswith(".screen.raw")]
   out["screen_raw_count"]=len(screens)
   out["vram_count"]=sum(n.endswith(".vram") for n in names)
@@ -63,10 +84,8 @@ def cue_track(path):
 def choose_cues(session):
  cues=[]
  if session:
-  for s in session.get("sessions",[]):
-   for f in s["fields"]:
-    v=f["value"]
-    if v.lower().endswith(".cue") and P(v).is_file():cues.append(P(v))
+  for v in session.get("_runtime_cues",[]):
+   if P(v).is_file():cues.append(P(v))
  roots=[P(r"D:\ISS 26\ISS26_Data\experiments"),P.home()/"Downloads"]
  for root in roots:
   if not root.is_dir():continue
@@ -111,6 +130,8 @@ def main():
     item["dev75_lookup_bytes_match"]=(styles[12]==63 and styles[28]==15)
   discs.append(item)
  report["discs"]=discs
+ if report.get("academy"):
+  report["academy"].pop("_runtime_cues",None)
  report["verdict"]=("An exact DEV75 Track01 is present among inspected CUE files. "
                    "This does not prove it was the GUI-mounted image."
                    if any(x.get("label")=="DEV75" for x in discs)
