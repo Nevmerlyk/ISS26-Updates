@@ -5,7 +5,7 @@ $ErrorActionPreference="Stop"
 $base=Join-Path $env:LOCALAPPDATA "ISS26\diagnostics"
 New-Item -ItemType Directory -Force -Path $base | Out-Null
 $py=Join-Path $base "ISS26_DEV76_DiscAndAcademyAudit.py"
-$url="https://raw.githubusercontent.com/Nevmerlyk/ISS26-Updates/9805f0e10bc510b1ac46d3238cbeba739d62e039/tools/ISS26_DEV76_DiscAndAcademyAudit.py"
+$url="https://raw.githubusercontent.com/Nevmerlyk/ISS26-Updates/095e6fc208fbf45d8da37c6185cb49083e9ff2be/tools/ISS26_DEV76_DiscAndAcademyAudit.py"
 Invoke-WebRequest -Uri $url -OutFile $py -UseBasicParsing
 $python=$null
 if(Get-Command py.exe -ErrorAction SilentlyContinue){$python="py.exe"}
