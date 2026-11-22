@@ -72,13 +72,15 @@ if($audit -and $audit.academy -and $audit.academy.sessions){
     if($sourceCue){break}
   }
 }
+$verifiedCue = $null
+if($selected){$verifiedCue = $selected.Cue}
 $report=[ordered]@{
   schema="ISS26_DEV76_VerifiedLaunch_v1"
   time_utc=[DateTime]::UtcNow.ToString("o")
   archive_session_cue=$sourceCue
   expected_DEV75_track01_sha256=$expected
   scanned=$checked
-  verified_DEV75_cue=if($selected){$selected.Cue}else{$null}
+  verified_DEV75_cue=$verifiedCue
   launched=$false
 }
 $out=Join-Path $diag "DEV76-verified-launch.json"
