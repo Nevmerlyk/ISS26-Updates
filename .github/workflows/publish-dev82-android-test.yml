@@ -1,0 +1,43 @@
+name: Publish DEV82 Android-compatible test prerelease
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/publish-dev82-android-test.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: iss26-dev82-test-publication
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ github.token }}
+      TAG: v0.9.6-dev82-test
+      ASSET: ISS26_0.9.6_DEV82_Test.iss26p
+      SHA: 5f883c6dab97ad668c692b161303306c467e9abfa20ec6a8116589ca69e38f0c
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify exact standalone patch
+        run: |
+          set -euo pipefail
+          echo "$SHA  test/patches/$ASSET" | sha256sum -c -
+          test "$(stat -c%s "test/patches/$ASSET")" = 1853100
+      - name: Publish Android-discoverable prerelease
+        run: |
+          set -euo pipefail
+          if ! gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release create "$TAG" "test/patches/$ASSET" --repo "$GITHUB_REPOSITORY" --target 82c081460a00e6d34e6a9e772ddab201853e1dab --prerelease --title "ISS26 DEV82 - Player Data and Original ML Flags (TEST)" --notes "Standalone DEV82 experimental test only. 23 remaining club nationality routes corrected; 528/528 source matches; 643 age records, 64 names, 6 club names, 73 decoded nationality routes. Runtime visual QA and other data corrections remain. Stable unchanged."
+          fi
+          gh api "repos/$GITHUB_REPOSITORY/releases/tags/$TAG" > /tmp/dev82-release.json
+          python - <<'PY'
+          import json,os
+          r=json.load(open('/tmp/dev82-release.json'))
+          assert r['prerelease'] and not r['draft']
+          a=[a for a in r['assets'] if a['name']==os.environ['ASSET']]
+          assert len(a)==1 and a[0]['size']==1853100 and a[0]['digest']=='sha256:'+os.environ['SHA']
+          PY
+          gh release download "$TAG" --repo "$GITHUB_REPOSITORY" --pattern "$ASSET" --dir /tmp/dev82-remote
+          echo "$SHA  /tmp/dev82-remote/$ASSET" | sha256sum -c -
