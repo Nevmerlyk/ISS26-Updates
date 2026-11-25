@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "channel": "test",
   "latest": {
-    "version": "0.9.6-dev82-test",
-    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.6-dev82-test/ISS26_0.9.6_DEV82_Test.iss26p",
-    "patchSha256": "5F883C6DAB97AD668C692B161303306C467E9ABFA20EC6A8116589CA69E38F0C",
+    "version": "0.9.6-dev83-test",
+    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.6-dev83-test/ISS26_0.9.6_DEV83_Test.iss26p",
+    "patchSha256": "5D576E79935C11BBCB5AE95C36A3022C33543C069123D524C770E6EF5BCEC829",
     "baseSha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
-    "resultSha256": "EE28844BB290828395761AF89D3983C1CEB4FD36F0EEB6FD636C2C8D771D6329"
+    "resultSha256": "DDD5B91B9EF20F01CCFFF8E68498A1900D93A92FF2B8A17716CAB575ADF14FF1"
   },
-  "notes": "DEV82 experimental: 23 remaining club nationality routes corrected, 528/528 match source, 643 age records, 64 name records, 6 club names, 73 decoded flag routes; separate Suarez records. Runtime QA pending; club icons, shirt numbers, weight and appearance not yet corrected. Clean-original standalone patch."
+  "notes": "DEV83 experimental: 4 dual nationality flag routes corrected, Algeria/Israel/Venezuela improved, 18 original glyphs restored in both atlases, 292 physical player records updated from FM26. Adjacent identical skill vectors 57 to 2. 40 candidate slots unresolved. Runtime QA pending; club icons unchanged. Clean-original standalone patch."
 }
