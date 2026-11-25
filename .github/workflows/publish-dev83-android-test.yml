@@ -1,0 +1,43 @@
+name: Publish DEV83 Android-compatible test prerelease
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/publish-dev83-android-test.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: iss26-dev83-test-publication
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ github.token }}
+      TAG: v0.9.6-dev83-test
+      ASSET: ISS26_0.9.6_DEV83_Test.iss26p
+      SHA: 5d576e79935c11bbcb5ae95c36a3022c33543c069123d524c770e6ef5bcec829
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify exact standalone patch
+        run: |
+          set -euo pipefail
+          echo "$SHA  test/patches/$ASSET" | sha256sum -c -
+          test "$(stat -c%s "test/patches/$ASSET")" = 1845936
+      - name: Publish Android-discoverable prerelease
+        run: |
+          set -euo pipefail
+          if ! gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release create "$TAG" "test/patches/$ASSET" --repo "$GITHUB_REPOSITORY" --target 065609b9f2a1f298062a848aa27dbd0245f12988 --prerelease --title "ISS26 DEV83 - Player Data and Original ML Flags (TEST)" --notes "DEV83 standalone experimental test: 4 dual nationality routes corrected, 3 flag textures improved, 18 original glyphs restored, 292 player records updated from FM26. 57 adjacent identical pairs reduced to 2. Runtime QA pending. Stable unchanged."
+          fi
+          gh api "repos/$GITHUB_REPOSITORY/releases/tags/$TAG" > /tmp/dev83-release.json
+          python - <<'PY'
+          import json,os
+          r=json.load(open('/tmp/dev83-release.json'))
+          assert r['prerelease'] and not r['draft']
+          a=[a for a in r['assets'] if a['name']==os.environ['ASSET']]
+          assert len(a)==1 and a[0]['size']==1845936 and a[0]['digest']=='sha256:'+os.environ['SHA']
+          PY
+          gh release download "$TAG" --repo "$GITHUB_REPOSITORY" --pattern "$ASSET" --dir /tmp/dev83-remote
+          echo "$SHA  /tmp/dev83-remote/$ASSET" | sha256sum -c -
