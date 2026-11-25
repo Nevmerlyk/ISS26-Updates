@@ -1,0 +1,86 @@
+name: Publish owner-designated ISS26 game 0.9.7 stable
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/publish-v097-stable.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: iss26-v097-stable
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ github.token }}
+      TAG: v0.9.7
+      ASSET: ISS26_0.9.7.iss26p
+      SHA: a97c3da1264fa46e0c0af41e3ba600696c0d432f0d0279c8b29bf8ad5d0786b6
+    steps:
+      - uses: actions/checkout@v4
+      - name: Assemble exact Stage 35 standalone patch
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          test "$(find staging/v097-stage35 -name 'part*.bin' | wc -l)" -eq 16
+          cat staging/v097-stage35/part*.bin | gzip -dc > "dist/$ASSET"
+          echo "$SHA  dist/$ASSET" | sha256sum -c -
+          python - <<'PY'
+          import os,struct,pathlib
+          d=pathlib.Path('dist',os.environ['ASSET']).read_bytes()
+          assert len(d)==1860264 and d[:8]==b'ISS26X01'
+          assert struct.unpack_from('<I',d,8)[0]==779
+          assert len({struct.unpack_from('<I',d,12+i*2388)[0] for i in range(779)})==779
+          PY
+      - name: Publish release and verify anonymous download
+        run: |
+          set -euo pipefail
+          if gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh api "repos/$GITHUB_REPOSITORY/releases/tags/$TAG" > /tmp/existing.json
+            python - <<'PY'
+          import json,os
+          r=json.load(open('/tmp/existing.json'))
+          assert not r['draft'] and not r['prerelease']
+          a=[x for x in r['assets'] if x['name']==os.environ['ASSET']]
+          assert len(a)==1 and a[0]['size']==1860264 and a[0]['digest']=='sha256:'+os.environ['SHA'], 'Existing asset conflict; do not overwrite'
+          PY
+          else
+            gh release create "$TAG" "dist/$ASSET" --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title 'ISS26 0.9.7 — Stable' --notes-file staging/v097-stage35/RELEASE_NOTES.md --latest
+          fi
+          gh api "repos/$GITHUB_REPOSITORY/releases/tags/$TAG" > /tmp/release.json
+          python - <<'PY'
+          import json,os
+          r=json.load(open('/tmp/release.json'))
+          assert not r['draft'] and not r['prerelease']
+          a=[x for x in r['assets'] if x['name']==os.environ['ASSET']]
+          assert len(a)==1 and a[0]['size']==1860264 and a[0]['digest']=='sha256:'+os.environ['SHA']
+          PY
+          curl --fail --location --retry 4 --silent --show-error "https://github.com/$GITHUB_REPOSITORY/releases/download/$TAG/$ASSET" -o /tmp/remote.iss26p
+          echo "$SHA  /tmp/remote.iss26p" | sha256sum -c -
+      - name: Activate stable game channel after asset verification
+        shell: python
+        run: |
+          import base64,json,os,subprocess
+          repo=os.environ['GITHUB_REPOSITORY']
+          endpoint=f'repos/{repo}/contents/stable/latest.json'
+          old=json.loads(subprocess.check_output(['gh','api',endpoint],text=True))
+          current=json.loads(base64.b64decode(old['content']))
+          version=current['latest']['version']
+          assert version in ('0.9.5','0.9.7'), 'Unexpected stable version; abort'
+          expected=os.environ['SHA'].upper()
+          if version=='0.9.7':
+              assert current['latest']['patchSha256'].upper()==expected
+          feed={'schemaVersion':1,'channel':'stable','latest':{
+            'version':'0.9.7','patchUrl':f"https://github.com/{repo}/releases/download/{os.environ['TAG']}/{os.environ['ASSET']}",
+            'patchSha256':expected,
+            'baseSha256':'D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44',
+            'resultSha256':'5FDD5AF7432ECF79F0DB75BE2D1B2EC97D5874D907258ACE920EBD4CCE2657AD5'},
+            'notes':'Owner-designated stable: exact DEV84 Stage35. 779 original-sector guards and full derived Track 01 hash verified offline. Skin/hair adaptation approximate; face, beard and body work pending. Emulator/runtime QA pending. Test channel unchanged.'}
+          if current!=feed:
+              payload={'message':'release(stable): activate owner-designated 0.9.7 after verifying public asset','content':base64.b64encode((json.dumps(feed,indent=2)+'\n').encode()).decode(),'sha':old['sha']}
+              subprocess.run(['gh','api','-X','PUT',endpoint,'--input','-'],input=json.dumps(payload),text=True,check=True)
+          check=json.loads(subprocess.check_output(['gh','api',endpoint],text=True))
+          assert json.loads(base64.b64decode(check['content']))==feed
+          print('Verified stable 0.9.7 feed. Test channel untouched.')
