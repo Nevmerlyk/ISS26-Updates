@@ -1,12 +1,12 @@
 {
-    "schemaVersion":  1,
-    "channel":  "test",
-    "latest":  {
-                   "version":  "0.9.6-alt-c7d38ff1a878",
-                   "patchUrl":  "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.6-alt-rosters-c7d38ff1a878-test/ISS26_AltRosters_c7d38ff1a878.iss26p",
-                   "patchSha256":  "C7D38FF1A8782F710F2633E2010F5DF045D1F17DFB9E741CA0A4F8CEE8943C1F",
-                   "baseSha256":  "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
-                   "resultSha256":  "C265019267C11DBBB60FA32E369FE5DA9E1759403D860E5F11824FD69AB0518C"
-               },
-    "notes":  "Alternative rosters: 54 national, 24 club, 1716 slots; test patch only. Runtime QA pending."
+  "schemaVersion": 1,
+  "channel": "test",
+  "latest": {
+    "version": "0.9.6-dev81-test",
+    "patchUrl": "https://raw.githubusercontent.com/Nevmerlyk/ISS26-Updates/58ea6b0444b31621646afcabf8bff030332b1904/test/patches/ISS26_0.9.6_DEV81_Test.iss26p",
+    "patchSha256": "B3F041E38C9F9C35F760685536285F3348E3C52F89CD6B0C9C6E0B6630B9D1FA",
+    "baseSha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
+    "resultSha256": "EECF9F157ADEF5992D708F1DD4E3695EC0590996294EABCA2F24659EDA6D8EEE"
+  },
+  "notes": "DEV81 experimental: 1716 player slots checked against source, five position corrections, 39 nationality-route corrections (505/528 match source), original graphics restored for 30 routes; 23 club routes pending and runtime visual QA pending. Independent clean-original patch; stable unchanged."
 }
