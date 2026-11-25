@@ -1,0 +1,43 @@
+name: Publish DEV81 Android-compatible test prerelease
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/publish-dev81-android-test.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: iss26-dev81-test-publication
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ github.token }}
+      TAG: v0.9.6-dev81-test
+      ASSET: ISS26_0.9.6_DEV81_Test.iss26p
+      SHA: b3f041e38c9f9c35f760685536285f3348e3c52f89cd6b0c9c6e0b6630b9d1fa
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify exact standalone patch
+        run: |
+          set -euo pipefail
+          echo "$SHA  test/patches/$ASSET" | sha256sum -c -
+          test "$(stat -c%s "test/patches/$ASSET")" = 1850712
+      - name: Publish Android-discoverable prerelease
+        run: |
+          set -euo pipefail
+          if ! gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release create "$TAG" "test/patches/$ASSET" --repo "$GITHUB_REPOSITORY" --target 58ea6b0444b31621646afcabf8bff030332b1904 --prerelease --title "ISS26 DEV81 - Player Data and Original ML Flags (TEST)" --notes "Standalone DEV81 experimental test only. 39 nationality routes corrected, 30 original graphics routes restored. 23 club routes and runtime visual QA remain. Stable unchanged."
+          fi
+          gh api "repos/$GITHUB_REPOSITORY/releases/tags/$TAG" > /tmp/dev81-release.json
+          python - <<'PY'
+          import json,os
+          r=json.load(open('/tmp/dev81-release.json'))
+          assert r['prerelease'] and not r['draft']
+          a=[a for a in r['assets'] if a['name']==os.environ['ASSET']]
+          assert len(a)==1 and a[0]['size']==1850712 and a[0]['digest']=='sha256:'+os.environ['SHA']
+          PY
+          gh release download "$TAG" --repo "$GITHUB_REPOSITORY" --pattern "$ASSET" --dir /tmp/dev81-remote
+          echo "$SHA  /tmp/dev81-remote/$ASSET" | sha256sum -c -
