@@ -1,11 +1,11 @@
 {
-    "latest":  {
-                   "updaterSha256":  "3B7570924418F100B181DB250A52D7EEDB9F158A48B7B4FF7E105DE3BFCE6D5B",
-                   "version":  "0.9.6.15",
-                   "zipUrl":  "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.9.6.15/ISS26-LauncherUpdate.zip",
-                   "launcherSha256":  "D70F497AB2C883A914953E701C119FA734935667FC9557A07584F0F86D5E1B3D",
-                   "zipSha256":  "D57BAF6D2E3ADD01BD00834E82CE67DC343A13DDCE45CE812C29698D2C4BB79B",
-                   "notes":  "Academy 0.9.6.15: Practice actions remain visible above the status bar. Stable PS1 game patch unchanged."
-               },
-    "schemaVersion":  1
+  "schemaVersion": 1,
+  "latest": {
+    "version": "0.9.6.16",
+    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.9.6.16/ISS26-LauncherUpdate.zip",
+    "zipSha256": "F060E9F59FB0F61A3DE6137370A30F7FEF8F477D0038E6A76CAD46A62FCE8407",
+    "launcherSha256": "DC1601A15E7C2608EF53C5D815F5FC981BCFE299E6ABEA87259B97BB59621647",
+    "updaterSha256": "579E8DCBF19302461B5F77B534F73218CD1FE0F29795992E77309B566EA2ACEA",
+    "notes": "ISS26 Academy 0.9.6.16 stable: Country Atlas Test on exact verified game 0.9.7; paired RAM/VRAM/screen/GPU evidence. Stable game patch unchanged."
+  }
 }
