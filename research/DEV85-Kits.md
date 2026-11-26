@@ -1,0 +1,5 @@
+# DEV85 kit pipeline — 0.9.8
+
+Owner's design: logo-free, minimal native ISS style, distinct outfield home/away and GK; preserve all team/player data and four bonus teams. Start with Ukraine, Germany, Kryvbas and Man United. This is a source-only local build tool, not a released patch.
+
+The scanner verifies clean original and full 0.9.7 reconstructed SHA, then inventories real patched TEX resources and candidate pages. It does not infer team/role mapping. Build accepts schemaVersion 1, baseGame 0.9.7, stableResultSha256 5FDD5AF7432ECF79F0DB75BE2D1B2EC97D5874D907258AC920EBD4CCE2657AD5, resources array with resource, team and palettePlan (the existing kit_tex_workbench palette-edit schema). Explicit verified clothing indices and distinct evidence are mandatory. It preserves all unrelated sectors, recalculates parity, reads back every changed TEX and outputs standalone ISS26X01 plus full resulting SHA. Only palette changes supported at present; no texture/logo/pattern changes claimed. Original BIN, stable feed, test feed unchanged. No runtime tests executed here because container access failed.
