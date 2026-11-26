@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "channel": "test",
   "latest": {
-    "version": "0.9.6-dev83-test",
-    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.6-dev83-test/ISS26_0.9.6_DEV83_Test.iss26p",
-    "patchSha256": "5D576E79935C11BBCB5AE95C36A3022C33543C069123D524C770E6EF5BCEC829",
+    "version": "0.9.8-dev118-test",
+    "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.8-dev118-test/ISS26_0.9.8_DEV118_Test.iss26p",
+    "patchSha256": "5D20B87E22A38D29C080B7EC0933AA88D3B3565769E3DBA4A8819ED9110B1C85",
     "baseSha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
-    "resultSha256": "DDD5B91B9EF20F01CCFFF8E68498A1900D93A92FF2B8A17716CAB575ADF14FF1"
+    "resultSha256": "7E8A057B47015BF063D6F6D18B52B6EE297D60969B489CECF6FAFD9D220A4FD2"
   },
-  "notes": "DEV83 experimental: 4 dual nationality flag routes corrected, Algeria/Israel/Venezuela improved, 18 original glyphs restored in both atlases, 292 physical player records updated from FM26. Adjacent identical skill vectors 57 to 2. 40 candidate slots unresolved. Runtime QA pending; club icons unchanged. Clean-original standalone patch."
+  "notes": "DEV118 experimental cumulative graphics; static merge verified, emulator QA pending. Master League shared palette/texture risks and ceremony still unresolved. Stable 0.9.7 unchanged."
 }
