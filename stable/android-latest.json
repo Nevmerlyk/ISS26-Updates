@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "channel": "stable",
   "latest": {
-    "versionCode": 29,
-    "versionName": "0.10.14",
+    "versionCode": 31,
+    "versionName": "0.10.15",
     "packageName": "com.iss26.android",
-    "apkUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/android-v0.10.14-stable/ISS26-Android-v0.10.14-Stable.apk",
-    "apkSha256": "9d1b91f4b1dfe22b56d72024717101abfc027007417e6170da770c825043d6ae"
+    "apkUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/android-v0.10.15-stable/ISS26-Android-v0.10.15-Stable.apk",
+    "apkSha256": "4cbd984e83e590961947d064536987be4ede9fa4444a2b0b86c295577363bac2"
   },
   "signingCertSha256": "19b6874f7f5a8dce2ec0d505d5195cc003c58cf18b07e895263fe207d9be70db"
 }
