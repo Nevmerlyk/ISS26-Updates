@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "revision": 2,
+  "revision": 3,
   "goals": [
     {
       "id": "research_prematch_flag_source",
@@ -25,6 +25,12 @@
       "title": "Locate small scoreboard flags",
       "description": "Capture match HUD flag candidates for Bosnia, Canada and New Zealand, then correlate their palette and sprite placement using locally retained evidence.",
       "phase": "hud"
+    },
+    {
+      "id": "research_dev104_prematch_flags",
+      "title": "DEV104: Verify large national flags",
+      "description": "Use explicit stable 0.9.7 CUE or ISS26P in Test Game. Bosnia vs New Zealand, Key Square Stadium, Day. Preserve the full stadium intro and both flags; capture actual screen, RAM, VRAM and GPU packets. Check style and staging source; menu atlas overlap alone is not proof. Do not skip intro; play through kickoff for carried, crowd and HUD evidence.",
+      "phase": "prematch_banner"
     }
   ]
 }

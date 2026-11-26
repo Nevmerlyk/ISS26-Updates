@@ -1,0 +1,3 @@
+# DEV104 large flags audit
+
+Read-only original EU audit and exact menu capture review: 34 GDC resources, 2 DATSEL resources, 222 decoded declared uploads, 72 large 64x28 flag cells. 49 matching stable 0.9.7 menu captures. The menu candidate alters 15 overlapping style cells (5509 indexed pixels); menu residency is not proof of match usage. 33 GDC resources have six atlas uploads (three original menu copies and three different); GDC_BN has eight different uploads. Current stable binary and match style assignments still unverified. New research Goal is data-only, existing Academy 0.9.6.18 UI and capture pipeline unchanged. Use explicit stable 0.9.7 patch in Test Game, not current DEV83 test channel; do not change stable/test feeds. No game binary edited.
