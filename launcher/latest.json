@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "latest": {
-    "version": "0.9.6.16",
-    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.9.6.16/ISS26-LauncherUpdate.zip",
-    "zipSha256": "F060E9F59FB0F61A3DE6137370A30F7FEF8F477D0038E6A76CAD46A62FCE8407",
-    "launcherSha256": "DC1601A15E7C2608EF53C5D815F5FC981BCFE299E6ABEA87259B97BB59621647",
-    "updaterSha256": "579E8DCBF19302461B5F77B534F73218CD1FE0F29795992E77309B566EA2ACEA",
-    "notes": "ISS26 Academy 0.9.6.16 stable: Country Atlas Test on exact verified game 0.9.7; paired RAM/VRAM/screen/GPU evidence. Stable game patch unchanged."
+    "version": "0.9.6.18",
+    "zipUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/launcher-v0.9.6.18/ISS26-LauncherUpdate.zip",
+    "zipSha256": "5873A312356D39DCA4B4EC54D3BD34498DF6F560675970D679FF7781419D8150",
+    "launcherSha256": "6ABEAC228CC66DFD1E841B25CB6125651F428841E53211E377F9AB0F32AD0B91",
+    "updaterSha256": "55334E56E91C697D1A46F24665AB03799F2BCA1C654B25C8D2B64D561D87E258",
+    "notes": "ISS26 Academy 0.9.6.18 stable: Goal-driven Atlas evidence, simplified launcher, file drop and embedded ISS26 icon. Stable game patch unchanged."
   }
 }
