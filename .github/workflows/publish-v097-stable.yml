@@ -76,8 +76,10 @@ jobs:
             'version':'0.9.7','patchUrl':f"https://github.com/{repo}/releases/download/{os.environ['TAG']}/{os.environ['ASSET']}",
             'patchSha256':expected,
             'baseSha256':'D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44',
-            'resultSha256':'5FDD5AF7432ECF79F0DB75BE2D1B2EC97D5874D907258ACE920EBD4CCE2657AD5'},
+            'resultSha256':'5FDD5AF7432ECF79F0DB75BE2D1B2EC97D5874D907258AC920EBD4CCE2657AD5'},
             'notes':'Owner-designated stable: exact DEV84 Stage35. 779 original-sector guards and full derived Track 01 hash verified offline. Skin/hair adaptation approximate; face, beard and body work pending. Emulator/runtime QA pending. Test channel unchanged.'}
+          import re
+          assert all(re.fullmatch(r'[0-9A-F]{64}', feed['latest'][field]) for field in ('patchSha256','baseSha256','resultSha256')), 'Invalid SHA-256 metadata'
           if current!=feed:
               payload={'message':'release(stable): activate owner-designated 0.9.7 after verifying public asset','content':base64.b64encode((json.dumps(feed,indent=2)+'\n').encode()).decode(),'sha':old['sha']}
               subprocess.run(['gh','api','-X','PUT',endpoint,'--input','-'],input=json.dumps(payload),text=True,check=True)

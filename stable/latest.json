@@ -6,7 +6,7 @@
     "patchUrl": "https://github.com/Nevmerlyk/ISS26-Updates/releases/download/v0.9.7/ISS26_0.9.7.iss26p",
     "patchSha256": "A97C3DA1264FA46E0C0AF41E3BA600696C0D432F0D0279C8B29BF8AD5D0786B6",
     "baseSha256": "D9B483BDEA7774346DF437FEBF038E68CB2C4AD9932A7AD993D3C2B1F620EA44",
-    "resultSha256": "5FDD5AF7432ECF79F0DB75BE2D1B2EC97D5874D907258ACE920EBD4CCE2657AD5"
+    "resultSha256": "5FDD5AF7432ECF79F0DB75BE2D1B2EC97D5874D907258AC920EBD4CCE2657AD5"
   },
   "notes": "Owner-designated stable: exact DEV84 Stage35. 779 original-sector guards and full derived Track 01 hash verified offline. Skin/hair adaptation approximate; face, beard and body work pending. Emulator/runtime QA pending. Test channel unchanged."
 }
