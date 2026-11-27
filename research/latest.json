@@ -1,36 +1,30 @@
 {
   "schemaVersion": 1,
-  "revision": 3,
+  "revision": 4,
   "goals": [
     {
-      "id": "research_prematch_flag_source",
-      "title": "Find prematch flag texture source",
-      "description": "Verified SELECT code uploads two 64×28 flags from RAM 0x800CC600 and 0x800CC980 in one 64×56 GPU transfer (560,0), at PC 0x80092F38 / 0x8009310C. Original loader ID 5 stages stadium GDC data at RAM 0x800C8000, overlapping those flag buffers at +0x4600. Research the last writer and load/copy ordering; do not infer source from matching colors or static VRAM snapshots.",
+      "id": "research_dev119_prematch",
+      "title": "DEV119: Verify kits, atlas and large flags",
+      "description": "Launch exact 0.9.8-dev118-test (explicit ISS26P/CUE if Country Atlas redirects Test Game to 0.9.7). Bosnia vs New Zealand, Key Square Stadium, Day. Inspect team selection and home/away strip previews, then preserve full match intro. Capture actual large flags and compare with DEV118 expected graphics. Check for corruption or crash.",
       "phase": "prematch_banner"
     },
     {
-      "id": "research_carried_banner_source",
-      "title": "Trace the carried ceremonial banner",
-      "description": "Capture the banner carried by players and its possible GPU upload. Compare with original stadium GDC resources and other prematch captures.",
+      "id": "research_dev119_carried",
+      "title": "DEV119: Inspect carried ceremonial flags",
+      "description": "Launch exact 0.9.8-dev118-test (explicit ISS26P/CUE if Country Atlas redirects Test Game to 0.9.7). Bosnia vs New Zealand, Key Square Stadium, Day. Keep full intro. Capture the actual cloth carried by players if it appears. A heuristic label alone is not evidence.",
       "phase": "carried_banner"
     },
     {
-      "id": "research_crowd_flags_reload",
-      "title": "Track crowd flag reloads",
-      "description": "Collect audience flag captures and investigate whether stadium graphics uploads overwrite previously loaded country-flag textures.",
+      "id": "research_dev119_crowd",
+      "title": "DEV119: Verify animated crowd flags",
+      "description": "Launch exact 0.9.8-dev118-test (explicit ISS26P/CUE if Country Atlas redirects Test Game to 0.9.7). Bosnia vs New Zealand, Key Square Stadium, Day. Observe spectators and actual waving flags during intro and early match; record candidate RAM/VRAM/GPU evidence.",
       "phase": "crowd_flags"
     },
     {
-      "id": "research_hud_small_flags",
-      "title": "Locate small scoreboard flags",
-      "description": "Capture match HUD flag candidates for Bosnia, Canada and New Zealand, then correlate their palette and sprite placement using locally retained evidence.",
+      "id": "research_dev119_hud",
+      "title": "DEV119: Verify scoreboard flags and match kits",
+      "description": "Launch exact 0.9.8-dev118-test (explicit ISS26P/CUE if Country Atlas redirects Test Game to 0.9.7). Bosnia vs New Zealand, Key Square Stadium, Day. Play through kickoff and inspect scoreboard flags, both kits, player contrast and graphic defects. Preserve candidate captures and report crashes.",
       "phase": "hud"
-    },
-    {
-      "id": "research_dev104_prematch_flags",
-      "title": "DEV104: Verify large national flags",
-      "description": "Use explicit stable 0.9.7 CUE or ISS26P in Test Game. Bosnia vs New Zealand, Key Square Stadium, Day. Preserve the full stadium intro and both flags; capture actual screen, RAM, VRAM and GPU packets. Check style and staging source; menu atlas overlap alone is not proof. Do not skip intro; play through kickoff for carried, crowd and HUD evidence.",
-      "phase": "prematch_banner"
     }
   ]
 }

@@ -1,46 +1,50 @@
 {
   "schemaVersion": 1,
-  "revision": 4,
+  "revision": 5,
   "tasks": [
     {
-      "id": "academy_prematch_source",
+      "id": "academy_dev119_prematch",
       "agent": "Academy",
       "kind": "capture_scene",
-      "title": "Find prematch flag texture source",
+      "title": "DEV119: Verify kits, atlas and large flags",
       "priority": 100,
-      "researchGoalId": "research_prematch_flag_source",
-      "researchRevision": 3,
-      "feedback": "Target Bosnia vs New Zealand on Test35. Preserve the full prematch intro; retain screenshot, RAM, VRAM and GPU trace candidates when the two large team flags appear. A stadium image alone is not proof."
+      "researchGoalId": "research_dev119_prematch",
+      "researchRevision": 4,
+      "feedback": "Launch exact 0.9.8-dev118-test (explicit ISS26P/CUE if Country Atlas redirects Test Game to 0.9.7). Bosnia vs New Zealand, Key Square Stadium, Day. Inspect team selection and home/away strip previews, then preserve full match intro. Capture actual large flags and compare with DEV118 expected graphics. Check for corruption or crash.",
+      "navigationProfile": "balanced"
     },
     {
-      "id": "academy_carried_banner",
+      "id": "academy_dev119_carried",
       "agent": "Academy",
       "kind": "capture_scene",
-      "title": "Trace the carried ceremonial banner",
+      "title": "DEV119: Inspect carried ceremonial flags",
       "priority": 90,
-      "researchGoalId": "research_carried_banner_source",
-      "researchRevision": 3,
-      "feedback": "Target Bosnia vs New Zealand. Capture the actual large ceremonial cloth carried onto the pitch by players before kickoff; do not mistake player lineup for the banner. Retain screenshot, RAM, VRAM and GPU evidence."
+      "researchGoalId": "research_dev119_carried",
+      "researchRevision": 4,
+      "feedback": "Launch exact 0.9.8-dev118-test (explicit ISS26P/CUE if Country Atlas redirects Test Game to 0.9.7). Bosnia vs New Zealand, Key Square Stadium, Day. Keep full intro. Capture the actual cloth carried by players if it appears. A heuristic label alone is not evidence.",
+      "navigationProfile": "balanced"
     },
     {
-      "id": "academy_crowd_reload",
+      "id": "academy_dev119_crowd",
       "agent": "Academy",
       "kind": "capture_scene",
-      "title": "Track crowd flag reloads",
+      "title": "DEV119: Verify animated crowd flags",
       "priority": 80,
-      "researchGoalId": "research_crowd_flags_reload",
-      "researchRevision": 3,
-      "feedback": "Target Bosnia vs New Zealand. Capture the small waving flags held by spectators during the full prematch and early match; distinguish them from big carried banners and retain GPU texture coordinates and CLUT evidence."
+      "researchGoalId": "research_dev119_crowd",
+      "researchRevision": 4,
+      "feedback": "Launch exact 0.9.8-dev118-test (explicit ISS26P/CUE if Country Atlas redirects Test Game to 0.9.7). Bosnia vs New Zealand, Key Square Stadium, Day. Observe spectators and actual waving flags during intro and early match; record candidate RAM/VRAM/GPU evidence.",
+      "navigationProfile": "balanced"
     },
     {
-      "id": "academy_hud_flags",
+      "id": "academy_dev119_hud",
       "agent": "Academy",
       "kind": "capture_scene",
-      "title": "Locate small scoreboard flags",
+      "title": "DEV119: Verify scoreboard flags and match kits",
       "priority": 70,
-      "researchGoalId": "research_hud_small_flags",
-      "researchRevision": 3,
-      "feedback": "Capture Bosnia and New Zealand HUD and scoreboard flags after kickoff. Retain evidence; do not claim correct team identity or texture ownership from scene labels alone."
+      "researchGoalId": "research_dev119_hud",
+      "researchRevision": 4,
+      "feedback": "Launch exact 0.9.8-dev118-test (explicit ISS26P/CUE if Country Atlas redirects Test Game to 0.9.7). Bosnia vs New Zealand, Key Square Stadium, Day. Play through kickoff and inspect scoreboard flags, both kits, player contrast and graphic defects. Preserve candidate captures and report crashes.",
+      "navigationProfile": "balanced"
     },
     {
       "id": "rookie_bosnia_new_zealand_full_intro",
@@ -50,18 +54,7 @@
       "priority": 100,
       "researchGoalId": "",
       "researchRevision": 0,
-      "feedback": "Theory: MODE SELECT > Match Mode > Exhibition; avoid default-game shortcut. D-pad: move; CROSS: confirm. Verify BOSNIA home (ID 30, style 61) and N.ZEAL away (ID 27, style 54) by name, not flag or fixed press count. Key Square Stadium, Day. Confirm Start Match once; release all buttons through loading, stadium, carried banner, crowd and kickoff. Never skip. Wrong/missing evidence=incomplete. Full theory: research/rookie-bosnia-new-zealand-theory-v1.json",
-      "navigationProfile": "balanced"
-    },
-    {
-      "id": "academy_dev104_prematch_flags",
-      "agent": "Academy",
-      "kind": "capture_scene",
-      "title": "DEV104: Verify large national flags",
-      "priority": 100,
-      "researchGoalId": "research_dev104_prematch_flags",
-      "researchRevision": 3,
-      "feedback": "Explicit verified stable 0.9.7 CUE/ISS26P, Bosnia vs New Zealand at Key Square Stadium, Day. Keep full intro and kickoff. Save linked RAM, VRAM, screen and GPU trace; check 64x28 source and staging, not menu appearance. No source attribution without real draw evidence.",
+      "feedback": "Use explicit DEV118 test image only if mounted version is verified. Theory: MODE SELECT > Match Mode > Exhibition; avoid default-game shortcut. D-pad: move; CROSS: confirm. Verify BOSNIA home (ID 30, style 61) and N.ZEAL away (ID 27, style 54) by name, not flag or fixed press count. Key Square Stadium, Day. Confirm Start Match once; release all buttons through loading, stadium, carried banner, crowd and kickoff. Never skip. Wrong/missing evidence=incomplete. Full theory: research/rookie-bosnia-new-zealand-theory-v1.json",
       "navigationProfile": "balanced"
     }
   ]

@@ -1,0 +1,2 @@
+# DEV119 first integration QA
+Exact DEV118 test target. Existing Academy 0.9.6.18 capture candidates only; ceremony-window 0.9.6.19 is not released. Use explicit file launch if country atlas Goal would redirect implicit Test Game to stable. Human-led Bosnia vs New Zealand, Key Square Stadium, Day. Compare national selection geography, kit previews and actual match kits, large flags, crowd and HUD. Archive actual evidence; no automatic source or visual PASS. Prior stable research plan preserved in git history. No change to game or launcher feeds.
